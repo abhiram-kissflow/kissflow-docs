@@ -1,5 +1,13 @@
 {
   "title": "Getting Started",
   "description": "Set up your account and find your way around.",
-  "pages": ["welcome", "for-users", "for-builders", "for-admins", "for-developers", "signing-in"]
+  "pages": [
+    "welcome",
+    "for-users",
+    "for-builders",
+    "for-admins",
+    "for-developers",
+    "signing-in"
+  ],
+  "icon": "get-started"
 }

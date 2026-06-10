@@ -1,5 +1,26 @@
 {
   "title": "Building Apps",
   "description": "Design pages, forms, workflows, and integrations.",
-  "pages": ["apps", "pages", "components", "forms", "processes", "boards", "datasets", "lists", "expressions", "decision-tables", "integrations", "navigation", "variables", "roles-and-permissions", "analytics", "resources", "model-viewer", "ai-builder", "themes"]
+  "pages": [
+    "apps",
+    "pages",
+    "components",
+    "forms",
+    "processes",
+    "boards",
+    "datasets",
+    "lists",
+    "expressions",
+    "decision-tables",
+    "integrations",
+    "navigation",
+    "variables",
+    "roles-and-permissions",
+    "analytics",
+    "resources",
+    "model-viewer",
+    "ai-builder",
+    "themes"
+  ],
+  "icon": "build"
 }

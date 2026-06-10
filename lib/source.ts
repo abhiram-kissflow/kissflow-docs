@@ -1,11 +1,17 @@
 import { docs } from 'collections/server';
 import { loader } from 'fumadocs-core/source';
 import { docsContentRoute, docsImageRoute, docsRoute } from './shared';
+import { sectionIcons } from './icons';
 
 // See https://fumadocs.dev/docs/headless/source-api for more info
 export const source = loader({
   baseUrl: docsRoute,
   source: docs.toFumadocsSource(),
+  icon(icon) {
+    if (icon && icon in sectionIcons) {
+      return sectionIcons[icon as keyof typeof sectionIcons];
+    }
+  },
   plugins: [],
 });
 

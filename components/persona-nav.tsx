@@ -1,58 +1,65 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
+import {
+  User,
+  GridFour,
+  ShieldCheck,
+  Code,
+} from '@phosphor-icons/react/dist/ssr';
 
-interface PersonaCard {
-  title: string;
-  description: string;
-  href: string;
-  icon: string;
-}
-
-const personaCards: PersonaCard[] = [
+const personaCards = [
   {
     title: 'End Users',
     description: 'Submit forms, track items, approve tasks, use boards.',
     href: '/docs/use',
-    icon: '👤',
+    icon: User,
   },
   {
     title: 'Workflow & App Builders',
     description: 'Design pages, build workflows, create apps with no-code and AI.',
     href: '/docs/build',
-    icon: '🔧',
+    icon: GridFour,
   },
   {
     title: 'Admins',
     description: 'Manage users, security, SSO, governance, and environments.',
     href: '/docs/admin',
-    icon: '🛡️',
+    icon: ShieldCheck,
   },
   {
     title: 'Developers',
     description: 'Extend Kissflow with REST APIs, SDK, and custom components.',
     href: '/docs/develop',
-    icon: '💻',
+    icon: Code,
   },
-];
+] as const;
 
 export function PersonaNav(): ReactNode {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      {personaCards.map((card) => (
-        <Link
-          key={card.href}
-          href={card.href}
-          className="group block p-6 rounded-xl border border-fd-border bg-fd-card hover:border-fd-primary/50 hover:shadow-md transition-all"
-        >
-          <div className="text-2xl mb-2">{card.icon}</div>
-          <h3 className="text-lg font-semibold text-fd-foreground group-hover:text-fd-primary transition-colors">
-            {card.title}
-          </h3>
-          <p className="mt-1 text-sm text-fd-muted-foreground">
-            {card.description}
-          </p>
-        </Link>
-      ))}
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 not-prose">
+      {personaCards.map((card) => {
+        const Icon = card.icon;
+        return (
+          <Link
+            key={card.href}
+            href={card.href}
+            className="group block p-5 rounded-xl border border-fd-border bg-fd-card hover:border-fd-foreground/20 hover:shadow-sm transition-all"
+          >
+            <Icon
+              size={28}
+              weight="duotone"
+              color="#371f1f"
+              className="mb-3 group-hover:opacity-80 transition-opacity"
+            />
+            <h3 className="text-base font-semibold text-fd-foreground">
+              {card.title}
+            </h3>
+            <p className="mt-1 text-sm text-fd-muted-foreground">
+              {card.description}
+            </p>
+          </Link>
+        );
+      })}
     </div>
   );
 }

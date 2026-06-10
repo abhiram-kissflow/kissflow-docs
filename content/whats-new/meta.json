@@ -1,4 +1,8 @@
 {
   "title": "What's New",
-  "pages": ["discontinued-services", "important-notices"]
+  "pages": [
+    "discontinued-services",
+    "important-notices"
+  ],
+  "icon": "whats-new"
 }
