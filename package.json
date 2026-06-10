@@ -7,7 +7,9 @@
     "dev": "next dev --turbopack",
     "start": "serve out",
     "types:check": "fumadocs-mdx && next typegen && tsc --noEmit",
-    "validate": "npx tsx scripts/validate-frontmatter.ts"
+    "validate": "npx tsx scripts/validate-frontmatter.ts",
+    "migrate": "npx tsx scripts/migrate-html-to-mdx.ts",
+    "redirects": "npx tsx scripts/generate-redirects.ts"
   },
   "dependencies": {
     "@orama/orama": "^3.1.18",
@@ -15,18 +17,22 @@
     "fumadocs-mdx": "^15.0.11",
     "fumadocs-ui": "^16.9.3",
     "gray-matter": "^4.0.3",
+    "jsdom": "^29.1.1",
     "lucide-react": "^0.511.0",
     "next": "^16.2.9",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "tailwind-merge": "^3.3.1"
+    "tailwind-merge": "^3.3.1",
+    "turndown": "^7.2.4"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.10",
+    "@types/jsdom": "^28.0.3",
     "@types/mdx": "^2.0.13",
     "@types/node": "^22.15.29",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.5",
+    "@types/turndown": "^5.0.6",
     "postcss": "^8.5.4",
     "serve": "^14.2.4",
     "tailwindcss": "^4.1.10",
