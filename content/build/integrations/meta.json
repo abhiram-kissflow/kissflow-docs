@@ -1,0 +1,4 @@
+{
+  "title": "Integrations",
+  "pages": ["integrations-overview", "creating-an-integration", "managing-integrations", "integration-settings", "connectors", "connector-builder", "use-cases", "best-practices"]
+}

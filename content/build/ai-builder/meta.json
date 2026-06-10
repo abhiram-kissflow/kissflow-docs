@@ -1,0 +1,4 @@
+{
+  "title": "AI Builder",
+  "pages": ["ai-overview", "ai-solution-analyzer", "ai-suggested-workflow", "ai-suggested-fields", "ai-formula-builder", "ai-filters", "ai-custom-components", "guided-autofill", "ai-bot-settings"]
+}

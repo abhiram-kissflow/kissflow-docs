@@ -1,0 +1,5 @@
+{
+  "title": "Reference",
+  "description": "Glossary, FAQs, and quick lookups.",
+  "pages": ["glossary", "faqs", "supported-browsers", "slas-and-support", "multi-language-support", "troubleshooting"]
+}
