@@ -7,7 +7,7 @@ export default function HomePage() {
   const router = useRouter();
 
   useEffect(() => {
-    router.replace('/docs/get-started/welcome');
+    router.replace('/docs/get-started');
   }, [router]);
 
   return null;
