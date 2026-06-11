@@ -1,0 +1,20 @@
+name = "kissflow-docs-agent"
+main = "src/index.ts"
+compatibility_date = "2026-06-01"
+
+[assets]
+directory = "./assets"
+binding = "ASSETS"
+
+[vars]
+MODEL = "gpt-5-mini"
+ALLOWED_ORIGINS = "https://abhiram-kissflow.github.io,http://localhost:3000"
+
+# Cloudflare Rate Limiting binding (open beta). If `wrangler dev` rejects this
+# block on the installed wrangler version, comment it out — src/index.ts treats
+# the binding as optional.
+[[unsafe.bindings]]
+name = "RATE_LIMITER"
+type = "ratelimit"
+namespace_id = "1001"
+simple = { limit = 10, period = 60 }
