@@ -3,6 +3,8 @@
 import { usePathname } from 'next/navigation';
 import { useMemo, useRef, useEffect, useState } from 'react';
 import { ChevronDown, ExternalLink, Github, FileText } from 'lucide-react';
+import { buttonVariants } from 'fumadocs-ui/components/ui/button';
+import { cn } from '@/lib/cn';
 import type { ReactNode } from 'react';
 
 interface OpenPagePopoverProps {
@@ -96,7 +98,11 @@ export function OpenPagePopover({ markdownUrl, githubUrl }: OpenPagePopoverProps
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-md border border-fd-border bg-fd-secondary text-fd-secondary-foreground hover:bg-fd-accent transition-colors"
+        className={cn(
+          buttonVariants({ color: 'secondary', size: 'sm' }),
+          'gap-2',
+          open && 'bg-fd-accent text-fd-accent-foreground',
+        )}
       >
         Open page
         <ChevronDown className="size-3.5 text-fd-muted-foreground" />
