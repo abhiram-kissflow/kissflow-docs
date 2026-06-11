@@ -11,14 +11,15 @@ import {
 } from '@phosphor-icons/react/dist/ssr';
 
 /**
- * Phosphor Icons — duotone weight, dark warm tone.
+ * Phosphor Icons — duotone weight, inherits text color so it
+ * adapts to light/dark theme.
  * Consistent sizing, no viewBox issues.
  */
 
 const iconProps = {
   size: 18,
   weight: 'duotone' as const,
-  color: '#371f1f',
+  color: 'currentColor',
 };
 
 export const sectionIcons: Record<string, ReactNode> = {

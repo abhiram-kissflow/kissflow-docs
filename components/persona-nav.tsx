@@ -48,8 +48,7 @@ export function PersonaNav(): ReactNode {
             <Icon
               size={28}
               weight="duotone"
-              color="#371f1f"
-              className="mb-3 group-hover:opacity-80 transition-opacity"
+              className="mb-3 text-fd-foreground group-hover:opacity-80 transition-opacity"
             />
             <h3 className="text-base font-semibold text-fd-foreground">
               {card.title}
