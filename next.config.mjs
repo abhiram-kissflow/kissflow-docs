@@ -7,9 +7,12 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const withMDX = createMDX();
 
 /** @type {import('next').NextConfig} */
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 const config = {
   output: 'export',
-  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
+  basePath,
+  assetPrefix: basePath,
   images: {
     unoptimized: true, // Required for static export
   },
