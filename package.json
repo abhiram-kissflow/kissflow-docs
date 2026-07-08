@@ -15,8 +15,11 @@
     "graph:payload": "bash scripts/codegraph-helper.sh payload"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^3.0.82",
+    "@ai-sdk/react": "^3.0.223",
     "@orama/orama": "^3.1.18",
     "@phosphor-icons/react": "^2.1.10",
+    "ai": "^6.0.221",
     "fumadocs-core": "^16.9.3",
     "fumadocs-mdx": "^15.0.11",
     "fumadocs-ui": "^16.9.3",

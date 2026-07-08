@@ -15,6 +15,26 @@ yarn dev
 
 Open http://localhost:3000 with your browser to see the result.
 
+## Ask AI (AI SDK + AI Elements)
+
+The docs include an Ask AI assistant using:
+
+- Vercel AI SDK (`useChat` + `streamText`)
+- AI-elements style chat components in `components/ai-elements`
+- Grounding from help-article context + frontend/backend graph snapshots
+
+Required environment variables:
+
+- `OPENAI_API_KEY`
+- `OPENAI_MODEL` (optional, defaults to `gpt-4.1-mini`)
+- `GRAPH_QUERY_API_KEY` (optional but recommended)
+- `GRAPH_QUERY_ALLOWED_ORIGINS` (optional, comma-separated allowlist)
+
+API routes:
+
+- `POST /api/chat` for streaming assistant responses
+- `POST /api/graph/query` for secure graph-only querying
+
 ## Explore
 
 In the project, you can see:

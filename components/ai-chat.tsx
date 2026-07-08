@@ -1,0 +1,530 @@
+'use client';
+
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { useChat } from '@ai-sdk/react';
+import {
+  DefaultChatTransport,
+  isFileUIPart,
+  isTextUIPart,
+  type FileUIPart,
+  type UIMessage,
+} from 'ai';
+import {
+  Command,
+  ImagePlus,
+  Mic,
+  Paperclip,
+  SendHorizontal,
+  Smile,
+  Square,
+} from 'lucide-react';
+import { Conversation, ConversationContent } from '@/components/ai-elements/conversation';
+import { Message, MessageContent, MessageResponse } from '@/components/ai-elements/message';
+import { Suggestion, Suggestions } from '@/components/ai-elements/suggestion';
+import { cn } from '@/lib/cn';
+
+const STARTER_SUGGESTIONS = [
+  'How do decision tables connect app and process routes?',
+  'Show watchlist-related frontend and backend routes.',
+  'Find process submit/create API routes.',
+  'Which backend routes are related to app components?',
+];
+
+const EMOJI_SET = ['🙂', '✅', '🚀', '🎯', '🛠️', '📎'];
+
+const SLASH_COMMANDS = [
+  {
+    id: '/frontend',
+    label: 'Search frontend graph',
+    template: 'Search frontend graph for: ',
+  },
+  {
+    id: '/backend',
+    label: 'Search backend graph',
+    template: 'Search backend graph for: ',
+  },
+  {
+    id: '/docs',
+    label: 'Search help docs',
+    template: 'Search Kissflow help docs for: ',
+  },
+  {
+    id: '/compare',
+    label: 'Compare FE and BE',
+    template: 'Compare frontend and backend behavior for: ',
+  },
+];
+
+type SpeechRecognitionLike = {
+  continuous: boolean;
+  interimResults: boolean;
+  lang: string;
+  onresult: ((event: unknown) => void) | null;
+  onerror: ((event: unknown) => void) | null;
+  onend: (() => void) | null;
+  start: () => void;
+  stop: () => void;
+};
+
+function messageText(message: UIMessage): string {
+  return message.parts.filter(isTextUIPart).map((part) => part.text).join('');
+}
+
+function messageFiles(message: UIMessage): FileUIPart[] {
+  return message.parts.filter(isFileUIPart);
+}
+
+function fileToDataUrl(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result));
+    reader.onerror = () => reject(reader.error ?? new Error('Could not read file'));
+    reader.readAsDataURL(file);
+  });
+}
+
+function isValidHttpUrl(value: string): boolean {
+  try {
+    const url = new URL(value);
+    return url.protocol === 'http:' || url.protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
+
+export default function AIChat() {
+  const { messages, sendMessage, status, stop } = useChat({
+    transport: new DefaultChatTransport({ api: '/api/chat' }),
+    id: 'kissflow-docs-assistant',
+  });
+
+  const [input, setInput] = useState('');
+  const [pendingFiles, setPendingFiles] = useState<File[]>([]);
+  const [linkedFiles, setLinkedFiles] = useState<FileUIPart[]>([]);
+  const [showEmojiMenu, setShowEmojiMenu] = useState(false);
+  const [showGifInput, setShowGifInput] = useState(false);
+  const [gifUrl, setGifUrl] = useState('');
+  const [listening, setListening] = useState(false);
+  const [voiceSupported, setVoiceSupported] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const speechRef = useRef<SpeechRecognitionLike | null>(null);
+  const busy = status === 'submitted' || status === 'streaming';
+  const showSlashCommands = input.trimStart().startsWith('/');
+
+  const pendingFilePreviews = useMemo(
+    () =>
+      pendingFiles.map((file) => ({
+        file,
+        url: URL.createObjectURL(file),
+        isImage: file.type.startsWith('image/'),
+      })),
+    [pendingFiles],
+  );
+
+  useEffect(() => {
+    return () => {
+      pendingFilePreviews.forEach((preview) => URL.revokeObjectURL(preview.url));
+    };
+  }, [pendingFilePreviews]);
+
+  useEffect(() => {
+    const win = window as unknown as {
+      SpeechRecognition?: new () => SpeechRecognitionLike;
+      webkitSpeechRecognition?: new () => SpeechRecognitionLike;
+    };
+
+    const RecognitionCtor = win.SpeechRecognition ?? win.webkitSpeechRecognition;
+    if (!RecognitionCtor) return;
+
+    const recognition = new RecognitionCtor();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.lang = 'en-US';
+
+    recognition.onresult = (event) => {
+      const transcript = (event as { results?: ArrayLike<ArrayLike<{ transcript: string }>> }).results
+        ? Array.from((event as { results: ArrayLike<ArrayLike<{ transcript: string }>> }).results)
+            .map((result) => result?.[0]?.transcript ?? '')
+            .join(' ')
+            .trim()
+        : '';
+      if (!transcript) return;
+      setInput((prev) => `${prev}${prev.trim().length ? ' ' : ''}${transcript}`.trim());
+    };
+    recognition.onerror = () => setListening(false);
+    recognition.onend = () => setListening(false);
+    speechRef.current = recognition;
+    setVoiceSupported(true);
+
+    return () => {
+      recognition.onresult = null;
+      recognition.onerror = null;
+      recognition.onend = null;
+      recognition.stop();
+    };
+  }, []);
+
+  async function buildPendingFileParts(): Promise<FileUIPart[]> {
+    return Promise.all(
+      pendingFiles.map(async (file) => ({
+        type: 'file' as const,
+        mediaType: file.type || 'application/octet-stream',
+        filename: file.name,
+        url: await fileToDataUrl(file),
+      })),
+    );
+  }
+
+  async function submitMessage(overrideText?: string) {
+    if (busy) return;
+
+    const text = (overrideText ?? input).trim();
+    if (!text && pendingFiles.length === 0 && linkedFiles.length === 0) return;
+
+    const fileParts = [...(await buildPendingFileParts()), ...linkedFiles];
+    const messageTextValue = text || 'Attached files for context.';
+
+    setInput('');
+    setPendingFiles([]);
+    setLinkedFiles([]);
+    setGifUrl('');
+    setShowGifInput(false);
+    setShowEmojiMenu(false);
+
+    if (fileParts.length > 0) {
+      await sendMessage({ text: messageTextValue, files: fileParts });
+      return;
+    }
+
+    await sendMessage({ text: messageTextValue });
+  }
+
+  function addFiles(files: FileList | null) {
+    if (!files || files.length === 0) return;
+    const accepted = Array.from(files)
+      .filter((file) => file.size <= 10 * 1024 * 1024)
+      .slice(0, 6);
+    setPendingFiles((prev) => [...prev, ...accepted].slice(0, 6));
+  }
+
+  function toggleVoice() {
+    if (!voiceSupported || !speechRef.current || busy) return;
+
+    if (listening) {
+      speechRef.current.stop();
+      setListening(false);
+      return;
+    }
+
+    setListening(true);
+    speechRef.current.start();
+  }
+
+  function applySlashCommand(template: string) {
+    setInput(template);
+  }
+
+  function addGifLink() {
+    const value = gifUrl.trim();
+    if (!isValidHttpUrl(value)) return;
+
+    setLinkedFiles((prev) => [
+      ...prev,
+      {
+        type: 'file',
+        mediaType: 'image/gif',
+        filename: 'gif.gif',
+        url: value,
+      },
+    ]);
+    setGifUrl('');
+    setShowGifInput(false);
+  }
+
+  return (
+    <div className="flex h-full min-h-0 flex-col text-fd-foreground">
+      <div className="mb-2 flex items-center justify-between">
+        <div className="text-xs text-fd-muted-foreground">Grounded in docs + frontend graph + backend graph.</div>
+        {busy ? (
+          <button
+            type="button"
+            onClick={() => stop()}
+            className="inline-flex items-center gap-1 rounded-full border border-fd-border px-2 py-1 text-[11px]"
+          >
+            <Square className="h-3 w-3" />
+            Stop
+          </button>
+        ) : null}
+      </div>
+
+      <div className="min-h-0 flex-1 overflow-y-auto rounded-[1.5rem] border border-fd-border bg-gradient-to-b from-[#0f1219] via-[#0d1017] to-[#0a0d14]">
+        <Conversation className="h-full">
+          <ConversationContent className="gap-3 p-4">
+            {messages.length === 0 ? (
+              <Message from="assistant">
+                <MessageContent
+                  from="assistant"
+                  className="max-w-[94%] rounded-3xl border border-white/5 bg-white/10 px-4 py-3"
+                >
+                  <MessageResponse className="space-y-2">
+                    <div className="text-xl font-semibold leading-none">Hi there</div>
+                    <div className="text-base text-white/90">
+                      You are now speaking with Kissflow AI Assistant. How can I help?
+                    </div>
+                    <div className="text-xs text-fd-muted-foreground">AI Agent • grounded just now</div>
+                  </MessageResponse>
+                </MessageContent>
+              </Message>
+            ) : null}
+
+            {messages.map((message) => {
+              const text = messageText(message);
+              const files = messageFiles(message);
+
+              return (
+                <Message from={message.role} key={message.id}>
+                  <MessageContent
+                    from={message.role}
+                    className={cn(
+                      'rounded-3xl border px-3 py-2',
+                      message.role === 'user'
+                        ? 'border-[#CF2C91]/30 bg-[#CF2C91]/12'
+                        : 'border-white/10 bg-white/10',
+                    )}
+                  >
+                    <MessageResponse className="space-y-2">
+                      {text ? <div className="whitespace-pre-wrap">{text}</div> : null}
+                      {files.length > 0 ? (
+                        <div className="grid gap-2">
+                          {files.map((file) => {
+                            const isImage = file.mediaType.startsWith('image/');
+                            return (
+                              <a
+                                key={`${message.id}-${file.url}`}
+                                href={file.url}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="rounded-xl border border-white/10 bg-black/20 p-2 text-xs hover:bg-black/30"
+                              >
+                                {isImage ? (
+                                  <img
+                                    src={file.url}
+                                    alt={file.filename ?? 'Image attachment'}
+                                    className="mb-2 max-h-40 w-full rounded-lg object-cover"
+                                  />
+                                ) : null}
+                                <div className="truncate">{file.filename ?? file.url}</div>
+                                <div className="text-[11px] text-fd-muted-foreground">{file.mediaType}</div>
+                              </a>
+                            );
+                          })}
+                        </div>
+                      ) : null}
+                    </MessageResponse>
+                  </MessageContent>
+                </Message>
+              );
+            })}
+
+            {messages.length === 0 ? (
+              <Suggestions>
+                {STARTER_SUGGESTIONS.map((suggestion) => (
+                  <Suggestion
+                    key={suggestion}
+                    suggestion={suggestion}
+                    onClick={(text) => {
+                      void submitMessage(text);
+                    }}
+                    className="rounded-full border border-white/10 bg-white/5 text-white/90 hover:bg-white/10"
+                  />
+                ))}
+              </Suggestions>
+            ) : null}
+          </ConversationContent>
+        </Conversation>
+      </div>
+
+      {pendingFilePreviews.length > 0 || linkedFiles.length > 0 ? (
+        <div className="mt-3 flex flex-wrap gap-2 rounded-2xl border border-fd-border bg-fd-card p-2">
+          {pendingFilePreviews.map((preview) => (
+            <button
+              key={preview.url}
+              type="button"
+              onClick={() =>
+                setPendingFiles((prev) => prev.filter((file) => file !== preview.file))
+              }
+              className="group relative max-w-40 overflow-hidden rounded-xl border border-fd-border bg-fd-background text-left text-xs"
+            >
+              {preview.isImage ? (
+                <img src={preview.url} alt={preview.file.name} className="h-20 w-full object-cover" />
+              ) : (
+                <div className="p-2">{preview.file.name}</div>
+              )}
+              <div className="truncate px-2 py-1 text-[11px] text-fd-muted-foreground">{preview.file.name}</div>
+              <span className="absolute right-1 top-1 hidden rounded bg-black/70 px-1 text-[10px] text-white group-hover:block">
+                remove
+              </span>
+            </button>
+          ))}
+          {linkedFiles.map((file) => (
+            <button
+              key={file.url}
+              type="button"
+              onClick={() => setLinkedFiles((prev) => prev.filter((value) => value.url !== file.url))}
+              className="rounded-xl border border-fd-border bg-fd-background px-2 py-1 text-xs"
+            >
+              {file.filename ?? 'linked media'}
+            </button>
+          ))}
+        </div>
+      ) : null}
+
+      {showSlashCommands ? (
+        <div className="mt-2 rounded-xl border border-fd-border bg-fd-card p-2">
+          {SLASH_COMMANDS.map((command) => (
+            <button
+              key={command.id}
+              type="button"
+              onClick={() => applySlashCommand(command.template)}
+              className="flex w-full items-center justify-between rounded-lg px-2 py-1.5 text-left text-xs hover:bg-fd-muted"
+            >
+              <span className="font-medium">{command.id}</span>
+              <span className="text-fd-muted-foreground">{command.label}</span>
+            </button>
+          ))}
+        </div>
+      ) : null}
+
+      {showGifInput ? (
+        <div className="mt-2 flex gap-2 rounded-xl border border-fd-border bg-fd-card p-2">
+          <input
+            value={gifUrl}
+            onChange={(event) => setGifUrl(event.target.value)}
+            placeholder="Paste GIF URL"
+            className="flex-1 rounded-md border border-fd-border bg-fd-background px-2 py-1 text-xs outline-none focus-visible:ring-2 focus-visible:ring-[#CF2C91]/30"
+          />
+          <button
+            type="button"
+            onClick={addGifLink}
+            className="rounded-md bg-[#CF2C91] px-2 py-1 text-xs text-white"
+          >
+            Add
+          </button>
+        </div>
+      ) : null}
+
+      <form
+        className="mt-3 rounded-[1.6rem] border border-white/25 bg-[#0a0e16] p-3"
+        onSubmit={async (event) => {
+          event.preventDefault();
+          await submitMessage();
+        }}
+      >
+        <textarea
+          value={input}
+          onChange={(event) => setInput(event.target.value)}
+          placeholder="Ask a question..."
+          className="min-h-[68px] w-full resize-none bg-transparent px-1 text-base outline-none placeholder:text-white/50"
+          rows={2}
+          disabled={busy}
+        />
+
+        <div className="mt-2 flex items-center justify-between gap-2">
+          <div className="relative flex items-center gap-1.5">
+            <button
+              type="button"
+              onClick={() => fileInputRef.current?.click()}
+              className="rounded-full p-2 text-white/70 hover:bg-white/10 hover:text-white"
+              aria-label="Attach file"
+            >
+              <Paperclip className="h-4 w-4" />
+            </button>
+
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*,.pdf,.txt,.md,.csv"
+              multiple
+              className="hidden"
+              onChange={(event) => {
+                addFiles(event.target.files);
+                event.currentTarget.value = '';
+              }}
+            />
+
+            <button
+              type="button"
+              onClick={() => setShowEmojiMenu((value) => !value)}
+              className="rounded-full p-2 text-white/70 hover:bg-white/10 hover:text-white"
+              aria-label="Insert emoji"
+            >
+              <Smile className="h-4 w-4" />
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setInput('/')}
+              className="rounded-full p-2 text-white/70 hover:bg-white/10 hover:text-white"
+              aria-label="Slash commands"
+            >
+              <Command className="h-4 w-4" />
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setShowGifInput((value) => !value)}
+              className="rounded-full p-2 text-white/70 hover:bg-white/10 hover:text-white"
+              aria-label="Add GIF"
+            >
+              <ImagePlus className="h-4 w-4" />
+            </button>
+
+            <button
+              type="button"
+              onClick={toggleVoice}
+              disabled={!voiceSupported || busy}
+              className={cn(
+                'rounded-full p-2 text-white/70 hover:bg-white/10 hover:text-white disabled:opacity-50',
+                listening ? 'bg-[#CF2C91]/20 text-[#CF2C91]' : '',
+              )}
+              aria-label="Voice input"
+            >
+              <Mic className="h-4 w-4" />
+            </button>
+
+            {showEmojiMenu ? (
+              <div className="absolute bottom-11 left-0 z-10 flex gap-1 rounded-xl border border-fd-border bg-fd-card p-1.5">
+                {EMOJI_SET.map((emoji) => (
+                  <button
+                    key={emoji}
+                    type="button"
+                    className="rounded-md px-1.5 py-1 hover:bg-fd-muted"
+                    onClick={() => {
+                      setInput((prev) => `${prev}${prev.length ? ' ' : ''}${emoji}`);
+                      setShowEmojiMenu(false);
+                    }}
+                  >
+                    {emoji}
+                  </button>
+                ))}
+              </div>
+            ) : null}
+          </div>
+
+          <button
+            type="submit"
+            disabled={busy || (input.trim().length === 0 && pendingFiles.length === 0 && linkedFiles.length === 0)}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-white/25 disabled:opacity-50"
+            aria-label="Send message"
+          >
+            <SendHorizontal className="h-5 w-5" />
+          </button>
+        </div>
+      </form>
+
+      <div className="mt-2 text-center text-[11px] text-fd-muted-foreground">
+        By chatting with us, you agree to our Privacy Policy.
+      </div>
+    </div>
+  );
+}
