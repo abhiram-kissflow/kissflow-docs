@@ -10,10 +10,9 @@
     "validate": "npx tsx scripts/validate-frontmatter.ts",
     "migrate": "npx tsx scripts/migrate-html-to-mdx.ts",
     "redirects": "npx tsx scripts/generate-redirects.ts",
-    "test": "vitest run",
-    "agent:index": "tsx scripts/build-agent-index.ts",
-    "agent:dev": "wrangler dev -c agent-worker/wrangler.toml",
-    "agent:deploy": "npm run agent:index && wrangler deploy -c agent-worker/wrangler.toml"
+    "graph:list": "bash scripts/codegraph-helper.sh list",
+    "graph:project": "bash scripts/codegraph-helper.sh resolve",
+    "graph:payload": "bash scripts/codegraph-helper.sh payload"
   },
   "dependencies": {
     "@orama/orama": "^3.1.18",
@@ -26,12 +25,10 @@
     "iconoir-react": "^7.11.0",
     "jsdom": "^29.1.1",
     "lucide-react": "^0.511.0",
-    "minisearch": "^7.2.0",
     "next": "^16.2.9",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-doodle-icons": "^1.0.0",
-    "react-markdown": "^10.1.0",
     "tailwind-merge": "^3.3.1",
     "turndown": "^7.2.4"
   },
@@ -47,8 +44,6 @@
     "serve": "^14.2.4",
     "tailwindcss": "^4.1.10",
     "tsx": "^4.22.4",
-    "typescript": "^5.8.3",
-    "vitest": "^4.1.8",
-    "wrangler": "^4.99.0"
+    "typescript": "^5.8.3"
   }
 }

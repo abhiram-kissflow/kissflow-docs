@@ -1,5 +1,7 @@
 # Docs AI Agent Implementation Plan
 
+> **SUPERSEDED (2026-07-08):** Tasks 1-6 were implemented and reviewed, then reverted. The chat frontend is being rebuilt separately with chat-sdk.dev (Vercel AI Chatbot template), deploying to Vercel with its own backend API route — which replaces the Cloudflare Worker this plan describes. Task 7 (deploy) was never run. Kept here as a historical record; `agent-worker/`, `scripts/build-agent-index.ts`, `scripts/lib/agent-index.ts`, and the `tests/agent-*.test.ts` files were removed from the repo.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Embed a native AI chat assistant in the Kissflow docs (static GitHub Pages site) backed by a Cloudflare Worker running an agentic-search loop on OpenAI `gpt-5-mini`.
