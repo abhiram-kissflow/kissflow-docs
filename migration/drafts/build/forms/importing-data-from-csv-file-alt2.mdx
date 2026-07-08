@@ -1,0 +1,55 @@
+---
+title: "Importing data from CSV file"
+description: "DRAFT (unverified) — migrated from /t/h7h9qk9/importing-data-from-csv-file"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+![](/migration-assets/importing-data-from-csv-file-2/1.svg)
+
+The Import CSV feature allows you to import data from a CSV file into the data form. Manually entering large amounts of data in the data form can be quite tedious. Importing data is a snap with the CSV import feature inside the data table. You can import up to 5,000 rows of data at a time using the Import CSV feature.
+
+> **Note:**
+> 
+> The maximum number of rows that can be imported is 500 if the data table comprises fields such as [dropdown](/t/35h4azp/dropdown-checkbox-checklist), [aggregate](/t/83h4azk/aggregation-field), and [lookup](/t/g9h4azr/lookup-field).
+
+## Enabling the import CSV button in data table
+
+You can control the CSV import feature inside a data table by following the steps below:
+
+1.  Ensure you’ve created a data form inside your application builder.
+2.  Next, access [Pages](/t/g9h9q1z/app-pages-overview) and create a page. Drag and drop the **All items** component of the data form onto this page.
+
+> **Note:**
+> 
+> Currently, import CSV is available only in the **All items** component of the data form.
+
+![](/migration-assets/importing-data-from-csv-file-2/2.png)
+
+In the settings panel on the right, under **General properties** > **Settings**, you will find the **Import** toggle button .2.  Turn it **ON/OFF** to show or hide the Import CSV button as part of the data table.
+
+## Importing data from a CSV file
+
+Once your data table is embedded as part of your application, and if the Import CSV button is turned **ON**, your app users can start importing data from any CSV file into the data table.
+
+> **Note:**
+> 
+> Import CSV button is available to only those who have Manage [permission](/t/35h9qkc/managing-data-form-roles) in the data form.
+
+To start importing CSV data, follow the steps below:
+
+1.  Click **Import CSV** button.
+2.  Choose the CSV file that you’d like to import.
+3.  The file is verified, and the data is validated.
+4.  Match the file columns with the data table fields.
+5.  To handle duplicate entries, you can create a new copy of the item, skip the item or replace the existing item.
+6.  Click **Finish**.
+
+> **Note:**
+> 
+> Similar column names are automatically matched with the available data table fields. Column names in the CSV file should not contain special characters such as $, ., new line, etc.
+
+In this example below, we show how you can import an Employee Management CSV file containing employee data into a data table.
+
+![](/migration-assets/importing-data-from-csv-file-2/3.png)

@@ -1,0 +1,339 @@
+---
+title: "Number and currency expressions"
+description: "DRAFT (unverified) — migrated from /t/g9h4alx/number-and-currency-expressions"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Number and currency expressions are similar. However, many functions, methods, and operators may not work when evaluating numbers and currencies.
+
+If you use multiple currency fields, make sure they are the same type. Rating and slider fields can be used as number fields in expressions. 
+
+## Example used
+
+We’ll use these sample fields in the expressions below.
+
+**FieldID**
+
+**Type**
+
+**Value**
+
+num1
+
+Number
+
+10
+
+num2
+
+Number
+
+22.45
+
+cur1
+
+Currency
+
+$10
+
+## Number and currency functions
+
+Functions go at the start of the expression. 
+
+**Function**
+
+**Data type**
+
+**Description**
+
+**Syntax**
+
+**Output**
+
+Rand
+
+Number
+
+Generates a random number.
+
+Rand()
+
+0.449218421
+
+RandBetween
+
+Number
+
+Generates a random number between two values.
+
+RandBetween(1, 10)
+
+4
+
+Mod
+
+Number or Currency
+
+Shows the remainder when the dividend is divided by the divisor.
+
+If the dividend is a currency, the result is also a currency.
+
+Mod(num1, 3)
+
+Mod(cur1, 3)
+
+1
+
+$1
+
+Min
+
+Number or Currency
+
+Shows the minimum value of a set of numbers.
+
+Min(num1, num2)
+
+10
+
+Max
+
+Number or Currency
+
+Shows the maximum value of a set of numbers.
+
+Max(num1, num2)
+
+22.45
+
+## Methods
+
+Methods come after the field ID and are called up with a dot operator. 
+
+**Function**
+
+**Description**
+
+**Syntax**
+
+**Output**
+
+round
+
+Rounds a number up or down.
+
+Add the number of decimal places you want. 
+
+num2.round()
+
+num2.round(1)
+
+22
+
+22.5
+
+roundup
+
+Always rounds a number up.
+
+Add the number of decimal places you want. 
+
+num2.roundup()
+
+num2.roundup(1)
+
+23
+
+22.5
+
+rounddown
+
+Always round a number down.
+
+Add the number of decimal places you want.
+
+num2.rounddown()
+
+num2.rounddown(1)
+
+22
+
+22.4
+
+ceil
+
+Rounds up a number to the nearest multiple of the unit given.
+
+If no value is given, it is treated as 1.
+
+num2.ceil(5)
+
+25
+
+floor
+
+Rounds down a number to the nearest multiple of the unit given.
+
+num2.floor(5)
+
+20
+
+abs
+
+Shows the absolute value of a number.
+
+num2.abs()
+
+22.45
+
+code
+
+Shows the currency code in a text field. 
+
+cur1.code()
+
+USD
+
+## Operators
+
+There are five arithmetic operators in Kissflow: 
+
+-   Addition (+)
+-   Subtraction (-)
+-   Multiplication (\*)
+-   Division (/)
+-   Exponents (^)
+
+Expressions with arithmetic operators can use integers or fields. 
+
+### Using operators
+
+Here are all the ways that you can evaluate fields.
+
+**Field 1**
+
+**Field 2**
+
+**Operator**
+
+**Resulting type**
+
+Number
+
+Number
+
++, -, \*, /
+
+Number
+
+Number
+
+Integer
+
++, -, \*, /, ^
+
+Number
+
+Currency
+
+Currency (same)
+
++, -
+
+Currency
+
+Currency
+
+Number/Integer
+
+\*, /
+
+Currency
+
+## Converting data types
+
+Here are some ways to convert data types using numbers.
+
+**Name**
+
+**Description**
+
+**Syntax**
+
+**Output**
+
+value
+
+Converts a currency value to a number value.
+
+cur1.value()
+
+10
+
+Number
+
+Converts a text value to a number.
+
+E.g. the value of text1 is “10”.
+
+Number(text1)
+
+10
+
+Currency
+
+Converts a number value to a specific currency.
+
+Currency(10, "GBP")
+
+£ 10
+
+Currency from text
+
+This function converts a string value to a specified currency. You should include a space between the integer value and the currency code as part of the syntax.
+
+> **Note:**
+> 
+> This function is only supported in the integration configuration forms.
+
+currencyFromText("10 USD")
+
+$ 10
+
+convert
+
+Converts one currency into another type with a static exchange rate.1 
+
+cur1.convert(.90, “EUR”)
+
+EUR €9.00
+
+1\. To use real-time exchange rates, [use a remote lookup field](/t/x2yq224/remote-lookup).
+
+**Method**
+
+**Syntax**
+
+**Input type**
+
+**Output type**
+
+**Explanation**
+
+extractNumber
+
+Remotelookup\_Fieldname.extractNumber
+
+(&lt;path,&lt;index>)
+
+Remotelookup\_Fieldname: JSON OBJECT&lt;path>: TEXT (valid json path)&lt;index>: NUMBER
+
+LIST&#123;NUMBER&#125;NUMBER
+
+Extracts and returns a number array from the JSON object as filtered by the provided json path. If the index is provided then the number in the particular index is extracted.

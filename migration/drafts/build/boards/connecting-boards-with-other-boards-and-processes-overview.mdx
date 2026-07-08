@@ -1,0 +1,51 @@
+---
+title: "Connecting boards with other boards and processes - Overview"
+description: "DRAFT (unverified) — migrated from /t/x2ymwj1/connecting-boards-with-other-boards-and-processes-overview"
+contentType: overview
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+<iframe src="https://player.vimeo.com/video/976910626?app_id=122963" title="Connected workflows - Overview" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+In Kissflow, you can connect a parent board to another board or process to automate workflows. A status change in a parent board's item can trigger actions in the linked board or process.  
+  
+This enhances overall efficiency and simplifies workflow management for team managers and IT admins who need to connect and orchestrate multiple workflows and gain complete visibility into them.
+
+## Benefits
+
+1. **Automate item creation**: When a work item in a parent/source board reaches a certain status, new items are automatically created in the connected boards/processes. This reduces manual effort and ensures timely task creation.
+    
+2. **Improve coordination**: By creating related/dependent items across different flows, teams can better coordinate their efforts and maintain a holistic view of the project’s progress.
+    
+3. **Reduce errors**: Automated item creation minimizes the risk of overlooking important tasks or miscommunication between teams.
+    
+
+## Use case: Connecting Employee onboarding and IT asset approval boards
+
+Let’s say you want to create an IT asset request when a new hire accepts their job offer letter. Offer letter approvals are tracked in the **Employee onboarding** board, which has a status named **Offer accepted**. You can specifically connect the **Offer accepted** status to the **IT asset approva**l board, where IT asset requests are made. So, whenever you move an item to the **Offer accepted** status, one or more IT asset requests will be created. 
+
+### Example scenario
+
+1. **New hire**: John Doe accepts his offer letter for the role of Software Engineer, with a joining date of June 15.  
+     
+    
+2. **Onboarding status update**: The HR team updates John's onboarding item to **Offer accepted** status in the **Employee onboarding** board.  
+     
+    
+3. **Automated IT request**: As the **Offer accepted** status is connected to the **IT asset approval** board, a dependent item is automatically created in it. This new item can inherit the following details from the **Employee onboarding** board:
+    
+    -   Employee name: John Doe
+        
+    -   Required assets: Laptop, Software licenses
+        
+    -   Due date: June 15
+        
+    -   Department: Software Engineering
+        
+
+The IT team receives this request and proceeds to prepare the necessary assets, ensuring they are ready for John Doe’s first day. Likewise, you can also connect a board to a process.

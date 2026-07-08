@@ -1,0 +1,58 @@
+---
+title: "Connecting Kissflow connector for BI with Microsoft Power BI"
+description: "DRAFT (unverified) — migrated from /t/35yq1mq/connecting-kissflow-connector-for-bi-with-microsoft-power-bi"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ EnterpriseAfter successfully configuring your Kissflow account with Snowflake data warehouse, you must then connect Kissflow connector for BI with Microsoft Power BI.
+
+## Connecting to a Snowflake computing warehouse
+
+1.  To connect to your Snowflake database, go to **Home** > **Get Data** section in your Microsoft Power BI desktop client. From the dropdown list, select **Database** > **Snowflake**.![](/migration-assets/connecting-kissflow-connector-for-bi-with-microsoft-power-bi/1.png)
+2.  Enter the information in the Snowflake window that appears. It's worth noting that you can import data directly into Microsoft Power BI. Other fields should be left blank.
+3.  Enter the Snowflake URL in the server field without **https://** at the start and **/** at the end.  
+    E.g., **[xxyy11.us-central1.gcp.snowflakecomputing.com](http://xxyy11.us-central1.gcp.snowflakecomputing.com)**
+4.  Next, enter the warehouse name - **READER\_WH** and click **OK.**![](/migration-assets/connecting-kissflow-connector-for-bi-with-microsoft-power-bi/2.png)
+5.  When prompted, enter the username and password in the relevant fields, as shown below. Once done, click **Connect**.![](/migration-assets/connecting-kissflow-connector-for-bi-with-microsoft-power-bi/3.png)
+6.  Next, you can decide how to connect to the data source. Click **Import** to import a copy of your data into Power BI. Click **OK**.![](/migration-assets/connecting-kissflow-connector-for-bi-with-microsoft-power-bi/4.png)
+
+## Choosing your Kissflow flows in Microsoft Power BI
+
+1.  After validation, you can now see your [Account ID](https://helpdocs.kissflow.com/user-settings/api-keys#view_account_id) as a database on the left side navigation bar. When you expand it, you'll see your flows displayed as tables. On this page, you will discover detailed information on the tables, fields inside them, and views.![](/migration-assets/connecting-kissflow-connector-for-bi-with-microsoft-power-bi/9.png)
+2.  Once you have selected the flow, click the **Load** button. The data will be imported into Microsoft Power BI soon.![](/migration-assets/connecting-kissflow-connector-for-bi-with-microsoft-power-bi/6.png)  
+     
+
+## Creating a dashboard over your Kissflow data in Microsoft Power BI
+
+1.  Once the import is completed, you can now see the selected tables listed on the right panel.![](/migration-assets/connecting-kissflow-connector-for-bi-with-microsoft-power-bi/10.png)
+2.  Now, let's calculate the number of activities in each state, as well as the total number of flows in your account, and filter by date.
+
+### Date filter
+
+-   Choose the **Date filter** widget from the Visualizations panel on the right side of the screen. 
+    
+-   Select the field, **\_acted\_at** from the **ActivityInstance** table.
+    
+
+![](/migration-assets/connecting-kissflow-connector-for-bi-with-microsoft-power-bi/5.png)
+
+### Flow filter
+
+-   Choose the Combo box filter widget from the Visualizations panel. 
+-   Select the field **\_model\_id** from the **ActivityInstance** table. 
+
+![](/migration-assets/connecting-kissflow-connector-for-bi-with-microsoft-power-bi/8.png)
+
+### Funnel widget
+
+-   Choose the Funnel widget from the Visualizations panel. 
+-   Select the field, **ScriptName** from the **ActivityInstance** table and place it in the **Axis**.
+-   Select the field **\_id** from the **ActivityInstance** table and place it in **Values**. Make sure the aggregation is set to **Count** so that we can see how many workload activities occurred in each state for the selected flow and date range.
+
+![](/migration-assets/connecting-kissflow-connector-for-bi-with-microsoft-power-bi/7.png)
+
+You can now use your Power BI dashboard to analyze the activities that occur in your Kissflow account's process flows. Similarly, create various workload monitoring dashboards, workload process activity dashboards, engage with your team, and improve your workflow.

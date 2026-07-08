@@ -1,0 +1,99 @@
+---
+title: "HTTP connector"
+description: "DRAFT (unverified) — migrated from /t/p8h4aky/http-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## Basics of webhook
+
+Webhooks are automated messages that are sent between applications as HTTP requests. They are a type of notification that contains detailed information about new events in an application. You can also trigger webhooks based on external events.You can make fewer API calls overall by using webhooks, ensuring that your apps are more efficient and update more quickly.
+
+## Send data with HTTP connector
+
+Kissflow can integrate with third-party applications through user-defined HTTP calls. When the trigger occurs, the webhook will send data to a specified URL in the form of an HTTP request. To set up a webhook, you need to have a URL where the webhook should send the data.For instance, you can set up an integration where every time a task is completed in your Kissflow Board, a new entry is added to your Typeform app using webhooks.
+
+### Actions in HTTP connector
+
+**Actions**
+
+**Description**
+
+Make an HTTP call (POST)
+
+This action triggers an HTTP POST call with the specified parameters.
+
+Make an HTTP call (GET)
+
+This action triggers an HTTP GET call with the specified query string.
+
+Make an HTTP call (PUT)
+
+This action triggers an HTTP PUT call with the specified parameters
+
+Make an HTTP call (Custom)
+
+This action triggers an HTTP custom type call with specified parameters.
+
+Download a file
+
+Download a file from the HTTP config.
+
+## Configuring your HTTP connector
+
+1.  In your Kissflow account, click your profile picture on the upper right corner of the screen and click **Integrations**. Click the **New integration** button to provide a name and description for your [integration](/t/60h4akx/creating-an-integration).
+2.  Inside the editor, configure a trigger connector, such as **Kissflow Board** and select a relevant trigger event.
+3.  Once the trigger is setup, search for the action connector, **HTTP**.
+4.  Kissflow HTTP connector provides GET, POST, PUT, and custom HTTP methods with automatic data parsing allowing you to post to your webhooks from Kissflow. Choose any one of the actions based on your requirement.![](/migration-assets/http-connector/1.png) 
+5.  You can authenticate your HTTP connector using four authentication types:
+    1.  **No authentication**: This doesn't require any authentication.
+    2.  **Basic authentication**: This requires you to enter a username and password.
+    3.  **API key authentication**: This requires you to provide a specific API key (and optionally a key name or header/query parameter location) to authorize the connection. To set this up:
+        1.  Select **API key authentication** from the HTTP authentication type dropdown.
+        2.  Under **Credentials**, click **Add fields** to map your specific API key details (such as the key value and where it should be passed, for example, in the request header or query parameters) as required by the API you are connecting to.
+    4.  **OAuth authentication**: This requires you to supply details like:
+        -   **Access token**: used to authorize and authenticate while gaining access to resources on the OAuth provider application.
+        -   **Callback URL**: The Kissflow URL to which the redirection happens after a successful authorization. This will be auto-populated and can't be modified by the user.
+        -   **Authorization URL**: The API authorization endpoint of the OAuth provider.
+        -   **Access token URL**: The endpoint for authorization server. This is used to exchange the authorization code for access token.
+        -   **Client ID**: The unique alphanumeric string that you received from the OAuth provider while registering Kissflow as a client.
+        -   **Client secret**: The secret string that was obtained by Kissflow during the client registration process.
+        -   **Scope**: The OAuth scope that Kissflow might need to request for the access of the OAuth application.
+        -   **State**: An optional value that is used for preventing cross-site request forgery.![](/migration-assets/http-connector/3.png)
+6.  Next, go to your external application and copy the unique hook URL provided by the application.
+7.  HTTP requests from a webhook include four things:
+
+![](/migration-assets/http-connector/2.png)
+
+-   **URL**: This is the exact path where you want to send the data. Paste the copied hook URL from your external application here.
+-   **Body parameters**: The information you want to send to another app. This is sent as a key-value pair.
+-   **HTTP headers**: This will specify how the information in the body is formatted. This is sent as a key-value pair.
+-   **Query parameters**: They are the optional key-value pairs that appear in the URL after the question mark. They are essentially URL extensions that are used to help determine specific content or actions based on the data being delivered.
+-   If you've selected a custom HTTP call, you'll have an option to select the HTTP **method** and **body type.** Body type can be **raw** or **URL encoded data**.
+
+1.  The null values are shared by default when mapped fields are left empty. Enable the checkbox to stop sending null values.
+2.  When the third-party application receives the HTTP request from the webhook, it will send a response, informing your action connector whether or not the request was successful.
+3. **Test** the action to complete the setup.
+
+### Sending files using the HTTP connector
+
+You can also send files or attachments using the HTTP connector. It only works with the Custom action. Here's how you can do it: 
+
+1.  After configuring your trigger, choose **Make an HTTP call (Custom)** as the action and enter the **URL** to which the webhook needs to send the data. 
+2.  Choose **POST** as the method, and add the relevant fields under HTTP headers and Query parameters if required. 
+3.  Choose **Form Data** as the body type. Add the key name and map the respective field as its value. You can add multiple Key-Value pairs to the Form Data.
+
+![](/migration-assets/http-connector/4.png)
+
+If a particular key has multiple attachments, add square brackets at the end to send all the attachments to the respective URL. For example, Attachments\[\]
+
+#### Activating the webhook connector
+
+After configuring your integration workflow, turn **ON** the toggle button in the upper-right corner of the editor to activate the integration.
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

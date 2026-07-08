@@ -1,0 +1,106 @@
+---
+title: "Setting up an external data connection"
+description: "DRAFT (unverified) — migrated from /t/x2y3mhr/setting-up-an-external-data-connection"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+An external connection is a pathway between your external platforms and Kissflow, that allows you to create external data objects in your apps. A connection can be reused multiple times within multiple apps. So, a single connection can be associated with multiple external objects. 
+
+Configuring this connection marks the initial step in working with external data objects. 
+
+In the development environment, anyone can create an external connection by following the steps below:
+
+1.  Go to **My profile** > **External data connections**.
+    
+2.  Click **\+ New connection** and choose the required connector.  
+     
+    
+    ![](/migration-assets/setting-up-an-external-data-connection/1.png)
+    
+3.  In the **Create connection** popup, enter the general details and authentication credentials.  
+     
+    
+    ![](/migration-assets/setting-up-an-external-data-connection/3.png)
+    
+4.  Click **Create** and your external connection will be successfully established. 
+    
+
+Once configured, your connection will appear on the **External connections page**. 
+
+On this page, you will find,
+
+-   All the connections that you’ve created or those shared with you.
+    
+-   More details about each connection, like the **Connection name**, **Connector**, **Created at**, **Modified at**, **Shared** with, and linked **External data objects**.  
+     
+    
+    ![](/migration-assets/setting-up-an-external-data-connection/2.png)
+
+If you’re a Super admin, the **External data connections** page will display all the connections in your account created by other admins and yourself. However, for connections owned by others, you can edit it only after sharing it to yourself by clicking on **More options** > **Share**. 
+
+> **Note:**
+> 
+> You also have the option to create a new connection directly by clicking on the **\+ New Connection** button available at the top right corner on the **External data connections** page.
+
+## Editing external connection 
+
+On the External connections page, at the specific connection, click **More Options** (![](/migration-assets/setting-up-an-external-data-connection/6.png)).
+
+Here, you can rename, reconnect, share, and delete the connection. 
+
+### Renaming an external connection
+
+When you click **Rename** in the settings, a **Rename connection** popup window will appear where you can enter the new name for your connection.
+
+![](/migration-assets/setting-up-an-external-data-connection/4.gif)
+
+After entering the new name, save to confirm the changes.
+
+### Reconnecting an external connection
+
+To reconnect with the connection, click **Reconnect** in the settings.
+
+![](/migration-assets/setting-up-an-external-data-connection/5.gif)
+
+Enter the authentication credentials in the prompted window and re-establish the connection.
+
+> **Note:**  
+>   
+> At this point, changing the connector or modifying the existing connector’s general details is not possible. 
+
+### Sharing external connection
+
+You will be redirected to the **Share connections** page when you click **Share** at **More options.**
+
+1.  Click **\+ Add admin** at the top right corner of the screen. Admins have control over the external connection, including the ability to rename, reconnect, share the connection with other app members, and delete the connection. 
+    
+2.  The **Add users** popup appears. Type in the names of the people you want to invite.
+    
+3.  Click **Add**.
+    
+    ![](/migration-assets/setting-up-an-external-data-connection/8.gif)
+    
+
+On the **Share Connections** page, you will find the list of admins. Here, you can easily revoke access by clicking the **More options** icon at the admin’s name tag.
+
+> Note:
+> 
+> An admin has the authority to remove another admin from the external connection.
+
+### Deleting an external connection
+
+To delete a connection, go to the **External data connections** page, accessible through your Profile. 
+
+Click **More options** > **Delete** on the particular connection.
+
+![](/migration-assets/setting-up-an-external-data-connection/7.gif)
+
+> **Note:**
+> 
+> Any active External data objects associated with that specific connection must be deleted individually in their respective apps before returning here to delete the data connection.

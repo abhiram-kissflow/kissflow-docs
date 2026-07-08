@@ -1,0 +1,98 @@
+---
+title: "Choosing the right data-sharing method in Apps"
+description: "DRAFT (unverified) — migrated from /t/h7ypyab/choosing-the-right-data-sharing-method-in-apps"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+When building sophisticated applications in Kissflow, you'll often need to share data between them. Kissflow offers two powerful methods for this: [Component referencing](/t/83y6m1q/sharing-data-across-apps-using-component-referencing) and [App-to-app lookup](/t/35yzjvd/application-to-application-lookup-through-linking) through linking. While both enable data sharing, they are designed for different scenarios.
+
+This guide will help you decide which method is the best fit for you.
+
+## At a glance: The key differences
+
+**Feature**
+
+**Component referencing**
+
+**App-to-app lookup**
+
+**Primary use**
+
+Consume data to visualize and manipulate.
+
+Consume data for read-only purposes.
+
+**What is shared?**
+
+Views, reports, and workflow steps.
+
+Data fields.
+
+**Use case**
+
+Embedding a live sales report in a management dashboard.
+
+Looking up employee details for a leave request.
+
+**Data flow**
+
+Two-way read and write.
+
+One-way data lookup.
+
+**Best for**
+
+Complex, interactive workflows spanning multiple apps.
+
+Maintaining a single source of truth for data.
+
+## Which method should you use?
+
+To find the right method for your use case, answer the questions below.
+
+### What is your primary goal?
+
+A) To look up and refer data from one application into a form in another application.  
+If this is your goal, you want to avoid duplicating data and ensure a single source of truth is maintained. For example, you have a Clients app and want to select a client in a Projects app without duplicating all the client details.
+
+Your likely answer is: App-to-App lookup. Go to the second question to confirm.  
+ 
+
+B) To consume, manipulate, and visualize the data used in the components of another application.  
+If you need to embed a live view, report, or even trigger a process from another app, this is your path. For instance, you want to show a real-time inventory report from your "Inventory" app inside your "Sales" app.
+
+Your answer is: Component referencing.
+
+### Where do you want to use the data?
+
+-   For app-to-app lookups, add a Lookup step within the Process.  
+     
+    
+-   For component referencing, use the Page builder to add views, forms, reports, or workflow steps.
+    
+
+## Summary and examples
+
+### App-to-app lookup
+
+-   You want to maintain a master list of data (for example, employees, products, customers) and reference it in other applications.
+    
+-   You need to populate fields in a form with data from another app.
+    
+
+Example: A Leave management application looks up employee details (name, department, manager) from the Employee Management application.
+
+### Component referencing
+
+-   You want to embed a live, interactive report or data view from one app into another.
+    
+-   You need to allow users to initiate or act on workflow steps from a different application.
+    
+-   You are building a complex, integrated solution that involves multiple applications working together in real-time.
+    
+
+Example: A manager in a Project management app can view a real-time report of team availability from the HR app and approve leave requests without leaving the project view.
+
+By following this guide, you can confidently choose the right data-sharing method in Kissflow and build more efficient and powerful applications.

@@ -1,0 +1,68 @@
+---
+title: "Configuring your board settings"
+description: "DRAFT (unverified) — migrated from /t/60h9ql7/configuring-your-board-settings"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+If you are an admin of a board, you can configure how your board behaves by making changes to certain settings.To configure or change settings for a board, click the **Manage** button at the top right corner > **Settings.**
+
+## General settings
+
+On the **General** tab, you can configure some of the main parameters of your board. You can change the item type and ID prefix, as well as configure how titles appear on items:
+
+-   **Item type** - The type of items that are managed in the board. You can rename the item type here.
+-   **ID prefix** - The prefix that gets attached to the item IDs.
+-   **Configure form title** - Specify a format that is used to auto-generate titles for each item.
+
+### Configuring form titles
+
+To configure form titles, click the **Add** button (+), arrange default system fields or form fields in the order you want, and then click **Save**. Based on this format, titles are auto-generated and are displayed on top of each item.![](/migration-assets/configuring-your-board-settings/2.png)
+
+## Notification settings
+
+You can create and customize notifications to stay informed about important updates or ensure timely communication within your team. Learn more about [board notifications](/t/60y68hm/board-notifications).
+
+## Optional settings
+
+### Priority
+
+Priority indicates the urgency to resolve an item. Setting a priority allows you to manage and track your items efficiently.For example, if there are items that are of a higher priority, you can set their priority to **High** or **Critical**. Critical items are easily identifiable and, therefore, easier to track.Under the **Optional** **settings** tab inside **Settings**, you can turn on or off the priority field for the entire board.When you turn off priority, the **Priority** field will be hidden across the board in:
+
+-   Views
+-   Forms
+-   Filters
+-   Sort
+-   Integrations
+
+The field is hidden even if it was used to set up any of the features mentioned above.For instance, if you created a view that used **priority**, the filter will no longer consider priority to filter items when you turn it off.Also, If you have used priority to define validations or create expressions in a form field, you will not be able to turn off priority. You will have to clear these dependencies first.
+
+### Watchers
+
+A Board Admin can always enable or disable the **Watchers** setting from the **Optional settings** section of a board.
+
+1.  On the board, click the **Manage** button > **Settings** > **Optional**
+2.  Toggle the **Watchers** setting based on your requirement and click **Save**.
+    1.  Enabling this setting lets the other admins and members of the board watch items and manage a watchlist of their items, respectively. The item watchers receive notifications whenever there is an update for the items they follow.
+    2.  Disabling this setting prevents everyone in the board from using the **Watchers** feature.  
+         ![](/migration-assets/configuring-your-board-settings/1.png)
+
+## [Multilingual settings](/t/m1h9qt5/process-settings#multilingual-settings)
+
+Multilingual settings allow [Kissflow Process admins/developers](/t/p8h9qtp/managing-process-members-and-permissions) and [Board admins](/t/m1h9qls/managing-members-and-roles-boards) to customize and present their workflow forms in various languages by incorporating manually translated form labels.For instance, if you've designed a form in English but wish to cater to Chinese speakers, follow the steps below. Once set up, the form will adjust to Chinese for users who've chosen Chinese in their profile settings, ensuring a seamless experience for both English and Chinese speakers.
+
+1.  Select the language.
+2.  Download the form labels.
+3.  Manually translate the labels.
+4.  Import the labels back into the form.
+
+> **Note:**
+> 
+> This feature is available for the standalone Kissflow Processes and Boards. Only [languages available at the platform level](/t/60h9qzy/languages-supported-by-kissflow) will be supported within forms.
+
+Learn about [adding multiple languages](/t/83hvnzt/multilingual-settings) in detail.

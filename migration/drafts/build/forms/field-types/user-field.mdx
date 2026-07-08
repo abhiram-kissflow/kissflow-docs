@@ -1,0 +1,46 @@
+---
+title: "User field"
+description: "DRAFT (unverified) — migrated from /t/h7h4azj/user-field"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+You can display a set of usernames as a dropdown with the help of the **User** field. The difference between a normal dropdown and a user field is that you can display usernames with the **User** field, whereas you can display only static text using a **Dropdown** field.
+
+![](/migration-assets/user-field/1.png)
+
+## Settings
+
+You can let the user (who will use the form in the future) select multiple users from the list by enabling the **Allow multiple users to be selected** option in the settings panel.  
+
+If you enable **Automatically select the first value based on the filter(s)**, then based on the filters configured, the first value in the **[User management](/t/m1h4akn/user-management-overview)** table will be automatically selected and displayed in the field.
+
+You can select the source of user data for a particular user field, such as the User management table.
+
+## Filters
+
+By default, the user field displays all of your organization's users. However, you can apply a filter to limit the number of users shown in the user field.
+
+You can filter by system fields like **Name**, **External ID**, **Email address**, **Groups**, and so on, or by custom fields.
+
+Filters can be configured to match all conditions (**Match all**) or only one (**Match any**). 
+
+Once you've selected **Groups**, all groups under group management will be shown, and you can choose several groups if necessary.
+
+> **Note:**
+> 
+> The filter based on that group is also removed if a group is deleted. 
+
+![](/migration-assets/user-field/2.png)
+
+## Validations
+
+There are two types of [validations](/t/m1h4az4/field-validations) you can use with a user field:
+
+-   Equal to 
+-   Not equal to

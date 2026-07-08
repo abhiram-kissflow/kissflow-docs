@@ -1,0 +1,66 @@
+---
+title: "Using advanced filters in apps"
+description: "DRAFT (unverified) — migrated from /t/h7yzj0v/using-advanced-filters-in-apps"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+The [advanced filter](/t/g9h4al1k9h4ga/managing-filters) feature allows Kissflow app developers to control the data shown to specific users while they view a component on a page. It eliminates the need for creating multiple views and reports with different filters to display relevant data to different app users. This not only saves time but also makes it easier to maintain the reports and views inside the application.
+
+#### Creating advanced filters in views and reports
+
+[Advanced filters](/t/g9h4al1k9h4ga/managing-filters) can be accessed and set up on your process, board, and dataform reports, as well as on board and dataform views. For example, consider creating an advanced filter in a dataform view. It's important to note that the same steps apply to other views and reports as well.
+
+1.  Sign in to Kissflow to create an app.
+2.  Inside the application builder, [create a dataform](/t/35yzjag/creating-and-managing-dataforms) > New view.
+3.  In your dataform view, go to **Data filter** > click **Add** button (![](/migration-assets/using-advanced-filters-in-apps/2.png)) > **Add a filter**.![](/migration-assets/using-advanced-filters-in-apps/1.png)  
+4.  Under **Advanced filter**, select the criteria you want to filter by from the dropdown menu. You can choose from the pre-populated options.
+5.  Next, pick the conditional operator and the desired filter value. You can select a value, field, or parameter.
+6.  Specify the corresponding value and click **Apply**.
+    
+    If you have selected the **parameter** value type, you can specify a _$value_ for it. With this parameter value, you can call custom views and reports based on the user's role.
+    
+7.  To clear all filters, click the **Clear** button.
+8.  Once the filter is saved, it's listed under the **data filter** section as a condition. Save the dataform view.
+
+You can apply multiple filters at once to further narrow down the data.
+
+If you've chosen a parameter value,
+
+-   use lowercase and separate words with an underscore (\_).
+-   start the value with a $ symbol.  
+-   maximum length should be 32 characters.
+-   write in the English language only.
+
+**The advanced filter feature gives the application developers the ability to:**
+
+1.  Add conditions using different fields within the same app.
+2.  Ability to apply AND/OR operators between groups of filters.
+
+The advanced filter is mostly used by app developers who build reports and views and add these as components of a page in an app. The feature is intended to be used in apps, such as _Employee Management,_ where users are maintained via a dataform, and the _Current\_user()_ function in the report configuration does not work.
+
+While using the parameter value in the **Advanced filter**, the app admins will be able to specify a _$parameter value_ for a certain parameter in dataform views and board views or board/process/dataform reports.
+
+#### Assigning filter parameters to page components
+
+When a developer adds a specific view or report as a component to a page, all the parameters associated with that view or report will be listed under the Filter parameters section of the page builder.
+
+As a developer, you can assign values to the $params. These values can be global/local variables or input parameters defined by you. Any filter parameter field that is left without a value will be ignored, meaning the filter condition will not be applied when rendering the report or view.
+
+For example, with the aggregate or currency fields, the developer can provide a dynamic currency value, and for a DateTime field, the developer can provide a value such as "27-02-1989 - 19-03-2019".
+
+##### Querying multiple parameters simultaneously
+
+If you have set up the following operators in the advanced filters: Part Of, Not Part Of, Contains, Not Contains, and In, you can assign or type in up to 10 parameter values to drill down into your view or report.
+
+> **Note**  
+> All the values should be comma-separated regardless of their nesting properties.
+
+Read [this](/t/m1h4az4/field-validations) to learn more about different operators.
+
+![](/migration-assets/using-advanced-filters-in-apps/3.gif)

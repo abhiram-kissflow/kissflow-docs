@@ -1,0 +1,158 @@
+---
+title: "Kissflow Board connector"
+description: "DRAFT (unverified) — migrated from /t/83h4af4/kissflow-board-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## Connecting to a board
+
+Integration members with permission to access a [board](/t/q6h9ql3/board-overview) can use connectors to send data from a board to other flows in Kissflow or third-party apps. Similarly, connectors can be used to receive data to perform specific actions in your board.
+
+For example, you have a board for managing a help desk and you’d like certain complex tickets that come through to be tracked separately in another board for bug tracking. For this to happen, both boards should talk to each other. Connectors make this conversation happen. Using predefined connectors, you can set up triggers and actions so that when a new ticket is created in your help desk, a corresponding bug gets logged in your bug tracking system.
+
+## Triggers for boards
+
+**Trigger**
+
+**Description**
+
+When an item is created
+
+This trigger activates as soon as someone submits a new item.
+
+When an item starts
+
+This trigger activates when the start date of an item matches the current date.
+
+When an item is deleted
+
+This trigger activates as soon as someone deletes an item in the board.
+
+When the status of an item is updated
+
+This trigger activates when the status of an item is changed.
+
+When the assignee of an item is updated
+
+This trigger activates when the assignee of an item is changed
+
+When the due date of an item is updated
+
+This trigger activates when the due date of an item is changed.
+
+When the priority of an item is updated
+
+This trigger activates when priority of an item is changed.
+
+When an item becomes overdue
+
+This trigger activates when the due date for an item is breached.
+
+When a note is added to an item
+
+This trigger activates when a note is added to an item.
+
+When the state of a subitem is updated
+
+This trigger activates when the state of a subitem is changed.
+
+  
+ 
+
+When the assignee of a subitem is updated
+
+This trigger activates when the assignee of a subitem is changed.
+
+When the due date of a subitem is updated
+
+This trigger activates when the due date of a subitem is changed.
+
+When the start date of a subitem is updated
+
+This trigger activates when the start date of a subitem is changed.
+
+When a note is added to a subitem
+
+This trigger activates when a note is added to any subitem in the board.
+
+When a subitem becomes overdue
+
+This trigger activates when a subitem breaches its due date.
+
+When a subitem starts
+
+This trigger activates when the start date of a subitem matches the current date.
+
+When a subitem is created
+
+This trigger activates when a subitem is created.
+
+## Actions for boards
+
+**Action**
+
+**Description**
+
+Retrieve data from a board
+
+This action retrieves item data from a board based on parameters such as item ID, priority, and assignee.
+
+> **Note:**
+> 
+> Up to 100 items can be searched and retrieved using this action. 
+
+Create an item
+
+This action creates a new item in the board.
+
+Update an item
+
+This action updates fields in an item.
+
+Delete an item 
+
+This action deletes an item in a board.
+
+Add watchers
+
+This action adds watchers to an item inside a Kissflow Board.
+
+Create a subitem
+
+This action creates a new subitem in an item.
+
+Update a subitem
+
+This action updates the fields of a subitem.
+
+## Using connectors as triggers
+
+1.  Create a new [integration](https://helpdocs.kissflow.com/integration/creating-an-integration).
+2.  Select the Kissflow Board connector and then choose a trigger. You can also use the search to find a trigger directly.
+3.  Create a new connection or use an existing connection in your account. You can connect to another Kissflow account or use your own Kissflow account. After authenticating the connection, click **Next**.
+4.  Select the board that you want to work with. Click **Next**.
+5.  Test whether your trigger is set up correctly by clicking the **Test trigger** button. The connector will retrieve data from your selected board and display it in JSON format. If there's an error with the setup, you'll receive a message regarding the same. Retest the trigger after making the necessary changes.
+
+> **Note:**
+> 
+> Sample data is displayed for empty fields from the board so that you can differentiate field types. Fields from tables are always displayed with sample data.
+
+![](/migration-assets/kissflow-board-connector/1.png)
+
+##     
+Using connectors as actions
+
+1.  Click the Board connector and select an action step from the available options.
+2.  Set up a connection with the required account, similar to how you would set up a trigger.
+3.  After choosing a board, add relevant values against the form fields. You can refresh fields to view all the updated fields in the form. You can also map form fields from your trigger step or fields from your previous action steps. These values will be automatically added to the fields after the action is executed.
+4.  Check whether the action step is set up correctly. Click **Use sample data** to use sample data to validate the action. The connector will validate sample data against the fields in the board and display results in JSON format. Errors, if any, are notified to you right away. Fix them before retesting the action.
+
+After setting up the required triggers and actions, turn on the integration to activate it.
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

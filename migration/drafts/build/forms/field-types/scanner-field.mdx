@@ -1,0 +1,231 @@
+---
+title: "Scanner field"
+description: "DRAFT (unverified) — migrated from /t/83h4azd/scanner-field"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+The **Scanner field** is an [advanced form field](/t/y4h4azv/basic-and-advanced-fields) that allows you to scan and fetch barcodes and Quick Response (QR) codes. You can use it in process forms, board forms, and dataforms within apps.
+
+For example, you can use the scanner field if you’re building a process to streamline asset procurement or a library management app to scan and track book borrowings. Find out how to fetch asset details in an _Asset procurement_ process by [automating barcode scanning](/t/y4h9qtf/how-to-automate-barcode-scanning-in-a-process-form).
+
+## Configuring the scanner field
+
+Like any other field, you can drag-and-drop the scanner field onto your form and form's [child tables](/t/h7h4azm/creating-a-form#child-tablesnbsp) from the left-side **All fields** panel. You can also enter a name for the field, mark it as a required field, modify the field ID, and enter some help text if necessary. You can also **enable** **image upload**, allowing users to upload and scan images.
+
+![](/migration-assets/scanner-field/1.gif)
+
+Form [developers](/t/p8h9qtp/managing-process-members-and-permissions#developer) can also provide [validations](/t/m1h4az4/field-validations), set [visibility](https://helpdocs.kissflow.com/fields/field-visibility) rules, and change [appearance settings](/t/60h4azc/field-appearance) for the scanner field.
+
+## Using the scanner field
+
+Once the form is live, end-users can open it and click the **scanner** icon (![](/migration-assets/scanner-field/4.png)) beside the field to scan and fetch barcodes or QR codes using their camera.
+
+The scanner field supports JPEG, JPG, and PNG files. It fetches the code value as a string in a text field. Users can also edit the string in the scanner field or manually input the value.
+
+If you haven’t already, grant Kissflow permission to access your device camera. This allows Kissflow to scan QR codes using your camera.
+
+![](/migration-assets/scanner-field/2.png)
+
+If no activity is detected, the scanner will display an alert and time out after three minutes. Users can stay active by clicking **Wait** and then resume scanning.
+
+![](/migration-assets/scanner-field/3.png)
+
+> **Note:**
+> 
+> For a better experience on a mobile device, we recommend using the Kissflow application installed from the [Google's Play Store](https://play.google.com/store/apps/details?id=com.orangescape.kfdw) or [Apple's App Store](https://apps.apple.com/in/app/kissflow-digital-workplace/id1470220022) to access the scanner instead of the [PWA version](https://helpdocs.kissflow.com/mobile/ios-devices#using_a_progressive_web_app_pwa).
+> 
+> Users need to generate codes from valid sources for scanning. Using distorted images of codes for scanning may not fetch the value of the code.
+
+## Types of barcodes supported for scanning
+
+The scanner field supports the following types of barcodes:
+
+**Type**
+
+**Category**
+
+**Web**
+
+**Android**
+
+**iOS**
+
+UPC\_A
+
+1D
+
+✔
+
+✔
+
+✔
+
+UPC\_E\*
+
+1D
+
+✔
+
+✔
+
+✔
+
+UPC\_EAN\_EXTENSION
+
+1D
+
+✔
+
+✔
+
+✔
+
+EAN\_8
+
+1D
+
+✔
+
+✔
+
+✔
+
+EAN\_13\*
+
+1D
+
+✔
+
+✔
+
+✔
+
+CODE\_39
+
+1D industrial
+
+✔
+
+✔
+
+✔
+
+CODE\_39\_MOD\_43
+
+1D industrial
+
+✔
+
+✔
+
+✔
+
+CODE\_93\*
+
+1D industrial
+
+✔
+
+✔
+
+✔
+
+CODE\_128
+
+1D industrial
+
+✔
+
+✔
+
+✔
+
+ITF
+
+1D industrial
+
+✔
+
+✔
+
+✔
+
+ITF\_14
+
+1D industrial
+
+✔
+
+✔
+
+✔
+
+AZTEC
+
+2D
+
+✔
+
+✔
+
+✔
+
+DATA\_MATRIX
+
+2D
+
+✔
+
+✔
+
+✔
+
+MAXICODE
+
+2D
+
+✔
+
+✔
+
+✔
+
+PDF\_417
+
+2D
+
+✔
+
+✔
+
+✔
+
+QR\_CODE
+
+2D
+
+✔
+
+✔
+
+✔
+
+RSS\_14
+
+2D
+
+✔
+
+✔
+
+✔
+
+> **Note:**
+> 
+> **\*** indicates the barcode types that are supported for scanning only through the camera and not by uploading the code's image.

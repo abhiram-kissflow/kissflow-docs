@@ -1,0 +1,131 @@
+---
+title: "Communication and collaboration"
+description: "DRAFT (unverified) — migrated from /t/h7yk4r5/communication-and-collaboration"
+contentType: use-case
+persona: citizen-developer
+section: build
+---
+
+Effective communication and collaboration are the lifelines of any modern organization. This vertical focuses on the tools that connect teams, customers, and systems in real time. Integrations are essential to break down silos, ensuring that notifications, alerts, and conversations happen in the right context and at the right moment. By connecting communication platforms with core business applications, companies can automate critical alerts, streamline project kick-offs, and create seamless channels for customer support and engagement, ultimately leading to a more responsive and aligned organization.
+
+## Connectors in this vertical
+
+**Application**
+
+**Description**
+
+**[Twilio](/t/y4h4af3/twilio-connector)**
+
+A customer engagement platform that enables personalized, real-time communication like SMS and WhatsApp messages to be embedded directly into business workflows.
+
+**[Microsoft Teams](/t/60h4alv/microsoft-teams-connector)**
+
+A unified collaboration platform that combines workplace chat, video meetings, file storage, and application integration for seamless teamwork.
+
+**[Outlook](/t/y4h4afd/microsoft-outlook-connector)**
+
+A widely used personal information manager from Microsoft provides email, calendar, and contact management services central to business communication.
+
+**[HTTP](/t/p8h4aky/http-connector)**
+
+Apart from the pre-built actions available in Kissflow Integrations for communication and collaboration, there may be scenarios where you need to perform a custom action. In such cases, you can use the HTTP connector to configure API calls from scratch to interact with any service that exposes a REST API.
+
+## Integration use cases with Kissflow
+
+Here are practical, scenario-based examples of how Kissflow can trigger actions in Twilio, Microsoft Teams, and Outlook to solve common business problems.
+
+### Twilio 
+
+**Business goal**
+
+**Trigger (in Kissflow)**
+
+**Action (in Twilio)**
+
+**Detailed scenario**
+
+**Key benefit**
+
+Proactive delivery updates
+
+A delivery driver marks an order _Out for delivery_ in a logistics app.
+
+Send an SMS.
+
+An SMS is sent to the customer: _Your package is on its way! Track it here: &lt;link>._
+
+Improves customer experience and reduces support inquiries about order status.
+
+Enhance guest welcome experience
+
+A hotel guest finishes mobile check-in via a form.
+
+Send a WhatsApp message.
+
+A WhatsApp message is sent: _Welcome to Seaside Resort! Your room is ready (#512). Reply ‘YES’ when you’re on property._
+
+Provides a modern, convenient communication channel and a personalized guest experience.
+
+### Microsoft Teams
+
+**Business goal**
+
+**Trigger (in Kissflow)**
+
+**Action (in Microsoft Teams)**
+
+**Detailed scenario**
+
+**Key benefit**
+
+Automate project workspace setup
+
+A new client project is approved in a project-initiation workflow.
+
+Create a channel.
+
+Kissflow instantly creates a channel named _Proj-Acme-2025_ under the _Client Projects_ team, pre-setting owners.
+
+Ensures project teams have a dedicated collaboration space instantly, standardizing project setup.
+
+Escalate critical delays
+
+A procurement request breaches its deadline.
+
+Send a channel message.
+
+The flow posts a message in the _#supply-chain channel: PO #7843 is delayed by 5 days. Click for details._
+
+Provides real-time visibility into critical issues for the relevant team, prompting faster action.
+
+Communicate sensitive HR decisions
+
+An employee’s vacation request is rejected in an HR process.
+
+Send a chat message.
+
+Kissflow sends a private chat to the requester: _Your PTO for Jun 3–5 was declined by your manager. Please review comments_.
+
+Delivers private and timely notifications for sensitive information directly to the employee.
+
+### Outlook 
+
+**Business goal**
+
+**Trigger (in Outlook)**
+
+**Action (in Kissflow)**
+
+**Detailed scenario**
+
+**Key benefit**
+
+Streamline IT support ticketing
+
+A new email is received at _[itsupport@yourcompany.com](mailto:itsupport@yourcompany.com)_.
+
+Create a new item.
+
+An email sent to IT support automatically creates a new support ticket in a Kissflow board, mapping the subject, body, and sender.
+
+Lowers the barrier for employees to submit requests and centralizes all tickets in one system.

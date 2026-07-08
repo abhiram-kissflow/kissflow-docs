@@ -1,0 +1,71 @@
+---
+title: "Migrating a connector to its latest version"
+description: "DRAFT (unverified) — migrated from /t/y4ytk49/migrating-a-connector-to-its-latest-version"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Kissflow automatically tries to update to the latest version of a connector through migration whenever a new version is available. However, in certain cases where migration is not possible, the older version of the connector will be marked for deprecation. This guide will help you identify when a new connector version is available and how to update to it.
+
+## Identifying a new connector version
+
+There are three different ways of identifying connectors scheduled for deprecation. 
+
+1.  Paying attention to deprecation notifications in your Kissflow account. 
+    
+2.  Looking for the **Deprecated** tab on the integration home page. 
+    
+    ![](/migration-assets/migrating-a-connector-to-its-latest-version/1.png)
+3.  Checking the [Kissflow Community](//community.kissflow.com/) for announcements about new connector version releases.
+    
+
+## Frequency of notifications for connector deprecation
+
+To ensure you have ample time to update your integrations, apps, or portals, we send out notifications about connector deprecation at key intervals:
+
+1. **Initial deprecation notice**: You will receive the first notification as soon as a connector is scheduled for deprecation. This gives you the maximum amount of time to plan and implement necessary updates.
+    
+2. **One week reminder**: A second notification will be sent one week before the scheduled deprecation date. This serves as a reminder to finalize any pending updates.
+    
+3. **Day of deprecation**: On the actual day of deprecation, a final notification will be sent. This alerts you that the connector is no longer supported and any integrations using it may cease to function properly.
+    
+
+## Migrating to the latest version
+
+1.  On the integration home page, click the "**Deprecated**" tab.
+    
+2.  Navigate to the integration builder by clicking on the particular integration that you would like to migrate. 
+    
+3.  View the help text explaining the deprecation status of the action.
+    
+4.  Click the action and view the configuration section on the right slider panel.
+    
+5.  Turn off the integration for re-configuration.
+    
+6.  Click the **Change action** option and choose the appropriate new action.
+    
+7.  Upon selecting the new action, a modal window will open with two sections: 
+    
+    1.  The left section is read-only, containing the deprecated version's connection details, configuration details, and output details. 
+        
+    2.  The right section contains the selected version's details, where you need to start by creating a connection, proceed with configuration, testing the action, and end with output.
+        
+8.  If you exit the modal while configuring, your configuration will be saved. You can reopen the modal by clicking the action card.
+    
+9.  Once the output is tested, you will be moved from the modal to the regular right panel.
+    
+10.  You can now turn **ON** the integration with the updated connector. 
+     
+
+The above steps are similar for changing a trigger, but you will not have to reconfigure the trigger, and you will not see the comparison window used to configure the fields in an action.
+
+By following these steps, you can easily identify when a new connector version is available and update your integrations to use the latest version, ensuring optimal performance and avoiding any issues with deprecated versions.
+
+> **Note:**
+> 
+> If you are using triggers of a deprecated connector, we will force turn off the integration to avoid usage of the deprecated trigger. Please be aware that any trigger data generated after the integration is turned OFF will not be stored and cannot be retrieved later.

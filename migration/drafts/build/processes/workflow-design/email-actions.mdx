@@ -1,0 +1,97 @@
+---
+title: "Email actions"
+description: "DRAFT (unverified) — migrated from /t/h7h9qtx/email-actions"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+<iframe src="https://player.vimeo.com/video/747143151?h=7b64058a82&app_id=122963" title="Embedded video" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+## Overview
+
+When an item is assigned to a [process](/t/h7h4a18/process-overview) member or admin, they receive an email informing them about the item, after which they log into Kissflow and act on it, that is, approve or reject it. This requires the user to leave their inbox and manually log into Kissflow, which, in turn, can be time-consuming for busy professionals who spend more time in their email client than in Kissflow.
+
+With **Email actions** enabled, users can act on items directly from their inboxes. They won’t have to leave their inbox or log into Kissflow.
+
+![](/migration-assets/email-actions/1.png)
+
+1.  When an item is assigned to a user, the user receives an email with details about the item, along with two buttons to approve or reject the item. The buttons' names and the reject option's availability will depend on what’s configured in the [process permissions](/t/60h9qtm/configuring-field-permissions-for-process-steps). 
+2.  After making a decision, the user can choose to approve or reject. 
+3.  Upon clicking either of the buttons, an email is composed with auto-generated content that instructs Kissflow to approve or reject the item. 
+4.  The user has to click **Send**, after which the email will be sent to Kissflow, and the action will be completed. 
+5.  No user input is required if the user chooses to approve. For rejection, the user has to type in their rejection note in the space provided in the draft email. ![](/migration-assets/email-actions/2.png) 
+
+## Enabling email actions
+
+Email actions have to be enabled at the step level. This allows process admins to restrict approvals and rejections via email for different steps. To enable email actions for a particular step, go to **Edit process** > **Workflow** > click **Change** near the required step > **Email actions** > turn on the toggle. By default, email actions are enabled for all existing and new processes in an account.
+
+![](/migration-assets/email-actions/3.png)
+
+When you’re trying to enable email actions, you see a message that says, **Email actions are disabled for your organization. Please contact the Super Admin to enable this feature_._,** it means that email actions have been disabled at the [account level by the Super Admin](/t/h7h4akl/flow-settings). If you're a [Super Admin](/t/35h4ak0/user-roles-permissions), you can enable/disable email actions for all processes in an account by going to **Account administration** > **Flow** **settings** > **Process** > **Email** **actions** > **Turn on/off the toggle.**
+
+### Exceptions
+
+Email actions will not be available for certain items and steps if mandatory user input is required.
+
+### FAQ
+
+1. **What happens if one of the step assignees approves an item through email, but another step assignee approves it through the portal at the same time?**  
+      
+    The first request that reaches the system gets approved, irrespective of who initiated it first.   
+     
+2. **What happens if two or more step assignees approve the request through email at the same time?**  
+      
+    The first request that reaches the system gets approved, irrespective of who initiated it first.   
+     
+3. **Is there a validity period for the email from which the user can approve/reject the item?**  
+      
+    30 days is the validity period from the date when the step assignee received the email.  
+     
+4. **What happens if the step assignee approves an item that is already approved or rejected?**  
+      
+    The approval/rejection will be ignored.  
+     
+5. **What happens if the step assignee approves/rejects the request after 30 days?**  
+      
+    The approval/rejection will be ignored.  
+     
+6. **How long does it take for an item to be approved/rejected after the step assignee sends an approval/rejection email?**  
+      
+    Approximately 1 minute or else. However, it depends on the volume of the requests received by the system at that point in time.  
+     
+7. **Why haven't I received an approval/rejection mail even though the email actions are enabled in the account and in the process?**  
+      
+    This could be because your form has editable fields that are required at this step. In such cases, email actions will not be available.  
+     
+8. **Why isn’t the email delivered even after approval or rejection?**  
+     
+    
+    **a.** **You have not enabled the SPF and DKIM security protocols**  
+      
+    When an email approval or rejection request is sent, it is authenticated using the SPF and DKIM security protocols. The email will not be sent if one of the protocols is yet to be enabled in your mail server.   
+      
+    **Solution**  
+    You can solve this problem in either of these two ways:  
+    1\. You can enable the protocol in your mail server and resubmit the request for approval or rejection.   
+    2\. You can manually sign in to your Kissflow account to submit the request for approval or rejection.
+    
+    **b. You made changes to the email content**  
+      
+    If you have changed any user input for the approval request or you haven’t added a mandatory note for the rejection request, your email will not be sent to Kissflow.  
+      
+    **Solution**  
+    You can solve this problem in either of these two ways:  
+    1\. You can click the request again for approval or rejection of the item from the same email. In case of rejection, you can type in the rejection note in the space provided in the draft mail and click **Send**.  
+    2\. You can manually sign in to your Kissflow account to complete the process.  
+      
+    **c. You did not send the approval email within the validity period of 30 days**  
+      
+    Each email request for an item has an expiration date of 30 days, after which you cannot submit the request.    
+      
+    **Solution**  
+    You can manually sign in to your Kissflow account and complete the process.

@@ -1,0 +1,36 @@
+---
+title: "Creating and managing access keys"
+description: "DRAFT (unverified) — migrated from /t/q6h4akr/creating-and-managing-access-keys"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Access keys are a vital part of how a service account works. You can create up to 50 access keys per service account. 
+
+## Creating an access key
+
+1.  Navigate to your service account and click the **Create access key**.
+2.  Enter the name of the access key.
+3.  Set an appropriate expiry period for the key. 
+4.  Click to copy the access key ID and access key secret and store them securely on your computer, or click Download credentials to keep them as a file.
+5.  Click **Done** after downloading the access key credentials.
+6.  Click **Proceed** to confirm your action after reading the alert message. 
+
+![](/migration-assets/creating-and-managing-access-keys/1.gif)
+
+## Managing access keys
+
+You can view the access keys created for your service account, its expiry, current status, last accessed, and the number of active days. [Super Admins](/t/35h4ak036h4gg/user-roles-permissions), [IAM Admins](/t/35h4ak0/user-roles-permissions#iam-admin) and SA Admins with access to this service account can view this page. They can delete, rename, or toggle ON/OFF the status of an access key. Any integrations or API calls associated with an access key will fail if an access key is turned OFF. 
+
+## Best practices for using access keys
+
+Using access keys for service accounts comes with specific risks if misused. Here are some ways you can manage your access keys:
+
+-   Limit the number of times an access key is used. Use dedicated access keys for a particular purpose, and don't use them extensively in other applications. 
+-   Create access keys with a shorter expiry and rotate between them frequently to mitigate the risk of compromise. Although we allow you to create access keys with a lengthy expiry, we request you limit an access key's expiry to 90 days. 
+-   Use the audit log to monitor access key activity and detect suspicious behavior. If you see an access key used for a different purpose, turn it off and remove it from the service account.

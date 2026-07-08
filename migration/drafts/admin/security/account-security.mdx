@@ -1,0 +1,102 @@
+---
+title: "Account security"
+description: "DRAFT (unverified) — migrated from /t/83h4akg/account-security"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+[Super Admins and IAM Admins](/t/35h4ak036h4gg/user-roles-permissions) have complete control over the sign in page customization and custom sign-up URL associated with your organization’s domain.
+
+## Manage sign in preferences
+
+Your account is assigned a unique URL that can be used for signing in. Kissflow supports the following sign in options that can be controlled from **Account security** > **Sign in** **preferences**, you can also restrict the options for signing in:  
+ 
+
+![](/migration-assets/account-security/1.png)
+
+### Sign in with Kissflow
+
+**Email and Password** is the conventional method where users can enter the email address and password they set up on the sign in page during the initial sign up or after a [password reset](/t/y4h4aks/add-manage-users).
+
+#### Password policy
+
+You can enforce a password policy for all users in your account to strengthen security and reduce risks caused by weak passwords. To configure the password policy, go to **Account security > Sign in preferences > Password policy > Configure**.
+
+![](/migration-assets/account-security/6.gif)
+
+Password policy options:
+
+-   **Minimum number** **of characters** – Set the minimum number of characters required in a password.
+-   **Password complexity** – Require users to include a mix of uppercase and lowercase letters, numbers, and special characters.
+-   **Password history to remember** – Restrict users from reusing their recent passwords.
+-   **Password expiry** – Define how often users must update their password.  
+      
+    Click **Update** to save your password requirements. You could always get back to the default settings provided by Kissflow by using the **Reset to default** button.
+
+> **Note:**  
+> When you update the password policy, password expiry date is recalculated as per new settings. Users will be enforced to reset their passwords according to the new policy, when the current password expires. 
+
+### Sign in with Google and Microsoft
+
+Kissflow supports OAuth based sign in using **Google** and **Microsoft** accounts by default. You can also configure other providers for OAuth authentication, such as GitHub, Slack, LinkedIn, or Azure by contacting our support team.  
+ 
+
+### Sign in with SAML
+
+**Custom SSO (Single Sign On)**, organizations using a SAML-based SSO (e.g., Okta, OneLogin, etc.) can configure it for their Kissflow account. 
+
+To enable a SAML-based SSO sign-in for your customers, enter the following details after clicking the **[Configure SAML](/t/x2h4a1h/setting-up-saml-based-single-sign-on-for-microsoft-azure-ad)** button:
+
+-   **_Identity provider (IdP) URL_** - This URL comes from the SAML provider you've chosen. Once a user clicks on the SSO button from the sign-in page, they will be directed to this remote sign-in URL of your SAML server. 
+-   **_Sign out URL_** - This is an optional field. You can provide the sign-out URL to direct your users to a particular URL after signing out of the SAML provider and Kissflow platform. 
+-   **_Security key_** - Kissflow uses the SHA2 fingerprint of the SAML signed token certificate from your SAML server to decrypt the data from your SAML provider. 
+-   **_Consumer assertion URL to Kissflow_** - This is the URL you must provide to the SAML provider. This URL is unique to your account.
+-   **_User field where SAML identifier is stored_** - Specify the column name in the user management table where you want the unique SAML identifier stored.
+-   **_Create users when they exist in the IdP_** - Enable to automatically add your company's users after they verify their user identity.
+
+After entering all the information, click Save to enable SSO using SAML.  
+ 
+
+![](/migration-assets/account-security/4.png)
+
+> **Note:**  
+> Contact our support team if you want to configure other providers for OAuth authentication.  
+> Click [here](/t/x2h4a1h/setting-up-saml-based-single-sign-on-for-microsoft-azure-ad) to learn how to set up a SAML-based SSO for Microsoft Azure AD. 
+
+## Inactive session timeout
+
+The **inactive session timeout** setting lets account admins define how long a user can remain inactive before being automatically signed out. This helps improve security by preventing unauthorized access if a session is left open.
+
+To configure the timeout value, choose from preset time intervals ranging from **1 hour to 24 hours**. The session timer runs only when a user is inactive and automatically resets when activity resumes.
+
+Users will be automatically signed out once the selected inactivity limit is reached.
+
+![](/migration-assets/account-security/2.png)
+
+## Manage sign up preferences
+
+Rather than individually inviting new users, you can make your Kissflow sign-up process globally accessible by sharing the custom URL. You can access Sign-up preferences and enable the **Allow new signups** option.
+
+![](/migration-assets/account-security/3.png)
+
+Anyone who visits this URL will be prompted to add their name and email address. Then, as a Super Admin, or an IAM Admin you will be notified to approve the user's sign-up. You can manually choose the user from the **User Management** tab and click the **Activate** button to provide an active license to the user.
+
+If you want to disable future sign-ups via this URL for new users, disable **Allow new signups** and click **Save**.
+
+## Access key setting
+
+You can limit the maximum expiry duration of the access keys created via the Kissflow account you are currently administering with the help of this setting.
+
+Navigate to **Account administration** > **Account security** > **Access key setting** to set the expiry limit.
+
+![](/migration-assets/account-security/5.png)
+
+The expiry duration periods we currently offer are 6 months, 1 year, and 2 years. You can also opt to have no limit for the expiry, the default value set for this dropdown.
+
+> **Note:**  
+> This is an account-level setting, and any changes made here will affect all the existing and new access keys.

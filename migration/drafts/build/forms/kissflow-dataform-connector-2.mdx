@@ -1,0 +1,75 @@
+---
+title: "Kissflow Dataform connector"
+description: "DRAFT (unverified) — migrated from /t/y4yzjan/kissflow-dataform-connector"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+## Dataforms
+
+Dataforms in Kissflow Apps are form used for data-gathering and they that do not include a workflow approval process. You can also create unique views to display the data collected.
+
+## Connecting to dataforms
+
+App administrators with permission to access and manage a dataform can use pre-populated data from any connector to create or update your dataform records.
+
+For example, you have a board for managing your help desk, and you’d like certain tickets identified as change requests to go through a feature approval process. If the change request is approved, you can submit the change request data as a dataform entry. You can also use this connector to update a predefined data set in your dataform.
+
+## Triggers for Kissflow Dataform
+
+**Trigger**
+
+**Description**
+
+When an item is added to a dataform
+
+Triggers when a user submits a new dataform item.
+
+When an item is updated in a dataform
+
+Triggers when a user edits and submits an existing dataform item.
+
+When an item is deleted in a dataform
+
+Triggers when a user deletes a previously submitted dataform item.
+
+## Actions for Kissflow Dataform
+
+**Action**
+
+**Description**
+
+Create and submit an item
+
+This action creates and submits a dataform item using the inputs passed into this step.
+
+Update an item
+
+This action updates the fields in a dataform item.
+
+Fetch an item
+
+This action retrieves a specific item from your dataform with its item ID.
+
+Fetch one or more items
+
+This action retrieves multiple items from your dataform.
+
+Delete an item
+
+This action deletes a specific item from your dataform with its item ID.
+
+## Using a connector as an action
+
+1.  In your app builder, click **Logic** the left navigation menu > **Integrations.** Click on the name of the integration you want to edit and it will open in the integration editor. Set up a trigger step and authenticate the connection.
+2.  After setting the trigger, choose the **Kissflow dataform** connector and select an action step from the available options.![](/migration-assets/kissflow-dataform-connector-2/1.png)
+3.  Similar to how you would set up a trigger, set up a connection with the required account.
+4.  After choosing a dataform, add relevant values against the form fields. You can refresh the fields to view all the updated fields in the form. You can also map form fields from your trigger step or previous action steps. After the action is executed, these values will be automatically added to the fields.
+5.  Test whether your action step is set up correctly by clicking the **Test action** button. The connector will pull field data from your process and display it in JSON format. Errors, if any, are notified to you right away. Fix them before retesting the action.
+
+After setting up the required triggers and actions, go to the top right corner of the editor to **turn on** the integration to activate it.

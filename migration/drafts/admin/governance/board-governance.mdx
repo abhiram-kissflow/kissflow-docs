@@ -1,0 +1,63 @@
+---
+title: "Board governance"
+description: "DRAFT (unverified) — migrated from /t/h7hvts0/board-governance"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✕ Basic ✓ EnterpriseAs a [Super Admin, or an IAM Admin](/t/35h4ak0/user-roles-and-permissions), account governance feature in Kissflow gives you a good look at all the boards in your account. It helps manage data better by showing you everything about your boards, letting you control and make smart choices about how they're used and improved. This feature helps you manage your boards well to boost overall performance.You can see a list of all your boards in the _All boards_ section. In the _Idle boards_ section, you can find the boards that haven't had any activity for a chosen time period. This way, you can decide what to do with boards you don’t need anymore.
+
+![](/migration-assets/board-governance/1.png)
+
+## Security and permissions
+
+The **Externally connected** section lets you identify the boards exposing sensitive data outside your account through external connectors of the integrations in your account. The sections, **Unrestricted download permissions** and **Unrestricted print permissions,** provide valuable information regarding board attachments and forms that can be accessed and printed by anyone. Reviewing these sections allows you to identify potential instances where sensitive data may be shared outside Kissflow. This enables you to take appropriate measures to protect the confidentiality and security of the data.
+
+![](/migration-assets/board-governance/2.png)
+
+Selecting a board will navigate you to the detailed page of that board. Here, you can view its creator, when it was created, when it was published, and who published it.
+
+## Admins
+
+In the **Admins** section, you can view all board admins and their roles, aiding security and preventing unauthorized access. Identifying privileged individuals or groups allows you to monitor and control unauthorized actions or data breaches, ensuring board integrity and confidentiality.![](/migration-assets/board-governance/3.png)
+
+## Activity
+
+You can assess the productivity of a board by analyzing the activity within it. This includes the number of item creations on the board and any note added to those items for a selected time period. It also gives you information on the number of items updated for that period. This provides valuable insights into the board’s effectiveness and helps you identify areas for improvement to enhance productivity and streamline operations. ![](/migration-assets/board-governance/5.png)
+
+## Integrations
+
+In this section, you can check out the list of integrations connected to a specific board. It shows you the statuses of those integrations and the connectors they use. This way, you can ensure the board is only connected to the integrations they're supposed to and avoid any data exposure risks.
+
+![](/migration-assets/board-governance/6.png)
+
+## AI-identified sensitive data 
+
+This section lets you know the form fields that may potentially contain sensitive data that AI identifies. With this information, you can take measures to prevent unwanted exposure of these sensitive data later on. These sensitive data are identified and classified by AI into three categories:
+
+**1\. Personal data** - Any data that could lead to identifying a specific individual. For example: Name, address, contact details, etc.
+
+**2\. Confidential data** - Any data demanding a high level of security and not intended for public access. This will include proprietary business information, financial data, sign in credentials, or other confidential details that would need protection.
+
+**3\. Health data** - Any data concerning an individual's physical or mental health, medical history, or treatment records.
+
+![](/migration-assets/board-governance/4.png)
+
+## Flows looked up from and looked up to
+
+In the _Flows looked up from_ section, you can view a list of flows from which a board can look up data. Data from those flows are exposed to the specific board.![](/migration-assets/board-governance/7.png)Using the _Flows looked-up_ section, you can view a list of flows that can look up data from a specific board. Data from this board is exposed to the flows that look up this board.![](/migration-assets/board-governance/8.png)
+
+## Download, print, and export logs
+
+In this section, you can watch all the attachment downloads, form prints, and exports of a board and its reports in the last 30 days to see if any sensitive information is being exposed. It's crucial to spot any instances where sensitive data might be shared with people or systems inside and outside Kissflow and take action to prevent it.
+
+![](/migration-assets/board-governance/9.png)
+
+## Audit log
+
+You can learn about the activities performed on a board using the audit log. This log provides a comprehensive record of all actions in the last 30 days, allowing for detailed analysis and a deeper understanding of the board. This helps track and examine various activities on the board for enhanced monitoring and security purposes.
+
+![](/migration-assets/board-governance/10.png)

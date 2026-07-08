@@ -1,0 +1,53 @@
+---
+title: "ServiceNow connector"
+description: "DRAFT (unverified) — migrated from /t/q6h4afn/servicenow-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+![](/migration-assets/servicenow-connector/3.svg)
+
+## What is ServiceNow?
+
+[ServiceNow](https://www.servicenow.com/) is a cloud computing platform that helps companies manage digital workflows for enterprise operations. It specializes in IT services management (ITSM), IT operations management (ITOM), and IT business management (ITBM).
+
+## About Kissflow's ServiceNow integration
+
+Kissflow Integration's ServiceNow connector lets you connect ServiceNow instantly with Kissflow apps and other popular third-party applications. It allows you to share data out of ServiceNow to build powerful workflows securely. It would be best to sign into a valid [ServiceNow developer account](https://developer.servicenow.com/dev.do) and be a Kissflow paid customer to integrate with ServiceNow. You can use the ServiceNow connector to receive data from other flows or apps to perform specific ServiceNow actions and search actions. For the time being, the ServiceNow connector does not support any trigger events.
+
+### Actions in ServiceNow connector
+
+**Action events**
+
+**Description**
+
+Create a record
+
+This action creates a record in your ServiceNow instance table.
+
+Update a record
+
+This action updates a record in your ServiceNow instance table.
+
+Find a record
+
+This action finds a record in your ServiceNow instance table based on a record ID.
+
+### Prerequisite in ServiceNow
+
+Before you proceed with Kissflow Integration, you must sign into your [ServiceNow developer account](https://developer.servicenow.com/dev.do) and create an instance inside the account. After creating the instance, you'll be shown a unique username, password, and domain of the instance. You can change the default username and password if needed. Copy and retain these credentials for further use.
+
+## Configuring ServiceNow connector
+
+1.  In your Kissflow account, click the **Create** button in the left navigation panel and select **Integration** from the list. Enter a unique name and description for your integration and click **[Create](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Once inside your editor, set up a trigger step, for example, a Kissflow Process trigger event, **When an item completes a workflow.**
+3.  After setting up your trigger step above, click the Add button (![](/migration-assets/servicenow-connector/1.png)) next to set up your action step. Search for **ServiceNow** and select an action event from the available options (as mentioned in the above table.) ![](/migration-assets/servicenow-connector/2.png)   
+After choosing your action event, authenticate the connector. Click **+Add an account** and paste the ServiceNow _Username_, _Password_, and _Subdomain_ address copied from your clipboard.After authenticating with your ServiceNow account, add relevant values against the ServiceNow form fields. You can hit **Refresh** fields to view all the updated fields in the selected ServiceNow form. You can also map ServiceNow fields from your trigger step or fields from your previous action steps. These values will be automatically added to item fields after the action is executed.6.  After a successful configuration, test whether your ServiceNow action step is set up correctly by clicking the **T****est** button. The connector will pull field data from your selected ServiceNow account and display it as a JSON output. Similar to the trigger step, errors are notified to you right away. Fix them before retesting the action step.
+
+## Setting up a ServiceNow connector
+
+After creating a custom workflow with your ServiceNow connector's action steps, switch on the toggle button to activate the integration run. Once a trigger event runs, the relevant table data in your ServiceNow instance is updated.
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

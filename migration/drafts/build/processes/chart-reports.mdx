@@ -1,0 +1,189 @@
+---
+title: "Chart reports"
+description: "DRAFT (unverified) — migrated from /t/q6y3tql/chart-reports"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+You can generate your process reports as charts. There are 14 types of charts you can choose from.
+
+-   Auto chart
+-   Area chart
+-   Stacked area chart
+-   Horizontal bar chart
+-   Vertical bar chart
+-   Stacked horizontal bar chart
+-   Stacked vertical bar chart
+-   100% stacked horizontal bar chart
+-   100% stacked vertical bar chart
+-   Line chart
+-   Combo chart
+-   Scatter chart
+-   Pie chart
+-   Doughnut chart
+
+## Creating a chart
+
+1.  To create a chart, click the **Reports** button at the top right. 
+    
+2.  Click **\+ Create report.**
+    
+3.  Provide a name for the chart, select **Chart** as the report type**,** and click **Create**.
+    
+    ![](/migration-assets/chart-reports/25.gif)
+    
+4.  Choose the type of chart you want to create. Select **Auto** when you’re unsure what type of chart to choose, and Kissflow will create the best one for you.
+    
+    ![](/migration-assets/chart-reports/26.png)
+
+## Types of charts
+
+-   **Area charts** function similar to a line chart, but with the areas below the lines filled in. You can use this chart to show how values develop over time.
+    
+-   **Stacked area chart** is an area chart that includes a stack of multiple areas. It can be used instead of a line graph with multiple graphs to compare development or trend over time.  
+      
+    ![](/migration-assets/chart-reports/29.png) ![](/migration-assets/chart-reports/27.gif)  
+      
+    
+-   **Horizontal bar charts** avoid clutter when one data point is longer than the others or if you have more than ten items to compare. You can use bar charts to display negative numbers.  
+      
+    ![](/migration-assets/chart-reports/31.png) ![](/migration-assets/chart-reports/28.gif)  
+      
+    
+-   **Vertical bar charts** are used to show a comparison among different items, or they can show a comparison of items over time.
+    
+-   **Line charts** use lines to represent changes to data over a period of time. The y-axis displays the value and the x-axis displays the variable.
+    
+-   **Combo charts** are a combination of charts like bar and line charts.
+    
+-   **Doughnut charts** are meant to express a part-to-whole relationship, where all pieces together represent 100%.  
+      
+    ![](/migration-assets/chart-reports/32.png) ![](/migration-assets/chart-reports/30.gif)  
+     
+    
+-   **Pie charts** are similar to doughnut charts, but with the middle area filled in.  
+      
+    ![](/migration-assets/chart-reports/34.png) ![](/migration-assets/chart-reports/33.gif)  
+     
+    
+-   **Stacked charts** consists of the total divided into parts (present in legend) for each category. It helps to effectively display and compare the proportion of different data series within each category. You can create **Stacked horizontal bar chart** and **Stacked vertical bar** **chart** based on your preference.  
+      
+    ![](/migration-assets/chart-reports/35.png) ![](/migration-assets/chart-reports/36.gif)
+    
+-   **100% stacked charts** show the percentage of multiple data in stacked columns, where the total of stacked columns always equals 100%. You can create two types of 100% stacked charts: **100% stacked vertical bar chart** and **100% Stacked horizontal bar chart**.  
+      
+    ![](/migration-assets/chart-reports/37.png) ![](/migration-assets/chart-reports/40.gif)
+    
+
+## Configuring a chart
+
+### Choosing fields
+
+To configure the report, start by choosing the fields you want to display, on the right panel. There are two types of fields to choose from.
+
+-   **Custom fields** - These are the fields you created in your process form and are unique to your process.
+    
+-   **System fields** - These are the system-generated fields that are created by default for a process.
+    
+    -   Name
+        
+    -   Created by
+        
+    -   Modified by
+        
+    -   Created at
+        
+    -   Modified at
+        
+    -   Flow name
+        
+    -   DocVersion
+        
+    -   Current step
+        
+    -   Status
+        
+
+![](/migration-assets/chart-reports/38.gif)
+
+You can choose an unlimited number of fields for your report. You will see a sample set of 10 items in a preview on the left.
+
+### Settings  
+
+-   **Dimension** is the main field you want to use to compare data. For graphical charts, it will be the x-axis.
+    
+-   **Measure** is the other field(s) you want to use to compare data. This is the y-axis in graphical charts. You can display multiple measures in the same chart.
+    
+-   **Legend** refers to the area in the chart describing each of the parts of the chart and will be visible only in auto, horizontal, and vertical charts.
+    
+
+### Type of scale
+
+There are two types of scale:
+
+-   **Linear** scales are the default scale type and show the scale in equal increments.
+    
+-   **Log** (Logarithmic) scales show the increment in multiples of the previous one, such as double, or ten times its size.
+    
+
+### Labels
+
+You can choose which labels you want to display on your chart.
+
+-   **X-axis** is horizontal on most charts except for horizontal bar charts, where the X-axis is vertical.
+    
+-   **Y-axis** is vertical on charts except for horizontal bar charts, where the Y-axis is horizontal.
+    
+-   **Data labels** display the information on the line item or bar. Hover over on the chart to view the label.
+    
+-   **Legends** are explanations of the symbols used in the chart. It is located on the top-left of the chart.
+    
+
+### Adding filters
+
+To narrow down specific data in your report, you can add filters. Click the **Advanced filter** button under the **Data filter** section to add a filter. Choose the fields you want to filter and then enter the conditions. 
+
+Click the **Add new filter** button to add more filters and conditions to the same field. The new condition can be either **AND** (all conditions must be met) or **OR** (any one condition must be met).
+
+### [Enabling drilldown in charts](/t/g9y3tyw/pivot-tables-in-processes#enabling-drilldown-in-pivot-reports) 
+
+The [drilldown](/t/y4h9qkr/reports#enabling-drilldown-in-chart-and-pivot-reports) feature enables you to delve deeper into your report data by displaying a tabular view of underlying rows associated with specific data points in [charts](/t/h7h9qzr/chart-reports#enabling-drilldown-in-charts). Drilldown is enabled by default when creating a report. You can toggle drilldown on or off in the report configuration.To enable drilldown,
+
+1.  Navigate to the **Settings** tab.
+    
+2.  Under **Drilldown**, select at least two fields.
+    
+3.  Click **Apply**.
+    
+
+![](/migration-assets/chart-reports/41.gif)
+
+> **Note:** The report’s selected fields are automatically chosen as default drilldown fields. Ensure a minimum of two fields are selected for drilldown.
+
+After configuring your chart, hover over it and click to drill down into the data. Upon clicking the chart, a tabular preview will appear, showing the underlying data. You can search fields, show/hide columns, and [export](/t/q6h9qz5/pivot-reports#exporting-drilldown-data) data at runtime. Click the dropdown on each column header to sort your data in ascending or descending order.
+
+## Applying styles to charts
+
+Under the **Style** tab, you can choose from 10 color variants to apply to your charts.
+
+![](/migration-assets/chart-reports/39.png)
+
+## [Exporting chart reports](/t/h7h9qzr#exporting-chart-reports)
+
+You can export chart reports and download them to your device for sharing, presentations, or offline reference.To export,
+
+1.  Click the **Export** button at the top right.
+    
+2.  Select the required format: PNG or PDF
+    
+3.  Click **Export**.
+    
+
+![](/migration-assets/charts-in-boards/7.png)
+
+The report will be exported in the selected format and downloaded to your device.

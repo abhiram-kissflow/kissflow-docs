@@ -1,0 +1,52 @@
+---
+title: "Configuring statuses"
+description: "DRAFT (unverified) — migrated from /t/g9ykvzn/configuring-statuses"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Statuses indicate the progress of an item in a board. To configure or change statuses for a board, click the **Manage** button > **Edit workflow.** On the **Workflow settings** tab, you can view all the default statuses in use. Statuses are grouped into categories that correspond to typical phases in a workflow.There are five default categories for statuses. You can create custom statuses under each of these categories except Reopened.
+
+**Category**
+
+**Description**
+
+**Not started**
+
+The statuses under this category are assigned to all new items that have not yet progressed. 
+
+> **Note:**When you create a new item, it defaults to the first status under this category.
+
+**In progress**
+
+The statuses under this category are typically assigned to all items that are in progress.
+
+**Done**
+
+This is an optional category. You can use this category for use cases where you need to temporarily park items that are resolved but need to be validated before closure.
+
+**Closed**
+
+The statuses under this category are assigned to items that don’t need any further action.
+
+**Reopened**
+
+This is an optional category. This is used to categorize items that are reopened after closure. You cannot create new custom statuses under this category.
+
+### [Creating a custom status](/t/60h9ql7/configuring-your-board-settings#creating-a-custom-status)
+
+In addition to the default statuses under a category, you can create custom statuses according to your workflow. Custom statuses allow for detailed tracking of items.To create a new custom status, click **+** **Add status** button under a category, and enter a name for the status. You can create multiple custom statuses and reorder them according to your workflow. You can also customize statuses further by assigning different colors, shapes and emojis to it. After making the changes, click **Save**.  
+ ![](/migration-assets/configuring-statuses/1.gif)To delete a custom status you no longer need, click the **Delete** button next to a status. Deleting a status also deletes all the items under it. However, after clicking **Delete**, you will be prompted with a confirmation dialog asking whether you want to delete all the items associated with the status. If you wish to keep the items, you will have to move those items to other statuses before deleting this status.
+
+### [Done category](/t/60h9ql7/configuring-your-board-settings#done-category)
+
+This is an optional category that you can use in your workflow when items need to be reviewed before closure. For example, in help desks, agents first resolve tickets and move them to Done. They are later moved to Closed when customers verify the resolved tickets. If you don’t need this category, you can always turn it off on the Optional tab. When you turn off this category, you will be able to move items that are in progress to closed directly. However, if you have already used a status from this category for items, you must reassign them to a different status. The same conditions apply to features such as filters and integrations. Statuses from this category will no longer be of use in any views or integrations you have set up.
+
+### [Reopened category](/t/60h9ql7/configuring-your-board-settings#reopened-category)
+
+This is also an optional category that you can use when you need to revisit closed items. However, if you have already used a status from this category for items, you must reassign them to a different status. The same conditions apply to features such as views and integrations. Statuses from this category will no longer be of use in any views or integrations you have set up.

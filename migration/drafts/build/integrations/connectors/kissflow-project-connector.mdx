@@ -1,0 +1,101 @@
+---
+title: "Kissflow Project connector"
+description: "DRAFT (unverified) — migrated from /t/g9h4al9/kissflow-project-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## What is Kissflow project?
+
+With Kissflow project, you can plan your team’s work, know who’s working on what, and deliver great results without doing a lot of tracking. It's the ultimate project management tool for functional managers. You can list your items, organize items onto a kanban, list, or matrix visualization and create custom views to stay on top of your project priorities.
+
+### Triggers in Kissflow Project
+
+##### Trigger events
+
+##### Description
+
+When an item is updated
+
+This trigger activates when any item is updated in the project.
+
+When an item is moved within the project
+
+This trigger activates when any item is moved to a different step/state in the project.
+
+When an item is created
+
+This trigger activates as soon as someone clicks the **New item** button.
+
+When an item is completed
+
+This trigger activates when any item reaches the **Completed** step in the project.
+
+When an item is started
+
+This trigger activates when any item advances from the **Not started** step in the project.
+
+When an item is reassigned
+
+This trigger activates when any item is reassigned to another assignee at a particular step in the project.
+
+When an item is deleted
+
+This trigger activates when any item is deleted in the project.
+
+When an item surpasses its due date
+
+This trigger activates when any item surpasses its due date in the project.
+
+### Actions in Kissflow Project
+
+##### Action events
+
+##### Description
+
+Create an item
+
+This action adds a new item in the step of your project.
+
+Move an item
+
+This action moves an item to a different step/state in your project.
+
+Assign an item to a member
+
+This action adds an assignee to an item in your project.
+
+Update an item
+
+This action updates an item in the project.
+
+## Connecting to your Kissflow Project
+
+Integration members with permission to access the project can use Kissflow Project connector to send data from your project to other internal flows or third-party apps. Or, receive data from other flows or apps to perform specific actions in your project.
+
+For example, you have a [board](/t/q6h9ql3/board-overview) for managing a help desk and you’d like certain change requests to be tracked separately in a project. For this to happen, the case system and the project should talk to each other. Connectors make this conversation happen. Using predefined connectors, you can set up triggers and actions so that when a new change request is created in your help desk, a corresponding item gets added in your project system.
+
+Similarly, you can also design workflows where project serves as the primary trigger. Here, a completed item in your project can initiate another item in the approval process.
+
+### Kissflow Project connector as a trigger step
+
+1.  The first step is to choose a trigger step in any integration. Select the Kissflow Project connector or use the search box to find a project trigger directly. After selecting the connector, choose a trigger from the available options.![](/migration-assets/kissflow-project-connector/1.gif) 
+[Create a new connection](/t/g9h4alw/integrations-overview) or use an existing connection in your account. You can also connect to another Kissflow account or use your own Kissflow account. After authenticating the connection, click **Next**.3.  Configure your account by selecting the project that you want to work with. Once you select the project, click **Next**.
+4.  Finally, test whether your trigger step is set up correctly by clicking the **test** button. The connector will pull field data from your selected project and display it as a JSON output. If there's an error with the set up, you'll receive a message regarding the same. In this case, you'll need to retest the trigger after making the necessary changes.
+
+### Kissflow Project connector as an action step
+
+1.  Click the Kissflow Project connector and select an action step from the available options.
+Similar to the trigger step above, set up a connection with your Kissflow Project account.3.  After choosing a project, add relevant values against the project form fields. You can hit Refresh fields to view all the updated fields in the selected project form. You can also map form fields from your trigger step or fields from your previous action steps. These values will be automatically added to item fields after the action is executed.
+4.  Finally, test whether your action step is set up correctly by clicking the **test** button. The connector will pull field data from your selected project and display it as a JSON output. Similar to trigger step, errors are notified to you right away. Fix them before retesting the action step.
+
+### Setting up a project workflow
+
+After creating a custom workflow with your Kissflow Project triggers and/or action steps, switch **ON** the toggle button to activate the integration run.
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

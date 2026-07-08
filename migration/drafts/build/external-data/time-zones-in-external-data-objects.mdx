@@ -1,0 +1,23 @@
+---
+title: "Time zones in external data objects"
+description: "DRAFT (unverified) — migrated from /t/60yys4f/time-zones-in-external-data-objects"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+During the column configuration process, you can select your preferred time zone from the provided drop-down list. By default, the timezone is set to UTC.
+
+![](/migration-assets/time-zones-in-external-data-objects/1.gif)
+
+> **Note:** Databases and ERPs can vary in their time zone concepts. 
+
+All the _date, time_ entries are stored as strings without explicit timezone indications in your database. If your Kissflow account is set to IST, entries within Kissflow are in IST. Choosing IST from the drop-down menu ensures that these entries are directly reflected as IST in your database table.
+
+Conversely, if your Kissflow account operates in IST but you select UTC from the time zone options, Kissflow will convert the entries from IST to UTC before transmitting them to your database table, ensuring synchronization across different time zones.
+
+Here's an example for the conversion process. If an entry is timestamped as 23/11/2023, 13:19 in your Kissflow system, and you've chosen UTC from the time zone options, this recorded IST time will be converted to UTC— 23/11/2023, 7:49 before being transmitted to your database.

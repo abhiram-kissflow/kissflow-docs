@@ -1,0 +1,21 @@
+---
+title: "Environment variables"
+description: "DRAFT (unverified) — migrated from /t/35ygdmp/environment-variables"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+When a connector runs, it can use environment variables that function similarly to those defined on a command line. These variables are useful for storing sensitive information, such as an OAuth client ID and secret, that shouldn't be saved to source control. Additionally, developers can use environment variables to easily switch between a staging and production environment during connector development.
+
+Environment variables are defined separately for each version. When you create a new version, the environment variables from the previous version are not automatically copied over and must be added manually. Please note that changes made to the environment variable of one version will not affect any other versions.
+
+## Defining environment variables 
+
+To add an environment variable, go to the respective connector's homepage and click **Environment variables**. Define the variables as key-value pairs enclosed in curly brackets. Finally, click **Save** to save the environment variables.
+
+![](/migration-assets/environment-variables/1.png)

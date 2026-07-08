@@ -1,0 +1,56 @@
+---
+title: "Group management"
+description: "DRAFT (unverified) — migrated from /t/y4h4akj/group-management"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Groups can be created and managed by [Super Admins and User Admins](/t/35h4ak036h4gg/user-roles-permissions) to simplify administration and improve access management. You can use these groups to assign workflow steps, share flows, and more. IAM Admins can assign one or more roles to a group, which will be shared with other members of the group.
+
+## Creating a group
+
+Go to **Account administration** > **Group management** and click **New group** to build a new user group. Give a name for the group and select the users in the pop-up box that appears. You can also add groups you’ve already created as part of your current group and add any roles to the group if necessary. When you are finished, click **Create** to create the group.  
+ 
+
+![](/migration-assets/group-management/1.png)
+
+## Editing and deleting a group
+
+Click the **Edit** button (![](/migration-assets/group-management/2.png)) to modify the details of an existing group. Only the User Admin has permission to add or remove new members to the group. Click the **Delete** button (![](/migration-assets/group-management/3.png)) to delete the group permanently.  
+  
+
+![](/migration-assets/group-management/4.png)
+
+> **Note:**
+> 
+> [IAM admins](/t/35h4ak0/user-roles-permissions#iam-admin) can also delete a group apart from the Super Admins and User Admins.
+
+## Identifying groups the user is a part of
+
+You can view the set of groups a user is a part of by scrolling to the **Groups** field in the **User management** section. As mentioned before, a group can inherit another group.
+
+## The Everyone group
+
+Every Kissflow account comes with a system-generated group called **Everyone**. All current users are automatically added as members. When you add new users, they are automatically added to the **Everyone** group. Users cannot be removed from this group, and this group cannot be edited or deleted. To share a flow with the entire organization, share it with the Everyone group. Roles cannot be shared with the **Everyone** group.
+
+## Adding roles to a group
+
+If you are an IAM Admin, you have the ability to assign roles to a group. The roles you assign will be automatically shared with all the users in that group. Additionally, any subgroups that are part of the main group will also inherit these roles, giving their users access to them as well. To add roles to a group,
+
+1.  Select the group to which you want to add roles.
+    
+2.  Choose the roles that you would like to assign to that group.
+    
+3.  Click **Done** once you have chosen the roles. The user will have access to direct and inherited roles, if any, from any of the subgroups as long as they belong to this group. 
+    
+
+## Managing roles in a group
+
+As an [Identity and Access Management](/t/35h4ak036h4gg/user-roles-permissions) (IAM) administrator, you have the ability to remove roles that have been assigned to a particular group. It's important to note that removing roles will affect all members of the group, including those who belong to any subgroups within the group. To remove roles, click Edit button (![](/migration-assets/group-management/2.png)), remove the respective role(s), and click **Modify** to save the changes. 
+
+> **Note:** If a user is assigned roles in both the [User Management](/t/y4h4aks/adding-and-managing-users) table and a user group, the role from the User Management table takes precedence and will be applied to the user.

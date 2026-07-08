@@ -1,0 +1,95 @@
+---
+title: "SFTP connector"
+description: "DRAFT (unverified) — migrated from /t/h7ytzbz/sftp-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## What is SFTP?
+
+SFTP (Secure File Transfer Protocol) is a safe way to send files over the internet. It uses SSH encryption to protect your data during transfer and provides robust and customizable tools for managing file transfers, ensuring data integrity and security during transmission. 
+
+### About Kissflow's SFTP connector
+
+The SFTP connector of Kissflow facilitates the seamless connection and synchronization of an SFTP server with Kissflow apps. To share files using SFTP, users must have a valid SFTP server and be a paid Kissflow customer.  
+  
+Imagine managing operations at a banking institution. With Kissflow's SFTP integration, whenever an item completes its workflow in a Kissflow Process, a corresponding file is automatically updated or uploaded to a secure SFTP server. This seamless integration leverages the Kissflow Process trigger and configures the SFTP connector as the corresponding action.  
+  
+The SFTP connector currently does not support any trigger events. 
+
+## Actions in SFTP connector
+
+**Action** 
+
+**Description**
+
+List contents of a directory
+
+This action lists the contents of a specified directory in the SFTP server. 
+
+Create a directory
+
+This action creates a new directory in the SFTP server. 
+
+Delete a file 
+
+This action deletes a file from the SFTP server.
+
+Fetch a file 
+
+This action fetches a file from the SFTP server.
+
+Update or upload a file
+
+This action updates or uploads a file to the SFTP server.
+
+## Configuring the SFTP connector
+
+1.  In your Kissflow account, click the **Create** button in the left navigation panel and select **Integration** from the list. Enter a unique name and description for your integration and click **[Create](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Once inside your editor, set up a trigger step, for example, a Kissflow Process trigger event, **When an item completes its workflow**.
+    
+3.  After setting up your trigger step above, click the **Add** button () next to set up your action step. Search for **SFTP connector** and select an action event from the available options.
+    
+4.  After choosing your action event, authenticate the SFTP connector:
+    
+
+-   Click **+Add an account**
+    
+-   Enter the full address of the SFTP server you wish to connect to (e.g., sftp.example.com).
+    
+-   Enter the port number for the SFTP connection.
+    
+-   Enter the username required to authenticate with the SFTP server.
+    
+-   Choose **ONE** of the following authentication methods:  
+    a. Password authentication: Enter the password associated with the username. **OR**  
+    b. RSA key authentication: Paste your RSA private key for SSH authentication. Ensure it is in the below format.  
+      
+    \<paste your RSA private key content here>
+    
+
+> **Note:**
+> 
+> You must choose either password or RSA key authentication, but not both.
+
+![](/migration-assets/sftp-connector/1.png)
+
+ 5. After entering the required information, click **Connect** to verify and establish the SFTP connection. Upon successful authentication, you'll be redirected back to Kissflow to continue configuring your action.
+
+6\. After authenticating with your SFTP account, add relevant values against the SFTP form fields. You can hit **Refresh fields** to view all the updated fields in the selected SFTP form. You can also map SFTP fields from your trigger step or fields from your previous action steps. These values will be automatically added to item fields after the action is executed.
+
+![](/migration-assets/sftp-connector/2.png)
+
+7\. After a successful configuration, test whether your SFTP action step is set up correctly by clicking the **Test** button. The connector will upload the files to the SFTP server and display it as a JSON output. Similar to the trigger step, errors are notified to you right away. Fix them before retesting the action step.
+
+### Setting up a SFTP connector
+
+After creating a custom workflow with your SFTP connector's action steps, switch **ON** the toggle button to activate the integration run. Once a trigger event occurs, the corresponding SFTP action is executed.
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

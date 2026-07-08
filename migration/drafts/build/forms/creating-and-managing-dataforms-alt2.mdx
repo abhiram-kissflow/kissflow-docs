@@ -1,0 +1,102 @@
+---
+title: "Creating and managing dataforms"
+description: "DRAFT (unverified) — migrated from /t/q6h9qk4/creating-and-managing-dataforms"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+![](/migration-assets/creating-and-managing-dataforms-2/1.svg)
+
+To create a dataform inside your Application builder,
+
+1.  Go to **Forms** > **Dataforms > Create a dataform****.**
+2.  Enter the dataform name. You can also optionally add a description and category to help you organize and find your dataform later.
+3.  Click **Create**.![](/migration-assets/creating-and-managing-dataforms-2/2.png)
+
+## Building a dataform
+
+After creating a dataform, you'll land on the **dataform editor** screen. The basic form, views, reports, roles, and settings are handled on the left side of the editor. The form appears on the center and the **basic** and **advanced** fields are provided on the right side of your editor. You can either click within the form or drag and drop the fields onto the form directly. Once the form is set up, click **Save** to make it available inside the application.
+
+![](/migration-assets/creating-and-managing-dataforms-2/4.png)
+
+## Renaming, duplicating, and archiving a dataform
+
+To rename your dataform, click the **More options** button (![](/migration-assets/creating-and-managing-dataforms/7.png)) on your dataform. Click **Rename.** Change your form's name and description. Follow the similar steps to Duplicate and Archive a dataform. When you duplicate a dataform, all the fields associated with the original dataform are also copied.
+
+![](/migration-assets/creating-and-managing-dataforms-2/3.png)
+
+## Finding a dataform
+
+The dataforms gallery contains all the dataforms you create. Use the search bar to find a specific dataform by name quickly.
+
+![](/migration-assets/creating-and-managing-dataforms-2/5.png)
+
+## FAQs
+
+**1\. What are the various soft limits in Kissflow forms?**
+
+**Ans)** To improve performance and ensure efficient use of resources, Kissflow has put up the following restrictions on each dataform:
+
+-   A maximum of 1000 fields per dataform.
+    
+-   A default soft limit of 10 child tables in every dataform.
+    
+-   A default soft limit of 100 columns per child table.
+    
+-   An upper limit of 5000 rows per child table.
+    
+-   An upper limit of 30 events per dataform (button fields not included).
+    
+
+**2\. Can I change field data types with over 5000 items in a dataform?**
+
+**Ans)** You cannot change field data types in a dataform when there are more than 5000 records. This restriction is in place to prevent potential versioning issues when modifying data types for large dataforms. Changing data types for many values can lead to inconsistencies and performance problems.
+
+**3\. Are there any field types in Kissflow Dataforms that do not have soft limits?**
+
+**Ans)** Yes, certain field types in Kissflow forms are not subject to soft limits:
+
+-   Rich text fields.
+    
+-   Grid fields.
+    
+-   Button fields (these have a separate soft limit of 100 buttons per dataform, in addition to the default form limit).
+    
+
+Rich text and Grid fields are exempt from restrictions as they don't contain metadata.
+
+**4\. What happens if I duplicate a section with increased limits?**
+
+**Ans)** If a dataform with increased limits is duplicated, the new dataform will inherit the same incremented limits.
+
+**5\. Will I receive any warnings when approaching these limits?**
+
+**Ans)** Yes, warnings will appear when you are close to reaching the limits. For example, when you have 990 fields and 90 columns, you will receive warnings indicating that you are approaching the limit and suggesting that you request an extension if needed.
+
+**6\. How many records are displayed when using a dataform as a data source for checkbox and radio button fields?**
+
+**Ans)** The first 250 records alone will be displayed based on the sort order of the dataform.
+
+**7\. Which field types support dependent field behavior?**  
+**Ans)** Dependent field behavior capability is available for Dropdown and Radio button fields.
+
+**8\. Do Multi-select and Checkbox fields support dependency dropdowns?**  
+Ans) No, dependency dropdown capability does not apply to Multi-select dropdown and Checkbox fields.
+
+**9\. What are the possible data sources for field options?**  
+Ans) The options in the Dropdown, Radio, Checkbox, and Multi-select fields can be sourced from a list or a dataform.
+
+**10\. Is there a limit to the number of options when using a list as the source?**  
+Ans) Yes, by default, lists can have a maximum of 250 values.
+
+**11\. How many options are displayed when using a dataform as the source in a form field or a child table?**  
+Ans) This depends on the field type:
+
+-   **For Dropdown fields and Multi-select dropdown**: The entire set of values from the dataform is displayed.
+    
+-   **For Checkboxes and Radio fields:** Only the first 250 values from the dataform will be displayed.
+    
+
+**12\. Are the dataform values sorted or filtered when displayed?**  
+Ans) Yes, the 250 values displayed for Checkboxes and Radio fields are based on any sort and filter conditions applied to the dataform.

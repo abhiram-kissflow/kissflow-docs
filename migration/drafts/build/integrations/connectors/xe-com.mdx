@@ -1,0 +1,51 @@
+---
+title: "XE.com connector"
+description: "DRAFT (unverified) — migrated from /t/83h4aff/xe-com"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## What is [XE.com](http://XE.com)?
+
+[XE.com](http://XE.com) is an online foreign exchange application that offers exchange rate information, international money transfers, and other currency-related services via its website, mobile apps, and other online channels.
+
+## About Kissflow's [XE.com](http://XE.com) integration
+
+Kissflow's [XE.com](http://XE.com) connector lets you use XE.com's instant currency exchange rate converter services with popular Kissflow services and other cloud applications. To integrate with [XE.com](http://XE.com), you must have a valid [XE.com](http://XE.com) account account as well as be a paid Kissflow customer.
+
+Consider you have a Kissflow process workflow for managing your purchase order system and the vendor catalog prices are in EUR. Since your vendor is in the USA, you’d like to convert the currency value from EUR to USD before raising a purchase order. For this to happen, the currency conversion should happen based on real-time exchange rates. The [XE.com](http://XE.com) connector makes this conversion happen. You can set up triggers and actions so that when a new item is submitted in your purchase order, it pulls the actual price of the products from the vendor catalog and converts the product's value to a currency of your choice.
+
+### Action in [XE.com](http://XE.com)
+
+**Actions**
+
+**Description**
+
+Convert currency
+
+This action checks the real-time exchange rates and converts one currency value to another
+
+### Configuring [XE.com](http://XE.com) connector
+
+1.  In your Kissflow account, click the **Create** button in the left navigation panel and select **Integration** from the list. Enter a unique name and description for your integration and click **[Create](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Set up trigger and action steps, for example, you can use it to build a simple product procurement system connecting purchase request, vendor catalog, and purchase order.
+    
+3.  After setting up your trigger and action step(s) above, click the Add button (![](/migration-assets/xe-com/1.png)) next to set up your [XE.com](http://XE.com) action step. Search for **[XE.com](http://XE.com)** and select the Convert currency action event. ![](/migration-assets/xe-com/2.png) 
+4.  After choosing your action event, next step is to authenticate the connector. Click **+Add an account** and sign in to your [XE.com](http://XE.com) account. After signing in, copy your unique **Account API ID** and **Account API key** and paste the same in your connector's authentication popup fields. ![](/migration-assets/xe-com/3.png) 
+
+> **Note**:If you don't have an account yet, go to the [XE.com website](https://www.xe.com/), click **Business & API** > **Xe Currency Data API** to sign in to your account.
+
+1.  After authenticating with your [XE.com](http://XE.com) account credentials, add the relevant values against the [XE.com](http://XE.com) form fields, hit **Refresh fields** to view all the updated fields in the selected [XE.com](http://XE.com) form. You can also map [XE.com](http://XE.com) fields with your trigger step or previous action's fields. These values will be automatically added to the item fields after the action is executed.
+2.  After a successful configuration, test whether your [XE.com](http://XE.com) action step is set up correctly by clicking the **T****est** button. The connector will pull field data from your selected [XE.com](http://XE.com) account and display it as a JSON output. Similar to the trigger step, errors are notified to you right away. Fix them before retesting the action step.
+
+### Setting up a [XE.com](http://XE.com) connector
+
+After creating a custom workflow with your [XE.com](http://XE.com) connector's action step, switch on the toggle button to activate the integration run. Once a trigger event occurs, the [XE.com](http://XE.com) connector will start converting the currency value based on real time exchange rates.
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

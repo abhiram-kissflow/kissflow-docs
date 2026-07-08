@@ -1,0 +1,117 @@
+---
+title: "Creating and using board views"
+description: "DRAFT (unverified) — migrated from /t/p8h9ql8/creating-and-using-board-views"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## Overview
+
+Board views ensure alignment within your team by allowing you to focus on specific sets of data and share them effectively with your team members. 
+
+Let’s say you have a Product release board where one team is focused on feature development while another handles feature testing. With board views, each team can create a filtered view that displays only the relevant items. 
+
+You can create and save board views in [kanban](/t/60h9qlm/using-board-layouts#kanban), [list](/t/60h9qlm/using-board-layouts#list), [matrix](/t/60h9qlm/using-board-layouts#matrix), and [timeline](/t/60h9qlm/using-board-layouts#timeline) layouts, making it easier to work collaboratively with better context.
+
+Anyone in a board can create new private views based on the data they can access. Only admins can share views with other board members, as well as users and groups not part of the board but within the account.
+
+> **Note:**
+> 
+> Board views cannot be created or customized on PWA.
+
+## Creating views
+
+To create a new view,
+
+-   Click the **Create a view** button ( ![](/migration-assets/creating-and-using-board-views/1.png) ) next to the **Views** menu.![](/migration-assets/creating-and-using-board-views/2.png) 
+-   Provide a view name in the **View configuration** panel on the right. 
+-   Choose the desired layout for your view under the **LAYOUT** section.  
+     ![](/migration-assets/creating-and-using-board-views/3.png)   
+     
+-   Based on the layout you’ve chosen, you can arrange the items into columns and groups.
+    -   For **kanban**, group your items based on the assignee, status, priority, or custom fields.
+    -   For **list**, group your items by the default list, assignee, status, or custom fields.
+    -   For **matrix**, arrange your items in columns and rows based on the assignee, status, priority, and custom fields.
+-   Sort based on fields.
+-   Select the fields you want to display on the items under the **LAYOUT FIELDS** section. Certain system fields cannot be removed as they are required to remain visible.  
+     ![](/migration-assets/creating-and-using-board-views/9.gif) 
+-   Add simple and advanced filter conditions under the **FILTER** section to track specific items on your unique views. 
+
+> **Note:**
+> 
+> You cannot access the items while configuring the view.
+
+Click **Create view** after you’re done with the configuration. If you're editing an existing view, you can also save it as a new view. This allows you to quickly replicate an existing view with modifications.
+
+![](/migration-assets/creating-and-using-board-views/4.png)
+
+## Setting field permissions
+
+As a board admin, you can control how users interact with various fields of the items in a particular view by setting permissions for fields, tables, and sections in your form. You can set the below permissions:  
+ 
+
+**Editable** - The field in the selected view can be altered.
+
+**Read-only** - The field can only be viewed and not modified in the selected view.
+
+**Hidden** -  The field will be hidden and cannot be viewed or edited.
+
+![](/migration-assets/creating-and-using-board-views/5.png)
+
+## Sharing views
+
+As a board admin, you can create and share a new view or share an existing one. You can share it with individual board users, as well as account users and groups not part of the board. You can make them viewers or members for the view. A view member can access and edit all the items in the view, while a viewer can only view the items. 
+
+To share a new view,
+
+1.  Click the **Add members** button ( ![](/migration-assets/creating-and-using-board-views/6.png) ) under the **Share** section in the **View configuration** panel.
+    
+2.  Type the name or email address of the user or group in the text area, and click **Add**.
+    
+    ![](/migration-assets/creating-and-using-board-views/10.gif)
+
+To share an existing view,
+
+1.  Click the **Manage** button at the top right corner > **Share**.
+    
+2.  Select a view you want to share from the **Board views** section on the left.
+    
+3.  Click **\+ Add members**.
+    
+4.  Type the name or email address of the user or group in the text area present under **Select users and groups**.
+    
+5.  Select a relevant role for them from the role dropdown and click **Add**.
+    
+    ![](/migration-assets/creating-and-using-board-views/8.gif)
+
+By default, board admins are automatically assigned as admins for all views created by any admin. Users without admin privileges cannot share the views created by themselves.
+
+When a view is shared, it’s automatically added under the **Views** menu. Click a specific view tab to access that view. You can also pin views as tabs in your board.
+
+## Customizing views
+
+To customize a board view, open the **Views** menu at the top of the board. As a board admin, you can 
+
+-   Edit views
+    
+-   Rename views
+    
+-   Share views
+    
+-   Duplicate views
+    
+-   Delete views
+    
+
+If you're not a board admin, you can still edit, rename, duplicate, and delete views, but cannot share views.
+
+![](/migration-assets/creating-and-using-board-views/7.png)
+
+## Access privileges for users outside a board
+
+Users and groups who are part of the account but not part of the board can still be added to a view as members or viewers. A view member can access and edit all the items in the view, while a viewer can only view the items. Items outside the view will remain inaccessible to them since they are not part of the board. This gives access to only the right people to the relevant data, without exposing the rest of your board.

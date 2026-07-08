@@ -1,0 +1,49 @@
+---
+title: "Loop action in control connector"
+description: "DRAFT (unverified) — migrated from /t/p8h4al4/adding-conditions-and-iterations"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## Control connector
+
+The control connector supports two different actions: **[Conditional paths](/t/60ytd1r)** and **Loop**.
+
+![](/migration-assets/adding-conditions-and-iterations/1.png)
+
+## Actions for control connector
+
+**Action**
+
+**Description**
+
+Loop
+
+Repeats a set of actions for a specified number of times or until a condition is met.
+
+Iterations can be used to perform a unique action for every row in a process. For instance, you may want to update a dataset record based on inputs added to a process form. 
+
+Start by selecting the table in your process form. Then, select the action you want to take for each row.
+
+![](/migration-assets/adding-conditions-and-iterations/2.png)
+
+Iteration action only works with the first 100 records of data. It ignores data after the 100th record.
+
+> **Tip:**
+> 
+> You can use the **Iteration** step to fill in multiple row entries from a table in your form into a spreadsheet.
+> 
+> This function will loop through and execute your chosen action for every row in the source table. This guarantees that each item gets its separate entry in your target spreadsheet, crucial for preventing data loss and maintaining an accurate, complete log.
+> 
+> Refer to this [video](https://www.loom.com/share/62fe63e566f241aca7bf04f1458182c6?sid=04e0444a-b0bd-4dda-85b9-c31b71b64d35) for more details. 
+
+### Using the control connector
+
+After you've finished configuring the integration, turn on the toggle button in the upper-right corner of the editor to activate it. When the trigger is initiated, the subsequent actions are carried out in the order you specified.
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

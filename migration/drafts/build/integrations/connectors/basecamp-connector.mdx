@@ -1,0 +1,55 @@
+---
+title: "Basecamp connector"
+description: "DRAFT (unverified) — migrated from /t/m1h4al7/basecamp-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+## What is Basecamp?
+
+[Basecamp](https://basecamp.com/) is an online collaboration software that allows individuals to manage and communicate with one another's work. It keeps track of all the tasks, deadlines, files, discussions, and announcements at work. Basecamp connector in Kissflow helps you find projects in your Basecamp account.
+
+## Connecting to Basecamp
+
+The Basecamp connector of Kissflow Integration enables you to connect and synchronize your Basecamp projects with popular third-party apps and Kissflow apps. You must have a valid Basecamp account and be a paid Kissflow customer to integrate with Basecamp.
+
+Use the Basecamp connector to receive data from other flows or apps to perform specific actions. For now, the connector for Basecamp does not support any trigger events.
+
+For example, you can find details about all or a specific Basecamp project using their name or unique ID.
+
+### Actions in Basecamp
+
+##### **Action events**
+
+##### **Description**
+
+Find all projects
+
+Obtain a list of all the projects in your Basecamp account. You can decide to include or exclude any archived projects.
+
+Find a project
+
+Obtain information about a specific project in your Basecamp account by name.
+
+### Basecamp connector as an action step
+
+1.  In your Kissflow account, click the **Create** button in the left navigation panel and select **Integration** from the list. Enter a unique name and description for your integration and click **[Create](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Set up trigger step; for example, you can use it to connect with your Kissflow Process account.
+3.  After setting up your trigger step above, click the **Add** button (![](/migration-assets/basecamp-connector/1.png) ) next to set up your Basecamp action step. Search for **Basecamp** and select an available action event. ![](/migration-assets/basecamp-connector/2.png) 
+4.  After choosing your action event, the next step is to authenticate your connector. Click **+Add an account**. You'll be prompted to enter your unique **Basecamp account ID**.
+
+> **Note:**Sign in to your Basecamp account and look for the unique account ID appended after the Basecamp domain in the address bar. For example, [https://3.basecamp.com/](https://3.basecamp.com/)`5340051`/account
+
+![](/migration-assets/basecamp-connector/3.png) 5. After authenticating with your Basecamp account credentials, add the relevant values against the Basecamp form fields. Hit **Refresh fields** to view all the updated fields in the selected Basecamp form. You can also map Basecamp fields with your trigger step or previous action fields. After the action is executed, the field values will be automatically added to the task fields. 6\. After a successful configuration, test whether your Basecamp action step is set up correctly by clicking the **T****est** button. The connector will pull field data from your selected Basecamp account and display it as a JSON output. Similar to the trigger step, errors are notified to you right away. Fix them before retesting the action step.
+
+### Setting up a Basecamp workflow
+
+After creating a custom workflow with your Basecamp action step, switch ON the toggle button to activate the integration run. When the integration is active, it will initiate an appropriate action in Basecamp based on the trigger event set up by you.
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

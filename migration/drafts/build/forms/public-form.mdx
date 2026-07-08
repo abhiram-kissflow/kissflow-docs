@@ -1,0 +1,97 @@
+---
+title: "Public form"
+description: "DRAFT (unverified) — migrated from /t/q6yzjas/public-form"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+Enabling a form to be a public form means you can let users outside your Kissflow account access that particular process or dataform in the application by sharing the public form URL with them.
+
+Let us consider that you run a package delivery services company and that you would like to collect feedback from your customers on the delivery service provided. You can generate a dataform, enable it as a public form and then share the URL with your customers to collect their valuable feedback.
+
+## Enabling public form
+
+1.  Choose the process or dataform for which you want to enable the public form.
+2.  In the dataform, go to **Settings**, click **Public form settings**.
+3.  Turn on the **Public form URL** to enable it.
+4.  The public form URL is then generated along with an [embed code](/t/q6yzjas/public-form#embedding-iframe-code).
+
+![](/migration-assets/public-form/1.png)
+
+## Customization options
+
+You can customize the following aspects of a public dataform:
+
+### Form appearance
+
+-   **Form title**: Set a custom title that appears at the top of the public form.
+    
+-   **Background color**: Choose a background color to match your brand’s look and feel.
+    
+-   **Account logo**: Display your account logo on the form for added branding.
+    
+
+![](/migration-assets/public-form/7.gif)
+
+### Post-submission actions
+
+-   **Confirmation message**: Show a thank-you message or any custom text after a user submits the form. You can optionally enable a redirection button by turning on the **Button** toggle. Specify a label for the button (For example, Go to Homepage) and provide the URL where users should be redirected when they click it.
+    
+    ![](/migration-assets/public-form/5.gif)
+-   **Redirection URL**: Automatically redirect the user to a specific webpage after submission.
+    
+    ![](/migration-assets/public-form/3.png)
+
+### Access messages
+
+-   **Form disabled message**: Set a custom message that appears when the form is turned off.
+    
+-   **Access denied message**: Customize the message shown when the form is inaccessible due to permission issues.  
+    You can optionally enable a redirection button by turning on the **Button** toggle. Specify a label for the button (for example, Go to Homepage) and provide the URL where users should be redirected when they click it.
+    
+
+![](/migration-assets/public-form/2.png)
+
+## Disabling public form
+
+1.  Navigate to the process or dataform for which you would like to disable the public form.
+2.  Under **Settings,** click **Public form settings**.
+3.  Turn off the **Public form URL** to disable it. Once the public form is disabled, external users will not be able to initiate new items. However, the items that are in progress will be completed.
+
+The items initiated via the public form will appear as '_Created by Guest_' in the process reports.
+
+## Using the public form URL
+
+In Kissflow Apps, a public form should be enabled in all three environments of the application i.e. the development, test, and production environment. 
+
+In each environment, the URL generated is different from the other environment. The sub-domain name varies based on the environment but the unique public form ID remains the same for all environments.
+
+### Example
+
+Let us consider the following to be the public form URLs:
+
+-   Development environment- https://**[dev-work.workplatform.com](http://dev-work.workplatform.com)**/public/form/Pf29djiem20-fndo-3diwk
+-   Test environment- https://**[test-work.workplatform.com](http://test-work.workplatform.com)**/public/form/Pf29djiem20-fndo-3diwk
+-   Production environment- https://**[prod-work.workplatform.com](http://prod-work.workplatform.com)**/public/form/Pf29djiem20-fndo-3diwk
+
+![](/migration-assets/public-form/4.png)
+
+Once enabled in all the environments, the URL of the production environment can be used for external sharing. To find this URL, go to **Manage > Settings > Public form**.
+
+## Embedding Iframe code
+
+&lt;Iframe> code is a code snippet that can be added to any web page to let someone access a public form from elsewhere.
+
+1.  Click the **copy** icon(![](/migration-assets/public-form/6.png)) to copy the &lt;Iframe> code.
+2.  Paste the code snippet to your website or any external platform where you would like to host the public form.
+
+This code snippet is automatically generated and available when you enable the **Public form URL** option.
+
+If the public form is disabled intentionally or if there is some other issue in accessing the public form, users will not be able to access the public form through the sites where this code snippet is embedded.
+
+> **Note:** CSV import is not supported on public forms on any device (desktop or mobile). This is because public forms are often embedded on external sites, and Kissflow cannot securely verify the data source or support the backend requirements for bulk uploads. Therefore, CSV import is disabled for public forms to ensure system security.

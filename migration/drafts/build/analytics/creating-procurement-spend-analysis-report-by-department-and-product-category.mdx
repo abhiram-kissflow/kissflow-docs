@@ -1,0 +1,190 @@
+---
+title: "Creating procurement spend analysis report by department and product category"
+description: "DRAFT (unverified) — migrated from /t/83h9qz8/creating-procurement-spend-analysis-report-by-department-and-product-category"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+When a company's procurement manager wants to understand procurement patterns from purchase requests, they can measure total spending by department and product category. This analysis can optimize procurement processes, negotiate better pricing with suppliers, and identify potential cost-saving opportunities.
+
+## Creating a dataview for purchase request analysis
+
+To begin this analysis, we need to construct a [dataview](/t/83h9qzn/understanding-dataviews) that combines data from - the **Purchase\_Request** process table and its two child tables, **Catalog\_Items** and **Non\_Catalog\_Items**. The following SQL query demonstrates how to create this dataview:
+
+```sql
+SELECT
+pr."Purchase_Request_Number"AS "Purchase request number",
+pr."Requester_Name" AS "Requester name",
+pr."Department" AS "Department",
+prcat."Catalog_Item":Product_Name:: string AS Catalog_Item,
+prcat."Catalog_Item_Quantity" AS Catalog_Item_Quantity,
+prcat."Catalog_Item_Amount.value" AS Catalog_Amount,
+prncat."ProductService_Name" AS Non_Catalog_Item,
+prncat."Quantity" AS Non_Catalog_Item_Quantity,
+prncat."Item_Amount.value" AS Non_Catalog_Amount,
+pr."Total_PR_amount.value" AS TOTAL_PR_VALUE
+FROM
+"Purchase_Request" AS pr
+LEFT OUTER JOIN "Purchase_Request.Catalog_Items_table" prcat ON pr."_id"=prcat."_instance_id"
+LEFT OUTER JOIN "Purchase_Request.Model_7MyXBt9-2u" prncat ON pr."_id"=prncat."_instance_id"
+```
+
+In this query, we select specific fields from the **Purchase\_Request** table and its child tables, **Catalog\_Items** and **Non\_Catalog\_Items**. The SQL **JOIN** operation connects the data from these tables, enabling us to consolidate relevant purchase request information.
+
+> **Note:**
+> 
+> You must use the respective table ID of the process while joining the child tables in your account. In this case, **Purchase\_Request** is the table in the account. **Purchase\_Request.Catalog\_Items\_table** is the child table containing the list of catalog items and **Purchase\_Request.Model\_7MyXBt9-2u** is the child table containing the list of non-catalog items. These table IDs will vary in each account.
+
+### Query breakdown
+
+The following table describes each part of the query. The **LEFT JOIN** operation brings together data from multiple tables, with a primary focus on the **Purchase\_Request** table.
+
+**Actual column name**
+
+**Alias name used in the query**
+
+**Description**
+
+  pr."Purchase\_Request\_Number
+
+Purchase request number
+
+The purchase request number for each item request raised in the process.
+
+pr."Requester\_Name"
+
+Requester name
+
+The name of the requester.
+
+pr."Department"
+
+Department
+
+The department of the requester who requested the item.
+
+prcat."Catalog\_Item":Product\_Name:: string
+
+Catalog\_Item
+
+The purchase request of all the items under the catalog list. Since it is a JSON column, this query is used to parse it.
+
+prcat."Catalog\_Item\_Quantity"
+
+Catalog\_Item\_Quantity
+
+The number of catalog items.
+
+prcat."Catalog\_Item\_Amount.value" 
+
+Catalog\_Amount
+
+The amount of each item requested under catalog items.
+
+prncat."ProductService\_Name"
+
+Non\_Catalog\_Item
+
+The purchase request of all the items under the non-catalog list.
+
+prncat."Quantity"
+
+Non\_Catalog\_Item\_Quantity
+
+The quantity of non-catalog items.
+
+prncat."Item\_Amount.value"
+
+Non\_Catalog\_Amount
+
+The amount of each item requested under non-catalog items.
+
+pr."Total\_PR\_amount.value"
+
+TOTAL\_PR\_VALUE
+
+The estimated total amount of the items requested for purchase in the process.
+
+Purchase\_Request
+
+pr
+
+The "Purchase\_Request" table.
+
+LEFT OUTER JOIN "Purchase\_Request.Catalog\_Items\_table" prcat ON pr."\_id"=prcat."\_instance\_id"
+
+prcat
+
+This left outer join links the "Purchase\_Request" table to the "Catalog\_Items" table using the unique IDs to associate purchase requests with catalog items.
+
+  
+ 
+
+LEFT OUTER JOIN "Purchase\_Request.Model\_7MyXBt9-2u" prncat ON pr."\_id"=prncat."\_instance\_id"
+
+prncat
+
+This left outer join links the "Purchase\_Request" table to the "Non\_Catalog\_Items" table using the unique IDs to associate purchase requests with non-catalog items.
+
+\_instance\_id
+
+Item id
+
+The unique ID of the items in the process.
+
+## Configuring the dataview  
+  
+![](/migration-assets/creating-procurement-spend-analysis-report-by-department-and-product-category/3.gif)  
+ 
+
+After writing the query, run it and view your data. Once done, publish the query. Once the dataview is created, the procurement manager can proceed to create a meaningful report for purchase request analysis.
+
+## Creating spend analysis report
+
+Follow the below steps to create a purchase request by purchase type report:
+
+1.  Navigate to Analytics and click the **Reports** tab.
+    
+2.  Click **Create report**.
+    
+3.  Choose the above created dataview in the dropdown given while creating a report. 
+    
+4.  Provide a name for your report.
+    
+5.  Select the report type - **Pivot** or **Chart** according to your preference and click **Create**.
+    
+
+### Configuring the pivot table
+
+-   Values: Total\_PR\_Value
+    
+-   Rows: Department, Requester\_Name
+    
+-   Grand Totals: Show grand totals
+    
+-   Value Calculations: Percent of grand total  
+      
+    ![](/migration-assets/creating-procurement-spend-analysis-report-by-department-and-product-category/1.gif)
+    
+
+After configuration, click **Save** and view the report. In this report, procurement managers can analyze the spend pattern across departments. This analysis can be further drilled down to the user level to see the percentage of spend by each user who raised purchase requests.
+
+### Configuring the chart report
+
+In the report configuration page, select the **Stacked vertical bar** chart. Add the following settings to get a detailed report on the number of purchase requests in each department.
+
+-   Dimension: Department
+    
+-   Measure: Catalog\_Amount, Non\_Catalog\_Amount
+    
+-   Sort: Department (Ascending)
+    
+
+This report compares the catalog item spend value, non-catalog item spend value, and total spend value by department.
+
+![](/migration-assets/creating-procurement-spend-analysis-report-by-department-and-product-category/2.gif)

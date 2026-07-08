@@ -1,0 +1,66 @@
+---
+title: "Managing portal users"
+description: "DRAFT (unverified) — migrated from /t/q6yq2wc/managing-portal-users"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+[Portal Admins](/t/35h4ak0/user-roles-permissions) can activate, deactivate, and delete portal users. They can also resend verification emails to unverified users and send reset password emails when necessary. The **User Management** table offers a way to modify multiple portal users simultaneously. Click here to [learn more](/t/h7yzj46/application-roles) about defining roles within an app.
+
+> **Note:**
+> 
+> After deploying an external portal into production, only external users can be added to roles within that portal.
+
+## Adding users manually
+
+1.  Navigate to **Portal administration** > **Portal users**.
+    
+2.  Click **Add a user.**
+    
+3.  A dialogue box will appear where:
+    1.  Both the First name and Email address are required.
+    2.  There's an option to send or skip an email invite to the new user.
+4.  Click **Add** to finalize the user addition.
+
+### Inviting users
+
+When you invite someone to join your portal, an invitation email is sent to the specified address. If the invitee accepts and there are available user licenses, they'll be automatically activated. Alternatively, you can manually activate them by selecting the user checkbox and clicking **Activate**. Activation of multiple users simultaneously is possible if adequate licenses are available. The user count is automatically updated in the **Active Users** tile. If there's a shortage of licenses, the invited user will remain inactive and unable to sign in to the portal.
+
+### Resend verification email 
+
+To resend a verification email, select the user checkbox next to their first name and click **Resend verification email**. Users who are already verified, or those who are deactivated, won't get an email. Post the operation, a summary will show details about who got the email and who didn’t, with reasons.
+
+### Resetting a password
+
+To initiate a password reset, select the user checkbox and click **Reset password**. The user will get an email containing a reset link, valid for 24 hours. Until resetting the password, they can't sign in. Some users who won't get this email include:
+
+-   Unverified users.
+-   Inactive users.
+-   Users from portals where _Sign in with Kissflow_ is turned off.
+
+## Managing portal users
+
+To manage attributes of portal users:
+
+1.  Visit **Portal administration** > **Portal users**.
+2.  Click the user to make direct edits. Adjustments are saved automatically. If an email is updated, the user must verify the new address before accessing the portal again.
+3.  Click **Resend verification** **email** if needed.
+
+### Deactivating and activating users
+
+To deactivate any user, select the user checkbox and click **Deactivate**. Once deactivated, the count under **Inactive users** tile updates itself. Inactive users can sign in once their account is activated again by a Portal Admin. To reactivate, select the user and click **Activate**. The user count is automatically updated in the **Active users'** tile. If you're out of licenses, contact support to buy more licenses.
+
+A user’s license gets revoked after deactivation. However, their data is retained temporarily in our systems before eventual deletion.
+
+### Deleting users
+
+When you delete portal users, they are removed from your account, and all their data is lost. To delete a portal user,
+
+1.  Select the portal user checkbox.
+2.  Click **Delete users**.
+3.  Upon deletion, all user-related data is lost, and the user count gets updated.
