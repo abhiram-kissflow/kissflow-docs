@@ -15,19 +15,25 @@ yarn dev
 
 Open http://localhost:3000 with your browser to see the result.
 
-## AI Chat Security Baseline
+## Ask AI (AI SDK + AI Elements)
 
-The chat endpoint (`/api/chat`) includes lightweight protections suitable for a free deployment:
+The docs include an Ask AI assistant using:
 
-- Per-IP rate limit (default: `20` requests/minute)
-- Origin check (`Origin` must match current host by default)
-- Payload size check (`16KB` max request body)
+- Vercel AI SDK (`useChat` + `streamText`)
+- AI-elements style chat components in `components/ai-elements`
+- Grounding from help-article context + frontend/backend graph snapshots
 
-Optional environment variables:
+Required environment variables:
 
-- `CHAT_RATE_LIMIT_PER_MINUTE` (example: `15`)
-- `CHAT_ALLOWED_ORIGINS` (comma-separated exact origins)
-  - Example: `https://docs.example.com,https://staging.example.com`
+- `OPENAI_API_KEY`
+- `OPENAI_MODEL` (optional, defaults to `gpt-4.1-mini`)
+- `GRAPH_QUERY_API_KEY` (optional but recommended)
+- `GRAPH_QUERY_ALLOWED_ORIGINS` (optional, comma-separated allowlist)
+
+API routes:
+
+- `POST /api/chat` for streaming assistant responses
+- `POST /api/graph/query` for secure graph-only querying
 
 ## Explore
 
