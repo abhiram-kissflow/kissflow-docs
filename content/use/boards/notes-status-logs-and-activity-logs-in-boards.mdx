@@ -1,63 +1,57 @@
 ---
 title: "Notes, status logs, and activity logs in boards"
-description: "DRAFT (unverified) — migrated from /t/35h9qll/notes-status-logs-and-activity-logs-in-boards"
+description: "Collaborate on board items using notes, and track status and field changes through the status and activity logs."
 contentType: guide
 persona: end-user
 section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - boards
+  - items
+  - notes
 ---
 
-Kissflow plans:
+# Notes, status logs, and activity logs in boards
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
+
+<Callout type="info">
+  This content now lives in [Collaborating on items](/docs/use/items/collaborating), which covers notes, the status and activity logs, and watching items in one place. Head there for the full walkthrough — a quick summary follows below.
+</Callout>
 
 ## Notes
 
-Notes offer an easy way to collaborate with different stakeholders on an item. You can use this feature to add comments, log updates, or action items, and react to notes added by others that can be viewed by anyone collaborating on an item.
+Notes offer a way to collaborate with stakeholders on an item. Add comments, log updates or action items, and react to notes added by others — visible to anyone collaborating on the item.
 
-To add or update a note, open an item on your board. Next, click the **Notes** tab from the right navigation strip and add your comments or notes in the text area.
+To add or update a note, open an item and click the **Notes** tab in the right navigation strip. Type **/** in the text area to open the formatting menu — attach a link, add a bulleted or numbered list, or apply Bold, Italic, Underline, Strikethrough, Code snippet, and Blockquote formatting.
 
-![](/migration-assets/notes-status-logs-and-activity-logs-in-boards/1.png)
+You can also add emojis, attach files, images, and audio (played directly in Kissflow without downloading), annotate uploaded images, and tag people with **@mentions** — the tagged user gets a notification. Click the thumbs-up icon to acknowledge someone else's note, or copy a note's link to share it with others.
 
-There are various options to format a note. Type **/,** to
-
--   Attach a link
--   Add a bulleted or numbered list
--   Add formatting - Bold, Italic, Underline, Strikethrough, Code snippet, and Blockquote.
-
-![](/migration-assets/notes-status-logs-and-activity-logs-in-boards/2.png)
-
-In addition to formatting, you can add emojis, attach files or images, [annotate the image](/t/h7ytkjr/image-annotation) that you upload or the images uploaded by others, and use **@mention tags**. You can also attach audio files and play them directly from Kissflow without downloading them.
-
-Tag someone by typing **@** and their name. The tagged user will get a notification about the note or action item. You can acknowledge others' notes by clicking the thumbs-up icon.
-
-You can even copy and share a note's link with people if you want them to land right on the note.
-
-![](/migration-assets/notes-status-logs-and-activity-logs-in-boards/3.png)
-
-### AI summary in notes
-
-To get a quick summary of the recently added notes, click the **Summary** button at the top right.
-
-![](/migration-assets/notes-status-logs-and-activity-logs-in-boards/4.gif)
+<Callout type="info">
+  Once an item has at least 10 notes, a **Summarize** button appears at the top of the **Notes** tab to generate a quick AI summary of the recent notes.
+</Callout>
 
 ## Status log
 
-The status log captures all the status changes for an item. In a board form, click the **Status log** subtab inside the **Item log** tab to view a history of all status changes made.
+The status log captures every status change made to an item, along with the time spent in each status. Open an item, click the **Item log** tab in the right navigation strip, and select the **Status log** subtab.
 
-![](/migration-assets/notes-status-logs-and-activity-logs-in-boards/5.png)
-
-The **Status log** tab also captures the amount of time spent in each status. You can use the time spent on each status to derive insights towards better management of items. This is useful in following up on items, especially critical ones so that they are resolved without delays.
+Use the time spent in each status to spot items that are stuck — especially critical ones — so they get resolved without delays.
 
 ## Activity log
 
-The **Activity** **log** tab lists all the key actions performed on an item. Key actions include any changes made to system fields, such as **Priority**, **Assignee**, **Start date,** or **Due date**. For instance, if you have changed the value of the **Priority** field for a specific item, the change is captured here. The value of the field before and after the change is also displayed. However, any such changes made to custom fields are not displayed here.
+The **Activity log** subtab of the **Item log** tab lists key actions performed on an item — changes to system fields such as **Priority**, **Assignee**, **Start date**, and **Due date** (with the value before and after each change), plus when the item was created, closed, or cloned. Changes to custom fields are not shown here.
 
-![](/migration-assets/notes-status-logs-and-activity-logs-in-boards/6.png)
+Each entry includes:
 
-You can also see when an item was created, closed, or cloned.
+- **Timestamp** — the exact time the action was performed.
+- **Performed by** — the member who performed the action.
+- **Activity** — the type of action, with details of any changes it caused.
 
-The **Activity** **log** tab is a means to quickly check the history and progress of an item, as it provides the following information:
+## What's next
 
--   **Timestamp** - the exact time at which an action was performed.
--   **Performed by** - the name of the member who performed the action.
--   **Activity** - the type of action performed with details of any changes the action has caused.
+- [Collaborating on items](/docs/use/items/collaborating)
+- [Creating and managing items](/docs/use/items/creating-items)
+- [Watching an item in a board](/docs/use/boards/watching-an-item-in-a-board)

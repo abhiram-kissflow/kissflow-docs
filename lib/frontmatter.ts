@@ -42,6 +42,8 @@ export const frontmatterSchema = z.object({
     .optional(),
   lastVerifiedAgainst: z.string().optional(),
   tags: z.array(z.string()).optional(),
+  /** Site-relative path (optionally with #hash) this page should redirect to instead of rendering its own content. */
+  redirectTo: z.string().optional(),
 });
 
 export type Frontmatter = z.infer<typeof frontmatterSchema>;

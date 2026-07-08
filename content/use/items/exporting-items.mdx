@@ -25,6 +25,11 @@ Exporting helps you share information about items with people who may not have a
 ## Export items
 
 1. In any layout — list, kanban, matrix, or timeline — click the **More options** button in the upper-right corner of the layout and select **Export**.
+
+   <Callout type="info">
+     The **Export** option is only available to board admins and members with export permission — if you don't see it, ask your board admin.
+   </Callout>
+
 2. In the **Export data** dialog, confirm that only the fields shown in the current layout will be exported, and click **Export**.
 3. Download the exported CSV file from your email.
 
@@ -38,13 +43,18 @@ The export includes only the fields visible in your current layout — hidden fi
 These field types are never included, even if visible:
 
 - Lookup
-- Remote lookup
 - Image
 - Signature
 - Attachment
 - Checklist
 
-Other details from an item — such as notes, activity, status transitions, and fields inside tables — are also not included.
+<Callout type="info">
+  Remote lookup fields are exported as text values — unlike standard Lookup fields, they aren't excluded.
+</Callout>
+
+Fields inside tables (child items) are exported too, but as a separate CSV file. If your export includes table data, you'll receive two files by email: one for the item's own fields and one for its table rows.
+
+Other item details, such as notes, activity logs, and status transitions, are not included in the export.
 
 <Callout type="info">
   Currency fields appear as two columns in the exported file: one for the currency code and one for the value.
@@ -53,5 +63,7 @@ Other details from an item — such as notes, activity, status transitions, and 
 ## What's next
 
 - [Importing items from a CSV file](/docs/use/items/importing-items)
+- [Notes, status logs, and activity logs in boards](/docs/use/boards/notes-status-logs-and-activity-logs-in-boards)
+- [Creating and managing subitems](/docs/use/items/creating-subitems)
 - [Adding advanced filters using AI](/docs/use/items/filtering-and-views) (Enterprise)
 - [Using board layouts](/docs/use/apps/using-board-layouts)
