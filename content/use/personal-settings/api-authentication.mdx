@@ -1,81 +1,122 @@
 ---
-title: "API authentication"
-description: "DRAFT (unverified) — migrated from /t/35h4az8/api-authentication"
+title: "API Authentication"
+description: "Find your account identifiers, retrieve your debug session key, and manage the API keys and access keys used to authenticate calls to Kissflow."
 contentType: guide
 persona: end-user
 section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - api
+  - authentication
+  - access-keys
+  - personal-settings
 ---
 
-Kissflow plans:
+# API Authentication
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
+
+The API authentication page in your personal settings brings together everything you need to authenticate API calls to Kissflow — your account identifiers, your debug session key, and the API keys or access keys used to authorize requests.
+
+## Access API authentication settings
+
+1. Click your profile picture in the upper-right corner, then click **My settings**.
+2. Click **API authentication**.
 
 ## Account identifiers
 
-Account identifiers are entities that help you uniquely identify your Kissflow account while making API calls. You can identify your Kissflow account either by its [ID](/t/35h4az8y7h4gj/api-keys#account-id) or [domain name](/t/35h4az8y7h4gj/api-keys#account-domain).
+Account identifiers help you uniquely identify your Kissflow account when making API calls or establishing sessions.
 
-### Account ID
+| Identifier | Description |
+| --- | --- |
+| Account ID | A unique alphanumeric key that identifies your Kissflow account. Copy it and use it to identify your account while making API calls. |
+| Account domain | The domain address you use to access your Kissflow account directly in a web browser. |
 
-Account ID is a unique alphanumeric key that distinguishes your Kissflow account from other accounts. You can copy the Account ID and use it for your API sessions while establishing secured connections.
-
-### Account domain
-
-Account domain is your domain address with which you can directly access your Kissflow account on your web browser.
-
-![](/migration-assets/api-authentication/1.png)
+![Account identifiers section showing the Account ID and Account domain fields with copy controls](/migration-assets/api-authentication/1.png)
+{/* TODO: verify screenshot matches current product UI */}
 
 ## Debug session key
 
-If there is an issue with your account, Kissflow might need your Debug session key to troubleshoot the issue. Click **Show** under **Debug session key** to view your unique key. **Copy** this key and share it with the Kissflow team to facilitate troubleshooting. Do not share your debug session key with anyone else for security reasons.
+If there's an issue with your account, the Kissflow team may need your debug session key to troubleshoot it.
 
-![](/migration-assets/api-authentication/2.png)
+1. Under **Debug session key**, click **Show** to reveal your unique key.
+2. Click **Copy** and share the key with the Kissflow team to help them troubleshoot.
+
+<Callout type="warn">
+  Share your debug session key only with the Kissflow team. Avoid sharing it anywhere else.
+</Callout>
+
+![Debug session key section with the Show and Copy controls](/migration-assets/api-authentication/2.png)
+{/* TODO: verify screenshot matches current product UI */}
 
 ## API keys
 
-An API key is a unique identifier that authenticates requests associated with your Kissflow account. API key authentication is the simplest and primary form of authentication in Kissflow. However, we have moved to the access key authentication system recently to provide better security in terms of authenticating API calls.
+API keys were Kissflow's original form of API authentication. Kissflow has since moved to the access key system for better security, so **creating new API keys is no longer available**.
 
-If you are already using API keys, we recommend you create their equivalent access keys as necessary before we deprecate them.
-
-### Troubleshooting API keys
-
-1. **Is there a deadline before which I have to create the equivalent access keys for my current API keys?**  
-    Yes, we will be deprecating the current API keys across the Kissflow accounts on or after 15th July 2023. We recommend you [delete the existing keys](/t/35h4az8y7h4gj/api-keys#deleting-an-api-key) and [create their equivalents or new ones](/t/35h4az8y7h4gj/api-keys#creating-a-new-access-key) under the access key authentication system as soon as you can.
-2. **I am unable to create a new API key. How do I create one?**  
-    Sorry, as we have already moved to the access key authentication system, we do not encourage the creation of new API keys anymore. We will only continue to support your existing keys until their deprecation which is scheduled to happen on or after 15th July 2023.
+<Callout type="warn">
+  Kissflow is phasing out API keys for all accounts on or after July 15, 2023. If you're still using API keys, [create their equivalent access keys](#creating-an-access-key) before then — existing API keys will continue to work only until they're deprecated.
+</Callout>
 
 ### Deleting an API key
 
-1.  Navigate to the API key you would like to delete and click the **More options** button (![](/migration-assets/api-authentication/4.svg)).
-2.  Click **Delete** to delete it permanently.
+1. Navigate to the API key you want to delete and click the **More options** button.
+2. Click **Delete** to remove it permanently.
 
 ## Access keys
 
-An access key is a unique identifier that is used to authenticate a user, developer, or calling program to an API. Each access key will have an access ID and a secret key i.e. an ID-secret pair that lets you obtain programmatic access to Kissflow.
+An access key is a unique identifier used to authenticate a user, developer, or program calling the Kissflow API. Each access key consists of an access key **ID** and an access key **secret** — an ID-secret pair that grants programmatic access to Kissflow.
 
-### Creating a new access key
+<Callout type="warn">
+  Anyone with your access key ID and secret can perform the same operations you can. Keep both values secure and never share them.
+</Callout>
 
-1.  Click your profile picture > **My settings** > **API authentication** > **Access keys**
-2.  Click **Create access key**
-3.  Enter the name of the access key.![](/migration-assets/api-authentication/5.gif) 
-4.  Set an appropriate expiry period for the key. [Learn more about the expiry period and how to configure it at the account level here](/t/83h4akg36h4gg/account-security#access-key-setting).
-5.  Click to copy the access key **ID** and access key **secret** and store them in your preferred location on your computer or click **Download credentials** to store them directly as a file.
-6.  Click **Done** after downloading the access key credentials
-7.  Click **Proceed** to confirm your action after reading the alert message. Your access key is successfully created now.
+### Creating an access key
 
-> **Note:**  
-> Please note that anyone who has your access key and access secret will be able to perform the same operations as you or the specific Kissflow user can. This is why it is extremely important not to share the credentials with anyone.
+<Callout type="info">
+  Creating access keys requires the access key feature to be enabled for your account. Each user is limited to a maximum of 20 access keys.
+</Callout>
 
-### Accessing a system-generated access key
+1. Click your profile picture > **My settings** > **API authentication** > **Access keys**.
+2. Click **Create access key**.
+3. Enter a name for the access key.
 
-1.  Click your profile picture > **My settings** > **API authentication** > **Access keys**
-2.  Select the **Show system-generated** checkbox to view the list of system-generated access keys. These keys are created through Kissflow's Integrations.
-    -   They are hidden by default, and you have to select this checkbox to view them. They are also distinguished by a **System** flag beside their name and placed first in the list to help you differentiate these keys from the rest.
+   ![Access key creation dialog with a name field](/migration-assets/api-authentication/5.gif)
+   {/* TODO: verify screenshot matches current product UI */}
+
+4. Set an expiry period for the key. [Learn how to configure the maximum expiry period at the account level](/docs/admin/security/account-security#access-key-setting).
+5. Copy the access key **ID** and **secret** and store them somewhere secure, or click **Download credentials** to save them as a file.
+6. Click **Done**.
+7. Review the confirmation message and click **Proceed**.
+
+Your access key is now ready to use.
+
+### Viewing system-generated access keys
+
+Some access keys are created automatically by Kissflow — for example, when you set up certain integrations. These system-generated keys are hidden by default.
+
+1. Go to **API authentication** > **Access keys**.
+2. Select the **Show system-generated** checkbox to view them.
+
+System-generated keys are marked with a **System** flag beside their name and appear first in the list, ahead of the keys you've created yourself.
 
 ### Managing an access key
 
-1.  Navigate to the access key you would like to rename or delete and click the **More options** button (![](/migration-assets/api-authentication/4.svg)).
-2.  Click **Rename** to modify the name of the access key and click **Delete** to delete it permanently.![](/migration-assets/api-authentication/3.png) 
+1. Navigate to the access key you want to rename or delete and click the **More options** button.
+2. Click **Rename** to change the key's name, or click **Delete** to remove it permanently.
 
-> **Note:**
-> 
-> When you delete an access key, the connections established using the key will be revoked automatically.
+![More options menu on an access key showing the Rename and Delete actions](/migration-assets/api-authentication/3.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="warn">
+  Deleting an access key automatically revokes any connections established using that key.
+</Callout>
+
+## What's next
+
+- [Managing active sessions](/docs/use/personal-settings/active-sessions)
+- [Two-factor authentication](/docs/use/personal-settings/two-factor-authentication)
+- [Personal info, format settings, and task delegation](/docs/use/personal-settings/personal-info-format-settings-and-task-delegation)
+- [Account security](/docs/admin/security/account-security) (Admin)

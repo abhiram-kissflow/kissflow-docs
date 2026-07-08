@@ -1,36 +1,58 @@
 ---
-title: "Active sessions"
-description: "DRAFT (unverified) — migrated from /t/p8y8z9f/active-sessions"
+title: "Managing active sessions"
+description: "View every device where your Kissflow account is currently signed in, and sign out of a single session or all sessions at once."
 contentType: guide
 persona: end-user
 section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - security
+  - personal-settings
+  - sessions
 ---
 
-Kissflow plans:
+# Managing active sessions
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
 
-## **Accessing active session**
+The Active sessions page lists every device your account is currently signed in from, along with the browser, operating system, and IP address used for each session. Use it to spot sessions you don't recognize and sign them out.
 
-The Active Sessions page provides details about the devices and locations where your account is currently active.
+## Access active sessions
 
-Sign in to Kissflow, click your profile picture on the upper-right corner of the home page > click **My settings > Security settings > Active sessions.**  
- 
+1. Sign in to Kissflow and click your profile picture in the upper-right corner of the home page.
+2. Click **My settings** > **Security settings** > **Active sessions**.
 
-![](/migration-assets/active-sessions/1.png)
+![Active sessions page listing signed-in devices with their browser, OS, and IP details](/migration-assets/active-sessions/1.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-Here's what you'll find on this page,
+## What each session shows
 
-### **Device information**
+Every entry in the list is a single device or browser where your account is signed in.
 
--   **Operating system version :** This section displays the operating system version of the device where your account is logged in.
--   **IP Address :** The IP address associated with the device's network connection.
--   **Web browser :** Indicates the web browser being used for the session.
+| Detail | Description |
+| --- | --- |
+| Device information | The web browser and, for computer sessions, the operating system version. |
+| IP address | The IP address the session is connecting from. |
+| First signed in on | The date and time the session first signed in. Hover over it to see the exact timestamp. |
 
-### **First signed in on details**
+<Callout type="info">
+  Operating system version is only shown for sessions from a computer. For other device types, this field is left blank.
+</Callout>
 
-This section provides information about the initial sign-in time and date for all the active sessions.
+## Sign out of a session
 
-To sign out of an active session, click the **More options** button > **Sign out**. Alternatively, click **Sign out from all active sessions** to log out from active sessions in all devices associated with your account simultaneously.
+- **Sign out of one session** — click the **More options** button on that session and select **Sign out**. Signing out your current session prompts you to confirm before it signs you out.
+- **Sign out of every session** — click **Sign out from all active sessions** to sign out of your current session and every other active session on all devices at once. This also asks for confirmation before it proceeds.
 
-> **Note:** It's important to regularly review the Active sessions page to ensure that your account is being accessed only from trusted devices and locations. If you notice any unfamiliar sessions or unauthorized access, consider changing your password and enabling additional security measures for your account.
+<Callout type="warn">
+  Review this page regularly and sign out any session you don't recognize. If you spot an unfamiliar session, also change your password.
+</Callout>
+
+## What's next
+
+- [Two-factor authentication](/docs/use/personal-settings/two-factor-authentication)
+- [Personal info, format settings, and task delegation](/docs/use/personal-settings/personal-info-format-settings-and-task-delegation)
+- [API authentication](/docs/use/personal-settings/api-authentication)

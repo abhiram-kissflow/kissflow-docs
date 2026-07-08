@@ -1,168 +1,205 @@
 ---
 title: "Member actions in a process"
-description: "DRAFT (unverified) — migrated from /t/x2h9qtz/member-actions-in-a-process"
+description: "Access items in a process, act on assigned steps, and use actions like approve, reassign, reject, duplicate, and print."
 contentType: guide
 persona: end-user
 section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - processes
+  - tasks
+  - workflow
 ---
 
-Kissflow plans:
+# Member actions in a process
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
 
-## Accessing your items and tasks in a process
+As a process member, you initiate items and act on the steps assigned to you. This article covers where to find your items, the actions available on them, and how to perform bulk actions, duplicate items, and print a form.
 
-Every process has two primary tabs: **Created by me** and **Assigned items**
+## Accessing your items and tasks
+
+Every process has two primary tabs: **Created by me** and **Assigned items**.
 
 ### Created by me
 
-The **Created by me** tab shows all the items that you’ve been active on. For each section, you can:
+The **Created by me** tab shows all the items you've been active on. For each section, you can:
 
--   Search items
--   Apply filters
--   Control what fields are shown or hidden from the **Show/hide fields** ( ![](/migration-assets/member-actions-in-a-process/1.png) ) menu. Conditionally visible fields will not be listed under this menu.
+- Search items.
+- Apply filters.
+- Control which fields are shown or hidden from the **Show/hide fields** ( ![Show/hide fields icon](/migration-assets/member-actions-in-a-process/1.png) ) menu.
+  {/* TODO: verify screenshot matches current product UI */}
 
-> **Note:**
-> 
-> Table fields cannot be shown or hidden, and their associated data cannot be used for searching or filtering.
+<Callout type="info">
+  Table fields cannot be shown or hidden, and their associated data cannot be used for searching or filtering.
+</Callout>
 
-Click the item to access and check its progress. You can also see the fields in the form that are made visible at your particular step.
+Click an item to open it and check its progress. You can also see the fields in the form that are made visible at your particular step.
 
-![](/migration-assets/member-actions-in-a-process/2.png)
+![Item opened from the Created by me tab showing its fields and progress](/migration-assets/member-actions-in-a-process/2.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-Items will be categorized in this order:
+Items are categorized in this order:
 
--   **Drafts** are the items you’ve started to fill out but haven’t yet submitted. When you open items in the draft state, you can edit the values and decide to delete, save, or submit the item. In the table view, if you select the checkboxes before the items, you can perform the bulk delete.  
-     
--   **In progress** shows all the items you submitted that haven’t finished the workflow yet. After opening the item, you can see a progress bar on the upper-right side of the form that gives you a detailed look at the status of an item. To protect the integrity of the process, you cannot change any field values. Depending on the settings set by the Process Admin, you may be able to reassign or withdraw the item.  
-     
--   **Rejected** shows all the items you created that were rejected. If you click **Restart** after opening an item, the same data will show up as a draft and you can submit it as a new item.  
-     
--   **Withdrawn** shows all the items that you’ve withdrawn. You have the option to restart these items after clicking them. If you restart them, there will be a note on the workflow that these items were restarted.  
-     
--   **Completed** shows all the items that have finished the workflow.
+| Category        | What it shows                                                                                                                                                                                                     |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Drafts**       | Items you've started filling out but haven't submitted. You can edit values and delete, save, or submit the item. In table view, select the checkboxes before items to bulk delete them.                        |
+| **In progress**  | Items you've submitted that haven't finished the workflow. Opening one shows a progress bar in the upper-right of the form. Field values can't be changed. Depending on Process Admin settings, you may be able to reassign or withdraw the item. |
+| **Rejected**     | Items you created that were rejected. Clicking **Restart** after opening one shows the same data as a draft, which you can submit as a new item.                                                                |
+| **Withdrawn**    | Items you've withdrawn. You can restart these after opening them — restarting adds a note on the workflow that the item was restarted.                                                                          |
+| **Completed**    | Items that have finished the workflow.                                                                                                                                                                            |
 
 ### Assigned items
 
-The **Assigned items** tab shows all the steps assigned to you. Tasks will be categorized based on the step approval in the workflow. For each step assigned to you, you can search, apply filters, and control what fields are shown or hidden.
+The **Assigned items** tab shows all the steps assigned to you, categorized by step in the workflow. For each step assigned to you, you can search, apply filters, and control which fields are shown or hidden.
 
-![](/migration-assets/member-actions-in-a-process/3.png)
+![Assigned items tab listing steps assigned to the current user](/migration-assets/member-actions-in-a-process/3.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-Depending on the permissions settings set by the Process Admin, you can edit or view the fields in the form. On the right side of the form is the **status** section. Click **Show all** to see what steps have been completed and what is yet to be done.
+Depending on the permissions set by the Process Admin, you can edit or view the fields in the form. On the right side of the form is the status section — click **Show all** to see which steps are completed and which are still pending.
 
-At the bottom of the form are actions you can perform. The [buttons are configured](/t/g9h9qt6) by the Process Admin, so the wording and visibility may differ depending on the step. Here are all the [possible actions](/t/g9h9qt6#assignee-actions-for-items-in-progress):
+At the bottom of the form are the actions you can perform. These [buttons are configured](/docs/build/processes/step-configuration/configuring-actions-for-process-steps) by the Process Admin, so their wording and visibility can differ by step:
 
--   **Approve/Done/Submit** means you want to advance the item to the next step. Forms may have validations that require you to adjust field values first.
--   **Reassign** lets you select someone else to complete this step.
--   **Reject** means you want to completely reject the item. The person who started the item can restart it as a new draft.
--   **Send back** means you want to place the item at a particular step earlier in the workflow.  
--   **Save** will save the values you entered and allow you to come back to the item later.
+- **Approve/Done/Submit** — advances the item to the next step. Forms may have validations that require you to adjust field values first.
+- **Reassign** — lets you select someone else to complete this step.
+- **Reject** — completely rejects the item. The person who started the item can restart it as a new draft.
+- **Send back** — places the item at a particular step earlier in the workflow.
+- **Save** — saves the values you've entered so you can come back to the item later.
 
-![](/migration-assets/member-actions-in-a-process/4.png)
+![Action buttons at the bottom of an assigned item's form](/migration-assets/member-actions-in-a-process/4.png)
+{/* TODO: verify screenshot matches current product UI */}
 
 ### Accessing participated items
 
-To access all the items you've acted on, click the **More** button > **Participated items**.
+To access all the items you've acted on, click **More** > **Participated items**.
 
-![](/migration-assets/member-actions-in-a-process/6.png)
+![More menu open with Participated items option](/migration-assets/member-actions-in-a-process/6.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-## Initiating new items
+## Initiate a new item
 
-To initiate a new item in a process, click **\+ New item** atn the top right corner of the screen. A new form will open, and you can add data to the fields and then click **Submit**. Clicking **Save** will save your current work without submitting it and store it in your **Drafts** (accessible in **Created by me**). Clicking **Discard** will delete the item permanently from the system.
+1. Click **+ New item** at the top right of the screen.
+2. Fill in the form fields.
+3. Click **Submit**.
 
-## Performing bulk actions
+You can also:
 
-You can approve, reassign, or reject items as necessary by selecting one or more items as depicted in the screenshot below:
+- Click **Save** to store your work in **Drafts** (accessible under **Created by me**) without submitting it.
+- Click **Discard** to delete the item permanently from the system.
 
-![](/migration-assets/member-actions-in-a-process/5.png)
+## Perform bulk actions
 
--   Navigate to the process for which you want to perform a bulk action and click the **Assigned items** tab
--   Select the items for which you want to perform the bulk action. You can also select the checkbox on the top, beside the column title, to choose all the items and perform an action in one go.
+You can approve, reassign, or reject multiple items at once from the **Assigned items** tab.
 
-> **Note:**
-> 
-> You can perform these actions in bulk for a maximum of 100 items at a time.
+1. Go to the process and click the **Assigned items** tab.
+2. Select the items you want to act on. You can also select the checkbox at the top, beside the column title, to select all items on the page.
 
-## Approving items
+![Multiple items selected in Assigned items with the bulk action bar visible](/migration-assets/member-actions-in-a-process/5.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-Select the items you would like to approve at once and click **Approve**. The bulk approval process might take a few seconds to complete, and the final status of approval will be notified to you by a toast message at the top-right corner of the page.
+<Callout type="info">
+  Bulk actions apply only to the items you've selected. Check your process's grid page size if you need to act on more items than are currently loaded.
+</Callout>
 
-![](/migration-assets/member-actions-in-a-process/7.png)
+### Approve items in bulk
 
-> **Note:**
-> 
-> The items that require your input, i.e., the ones that have mandatory fields that await your input, will be skipped during approval, and you might have to act upon them and reapprove as necessary. Such items will have a yellow exclamation mark prefixed to them after the approval process is complete.
+Select the items you want to approve and click **Approve**. Bulk approval may take a few seconds; the final status is shown in a toast message at the top-right of the page.
 
-## Reassigning items
+![Toast message confirming bulk approval completion](/migration-assets/member-actions-in-a-process/7.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-Select the items you would like to reassign at once and click **Reassign**.
+<Callout type="info">
+  Items that require your input — those with mandatory fields awaiting your input — are skipped during approval. Skipped items get a yellow exclamation mark once the bulk approval completes, so you can act on and reapprove them individually.
+</Callout>
 
-![](/migration-assets/member-actions-in-a-process/14.png)
+### Reassign items in bulk
 
-Reassigning an item to a specific user removes its association only from you, and it doesn't affect its association with its other assignees, if any.
+Select the items you want to reassign and click **Reassign**.
 
-For example, let us assume John and Linda are assigned to an item to which you are also assigned, and you choose to reassign it to Abraham. After you reassign the item to Abraham, he will join the assignee club along with John and Linda, and it's only you who will not be a part of the item anymore.
+![Reassign action selected for multiple items](/migration-assets/member-actions-in-a-process/14.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-This case works a little differently when the user who reassigns an item is a Process Admin. [Learn how reassigning works for a Process Admin here.](/t/60h9qtj/admin-actions-in-a-process#reassigning-items)
+Reassigning an item to a specific user removes only your association with it — it doesn't affect the item's association with its other assignees, if any.
 
-## Rejecting items
+For example, if John and Linda are assigned to an item along with you, and you reassign it to Abraham, Abraham joins John and Linda as an assignee. You're the only one removed from the item.
 
-Select the items from your **Assigned items** tab that you would like to reject by clicking **Reject** and add the relevant notes.
+<Callout type="info">
+  Reassigning works differently when the user reassigning the item is a Process Admin. Learn more in [admin actions in a process](/docs/admin/processes/admin-actions-in-a-process).
+</Callout>
 
-![](/migration-assets/member-actions-in-a-process/8.png)
+### Reject items in bulk
 
-## Deleting items
+From the **Assigned items** tab, select the items you want to reject, click **Reject**, and add relevant notes.
 
-You can delete an item only when it is a **Draft**. Navigate to **My items** > **Draft** in your process and select the items you would like to delete. Click **Delete**.
+![Reject action with a notes field for the selected items](/migration-assets/member-actions-in-a-process/8.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-![](/migration-assets/member-actions-in-a-process/9.png)
+## Delete an item
 
-> **Warning:**
-> 
-> You will lose all the data associated with the items after deleting them.
+You can delete an item only when it's a **Draft**. Go to **Created by me** > **Drafts**, select the items you want to delete, and click **Delete**.
 
-## Duplicating an item
+![Draft items selected with the Delete action available](/migration-assets/member-actions-in-a-process/9.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-You can duplicate a process item after initiating or submitting it. Duplicating creates a copy of the item along with its values, subject to the scope of the initiator. 
+<Callout type="warn">
+  Deleting an item permanently removes all data associated with it.
+</Callout>
 
-Click the **Duplicate** button (![](/migration-assets/member-actions-in-a-process/10.png)) at the top of the item page to duplicate it.
+## Duplicate an item
 
-![](/migration-assets/member-actions-in-a-process/11.png)
+You can duplicate a process item after initiating or submitting it. Duplicating creates a copy of the item with its values, subject to the scope of the initiator.
 
-> **Note:**
-> 
-> The items in the **In progress** and **Completed** states can only be duplicated. The duplicated item will use the last saved values for all the fields.
+Click the **Duplicate** button ( ![Duplicate icon](/migration-assets/member-actions-in-a-process/10.png) ) at the top of the item page.
+
+![Duplicate button at the top of an open item](/migration-assets/member-actions-in-a-process/11.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="info">
+  Only items in **In progress** or **Completed** states can be duplicated. The duplicate uses the last saved values for all fields.
+</Callout>
 
 ### Use case
 
-Assume Linda heads the Human Resources team of an IT firm. It’s the appraisal time of the year and she is planning to launch the **Employee 1:1 Appraisal** process. The appraisal form has a few generic fields like Employee name, Designation, etc., and a few critical fields (PII) like their Current salary, and Salary hike percentage.
+Linda heads the HR team at an IT firm. It's appraisal season, and she's launching an **Employee 1:1 Appraisal** process. The form has generic fields like **Employee name** and **Designation**, plus sensitive fields like **Current salary** and **Salary hike percentage**.
 
-She makes the fields **Current salary** and **Salary hike percentage** hidden until the item reaches the ‘Manager’s approval’ step which means only the manager can see the salary information and give an appropriate hike based on their performance. The process is set now and she publishes it too.
+She sets **Current salary** and **Salary hike percentage** to stay hidden until the item reaches the manager's approval step, so only the manager sees salary information when deciding on a hike. Once the process is published, Linda can duplicate an existing appraisal item instead of recreating one from scratch each time — without exposing sensitive fields during duplication.
 
-**How does item duplication lighten Linda’s workload in her day-to-day life?**
+## Print a form
 
-Linda can just duplicate an item instead of recreating it every time. It also gives her the advantage of keeping up with the integrity of her company, thereby not exposing sensitive information like **Current salary** and **Salary hike percentage** of an employee while duplicating.
+1. Open an item and click the **Print** button ( ![Print icon](/migration-assets/member-actions-in-a-process/16.svg) ) at the top right.
 
-## Printing a form
+   ![Print button at the top right of an open item](/migration-assets/member-actions-in-a-process/12.png)
+   {/* TODO: verify screenshot matches current product UI */}
 
-Open an item and click the **Print** button (![](/migration-assets/member-actions-in-a-process/16.svg)) at the top right.
+2. Select a paper size.
+3. Select an orientation — **Portrait** or **Landscape**.
+4. Set a preferred font size for the text.
+5. Choose what to include in the printout:
+   - The item's status.
+   - The item's progress, with the option to exclude skipped steps.
+   - The item's comments.
+   - The item's associated tables.
 
-![](/migration-assets/member-actions-in-a-process/12.png)
+   ![Print options for status, progress, comments, and tables](/migration-assets/member-actions-in-a-process/13.png)
+   {/* TODO: verify screenshot matches current product UI */}
 
--   Select a paper size.
--   Select an orientation out of **Portrait** and **Landscape**.
--   Set a preferred font size for the text.
--   You can choose to print,
-    
-    -   The status of the item.
-    -   The progress of the item where you can exclude skipped steps.
-    -   The item's comments.
-    -   The item's associated tables.  
-         
-    
-    ![](/migration-assets/member-actions-in-a-process/13.png)
--   Under the **More settings** section, you can,
-    -   Select to print in such a way that every section in the form is printed on a new page.
-    -   Include the time zone.
-    -   Print rows as a table or comma-separated list.
-    -   Select all or specific fields for printing.![](/migration-assets/member-actions-in-a-process/15.png)Once you are ready, click **Print** to get a paper printout or save it as a PDF.
+6. Under **More settings**, you can:
+   - Print every section of the form on a new page.
+   - Include the time zone.
+   - Print table rows as a table or as a comma-separated list.
+   - Select all or specific fields for printing.
+
+   ![More settings for time zone, row format, and field selection](/migration-assets/member-actions-in-a-process/15.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+7. Click **Print** to get a paper printout or save it as a PDF.
+
+## What's next
+
+- [Filtering items in a process](/docs/use/tasks/filtering-items-in-a-process)
+- [Watching a process item](/docs/use/tasks/watching-a-process-item)
+- [Configuring actions for process steps](/docs/build/processes/step-configuration/configuring-actions-for-process-steps)
+- [Deleting process items](/docs/build/processes/deleting-process-items)
