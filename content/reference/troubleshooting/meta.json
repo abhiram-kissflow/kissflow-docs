@@ -1,4 +1,7 @@
 {
   "title": "Troubleshooting",
-  "pages": ["..."]
+  "pages": [
+    "troubleshooting-guide-common-issues-and-solutions",
+    "ensuring-smooth-access-to-kissflow-troubleshooting-tip"
+  ]
 }

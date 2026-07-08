@@ -4,7 +4,11 @@
     "introduction",
     "accessing",
     "types-of-apps",
-    "using-app-store"
+    "using-app-store",
+    "introduction-to-kissflow-app-store",
+    "accessing-kissflow-app-store",
+    "types-of-apps-in-kissflow-app-store",
+    "using-kissflow-app-store"
   ],
   "icon": "app-store"
 }
