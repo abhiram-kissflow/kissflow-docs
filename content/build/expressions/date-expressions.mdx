@@ -1,0 +1,566 @@
+---
+title: "Date expressions"
+description: "DRAFT (unverified) — migrated from /t/p8h4al3/date-expressions"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Date and datetime expressions are very similar but cannot be used interchangeably.  
+
+Timezones and format settings for date fields are set at the account or user level. 
+
+## Example used
+
+We’ll use these sample fields in the expressions below.
+
+**FieldID**
+
+**Field type**
+
+**Value**
+
+date1
+
+Date
+
+5/29/1970
+
+date2
+
+Date
+
+6/3/1970
+
+datetime1
+
+Datetime
+
+5/29/1970 3:30 PM
+
+datetime2
+
+Datetime
+
+5/30/1970 3:30 AM
+
+## Functions
+
+Functions are applied at the start of the expression. 
+
+**Function**
+
+**Description**
+
+**Syntax**
+
+**Output**
+
+**Output type**
+
+Date
+
+Creates a date from numbers.
+
+Date(1970, 5, 29)
+
+5/29/1970
+
+Date
+
+Datefromtext
+
+Creates a date from text.
+
+Datefromtext("1970/05/29")
+
+> **Note**:
+> 
+> In integration, the output will be 1970-05-29
+
+1970/05/29
+
+> **Note**:
+> 
+> Inside the integration configuration forms, these are to be formatted as Datefromtext(1970-05-29)
+
+Date
+
+dateTime
+
+Creates a date and time from numbers.
+
+Add a time zone.
+
+Datetime("1970,5,29,15,30,00,America/Los\_Angeles")
+
+5/29/1970 3:30 PM PST
+
+Datetime
+
+dateTimeFromText
+
+Creates a date and time from text.
+
+DateTimeFromtText("2021-10-18T11:06:35-08:00 America/Los\_Angeles")
+
+Note:
+
+Inside the integration configuration forms, these are to be formatted as DateTimeFromText("2021-10-18T11:06:35-08:00 America/Los\_Angeles")
+
+2021-10-18T11:06:35-08:00 America/Los\_Angeles
+
+Note:
+
+In integration, the output will be 2021-10-18T11:06:35-08:00 America/Los\_Angeles
+
+DateTime
+
+Datediff
+
+Shows the absolute value of the difference between two dates based on a unit.
+
+“Year”
+
+“Month”
+
+“Day”
+
+“Hour”
+
+“Minute”
+
+“Second”
+
+It will ignore non-working days by default. To count these, add false().
+
+Datediff(date1, date2, "Day")
+
+Datediff(date1, date2, "Day",false())
+
+3
+
+5
+
+Number
+
+calendarDays
+
+Calculates the inclusive difference between dates, counting both the start and end dates.  
+ 
+
+Units
+
+D (default): Total days
+
+Y: Total years
+
+M: Total months
+
+HR: Total hours
+
+MIN: Total minutes
+
+SEC: Total seconds
+
+MD: Remaining days, ignoring months
+
+YM: Remaining months, ignoring years
+
+YD: Remaining days, ignoring years
+
+Day filters:
+
+WD (Working days - default): Skips weekends/holidays.
+
+AD (All days): Counts every day.
+
+EW (Exclude weekends): Skips Sat/Sun only.
+
+EH (Exclude holidays): Skips account holidays only.
+
+calendarDays(date1, date2, “D”)
+
+calendarDays(date1, date2, “D”, “AD”)
+
+3
+
+5
+
+Number
+
+Now
+
+The date and time of the last time the form was modified, based on UTC.
+
+Now()
+
+\[the present date and time\]
+
+Datetime
+
+Today
+
+The present day, based on UTC.
+
+Today()
+
+\[the present date\]
+
+Date
+
+Initiatedat
+
+The date and time when the item was created as a draft is displayed in the user’s set timezone.
+
+Initiatedat()
+
+\[the date and time the item was created as a draft\]
+
+Datetime
+
+> **Note:**
+> 
+> Now and Today will change whenever the form is modified or submitted. It works exactly like \_modified\_at.
+
+## toText field
+
+Fields go at the start of the expression to convert data in the particular fields to text.
+
+**Field**
+
+**Description**
+
+**Syntax**
+
+**Output**
+
+**Output type**
+
+date\_field.toText
+
+Converts a date value into text. 
+
+For example, if the date is 1970/05/29, the different formats of conversion are shown in the next column. 
+
+Date\_field.toText("y")
+
+Date\_field.toText("yy")
+
+Date\_field.toText("yyy")
+
+Date\_field.toText("yyyyy")
+
+Date\_field.toText("m")
+
+Date\_field.toText("mm")
+
+Date\_field.toText("mmm")
+
+Date\_field.toText("mmmm")
+
+Date\_field.toText("d")
+
+Date\_field.toText("dd")
+
+Date\_field.toText("ddd")
+
+Date\_field.toText("dddd")
+
+70
+
+70
+
+1970
+
+1970
+
+5
+
+05
+
+May
+
+May
+
+29
+
+29
+
+Fri
+
+Friday
+
+Text
+
+dateTime\_field.toText
+
+Converts a date time value into text. 
+
+For example, if the date time is 1970/05/29, 14:07:00, the different formats of conversion are shown in the next column. 
+
+Datetime\_field.toText("h")
+
+Datetime\_field.toText("hh")
+
+Datetime\_field.toText("s")
+
+Datetime\_field.toText("ss")
+
+Datetime\_field.toText("am/pm")
+
+Datetime\_field.toText("a/p")
+
+Datetime\_field.toText("a")
+
+Datetime\_field.toText("p")
+
+Datetime\_field.toText("h:m")
+
+Datetime\_field.toText("h:m:s")
+
+Datetime\_field.toText("hh:mm")
+
+Datetime\_field.toText("hh:mm:ss")
+
+2
+
+14
+
+00
+
+00
+
+PM
+
+PM
+
+PM
+
+PM
+
+02:07
+
+02:07:00
+
+14:07
+
+14:07:00
+
+Text
+
+## Methods
+
+These methods can be used with date and time fields to extract specific parts or perform calculations.
+
+**Function**
+
+**Description**
+
+**Syntax**
+
+**Output**
+
+**Output type**
+
+offset
+
+Offsets the date and time.
+
+Y=year
+
+M=month
+
+D=day
+
+h=hour
+
+m=minutes
+
+s=second
+
+datetime1.offset(10,"D")
+
+datetime1.offset(-10,"m")
+
+06/08/1970 3:30 PM
+
+05/29/1970 3:20 PM
+
+Date or datetime
+
+eom
+
+Shows the last day of the month for the given field.
+
+datetime1.eom()
+
+05/31/1970 12:00 AM
+
+Date or datetime
+
+weekNum
+
+Shows the week count for the given field.
+
+1=Sunday
+
+2=Monday, etc.
+
+You can change the default start day of the week.
+
+datetime1.weekNum()
+
+22
+
+Number
+
+weekDay
+
+Shows the weekday count for the given field.
+
+1=Sunday
+
+2=Monday, etc.
+
+You can change the default start day of the week.
+
+datetime1.weekDay()
+
+datetime1.weekDay(2)
+
+6
+
+5
+
+Number
+
+year
+
+Shows the year of the given field.
+
+datetime1.year()
+
+1970
+
+Number
+
+month
+
+Shows the month of the given field.
+
+datetime1.month()
+
+5
+
+Number
+
+day
+
+Shows the day of the month of the given field.
+
+datetime1.day()
+
+29
+
+Number
+
+hour
+
+Shows the hour of the given field.
+
+datetime1.hour()
+
+15
+
+Number
+
+minute
+
+Shows the minute of the given field.
+
+datetime1.minute()
+
+30
+
+Number
+
+second
+
+Shows the seconds of the given field.
+
+datetime1.second()
+
+0
+
+Number
+
+## Operators
+
+You can use the addition and subtraction operators with date and datetime fields. 
+
+**Field 1**
+
+**Field 2**
+
+**Operator**
+
+**Example**
+
+**Result**
+
+**Resulting type**
+
+Date
+
+Number/Integer
+
++, -
+
+date1 + 5
+
+6/3/1970
+
+Date
+
+Date
+
+Date
+
+\-
+
+date2 - date1
+
+5
+
+Number
+
+Datetime1
+
+Number/Integer
+
++, -
+
+datetime1 - 1
+
+5/28/1970 3:30 PM
+
+Datetime
+
+Datetime
+
+Datetime
+
+\-
+
+datetime2 - datetime1
+
+0.5
+
+Number
+
+Integers represent 24 hours with a datetime field. If you want to subtract 12 hours, enter `datetime1-0.5`.

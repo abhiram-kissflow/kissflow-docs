@@ -1,0 +1,160 @@
+---
+title: "Creating a process"
+description: "DRAFT (unverified) — migrated from /t/35h9qtd/creating-a-process"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+You can create a new process based on the [permission set by a Super Admin or IAM Admin](/t/h7h4akl/flow-settings).
+
+## Creating a new process
+
+1.  Go to the process creation page using any one of the below methods:
+    1.  **Quick create** **\-** In the left navigation bar, click **Create** > **Process.**
+    2.  **Explorer -** In the left navigation bar, click **Explore** \> **Create** on the top right**.** In the **Create from scratch** page, select **Process.** Alternatively, you can go to the **Template gallery** and install one of the predefined process templates.
+2.  In the process creation page, you have the option to choose between building your process with AI and building it yourself.![](/migration-assets/creating-a-process/1.png)
+
+### Create from scratch
+
+1.  Name your process and optionally add a description to help you organize and find your process later.
+    
+    ![](/migration-assets/creating-a-process/2.png)
+    
+2.  Click **Create**. 
+    
+
+The URL of the created process is based on the name you give. The URL cannot be changed later even if you rename the process.
+
+### Build with AI (For Enterprise plans)
+
+You can create a process in a matter of seconds using AI, including a form and a multi-step workflow. 
+
+You can start by attaching a document or providing a prompt.
+
+#### From a document 
+
+This is the fastest way to digitize an existing image of a form or a spreadsheet.
+
+1. **Attach your document**
+    
+    -   Click **Attach document** and upload a PDF, CSV, PNG, JPEG, or JPG of your form.
+        
+        ![](/migration-assets/creating-a-process/5.png)
+        
+        Here is a breakdown of how the input document determines the structure of the output:
+        
+        **Input document format**
+        
+        **Expected output and behavior**
+        
+        **CSV**
+        
+        • **Field assignment**: All column headers will be automatically assigned to specific field types; the form can accommodate up to 1000 fields.
+        
+        • **Organization**: Fields will be grouped section-wise to ensure logical flow.
+        
+        • **Table generation**: If applicable, tables will be created automatically.
+        
+        • **Workflow**: A basic workflow structure is created.
+        
+        **Images or PDFs**
+        
+         
+        
+        (PDF, PNG, JPEG, JPG)
+        
+        • **Exact replication**: The AI will replicate the form layout exactly as it appears in the uploaded file. However, if you provide specific instructions in the prompt, AI will modify the output to match those requests.
+        
+        • **Table detection**: If the image or PDF contains a visible table, it will be automatically converted into a table field.
+        
+        • **Workflow**: A basic workflow will be created based on the logic interpreted from the document.
+        
+        > **Note**
+        > 
+        > We currently require PDF documents to contain standard form structures to process successfully. Uploading flow diagrams or descriptive procedural documents will result in a processing error.
+        
+2. **Refine your process (Optional)**
+    
+    -   After uploading your document, refine your process with additional context. Here, you can provide the AI simple instructions in plain language (Maximum character limit: 3000)
+        
+    -    For example:
+        
+        -   Make every field mandatory.
+            
+        -   The approval should go to the department manager.
+            
+        -   Add a section for vehicle information.
+            
+3. **Build and preview**
+    
+    -   Click **Start building**. The AI will scan the document, identify fields, and structure a workflow based on your document and any instructions provided.
+        
+    -   In the **Add the finishing touches** window, review your process’ **Name** and **Description**.
+        
+        ![](/migration-assets/creating-a-process/4.png)
+    -   Click **Preview form** to review the form and ensure it meets your needs.
+        
+        ![](/migration-assets/creating-a-process/3.png)
+4. **Go to the process editor**
+    
+    -   Click **Go to process**. You will be taken directly to the editor where you can view the form and Workflow steps. From here, you can customize the process as needed.
+        
+
+> **Note:**
+> 
+> Business Requirement Documents (BRDs) and specification documents are not supported.
+
+#### From a prompt
+
+If you don't have a document, you can describe the process you want to build.
+
+1.  In the **Or provide a prompt** space, describe your process. Be as specific as possible about the form fields and workflow steps.
+    
+    ![](/migration-assets/creating-a-process/6.png)
+2.  Click **Start building**.
+    
+3.  In the **Add the finishing touches** window, review your process’ **Name** and **Description**.
+    
+4.  Click **Preview form** to review the process form and ensure it meets your needs.
+    
+5.  Click **Go to process**. You will be taken directly to the editor where you can view the form and workflow steps. From here, you can customize the process as needed.
+    
+
+> **Note:**
+> 
+> -   The number of workflow steps created will be between 2 and 10. 
+> -   The number of fields created will be limited to 25.
+
+The process ID generated when you create a process cannot be changed later.
+
+## Renaming a process
+
+To rename your process, simply click the current name, make changes, and then click **Enter.** You can change the description in the same way after clicking the **Description** button (![](/migration-assets/creating-a-process/7.png)). All changes are auto-saved.
+
+![](/migration-assets/creating-a-process/8.png)
+
+## Customizing a process
+
+Each item in your process has its own [form](/t/h7h4azm/creating-a-form), [workflow](/t/m1h9qmv/making-a-process-workflow), and [permissions](/t/60h9qtm/configuring-field-permissions-for-process-steps). Click **Manage** > **Edit process** to access the editor where you can work on these elements. As a process admin or developer, you can also access the editor from any form by clicking **Edit** **process** in the top right corner of the form.
+
+![](/migration-assets/creating-a-process/11.png)
+
+## Finding a process
+
+There are two ways you can search for your process.
+
+First, click the **Search** button (![](/migration-assets/creating-a-process/9.png)) on the top navigation bar of your page and type the name of the process into the search box. You can also launch the search box using the keyboard shortcuts,
+
+-   On **Mac**: Command key (⌘) + E.
+-   On **Windows**: Ctrl key + E. 
+
+![](/migration-assets/creating-a-process/10.png)
+
+Second, click **Explorer** from the left navigation pane to land on the **Live** page. Then you can use the search and sort features to find the process quickly. You can find the processes you manage under the **Managed by me** tab, while you can find the rest of the processes under the **Others** tab.
+
+![](/migration-assets/creating-a-process/12.png)

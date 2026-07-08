@@ -1,0 +1,76 @@
+---
+title: "Field visibility"
+description: "DRAFT (unverified) — migrated from /t/g9h4aza/field-visibility"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+All the fields you create as part of your form are visible to the end user by default. However, the **Visibility** settings allow limiting the visibility of certain fields based on your business requirement**s**.
+
+Click a field and access the **Visibility** tab in the right side properties panel or hover over a field and click the spectacle icon to configure a field's visibility conditions.
+
+The **Default visibility** state of a field is always set to **Visible**, however, you can toggle it to **Hidden** if you wish to.
+
+## Adding visibility rules
+
+A visibility rule lets you show or hide a field based on a certain condition or a set of conditions involving other data in the form.
+
+![](/migration-assets/field-visibility/3.png)
+
+1.  Click **Add a visibility rule** in the field's properties panel to display or hide the field based on certain conditions. 
+2.  Click **Add a condition** to add as many filter conditions as you want. Select **Match all** if all the filter conditions are to be met. You can select **Match any** if you want at least one of the filter conditions to be met.![](/migration-assets/field-visibility/1.png)
+
+## Visibility rules for sections
+
+You can set visibility conditions for a section like how you do it for a field. Click the gear icon (![](/migration-assets/field-visibility/4.png)) on the top of the section to access its settings.
+
+![](/migration-assets/field-visibility/2.png)
+
+## Example 
+
+Let's assume that you are creating a **Travel request** form. As you know, a few trips might mandate a cash advance while others don't. In this case, it is recommended that we limit the visibility of the **Cash Advance** field based on whether the trip requires an advance amount or not. 
+
+1.  Create a **Yes/No** field by the name _Do you need advance in cash?_
+2.  Create a **Currency** field by the name _Cash Advance._
+3.  Click the **Cash Advance** field to access its visibility settings in the right panel or hover over the spectacle icon to land on the visibility settings directly in the field properties panel.
+4.  Toggle the default visibility of the **Cash Advance** field to **Hidden**.
+5.  Click **Add a condition**.
+6.  Display the field only when the value of the **Do you need advance in cash?** field is Yes.
+
+## Visibility rules for tables
+
+When setting conditions for fields in a table, the fields you select determine the scope of visibility:
+
+-   **Section + table field**: The condition evaluates each row individually and applies visibility per row when the condition is satisfied. For example, to show the _Attach bill_ field only for travel expenses exceeding _$1,000_:
+    
+    1.  Select the _Attach bill_ field in your table.
+        
+    2.  Add a condition: _Reimbursement type_ (section field) is _Travel_ AND _Amount_ (table field) is greater than _$1,000_.
+        
+    3.  If a user selects _Travel_ and enters an amount over _$1,000_, the _Attach bill_ field becomes visible for that specific row. For all other rows, the field remains hidden.
+        
+        ![](/migration-assets/field-visibility/5.gif)
+-   **Only section, or section + section field**: The condition applies to the entire column across all rows.  
+    For example, if you want to show the _Hotel name_ column only when the user is claiming travel expenses:
+    
+    1.  Select the _Hotel name_ field in your table.
+        
+    2.  Add a condition: _Reimbursement type_ (section field) is _Travel_.
+        
+        ![](/migration-assets/field-visibility/6.gif)
+
+If a user selects _Food_, the _Hotel name_ column is hidden for every single row in the table. If they switch to _Travel_, the entire column appears across all rows.
+
+## Difference between field visibility and permissions
+
+Field visibility shows and hides fields based on default settings or other data in the form. In the [Permissions section of the process editor](/t/60h9qtm/configuring-field-permissions-for-process-steps), you can make fields editable, read-only, or hidden. These settings are based on what step in the workflow the item is in, not on form data. 
+
+These two different settings can affect each other.
+
+-   If the field visibility is set to **Visible**, but the permissions setting is **Hidden** at a particular step, the field will be hidden at that step.
+-   If the field visibility is set to **Hidden**, but the permission setting is either **Read-only** or **Editable**, the field will be hidden at that step.

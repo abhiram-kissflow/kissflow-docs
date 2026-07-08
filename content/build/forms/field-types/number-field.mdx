@@ -1,0 +1,80 @@
+---
+title: "Number, Slider, and Rating field"
+description: "DRAFT (unverified) — migrated from /t/60h4az2/number-field"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+There are three fields that store data as a number.  
+
+## Number field
+
+You can store a whole number or a decimal in a **Number** field. To let the form user key in decimals, set the number of decimal places in the **Number of decimal places** field.
+
+![](/migration-assets/number-field/1.gif)
+
+### Expressions or formulas
+
+There are many [expressions and formulas you can use with numbers](/t/g9h4alx/number-and-currency-expressions).
+
+### Validations
+
+There are six types of validations you can use with a number field:
+
+-   Equal to
+-   Not equal to
+-   Greater than
+-   Greater than or equal to
+-   Less than 
+-   Less than or equal to
+
+## Slider field
+
+The slider field lets users select a number from a defined range and stores the value as a number. 
+
+### Settings
+
+Here are the additional fields to use when setting up a slider field:
+
+-   Minimum value is the lowest possible value.
+-   Maximum value is the highest possible value.
+-   Interval size is the distance between accepted values. In the example below, users can only select 1, 2, 3, and so on.
+
+![](/migration-assets/number-field/3.gif)
+
+You can set a default value for the slider to display when the form first loads.  
+
+The values displayed on the slider in the live form are auto-generated and cannot be edited. 
+
+![](/migration-assets/number-field/5.gif)
+
+The stored values can be used in any number [expression](/t/q6h4alh/introduction-to-expressions-and-formulas).
+
+## Rating field
+
+The rating field allows users to submit star ratings. It is commonly used for collecting feedback. The value is stored as a number (zero to five). 
+
+In the live form, when a star is selected, all stars to the left of the selection will fill automatically. Users can double-click on the stars to reset them to zero. 
+
+![](/migration-assets/number-field/2.png)
+
+### Half-star rating
+
+Using the half-star rating option, users can rate their feedback in increments of 0.5, such as 1.5, 2.5, and so on.
+
+During configuration, turn on the **Enable half-star ratings** toggle on the right-side **Field properties** panel. 
+
+Once done, users can simply slide their cursor over the rating field in the live form to provide feedback.
+
+![](/migration-assets/number-field/4.gif)
+
+### Settings
+
+If you set a default value, those stars will be pre-filled when the form is loaded. Otherwise, no stars will be selected when the field loads. 
+
+The stored values can be used in any number [expression](/t/q6h4alh/introduction-to-expressions-and-formulas).

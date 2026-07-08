@@ -1,0 +1,119 @@
+---
+title: "Creating and administering a list"
+description: "DRAFT (unverified) — migrated from /t/35yqkrj/creating-and-administering-a-list"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+ You can create a list when you add a dropdown field, a checklist, or a multi-select field to your form.
+
+1.  Navigate to your Form editor and choose a field type (such as, Dropdown, Checklist, and so on) for which a list will be required to populate data.
+    
+2.  Under the **Select a list** drop-down, you can select an existing list or click **+ Create a list** to create a new one from scratch.
+    
+3.  If you are creating a new list, enter the list's title and add the list of items. Click **Apply** when you are done.
+    
+
+![](/migration-assets/creating-and-administering-a-list/4.png)
+
+## Finding a list
+
+You can find and access your list by one of the following three ways:
+
+-   From the same form field that you used to create your list.
+    
+-   By using the **Search bar** on the top.
+    
+-   In **Explore** → **Live**, **Managed by me,** and **Others**.  
+     
+    
+    ![](/migration-assets/creating-and-administering-a-list/1.png)
+
+## Renaming a list
+
+To rename a list, go to **Explore,**  open the list, and change its name. When finished, click **Enter**, or simply click off the name. You can change the description in the same way. All changes are auto-saved.
+
+![](/migration-assets/creating-and-administering-a-list/2.gif)
+
+## Editing list values
+
+You can edit the list's values directly from the **Explore** page by clicking on the cells and making changes. When finished, click **Enter** or **Tab**, and the changes will be autosaved. You can also copy and paste values from a spreadsheet.
+
+![](/migration-assets/creating-and-administering-a-list/3.gif)
+
+> **Note**  
+> If the list values are copy-pasted from different sources like **Excel**, check and remove any trailing spaces.
+
+List values can also be edited when selecting them from the form editor. Open the **Dropdown, checkbox, checklist, or radio button field** where the list is used, and click **Edit list**.
+
+> **Note**  
+> A maximum of 250 items can be created or pasted within the list.
+
+## Managing members and their permissions in a list
+
+You can share a list with your flow members and manage their permissions with the help of the **Share settings** inside a list.
+
+You can assign roles to members to control what actions they can perform on your list.
+
+There are two roles that you can assign to members:
+
+-   **Admin**: List admins can edit the values of the lists they own, modify their settings, and delete them as necessary.
+    
+-   **Member**: List members can modify the values of a list or share it with other members based on the permissions granted to them by their admins.
+    
+
+Admins have more permissions than a member and can control various settings of a list. 
+
+![](/migration-assets/creating-and-administering-a-list/6.png)
+
+The member who creates a list becomes its admin by default. As an admin of your list, you can add or remove members from it.
+
+To manage members and roles, click **Manage** at the top right corner of the list's page and select the **Share** button (![](/migration-assets/creating-and-administering-a-list/7.svg)). On the **Share settings** page, click **\+ Add members** to select and add members. To remove members from a list, select a member and click the **More options** button ( ![](/migration-assets/creating-and-administering-a-list/8.svg)) >  **Remove**. The member will not be able to access or view the contents of the list thereafter.
+
+## Duplicating a list
+
+1.  Click the **More options** button (![](/migration-assets/creating-and-administering-a-list/10.svg)) on the list page.
+    
+2.  Click **Duplicate.**
+    
+    ![](/migration-assets/creating-and-administering-a-list/5.png)
+3.  A popup will appear with the default name of the new list as Copy of &lt;original list name>.
+    
+4.  Change the name and click **Duplicate**.
+    
+
+## Configuring security settings
+
+The security settings define which flows can look up values in your list.
+
+To update your list's security settings, open your list from **Explore** in the navigation pane and click **Manage** at the top right corner, then **Security**.  By default, **Global permission** is enabled, and all flows have access to your list.
+
+You can customize access by selecting **+Add a customized permission**, and select flows that can look up this list.
+
+![](/migration-assets/creating-and-administering-a-list/12.gif)
+
+To remove a flow, click the **Remove** button next to the flow name. Click **Save** after setting your preference.
+
+![](/migration-assets/creating-and-administering-a-list/9.png)
+
+## Deleting a list
+
+Only a **List Admin** can delete a list.
+
+1.  Click the **More options** button (![](/migration-assets/creating-and-administering-a-list/10.svg)) on the list page.
+    
+2.  Click **Delete.**
+    
+3.  If a list is used by a flow, you will be prompted to remove its dependencies. After removing the dependencies, you can safely delete the list.
+    
+
+## Viewing list dependencies 
+
+Go to **Manage** at the top right corner of the list and select **Associated flows**. Here, you'll find all the flows that currently use this list. When a list is associated with any flow, you cannot delete it until you remove the dependencies.
+
+![](/migration-assets/creating-and-administering-a-list/11.gif)

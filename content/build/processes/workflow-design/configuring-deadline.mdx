@@ -1,0 +1,38 @@
+---
+title: "Configuring deadline"
+description: "DRAFT (unverified) — migrated from /t/60h9qm9/configuring-deadline"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+In Kissflow, you can set default deadlines on how long a user can take to complete a task.
+
+## Deadlines
+
+Deadlines can be created for each step in a workflow. By default, a step does not have a deadline. To set up a default deadline, click on the step and click the **Add** button (**+**) in the **Deadline** section. Under **Allotted time**, enter the default deadline duration and then select either hours, minutes, or days. 
+
+> **Notes:**
+> 
+> -   [Holidays](/t/q6h4aka/weekend-holidays) will not be considered in the allotted time. For example, if you have allotted 10 days to complete a task, and there are 2 holidays during that period, the holidays would not be included in those 10 days. Instead, the deadline would be extended by the number of holidays, giving you additional time to account for the non-working days.  
+>      
+> -   Deadlines cannot be changed for an already submitted item.
+
+You can also set the default deadline based on a formula by clicking **fx**. You can use data from the form to create the deadline, such as _If(Destination=”US”,24,48)_. In this example, _Destination_ is a field ID. If the user selects US, then the deadline is 24 minutes. If a different selection is made, it is 48 minutes. In formulas, the units are always in minutes.You can also use a Date or Date-time as a part of the formula. To go back to setting the regular deadline, click the **Calendar** button (![](/migration-assets/configuring-deadline/3.png)).
+
+## Alerts 
+
+By default, the assignee will get a notification and email as soon as the deadline is crossed. You can add additional alerts if you want. Alerts can be sent to any user. There are two types of alerts:Notify - R̆eminds the set user to take action via email.Escalate -  Informs a set user that the step assignee has not taken action. Start by clicking **\+ Add an action**.
+
+1.  Choose the **Alert** type**.** 
+2.  Select who should receive the alert. This can also be configured with a formula.
+3.  Select the time period (between 30 minutes and 1 month).
+4.  Select if you want the alert to go out before or after the deadline.![](/migration-assets/configuring-deadline/1.png)
+
+## Rule-based deadlines
+
+Sometimes you want to override the default deadline. For example, if you normally give a manager 48 hours to approve a travel request, but the travel date is tomorrow, you need a faster approval. For these cases, you can create a rule-based deadline. To set it up, click **\+ Rule-based deadline**. Choose a **Field**, **Operator**, **Type**, and map a value or a field based on the type. You can also add conditions to limit the values shown.![](/migration-assets/configuring-deadline/2.png)In our example, you can create a condition so that if the _Department_ is equal to _Product_, the deadline changes to 1 day.

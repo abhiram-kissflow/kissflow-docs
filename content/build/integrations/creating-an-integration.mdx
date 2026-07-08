@@ -1,0 +1,108 @@
+---
+title: "Creating an integration"
+description: "DRAFT (unverified) — migrated from /t/60h4akx/creating-an-integration"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Integrations allow you to connect Kissflow with other applications to automate your workflows. Before creating integrations, ensure that integration is enabled in [Flow Settings](/t/h7h4akl/flow-settings). If you don't have sufficient permissions, contact your [Super Admin](/t/35h4ak0/user-roles-permissions).
+
+There are two ways to create a new integration in Kissflow:
+
+## Method 1: Using the create button
+
+1.  Click the **Create** button in the left navigation panel
+    
+2.  Select **Integration** from the list
+    
+3.  Enter a name and description for your integration
+    
+4.  Click **Create**
+    
+
+## Method 2: Using the explore page
+
+1.  Click **Explore** in the left navigation panel
+    
+2.  Click the **Create** button
+    
+3.  Choose **Integration** under **Create from scratch**
+    
+4.  Enter a name and description for your integration
+    
+5.  Click **Create**
+    
+
+## Setting up a trigger
+
+To add a trigger step, follow the steps below:
+
+1.  Click **Add a trigger** and choose a trigger from the list of available triggers, or choose one of the most popularly used triggers. The integration will be triggered based on the event that occurs in this connector. You can also [create integrations](/t/h7yh4cy/creating-integrations-using-ai) using our AI. 
+2. **Select your trigger event**. This will be the event that occurs in the selected connector that triggers the integration.
+3. **Authenticate your connection**. Authenticate the connector by setting up a connection. You can link to your Kissflow account or use another Kissflow account to authenticate the connector. Internal connections are established using the Access key ID and Access key secret token-based authentication. You can also link [service account access keys](/t/q6h4akr/creating-and-managing-access-keys). For third-party app connectors, authenticate the connector account using OAuth or the type of authentication supported by the third-party app. ![](/migration-assets/creating-an-integration/1.png)  
+4. **Configure your trigger step.** Customize your connector app to send data of your preference.
+5. **Test your trigger.** Test your trigger output to see if the trigger connector is properly configured.![](/migration-assets/creating-an-integration/2.png)
+    
+
+When each section is properly configured, a green checkmark appears next to it. Complete all sections before proceeding with action setup. If you encounter any errors while setting up the trigger, you will see all those error messages on the left side of the page. Clicking an error will take you to the step with the error, where you can troubleshoot it.
+
+> **Note:**
+> 
+> Even if the [Access key](/t/35h4az8y7h4gj/api-keys#creating-a-new-access-key) associated with your trigger connection is deleted or turned off, your integration trigger will continue to operate.
+
+![](/migration-assets/creating-an-integration/3.png)
+
+## Setting up actions
+
+Similar to the trigger step, set up your action by choosing your action connector and event:
+
+1. **Select your action connector**. The trigger step or another action step activates the action.
+2. **Select your action event**. This will be the event that occurs in the selected connector when it is triggered.    
+3. **Authenticate your app connection**. Authenticate the connector by setting up a connection. You can link to your Kissflow account or use another Kissflow account to authenticate the connector. Internal connections are established using the Access key and Access key secret token-based authentication. For third-party app connectors, authenticate the connector account using OAuth.![](/migration-assets/creating-an-integration/8.gif)
+    
+    > **Note:**
+    > 
+    > To create connections, go to **Explore** > **Managed by me** > **Integrations** > **Connections** and click **New connection.** 
+    
+4. **Customize your action step**. Customize the app data you want to send to your action connector.   
+     
+5. **Test your action.** Test your action output to see if it's working as expected.
+
+> **Note:**
+> 
+> -   When creating an action, test it with a few fields using sample values. Once the test succeeds, return to complete the field mapping. After mapping, you can click **Next** and be done without re-testing, as the action has already been validated. For required fields, the test values can be removed afterward. The integration will work with the mapped fields.
+> -   If the [Access key](/t/35h4az8y7h4gj/api-keys#creating-a-new-access-key) associated with your connection is deleted or turned off, your integration action will be halted. To restart the action, update your [connection](/t/x2h4ak8q5h4gn/managing-integrations#create-a-connection) with a new access key.
+
+### Duplicating actions
+
+You can duplicate an existing action by copying and pasting it above or below any action in the same integration. This saves you the time and effort of manually recreating an existing action inside an integration. The new duplicated action will have the same configuration as the original action except for its name. The default name of the new action will be **Copy of &lt;original action’s name>**, which you can change later. To duplicate an integration action,
+
+1.  Click the **More options** button  (![](/migration-assets/creating-an-integration/6.png)) on the action > **Copy**.
+2.  Click the **Click to paste here** button in the desired position to paste the action.
+
+![](/migration-assets/creating-an-integration/5.gif)
+
+Let’s say you want to add a new action similar to an existing one but with a slightly different configuration. You can duplicate the existing action and modify the duplicate one rather than create one from scratch. 
+
+### Rearranging actions
+
+If you have multiple actions, you can rearrange their order using this duplication feature. Copy the action you want to rearrange, paste it into the desired position, and delete the original action.
+
+## Naming your integration and connectors
+
+When you create an integration, you must first add a title and a brief description to it. You can change these at a later stage by clicking the name of your connector and entering a new name. You can also update the description by clicking the (![](/migration-assets/creating-an-integration/7.png)) icon beside the title.
+
+![](/migration-assets/creating-an-integration/4.png)
+
+Similarly, you can change the name of each trigger or action step. Select the trigger or action you want to rename, click the **Rename** button, and enter your text in the field. Your changes will be saved automatically.
+
+## Turning on your integration
+
+After you build your integration, the next step is to turn it on. You can click the toggle button in the upper right corner of the editor to switch it on.
+
+After your integration is turned on, it’ll automatically run your action steps each time your trigger event occurs. You can also view your integration’s **Run history** to see a log of all your successful and failed integration runs with data that goes in and out of each integration step.

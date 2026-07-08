@@ -1,0 +1,609 @@
+---
+title: "Board table in Analytics"
+description: "DRAFT (unverified) — migrated from /t/83yqk6f/board-table-in-analytics"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Board tables are system-generated tables that appear in Kissflow Analytics for each board that you create in your Kissflow account. These tables allow you to interpret and analyze the board data in Analytics. The Analytics module provides a structured and comprehensive view of a board, including all form and system fields. Any subitems part of a board will be listed under the parent table. A child table that is part of a board will be available as an individual table in Analytics. 
+
+<iframe src="https://player.vimeo.com/video/850434572?h=153dc33957&app_id=122963" title="Embedded video" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+## Subitems in a board table 
+
+In a board table, each item is represented as a row, and subitems are also included as rows within the main table.
+
+To exclude subitems from the view, you can apply a filter in the board table. You can also apply the same filter in report configuration or in a dataview. For example, on the board table page, follow these steps. 
+
+1.  Click the **filter** button (![](/migration-assets/board-table-in-analytics/2.jpg)).
+    
+2.  Select **Add a filter**.
+    
+3.  Choose the field **Parent ID** and set the operator as **Is empty** from the dropdown menu.
+    
+4.  Click **Apply** to view the list of parent items only in the table. Alternatively, if you select the operator as **Is not empty**, you can view the subitems of the table.
+    
+
+![](/migration-assets/board-table-in-analytics/3.png)The rows are ordered in the table based on the modification time, with the most recent items appearing at the top. This ensures you can easily access and track the latest changes made to the board.
+
+## System fields and custom fields
+
+In the query editor for dataview creation, system fields can be easily identified by their use of the '\_' (underscore) symbol as a prefix. Examples of system fields include \_id and \_created\_by. This naming convention also extends to child tables associated with the board. Custom fields are recognizable as they don’t start with an underscore, but they may have underscores within the field name. Examples of custom fields include Company\_Name and Purchase\_Request\_.
+
+System fields are referred to as Field IDs within the query editor, while they are referred to as Field names in the data source viewer or report configuration. Field IDs are used for constructing queries, whereas Field names are used for viewing and configuring reports.
+
+-   **\_id** - Unique id for each item and subitem which you can use as primary key. 
+    
+-   **\_item\_id** - The \_item\_id of a subitem will serve as a readable key that can be utilized for filtering and selecting in order to display individual items.
+    
+
+Check the complete entity relationship of the data sources to learn about the structure of the Analytics tables.
+
+![](/migration-assets/board-table-in-analytics/1.png)
+
+### System fields of the board table
+
+All form fields and system fields associated with the board are available as columns in the board table. Access to these fields allows analyzing and reporting on various use cases. For example, you could calculate the time taken for items across multiple boards to evaluate the assignee's performance or status to gauge employee efficacy.
+
+**Field ID**
+
+**Type**
+
+**Field Name**
+
+**Description**
+
+\_counter
+
+Number
+
+Counter
+
+An overall count of items including all existing, moved, and deleted subitems on a board.
+
+\_item\_id
+
+Text
+
+Item ID
+
+The display name i.e. readable form of an item id / sub item id. 
+
+AssignedTo
+
+User
+
+Assignee
+
+The name of the user to whom the item / subitem is currently assigned. 
+
+\_category
+
+Text
+
+Category
+
+The default categories in the board workflow such as Not started, In progress, Done, and Closed.
+
+\_status\_name
+
+Text
+
+Status
+
+The current status of an item. Status names are defined within the default categories in the board workflow. This can be one of the default statuses such as New, In progress, or any custom status you add in the board workflow.
+
+\_status\_id
+
+Text
+
+Status Id
+
+The system defines id for each status which will be in the order of workflow.
+
+\_priority\_name
+
+Text
+
+Priority
+
+The priority level set for an item on a board such as High, Low, and Critical.
+
+\_priority\_id
+
+Text
+
+Priority Id
+
+The priority ID assigned to an item such as High, Low, and Critical.
+
+\_priority\_sequence
+
+Number
+
+Priority Sequence
+
+The order in which items are prioritized or ranked based on their importance such as 1, 2, 3, 4 (main item).
+
+\_subitem\_title
+
+Text
+
+Subitem title
+
+The title of a subitem on a board.
+
+\_subitem\_description
+
+Text
+
+Subitem description
+
+The description of a subitem on a board.
+
+\_state\_id
+
+Text
+
+State Id
+
+The ID of the subitem state. E.g. State\_On\_Hold, State\_Not\_Started.
+
+\_state\_name
+
+Text
+
+Subitem state
+
+The current state of a subitem. E.g. Not started, In progress, On hold, Done
+
+\_subitem\_index
+
+Number
+
+Subitem Index
+
+The specific order or position of subitems of an item. The number is specific to the item it was assigned while that subitem got created.
+
+\_parent\_id
+
+Text
+
+Parent Id
+
+The parent ID of the subitem in an item. This will be null when the row is an item.
+
+\_total\_subitem\_count
+
+Number
+
+Total subitem count
+
+The total count of all current subitems associated with a particular parent item.
+
+\_completed\_subitem\_count
+
+Number
+
+Completed subitem count
+
+Total count of all completed subitems in an item.
+
+\_subitem\_counter
+
+Number
+
+Subitem Counter
+
+An overall count of subitems associated with a parent item, including all existing, moved, and deleted subitems.
+
+DueDate
+
+DateTime
+
+Due by
+
+The date by which a subitem must be completed. This is applicable for both the items and subitems.
+
+Requester
+
+User
+
+Requester
+
+The user who requested an item. 
+
+ItemType
+
+Text
+
+Item Type
+
+The type of item on a board such as ISSUE, FEAT.
+
+\_current\_status\_instance\_id
+
+Text
+
+Current Status Instance Id
+
+A unique ID representing the current status instance of an item. This can be referred to in the BoardStatusInstance table.
+
+\_previous\_status\_instance\_id
+
+Text
+
+Previous Status Instance Id
+
+A unique ID representing the previous status instance of an item. This can be referred to in the BoardStatusInstance table.
+
+\_start\_status\_instance\_id
+
+Text
+
+Start Status Instance Id
+
+A unique ID corresponding to the initial status instance of an item when it was first created.
+
+\_end\_status\_instance\_id
+
+Text
+
+End Status Instance Id
+
+A unique ID representing the final status instance of an item, indicating the state it reached upon completion or closure.
+
+\_resolved\_at
+
+DateTime
+
+Resolved at
+
+The date and time when an item is resolved.
+
+\_resolution\_time
+
+Number
+
+Resolution time
+
+The total time (seconds) taken for an item to be completed. This will have value only for those items which have ‘\_category’ = Done.
+
+\_is\_reopened
+
+Boolean
+
+Reopened Item
+
+This is a field that indicates if an item was reopened or not.
+
+\_watchers
+
+MultiUser
+
+Watchers
+
+The list of users who are watching the item.
+
+\_id
+
+Text
+
+ID
+
+A unique string generated by the system to identify an item.
+
+Name
+
+Text
+
+Title
+
+The name given to an item by the user during its creation.
+
+\_created\_by
+
+User
+
+Created by
+
+The name of the user who created the item.
+
+\_modified\_by
+
+User
+
+Modified by
+
+The name of the user who last modified the item. This is applicable for both item and subitem.
+
+\_created\_at
+
+DateTime
+
+Created at
+
+The date and time when the item/specific step was created. This is applicable for both item and subitem.
+
+\_modified\_at
+
+DateTime
+
+Modified at
+
+The date and time when the item was last modified for both subitem and item.
+
+\_flow\_name
+
+Text
+
+Flow name
+
+The name of a board.
+
+\_model\_id
+
+Text
+
+Model ID
+
+The unique ID of a board.
+
+> **Note:**
+> 
+> Analytics shows the resolution time in seconds. However, in individual reports of boards, it is shown in a different format. 
+
+## Child table 
+
+If the board has child tables, each [child table](https://helpdocs.kissflow.com/forms/creating-a-form#child_tables) will be created as a separate table within the analytics module. These tables are automatically generated and named in "BoardName-ChildTableName" format.
+
+### System fields of the child table
+
+**Field ID**
+
+**Type**
+
+**Field Name**
+
+**Description**
+
+\_id
+
+Text
+
+ID
+
+The unique ID of the child table.
+
+Name
+
+Text
+
+Name
+
+The name of the child table.
+
+\_created\_by
+
+User
+
+Created by
+
+The name of the user who created the child table.
+
+\_modified\_by
+
+User
+
+Modified by
+
+The name of the user who last modified the child table.
+
+\_created\_at
+
+DateTime
+
+Created at
+
+The date and time when the child table was created.
+
+\_modified\_at
+
+DateTime
+
+Modified at
+
+The date and time when the child table was last modified.
+
+\_flow\_name
+
+Text
+
+Flow name
+
+The name of the board.
+
+\_model\_id
+
+Text
+
+Model ID
+
+The unique ID of the child table.
+
+\_instance\_id
+
+Text
+
+Instance ID
+
+The item ID that is used to refer to the respective item in the board table.
+
+## Board Workflow Instance table 
+
+The Board Workflow Instance table is a system table that contains an overview of the workload information such as status updates for all items across all boards. You can find the system table inside the **Data explorer** tab. You can also sort the data sources based on **System tables** to easily identify the **Board Workflow Instance** table. You can use the Board Workflow Instance table fields to generate various types of reports such as tabular, chart, and pivot reports.
+
+### System fields of the system table
+
+**Field ID**
+
+**Type**
+
+**Field Name**
+
+**Description**
+
+\_status\_name
+
+Text
+
+Status
+
+The status name of an item.
+
+\_status\_id
+
+Text
+
+Status ID
+
+The unique ID of the statuses in the Board, such as Not started, In progress, Closed. When an item is moved to a new status, the status ID will be assigned to the item.
+
+\_category
+
+Text
+
+Category
+
+The default category name for all the statuses in a board.
+
+AssignedTo
+
+User
+
+Assigned To
+
+The name of the user to whom the item is assigned to.
+
+ExitAt
+
+DateTime
+
+Exit at
+
+The time at which the status was moved to another status.
+
+GrossTime
+
+Number
+
+Gross Time
+
+The time taken (in seconds) to complete a status.
+
+Previous
+
+Text
+
+Previous
+
+The previous instance ID of the item.
+
+Next
+
+Text
+
+Next
+
+The next instance ID of the item.
+
+\_id
+
+Text
+
+ID
+
+The unique ID of each instance.
+
+\_created\_by
+
+User
+
+Created by
+
+The name of the user who created the item.
+
+\_modified\_by
+
+User
+
+Modified by
+
+The name of the user who last modified the item.
+
+\_created\_at
+
+DateTime
+
+Created at
+
+The date and time when your item was created.
+
+\_modified\_at
+
+User
+
+Modified at
+
+The date and time when the item was last modified.
+
+\_flow\_name
+
+Text
+
+Flow name
+
+The name of the board.
+
+\_model\_id
+
+Text
+
+Model ID
+
+The unique ID of the board.
+
+\_instance\_id
+
+Text
+
+Instance ID
+
+Instance ID is the unique ID of an item on a board table. Every instance of the item generates a new record with this unique ID.
+
+> **Note:**
+> 
+> The state changes of subitems will not be available in the **Board Workflow Instance table**. This means that subitems will only be accessible within their respective board table, providing the latest state information.
+
+## Use case
+
+Consider the following use case for a board table. You are managing a board that contains several items under various categories. You can create a category-wise distribution report to interpret the data in this and filter out only the relevant fields. This will allow you to analyze and visualize the distribution of items across different categories within your board.
+
+![](/migration-assets/board-table-in-analytics/4.png)
+
+To generate this report, follow these simple steps:
+
+1.  Click on the **Create Report** under the **Reports** tab in the analytics module.
+2.  Choose the data source as **Board Workflow Instance** since it contains the necessary information for tracking item statuses.
+3.  Select the report type as **Pivot** to pivot and summarize the data effectively, and click **Create**.
+4.  Once the pivot configuration page appears, set the columns as **Category**, as this will be the basis for the distribution analysis.
+5.  Choose the **ID** field as the values, which will provide the count of items in each category.
+6.  Set the rows as **Flow Name** to examine the distribution based on different process flows.
+7.  To refine the report, add a filter by clicking **Add a filter**. Choose the **Created at** field, set the operation as **Equal to**, and enter the value as **Last 30 days**. This will limit the report to items created within the past 30 days.
+8. **Apply** the filter and save the report configuration.
+9.  By doing so, you will obtain a comprehensive report that displays the category-wise distribution of items created within the last 30 days on the board.

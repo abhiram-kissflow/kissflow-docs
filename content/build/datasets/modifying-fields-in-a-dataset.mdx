@@ -1,0 +1,90 @@
+---
+title: "Modifying fields in a dataset"
+description: "DRAFT (unverified) — migrated from /t/q6h4al2/modifying-fields-in-a-dataset"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+This article covers the basics of maintaining your dataset: updating values, validating inputs, and exporting data to keep everything accurate and organized.
+
+## Adding a field
+
+Click the plus icon on the header to add a new field.
+
+![](/migration-assets/modifying-fields-in-a-dataset/6.gif)
+
+Choose a [field type](/category/field-types) and name the field. Under settings, you can mark fields required, set a default value, and help text. You can also validate a field against certain conditions so that the dataset can only be submitted if the conditions are met.
+
+![](/migration-assets/modifying-fields-in-a-dataset/1.png)
+
+## Editing a field
+
+To modify a field, click the down arrow (▼) next to the field name and click **Edit** **field**. After making the required changes, click **Done**. 
+
+![](/migration-assets/modifying-fields-in-a-dataset/3.png)
+
+> **Note**
+> 
+> To protect data integrity, you cannot change the field type after you insert values. If absolutely required, create a new field and copy and paste the values. 
+
+## Deleting a field
+
+To delete a field, click the down arrow (▼) next to the field name and click the **Delete** **field**.
+
+![](/migration-assets/modifying-fields-in-a-dataset/2.png)
+
+If that field is used in a formula inside a flow, you will be prompted to remove the dependencies first. After removing the dependencies, you can safely delete the field.
+
+## Adding or Deleting a row
+
+To add rows, enter the number of rows you would like to add in the field below the last row of the dataset and click **Add**.
+
+![](/migration-assets/modifying-fields-in-a-dataset/9.gif)
+
+To delete a specific row, hover over the serial number of the row you would like to delete and select the checkbox. The serial number is to the left of the first field of your dataset. After selecting the checkbox, click **Delete** on the screen's upper-right corner.
+
+![](/migration-assets/modifying-fields-in-a-dataset/11.gif)
+
+## Adding and editing field values
+
+You can add values to a specific field or modify the existing values of the field in your dataset in two ways. You can edit inline or open the dataset row as a separate form and make your changes accordingly.
+
+To modify a dataset field value in its form view,
+
+1.  Click the **Expand row** icon (![](/migration-assets/modifying-fields-in-a-dataset/5.svg)) beside the **Key** field.
+2.  Add or modify the field values of the dataset row. Your changes will be autosaved.
+3.  Click the **Link** icon (![](/migration-assets/modifying-fields-in-a-dataset/4.svg) ) to copy the row link and share it with a team member.
+4.  Click the **Exit** icon (![](/migration-assets/modifying-fields-in-a-dataset/8.svg) ) to exit from the row and return to the dataset view.
+
+![](/migration-assets/modifying-fields-in-a-dataset/10.gif)
+
+> **Tip**
+> 
+> You can also expand the table rows used in your flow forms as a separate form and modify their values as necessary.
+
+To modify a dataset field value inline,
+
+1.  Navigate to the specific field and the exact row in which you would like to edit.
+2.  Type the new value directly in the cell. Field types like dropdowns require a double click.
+3.  Press Enter or Tab after you are done with your changes.
+
+You can also copy+paste values from any other spreadsheet. If you copy and paste values, ensure all your fields and formats match the source file. The changes you make are always autosaved. 
+
+> **Note**
+> 
+> A maximum of 5,000 row values can be created or pasted within the dataset.
+
+## Exporting a dataset
+
+You can export all the rows in your dataset to a CSV or a tab-separated file (TXT). Click **Export** in the screen's upper-right corner, select your preferred file type, and click **Export** to complete the process.
+
+![](/migration-assets/modifying-fields-in-a-dataset/7.png)
+
+After a successful export, you will be notified, and the exported data will be sent to your email address.
+
+Learn more about who can edit and manage datasets [here](/t/m1h4algk9h4ga/managing-members-and-permissions).

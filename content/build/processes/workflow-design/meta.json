@@ -1,0 +1,15 @@
+{
+  "title": "Simulating A Workflow",
+  "pages": [
+    "simulating-a-workflow",
+    "making-a-process-workflow",
+    "creating-ai-suggested-workflow-and-steps",
+    "assigning-steps",
+    "assignment-preference",
+    "best-practices-for-simultaneous-tasks",
+    "email-actions",
+    "conditional-steps",
+    "configuring-deadline",
+    "send-back-actions"
+  ]
+}

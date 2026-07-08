@@ -1,4 +1,9 @@
 {
   "title": "Lists",
-  "pages": ["..."]
+  "pages": [
+    "list-overview",
+    "creating-and-administering-a-list",
+    "creating-and-managing-lists-in-apps",
+    "lists-in-apps-overview"
+  ]
 }

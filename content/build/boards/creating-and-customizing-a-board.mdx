@@ -1,0 +1,195 @@
+---
+title: "Creating and customizing a board"
+description: "DRAFT (unverified) — migrated from /t/60yzjaf/creating-and-customizing-a-board"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+## Creating a new board
+
+To create a board inside your app builder,
+
+Click **Board** under the **Quick create** menu on the left. You have three options: Create from scratch, build with AI, or use a template.
+
+![](/migration-assets/creating-and-customizing-a-board/2.png)
+
+### Create from scratch
+
+1.  Enter the board's name. Alternatively, you can add a description and category to help you organize and find your board later.
+2.  Click **Create**.
+
+![](/migration-assets/creating-and-customizing-a-board/1.png)
+
+### Build with AI
+
+Here again, you can either attach a document to create your board or enter a prompt.
+
+#### [Attach a document](/t/60yzjcw/creating-a-process-inside-apps#attach-a-document)
+
+1.  Upload a supported document from your system, formats include PNG, JPEG, JPG, PDF, or CSV.  
+     
+    
+    Here is a breakdown of how the input document determines the structure of the output:
+    
+    **Input document format**
+    
+    **Expected output and behavior**
+    
+    **CSV**
+    
+    • **Field assignment**: All column headers will be automatically assigned to specific field types; the form can accommodate up to 1000 fields.
+    
+    • **Organization**: Fields will be grouped section-wise to ensure logical flow.
+    
+    • **Table generation**: If applicable, tables will be created automatically.
+    
+    • **Workflow**: A basic workflow structure is created.
+    
+    **Images or PDFs**
+    
+     
+    
+    (PDF, PNG, JPEG, JPG)
+    
+    • **Exact replication**: The AI will replicate the form layout exactly as it appears in the uploaded file. However, if you provide specific instructions in the prompt, AI will modify the output to match those requests.
+    
+    • **Table detection**: If the image or PDF contains a visible table, it will be automatically converted into a table field.
+    
+    • **Workflow**: A basic workflow will be created based on the logic interpreted from the document.
+    
+2.  Add a prompt in the space below to refine how the AI builds your board workflow. This step is optional.
+    
+3.  Click **Start building**.
+    
+    ![](/migration-assets/creating-and-customizing-a-board/3.png)
+4.  Once the setup is complete, the **Add finishing touches** pop-up appears. It includes pre-filled board details. Review and edit them if needed.
+    
+5.  Click **Preview form** to see the form that will be used in your board. If it looks good, select **Go to board**.
+    
+6.  Make any final adjustments to the workflow, and click **Save**.
+    
+
+#### [Provide a prompt](/t/60yzjcw/creating-a-process-inside-apps#provide-a-prompt)
+
+Simply describe how you want your board to function in the **Or provide a prompt** space, and click **Start building**. In the **Add the finishing touches** pop-up, review the board details and preview the form. If everything looks good, click **Go to board** to customize your form and workflow steps before publishing.
+
+### [Templates](/t/60yzjcw/creating-a-process-inside-apps#templates)
+
+Install a template from the **Template gallery**. You can customize it later to suit your needs.![](/migration-assets/creating-and-customizing-a-board/7.png)
+
+## Building a board
+
+After creating a board, you'll land on the **board editor** screen. The form appears in the center, and the fields are provided on the left side of your editor. You can either click within the form or drag-and-drop the fields onto the form directly.
+
+![](/migration-assets/creating-and-customizing-a-board/11.png)
+
+### Configuring custom statuses
+
+Statuses indicate the progress of an item in a workflow. On the **Workflow** tab of your board form, you can view all the default system categories that are in use. They are:
+
+-   **Not started** - assigned to all new items that are not yet progressed
+-   **In progress** - assigned to all items that are in progress
+-   **Done** - assigned to items for which actions were taken and resolved
+-   **Closed** - assigned to all items that don’t need any further action
+-   **Reopened** - assigned to items that are reopened for resolution after closure
+
+### Creating a custom status
+
+You can create custom statuses inside categories. Custom statuses allow for detailed tracking of items that are in progress.![](/migration-assets/creating-and-customizing-a-board/4.png)
+
+To create a new custom status, click the **Add status** button and enter a name for the status. You can create multiple custom statuses and reorder them according to your workflow. Once the form and workflow are set up, click **Save** to make them available inside the app.To delete a custom status that you no longer need, click the **Delete** button next to a status. However, if there are items mapped to this status, you will not be able to delete it. You will have to reassign these items to a different status before deleting them.
+
+## Renaming, duplicating, and archiving a board
+
+To rename your board, click the **More options** button (![](/migration-assets/creating-and-managing-dataforms/7.png)) at the top right. Click **Rename.** Change your board's name and description. Similarly, click **Duplicate** to create a clone of your board and **Archive** to delete it temporarily.
+
+![](/migration-assets/creating-and-customizing-a-board/5.png)
+
+Alternatively, you can go to the left navigation panel > **Data** \> **Boards** \> **More options** button beside a board and do the above actions.
+
+![](/migration-assets/creating-and-customizing-a-board/6.png)
+
+## Finding a board
+
+The **Data** tab in the left navigation contains all the boards that are created in your app. Use the search bar to find a specific board quickly.
+
+![](/migration-assets/creating-and-customizing-a-board/8.png)
+
+Forms let you define the data necessary to move an item through your board. They are made up of sections, fields, and tables.
+
+### Sections
+
+Sections are groups of fields. They are useful in making the form easier for users to complete. Additionally, you can control all field permission settings as a group instead of individually.
+
+The first section of a new form is called the **Untitled section**. To rename it, just click on the name. You can also add a description to help users. Type **'/'**  to change the type of text, add attachments and lists, and do various formatting.
+
+To add a new section, click **Add** **section**.
+
+![](/migration-assets/creating-and-customizing-a-board/9.png)
+
+Click the **Settings** button(![](/migration-assets/creating-a-process-inside-apps/10.png)) to change the visibility settings. The section will always be visible by default, but you can change it to hidden. You can make the section conditionally visible by clicking **+Add a visibility rule**. To add a condition, choose a **Field**, **Operator**, or **Type**, and map it to a value or a field based on the type. You can add multiple conditions.
+
+To duplicate a section, click the **Duplicate** button (![](/migration-assets/creating-a-process-inside-apps/11.png)). A copy of the section will be created below.
+
+Click the **Up** arrow (![](/migration-assets/creating-a-process-inside-apps/12.png)) or **Down** arrow (![](/migration-assets/creating-a-process-inside-apps/13.png)) to rearrange the sections.
+
+Click the **Delete** button (![](/migration-assets/creating-a-process-inside-apps/14.png)) to delete the entire section.
+
+### Fields
+
+Fields are the building blocks of your form. They are the individual pieces of data you want to collect. Kissflow forms have various field types to capture several kinds of data. 
+
+Click any field type to add it to the bottom of the current section you are working on. Or, you can drag-and-drop any field to the exact place in the form you want it. You can also click the place in the form where you want to add a field, and a new one will pop up.
+
+The form will look exactly like the one you created here for a user. To rearrange fields, drag-and-drop them where you want them to go. You can move individual fields or an entire row of fields. Fields can be resized to any dimension you need. Drag to resize the width of the field. Rows can have up to six fields.
+
+![](/migration-assets/creating-and-customizing-a-board/12.png)
+
+### Tables  
+
+A table acts as a separate section and lets you collect unlimited similar data. To add a table, click **Add Table**. Click the **Add button** to add a new field. You can add as many fields as you want to a table.
+
+You have the same options for tables as you do for sections. Additionally, in the table settings, you can set validations to control the minimum and the maximum number of rows that must be completed.
+
+![](/migration-assets/creating-and-customizing-a-board/10.png)
+
+## [FAQs](/t/q6h9qk4#faqs)
+
+**1\. What are the various soft limits in Kissflow Boards inside apps?****Ans)** To improve performance and ensure efficient use of resources, Kissflow has put up the following restrictions on each board form:
+
+-   A maximum of 1000 fields per board form.
+    
+-   A default soft limit of 10 child tables in every board form.
+    
+-   A default soft limit of 100 columns per child table.
+    
+-   An upper limit of 5000 rows per child table.
+    
+-   An upper limit of 30 events per data form (button fields not included).
+    
+
+**2\. Can I change field data types with more than 5000 items in a board?****Ans)** You cannot change field data types in a board form when there are more than 5000 records. This restriction is in place to prevent potential versioning issues when modifying data types for large board forms. Changing data types for many values can lead to inconsistencies and performance problems.**3\. Are there any field types in Kissflow Boards that do not have soft limits?****Ans)** Yes, certain field types in Kissflow Boards are not subject to soft limits:
+
+-   Rich text fields.
+    
+-   Grid fields.
+    
+-   Button fields (these have a separate soft limit of 100 buttons per board form, in addition to the default form limit).
+    
+
+Rich text and Grid fields are exempt from restrictions as they don't contain metadata.**4\. What happens if I duplicate a section with increased limits?****Ans)** If a board with increased limits is duplicated, the new board will inherit the same incremented limits.**5\. Will I receive any warnings when approaching these limits?****Ans)** Yes, warnings will appear when you are close to reaching the limits. For example, when you have 990 fields and 90 columns, you will receive warnings indicating that you are approaching the limit and suggesting that you request an extension if needed.
+
+> **Important note on concurrent editing of a board:**
+> 
+> To ensure data integrity and prevent conflicts, our system manages concurrent editing with a "first to save" rule. This means that if two or more users edit the same board form, view, or report at once, the changes from the person who clicks **Save** first are successfully recorded.
+> 
+> If another user saves the board form, view, or report before you, then your version of it becomes outdated. When you try to save your edits, you will be prompted to refresh the tab to load the latest updates.
+> 
+> **Please be aware that the act of refreshing the tab will discard all of your unsaved work in the current tab.** This rule applies to the board form, all types of board views, and reports in an app.  
+>   
+> To avoid losing progress, we strongly recommend coordinating with your team to ensure only one person is actively editing a shared board at a time.

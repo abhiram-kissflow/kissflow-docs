@@ -1,0 +1,42 @@
+---
+title: "Yes/No field"
+description: "DRAFT (unverified) — migrated from /t/35h4azn/yes-no-field"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+The Yes/No field gives users a binary decision. The data is stored as a boolean value.
+
+In runtime, inside sections, the Yes/No field appears as a segmented button toggle where the selected option is highlighted in blue. In a table, it functions as a dropdown menu.
+
+## Settings
+
+You can set a default value for displaying the field when the form loads.
+
+![](/migration-assets/yes-no-field/1.gif)
+
+> **Note**
+> 
+> The **Yes/No** field cannot be set as **Required**.
+
+## Validations
+
+There are four types of validations you can use with a Yes or No field:
+
+-   Yes
+-   No
+-   Equal to
+-   Not equal to 
+
+## Expressions
+
+[See all the boolean expressions you can use for conditions.](/t/h7h4aly/logical-expressions) 
+
+> **Note**: While it is possible to set validations for the **Yes/No** field, it cannot be set as a computed field.
+> 
+> As a workaround, you can compute the value based on an existing **Yes/No** field. For example, If(Yes/no\_Field=true(),"YES","NO"), this formula will display **"YES"** if the Yes/No field is true, and **"NO"** otherwise.

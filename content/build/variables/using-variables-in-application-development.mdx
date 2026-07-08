@@ -1,0 +1,369 @@
+---
+title: "Using variables in application development"
+description: "DRAFT (unverified) — migrated from /t/83yzj4y/using-variables-in-application-development"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+## Overview
+
+In application development, variables are used to store dynamic values that can be used by any user anywhere within the application or on a specific page. A variable lets you define constant key-value pairs. These can be used to:
+
+-   Call out values within page components of a page.
+-   Filter data inside your workflows like board or process.
+
+There are two types of variables that you can use: Global variables and local variables.
+
+**Global variables:** Global variables are declared as a common value that can be used throughout the application any number of times by any user. Once declared, a global variable stays in the app throughout the duration the app is running.
+
+**Local variables:** Local variables are created within specific pages and can be used only within the page where they are created, limiting their scope. Other than the scope, a local variable can be used any number of times within the page where it is defined.
+
+**Global Variable**
+
+**Local Variable**
+
+Global variables are declared as a common value in the app.
+
+Local variables are declared within a specific page in the app.
+
+The variable’s scope is global, i.e., all forms in the app can access it.
+
+The local variable’s scope is limited to the page where it is created. No other page inside the app can use a local variable created within another page.
+
+Any change in the global variable affects wherever it is used inside the app.
+
+Any change in the local variable affects the components where it is used within the page it is defined.
+
+A global variable is active in the application memory for the entire time the app is in use.
+
+A local variable is active whenever the page where it is defined is running.
+
+### Advantages of using local variables
+
+Local variables offer a limited scope compared to global variables. However, using local variables can help you manage memory usage, increase processing speed and improve the application's overall performance.
+
+While it is not possible to use the same variable name for the same type of variable, you can create global and local variables by the same name to organize the app better and prevent any naming conflicts.
+
+Local variables can ensure improved scalability by creating as many variables as needed to execute quickly and handle larger workloads.
+
+### Variable types
+
+You can create a variable corresponding to one of the six variable types listed below. Each data type serves a specific purpose based on the kind of data the field needs to handle:
+
+-   **Text** – A sequence of characters or words, such as names or descriptions.
+    
+-   **Number** – Any numerical value, including integers and decimals.
+    
+-   **Boolean** – A true/false value, often used for toggles or checkboxes.
+    
+-   **Object** – A structured collection of key-value pairs, useful for storing related data.
+    
+-   **Array of strings** – A list of text values, ideal for multiple-choice inputs.
+    
+-   **Array of objects** – A list of structured data items, commonly used for complex datasets.
+    
+
+### Variable limits
+
+The variable types **Object**, **Array of strings**, and **Array of objects** can be used to created JSON variable. These three variable types come with limits.
+
+#### Objects
+
+-   Root object keys: 100 maximum (top level)
+    
+-   Nesting depth: 2 levels
+    
+-   Level 1 nested object keys: 20 maximum
+    
+-   Level 2 nested object keys: 10 maximum
+    
+-   Array items: 10 per array
+    
+-   Array item object keys: 10 per array
+    
+
+#### JSON schema for objects
+
+````json
+#### JSON SCHEMA
+
+```json
+&#123;
+  "type": "object",
+  "properties": &#123;
+    "orderId": &#123; "type": "string" &#125;,
+    "isPaid": &#123; "type": "boolean" &#125;
+  &#125;
+&#125;
+```
+````
+
+#### Example JSON for objects  
+ 
+
+```json
+
+// ROOT OBJECT KEYS (Max 100 keys)
+
+{
+  "userID": 101,                                 // LEVEL 1 OBJECT KEYS
+  "username": "jdoe_dev",
+  "email": "john@example.com",
+
+  "settings": {                                   // LEVEL 2 OBJECT KEYS (Max 20 keys)
+    "language": "en-US",
+    "notifications": true,
+    "privacyMode": "high",
+
+    "theme": {                                    // LEVEL 3 OBJECT KEYS (Max 10 keys)
+      "mode": "dark",
+      "primaryColor": "#00ff00",
+      "fontSize": 14,
+      "fontFamily": "Roboto",
+      "highContrast": false
+    }
+  },
+
+  "friendsList": [                                // NESTED ARRAY ITEMS (Max 10 items)
+    {                                             // OBJECT KEYS OF NESTED ARRAY ITEM (Max 10 keys)
+      "name": "Alice",
+      "status": "Online",
+      "mutualFriends": 5,
+      "lastSeen": "2024-05-20"
+    },
+    {
+      "name": "Bob",
+      "status": "Away"
+    }
+  ]
+}
+```
+
+#### Array of strings
+
+-   Root array items: 30 maximum
+    
+
+#### JSON schema for array of strings
+
+````json
+#### JSON SCHEMA
+
+```json
+&#123;
+  "type": "array",
+  "items": &#123; "type": "string" &#125;
+&#125;
+````
+
+#### Array of objects
+
+-   Root array items: 100 maximum
+    
+-   Nesting depth: 3 levels
+    
+-   Level 1 nested object keys: 30 maximum
+    
+-   Level 2 nested object keys: 20 maximum
+    
+-   Level 3 nested object keys: 10 maximum
+    
+-   Array items: 10 per array
+    
+-   Array item object keys: 10 per array
+    
+
+#### JSON schema for array of objects
+
+````json
+#### JSON SCHEMA
+
+```json
+
+{
+
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "orderId": { "type": "string" }
+    }
+  }
+}
+```
+````
+
+#### Example JSON for array of objects
+
+```json
+// ROOT ARRAY ITEMS (Max 100 items)
+
+[
+  &#123;                                        // ROOT ARRAY ITEM 1
+    "userID": 101,                         // LEVEL 1 OBJECT KEYS (Max 30 keys)
+    "username": "jdoe_dev",
+    "email": "john@example.com",
+    "status": "Active",
+
+    "settings": &#123;                          // LEVEL 2 OBJECT KEYS (Max 20 keys)
+      "language": "en-US",
+      "notifications": true,
+
+      "theme": &#123;                           // LEVEL 3 OBJECT KEYS (Max 10 keys)
+        "mode": "dark",
+        "primaryColor": "#00ff00"
+      &#125;
+    &#125;,
+
+    "friendsList": [                       // NESTED ARRAY ITEMS (Max 10 items)
+      &#123;                                    // OBJECT KEYS OF NESTED ARRAY ITEM (Max 10 keys)
+        "name": "Alice",
+        "status": "Online"
+      &#125;,
+      &#123;
+        "name": "Bob",
+        "status": "Away"
+      &#125;,
+      false
+    ]
+  &#125;,
+
+  &#123;                                        // ROOT ARRAY ITEM 2
+    "userID": 102,
+    "username": "clara_tech"
+  &#125;
+]                                          // ...up to 100 ROOT ARRAY ITEMS
+```
+
+## Creating global variables
+
+1.  Open an app in Kissflow.
+2.  Go to Application builder.
+3.  On the left navigation bar, go to **Variables**.
+4.  Click **Global variable** and enter the details of the variable.
+
+-   Variable name: The key name for your variable.
+-   Description: The description for your variable.
+-   Variable type: You can select the following data types: **Text, Number, DateTime, Boolean, Object, Array of objects, Array of strings.**   
+     ![](/migration-assets/using-variables-in-application-development/1.png)   
+     
+-   Default value: Specify the default value for the key. The default value differs based on the data type.
+
+Click **Create** to save the variable.![](/migration-assets/using-variables-in-application-development/2.png) 
+
+Alternatively, you can also add new global variables from the JavaScript editor within a form.
+
+![](/migration-assets/using-variables-in-application-development/3.png)
+
+Sample javascript for declaring global and local variables
+
+```javascript
+
+let idResp await kf.api("/id");
+
+let accountId idResp._accId;
+
+let pageId=idResp._pageId;
+
+//global variable
+
+kf.app.setVariable("Account_Id", accountId);
+
+//local variable
+
+kf.app.page.setVariable("Page_Id", pageId);
+
+let resp await kf.api(form/2/$&#123;accountId&#125;/Asset_Master/
+$&#123;pageId&#125;/Systems_one/view/list?apply_preference=true&_application_id=IT_Asset_Management_System');
+
+await kf.app.setVariable("Asset_Master_Count", resp.count \|\| 0);
+
+let list_resp await kf.api(`/form/2/$&#123;accountId&#125;/Asset_Entry/
+
+$&#123;pageId&#125;/view/All_Entries/list?page_number=1&page_size=100&_application_id=IT_Asset_Management_System', &#123; "method": "POST" &#125;);
+```
+
+On the **Variables** page, all existing global variables will be listed along with their name, description, data type, and default value. You can also update or delete global variables from this section.
+
+## Creating local variables
+
+1.  Open an app in Kissflow.
+    
+2.  Go to Application builder.
+3.  On the left navigation bar, click **Pages** and open the required page.
+4.  Under **Page properties**, click **Local variable** and enter the details of a variable.
+
+-   Variable name: The key name for your variable.
+-   Description: The description for your variable.
+-   Variable type: You can select the following data types: Number, Text, DateTime, and Boolean.
+-   Default value: Specify the default value for the key. The default value differs based on the data type.
+
+Click **Add** to save the variable.![](/migration-assets/using-variables-in-application-development/4.png) 
+
+All the local variables created within the current page will be listed here. You can also update or delete a variable from this section.
+
+![](/migration-assets/using-variables-in-application-development/5.png)
+
+Alternatively, you can also add new local variables from the JavaScript editor within a page.
+
+![](/migration-assets/using-variables-in-application-development/6.png)
+
+#### **Naming conventions for variable names**
+
+-   Global and local variable names cannot be empty or start with numbers or any other special character, such as an underscore.
+    
+-   A variable cannot have the same name as another variable of the same type.
+-   Reserved keywords cannot be used as variable names. Click [here](https://helpdocs.kissflow.com/forms/reserved-keywords) for a list of reserved keywords in Kissflow.
+
+### How to declare global and local variables in the javascript editor?
+
+Use the following syntax to declare new global and local variables within the JavaScript editor in a form.
+
+#### Global variable
+
+```
+let accountId = idResp._id;
+```
+
+```
+kf.app.setVariable(“Account_Id”, accountId);
+```
+
+In which the syntax, **kf.app.setVariable** creates and defines a new global variable.
+
+#### **Local variable**
+
+```
+let user = kf.user
+```
+
+```
+kf.app.page.setVariable(“Username”, user.Name);
+```
+
+In which the syntax, **kf.app.page.setVariable** creates and defines a new local variable.
+
+Click [here](https://developers.kissflow.com/gettingstarted/) to learn more about how to declare and use variables using javascript using the Kissflow SDK methods.
+
+**Note:** When you delete a page from the app, all local variables that are defined within the page will also be deleted.
+
+### Where are variables used?
+
+When you add a page component like a button or label, you can use the app variables inside the fields as dynamic values or use them inside JavaScript functions. Once the application is deployed, these global variables will render during an app session.
+
+For example, an IT admin might want to keep track of the total number of IT assets available in an organization to manage existing assets effectively. To do this, they can store the count in a global variable called 'assets\_master\_count'. This variable can then be accessed and used anywhere within the application.
+
+To retrieve the asset count for a particular department alone, the admin can create an individual page for the department and use local variables for this purpose.
+
+### FAQs
+
+1.  Can I create a global and local variable with the same name?  
+    Yes, it is possible to use the same variable name for global and local variables. They operate independently as their scopes within the application differ.  
+     
+Can a variable name be updated after creation?  
+No, it is not possible to update the variable name once created. However, you can edit the variable description, data type, and default value at any time.

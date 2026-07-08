@@ -1,0 +1,79 @@
+---
+title: "IDP connector (Intelligent Document Processing)"
+description: "DRAFT (unverified) — migrated from /t/83yfqlv/idp-connector-intelligent-document-processing"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## Connecting to IDP
+
+You can use the IDP connector to extract data from documents, such as email attachments or documents from other workflows, and take specific actions like autofilling and submitting forms in a process, board, or dataform, and autopopulating dataset records.
+
+Additionally, the extracted data can be mapped to a custom JSON schema, allowing you to use the data according to your requirements.
+
+For example, you can use **Microsoft** **Outlook** as the trigger and extract data from the invoice document in the mail attachment. With the IDP connector, you can automate data extraction from these invoices to either autofill and submit form fields or create dataset records of the invoice details, streamlining your workflows and reducing manual data entry.
+
+## Actions in IDP connector
+
+**Action**
+
+**Description**
+
+**Autofill a process form**
+
+Parses a document, autofills process form fields, and submits it.
+
+**Autofill a board form**
+
+Parses a document, autofills board form fields, and creates an item.
+
+**Create dataset records**
+
+Parses a document and creates dataset records.
+
+**Autofill a dataform**
+
+Parses a document, autofills dataform fields, and submits it.
+
+**Map data to a custom JSON schema**
+
+Parses a document and maps the extracted data to a custom JSON schema.
+
+## Using the IDP connector as an action
+
+1.  Create a new [integration](/t/60h4akx/creating-an-integration) and configure a trigger that holds the document to be parsed.
+    
+2.  For action, select the **IDP connector** and choose an action step from the available options, as shown in the image below.  
+      
+    
+    ![](/migration-assets/idp-connector-intelligent-document-processing/1.png)
+    
+3.  Create a new connection or use an existing connection in your account. You can connect to another Kissflow account or use your own Kissflow account. The connection is authenticated using your access keys and secret tokens. After authenticating the connection, click **Next**.
+    
+4.  Begin to configure the action by selecting the document to be parsed.
+    
+5.  Then select the process, board, or dataform that you want to autofill and submit. If you have chosen the action **Create dataset records**, select the dataset.
+    
+6.  Select the form fields or dataset rows that you want to autopopulate. If you want to extract the data to a JSON schema it has to follow the following syntax shown in this example:
+    
+    ![](/migration-assets/idp-connector-intelligent-document-processing/2.png)
+7.  Select the attachment field where the document must be uploaded. If you are working with a dataset, specify the information or data in the document that should be used to fill the primary key field. You can also use the dropdown to pick up a field that needs to be used as the primary key field for your dataset.
+    
+    ![](/migration-assets/idp-connector-intelligent-document-processing/3.gif)
+    
+    > **Note:**  
+    > Primary key field must be a text field.
+    
+8.  Test whether your action step is set up correctly by clicking the **Test action** button. The connector will pull field data from your form, board, or dataset and display it in JSON format. If any errors occur, you’ll be notified immediately. Fix the errors and retest the action.
+    
+9.  Once your action is successfully configured, go to the top right corner of the editor and turn on the integration to activate it.
+    
+
+## Best practices
+
+To ensure your integrations are properly configured and optimized, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on creating robust and maintainable solutions.

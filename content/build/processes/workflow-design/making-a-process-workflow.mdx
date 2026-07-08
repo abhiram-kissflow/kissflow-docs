@@ -1,0 +1,93 @@
+---
+title: "Making a process workflow"
+description: "DRAFT (unverified) — migrated from /t/m1h9qmv/making-a-process-workflow"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Your workflow is the set of steps that must be completed to finish an item. The workflow in a process shows the path for the data in the most ideal situation and also allows for alternate conditions and flows.
+
+## Starting a workflow
+
+As a Process Admin or a Developer, you can create the workflow in the second step of the editor.
+
+![](/migration-assets/making-a-process-workflow/1.png)
+
+In the first step, you can configure who can start the process. By default, all users part of the process can initiate items. Click **Change** to add individual users or groups who can initiate items. You can also give them additional access, like editing the process and creating reports, from [share settings](/t/p8h9qtp80h4g2/managing-process-members-and-permissions).
+
+![](/migration-assets/making-a-process-workflow/2.png)
+
+Now, you can add other steps for the workflow. You can add as many steps as you want. To add a workflow step, click the **Add** button (+), and then [add a new step](/t/m1h9qmv80h4g2/making-a-process-workflow#adding-a-new-step), [add a parallel branch](/t/m1h9qmv80h4g2/making-a-process-workflow#adding-a-parallel-branch), [add a Goto](/t/m1h9qmv80h4g2/making-a-process-workflow#adding-a-goto), [run a process](/t/g9ytv27/connected-processes-overview), or [use AI to suggest and create steps](/t/60hv9mr/creating-ai-suggested-workflow-and-steps).
+
+![](/migration-assets/making-a-process-workflow/3.png)
+
+## Adding a new step
+
+Workflow steps are human tasks required to process the item.
+
+-   Enter a name and description for the step. Step names can be a maximum of 100 characters. You can add rich text descriptions, including images and video, by clicking the **Text formatting** button (![](/migration-assets/making-a-process-workflow/4.svg)). These descriptions are shown inside the form in runtime.  
+     
+-   Next, choose whom to assign the task to. It can be a specific user, a group, or a user field in your form. If you click **More assignment options**, you can choose **Add by users, groups, and user fields**, **Dataset**, **Formula,** or **Table**.  
+     
+-   Under **Assignment preferences**, the default assignment option is that only one user needs to approve the item. Learn more about [assignment preferences](/t/p8h9qt8/assignment-preference).   
+     
+-   Under **When does this step happen?**, you can [add conditions](/t/83h9qth80h4g2/conditional-steps) to allow the step to happen only under certain conditions.   
+     
+-   Under **Email actions**, you can choose to enable or disable approval and rejection of items in the step via email. If this is enabled, the assignee will receive an email with information about the item in the step, along with buttons to approve or reject it. The **Reject** button will be available in the email only if the same is enabled inside form permissions. [Approvals and rejections via email](/t/h7h9qtx80h4g2/email-actions) will be available only for items that do not require user inputs at the step.  
+     ![](/migration-assets/making-a-process-workflow/5.png)   
+-   Steps do not have deadlines by default. To add a deadline, click the add button **(+)** beside **Deadline**. Learn [how to set and modify deadlines](/t/60h9qm980h4g2/configuring-deadline) for a step.   
+     
+-   Choose who should be assigned when items are sent back to the step. Learn more about [send back actions](/t/h7ylt39).  
+     
+-   If you click **Manage field permission**, you’ll be able to see what fields are editable, read-only, and hidden at that step. Learn more about [managing field permissions](/t/60h9qtm80h4g2/configuring-field-permissions-for-process-steps).![](/migration-assets/making-a-process-workflow/6.png) 
+
+> **Note:** 
+> 
+> When you add a new step to an existing process workflow, only items that haven’t reached that step yet will follow the updated workflow.
+
+## Adding a parallel branch
+
+Parallel branches serve two use cases. One is when you want two or more steps to happen at the same time. Each branch moves forward independently of what is happening in the other branches. For example, many of the steps in employee onboarding can happen simultaneously, and they aren't dependent on other steps to finish first. However, the workflow will not proceed further until all the branches have finished. Learn more about [simultaneous tasks](/t/x2h9qtq80h4g2/best-practices-for-simultaneous-tasks).
+
+The second use case is to create two separate branches that are dependent on data in the form. If certain data is triggered, the item goes down one side. If not, it goes down the other. To configure this, click the branch, and under the **When should items move to this branch?** drop-down, select **Based on condition,** and then [write the condition](/t/83h9qth80h4g2/conditional-steps) for when that branch should happen. 
+
+When you add a branch, you first give the entire branch a name. Then you can click the **Add** button (![](/migration-assets/making-a-process-workflow/12.png)) to add steps to that branch. Steps in the branch can be collapsed or expanded.
+
+Learn [when to use the all assignees option vs a parallel branch](/t/x2h9qtq80h4g2/best-practices-for-simultaneous-tasks).
+
+![](/migration-assets/making-a-process-workflow/8.png)
+
+## Adding a Goto
+
+A **Goto** allows you to hop between workflow steps when certain conditions are met. You can jump forward or backward within the workflow steps. For example, if someone is filling out a travel request but doesn’t require hotel accommodations, plane tickets, or a travel advance, you can skip other steps and go straight to a final approval. 
+
+To configure the **Goto**, enter the conditions under which it should fire and then enter the name of the step the item should go to. 
+
+![](/migration-assets/making-a-process-workflow/7.png)
+
+## Running (connecting) a process 
+
+You can connect multiple processes to automatically initiate related items based on actions taken in a parent/source process. Learn more about [connected processes](/t/g9ytv27/connected-processes-overview).
+
+## AI-suggested workflow and steps
+
+You can create an entire process workflow and individual steps with the help of AI. Learn more about [creating AI-suggested workflow and steps](/t/60hv9mr/creating-ai-suggested-workflow-and-steps).
+
+## Moving, copying and deleting a step
+
+Click the **More options** button (![](/migration-assets/making-a-process-workflow/9.png)) on a specific process step and,
+
+-   Move the step **-** Click **Move** and paste it in a desired location.
+-   Copy and paste the step **-** Click **Copy** and paste it in a desired location.
+-   Delete the step.![](/migration-assets/making-a-process-workflow/13.png)
+
+## Exporting a workflow
+
+Click the **Export** button (![](/migration-assets/making-a-process-workflow/10.png)) at the bottom left, and select the format to export. 
+
+![](/migration-assets/making-a-process-workflow/11.png)

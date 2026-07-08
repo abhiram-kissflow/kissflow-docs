@@ -1,0 +1,79 @@
+---
+title: "Sheet view in dataforms"
+description: "DRAFT (unverified) — migrated from /t/x2yzjaw/sheet-view-in-dataforms"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+The sheet view in [dataforms](/t/m1h9q1y/data-forms-overview) lets you visualize form data as a grid. The column headings represent the selected data from fields and system fields, whereas the rows display the values captured in each field.
+
+> **Note:**
+> 
+> Suppose you're adding rows or modifying data within rows that consist of form fields. In that case, sequence number fields generated using form data for that row will not be generated, and integrations and field validations will not be triggered.
+
+## Creating a sheet view
+
+1.  Open your **App** > **Manage > Edit app**.
+2.  Click the **Data** menu in the left navigation panel > open a dataform.
+3.  Click **Views** > **Create view**.
+4.  Click **Sheet**.
+5.  Enter a name for the sheet > click **Create**.![](/migration-assets/sheet-view-in-dataforms/1.png)  
+
+## Configuring the sheet view
+
+### General settings
+
+You can modify the name of the sheet here.
+
+### Sheet settings
+
+Click **Add** **columns** to create columns in the sheet view. You can select columns from form fields or system fields. Click **Select all** to add all the fields as columns in the sheet view.
+
+Under **Manage columns**, you can drag-and-drop the fields to rearrange the order of the columns. You can also delete the columns if they are not required. Click **Save** to complete the configuration.
+
+![](/migration-assets/sheet-view-in-dataforms/8.png)
+
+### Data filter
+
+You can use the data filter to determine how to show the data in the sheet view. To do this, under **Data filter** > [Advanced filters](/t/h7yzj0v/using-advanced-filters-in-apps), you can apply conditions using operators and values. In an advanced filter, you can select a field, an operator such as Equal to, Not equal to, Part of, etc., specify if it is a value, field, or parameter, and match it with a corresponding value. Add additional conditions, such as **AND/OR,** to these filters.
+
+![](/migration-assets/sheet-view-in-dataforms/2.png)
+
+### Quick filter
+
+A quick filter helps you view the filtered data in a separate tab. You can drag-and-drop the added filters to rearrange them. You can also configure quick filters within a page using the sheet view. The filter can be turned on/off inside the page.
+
+![](/migration-assets/sheet-view-in-dataforms/3.png)![](/migration-assets/sheet-view-in-dataforms/4.png)
+
+### Sorting data
+
+You can sort the data inside the sheet view in ascending or descending order. You must first select a column to apply the sort feature. Once the sort button is used, click the **Expand** button on the column title to sort values from the sheet view.
+
+![](/migration-assets/sheet-view-in-dataforms/5.png)
+
+## Adding the sheet view component to a page
+
+You can add a sheet view component to a page by dragging and dropping it onto it. Once you add it, you can configure the following options under the **Settings** menu:
+
+-   **Show form:** You can turn on the show form button to allow users with **Manage** permission to view and edit the form during runtime.
+-   **Quick filter:** You can enable or disable the quick filters set up for the dataform on the page.
+-   **Export:** You can turn on the export button to [export](/t/35yzja7/exporting-data-from-a-data-table-view) the data from the sheet view as a downloadable CSV file.
+
+![](/migration-assets/sheet-view-in-dataforms/6.gif)
+
+## Working with the sheet view
+
+Users can add, modify, and delete data from the sheet view during the runtime. They can also add multiple rows using the **Add** button.
+
+> **Note:**
+> 
+> You can add up to 100,000 rows in a sheet view.
+
+You, as a user, can bulk copy and paste values into the sheet view. Ensure the values in the sheet view fields match the corresponding field type. 
+
+![](/migration-assets/sheet-view-in-dataforms/7.gif)

@@ -1,0 +1,60 @@
+---
+title: "Simulating a workflow"
+description: "DRAFT (unverified) — migrated from /t/y4h9qty/simulating-a-workflow"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Simulating a workflow lets you do a mock initiation of your process workflow and check whether its path works well as expected before publishing it live. You can also reset the simulated data and execute the simulation again until you achieve the desired results.
+
+![](/migration-assets/simulating-a-workflow/1.png)
+
+## Simulating a workflow
+
+1.  Click the **Simulate** button at the bottom of the process editor to preview how your workflow renders in real-time.
+    1.  You can simulate a workflow from the **Form, Workflow,** or **Permissions** tab as you wish. The workflow steps are listed on the left side of the screen when you are in the **Simulation** mode.
+    2.  The **Start** label denotes the beginning of the workflow and the **Completed** label denotes the completion of the workflow respectively.![](/migration-assets/simulating-a-workflow/3.png)      
+    3.  Navigate through every step and enter values in the form fields to see how the process performs. You can view the form's web or mobile version by toggling the button at the top.
+        
+2.  Click the **Submit** button at the bottom to advance to the next step. As you complete the steps, they will be tagged as **Checked** in green. The steps you skip will not have any tag associated with it.
+3.  Review the integrations listed, if any, for every step you navigate under the **Triggered integrations** section to your right.
+
+> **Note:**
+> 
+> To view the integrations triggered at each step during the workflow simulation, you'll need to be on our **Enterprise** plan. If you're not on this plan, feel free to reach out to our support team for assistance with upgrading.
+
+## Impersonating workflow simulation
+
+In our **_Enterprise_** plan, you can also change the initiator of the workflow and review the altered workflow path based on the initiator's scope in the process. You are basically simulating the workflow as another member in your process by changing the initiator.
+
+Select a process member from the **Simulate workflow as** dropdown to change the initiator. The process members will be listed here and as an Admin, you can change the initiator and check if the workflow path renders as planned for the chosen user and their mapped roles and responsibilities. The data entered in the form for testing will be automatically reset when you change the initiator so click **Yes, Change initiator** to give your consent and proceed.
+
+![](/migration-assets/simulating-a-workflow/2.png)
+
+Think of a **Leave approval** process to understand how process simulation works. The two key players in this workflow are the **Employee** and the **Manager**, hence the two different initiators would also be the **Employee** and the **Manager** respectively.
+
+If the initiator is an **Employee**, the path of the workflow would be as follows:
+
+1.  Initiate leave request
+2.  Manager's approval
+3.  Receive leave status
+
+If the initiator is a **Manager**, the path of the workflow would be as follows:
+
+1.  Ask for more input from Employee
+2.  Approve leave
+3.  Update leave balance
+4.  Notify leave status
+
+As you can see, the paths these workflows take are different, and hence, the need to simulate and test them becomes very significant.
+
+## Resetting data used for simulation
+
+You may have a lot of test data while you build your process, as you would simulate the workflow as many times as you want until you achieve the desired results. Click the **Reset data** button to delete the data stored in your process form as part of your simulation.
+
+![](/migration-assets/simulating-a-workflow/4.png)

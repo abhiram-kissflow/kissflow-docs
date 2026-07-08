@@ -1,0 +1,355 @@
+---
+title: "Notification events in apps"
+description: "DRAFT (unverified) — migrated from /t/y4yzjv4/notification-events-in-apps"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+## Item notifications
+
+The item notifications listed below are predefined by the system, based on which you can create new custom notifications and configure trigger conditions, recipients, content, and the redirection page of your choice. These predefined notifications cannot be deleted but can only be toggled on or off.
+
+### Processes
+
+**S. no.**    
+
+**Notification event**
+
+**Trigger**
+
+**Recipient**
+
+1
+
+Item assigned
+
+When an item is assigned to a user
+
+Assignee
+
+2
+
+Item completed
+
+When an item completes its workflow
+
+Initiator
+
+3
+
+Item rejected
+
+When an item is rejected by a step assignee
+
+Initiator
+
+4
+
+Item withdrawn by the initiator
+
+When an item is withdrawn by an initiator
+
+Assignee
+
+5
+
+Item reassigned
+
+When an item is reassigned to a user
+
+Assignee
+
+6
+
+Item breached its deadline
+
+When an item breaches its deadline
+
+Assignee
+
+### Boards
+
+**S. no.**    
+
+**Notification event**
+
+**Trigger**
+
+**Recipient**
+
+1
+
+Item assigned
+
+When an item is assigned to a user
+
+Item assignee and watcher
+
+2
+
+Item status changed
+
+When the status of an item is changed
+
+Item assignee and watcher
+
+3
+
+Item approaching its deadline
+
+When an item is approaching its deadline
+
+Item assignee and watcher
+
+4
+
+Item breached its deadline
+
+When an item has breached its deadline
+
+Item assignee and watcher
+
+5
+
+Note added to the item
+
+When a note is added to an item
+
+Item assignee and watcher
+
+6
+
+Reaction to item notes
+
+When a user reacts to an item note
+
+Note author
+
+7
+
+Mention in item notes
+
+When a user is mentioned in an item note
+
+Mentioned user
+
+8
+
+Item deleted
+
+When an item is deleted
+
+Item assignee and watcher
+
+9
+
+Watcher added
+
+When a watcher is added to an item
+
+New item watcher
+
+10
+
+Watcher removed
+
+When a watcher is removed from an item
+
+Last item watcher
+
+11
+
+Subitem assigned
+
+When a subitem is assigned to a user
+
+Subitem assignee
+
+12
+
+Subitem due date updated
+
+When a subitem’s due date is updated
+
+Subitem assignee and item watcher
+
+13
+
+Subitem state changed
+
+When the state of a subitem is changed
+
+Subitem assignee and item watcher
+
+14
+
+Subitem assignee changed
+
+When the assignee of a subitem is changed
+
+Last subitem assignee and item watcher
+
+15
+
+Subitem approaching its deadline
+
+When a subitem is approaching its deadline
+
+Subitem assignee and item watcher
+
+16
+
+Subitem breached its deadline
+
+When a subitem has breached its deadline
+
+Subitem assignee and item watcher
+
+17
+
+Item converted to a subitem
+
+When an item is converted to a subitem
+
+Item assignee and item watcher
+
+18
+
+Subitem converted to an item
+
+When a subitem is converted to an item
+
+Subitem assignee and item watcher
+
+19
+
+Subitem moved to another item
+
+When a subitem is moved to another item
+
+Current item assignee and watcher
+
+20
+
+Subitem deleted
+
+When a subitem is deleted
+
+Subitem assignee and item watcher
+
+21
+
+Note added to the subitem
+
+When a note is added to a subitem
+
+Subitem assignee and item watcher
+
+22
+
+Reaction to subitem notes
+
+When a user reacts to a subitem note
+
+Note author
+
+23
+
+Mention in subitem notes
+
+When a user is mentioned in a subitem note
+
+Mentioned user
+
+24
+
+Item about to start
+
+When an item is about to start
+
+Item assignee
+
+25
+
+Item started
+
+When an item has started
+
+Item assignee and item watcher
+
+26
+
+Subitem about to start
+
+When a subitem is about to start
+
+Subitem assignee
+
+27
+
+Subitem started
+
+When a subitem has started
+
+Subitem assignee
+
+### Dataforms
+
+**S. no.**   
+
+**Notification event**
+
+**Trigger**
+
+**Recipient**
+
+1
+
+Form submitted
+
+When a form is submitted
+
+User
+
+## App management notifications
+
+**Notification event**
+
+**Trigger**
+
+**Recipient**
+
+App deployed to the next environment
+
+When an app is deployed to the next environment
+
+All developers
+
+Admin added to the app
+
+When an admin is added to an app
+
+Added admin
+
+Member added to the app
+
+When a member is added to an app
+
+Added member
+
+Developer removed from the app
+
+When a developer is removed from an app
+
+Removed developer
+
+App archived
+
+When an app is archived
+
+All developers

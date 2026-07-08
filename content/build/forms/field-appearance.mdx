@@ -1,0 +1,57 @@
+---
+title: "Field appearance"
+description: "DRAFT (unverified) — migrated from /t/60h4azc/field-appearance"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+The appearance of a field in the live form is as same as how it looks in the form editor. You can modify the appearance of fields using the **Style** settings.
+
+## Accessing style settings
+
+You can hover over the field in your form editor where you want to modify the style and click the paintbrush icon. The style settings will be displayed to your right. You can also directly click the **Style** tab from the right-side **Field properties** panel. 
+
+**Field properties** > **Style  (**![](/migration-assets/field-appearance/1.png)) > **Default appearance**
+
+![](/migration-assets/field-appearance/2.png)
+
+The default system color is initially applied to the fields. When you change the default color and publish the form, the new color changes will immediately affect all existing requests, including in-progress, completed, and new requests.
+
+You can use the [Simulate](/t/y4h9qty/simulate-workflow) option at the bottom of the screen to see how your field will be displayed in runtime. 
+
+In the following screenshot, the default appearance of the _Choose the Peer to Request Feedback_ field is set to Green.
+
+![](/migration-assets/field-appearance/3.png)
+
+## Adding appearance rules
+
+An appearance rule lets you change the appearance of a field based on a certain condition or other data in the form. For example, you may want a number field highlighted in red if its value is less than two. In the following example, the _Peer rating_ field is configured in such a way that it will appear red when its value is less than two.
+
+> **Note**:
+> 
+> Appearance rules can be applied only to forms within Apps..
+
+![](/migration-assets/field-appearance/4.png)
+
+The above result was achieved by implementing the following steps:
+
+1.  Create a number field named _Peer rating_.
+2.  Click the **Style** settings in the right-hand panel or hover over the field and click the paint brush icon to modify its field appearance directly.
+3.  Click **Add an appearance rule** in the **Field properties** window.
+4.  Click **Less than** and enter the value two.
+5.  Select the red color from the color palette. Your changes will be autosaved.
+
+> **Note**:
+> 
+> Appearance rules are based on the field type and match those used for [field validations](/t/m1h4az4/field-validations).
+> 
+> You can add multiple appearance rules for each field.   
+
+## Changing the appearance based on a step
+
+If you want to [change the appearance of a field depending on what step it is in](/t/60h9qtm/configuring-field-permissions-for-process-steps), you can do that in the **Permissions** tab.

@@ -1,0 +1,67 @@
+---
+title: "Board notifications"
+description: "DRAFT (unverified) — migrated from /t/60y68hm/board-notifications"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+<iframe src="https://player.vimeo.com/video/935819947?h=b582b722b4&app_id=122963" title="Managing notifications in Kissflow" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+You can create and customize notifications to stay informed about important updates or ensure timely communication within your team.
+
+You can also select the notification channels (email, web app, and push) through which you want to receive notifications by clicking the **More options** button (![](/migration-assets/notifications-in-apps/1.png)) in the top right corner > **Notification channels**.
+
+{/* TODO: screenshot — source image expired (Google CDN); recapture from product UI */}
+
+There are two types of notifications available within Kissflow Boards:
+
+1. **Item notifications** - These notifications are related to any item within the board. You can create and customize item notifications to ensure that you stay updated on relevant activities and changes.
+    
+2. **Board management notifications** - These notifications provide board users and admins with any updates related to managing a board. They can only be toggled on or off.
+    
+
+## Creating item notifications
+
+To create an item notification inside boards,
+
+1.  Click the **Manage** button at the top right corner > **Settings** > **Notification settings**. You'll find a list of all available [item notification events](/t/x2y6kg7/notification-events-in-boards).
+    
+2.  Click **\+ New notification** to start creating a new notification.
+    
+3. **Configure details** -  
+    
+    1.  Select the notification event and conditions for triggering the notification. 
+        
+    2.  Select recipients to whom the notification should be sent. Click **Next**.
+        
+        > **Note**:
+        > 
+        > If there’s a user field type in the form and a user has been selected, the user’s name will be shown in the recipient drop-down box.
+        
+
+> **Note**:
+> 
+> Changing the notification event after configuring the conditions and recipient will reset those configurations.
+
+4\. **Customize and preview content -**
+
+-   **Email content** is for email notification channels where you have a large space to convey information comprehensively and provide more details for recipients to understand the notification fully.  
+     
+-   **Web app & push content** provides a concise summary or snippet of the notification message, ideal for channels like web app and push notifications, where space is limited.  
+     
+-   **Bot content** is the message displayed in chat apps like Slack, Microsoft Teams, and Google Chat, so you can view key details without leaving your chat.
+
+![](/migration-assets/board-notifications/1.png)
+
+Click **Next**.
+
+5\. **Preview** - Have a preview of the notifications, and click **Create**. In the pop-up that appears next, you can choose to change the system-generated notification name and give a desired name.
+
+![](/migration-assets/board-notifications/2.png)
+
+Alternatively, if you want to set up custom email notifications for recipients outside Kissflow, you can use the [send an email](/t/q6h4akq/email-connector) integration action.

@@ -1,0 +1,89 @@
+---
+title: "IF function"
+description: "DRAFT (unverified) — migrated from /t/x2h4alm/if-function"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+The IF function returns one value if a boolean expression is true and another if it is false. 
+
+The syntax is:
+
+```
+IF(<logical_test>,<value_if_true>,<value_if_false>)
+```
+
+For these examples, we’ll assume the number field _Food\_rating_ has a value of six. 
+
+**Datatype**
+
+**Example**
+
+**Output**
+
+Text
+
+IF(Food\_rating > 5, ”Yummy”, ”Yucky”)
+
+Yummy
+
+Number
+
+IF(Food\_rating > 5, 10, 1)
+
+10
+
+Currency
+
+IF(Food\_rating > 5, Currency(100, "USD"), Currency(10, "USD"))
+
+$100
+
+Date
+
+IF(Food\_rating > 5, today(), today().offset(2, "D"))
+
+IF(Food\_rating > 5, Date(1970, 5, 29), Date(2015, 5, 29))
+
+(Today’s date)
+
+5/29/1970
+
+You can also use the IF function when assigning a user to a step or as a condition for whether a step occurs. 
+
+**Use case**
+
+**Example**
+
+**Result**
+
+Assigning a User
+
+IF(Food\_rating > 5, \_created\_by, \_created\_by.manager)
+
+True and false values must either be user or system user fields in the form.
+
+Step assigned to the creator
+
+Step condition
+
+IF(Food\_rating>5,true(),false())
+
+Step happens
+
+## Nested IF functions
+
+You can use nested IF functions that look like this:
+
+`IF(Food_rating>5,”Yummy”,IF(Food_rating>3,”OK”,”Yucky”))`
+
+In this case, 
+
+-   If the rating is above 5, _Yummy_.
+-   If it is 4 or 5, _OK_.
+-   If it is 3 or less, _Yucky_.

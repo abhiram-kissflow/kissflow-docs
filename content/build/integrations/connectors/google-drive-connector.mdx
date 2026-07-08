@@ -1,0 +1,71 @@
+---
+title: "Google Drive connector"
+description: "DRAFT (unverified) — migrated from /t/x2h4als/google-drive-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## What is Google Drive?
+
+Store files in the cloud, synchronize files across devices, and share files with other users using Google Drive.
+
+## About Kissflow's Google Drive integration
+
+The Google Drive connector of Kissflow Integration enables you to connect and synchronize your Google Drive folders and files with popular third-party apps and Kissflow Apps. You must have a valid Google account and be a paid Kissflow customer in order to integrate with Google Drive.
+
+Use the Google Drive connector to receive data from other flows or apps to perform specific actions. For now, the connector for Google Drive does not support any trigger events.
+
+For example, after completing a Kissflow Process workflow, you can set up an integration with the Google Drive connector to save attachments in specific folders. You can also create actions to perform certain actions, such as sending users an automatic email.
+
+### Actions in Google Drive connector
+
+**Action event(s)**
+
+**Description**
+
+Create a folder
+
+This action creates a new, empty folder.
+
+Upload files
+
+This action can copy files from other services to Google Drive.
+
+Move a file
+
+This action moves a file from one folder to another.
+
+Replace a file
+
+This action uploads a file to your drive, which replaces an existing file.
+
+Find a folder
+
+This search action finds a specific folder in your drive by name.
+
+Find a file
+
+This search action finds a specific file by file name.
+
+### Google Drive connector as an action step
+
+1.  In your Kissflow account, click the **Create** button in the left navigation panel and select **Integration** from the list. Enter a unique name and description for your integration and click **[Create](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Once inside your editor, set up a trigger step, for example, a Kissflow Process trigger event, **When an item completes its workflow.**
+3.  After setting up your trigger step above, click the Add button (![](/migration-assets/xero-connector/1.png)) next to set up your action step. Search for **Google Drive** and select a desired [action](https://helpdocs.kissflow.com/app-connectors/google-drive-connector#action_s_in_google_drive_connector).![](/migration-assets/google-drive-connector/2.png) 
+4.  After choosing your action event, authenticate the connector. Click **+Add an account** and sign in using your Google account. Kissflow uses Google's OAuth for authentication.
+5.  After authenticating with your Google account, add relevant values against the Google Drive form fields. You can hit **Refresh fields** to view all the updated fields in the selected Google Drive form.  
+    You can also map Google Drive fields from your trigger step or fields from your previous action steps. These values will be automatically added to item fields after the action is executed. ![](/migration-assets/google-drive-connector/1.png) 
+6.  Click **Next**  
+7.  After a successful configuration, test whether your Google Drive action step is set up correctly by clicking the **T****est** button. The connector will pull field data from your selected Google account and display it as a JSON output. Similar to trigger step, errors are notified to you right away. Fix them before retesting the action step.
+
+### Setting up a Google Drive connector
+
+After creating a custom workflow with your Google Drive connector's action steps, switch ON the toggle button to activate the integration run. Once a trigger event occurs, the Google Drive's actions are activated.
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

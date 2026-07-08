@@ -1,0 +1,251 @@
+---
+title: "Selecting a data source for dropdown, multi-select dropdown, checkbox, and radio fields"
+description: "DRAFT (unverified) — migrated from /t/q6h4azg/selecting-a-data-source-for-dropdown-multi-select-dropdown-checkbox-and-radio-fields"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+[Dropdown, multi-select dropdown, checkbox, and radio fields](/t/35h4azp/dropdown-multi-select-dropdown-checkbox-checklists-and-radio-buttons) within a normal process or board form are populated using the following data sources: [datasets](/category/dataset) and [lists](/category/lists). For apps, the data sources are [dataforms](/category/dataforms-in-apps) and [lists](/category/lists). Depending on where you use these fields, you can either select a predefined list or fetch values directly from a specific dataset or dataform. If you’re unsure which option best suits your needs, this guide will help you make the right choice.
+
+> **Note**
+> 
+> If you only see the **List** option under **Select a data source**, you're likely on an older Kissflow plan. To access additional data sources, please contact your Kissflow account manager or the Kissflow support team to explore upgrade options.
+
+## What is a list?
+
+A **List** is a simple one-column table with a set of values in it. For example, a **Country** list would look like the following:
+
+![](/migration-assets/selecting-a-data-source-for-dropdown-multi-select-dropdown-checkbox-and-radio-fields/3.png)
+
+### When do you refer to a list in a dropdown?
+
+You can load data from a list when you want the values in the dropdown, multi-select dropdown, checkbox, or radio button to stay unchanged or static. We recommend you choose a list only when your requirement is simple and straightforward, like populating a dropdown of **primary colors** (Red, Yellow, Blue), or radio button options for **employment type** (Full-time, Part-time, Contract), etc.
+
+If you think otherwise and feel you want to create dependent dropdowns where you can limit the values displayed in one dropdown based on your selection in another dropdown, you have to choose a dataset or a dataform as the data source of the dropdown field. [Learn more about dependent dropdowns here](/t/q6h4azg/selecting-datasource#what-is-a-dependent-dropdown).
+
+## What is a dataset?
+
+A dataset is where your data can be stored as rows and columns in a tabular format. It is a multi-row, multi-column table unlike a list. A typical dataset would look like the following:
+
+![](/migration-assets/selecting-a-data-source-for-dropdown-multi-select-dropdown-checkbox-and-radio-fields/1.png)
+
+### When do you load data from a dataset in a dropdown?
+
+You can load the data from a specific field in a dataset onto your dropdown when you would like to create or use multiple dropdowns that are dependent on each other based on their field values. i.e. You can choose the data source as a dataset when you would like to apply filter conditions and link the dropdown with another dropdown until you achieve your desired results.
+
+> **Tip:**
+> 
+> Also, you wouldn't be able to apply filter conditions on a list so we recommend you choose a dataset when you have certain conditions to be met, and dropdown values must be limited from display based on your filter conditions accordingly.
+
+## What are dependent dropdowns or dependent radio buttons?
+
+These are field variants whose values are limited or affected by the field selected in another dropdown or any other relevant field. It can be a series of dropdowns or radio buttons dependent on each other that lets you access the refined data based on your filter criteria.
+
+Here are a few examples:
+
+-   A list of states that depends on the country selected
+-   A list of courses that depends on the college chosen
+-   A list of starters that depends on the cuisine preferred
+
+Let us assume _**Green&Fresh**_ is a farm-produce delivery firm that uses Kissflow for its inventory management. The following table is an example of how their master dataset looks like:
+
+**Dataset name:** Produce Master Jan 2022
+
+**Produce type**
+
+**Item type**
+
+**Item name**
+
+Seasonal
+
+Vegetable
+
+Green peas
+
+Seasonal
+
+Fruit
+
+Guava
+
+Seasonal
+
+Fruit
+
+Custard Apple
+
+Organic
+
+Vegetable
+
+Tomatoes
+
+Organic
+
+Vegetable
+
+Carrots
+
+Exotic
+
+Fruit
+
+Dragon fruit
+
+Exotic
+
+Fruit
+
+Strawberries
+
+Exotic
+
+Greens
+
+Lettuce
+
+Exotic
+
+Greens
+
+Celery
+
+### Use case
+
+Let us learn how this firm populates its live, ready-to-deliver stock information using dependent dropdowns.
+
+### Solution
+
+1.  Create a dropdown **Produce** to load the different produce types. _This is the primary dropdown using which we would be creating dependent dropdowns._
+2.  Under **Select a data source**, click **Select a dataset**.
+3.  Search for the **Produce Master Jan 2022** dataset and select the **Produce type** field. Our first dropdown is ready.
+4.  Create another dropdown **Item Category** to list the different item types. _This is the first dependent dropdown._
+5.  Select the same dataset and choose the **Item type** field.
+6.  Add a filter condition as follows:
+    
+    **Field**
+    
+    **Operator**
+    
+    **Field/Value**
+    
+    **Name of the field/Enter value**
+    
+    Produce type
+    
+    Equal to
+    
+    Field
+    
+    Produce
+    
+    So, the item types mapped to the selected produce type will be populated in the **Item Category**  
+    dropdown.
+    
+    > **Note:**
+    > 
+    > For example, if the **Produce type** is _Seasonal_, this dropdown will list the values - **Fruit**, and **Vegetables**. Otherwise, if the produce type is _Exotic_, this dropdown will list the options like **Fruit**, and **Greens**.
+    
+7.  Likewise, create a third dropdown on **Today's items** to list the set of items for the day based on the produce and item type details chosen earlier. _This is the second dropdown that's dependent in this context._
+8.  Select the same **Produce Master Jan 2022** dataset and choose the **Item name** field.
+9.  Add a filter condition as follows:
+    
+    **Field**
+    
+    **Operator**
+    
+    **Field/Value**
+    
+    **Name of the field/Enter value**
+    
+    Item type
+    
+    Equal to
+    
+    Field
+    
+    Item
+    
+    AND
+    
+    Produce type
+    
+    Equal to
+    
+    Field
+    
+    Produce
+    
+    As we have added two conditions in this filter, this dropdown will display items based on the selected item and produce types chosen from the previous two dropdowns.
+    
+    > **Note:**
+    > 
+    > For example, if they want to know what are the items under the category **Exotic** **Greens** ("Exotic" from the first dropdown + "Greens" from the second dropdown), this dropdown will list _Lettuce_ and _Celery_ as results.
+    
+
+**Q: Can you add filter conditions only when the data source of your dropdown or radio button is a dataset?**
+
+**Ans)** Yes, you can create dependent dropdowns or radio buttons using datasets and filters. To add filter conditions:
+
+1.  Choose a dataset as the data source for your dropdown or radio button.
+    
+2.  Use the dataset option when you need field validations that will impact the dropdown or radio button values.
+    
+
+> **Note:**
+> 
+> -   Changing your selection in the primary dropdown will reset all dependent dropdowns. You will need to make new selections for them.
+> -   Without selecting a value from the primary dropdown menu, the other dependent dropdown menu's values will not be populated, as they are completely dependent on the filters applied. So if a user clicks on the dependent dropdowns before choosing a value from the primary dropdown, no values will be displayed to choose from.  
+>     A workaround for this is to add a help text in the dependent dropdowns that would guide the user to first complete the previous dropdowns to see results here.
+> -   The List mode loads data from a static list into a dropdown field. This mode does not support filter conditions.
+
+## Dataform as a data source in Apps
+
+Unlike a dataset used in the process, the data source in a dropdown field within an [Application](/category/introduction-to-apps) is a dataform. One can choose a list or a dataform as the data source within the Application.
+
+### What is a dataform?
+
+In general, a dataform allows you to collect and store data. A dataform can be used as a data source in a dropdown field. The field that holds the required values is chosen after selecting a particular dataform as the data source. The dropdown field will then list the values entered in the selected field of the dataform.
+
+![](/migration-assets/selecting-a-data-source-for-dropdown-multi-select-dropdown-checkbox-and-radio-fields/2.png)
+
+**Steps to follow:**
+
+1.  In **Field properties**, under **Select a data source**, choose **Dataform**.
+2.  Click **Select a dataform**.
+3.  In the popup **Select a dataform field**, you can select an available dataform or you can create a new dataform.
+4.  On selecting the dataform, a list of fields from the dataform will appear.
+5.  Select a field that contains the required values.
+6.  On selecting the field, the values will be displayed in the Dataform field values table.
+7.  Finally, click the **Select** button to submit.
+
+## **FAQs**
+
+**Q1: Which field types support dependent field behavior?**  
+Ans) Dependent field behavior capability is available for Dropdown and Radio button fields.
+
+**Q2: Do Multi-select and Checkbox fields support dependency dropdowns?**  
+Ans) No, dependency dropdown capability does not apply to Multi-select dropdown and Checkbox fields.
+
+**Q3: What are the possible data sources for field options?**  
+Ans) The options in the Dropdown, Radio, Checkbox, and Multi-select dropdown fields can be sourced from a list or a dataset. In the case of [Apps](/category/introduction-to-apps), the data sources are lists and dataforms.
+
+**Q4: Is there a limit to the number of options when using a list as the source?**  
+Ans) Yes, by default, lists can have a maximum of 250 values.
+
+**Q5: How many options are displayed when using a dataset or a dataform as the source?**  
+Ans) This depends on the field type:
+
+-   For Dropdown fields and Multi-select dropdown: The entire set of values from the dataset or dataform can be displayed.
+    
+-   For Checkboxes and Radio fields: Only the first 250 values from the dataset or dataform will be displayed.
+    
+
+**Q6: Are the dataset values sorted or filtered when displayed?**  
+Ans) Yes, the 250 values displayed for Checkboxes and Radio fields are based on any sort and filter conditions applied to the dataset or dataform.

@@ -1,0 +1,187 @@
+---
+title: "Dataset table in Analytics"
+description: "DRAFT (unverified) — migrated from /t/60yq9rz/dataset-table-in-analytics"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Dataset tables appear in the Kissflow Analytics for each dataset you create in your Kissflow account. These tables are designed with a tabular [structure](/media/download/632kc6/KF_analytics_schema.pdf), featuring rows and columns that store data values in a well-organized manner.  
+  
+The diagram showing the entity relationship of the data sources helps you in understanding about Analytics.
+
+![](/migration-assets/dataset-table-in-analytics/1.png)
+
+## System fields of the dataset table
+
+**Field ID**
+
+**Field Name**
+
+**Data type**
+
+**Description**
+
+\_id
+
+ID
+
+String
+
+The unique ID of the item.
+
+Name
+
+Key
+
+String
+
+The name of the item.
+
+\_created\_by
+
+Created by
+
+JSON
+
+This field stores information about the user who initially created the item.
+
+\_created\_by.Kind
+
+Created by
+
+JSON
+
+A subfield of "\_created\_by" always contains the value "User," indicating that a user created the item.
+
+\_created\_by.Name
+
+Created by
+
+JSON
+
+Another subfield of "\_created\_by" displays the name of the user who created the item in a format that includes both the first and last name of the user.
+
+\_created\_by.\_id
+
+Created by
+
+JSON
+
+The unique ID of the user who created the item. 
+
+\_modified\_by
+
+Modified by
+
+JSON
+
+This field stores information about the user who last modified the item.
+
+\_modified\_by.Kind
+
+Modified by
+
+JSON
+
+A subfield of "\_modified\_by" always contains the value "User," indicating that a user modified the item.
+
+\_modified\_by.Name
+
+Modified by
+
+JSON
+
+Another subfield of "\_modified\_by" displays the name of the user who last modified the item in a format that includes both the first and last name of the user.
+
+\_modified\_by.\_id
+
+Modified by
+
+JSON
+
+The unique ID of the user who last modified the item. 
+
+\_created\_at.display\_value
+
+Created at
+
+DateTime
+
+This represents the date and time of the item’s creation in GMT format in the dataset table.
+
+\_created\_at.timedelta
+
+Created at
+
+DateTime
+
+This field holds the time zone offset duration between Greenwich Mean Time (GMT) and the specific timezone. It remains empty when no such difference exists.
+
+\_created\_at.timezone
+
+Created at
+
+DateTime
+
+This indicates the timezone in GMT format at which the item was created.
+
+\_created\_at.value
+
+Created at
+
+DateTime
+
+This field displays the date and time the item was initially created. The timestamp format is GMT-based.
+
+\_modified\_at.display\_value
+
+Modified at
+
+DateTime
+
+This represents the date and time of the item’s last modification in GMT format in the dataset table. 
+
+\_modified\_at.timedelta
+
+Modified at
+
+DateTime
+
+This field holds the time zone offset duration between Greenwich Mean Time (GMT) and the specific timezone. It remains empty when no such difference exists.
+
+\_modified\_at.timezone
+
+Modified at
+
+DateTime
+
+This indicates the timezone in GMT format at which the item was last modified.
+
+\_modified\_at.value
+
+Modified at
+
+DateTime
+
+This field displays the date and time when the item was last modified. The timestamp format is GMT-based.
+
+\_flow\_name
+
+Flow name
+
+String
+
+The name of the dataset.
+
+\_model\_id
+
+Text
+
+Model ID
+
+                    The unique ID of a dataset.

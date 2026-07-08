@@ -1,0 +1,36 @@
+---
+title: "Send back actions"
+description: "DRAFT (unverified) — migrated from /t/h7ylt39/send-back-actions"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+You can select who should be assigned when an item is sent back to a step in a process workflow.  
+ 
+
+![](/migration-assets/send-back-actions/1.png)
+
+## Assign to approvers
+
+When an item is sent back to a step, it will be assigned only to the user who previously approved it at that step. This ensures that the same person who earlier approved the item is responsible for re-evaluating it.
+
+## Assign to original assignees
+
+When an item is sent back to a step, it will be assigned to all users and groups originally set as assignees for the step. 
+
+![](/migration-assets/send-back-actions/2.png)
+
+-   Let’s say **User A**, **User B**, and **Group C** are assignees of a step. When an item is sent back to this step, all three will be assigned. This ensures that the task is reintroduced to the broader pool of assignees for reconsideration.  
+     
+-   Let’s say a new user (User D) is added to a [group](/t/y4h4akj/group-management) (Group C) that is set as assignee for a step. When an item is sent back to this step, **User D** will also be assigned along with the other group members in **Group C**.  
+     
+-   Let’s say **User A** reassigned an item to User E (who is not an original assignee in the step), and **User E** approves the item. Later when the item is sent back to this step, **User A**, **User B**, and **Group C** will be assigned (not User E).  
+      
+    Regardless of how many times the item is sent back to the step, only the original assignees (User A, User B, and Group C) will be assigned.  
+     
+-   Let’s say **Round Robin** or **Least Load** is selected as an assignment preference and **User A** gets assigned in the run time. Now, when an item is sent back to this step, only **User A** will be assigned even though the assignee pool consists of **User A**, **User B**, and **Group C**.

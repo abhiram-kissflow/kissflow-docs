@@ -1,0 +1,39 @@
+---
+title: "How to display the names of multiple users from a lookup field in a text field"
+description: "DRAFT (unverified) — migrated from /t/g9y15xv/how-to-display-the-names-of-multiple-users-from-a-lookup-field-in-a-text-field"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+This article outlines how users can automatically populate a text field with the names of users selected in a multi-user lookup field. The goal is to present a readable, comma-separated list of user names based on the record chosen in the lookup.
+
+1.  An end-user opens a new record or edits an existing one in the primary form.
+2.  The user selects an item from the lookup field.
+3.  The system automatically triggers a formula with the target text field.
+4.  The formula accesses the selected lookup record's multi-user field (lookupfield.users).
+5.  The formula counts the number of selected users, retrieves each user's name, and concatenates the user names into a single string separated by a comma.
+6.  The resulting comma-separated string is displayed in the target text field.
+
+A formula-based approach to achieve the goal:
+
+## **Basic implementation (For one to two users)**
+
+This solution uses nested if statements to handle cases where one or two users are selected in the lookup field.
+
+### **Formula**
+
+```
+if(lookupfield.users.length() = 1, concatenate(lookupfield.users.get(1).Name), if(lookupfield.users.length() = 2, concatenate(lookupfield.users.get(1).Name, ",", lookupfield.users.get(2).Name), ""))
+```
+
+### **How it works**
+
+-   if(lookupfield.users.length() = 1, ...): Checks if there is exactly one user. If true, it returns that user's name.
+-   if(lookupfield.users.length() = 2, ...): If the first condition is false, it checks if there are two users. If true, it joins the first and second user's names with a comma.
+-   "": If both conditions are false (that is, zero or more than two users), it returns an empty string.
+
+### **Limitations and considerations**
+
+-   **Scalability:** The provided formula will not display any names if three or more users are selected. Extend the nested if statements for more users.
+-   **Alternative formats:** To get emails instead of names, you would replace. Name with .Email.

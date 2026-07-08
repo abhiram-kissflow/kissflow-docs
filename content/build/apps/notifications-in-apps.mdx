@@ -1,0 +1,83 @@
+---
+title: "Notifications in apps"
+description: "DRAFT (unverified) — migrated from /t/35yzjv9/notifications-in-apps"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+<iframe src="https://player.vimeo.com/video/935819947?h=b582b722b4&app_id=122963" title="Managing notifications in Kissflow" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+You can create and customize notifications in the development environment of an app to stay informed about important updates or ensure timely communication within your team.
+
+You can also select the notification channels (email, web app, and push) through which you want to receive notifications by clicking the **More options** button (![](/migration-assets/notifications-in-apps/1.png)) > **Notification channels**.  
+ 
+
+![](/migration-assets/notifications-in-apps/7.gif)
+
+There are two types of notifications available within Kissflow Apps:
+
+1. **Item notifications** - These notifications are related to item transactions of any process, board, or dataform within the app. You can create and customize item notifications apart from the predefined notifications to ensure that you stay updated on relevant activities and changes.
+    
+2. **App management notifications** - These are app-level notifications that are specifically designed for app developers and intended to provide them with important updates and notifications related to managing apps. They can only be toggled on or off.
+    
+
+> **Note**: 
+> 
+> You cannot customize notifications in the testing and production environments, but can only toggle them on or off.
+
+If you have made any changes to the notifications, you must re-deploy the app for the changes to reflect in the production environment.
+
+## Creating item notifications
+
+To create an item notification inside apps,
+
+1.  Click the **Settings** button (![](/migration-assets/notifications-in-apps/3.png)) located in the left panel of the app and click **Notification settings**.
+    
+2.  Click **\+ New notification** to start creating a new notification.
+    
+3.  Select flow type and flow - Choose the type of flow (process, board, or dataform) for which you want to create the notification and click **Next**.  
+     
+    
+    ![](/migration-assets/notifications-in-apps/2.png)
+    
+4. **Configure details** -  
+    
+    1.  Select the [notification event](/t/y4yzjv4/notification-events-in-apps) and conditions for triggering the notification. 
+        
+    2.  Select recipients to whom the notification should be sent. Click **Next**.
+        
+
+> **Note**:
+> 
+> 1.  If there’s a user field type in the form and a user has been selected, the user’s name will be shown in the recipient drop-down box.
+> 2.  Changing the [notification event](/t/y4yzjv4/notification-events-in-apps) after configuring the conditions and recipient will reset those configurations.
+
+**5\. Customize and preview content -**
+
+-   **Email content** is for email notification channels where you have a large space to convey information comprehensively and provide more details for recipients to understand the notification fully. This has a character limit of 500.  
+     
+-   **Web app & push content** provides a concise summary or snippet of the notification message, ideal for channels like web app and push notifications, where characters are limited to 300.  
+     
+-   **Bot content i**s the message displayed in chat apps like Slack, Microsoft Teams, and Google Chat, so you can view key details without leaving your chat.
+
+![](/migration-assets/notifications-in-apps/4.png)
+
+Click **Next**.
+
+6\. **Redirection** - Choose the app page or popup that should open upon clicking the notification. 
+
+![](/migration-assets/notifications-in-apps/5.png)
+
+Optionally, you can select **System default** to redirect to a default page. 
+
+Click **Next**.  
+ 
+
+7\. **Preview** - Have a preview of the notifications, and click **Create**. In the popup that appears next, you can choose to change the system-generated notification name and give a desired name.
+
+![](/migration-assets/notifications-in-apps/6.png)

@@ -1,0 +1,52 @@
+---
+title: "Board settings"
+description: "DRAFT (unverified) — migrated from /t/y4yzjap/board-settings"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ EnterpriseYou can modify how your board functions by changing specific options. To configure or change settings for a board form, click the **Settings** tab of your board form.
+
+## General settings
+
+On the **General** tab, you can configure some of the main parameters of your board form. You can change the name and item type, as well as configure how titles appear on each board form:
+
+-   **Item type** - the type of items that are managed in the Board. You can rename the item type here.
+-   **ID prefix** - The prefix for Item IDs generated in this system. For example, if you use IT, items will be numbered IT-001, IT-002, and so on.
+
+![](/migration-assets/board-settings/1.png)
+
+### Configuring form titles
+
+To configure form titles, click the **Add button (+)** and arrange default system fields or form fields in the order you want, and then click **Save**. Based on this format, titles are auto-generated and are displayed on top of each board form.![](/migration-assets/board-settings/2.png)
+
+## Optional settings
+
+### Priority
+
+Priority indicates the urgency to resolve an item. Setting a priority allows you to manage and track your items efficiently.For example, if there are items that are of a higher priority, you can set their priority to **High** or **Critical**. Critical items are easily identifiable and therefore easier to track.On the **Optional** **settings** tab, you can turn on or off priority for the entire board form.![](/migration-assets/board-settings/3.png)
+
+When you turn off priority, the **Priority** field will be hidden across the board in:
+
+-   Views
+-   Form
+-   Filters
+-   Sort
+-   Integrations
+
+The field is hidden even if it was used to set up any of the above-mentioned features.For instance, if you created a filter that used priority when you turn it off, the filter will no longer consider a priority to filter items.Also, If you have used priority to define validations or create expressions in a form field, you will not be able to turn off a priority. You will have to clear these dependencies first.
+
+### Watchers
+
+Enabling this setting lets you allow roles with initiate and manage permissions to start watching items. Watchers receive notifications on item updates.
+
+## [Access controls](/t/83ymdnx/security-settings-for-flows#access-controls)
+
+You can allow or restrict permissions to users impacting their ability to print forms, and download attachments in boards.
+
+### [Print and download permissions](/t/83ymdnx/security-settings-for-flows#print-and-download-permissions)
+
+You can toggle between two options: **Anyone** and **Only admins**. Setting the permission to **Anyone** would allow any user to download attachments or print forms. Choosing **Only admins** would restrict download and print permissions only to admins.

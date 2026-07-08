@@ -1,0 +1,126 @@
+---
+title: "Guided autofill for smart attachments"
+description: "DRAFT (unverified) — migrated from /t/m1yzcgv/guided-autofill-for-smart-attachments"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+Guided autofill is an extension to smart attachments allowing you to add customized instructions to specific form fields, enabling greater accuracy and control over form autofill.  
+ 
+
+<iframe src="https://player.vimeo.com/video/1039583911?app_id=122963" title="Guided autofill - Overview" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+## **Navigating to autofill instructions**
+
+Click the smart attachment field, and on the right panel, under **Autofill instructions,** click **Configure** to start adding instructions.
+
+![](/migration-assets/guided-autofill-for-smart-attachments/1.png)
+
+## **Writing autofill instructions for form fields**
+
+Follow these steps after clicking **Configure**, to add instructions to selected fields to guide the autofill process:
+
+1\. Click **Add instructions**.
+
+2\. Select a field from the dropdown list that you want add autofill instructions to.
+
+3\. Specify **What is the data to be extracted** from the uploaded document.
+
+4\. For **Text area** fields, there is an additional field to specify **How to structure the data** (for example, as bullet points or as a numbered list).
+
+5\. Click **Preview**, to check the output against the instructions fed and once you are satisfied with the results, click **Save**.
+
+The configured field will now be autofill based on these instructions. All  fields that were configured for guided autofill will be visible in the final screen as shown below, click **Done** to close the autofill window.
+
+![](/migration-assets/guided-autofill-for-smart-attachments/7.gif)
+
+> **Note:**  
+> While writing instructions to AI, refer only to data in the uploaded document, do not refer to values in other fields.
+
+Fields that have been configured for guided autofill can be identified easily, as they will hold the guided autofill icon as shown below.
+
+![](/migration-assets/guided-autofill-for-smart-attachments/2.png)
+
+> **Note:**  
+> Only the **Text area** field can take an additional instruction on **How to structure the data**. 
+
+## **Editing and deleting autofill instructions**
+
+There are two ways to edit or delete autofill instructions from a particular field:
+
+1\. Click the **Smart attachment** field and under the **Autofill instructions** section click **Configure** as shown below.
+
+![](/migration-assets/guided-autofill-for-smart-attachments/6.gif)
+
+2\. Alternatively, you can edit or delete the instructions by directly selecting the instructed form field as shown below.
+
+![](/migration-assets/guided-autofill-for-smart-attachments/4.gif)
+
+## Form fields that support autofill instructions
+
+This table shows form fields that support autofill instructions:
+
+**Field category**                                                                   
+
+**Supported fields**
+
+Basic
+
+All fields except, user and yes/no fields
+
+Data lookup
+
+None
+
+File and media
+
+None
+
+Advanced
+
+None
+
+Widget
+
+Checklist and rating fields
+
+## Using guided autofill in tables
+
+### **Filtering and sorting functionality**
+
+When you want to instruct AI to filter or sort a table in the document before autofilling the form table, you must select the table name in the **Select field** dropdown.
+
+![](/migration-assets/guided-autofill-for-smart-attachments/5.gif)
+
+> **Note:**  
+> Do not select specific columns from the dropdown for these instructions.
+
+### **Filling out a specific column of a form table**
+
+To fill a specific column, for example, you want to instruct the AI to calculate a 10 percent discount based on the price mentioned in the document, select the specific table column as shown in the GIF below.
+
+> **Note:**  
+> Computed fields cannot be configured for autofill instructions.
+
+## Form fields with already existing autofill instructions
+
+Suppose a field is already configured with autofill instructions. First, delete them to create a new one.  
+  
+For example, say there are two smart attachment fields, _Invoice\_document_ and _Delivery\_note,_ and you have already added instructions to a form field named _Invoice\_number using the_ smart attachment field _Invoice\_document__._   
+  
+Now, you cannot add instructions to the same field Invoice\_number from another smart attachment _Delivery\_note_, say, for the need to append the delivery number. This is because it already has an active instruction from the smart attachment field _I__nvoice\_document__._
+
+![](/migration-assets/guided-autofill-for-smart-attachments/3.png)
+
+## **FAQs**
+
+**1\. Can I add multiple instructions to the same field?**  
+No, a single field can only have one set of instructions.  
+  
+**2\. What happens when there are multiple smart attachment fields?**  
+Autofill instructions are specific to the selected smart attachment field and its uploaded document. You cannot add autofill instruction to the same field using multiple smart attachment fields.

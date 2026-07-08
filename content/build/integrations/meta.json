@@ -1,4 +1,28 @@
 {
   "title": "Integrations",
-  "pages": ["integrations-overview", "creating-an-integration", "managing-integrations", "integration-settings", "connectors", "connector-builder", "use-cases", "best-practices"]
+  "pages": [
+    "integrations-overview",
+    "creating-an-integration",
+    "managing-integrations",
+    "integration-settings",
+    "connectors",
+    "connector-builder",
+    "use-cases",
+    "best-practices",
+    "app-integration-overview",
+    "creating-an-app-integration",
+    "renaming-duplicating-and-archiving-app-integrations",
+    "working-with-connectors",
+    "managing-integrations-in-apps",
+    "working-with-app-connectors",
+    "app-integration-settings",
+    "run-script-connector",
+    "list-of-triggers-and-actions",
+    "duplicating-archiving-and-deleting-an-integration",
+    "collaborating-with-other-members",
+    "troubleshooting-api-integration-issues",
+    "best-practices-for-using-kissflow-integrations",
+    "migrating-a-connector-to-its-latest-version",
+    "adding-conditions-to-an-integration"
+  ]
 }

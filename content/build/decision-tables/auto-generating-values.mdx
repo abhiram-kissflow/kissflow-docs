@@ -1,0 +1,65 @@
+---
+title: "Auto-generating condition values"
+description: "Generate every combination of unique condition values automatically instead of entering rows by hand."
+contentType: guide
+persona: citizen-developer
+section: build
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - decision-tables
+---
+
+# Auto-generating condition values
+
+<PlanBadge plans={["enterprise"]} />
+
+When your logic needs every possible combination of condition values, entering them manually is tedious and error-prone. Auto-generate fills the table with all combinations for you: enter the unique values for each condition once, and Kissflow generates the rows.
+
+<Callout type="info">
+  Auto-generate requires at least **two conditions** in your decision table.
+</Callout>
+
+## Auto-generate condition values
+
+1. Click **Auto-generate** in the top-right corner of the decision table.
+
+   ![Decision table with the Auto-generate button highlighted in the top-right corner](/migration-assets/auto-generating-condition-values/1.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+2. In the dialog, enter the unique values for each condition you want to combine.
+3. Click **Generate**.
+
+![Auto-generate dialog with a condition selected, fields to enter unique values, and an Include button for existing condition values](/migration-assets/auto-generating-condition-values/2.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Rows with every combination of the values you entered are added below any existing rows. Combinations that already exist in the table are not duplicated.
+
+## Example
+
+A retail business manages product discounts based on customer type, purchase amount, and membership level.
+
+**Unique condition values**
+
+1. Customer type — Regular, Premium
+2. Purchase amount — \> $100, \< $100
+3. Membership — None, Gold
+
+**Auto-generated rows**
+
+| Customer type | Purchase amount | Membership |
+|---|---|---|
+| Regular | > $100 | None |
+| Regular | > $100 | Gold |
+| Regular | \< $100 | None |
+| Regular | \< $100 | Gold |
+| Premium | > $100 | None |
+| Premium | > $100 | Gold |
+| Premium | \< $100 | None |
+| Premium | \< $100 | Gold |
+
+## What's next
+
+- [Importing data from a CSV](/docs/build/decision-tables/importing-from-csv)

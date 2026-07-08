@@ -1,0 +1,60 @@
+---
+title: "Twilio connector"
+description: "DRAFT (unverified) — migrated from /t/y4h4af3/twilio-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## What is Twilio?
+
+Twilio allows you to engage with customers intelligently with the help of their flexible APIs and connect with them on their preferred channels. 
+
+## About Kissflow's Twilio integration
+
+The Twilio connector from Kissflow Integration enables you to connect Twilio instantly and to automate your work with other Kissflow apps and popular third-party apps. You must have a valid Twilio account and be a paid Kissflow customer in order to integrate with Twilio. To perform specific actions, use the Twilio connector to receive data from other flows or apps.For now, the connector for Twilio does not support any trigger events.For example, Twilio can automatically send an SMS to a unique phone number when the status of an item is updated in a Kissflow Board. 
+
+### Actions in Twilio connector
+
+**Action Events**
+
+**Description**
+
+Send an SMS
+
+This action sends SMSs to a number or numbers.
+
+Send a WhatsApp message
+
+This action sends a WhatsApp message to a number.
+
+> **Note:**
+> 
+> Please refer to the [Twilio documentation](https://support.twilio.com/hc/en-us/articles/360017773294-Rules-and-Best-Practices-for-WhatsApp-Messaging-on-Twilio) before using this action.
+
+### Twilio connector as an action step
+
+1.  In your Kissflow account, click the **Create** button in the left navigation panel and select **Integration** from the list. Enter a unique name and description for your integration and click **[Create](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Once inside your editor, set up a trigger step, for example, a Kissflow Case system trigger event, **when the status of an item is updated.**
+    
+3.  After setting up your trigger step above, click the **Add** button (
+    
+    ![](/migration-assets/twilio-connector/1.png)
+    
+    ) next to set up your action step. Search for **Twilio** and select the action. If you choose the action **Send a WhatsApp message,** the sender and recipient must have an active WhatsApp account. ![](/migration-assets/twilio-connector/2.png)
+4.  After choosing your action event, authenticate the connector. Click **+Add an account** and sign in using your **Account SID** and **Auth Token**.  
+      
+    You need to have an account with Twilio to get your unique **Account SID** and **Auth Token**. Login to your Twilio account and scroll down to **Account Info** to find your **Account SID** and **Auth Token**. ![](/migration-assets/twilio-connector/4.png)
+5.  After authenticating with your Twilio account, add relevant values against the Twilio form fields. You can hit **Refresh fields** to view all the updated fields in the selected Twilio form. You can also map Twilio fields from your trigger step or previous action steps. These values will be automatically added to item fields after the action is executed.![](/migration-assets/twilio-connector/3.png)
+6.  After a successful configuration, test whether your Twilio action step is set up correctly by clicking the **Test** button. The connector will pull field data from your selected Twilio account and display it as a JSON output. Similar to trigger step, errors are notified to you right away. Fix them before retesting the action step.
+
+### Setting up a Twilio connector
+
+After creating a custom workflow with your Twilio connector's action step, switch on the toggle button to activate the integration run. Once a trigger event occurs, an SMS is sent to your specified Twilio number.
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

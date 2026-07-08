@@ -1,0 +1,67 @@
+---
+title: "Auto-generating dataform records"
+description: "DRAFT (unverified) — migrated from /t/83yzjcq/auto-generating-dataform-records"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+The auto-generate records feature uses AI to automatically create contextually relevant sample test data for your dataforms. This feature provides an easy alternative to [importing data via CSV](/t/h7h9qk9/importing-data-from-csv-file), which is better suited for adding large, organization-specific records. With just a click, the auto-generated data populates your forms with meaningful records, allowing you to effortlessly visualize views and reports in the development environment.
+
+<iframe src="https://player.vimeo.com/video/1000721706?app_id=122963" title="AI-powered sample data generation" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+### How does it work?
+
+1.  To auto-generate data records, [create a new dataform](/t/q6h9qk4/creating-and-managing-data-forms) and give it a meaningful name. The AI feature uses the dataform’s name and description as the prompt to complete the auto-generation i.e., the more descriptive the form name and the form field names are, the more meaningful the generated data will be. For example, ‘Employee Appraisal Feedback Form For HR’ is better than ‘Appraisal Form’.
+    
+2.  In the form builder, add relevant fields to your dataform and create a [view](/t/60h9q1h/data-table-view). Here in the view builder, add all the fields for which you want to auto-generate data.
+    
+
+> **Note:**
+> 
+> The auto-generated records may not adhere to the field restrictions set as visibility rules, computation formulas in the form builder, and data filters in the view builder. It is recommended that you manually review and adjust the data entries to ensure they align with your conditions.
+
+   3. Click **Auto-generate records**. Depending on the number of fields in the form and the specificity of the form name, it may take a few moments to generate the records.
+
+   4. A total of 30 records will be generated for up to 50 form fields. Once you review the data, you're ready to add the view to a page or convert it into a data-rich report.
+
+![](/migration-assets/auto-generating-dataform-records/1.gif)
+
+> **Note:**
+> 
+> Form records can only be auto-generated in the development environment as it serves as an assistive tool for app developers to visualize and test how the data will behave at runtime. As of now, this option is available only for dataform views.
+
+### Limitations
+
+1.  If your form has more than 50 fields, the auto-generate records option will be disabled. Delete some of the fields and try again.
+    
+2.  The auto-generate option is only available on empty dataforms. If your form already has data, consider deleting them or use the Import CSV option to append the additional data.
+    
+3.  The following are the unsupported field types for which data cannot be automatically generated:
+    
+
+-   Button
+    
+-   Lookup
+    
+-   Remote lookup
+    
+-   Geolocation
+    
+-   Signature
+    
+-   Attachment
+    
+-   Image
+    
+-   Aggregation
+    
+-   Rich text
+    
+-   A child table added within the dataform
+    
+-   Form fields that have dynamic validations rules set for them.

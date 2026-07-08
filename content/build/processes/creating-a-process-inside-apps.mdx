@@ -1,0 +1,214 @@
+---
+title: "Creating a process inside apps"
+description: "DRAFT (unverified) — migrated from /t/60yzjcw/creating-a-process-inside-apps"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+## Creating a new process
+
+To create a process inside your app builder,
+
+Click **Process** under the **Quick create** menu on the left. You have three options: Create from scratch, build with AI, or use a template.
+
+![](/migration-assets/creating-a-process-inside-apps/1.png)
+
+### Create from scratch
+
+1.  Enter the process name. Alternatively, You can add a description and category to help you organize and find your process later.
+2.  Click **Create**.  ![](/migration-assets/creating-a-process-inside-apps/2.png) 
+
+### Build with AI
+
+Here again, you can either attach a document to create your process or enter a prompt.
+
+#### Attach a document
+
+1.  Upload a supported document from your system, formats include PNG, JPEG, JPG, PDF, or CSV.  
+     
+    
+    Here is a breakdown of how the input document determines the structure of the output:
+    
+    **Input document format**
+    
+    **Expected output and behavior**
+    
+    **CSV**
+    
+    • **Field assignment**: All column headers will be automatically assigned to specific field types; the form can accommodate up to 1000 fields.
+    
+    • **Organization**: Fields will be grouped section-wise to ensure logical flow.
+    
+    • **Table generation**: If applicable, tables will be created automatically.
+    
+    • **Workflow**: A basic workflow structure is created.
+    
+    **Images or PDFs**
+    
+     
+    
+    (PDF, PNG, JPEG, JPG)
+    
+    • **Exact replication**: The AI will replicate the form layout exactly as it appears in the uploaded file. However, if you provide specific instructions in the prompt, AI will modify the output to match those requests.
+    
+    • **Table detection**: If the image or PDF contains a visible table, it will be automatically converted into a table field.
+    
+    • **Workflow**: A basic workflow will be created based on the logic interpreted from the document.
+    
+2.  Add a prompt in the space below to refine how the AI builds your process workflow. This step is optional.
+    
+3.  Click **Start building**.
+    
+    ![](/migration-assets/creating-a-process-inside-apps/3.png)
+4.  Once the setup is complete, the **Add finishing touches** pop-up appears. It includes pre-filled process details. Review and edit them if needed.
+    
+5.  Click **Preview form** to see the form that will be used in your process. If it looks good, select **Go to process**.
+    
+6.  Make any final adjustments to the workflow, and click **Save**.
+    
+
+#### Provide a prompt
+
+Simply describe how you want your process to function in the **Or provide a prompt** space, and click **Start building**. Let AI build it for you automatically.
+
+In the **Add the finishing touches** pop-up, review the process details and preview the form. If everything looks good, click **Go to process** to customize your form and workflow steps before publishing.
+
+### Templates
+
+Install a template from the **Template gallery**. You can customize it later to suit your needs.
+
+![](/migration-assets/creating-a-process-inside-apps/4.png)
+
+## Building a process
+
+After creating a process, you'll land on the **process editor** screen. The basic form, workflows, permissions, reports, roles, and settings are handled on the left side of the editor. The form appears in the center, and the **basic** and **advanced** fields are provided on the right side of your editor. You can either click within the form or drag-and-drop the fields onto the form directly. Once the form is set up, click **Save** to make it available inside the application.  
+ 
+
+![](/migration-assets/creating-a-process-inside-apps/5.png)
+
+### Renaming, duplicating, and archiving a process
+
+To rename your process, click the **More options** button (![](/migration-assets/creating-and-managing-dataforms/7.png)) on your process. Click **Rename.** Change your process' name and description. Similarly, click the **Duplicate**, and **Archive** buttons to duplicate and archive a process.  
+ 
+
+![](/migration-assets/creating-a-process-inside-apps/6.png)
+
+Alternatively, you can go to the left navigation panel > **Data** \> **Processes** \> **More options** button beside a process and do the above actions.
+
+![](/migration-assets/creating-a-process-inside-apps/7.png)
+
+### Customizing a process
+
+Every process has a **form**, **workflow**, and **permissions**. As an application developer, open the process and click the tabs with these names on the left navigation bar to access these properties.
+
+### Finding a process
+
+The **Data** tab in the left navigation contains all the processes that are created in your app. Use the search bar to find a specific process quickly.
+
+![](/migration-assets/creating-a-process-inside-apps/8.png)
+
+Processes let you define the data necessary to move an item through your flow. Forms are used for workflows like processes and boards. They are made up of sections, fields, and tables.
+
+### Sections
+
+Sections are groups of fields. They are useful in making the form easier for users to complete. Additionally, you can control all field permission settings as a group instead of individually.
+
+The first section of a new form is called the **Untitled section**. To rename it, just click on the name. You can also add a description to help users. Click the Text formatting button to add rich text, including images and videos.
+
+To add a new section, click **Add** **section**.
+
+![](/migration-assets/creating-a-process-inside-apps/9.png)
+
+Click the **Settings** button(![](/migration-assets/creating-a-process-inside-apps/10.png)) to change the visibility settings. The section will always be visible by default, but you can change it to hidden. You can make the section conditionally visible by clicking **+Add a visibility rule**. To add a condition, choose a **Field**, **Operator**, or **Type**, and map it to a value or a field based on the type. You can add multiple conditions.
+
+To duplicate a section, click the **Duplicate** button (![](/migration-assets/creating-a-process-inside-apps/11.png)). A copy of the section will be created below.
+
+Click the **Up** arrow (![](/migration-assets/creating-a-process-inside-apps/12.png)) or **Down** arrow (![](/migration-assets/creating-a-process-inside-apps/13.png)) to rearrange the sections.
+
+Click the **Delete** button (![](/migration-assets/creating-a-process-inside-apps/14.png)) to delete the entire section.
+
+### Fields
+
+Fields are the building blocks of your form. They are the individual pieces of data you want to collect. Kissflow forms have 22 different types of fields to capture several kinds of data. 
+
+Click any field type to add it to the bottom of the current section you are working on. Or, you can drag-and-drop any field to the exact place in the form you want. You can also click the place in the form where you want to add a field, and a new one will pop up.
+
+The form will look exactly like you create it here to a user. To rearrange fields, drag-and-drop them where you want them to go. You can move individual fields or an entire row of fields. Fields can be resized to any dimension you need. Drag to resize the width of the field. Rows can have up to six fields.
+
+### Tables  
+
+A table acts as a separate section and lets you collect unlimited similar data. To add a table, click **Add Table**. Click the **Add button** to add a new field. You can add as many fields as you want to a table.
+
+You have the same options for tables as you do for sections. Additionally, in the table settings, you can set validations to control the minimum and maximum number of rows that must be completed.  
+ 
+
+![](/migration-assets/creating-a-process-inside-apps/15.png)
+
+### [Importing CSV into tables within a form](/t/q6yzjaj/importing-data-from-csv-file#importing-csv-into-tables-within-a-form)
+
+In addition to importing data into the main form, you can import data directly into tables within the form.A table nested within a form is called a child table. It is useful for collecting detailed lists of information (such as line items in an invoice). However, manually entering large amounts of data into these tables can be a tedious process. You can streamline this by using the **Import CSV** feature to upload data in bulk.To enable CSV import for tables in a dataform:
+
+1.  Click the **Section settings** icon.
+2.  Click the **Enable table import** toggle on.
+
+![](/migration-assets/creating-a-process-inside-apps/17.gif)
+
+Now, at runtime, you will see an **Import CSV** option for this table at run time.
+
+![](/migration-assets/creating-a-process-inside-apps/16.png)
+
+> **Notes:**
+> 
+> -   You can import up to 1,000 rows of data per table in a form.
+> -   Field permissions always take precedence over other permissions, therefore can override the Import CSV setting. If a child table is marked as Read-only, the system will prevent you from mapping fields and completing the import, even if the import feature is enabled.
+
+## FAQs
+
+**1\. What are the various soft limits in Kissflow Processes in apps?**
+
+To improve performance and ensure efficient use of resources, Kissflow has put up the following restrictions on each process form:
+
+-   A maximum of 1000 fields per process form.
+    
+-   A default soft limit of 10 child tables in every process form.
+    
+-   A default soft limit of 100 columns per child table.
+    
+-   An upper limit of 5000 rows per child table.
+    
+-   An upper limit of 30 events per form (button fields not included).
+    
+
+**2\. Can I change field data types in a process with more than 5000 items?**
+
+You cannot change field data types in a process form when there are more than 5000 records. This restriction is in place to prevent potential versioning issues when modifying data types for large forms. Changing data types for many values can lead to inconsistencies and performance problems.
+
+**3\. Are there any field types in Kissflow Processes that do not have soft limits?**
+
+Yes, certain field types in Kissflow Processes are not subject to soft limits:
+
+-   Rich text fields.
+    
+-   Grid fields.
+    
+-   Button fields (these have a separate soft limit of 100 buttons per process form, in addition to the default form limit).
+    
+
+Rich text and Grid fields are exempt from restrictions as they don't contain metadata.
+
+**4\. What happens if I duplicate a section with increased limits?**
+
+If a process with increased limits is duplicated, the new process will inherit the same incremented limits.
+
+**5\. Will I receive any warnings when approaching these limits?**
+
+Yes, warnings will appear when you are close to reaching the limits. For example, when you have 990 fields and 90 columns, you will receive warnings indicating that you are approaching the limit and suggesting that you request an extension if needed.
+
+> **Important note on concurrent editing of a process:**To ensure data integrity and prevent conflicts, our system manages concurrent editing with a "first to save" rule. This means that if two or more users edit the same process at once, the changes from the person who clicks **Save** first are successfully recorded.If another user saves the process before you, then your version of it becomes outdated. When you try to save your edits, you will be prompted to refresh the tab to load the latest updates.**Please be aware that the act of refreshing the tab will discard all of your unsaved work in the current tab.** This rule applies to the process form, workflow, permission, and reports in an app.  
+>   
+> To avoid losing progress, we strongly recommend coordinating with your team to ensure only one person is actively editing a shared process at a time.
