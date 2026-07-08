@@ -1,0 +1,55 @@
+---
+title: "Task delegation"
+description: "DRAFT (unverified) — migrated from /t/60h4ak1/task-delegation"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+As part of Account Administration, the task delegation feature allows [Super Admins](/t/35h4ak036h4gg/user-roles-permissions) to delegate future process tasks belonging to users out of the office to another user. Super Admins can choose between all and specific process-related tasks to another user.
+
+> **Note:**  
+> Only new process tasks will be delegated, and existing tasks will still be assigned to the same user.
+
+## Task delegation table
+
+The task delegation table lists all the existing delegations created by Super Admins and users. You can create new delegations and view, edit, and cancel existing delegations.
+
+## Adding a new delegation
+
+To add a new delegation:
+
+1.  Click your profile picture > **Account administration** > **Task delegation** > + **New**.
+2.  Select the user whose tasks you want to delegate.
+3.  Select the start and end dates for delegation.
+4.  Select if you want to delegate tasks from all the processes the user is a part of or only specific processes.
+5.  Select the user(s) to whom you want to delegate tasks:
+    1.  If you have chosen **All processes**, select the user to which you want to delegate the tasks.
+    2.  If you have chosen **Specific processes**, you can select different users for each process to which you want to apply the delegation.
+6.  To delegate tasks from multiple processes to a single user, select the processes using the checkbox next to their name, click **Delegate to**, and select the user.  
+     
+7.  Once you’ve selected the users, click **Create**.  
+     
+
+> **Note:**  
+> Notifications for all process related steps that is sent to the original user will be redirected to the delegated user, but **Workflow completed** notification alone will be received only by the requestor or initiator of the item, even if the initiator/requestor has delegated their task to another user**.**
+
+You can also view and edit existing delegations by selecting the delegation from the **Task delegation** table and clicking **Edit Delegation**.
+
+After the user returns to work, they will be greeted with a welcome message about the delegation. They can review the delegation and cancel it to continue acting on items. They can also cancel the delegation from **My settings** > **Task delegation**.  
+ 
+
+## Overriding delegations set by users
+
+As a Super Admin, you can override any delegation set by a user. Under the **Set by users** tab, hover over an existing delegation and click **Override** next to it. Make the necessary changes and click **Override** again to confirm.
+
+![](/migration-assets/task-delegation/1.png)
+
+A Super Admin’s override will always take priority. Once it ends, the user's original delegation will resume for the remaining duration.
+
+**Example:**  
+If a user has set a 15-day delegation, and you override it with a 5-day delegation, your delegation will take effect first. After those 5 days, the user's delegation will automatically continue for the remaining 10 days.

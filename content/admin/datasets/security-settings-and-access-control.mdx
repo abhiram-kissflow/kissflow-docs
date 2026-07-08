@@ -1,0 +1,122 @@
+---
+title: "Security settings and access control"
+description: "DRAFT (unverified) — migrated from /t/83h4al5/security-settings-and-access-control"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+To update your dataset's security settings, open the particular dataset and click **Manage** > **Security**. 
+
+![](/migration-assets/security-settings-and-access-control/1.gif)
+
+Here you can access the following settings:
+
+## Security settings
+
+Dataset Admins can share datasets with other processes, boards, specific apps, and portals through the **Security settings** page. To share a dataset with an app, ensure that app access is granted for the dataset.
+
+To update your dataset's security settings, click  **Manage** > **Security** > **Security settings**. On the right, you'll find options to configure field permissions for exposing data to the Lookup artifact in Kissflow flows.
+
+### Global permission
+
+Global permission defines the access rule for the fields in your dataset across all flows. By default, the **All fields** permission is enabled for the Lookup artifact. 
+
+![](/migration-assets/security-settings-and-access-control/2.png)
+
+You can disable this permission for more restrictive control and grant permission to look up only specific fields. 
+
+1.  Expand the **All fields** section and select **Lookup specific fields**.
+    
+2.  In the popup, choose the fields you want to expose to your flows.
+    
+3.  Click **Done**. 
+    
+
+![](/migration-assets/security-settings-and-access-control/3.png)
+
+### Customized permission
+
+Customized permissions provide granular control over dataset access for specific flows. Dataset Admins can set exclusive access rules, overriding global permissions. 
+
+1.  Click **\+ Add a customized permission**.
+    
+2.  In the popup, navigate the tabs and select the flows.
+    
+3.  Click **Done**. The selected flow will now appear on the settings page, where you can grant the flow access to all fields or specific fields.
+    
+
+![](/migration-assets/security-settings-and-access-control/4.png)
+
+> **Note**  
+> If no customized permission is set for a flow, it follows the global permission settings.
+
+To remove customized permissions for a specific flow:
+
+1.  Click the emove customized permission button next to the flow.
+    
+2.  Check for any lookup dependencies before confirming the deletion.
+    
+
+![](/migration-assets/security-settings-and-access-control/5.png)
+
+## Grant app access
+
+To refer to a dataset within apps and use it in the app’s flows, Dataset Admins can sync fields and configuration data to apps using this setting. By turning on the toggle button (![](/migration-assets/security-settings-and-access-control/9.png)), a blank copy of the dataset, along with its fields and configurations, will be available inside apps. 
+
+> **Note**  
+> Once activated, this action is irreversible. 
+
+![](/migration-assets/security-settings-and-access-control/8.gif)
+
+All datasets granted with app access permission will be available on the **Explore** page of the development environment.
+
+![](/migration-assets/security-settings-and-access-control/6.png)
+
+### Auto-generate dataset records
+
+App users can auto-populate sample dataset records and simulate the app’s behavior in a realistic dev setting. Records can be auto-generated using our advanced AI, or you can choose to import data from a CSV file.
+
+> **Note**:
+> 
+> Users can only auto-generate records to preview how the shared dataset functions within the app's development environment. Creating new datasets directly within the development environment is not possible.
+
+![](/migration-assets/security-settings-and-access-control/7.gif)
+
+### Restrict app access
+
+By default, once you activate the **Grant app access** permission, all apps in the account will have access to the dataset. However, to restrict access to specific apps, navigate to **Security settings** and click **Add a customized permission**. Then go to the **Apps** tab and select the apps you wish to grant access to the dataset.
+
+![](/migration-assets/security-settings-and-access-control/12.gif)
+
+### Lists in datasets
+
+Any list associated with the shared dataset will automatically appear as a valid data source for specific [field types](/t/35h4azp/dropdown-multi-select-dropdown-checkbox-checklists-and-radio-buttons). Unlike datasets, the original list’s data used in specific dataset fields will also sync to the dev environment for accurate testing. 
+
+![](/migration-assets/security-settings-and-access-control/11.gif)
+
+> **Note**
+> 
+> Though you can create new lists in the development environment, modifying the values of the original list associated with the dataset shared from the production environment is not possible.
+
+## [Access controls](/t/83h4al5/security-settings-and-access-control#access-controls)
+
+Dataset admins can allow or restrict users' permissions, which can impact their ability to print forms, download attachments, or impersonate datasets.
+
+### [Download permissions](/t/83h4al5/security-settings-and-access-control#download-permissions)
+
+To decide who can download attachments from this dataset, you can toggle between two options: **Anyone** and **Only Admins**.
+
+### [Print permissions](/t/83h4al5/security-settings-and-access-control#print-permissions)
+
+Setting print permissions for **Anyone** allows any user to print attachments from a dataset. Choosing **Only admins** restricts print permissions to dataset admins.
+
+### [Impersonation](/t/83h4al5/security-settings-and-access-control#impersonation)
+
+Using impersonation, you can act on behalf of a user or an item inside your Kissflow account. It applies to the dataset and all its associated views. [Learn more about impersonating a user.](/t/p8h4akb/impersonation-in-service-accounts)
+
+![](/migration-assets/security-settings-and-access-control/10.png)

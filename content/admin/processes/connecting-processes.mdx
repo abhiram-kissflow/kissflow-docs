@@ -1,0 +1,64 @@
+---
+title: "Connecting processes"
+description: "DRAFT (unverified) — migrated from /t/h7yz351/connecting-processes"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+You can connect multiple processes and automate item creation across them. Here’s how you can do it:
+
+1.  Click the **Manage** button at the top right corner of your process home page, and click **Edit process**.  
+     
+    
+2.  In the **Workflow** tab, click the **Add** button ( ![](/migration-assets/connecting-processes/1.png) ) at the desired place of your workflow where you want to add the connection and click **Run a process**.
+    
+    ![](/migration-assets/connecting-processes/6.gif)
+    
+3.  In the panel that opens on the right, 
+    
+    -   Enter the name and description (optional) of the step.  
+         
+    -   Select which process you want to connect to the step and initiate dependent items in it.  
+         
+    -   **Map fields**: You can map fields between the connected processes so that the source item’s field values are inherited by the dependent item(s). Additionally, you can add functions while mapping the fields.  
+         ![](/migration-assets/connecting-processes/3.png)  
+          
+        To do **table-to-table** field mapping between the current and connected process, click **Add a table**, select the table, and add the fields you want to map.  
+         ![](/migration-assets/connecting-processes/5.gif)  **Unsupported fields for mapping:**
+        -   Attachment
+        -   Smart attachment
+        -   Lookup
+        -   Remote lookup
+        -   Image
+        -   Aggregation
+        -   Signature
+        -   Rich text
+        -   Button
+    -   Set conditions (optional) for creating dependent items in the connected process. Only those items that match the conditions can enter the flow-connected step.  
+         
+4.  Click **Go live** to update the changes.
+    
+
+In an the [administration section](/t/60h9qtj/admin-actions-in-a-process), process admins can find the source and dependent items of an item by navigating to the **Connected item**s tab on the right.
+
+## Initiating multiple dependent items
+
+You can initiate multiple dependent items in the connected process from a source item’s table entries/rows. The number of dependent items initiated is equal to the number of rows in the selected table. Toggle **Initiate items from table entries** and select a table. 
+
+![](/migration-assets/connecting-processes/2.png)
+
+> **Note:**
+> 
+> You can select only one table to initiate multiple dependent items.
+
+You can also set conditions for creating those dependent items by adding a filter.  
+ 
+
+![](/migration-assets/connecting-processes/4.png)
+
+When **Initiate items from table entries** is toggled on, the table fields from the source item will become available for field mapping.

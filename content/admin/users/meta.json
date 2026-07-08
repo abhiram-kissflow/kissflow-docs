@@ -1,4 +1,10 @@
 {
   "title": "Users",
-  "pages": ["..."]
+  "pages": [
+    "group-management",
+    "user-management-overview",
+    "user-roles-and-permissions",
+    "adding-and-managing-users",
+    "exporting-user-data"
+  ]
 }

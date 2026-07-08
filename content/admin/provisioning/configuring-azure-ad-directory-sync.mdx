@@ -1,0 +1,83 @@
+---
+title: "Configuring Azure AD directory sync"
+description: "DRAFT (unverified) — migrated from /t/q6h4a1x/configuring-azure-ad-directory-sync"
+contentType: guide
+persona: admin
+section: admin
+---
+
+As a [Super Admin, or an IAM Admin](/t/35h4ak0), you can synchronize user and group information from your third-party directory accounts to Kissflow using the **Identity Provider** feature under **User Provisioning** in Kissflow. We currently support user provisioning from Google Workspace and Microsoft Azure Active Directory.
+
+An account can have only one user provisioning service enabled at a time, so if you are currently using SCIM, we recommend you contact our customer support team to help you disable it.
+
+## Prerequisites
+
+-   An Azure AD subscription.
+-   Administrator access in the Azure and Kissflow accounts used for the directory sync.
+
+> **Note**:  
+> If your Administrator access is revoked in the future or your credentials do not work anymore, all the scheduled syncs will be disabled until you sign in back to your Azure AD account.
+
+## Connecting to Azure AD
+
+1.  Access your Kissflow account on your web browser and click your profile picture > **Account Administration** > **User provisioning** > **Identity providers** > **Configure.**
+2.  Click **Connect Azure AD** on the **Select your Identity Provider** page.
+3.  Sign in to your **Microsoft Azure AD** account with your credentials.
+    1.  Your connection might fail if you aren’t an Administrator in your Azure AD account or if the account you tried to sign in wasn’t an Azure AD account.
+4.  Select the **Consent on behalf of your organization** checkbox to give your consent to let Kissflow access the information required for the user sync from your Azure AD account. This information includes your current role in Azure AD, your email address, domain, and users and groups under your domain.
+5.  Click **Accept** to let Kissflow access the information needed to connect to your Azure AD account.
+
+## Verifying tenant details
+
+A tenant is an organization in your Azure AD account. Learn how to create a tenant for your organization in your Azure AD account [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-create-new-tenant). As the first step, verify whether the correct tenant is mapped with your Kissflow account in the **Tenant details** section. Click **Next** if the Tenant name and Tenant ID are correct.
+
+![](/migration-assets/configuring-azure-ad-directory-sync/1.png)
+
+## Selecting users or groups
+
+After verifying the tenant information, you can choose to sync all the users from the tenant or sync users only from a specific set of groups available in the tenant.
+
+Under **User sync**,
+
+-   Select **All users** if you would like to add or sync all the users from the tenant mapped with your Kissflow account (or)
+-   Select **Users from specific group(s)** and choose the groups if you would like to add or sync users from the tenant.
+
+After selecting users, you can sync their group information by selecting the **Add group information additionally** checkbox. If you choose to sync users from specific groups, the selected groups will be populated automatically when you check this box. You can modify the list as you wish or leave it as is.
+
+Click **Next** to proceed, or click **Previous** if you would like to review the tenant information once again.
+
+## Mapping and testing field attributes
+
+Testing field mapping helps you spot discrepancies in the data between the source and destination services and avoid sync failures at a later stage.
+
+By default, we will map three mandatory fields - First name, Last name, and Email ID - from your Azure AD account with their respective fields in your Kissflow account. Click the **\+ New field** to add as many fields as you want from your Azure AD account and map them with their equivalent fields in Kissflow.
+
+![](/migration-assets/configuring-azure-ad-directory-sync/2.png)
+
+After mapping fields, you can select certain fields for which you wouldn't want future updates to be synced into Kissflow.
+
+Toggle **Sync updates** OFF to prevent a field from being updated in the future. However, disabling this field doesn't restrict the field from being added for the first time.
+
+> Let us assume an organization decides not to let its employees make changes to details such as their **First name** in Kissflow, but an employee changed his name from _Michael Doe_ to _Mike Doe_ now. If the **Sync updates** field is turned ON for the **First name** field, his new name, 'Mike Doe,' will be updated in Kissflow in the subsequent sync. If it is turned OFF, the changes to his First name will be discarded and retained as _Michale Doe_ in Kissflow.
+
+Click **Test** to preview the mapping results.
+
+Your field mapping might fail in the following scenarios:
+
+-   The source and destination fields must have the same data type. For example, you cannot map a ‘**Manager name**’ field (Text) in Azure AD with a '**Joining date'** field (Date) in Kissflow.
+-   The field values must be in the accepted format. For example, the ‘**Joining date**’ field (Date) cannot have ‘**June sixth**’ as one of its values. Instead, it must follow the format 06/06/2019 (DD/MM/YYYY).
+
+Resolve the errors, if any, and retest the mapping as necessary. Click **Next** to proceed to the next step when you are done testing.
+
+## Setting sync preferences
+
+In this section, you can schedule sync, manage deleted Azure AD users, and assign notification recipients for sync failures. Kissflow supports scheduled syncs once everyday.
+
+> If your organization gets a new hire during scheduled syncs and wants to add them to Kissflow immediately, you may add them manually by clicking the **Sync Now** button in **Account Administration** \> **User provisioning** > **Identity providers** > **Azure AD**.
+
+-   You can [delete](/t/y4h4aks36h4gg/add-manage-users#deleting-users) or [deactivate](/t/y4h4aks36h4gg/add-manage-users#deactivating-and-activating-users) users in Kissflow when they are deleted from your Azure AD account.
+-   Select the recipients from the **Notify sync failures** dropdown to send them notifications in case of sync failure. The users will receive both in-app and email notifications in this regard.
+-   Click **Save & sync now** to save your configuration.
+
+> **Note**:  
+> Learn how to track the status of your sync, access sync history, and manage your configuration [here](/t/35h4a1336h4gg/managing-directory-sync-configuration).

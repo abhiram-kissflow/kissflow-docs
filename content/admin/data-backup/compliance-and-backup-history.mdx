@@ -1,0 +1,61 @@
+---
+title: "Compliance and backup history"
+description: "DRAFT (unverified) — migrated from /t/35y3mfj/compliance-and-backup-history"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+> **Note:** This service is available on request. Please contact our support team to enable it on your account.
+
+As a [Super Admin](/t/35h4ak0/user-roles-and-permissions#super-admin), you can manage your account's data backup. You can also cancel the backup if needed if a backup is in the queue. However, if the backup is initiated, cancellation is not allowed.
+
+Once the backup is in progress, you can only view the configuration. You can edit the previous backup configuration once your backup is completed. Follow the steps below to edit your backup configuration.
+
+-   Sign in to Kissflow.
+-   Click the profile picture on the top right corner of your page.
+-   Click **Account administration** from the drop-down menu> **Data backup**. Click the **More options** button (![](/migration-assets/compliance-and-backup-history/1.png)) beside the **Backup now** button > **Edit configuration**.
+
+![](/migration-assets/compliance-and-backup-history/4.png)
+
+> **Note:**  
+> You must save your previous passphrase to access your previous backup files. Once the configuration is edited, you cannot use the previous passphrase.
+
+## Backup progress and completion status
+
+Super admins can easily interpret the progress and completion status of backups:
+
+-   **Progress indicators:** The system provides real-time status and updates for ongoing backups.
+    
+    ![](/migration-assets/compliance-and-backup-history/2.png)
+-   **Completion details:** Once completed, detailed logs, including the backup file location, backup time, and storage details, are recorded in the account-level audit log.
+    
+
+## Role of audit logs
+
+Audit logs are crucial to maintaining transparency and accountability in data backup.
+
+Each backup process is meticulously logged, including:
+
+-   **User actions:** Records actions taken by users, especially super admins, during the backup process.
+    
+-   **System actions**: Logs system-generated events such as the start and completion of backups, errors, and warnings.
+    
+-   **Data details:** Captures category-wise details of the backed-up data.
+    
+
+### Backup history
+
+Super admins can access and interpret backup logs to monitor backup activities and ensure compliance. After your backup is completed, you can access the backup history for each data backup. To do so,
+
+-   Sign in to Kissflow.
+-   Click the profile picture on the top right corner of your page.
+-   Click **Account administration** from the drop-down menu> **Data backup**. Click the **More options** button (![](/migration-assets/compliance-and-backup-history/1.png)) beside the **Backup now** button > **Backup history**.
+
+The backup history details the record of all backup activities, including the requester's name, storage mode, backup status, and the date and time of the backup.
+
+![](/migration-assets/compliance-and-backup-history/3.png)

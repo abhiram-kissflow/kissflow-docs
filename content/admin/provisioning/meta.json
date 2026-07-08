@@ -1,4 +1,12 @@
 {
   "title": "Provisioning",
-  "pages": ["..."]
+  "pages": [
+    "scim-overview",
+    "directory-sync-overview",
+    "configuring-azure-ad-directory-sync",
+    "setting-up-scim-with-azure-active-directory",
+    "setting-up-scim-with-okta",
+    "setting-up-scim-with-onelogin",
+    "configuring-google-workspace-directory-sync"
+  ]
 }

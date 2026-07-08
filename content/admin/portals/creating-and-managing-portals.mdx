@@ -1,0 +1,72 @@
+---
+title: "Creating and managing portals"
+description: "DRAFT (unverified) — migrated from /t/g9h4azq/creating-and-managing-portals"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+## Creating a portal from scratch
+
+Creating a new portal inside Kissflow is a straightforward process. As a [Super Admin](/t/35h4ak036h4gg/user-roles-permissions) of your account, you can create portals. 
+
+1.  Click the **Create** button (![](/migration-assets/creating-and-managing-portals/3.png))> **Portal** from the left navigation bar to create a new Portal.  ![](/migration-assets/creating-and-managing-portals/1.png) 
+2.  Enter a unique name for your portal. It should be less than 80 characters in length. Give your portal a custom domain address. External users will use the **Portal domain** URL to access your portal. You can later change this portal domain by going to portal administration. 
+3.  Once you have created the portal, go to **Manage** and click **Edit portal**. You will be taken to the development environment that allows you to develop the portal application, which you can share with portal users.  
+     ![](/migration-assets/creating-and-managing-portals/2.png)   
+    [Click here](/t/g9h9qkp/app-environments) to learn more about the different types of environments in an app builder. Once a portal is created, it will be in a draft state until you make it live by deploying the developed portal application.
+
+To learn how to build your application from scratch, read these topics next:
+
+1.  Assigning [roles and permissions](/t/h7yzj46/application-roles).
+2.  Creating [data forms](/category/dataforms-in-apps), [processes](/category/processes-in-apps), and [boards](/category/boards-in-apps).
+3.  [Designing UI with pages](/t/60yzj91/app-pages-overview).
+4.  Building bespoke [navigation](/t/35yzja6/creating-and-managing-navigation) paths.
+5.  Creating [components](/t/y4yzj4d/creating-custom-components).
+6.  [Integrating](/t/m1yzjvt/managing-app-integration) with other applications.
+7.  Managing [security and settings](/t/q6yq2wc/managing-portal-users) of the application.
+
+> A user with access to your live public portals, not your Kissflow account, is called an external user.  
+
+## Managing portals
+
+After a portal is created, you can find the portal in the production environment on the **Explore** page in the **Managed by me** section. You may add yourself as the admin of the portal. Each enterprise account in Kissflow can create a maximum of 10 new portals, with each portal having a maximum of 10 external users per portal. This allows customers to experiment with building portals and test them by adding external test users. When a customer wants to expose a portal they have created as a full-fledged external portal and add real external users, they may reach out to support for pricing and other details.  
+ 
+
+![](/migration-assets/creating-and-managing-portals/4.png)
+
+Once you have created a portal, you can add other Portal Admins to manage it. Click **Share** and click **+ Add users** to add any user that is part of your Kissflow account to manage this portal. The same user can be the Portal Admin for multiple portals. Portal Admins can enable, disable, edit, or archive a portal. Portal Admin also has permission to deploy new versions of an application inside a portal. Currently, to delete a portal, you have to contact Support. Inside the portal share settings, you can find the different [roles](/t/h7yzj46/application-roles) created for use inside your application. 
+
+![](/migration-assets/creating-and-managing-portals/5.png)
+
+## Enabling and disabling portals 
+
+Once you have built your application from scratch and tested it in the test environment, you can deploy it and publish it live, allowing portal users to log in and access it. Sharing the portal domain URL with the portal users will enable them to create an account and access it. Click the **More options** button (![unnamed.png](/migration-assets/creating-and-managing-portals/7.png)) and click **Disable** to disable access to the portal and make it live for portal users. You will see an enable portal option in the same place when the portal is in the disabled status.
+
+![](/migration-assets/creating-and-managing-portals/6.png)
+
+##  Archiving and unarchiving portals 
+
+Click the More options button (![unnamed.png](/migration-assets/creating-and-managing-portals/7.png)) and click **Archive** to archive the portal. Portal users will immediately lose access to the archived portal. You will see an enable portal option in the same place when the portal is in the disabled status.
+
+![](/migration-assets/creating-and-managing-portals/8.gif)
+
+To unarchive a portal navigate to **Explore > Managed by me > Portals** and click on the portal you want to unarchive. This takes you to the portal page from you can unarchive the portal as shown in the gif below.  
+ 
+
+![](/migration-assets/creating-and-managing-portals/9.gif)
+
+## Portal administration, Integrations and Roles
+
+Portal users have multiple sign in options that you can change in [portal administration](/t/p8h4atv/administering-portals). [Portal integrations](/category/integrations-in-apps) and [roles](/category/roles-and-permissions) work the same in Kissflow apps.
+
+> **Important note:**Please keep in mind that changes saved in your portal app while in the development environment are final, as the environment does not include an undo or recovery option.What this means:
+> 
+> -   If you delete a child flow, like a page or a dataform, it will need to be recreated manually. There is no option to restore deleted flows.
+>     
+> -   Your work in the development environment is safely isolated from production until deployment. When you’re ready, deploying the portal will move all of your new changes to production at once. Therefore, we urge you to review your changes before saving. This will help make sure all the necessary flows stay intact and reduces rework for you.
+>
