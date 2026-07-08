@@ -1,4 +1,8 @@
 {
   "title": "Tasks",
-  "pages": ["..."]
+  "pages": [
+    "watching-a-process-item",
+    "member-actions-in-a-process",
+    "filtering-items-in-a-process"
+  ]
 }

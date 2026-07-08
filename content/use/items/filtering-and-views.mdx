@@ -1,0 +1,71 @@
+---
+title: "Adding advanced filters using AI"
+description: "Use natural language to generate advanced filter conditions in a board, summarize existing filters, and regenerate them with AI."
+contentType: guide
+persona: end-user
+section: use
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - boards
+  - items
+  - filters
+  - ai
+---
+
+# Adding advanced filters using AI
+
+<PlanBadge plans={["enterprise"]} />
+
+<iframe src="https://player.vimeo.com/video/1133474101?app_id=122963" title="AI-powered advanced filters - Overview video" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+Instead of manually building filter conditions, you can describe what you want to see in plain language and let AI build the filter for you.
+
+## Generate a filter from a prompt
+
+1. Click the **Filter** button on your board.
+2. In the filter pane that opens, click **Advanced filter**.
+3. In the text box under **Generate advanced filter using AI**, type your filtering criteria in simple, plain language. For example: _My high priority assigned items._
+4. Click **Generate**. AI creates the corresponding filter conditions in the section below. You can also add or adjust conditions manually.
+5. Once you're satisfied with the conditions, click **Apply** to see your filtered results.
+
+{/* TODO: screenshot — filter pane with the Generate advanced filter using AI text box and generated conditions */}
+
+<Callout type="idea">
+  To include subitems in your filtered results, enable **Apply filter to subitems** in the filter pane.
+</Callout>
+
+## Summarize and regenerate filters
+
+Click **Filter summary** to get an AI-generated summary describing what your filter conditions represent. You can use this summary as a base for new prompts:
+
+1. Click **Edit** next to the filter summary.
+2. Update the summary text to reflect your new requirement.
+3. Click **Regenerate** to make AI create a new set of filter conditions.
+
+For example, if the summary says _This filter shows items with priority High that are assigned to the current user_, you can edit it to say _This filter shows items with priority Critical that are assigned to the current user_ and regenerate the filter.
+
+## Example prompts
+
+| To see... | You can type... |
+|---|---|
+| High-priority items assigned to you | "My high priority assigned items" |
+| Items that are past their due date | "Show me all overdue tasks" |
+| Items created within the current week | "Everything created this week" |
+| Items assigned to a specific person | "Tasks assigned to Natasha Romanoff" |
+| Items with multiple conditions | "All critical items in the approval step due today" |
+
+## Troubleshooting
+
+**The generated filters are not what I expected.**
+
+- **Why it happens** — AI may have misinterpreted an unclear request.
+- **How to fix it** — rephrase your request to be more direct and specific. For example, instead of _Show old tasks_, try _Show tasks created before October 1, 2025_. Including field names in your request often leads to more accurate results.
+
+## What's next
+
+- [Creating and managing items](/docs/use/items/creating-items)
+- [Exporting items from a board](/docs/use/items/exporting-items)
+- [Using board layouts](/docs/use/apps/using-board-layouts)

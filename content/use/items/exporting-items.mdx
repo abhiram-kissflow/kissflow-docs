@@ -1,0 +1,57 @@
+---
+title: "Exporting items from a board"
+description: "Export board items to a CSV file that is emailed to you, with the fields, filters, and sorting of your current layout applied."
+contentType: guide
+persona: end-user
+section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - boards
+  - items
+  - export
+---
+
+# Exporting items from a board
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+You can export items from a board to a CSV file. The file is emailed to the email address registered with your Kissflow account.
+
+Exporting helps you share information about items with people who may not have access to Kissflow, or move data into other applications.
+
+## Export items
+
+1. In any layout — list, kanban, matrix, or timeline — click the **More options** button in the upper-right corner of the layout and select **Export**.
+2. In the **Export data** dialog, confirm that only the fields shown in the current layout will be exported, and click **Export**.
+3. Download the exported CSV file from your email.
+
+![Animation of exporting items from a board through the More options menu and the Export data dialog](/migration-assets/exporting-items-from-a-board/1.gif)
+{/* TODO: verify screenshot matches current product UI */}
+
+## What gets exported
+
+The export includes only the fields visible in your current layout — hidden fields are not exported. If you have applied a filter or sorted the items, the same conditions apply to the exported data. For example, if a filter is active, only the filtered items are exported.
+
+These field types are never included, even if visible:
+
+- Lookup
+- Remote lookup
+- Image
+- Signature
+- Attachment
+- Checklist
+
+Other details from an item — such as notes, activity, status transitions, and fields inside tables — are also not included.
+
+<Callout type="info">
+  Currency fields appear as two columns in the exported file: one for the currency code and one for the value.
+</Callout>
+
+## What's next
+
+- [Importing items from a CSV file](/docs/use/items/importing-items)
+- [Adding advanced filters using AI](/docs/use/items/filtering-and-views) (Enterprise)
+- [Using board layouts](/docs/use/apps/using-board-layouts)

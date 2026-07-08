@@ -1,4 +1,4 @@
 {
-  "title": "Items",
-  "pages": ["..."]
+  "title": "Working with Items",
+  "pages": ["creating-items", "filtering-and-views", "collaborating", "creating-subitems", "importing-items", "exporting-items"]
 }
