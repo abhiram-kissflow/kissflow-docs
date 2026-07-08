@@ -1,82 +1,72 @@
 ---
 title: "User notification settings"
-description: "DRAFT (unverified) — migrated from /t/y4y6yd3/user-notification-settings"
+description: "Turn on email, web app, push, and bot notifications for your account, and customize notification channels for specific processes, boards, datasets, apps, or portals."
 contentType: guide
 persona: end-user
 section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - notifications
+  - personal-settings
+  - account
 ---
 
-Kissflow plans:
+# User notification settings
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
 
-The **Notification settings** section allows users to customize account notification preferences according to their communication needs.
+**Notification settings** lets you customize how and when you're notified about activity in your Kissflow account. You can control which channels you receive notifications on, and fine-tune notifications for individual processes, boards, datasets, apps, or portals.
 
 ## Global notifications
 
-Click your profile picture > **My settings** > **Notification settings**. You can choose to turn on or off the email, web app and push notifications you will receive from the account.  
- 
+1. Click your profile picture > **My settings** > **Notification settings**.
 
-![](/migration-assets/user-notification-settings/1.png)
+   ![My settings menu with Notification settings highlighted](/migration-assets/user-notification-settings/1.png)
+   {/* TODO: verify screenshot matches current product UI */}
 
-**Email notifications**: Toggle this switch ON to receive notifications via email.
+2. Under **Global notifications**, turn the following toggles on or off:
+   - **Email notifications** — turn this ON to receive notifications via email.
+   - **Web app notifications** — turn this ON to receive notifications within the web application.
+   - **Push notifications** — turn this ON to receive push notifications. When you enable this for the first time, your browser may prompt you to allow desktop notifications from Kissflow — if you deny the prompt, push notifications won't work until you re-enable them in your browser settings.
+   - **Bot notifications** — turn this ON to receive notifications from the Kissflow bot.
 
-**Web app notifications**: Toggle this switch ON to receive notifications within the web application.
+<Callout type="info">
+  Essential system notifications — such as those related to account security and user management — are prioritized and sent regardless of your channel settings, to make sure you don't miss critical updates.
+</Callout>
 
-**Push notifications**: Toggle this switch ON to receive push notifications.
+<Callout type="info">
+  The examples below illustrate the kind of system notifications that bypass your channel settings. The exact list may vary and isn't limited to these events.
+</Callout>
 
-To ensure you receive critical updates and important information, the below essential system notifications are prioritized and will be sent to you regardless of your channel settings.
-
-**Notifications**
-
-**Trigger**
-
-User activated
-
-When a user’s account is activated.
-
-User deactivated
-
-When a user’s account is deactivated.
-
-Resend email verification
-
-When the verification email is resent.
-
-Email address updated
-
-When a user’s email address is updated.
-
-User created
-
-When a new user is created.
-
-Reset password
-
-When a user’s password is reset.
-
-2FA status changed
-
-When a user’s two-factor authentication status is changed.
-
-Two factor verification
-
-When two factor authentication is enabled with email code.
-
-Domain verification
-
-When a verification email is sent to connect a domain.
-
-Waiting for admin approval
-
-When a user creates a process/board/dataset
-
-Export
-
-When any export related to a user, board, dataform, dataset, or report is carried out.
+| Notification | Trigger |
+| --- | --- |
+| User activated | A user's account is activated. |
+| User deactivated | A user's account is deactivated. |
+| Resend email verification | The verification email is resent. |
+| Email address updated | A user's email address is updated. |
+| User created | A new user is created. |
+| Reset password | A user's password is reset. |
+| 2FA status changed | A user's two-factor authentication status is changed. |
+| Two factor verification | Two-factor authentication is enabled with an email code. |
+| Domain verification | A verification email is sent to connect a domain. |
+| Waiting for admin approval | A user creates a process, board, or dataset that requires admin approval. |
+| Export | An export related to a user, board, dataform, dataset, or report is carried out. |
 
 ## Notification channels
 
-In this section, users can customize notifications specific to a particular process, board, dataset, app, or portal. 
+Beyond the global toggles, you can customize notifications for a specific process, board, dataset, app, or portal. This lets you, for example, mute push notifications for one board while keeping email notifications on for another.
 
-![](/migration-assets/user-notification-settings/2.png)
+Click **Notification channels** to see every process, board, dataset, app, and portal you're part of, along with its own Email, Web app, Push, and Bot toggles.
+
+![Notification channels list with per-item Email, Web app, Push, and Bot toggles](/migration-assets/user-notification-settings/2.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## What's next
+
+- [Viewing notifications](/docs/use/personal-settings/viewing-notifications)
+- [Personal info, format settings, and task delegation](/docs/use/personal-settings/personal-info-format-settings-and-task-delegation)
+- [Admin notification settings](/docs/admin/account-settings/admin-notification-settings)
+- [Notification events in processes](/docs/build/processes/notification-events-in-processes)

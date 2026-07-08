@@ -1,29 +1,69 @@
 ---
 title: "Viewing notifications"
-description: "DRAFT (unverified) — migrated from /t/x2h4azy/viewing-notifications"
+description: "View, scroll through, and manage your notifications from the bell icon, or open the full-screen notifications page to see everything in one place."
 contentType: guide
 persona: end-user
 section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - notifications
+  - personal-settings
+  - alerts
 ---
 
-Kissflow plans:
+# Viewing notifications
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
 
-You can find all of your notifications by clicking the **bell** icon ( ![](/migration-assets/viewing-notifications/5.svg) ) in the upper-right corner of the screen.
+Kissflow notifies you whenever there's activity on items assigned to you, mentions, and other updates across your account. You can review these from the notification bell in the top navigation bar, or open the full-screen notifications page to see everything in one place.
 
-![](/migration-assets/viewing-notifications/1.png)
+## View your notifications
 
-From this pop-up, you can scroll through all of your notifications sorted by the most recent. New notifications are highlighted, and the number shows by the button. When you click a notification card, you will go to the page associated with the notification.
+Click the bell icon (![Bell icon](/migration-assets/viewing-notifications/5.svg)) in the upper-right corner of the screen to open your notification pop-up.
+{/* TODO: verify screenshot matches current product UI */}
 
-![](/migration-assets/viewing-notifications/2.png)
+![Top navigation bar with the notification bell icon highlighted](/migration-assets/viewing-notifications/1.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-To mark an individual notification as read, click the grey-filled circle (.), which appears on the right side when you hover over it. If you click **Mark all as read**, all the unread notifications will be marked as read.
+From the pop-up, you can scroll through all your notifications. New notifications are highlighted, and an unread count appears next to the bell icon. Click a notification card to go to the page associated with it.
 
-Click the **Settings** button (![](/migration-assets/viewing-notifications/4.svg)) to manage notification preferences for all the flows you are a part of. 
+![Notification pop-up showing the list of notifications with unread items highlighted and the unread count badge](/migration-assets/viewing-notifications/2.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-Click **Show all** to go to the full-screen notifications page, where you can see previews of the items. From the notifications page, you can click a tab to see **All**, **Unread**, **Mentions**, and **Action needed** notifications.
+<Callout type="info">
+  Notification order is set by the server, so it may not always match the exact order events occurred in.
+</Callout>
 
-![](/migration-assets/viewing-notifications/3.png)
+## Manage your notifications
 
-When you click a particular notification card, you will see the feed card details in the preview section on the right.
+- **Mark a notification as read** — Hover over a notification card and click the grey-filled circle that appears on its right side. The circle turns into an outline once the notification is read; click it again to mark it unread.
+- **Mark all as read** — Click **Mark all as read** at the top of the pop-up. This link only appears when you have at least one unread notification, and it marks every notification currently loaded as read.
+- **Manage notification preferences** — Click the **Settings** button (![Settings icon](/migration-assets/viewing-notifications/4.svg)) to open your [notification settings](/docs/use/personal-settings/user-notification-settings), where you can turn notifications on or off for each flow you're part of.
+{/* TODO: verify screenshot matches current product UI */}
+
+## View all notifications
+
+Click **Show all** at the bottom of the pop-up to open the full-screen notifications page.
+
+![Full-screen notifications page with tabs for All, Unread, and Mentions](/migration-assets/viewing-notifications/3.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Use the tabs at the top of the page to filter your notifications:
+
+| Tab | Shows |
+| --- | --- |
+| All | Every notification you've received |
+| Unread | Notifications you haven't marked as read |
+| Mentions | Notifications where someone @mentioned you |
+
+Click a notification card to go directly to its associated page, just like in the pop-up.
+
+## What's next
+
+- [User notification settings](/docs/use/personal-settings/user-notification-settings)
+- [Homepage overview](/docs/get-started/homepage-overview)
+- [Watching a process item](/docs/use/tasks/watching-a-process-item)
+- [Personal info, format settings, and task delegation](/docs/use/personal-settings/personal-info-format-settings-and-task-delegation)

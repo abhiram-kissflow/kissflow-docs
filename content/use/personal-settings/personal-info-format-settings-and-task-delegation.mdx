@@ -1,60 +1,104 @@
 ---
 title: "Personal info, format settings, and task delegation"
-description: "DRAFT (unverified) — migrated from /t/q6h4az6/personal-info-format-settings-and-task-delegation"
+description: "Update your personal details and password, set your account's language and date format, and delegate your process tasks while you're away."
 contentType: guide
 persona: end-user
 section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - personal-settings
+  - profile
+  - task-delegation
 ---
 
-Kissflow plans:
+# Personal info, format settings, and task delegation
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
 
-## Accessing your profile
+The **General settings** section of **My settings** is where you manage your own profile, password, display preferences, and task delegation — separate from account-wide settings, which admins manage.
 
-Click your profile picture in the upper-right corner of the Home screen and click **My settings**. The **My settings** page has three categories: **General**, **Security**, and **Notification settings**. The **General settings** page includes **Personal info**, **Format settings**, and **Task Delegation**.
+## Access your settings
 
-![](/migration-assets/personal-info-format-settings-and-task-delegation/4.png)
+1. Click your profile picture in the upper-right corner of the Home screen.
+2. Click **My settings**.
+
+The **My settings** page has three categories: **General**, **Security**, and **Notification settings**. **General settings** contains **Personal info**, **Format settings**, and **Task Delegation**.
+
+![My settings page showing the General, Security, and Notification settings categories](/migration-assets/personal-info-format-settings-and-task-delegation/4.png)
+{/* TODO: verify screenshot matches current product UI */}
 
 ## Personal info
 
-The Personal info page allows you to fill in your details, upload a profile picture, add a signature, and manage your email address. You can also change your password if it is compromised or your company requires a password change. If you forget your current password, follow the steps below:
+The **Personal info** page lets you fill in your details, upload a profile picture, add a signature, and manage your email address.
 
-1.  Click **Change password** > **Forgot password**?
-2.  Click **Send email**. You will receive an email with instructions on how to reset your password. This email is a time-sensitive email that expires after 24 hours. 
+### Change your password
 
-To change your password, click **Change password**. Enter your current password and your new password, and click **Save**.
+1. Click **Change password**.
+2. Enter your current password and your new password.
+3. Click **Save**.
+
+### Reset a forgotten password
+
+1. Click **Change password** > **Forgot password?**
+2. Click **Send email**.
+
+You'll receive an email with instructions to reset your password.
+
+<Callout type="warn">
+  The reset link in this email expires after 24 hours. If it expires before you use it, restart the **Forgot password?** flow to get a new one.
+</Callout>
 
 ## Format settings
 
-You can manage the format settings to format the display and data of your account. These settings apply to your account, not the account-wide format settings, which only the [Super Admin](/t/35h4ak0/user-roles-and-permissions#super-admin) can change. 
+Format settings control how data and time-based values are displayed for your own account. They're separate from the account-wide format settings, which are typically managed by admins with account administration permissions (see [Super Admin](/docs/admin/users/user-roles-and-permissions)).
 
-**Account t****ime zone**. Your organization's time zone is considered when you configure a scheduled action for integration or include a deadline in a workflow. All data from processes, boards, and apps will match your time zone.
+- **Account time zone** — used when a scheduled action in an integration runs, or when a deadline in a workflow is evaluated. Data from your processes, boards, and apps is displayed in this time zone.
+- **Language** — the display language for your account. Kissflow supports more than 20 languages, including English, French, Spanish, German, Italian, Russian, Korean, Simplified Chinese, Japanese, Vietnamese, Thai, Polish, Portuguese, Slovak, Czech, Ukrainian, Hindi, and Romanian. Availability of some languages, such as Arabic and Persian, may depend on your account's configuration.
+- **Date format** — the display format for date fields across your account.
 
-**Language**. Choose the language for your Kissflow account. Kissflow is currently offered in English, French, Spanish, German, Italian, Russian, Korean, Simplified Chinese, Japanese, Vietnamese, Thai, Arabic, Polish, and Portuguese.
+<Callout type="info">
+  Number and currency format aren't configurable — they're always based on your browser's locale settings.
+</Callout>
 
-**Date format**. Choose a suitable date format for your business. The number and currency format are based on your browser settings. Remember to click **Save** after choosing your preferences.
+Click **Save** after choosing your preferences.
 
-![](/migration-assets/personal-info-format-settings-and-task-delegation/1.png)
+![Format settings page with account time zone, language, and date format options](/migration-assets/personal-info-format-settings-and-task-delegation/1.png)
+{/* TODO: verify screenshot matches current product UI */}
 
 ## Task delegation
 
-You can automatically delegate process tasks to another user when you are going to be unavailable for a certain period of time. Your existing items will stay with you. You can also cancel the delegation at any time. 
+Task delegation automatically reassigns your process tasks to another user while you're unavailable. Items already in your queue when you set up the delegation stay with you — only new items sent to you are redirected to the delegatee.
 
-Click **Add delegation** to enable task delegation, and select a user under **Who do you want to delegate your tasks to?** Specify how long you want your items to be delegated to the selected user. 
+1. Click **Add delegation**.
+2. Under **Who do you want to delegate your tasks to?**, select a user.
+3. Specify how long you want your items delegated to that user.
 
-![](/migration-assets/personal-info-format-settings-and-task-delegation/2.png)
+![Task delegation setup showing the delegatee and duration fields](/migration-assets/personal-info-format-settings-and-task-delegation/2.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-> **Note:**
-> 
-> Existing process items in your queue will not be delegated. New process items alone will start to be redirected to the delegatee.
+<Callout type="info">
+  Existing process items in your queue aren't delegated. Only new process items are redirected to the delegatee.
+</Callout>
 
-### Modifying the delegation information
+### Edit or cancel a delegation
 
-To modify the details of the user to whom your items have to be delegated, click the **Edit delegation** button beside the user's name. If you want to cancel the task delegation, click **Cancel delegation** and let Kissflow assign items to you as usual. You can regain control over all your items as before. However, all previously delegated items will still remain with the delegated user.
+- **Edit** — click **Edit delegation** beside the delegated user's name and update the details.
+- **Cancel** — click **Cancel delegation**. Kissflow resumes assigning new items to you as usual, but items already delegated remain with the delegated user.
 
-![](/migration-assets/personal-info-format-settings-and-task-delegation/3.png)
+![Delegation list showing Edit delegation and Cancel delegation actions](/migration-assets/personal-info-format-settings-and-task-delegation/3.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-> **Note:**
-> 
-> [Super Admins can override any delegation](/t/60h4ak1) set by a user under **My settings.** They cannot override a delegation that has been already overridden but can edit it.
+<Callout type="info">
+  A Super Admin can override any delegation you set. Once a delegation has been overridden, a Super Admin can't override it a second time, but they can still edit their existing override.
+</Callout>
+
+## What's next
+
+- [Managing active sessions](/docs/use/personal-settings/active-sessions)
+- [Two-factor authentication](/docs/use/personal-settings/two-factor-authentication)
+- [User notification settings](/docs/use/personal-settings/user-notification-settings)
+- [Task delegation](/docs/admin/account-settings/task-delegation) (Admin)
+- [Format settings](/docs/admin/account-settings/format-settings) (Admin)

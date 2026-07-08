@@ -1,85 +1,105 @@
 ---
 title: "Form child tables in the PWA and native mobile app"
-description: "DRAFT (unverified) — migrated from /t/60y6452/form-child-tables-in-the-pwa-and-native-mobile-app"
+description: "View and edit child tables on Kissflow's PWA and native mobile apps, switching between tabular and accordion layouts, reordering columns, and deleting rows in bulk."
 contentType: guide
 persona: end-user
 section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - mobile
+  - pwa
+  - child-tables
+  - forms
 ---
 
-Kissflow plans:
+# Form child tables in the PWA and native mobile app
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
 
-### Overview
+Kissflow's PWA and native [Android](/docs/use/mobile/android-devices) and [iOS](/docs/use/mobile/ios-devices) apps let you view and edit child tables inside process forms, board forms, and data forms. You can switch between two display modes depending on how you want to work with the data:
 
-Kissflow's PWA and native [Android](/t/p8h9qzc/android-devices) and [iOS mobile app](/t/q6h9qz0/ios-devices) allow for flexible viewing and editing of child tables within forms. As a user of process form, board form, or data form, you can decide how to display the child table by switching between the default tabular view and an accordion view.
-
--   _Tabular view:_ The table format lets users view multiple entries simultaneously, making comparisons and edits more manageable without expanding each entry individually.
--   _Accordion view:_ This view keeps the child table layout clean and compact, providing users with a clear overview and the option to explore specific rows in detail.
+- **Tabular view** — the default view. Shows multiple rows at once as a table, making it easy to compare entries and edit several rows without expanding each one individually.
+- **Accordion view** — keeps the child table compact by collapsing each row into its own expandable section, so you can focus on one row at a time.
 
 <iframe src="https://player.vimeo.com/video/946131914?h=1ba0741c53&app_id=122963" title="Form child table layouts in PWA" className="aspect-video w-full rounded-lg border" allowFullScreen />
 
-### Switching between display modes
+## Switch between display modes
 
-1.  Sign in to your Kissflow account using a PWA or native mobile app.
-    
-2.  Open any form containing a child table.
-    
-3.  Click the **More options** button (![](/migration-assets/form-child-tables-in-the-pwa-and-native-mobile-app/1.png)) at the top of the child table > click **Change** **display mode**.
-    
-4.  Select either **Tabular** or **Accordion** to switch views as needed.
-    
+1. Sign in to your Kissflow account using a PWA or native mobile app.
+2. Open any form that contains a child table.
+3. Tap the **More options** button at the top of the child table.
+4. Tap **Change display mode**.
+5. Select **Tabular** or **Accordion**.
 
-### Fullscreen view
+![More options button at the top of a child table](/migration-assets/form-child-tables-in-the-pwa-and-native-mobile-app/1.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-Switch to the landscape mode to view more columns simultaneously for a broader perspective. This is particularly useful on devices where screen real estate is limited. This functionality is only available on native Android and iOS apps for now. 
+## Edit data in a child table
 
-1.  Sign in to your Kissflow account using a native mobile app.
-2.  Open any form containing a child table.
-3.  Click the **More options** button (![](/migration-assets/form-child-tables-in-the-pwa-and-native-mobile-app/1.png)) at the top of the child table > click **Enter fullscreen**.
-    
-4.  Click the **Exit fullscreen** button (![](/migration-assets/form-child-tables-in-the-pwa-and-native-mobile-app/2.png)) to rotate the screen back to portrait mode.
-    
+1. Tap any cell in the child table to open the editing modal.
+2. Update the field values as needed. Use the previous and next buttons in the modal to move between rows without closing it.
+3. Changes are saved automatically as you edit.
 
-![](/migration-assets/form-child-tables-in-the-pwa-and-native-mobile-app/5.gif)
+## View in fullscreen (native apps only)
 
-### Editing data in a child table
+<Callout type="info">
+  Fullscreen view is only available on the native Android and iOS apps. It isn't available on the PWA.
+</Callout>
 
-1.  Tap any cell in the child table to launch the editing modal.
-    
-2.  Make necessary changes to the field values. Navigate through rows using the previous and next buttons within the modal.
-    
-3.  Changes are auto-saved.  
-     
-    
+Fullscreen view rotates the child table into landscape mode so you can see more columns at once — useful on devices with limited screen space.
 
-### Rearranging Columns
+1. Sign in to your Kissflow account using a native mobile app.
+2. Open any form that contains a child table.
+3. Tap the **More options** button at the top of the child table.
+4. Tap **Enter fullscreen**.
+5. When you're done, tap the **Exit fullscreen** button to rotate the screen back to portrait mode.
 
-You can customize the order of columns according to your preference. To rearrange columns in a child table, follow these steps:
+![Exit fullscreen button shown on a child table in landscape mode](/migration-assets/form-child-tables-in-the-pwa-and-native-mobile-app/2.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-1.  Sign in to your Kissflow account using a PWA or native mobile app.
-    
-2.  Open any form containing a child table.
-3.  Click the **More options** button (![](/migration-assets/form-child-tables-in-the-pwa-and-native-mobile-app/1.png)) at the top of the child table > click **Reorder columns**.
-    
-4.  Press and hold the column header you wish to move.
-    
-5.  Drag it to the desired position in the table.
-    
-6.  Release to set the column order. Click **Save**.
-    
-7.  You can click **Reset** to rearrange the columns to their original position.
-    
+![Child table switching into fullscreen landscape view on a native mobile app](/migration-assets/form-child-tables-in-the-pwa-and-native-mobile-app/5.gif)
+{/* TODO: verify screenshot matches current product UI */}
 
-### Deleting rows in bulk
+## Reorder columns
 
-Select and delete multiple rows at once from the table view, enhancing the manageability of large child tables.
+1. Sign in to your Kissflow account using a PWA or native mobile app.
+2. Open any form that contains a child table.
+3. Tap the **More options** button at the top of the child table.
+4. Tap **Reorder columns**.
+5. Press and hold the column header you want to move, then drag it to the desired position.
+6. Release to drop the column in its new position, then tap **Save**.
 
-1.  Sign in to your Kissflow account using a PWA or native mobile app.
-    
-2.  Open any form containing a child table.
-3.  In the tabular view, tap the **selection** icon (![](/migration-assets/form-child-tables-in-the-pwa-and-native-mobile-app/3.png)) on the left of each row you want to delete. You can also long-press any row to trigger the bulk deletion action.
-    
-4.  Once all desired rows are selected, press the **Delete** button (![](/migration-assets/form-child-tables-in-the-pwa-and-native-mobile-app/4.png)) at the top of the table.
-    
-5.  Confirm deletion to remove the rows.
+<Callout type="info">
+  Tap **Reset** at any point to restore the columns to their original order.
+</Callout>
+
+![More options button at the top of a child table](/migration-assets/form-child-tables-in-the-pwa-and-native-mobile-app/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Delete rows in bulk
+
+You can select and delete multiple rows at once from the tabular view.
+
+1. Sign in to your Kissflow account using a PWA or native mobile app.
+2. Open any form that contains a child table.
+3. In the tabular view, long-press any row to turn on row selection. A selection checkbox appears on the left of every row.
+4. Tap the checkbox on each additional row you want to delete.
+
+   ![Selection checkbox shown on the left of a row in the tabular view](/migration-assets/form-child-tables-in-the-pwa-and-native-mobile-app/3.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+5. Tap the **Delete** button at the top of the table.
+
+   ![Delete button at the top of a child table with rows selected](/migration-assets/form-child-tables-in-the-pwa-and-native-mobile-app/4.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+6. Confirm the deletion to remove the selected rows.
+
+## What's next
+
+- [Android devices](/docs/use/mobile/android-devices)
+- [iOS devices](/docs/use/mobile/ios-devices)
+- [Managing processes in PWA](/docs/use/mobile/managing-processes-in-pwa)

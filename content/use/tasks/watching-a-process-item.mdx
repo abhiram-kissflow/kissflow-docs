@@ -1,138 +1,115 @@
 ---
 title: "Watching a process item"
-description: "DRAFT (unverified) — migrated from /t/h7ygwja/watching-a-process-item"
+description: "Add watchers to a process item so people can follow its progress and comments without taking part in the workflow."
 contentType: guide
 persona: end-user
 section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - process
+  - watchers
+  - notifications
 ---
 
-Kissflow plans:
+# Watching a process item
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
 
-Watchers can stay informed about a process item without participating in its workflow. As an item initiator, if you need someone to have visibility into an item's progress but don't need to approve, reject, or take action on it, you can add them as watchers.
+Watchers can stay informed about a process item without participating in its workflow. As an item initiator, if you need someone to have visibility into an item's progress but don't need them to approve, reject, or act on it, you can add them as a watcher.
 
-### Use case
+<Callout type="info">
+  For example, an employee submits a purchase request and wants their manager to stay informed about its progress and final outcome, without the manager taking part in the approval workflow. Adding the manager as a watcher lets them track the item and join the conversation without being assigned any workflow tasks.
+</Callout>
 
-An employee submits a purchase request and wants their manager to stay informed about its progress and final outcome, but the manager doesn't need to participate in the approval workflow.
+Before anyone can add watchers to an item, a process admin must turn on **Allow process members to watch items** under the process's [Security settings](/docs/admin/processes/security-settings-for-flows). Only users who are already part of the process — in any role — can be added as watchers.
 
-By adding the manager as a watcher, they can track the item's progress, receive outcome notifications, and participate in comments without being assigned any workflow tasks.
+## Add a watcher
 
-## Adding and removing watchers
+Only the item's initiator can add watchers to it.
 
-Before users can add watchers to an item, process admins must [enable initiators to watch items](/t/83ymdnx/security-settings-for-flows#watcher-permissions) under **Security settings**.
+1. Open the process item.
+2. Click the **Watchers** button on the item form.
 
-Only users who are already part of the process in any role can be added as watchers.
+   ![Watchers icon on the item form header](/migration-assets/watching-a-process-item-inside-apps/1.png)
+   {/* TODO: verify screenshot matches current product UI */}
 
-The following users can add or remove watchers for an item:
+3. Search for and select a process user.
+4. Click **Add**.
 
--   Item initiator (add and remove)
-    
--   Watcher (only remove themselves)
-    
+![Animation of adding a watcher to a process item](/migration-assets/watching-a-process-item/3.gif)
+{/* TODO: verify screenshot matches current product UI */}
 
-### Adding a watcher
+<Callout type="info">
+  An item can have a maximum of 10 watchers.
+</Callout>
 
-As an item initiator,
+## Remove a watcher
 
-1.  Open the process item.
-    
-2.  Click the **Watchers**  (![](/migration-assets/watching-a-process-item-inside-apps/1.png)) button on the item form.
-    
-3.  Search and select a process user.
-    
-4.  Click **Add**.
-    
+The item's initiator can remove any watcher; a watcher can only remove themselves.
 
-![](/migration-assets/watching-a-process-item/3.gif)
+As the item initiator:
 
-> **Note:**
-> 
-> A maximum of 10 watchers can be added to an item.
+1. Open the process item.
+2. Click the **Watchers** button on the item form.
+3. Hover over the watcher's name.
+4. Click **Remove**.
 
-### Removing a watcher
+![Animation of removing a watcher from a process item](/migration-assets/watching-a-process-item-inside-apps/4.gif)
+{/* TODO: verify screenshot matches current product UI */}
 
-As an item initiator,
+If you're already a watcher, you can stop watching an item at any time. Open the item and click **Stop watching**. You're removed from the watcher list and no longer receive notifications for that item.
 
-1.  Open the process item.
-    
-2.  Click the **Watchers** (![](/migration-assets/watching-a-process-item-inside-apps/1.png)) button.
-    
-3.  Hover over the watcher’s name.
-    
-4.  Click **Remove**.
-    
+![Animation of a watcher clicking Stop watching on a process item](/migration-assets/watching-a-process-item/2.gif)
+{/* TODO: verify screenshot matches current product UI */}
 
-![](/migration-assets/watching-a-process-item-inside-apps/4.gif)
+## What watchers can and can't do
 
-If you are already a watcher, you can stop watching the item at any time. Open the process item and click the **Stop watching** button.
+| Watchers can | Watchers cannot |
+| --- | --- |
+| View fields in read-only mode | Edit the form |
+| Track workflow progress | Approve or reject items |
+| View item history and status | Reassign tasks |
+| View and add comments | Perform any workflow action |
+| Mention participants and other watchers in comments | Mention external commenters in comments |
 
-![](/migration-assets/watching-a-process-item/2.gif)
+## Notifications for watchers
 
-You will be removed from the watcher's list and will no longer receive notifications for that item.
+Watchers receive notifications when they're added or removed as a watcher.
 
-### What can watchers do?
+<Callout type="info">
+  Watchers may also be notified about other item events — such as being mentioned in a comment, someone reacting to their comment, or the item completing, being rejected, or withdrawn — depending on how the process's notification templates are configured. Check with your process admin if you're unsure which events trigger a notification for watchers in a specific process.
+</Callout>
 
-Watchers can:
+## View your watched items
 
--   View fields in read-only mode
-    
--   Track workflow progress
-    
--   View item history and status
-    
--   View and add comments
-    
--   Mention item participants in comments
-    
+As a watcher, you can access items you're watching from:
 
-Watchers cannot:
+- The **Watchlist** tab within the process.
 
--   Edit the form
-    
--   Approve or reject items
-    
--   Reassign tasks
-    
--   Perform workflow actions
-    
--   Mention users who are not participants in an item
-    
+  ![Watchlist tab within a process](/migration-assets/watching-a-process-item/1.png)
+  {/* TODO: verify screenshot matches current product UI */}
 
-### Notifications for watchers
+- The **Watchlist** tab in [My items](/docs/use/tasks/member-actions-in-a-process).
 
-Watchers receive notifications when:
-
--   They are added as a watcher
-    
--   They are removed as a watcher
-    
--   The item completes its lifecycle (completed, rejected, and withdrawn)
-    
--   They are mentioned in a comment
-    
--   Someone reacts and replies to a watcher’s comment
-    
-
-Watchers do not receive notifications for assignments or intermediate workflow events.
-
-## Viewing watched items
-
-As a watcher, you can access items you are watching from:
-
--   The **Watchlist** tab within the process
-    
-    ![](/migration-assets/watching-a-process-item/1.png)
--   The **Watchlist** tab in **[My items](/t/x2h9qzv/my-items)**
-    
-    ![](/migration-assets/watching-a-process-item-inside-apps/2.png)
+  ![Watchlist tab in My items](/migration-assets/watching-a-process-item-inside-apps/2.png)
+  {/* TODO: verify screenshot matches current product UI */}
 
 These views help you track items across processes without needing to participate in their workflow.
 
 ## Limitations
 
--   Watchers cannot be added to draft items.
-    
--   Restarted items do not retain their previous watchers.
-    
--   Users removed from the process are automatically removed as watchers.
+- Watchers can't be added to draft items.
+
+<Callout type="warn">
+  Whether restarted items retain their previous watchers, and whether removing a user from a process automatically removes them as a watcher on in-progress items, could not be confirmed against current product behavior. Verify these cases directly in your environment before relying on them.
+</Callout>
+
+## What's next
+
+- [Watching an item in a board](/docs/use/items/collaborating#watching-an-item)
+- [Member actions in a process](/docs/use/tasks/member-actions-in-a-process)
+- [Filtering items in a process](/docs/use/tasks/filtering-items-in-a-process)
+- [Security settings for flows](/docs/admin/processes/security-settings-for-flows)
