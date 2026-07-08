@@ -1,0 +1,116 @@
+---
+title: "Kissflow connector for BI"
+description: "DRAFT (unverified) — migrated from /t/h7yqvd3/kissflow-connector-for-bi"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+This article discusses how Kissflow will share [Snowflake](https://www.snowflake.com/en/data-cloud/workloads/data-warehouse/) data with Kissflow customers who have purchased the **Kissflow connector for BI**. The Kissflow connector for BI is a data integration tool that allows customers to connect their Kissflow account to Snowflake, a data warehousing platform. This allows customers to access and analyze their Kissflow data using a business intelligence (BI) tool of their choice, such as Microsoft Power BI or Tableau.
+
+## Provisioning the Snowflake account
+
+The customer must have a fully functional Snowflake account before Kissflow can share the relevant database with them. Kissflow will simply share the customer's database with the customer's own Snowflake account. Compute costs, i.e., any costs incurred while analyzing data with Business Intelligence (BI) tools, are billed directly to the customer's Snowflake account. 
+
+> **Note:**
+> 
+> ETL, which stands for **extract, transform and load**, is a data integration process that combines data from multiple data sources into a single, consistent data store that is loaded into a data warehouse or other target system.
+
+### Steps taken by Kissflow
+
+1.  Kissflow will perform an outbound sharing of the relevant database from Kissflow's Snowflake account to the customer's Snowflake account. (If an outbound share is revoked, a customer cannot access the database.)
+    
+2.  Nothing further will be done at the end of Kissflow except the data sync that occurs normally.
+    
+
+> **Note:**
+> 
+> Note that customers with a .com domain must create their Snowflake account in the **Google Cloud Platform (GCP)** **US Central1 (Iowa)** region. Customers with an .eu domain must create their Snowflake account in the **Europe West4 (Netherlands)** region.
+
+> **Note:**
+> 
+> Note that the customer can have any **Snowflake plan** of their choice.
+
+### Steps taken when customer leaves Kissflow
+
+1.  Kissflow stops the data sync and deactivates the outbound sharing.
+    
+2.  The customer should check the time travel data retention days with the Kissflow support team.
+    
+
+## What can the customer achieve with the BI connector?
+
+1.  In the customer's Snowflake account, they will check the inbound share and enable the Kissflow database.
+    
+2.  In their Snowflake account, the customer will be able to analyze the Kissflow data alongside data from their other databases. This type of combination analysis will assist the customer in gaining additional insights.
+    
+
+![](/migration-assets/kissflow-connector-for-bi/1.png)
+
+### Kissflow Reports vs Kissflow connector for BI
+
+Why do you need a Kissflow connector for BI when you already have Kissflow Reports? Customers frequently ask themselves this question. Here are some key differences between the two.
+
+**Feature**
+
+**Kissflow Reports**
+
+**Kissflow connector for BI**
+
+Best suited for
+
+Real-time reports
+
+Data over a past time period
+
+Reports
+
+Pre-built workload metrics
+
+Workload analysis (completely DIY)
+
+Report format
+
+Tabular report only (child items as rows under the respective item)
+
+Independent reports over child table and dataset
+
+Hidden fields
+
+Required for using in reports
+
+Not required
+
+Formula columns
+
+Can be created in analytics, not in actual flows
+
+Can be created in analytics
+
+Reporting scope
+
+Available within just one flow
+
+Can combine one or more process, boards, child tables, dataforms or datasets
+
+Bi-directional
+
+Yes (click on a row in a tabular report to open the respective item)
+
+No (uni-directional)
+
+Access
+
+Data, metrics, and insights only in reports
+
+Data, metrics, and insights in BI tools
+
+### Need for analytics over built-in flow reports
+
+1.  The ability to connect with BI tools like Power BI and Tableau directly, instead of exporting data as CSV or pulling data via REST APIs.
+    
+2.  Workload reports like User workload report, Time taken per step, Time taken per item, Deactivated users' tasks, etc. to analyze the workflow journey over time.
+    
+3.  The ability to create reports based on child tables in process, boards, and data forms.
+    
+4.  A consolidated view by combining child tables and datasets. E.g. Purchase request, Purchase order, and goods received note are all combined to form views used in procurement.

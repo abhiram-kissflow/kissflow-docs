@@ -1,0 +1,136 @@
+---
+title: "Create a custom action via Smart link"
+description: "DRAFT (unverified) — migrated from /t/g9ypd3a/create-a-custom-action-via-smart-link"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+When a native connector is unavailable for your preferred application, Smart link bridges the gap. By leveraging AI, Smart Link translates plain-English descriptions into fully functional custom actions, ensuring your workflows remain uninterrupted.
+
+## Creating an action via Smart link
+
+### Initiate Smart link
+
+1.  Click the (**+**) icon in the integration builder to add a new step.
+    
+2.  Search for the app name (For example, _Discord_).
+    
+3.  If no connector appears, click **\+ Smart link** at the bottom of the popup window.
+    
+
+![](/migration-assets/create-a-custom-action-via-smart-link/1.png)
+
+> **Note**
+> 
+> Alternatively, you can also find **Smart link** under **HTTP connector** in the connector list.
+> 
+> ![](/migration-assets/create-a-custom-action-via-smart-link/2.png)
+
+### Describe and generate the action
+
+1. **Define the action**: In the input box, describe your goal in plain English. For example, _Post a message to a Discord channel_.
+    
+2. **Use suggestions**: Alternatively, you can also select a recommended action provided below.
+    
+3.  Click **Generate action**.
+    
+
+![](/migration-assets/create-a-custom-action-via-smart-link/3.png)
+
+### Review technical configuration
+
+AI will automatically populate the necessary technical details:
+
+-   **Method**: Such as POST, GET, PUT.
+    
+-   **Endpoint URL**: The specific API destination.
+    
+-   **Payload**: The data structure to be sent.
+    
+
+![](/migration-assets/create-a-custom-action-via-smart-link/4.png)
+
+You can select **Show request details** to review advanced headers or parameters. Click **Done** to add this as an HTTP action step.
+
+### Authenticate the connection
+
+To allow Kissflow to communicate with the external app, choose one of three authentication methods:
+
+1. **No authentication**: Doesn't require any authentication.
+    
+2. **Basic authentication**: Requires you to enter a username and password.
+    
+3. **API key authentication**: Requires a unique, long string of characters, a key, provided by the external app to identify requests.
+    
+4. **OAuth2 authentication**: Requires you to supply details like:
+    
+    -   **Access token**: Used to authorize and authenticate while gaining access to resources on the OAuth provider application.
+        
+    -   **Callback URL**: The Kissflow URL to which the redirection happens after a successful authorization. This will be auto-populated and can't be modified.
+        
+    -   **Authorization URL**: The API authorization endpoint of the OAuth provider.
+        
+    -   **Access token URL**: The endpoint for authorization server. This is used to exchange the authorization code for access token.
+        
+    -   **Client ID**: The unique alphanumeric string that you received from the OAuth provider while registering Kissflow as a client.
+        
+    -   **Client secret**: The secret string that was obtained by Kissflow during the client registration process.
+        
+    -   **Scope**: The OAuth scope that Kissflow might need to request for the access of the OAuth application.
+        
+    -   **State**: An optional value that is used for preventing cross-site request forgery.
+        
+
+![](/migration-assets/create-a-custom-action-via-smart-link/5.png)
+
+### Reviewing an action’s configuration
+
+Once authenticated, you can review and edit the request details of your integration within the **Configuration** tab. 
+
+1.  Review the URL field and ensure it includes the correct endpoint required by your external application.
+    
+2. **Add parameters**: If your request requires specific metadata, click add fields under **HTTP headers** or **Query parameters** to include them.
+    
+3.  Review the **Method**, **Body type**, and **Content type**. Check the **Content** area to verify the JSON payload.
+    
+
+> **Note**
+> 
+> Click the **Payload description** badge next to **Content** to view a reference guide. This guide details the field names, data types (like string, integer, boolean), and examples needed to format your request correctly.
+> 
+> ![](/migration-assets/create-a-custom-action-via-smart-link/8.gif)
+
+### Finalize and test
+
+Click **Test action** to verify the connection and ensure the third-party application receives the data successfully.
+
+## Renaming an action
+
+You can rename the AI-generated action to better fit your workflow's naming conventions:
+
+1.  Click the **Pencil** icon (
+    
+    ![](/migration-assets/create-a-custom-action-via-smart-link/6.png)
+    
+     ) next to the action title.
+    
+2.  Enter your preferred name.
+    
+3.  Click anywhere outside the text box to save the change automatically.
+    
+
+![](/migration-assets/create-a-custom-action-via-smart-link/9.gif)
+
+## Refining or changing an action
+
+If the AI-generated result isn't exactly what you need, or if your integration requirements change, you can:
+
+1.  Click **Change action** in the top right corner to return to the prompt screen.
+    
+    ![](/migration-assets/create-a-custom-action-via-smart-link/7.png)
+2.  You can either re-enter your previous description with additional details to sharpen the output, or enter a completely different prompt to switch the app, integration's context, and functionality entirely.

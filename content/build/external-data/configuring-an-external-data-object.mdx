@@ -1,0 +1,142 @@
+---
+title: "Configuring an external data object"
+description: "DRAFT (unverified) — migrated from /t/h7y3mhw/configuring-an-external-data-object"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+External data object refers to the Kissflow artifact that enables users to consume data from external platforms through external data connections. 
+
+## Creating an external data object
+
+To consume data from external platforms, open any app and follow the steps below.
+
+1.  Click **Data** (![](/migration-assets/configuring-an-external-data-object/1.png)) on the left navigation bar and select **External data objects**.
+    
+2. **Create an external data object** window opens. Enter the name and description, and choose the external connection from the drop-down menu. 
+    
+3.  Click **Create**.  
+     
+    
+    ![](/migration-assets/configuring-an-external-data-object/3.gif)
+
+If you don't have any existing connections listed, you can click **\+ New Connection** from the top right corner of the drop-down menu. You’ll be directed to the **Create connection** page.  
+ 
+
+![](/migration-assets/configuring-an-external-data-object/2.png)
+
+Follow the steps outlined in [Setting up an external connection](/t/x2y3mhr/setting-up-an-external-data-connection) to establish the connection.
+
+### Configuring an external data object
+
+After creating an external data object, you should configure it to consume the data. This process involves three steps.
+
+#### Select table
+
+This section will show a list of all the tables available in your external data connection. You can select the specific table you want to consume from this list as an external data object.
+
+> **Note:**  
+> To select a table from the database, the constraints are,
+> 
+> 1.  The table must have only one primary column.
+>     
+> 2.  Mandatory (constraint) columns must possess compatible data types.
+>     
+
+![](/migration-assets/configuring-an-external-data-object/4.png)
+
+> **Note:**
+> 
+> If you can't find the table you are looking for, click **Refresh** to retrieve the latest list of tables from the external system.
+
+#### Select column
+
+All the columns present in the selected table will be displayed under **Available columns**. Here, you can choose the specific columns that you want your external data object to include.
+
+![](/migration-assets/configuring-an-external-data-object/5.png)
+
+> **Note:**
+> 
+> All the columns with basic data types are supported in Kissflow. Whereas, any column with complex data type, although listed in the Available columns, will be greyed out and not be supported for consumption within Kissflow, that is, you cannot select these non-compatible columns. 
+
+Among the columns, the primary key, a unique identifier for each record in the table, and any column with the Not null constraint, is mandatory and automatically included in the selected columns list.
+
+#### Configure columns
+
+Before configuring the actual columns in the table, please note the two pre-requisites mentioned in the header.
+
+-   **Connection mode**: From the drop-down list, select whether you want the external data object to be read-only or write. If you opt for read-only, you cannot make any changes to your table in the external database from Kissflow. By default, the write mode is chosen.
+-   **Set primary key as**: Choose how to handle primary keys for write operations to external databases. Select **Mandatory** if a primary key value is required for new entries. Select **Non-mandatory** to allow auto-generated or blank keys based on the database configuration.
+-   **Time zone**: You can select one of the time zones from the provided list. For more details, refer to Time zones in external data objects. By default, the timezone is set to UTC.![](/migration-assets/configuring-an-external-data-object/8.gif)
+
+#### Field mapping in Kissflow 
+
+Now, when configuring the columns, the list of selected columns will be displayed, with their column name, data type, and constraint.
+
+The Kissflow counterparts: the Field name, Field ID, and Kissflow data type will be auto-populated. Based on the data types in your external platform, the same or most compatible alternatives will be mapped here. The data type mappings are as follows:
+
+**MySQL**
+
+**MSSQL**
+
+**Kissflow**
+
+Char, varcha, long varchar, text, longtext, mediumtext, tinytext
+
+Text, ntext, char, nchar, varchar, nvarchar
+
+Text
+
+Integer, integer unsigned, int, int unsigned, bigint, bigint unsigned, mediumint, mediumint unsigned, smallint, smallint unsigned, tinyint unsigned, real, numeric, float, double, double precision, decimal
+
+Int, bigint, smallint, numeric, decimal, float, real
+
+Number
+
+Tinyint
+
+Tinyint
+
+Number, boolean
+
+Date
+
+Date
+
+Date
+
+Datetime
+
+Datetime, Datetime2
+
+Datetime
+
+Bool, bit
+
+Bit
+
+Boolean
+
+![](/migration-assets/configuring-an-external-data-object/6.png)
+
+Next to the Kissflow populated fields, you’ll have two options,
+
+1. **Mandatory**: You can enable or disable the mandatory option for each field. By default, the primary key’s column (non-editable and considered as a reference item within Kissflow) and any Not null column from the table are mandatory, and you cannot undo them. 
+    
+2. **Delete**: You can remove previously selected columns by clicking on the delete icon. However, this option is disabled for the system-mandate fields: Primary and Not null.  
+      
+    
+    ![](/migration-assets/configuring-an-external-data-object/7.gif)
+
+After you’re done with configuring the fields, click **Save**. 
+
+The configuration will be successfully set up and ready for consumption in lookup fields and integrations.
+
+> **Note:**
+> 
+> While the external data object is configured and operational in the development environment, to ensure its functionality in production, follow the steps outlined in [Manage external data connections](/t/p8y3myz/managing-external-data-objects-in-production).

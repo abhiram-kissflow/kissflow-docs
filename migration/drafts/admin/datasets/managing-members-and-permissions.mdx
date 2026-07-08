@@ -1,0 +1,287 @@
+---
+title: "Managing members and permissions"
+description: "DRAFT (unverified) — migrated from /t/m1h4alg/managing-members-and-permissions"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+You control who can access and manage your datasets through roles: **Admin**, **Member**, and **Viewer**. Each role comes with specific permissions to ensure the right level of access for every collaborator.
+
+Here's a quick guide to what each role can do.
+
+## Admin
+
+A dataset admin has the highest privilege in a dataset and anyone who creates a dataset becomes its Administrator, that is, **Admin** by default.
+
+A dataset admin can:
+
+-   Create, edit, and delete datasets and dataset views.
+-   Add or remove flow members in a dataset and assign relevant roles to them.
+-   Access the dataset history.
+-   Add or remove columns from a dataset.
+-   Modify the role of flow members to an **Admin**, a **Member**, or a **Viewer** as necessary without any restrictions.
+
+> **Tip**
+> 
+> **Is there a way for a dataset admin to access others' datasets?**  
+>   
+> Yes, if the dataset admin is also a Super Admin at the account level, they will be able to access anyone's dataset, access its share settings, make themselves an admin or any role of their choice.
+
+## Dataset member
+
+The permissions granted to a dataset member are relatively restricted when compared to an admin and they can:
+
+-   Modify the values of a dataset.
+-   Add or remove rows in a dataset.
+-   Duplicate a dataset.
+-   Create, edit, and delete the dataset views they own.
+-   Make another flow member a dataset member or a viewer only, that is, they cannot make anyone an admin or modify or delete the already existing admins in a dataset.
+
+> **Note**
+> 
+> A  Member cannot add or remove columns in a dataset.
+
+## Dataset viewer
+
+A dataset viewer has the least set of privileges. They can only:
+
+-   View a dataset.
+-   Export the dataset.
+-   Filter values in the dataset.
+
+> **Note**
+> 
+> If a flow member is only a viewer in a dataset but has Super Admin access at the account level, they will be able to access any dataset and access its **Share settings**.  
+>   
+> They can make themselves an Admin, Member, or a Viewer in the dataset they access via their Super Admin privilege and perform relevant actions as they wish.
+
+### Roles and permissions of a flow member in a dataset
+
+Here is a detailed overview of permissions for these roles:
+
+**Permissions**
+
+**Admin**
+
+**Member**
+
+**Viewer**
+
+Manage dataset settings
+
+✓
+
+X
+
+X
+
+Add or remove flow members
+
+✓
+
+✓
+
+X
+
+Edit or delete fields in a dataset
+
+✓
+
+X
+
+X
+
+Create, edit, and delete views
+
+✓
+
+✓
+
+X
+
+Access dataset history
+
+✓
+
+X
+
+X
+
+Delete dataset
+
+✓
+
+X
+
+X
+
+Duplicate a dataset
+
+✓
+
+✓
+
+X
+
+View dataset
+
+✓
+
+✓
+
+✓
+
+Share dataset
+
+✓
+
+✓
+
+X\*
+
+Import dataset
+
+✓
+
+✓
+
+X
+
+Export dataset
+
+✓
+
+✓
+
+✓
+
+View members
+
+✓
+
+✓
+
+X
+
+Filter dataset values
+
+✓
+
+✓
+
+✓
+
+Add or remove rows in a dataset
+
+✓
+
+✓
+
+X
+
+Add or remove columns in a dataset
+
+✓
+
+X
+
+X
+
+Modify dataset name
+
+✓
+
+X
+
+X
+
+Modify dataset description
+
+✓
+
+X
+
+X
+
+View configurations
+
+✓
+
+X\*
+
+X
+
+## Sharing a dataset with the flow members
+
+Anyone who creates a dataset becomes its admin by default.
+
+1.  Navigate to the dataset for which you would like to add members.
+2.  Click the **Manage** button at the top right corner and click **Share**.
+3.  Click **\+ Add members**![](/migration-assets/managing-members-and-permissions/3.gif)
+4.  Enter the name or email address of the flow member you would like to add.
+5.  Select a relevant role that would best suit them. 
+6.  Click **Add.**
+
+> **Tip**
+> 
+> Only Flow Members with Super Admin access at the account level can view the **Share settings** page for any dataset. This means they can access and manage sharing settings for all datasets, regardless of their assigned role within each one.
+
+## Managing members in a dataset
+
+As a dataset admin, you can modify the roles of other flow members in your dataset.
+
+To modify one's role:
+
+1.  Navigate to the dataset page and click **Manage** > **Share**.
+2.  Click the **More options** button (![](/migration-assets/managing-members-and-permissions/1.svg)) beside a specific user's name.![](/migration-assets/managing-members-and-permissions/2.png)   
+3.  Reassign the user to a different role or remove them from the dataset as necessary.
+
+Learn the privileges you have in terms of reassigning users based on your current role in the dataset:
+
+**Your current role in the dataset**
+
+**Make an admin**
+
+**Make a member**
+
+**Make a viewer**
+
+**Remove**
+
+Admin
+
+✓
+
+✓
+
+✓
+
+✓
+
+Member
+
+X
+
+✓
+
+✓
+
+✓\*
+
+Viewer
+
+X
+
+X
+
+X
+
+X
+
+-   (\*) - A **Member** can remove another **Member** or a **Viewer** only. They cannot remove the admins from the dataset.
+-   A **Viewer** can neither modify anyone's role nor remove them from a dataset.

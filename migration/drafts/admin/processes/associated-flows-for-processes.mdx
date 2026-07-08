@@ -1,0 +1,61 @@
+---
+title: "Associated flows for processes"
+description: "DRAFT (unverified) — migrated from /t/h7yf9xm/associated-flows-for-processes"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+   
+The **Associated flows** section helps you understand how your process interacts with other flows. They offer a visual map of dependencies, making it easier to manage changes.
+
+Click the **Manage** button at the top right and click the **Associated flows** button.
+
+![](/migration-assets/associated-flows-for-processes/1.png)
+
+   
+There are two types of associations: **Looked up flows** and **Connected flows**.
+
+## 1\. Looked up flows
+
+[Lookup fields](/t/g9h4azr/lookup-field) allow a process to pull and display data from other flows.
+
+![](/migration-assets/associated-flows-for-processes/2.png)
+
+Under **Looked up flows**, you can view these relationships:
+
+### a. Flows looked up to
+
+This section shows which flows are looking up this process to fetch and display information.
+
+**Example**: If another process needs to reference details like **Purchase Order IDs** or **Vendor Names** from the current process, it would appear under **Flows looked up to**.
+
+### b. Flows looked up from
+
+This section displays the flows that the current process is looking up.
+
+**Example**: If your **Purchase Request** process is pulling **Asset Types** or **Budget Codes** from a master list, the master list flow will appear under **Flows looked up from**.
+
+You can [configure lookup](/t/83ymdnx/security-settings-for-flows) settings directly from this page if you need to update or remove associations.
+
+## 2\. Connected flows
+
+[Connected flows](/t/g9ytv27/connected-processes-overview) represent deeper workflow automations where actions in one flow trigger activities in another.
+
+![](/migration-assets/associated-flows-for-processes/3.png)
+
+### a. Dependent flows
+
+Shows the connected processes that can automatically initiate new items based on the items created or updated in this process.
+
+**Example**: When a **Purchase Request** process completes, it could automatically trigger a purchase order in a connected **Purchase order** process.
+
+### b. Source flows
+
+Lists the connected flows (both processes and boards) that can initiate new items inside this process.
+
+**Example**: A **Service Request** process could trigger a **Purchase Request** process to create a hardware request.

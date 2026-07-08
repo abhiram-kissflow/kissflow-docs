@@ -1,0 +1,35 @@
+---
+title: "Managing associated flows in a dataset"
+description: "DRAFT (unverified) — migrated from /t/m1yk8xt/managing-associated-flows-in-a-dataset"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans: ✓ Basic ✓ Enterprise
+
+The **Associated flows** section provides an overview of how your dataset interacts with other flows. It helps you understand dependencies, making managing and updating them easier.
+
+To access associated flows, click **Manage** at the top-right corner of the dataset and select **Associated flows**.
+
+![](/migration-assets/managing-associated-flows-in-a-dataset/2.gif)
+
+## Looked up flows
+
+[Lookup fields](/t/g9h4azr/lookup-field) allow a dataset to retrieve and display information from other flows. This section is divided into two parts:
+
+### **Flows looked up to**
+
+This section shows the flows that reference this dataset to display or fetch information. For example, if a Process references vendor names or vendor IDs from this dataset, the process' name will appear here.
+
+> **Note:**
+> 
+> If a value in the master dataset is updated, any existing requests that have already used that value will remain unchanged. However, any workflows that reference the updated value will use the new data when processing new requests.
+
+![](/migration-assets/managing-associated-flows-in-a-dataset/1.gif)
+
+To configure the reference, click **Configure**, and you'll be redirected to the [Security settings](/t/83h4al5/security-settings-and-access-control) page.
+
+### **Flows looked up from**
+
+This section displays the flows this dataset pulls data from. For example, if your Vendor name dataset retrieves address data from another dataset, the name of that flow will be listed here.

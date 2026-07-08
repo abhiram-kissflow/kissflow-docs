@@ -1,0 +1,90 @@
+---
+title: "Setting up SCIM with OneLogin"
+description: "DRAFT (unverified) — migrated from /t/g9h4ak9/setting-up-scim-with-onelogin"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+[Super Admins, and IAM Admins](/t/35h4ak036h4gg/user-roles-permissions) have the ability to manage SCIM-based user provisioning with OneLogin.
+
+Start by turning on SCIM in Kissflow:
+
+1.  Navigate to **Account a****dministration** **\> User provisioning** and under **SCIM**, click **Configure**.![](/migration-assets/setting-up-scim-with-onelogin/5.png)  
+2.  Generate a **SCIM token**, copy the **SCIM** **Base URL** and **SCIM token** to the clipboard. You will need to paste these into OneLogin.
+    
+    > **Note:**
+    > 
+    > You must keep the **SCIM token** secure as the token once generated will not be available again for copy or download.
+    
+
+## Creating SCIM app in OneLogin
+
+Sign into your OneLogin account as an Administrator. Navigate to the **Applications** tab and select **Applications**. Search for and select **SCIM Provisioner with SAML (SCIM v2 Enterprise)**, depending on your schema needs. Give your SCIM app a display name value that will help you recognize it and click **Save**.
+
+![](/migration-assets/setting-up-scim-with-onelogin/1.png)
+
+## Configuring and connecting your SCIM app to Kissflow
+
+1.  Select the **Configuration** tab.
+2.  Enter your [Kissflow account domain](/t/m1h4akp36h4gg/account-settings) in the **SAML Audience URL** field.
+3.  Provide your **SCIM Base URL** value. This is the address that points OneLogin to the Kissflow account.![](/migration-assets/setting-up-scim-with-onelogin/2.png)  
+4.  Next, provide the **SCIM JSON Template** value for Kissflow. The default SCIM schema supports the attributes: **userName**, **name**, **emails**, **title**, and **Department**. To sync manager data and any other custom attributes, you will need to use the Kissflow account specific schema extension provided below. You can copy and use this template.
+    
+    ```
+    {
+      "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "userName": "{$parameters.scimusername}",
+      "name": {
+        "familyName": "{$user.lastname}",
+        "givenName": "{$user.firstname}",
+        "formatted": "{$user.display_name}"
+      },
+      "emails": [{
+        "value": "{$user.email}",
+        "type": "work",
+        "primary": true
+      }],
+      "title": "{$parameters.title}",
+      "Department": "{$parameters.department}",
+      "urn:kissflow:scim:schemas:extension:Kissflow Account ID:2:User":{
+        "Manager": {
+          "value": "{$parameters.external_manager_id}",
+          "displayName": "{$user.manager_firstname} {$user.manager_lastname}"
+        }
+      }
+    }
+    ```
+    
+    > **Note:**
+    > 
+    > In the schema extension shown above, replace the highlighted text with your actual [Kissflow Account ID](/t/35h4az8y7h4gj/api-keys#account-id).
+    
+5.  Provide your **SCIM Bearer Token** value. This token authenticates requests and responses sent between the OneLogin SCIM provisioning service and your Kissflow account.
+6.  Click **Enable** to allow the SCIM app to make an initial connection to the **SCIM base URL** defined by you.  
+    This initial connection does not invoke any actual provisioning and just makes a GET request for a user value that OneLogin knows does not exist. If the request receives a 404 status code as a response, it confirms that the endpoint is valid and the **API Status** displays as **Enabled**.
+7.  Click **Save**.
+
+## Mapping parameters
+
+Select the **Parameters** tab.2.  Click the **SAML NameID (Subject)** to change the value to **Email.**![](/migration-assets/setting-up-scim-with-onelogin/3.png)  
+3.  After successfully mapping your parameter value, click **Save**.
+4.  Finally, click **More Actions** > **Reapply entitlement mappings.**
+
+## Provisioning settings
+
+1.  Go to the **Provisioning** tab and select the checkbox next to **Enable provisioning**.
+2.  Based on your need, select or deselect the boxes next to **Create user**, **Delete user**, and **Update user.**
+3.  Under **Entitlements**, click **Refresh.** This will prompt OneLogin to import your organization's app entitlement values so you can map them to OneLogin attribute values. 
+4.  Click **Save**, then click **More Actions** > **Reapply entitlement mappings.**
+5.  Navigate back to Kissflow SCIM configuration dialog box to **enable SCIM**.![](/migration-assets/setting-up-scim-with-onelogin/4.png)  
+
+You can manually associate your OneLogin users to the SCIM app from the **Users** tab in OneLogin. 
+
+New users synced from OneLogin are added in an active state by default. Based on your Kissflow SCIM preference, when you delete someone in OneLogin, they are either deleted from Kissflow or retained in an inactive state.

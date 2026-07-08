@@ -1,0 +1,138 @@
+---
+title: "Best practices for using Kissflow Integrations"
+description: "DRAFT (unverified) — migrated from /t/p8yzsxn/best-practices-for-using-kissflow-integrations"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+As integration admins, you must correctly configure and test your integrations to reduce errors and ensure they work as intended. Here are some best practices to create more robust, efficient, and maintainable integrations.
+
+## Handling email addresses in text fields
+
+Follow these steps while using the Send an email action in a process with an email address fetched in a text field:
+
+1. **Test with a valid email**: To ensure the action works, manually enter a valid email address in the **To** field of the email action. 
+    
+2. **Map the To field**: Once successful, map the text field containing the fetched email to the To field.
+    
+3. **Finalize without retesting**: After mapping, click **Done** without re-testing.
+    
+
+## Using newly added fields in integrations
+
+When you add a new field to your process, make sure to follow these steps:
+
+1. **Go live**: Click **Go live** to apply your updates.
+    
+2. **Refresh fields**: In the associated integration, click **Refresh fields** in the trigger to include the new field. Then, test the trigger to verify its functionality.
+    
+3. **Repeat for actions:** Apply the refresh and retest steps for all actions in the integration.
+    
+
+## Using sample data in integration
+
+To avoid errors like _**SampleInstance001 could not be located,**_ use the **Use sample data** option when creating integrations for a new process. Follow these steps:
+
+1. **Test with sample data**: Use sample data by clicking Use sample data option instead of the **Test** or **Retest** option.
+    
+2. **Proceed without retesting**: Skip the retest step and click **Done** to finalize.
+    
+
+## Searching for an item effectively
+
+For optimal use of the Search an Item action, follow the steps below:
+
+1. **Test manually**: Enter values from the process directly into the Search term field to verify expected data in the output.
+    
+2. **Map fields**: After testing, map the appropriate field in the Search term section.
+    
+3. **Finalize without retesting**: After mapping, click **Done** without retesting the action.
+    
+
+## Assignee requirements for the Approve an item action
+
+To allow proper approval of workflow steps in the Approve an item action, ensure the authenticated account is assigned to one of the assignees for the workflow step. This helps prevent the error: **This item has moved out of your queue.** 
+
+## Scheduling daily triggers
+
+When scheduling a daily trigger, follow the steps below:
+
+1. **Select time**: Set the time in the **Select hour of the day** field to at least 15 minutes ahead of the current time.
+    
+2. **Test the trigger**: Verify the trigger's functionality, then click **Done** to finalize.
+    
+
+## Avoiding concurrency issues in child table updates
+
+To prevent concurrency issues while updating rows in a child table, use the **Update an Item** action directly rather than iterating over rows. This ensures efficient updates and reduces data conflicts.
+
+![](/migration-assets/best-practices-for-using-kissflow-integrations/1.png)
+
+## Optimizing data retrieval in the find records from a dataset action
+
+For optimal results in the Find records from a dataset action, follow the steps below:
+
+1. **Manual testing**: Enter values manually in to the dataset column’s filter condition to test data retrieval.
+    
+2. **Map fields**: Once tested, map the field in the filter condition and click **Done** without retesting.
+    
+
+## Identifying integrations in a process
+
+Process admins can identify integrations linked to a process by simulating the workflow and viewing the Triggered integrations section, which displays a list of integrations activated at each step.
+
+## Handling integration connections for deactivated users
+
+When deactivating a user, you must ensure integration connections are reassigned. Follow the steps below:
+
+1. **[Share connections](/t/x2h4ak8/managing-integrations#sharing-connections)**: Reassign the integration connections to an active user to avoid disruptions.
+    
+2. **[Reconfigure authentication](/t/x2h4ak8/managing-integrations#re-authenticate-your-connections)**: In the integration settings, active users can reauthenticate by selecting **My Kissflow Account.**
+    
+
+> **Tip**
+> 
+> To ensure integrations run without interruption, always use a service account. Integrations authenticated using service account credentials will run seamlessly without interruption, whereas integrations authenticated using user credentials may fail if the user is deactivated or deleted from Kissflow.
+
+## Managing similar actions in integrations
+
+To manage multiple similar actions in an integration, follow the steps below:
+
+1. **Check step number**: Review the integration step number to confirm which action corresponds to the respective process or dataset.
+    
+2. **Rename actions**: Rename actions to distinguish them for simpler field mapping and management.
+    
+
+## Managing actions using the HTTP connector
+
+When testing third-party APIs using HTTP Connector actions, make sure to provide valid input values directly instead of mapping fields during the testing phase. This is important because field mapping relies on sample data that the API may not accept. Once the action has been successfully tested with valid inputs, you can remove these values and map the fields as necessary without needing to retest the action.
+
+### Resolving general API errors
+
+1. **Validate the API request**
+    
+    -   Check the JSON payload for syntax errors.
+        
+    -   Ensure the API endpoint (URL) is correct.
+        
+    -   Test the same payload in Postman to confirm it works as expected.
+        
+2. **Confirm header configurations**
+    
+    -   Verify that all required headers are included and properly formatted.
+        
+    -   For example, if the API requires an authorization header, make sure it contains the correct value.
+        
+3. **Check API Availability**
+    
+    -   Confirm that the target system is online and can process the API request.
+        
+4. **Gather Error Details**
+    
+    -   If the error persists, collect error messages, payloads, and configuration details.
+        
+    -   Share this information with your technical support team for deeper troubleshooting.
+        
+
+Most unexpected API errors can be resolved by systematically validating your request, headers, and API availability. If issues continue, provide your support team with detailed logs and configuration details for faster resolution.

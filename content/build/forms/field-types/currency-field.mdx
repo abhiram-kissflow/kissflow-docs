@@ -1,0 +1,118 @@
+---
+title: "Currency field"
+description: "DRAFT (unverified) — migrated from /t/m1h4azb/currency-field"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+The Currency field works like the [Number field](/t/60h4az2/number-field) but has a currency symbol before the value. 
+
+## Settings
+
+You can configure the number of decimal places.
+
+![](/migration-assets/currency-field/1.gif)
+
+By default, the accepted currency type is _USD_. You can select from over 250 currency types that you want to allow to be entered. You can select multiple accepted currencies. 
+
+In the live form, all the accepted currencies will appear in a dropdown for users.  
+
+### Technical limits
+
+The currency field supports up to 15 significant digits in total. This includes the combined count of digits both before and after the decimal point. This limit is based on the IEEE 754 double-precision floating-point standard.
+
+**Value**
+
+**Total digits**
+
+**Status**
+
+**Reason**
+
+`123456789012345`
+
+15
+
+✓ Accepted
+
+15 digits before the decimal.
+
+`1234567890.12345`
+
+15
+
+✓ Accepted
+
+10 before + 5 after = 15 total.
+
+`12345678901234.56`
+
+16 
+
+✗ Not recommended
+
+14 before + 2 after = 16 total (Precision loss: Excess digits will be rounded off or truncated, causing data inaccuracy).
+
+## Validations
+
+There are 6 types of [validations](/t/m1h4az4/field-validations) you can use with a currency field:
+
+-   Equal to
+-   Not equal to
+-   Greater than
+-   Greater than or equal to
+-   Less than
+-   Less than or equal to
+
+## Expressions
+
+[See all the expressions you can use for the currency field.](/t/g9h4alx/number-and-currency-expressions) To evaluate two currency fields, they must be of the same currency type. 
+
+Learn how to [set up a remote lookup for real-time exchange rates](/t/x2yq224/remote-lookup).
+
+## FAQs
+
+**1\. What are the various soft limits in Kissflow forms?**
+
+**Ans)** To improve performance and ensure efficient use of resources, Kissflow has put up the following restrictions on each form:
+
+-   A maximum of 1000 fields per form.
+    
+-   A default soft limit of 10 child tables in every form.
+    
+-   A default soft limit of 100 columns per child table.
+    
+-   An upper limit of 5000 rows per child table.
+    
+-   An upper limit of 30 events per form (button fields not included).
+    
+
+**2\. Can I change field data types in a form with more than 5000 items?**
+
+**Ans)** You cannot change field data types in a form when there are more than 5000 records. This restriction is in place to prevent potential versioning issues when modifying data types for large forms. Changing data types for many values can lead to inconsistencies and performance problems.
+
+**3\. Are there any field types in Kissflow forms that do not have soft limits?**
+
+**Ans)** Yes, certain field types in Kissflow forms are not subject to soft limits:
+
+-   Rich text fields.
+    
+-   Grid fields.
+    
+-   Button fields (these have a separate soft limit of 100 buttons per form, in addition to the default form limit).
+    
+
+Rich text and Grid fields are exempt from restrictions as they don't contain metadata.
+
+**4\. What happens if I duplicate a section with increased limits?**
+
+**Ans)** If a flow with increased limits is duplicated, the new flow will inherit the same incremented limits.
+
+**5\. Will I receive any warnings when approaching these limits?**
+
+**Ans)** Yes, warnings will appear when you are close to reaching the limits. For example, when you have 990 fields and 90 columns, you will receive warnings indicating that you are approaching the limit and suggesting that you request an extension if needed.

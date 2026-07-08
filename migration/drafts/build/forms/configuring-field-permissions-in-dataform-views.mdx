@@ -1,0 +1,61 @@
+---
+title: "Configuring field permissions in dataform views"
+description: "DRAFT (unverified) — migrated from /t/83ykbq6/configuring-field-permissions-in-dataform-views"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+This feature lets you control whether specific fields are editable, read-only, or hidden for different user roles.
+
+## What are field permissions?
+
+You can set specific access permissions for each field within a Dataform view to enhance data security and provide more granular control. This capability extends the powerful role-based permissions in Process and Board forms to your Dataform views.
+
+By setting permissions at the field and section level, you can ensure users see and interact with only the data relevant to their roles, safeguarding sensitive information and preventing unauthorized modifications.
+
+## Understanding access levels
+
+You can assign one of three access levels to any field or section within a Dataform view:
+
+-   **Editable**: Users with this permission can view and modify the field's content.
+    
+-   **Read-only**: Users can see the information in the field but are restricted from making any changes. This is ideal for critical data that should not be altered.
+    
+-   **Hidden**: The field and its data will be completely invisible to users. Use this for sensitive information that certain roles should not have access to.
+    
+
+## How to configure field permissions?
+
+Once you have created a view in your Dataform, you can configure its field permissions before sharing it with users.
+
+1.  Open the Dataform you wish to configure.
+    
+2.  Select the specific view you want to set permissions for.
+    
+3.  Go to Field permission and click Manage on the right side panel.
+    
+4.  Within the view configuration, you will see a list of all the fields included in that view.
+    
+5.  You will find the permission settings When you hover or the field’s name.
+    
+6.  For each field, choose the desired access level: Editable, Read-only, or Hidden.
+    
+
+![](/migration-assets/configuring-field-permissions-in-dataform-views/3.gif)
+
+### Set permissions for an entire section
+
+For views organized into sections, you can apply a single permission level to all fields within that section by selecting one of the permission icons at the top right corner of the section.
+
+![](/migration-assets/configuring-field-permissions-in-dataform-views/1.gif)
+
+## Sharing the view with different roles
+
+After configuring the field-level permissions, share the view with the relevant user roles. Users in those roles can only see and interact with the fields according to the permissions you have defined.
+
+![](/migration-assets/configuring-field-permissions-in-dataform-views/2.png)

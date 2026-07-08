@@ -1,0 +1,61 @@
+---
+title: "Assigning steps"
+description: "DRAFT (unverified) — migrated from /t/q6h9qt3/assigning-steps"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Assigning a step lets the assignee take ownership of the action. The workflow comes to a halt if they do not perform their action as expected. You can assign steps directly to a specific user, group, and user field or let the system choose the assignee automatically based on a few conditions or other sources as necessary.Let’s learn how to do these assignments one by one.
+
+## Assigning a step to a user, group, or user field directly
+
+Direct or static assignment lets you be very specific about who you want to assign the item to. The assignee could be a user, user group, or a value derived from a user field. Click **Add users, groups, and user fields** under **Assignee(s)** to add a specific user, group, or user field directly.![](/migration-assets/assigning-steps/7.gif)
+
+### Assigning a step to one or more users
+
+Type the name of the specific user, or group, or user field that you would like to add and select them from this dropdown. You can also select multiple users as assignees to perform this step, however, you must ensure how this approval is managed by them under the [Assignment preference](/t/p8h9qt8/step-assignment-preference) section.
+
+### Assigning a step to a group
+
+Type the name of the group in the **Assignee(s)** field. The groups created by your Account Admin show up here, and you can choose the desired group right away.
+
+### Assigning a step to a user field
+
+The privilege of having a user field over the user as an assignment option is the flexibility the former gives in terms of getting things assigned dynamically. For example, if you assign a step to a user field named **Approver**, whoever is the approver when the step is executed will get to take ownership of it and complete it. ![](/migration-assets/assigning-steps/1.png)You can also use a [system field](/t/83h4alt36h4g7/system-fields) as a part of this assignment. For example, you can assign a specific step to the user who created the item by choosing the **Created by** system field from the dropdown.
+
+## Using the other assignment options
+
+Click **More assignment** options under **Add users, groups, and user fields** in the _Assignee(s)_ section to choose the assignees for other sources like user filters, datasets, form tables, or with the help of a formula.![](/migration-assets/assigning-steps/2.png)
+
+### Assigning users to a step with user filters
+
+Click **User filters** under **More assignment options** to select the assignees from the [User management](/t/m1h4akn/user-management-overview) table at the account level.![](/migration-assets/assigning-steps/3.png)Choose a **Field**, **Operator**, **Type**, and map a value or a field based on the type. You can also add conditions to limit the values shown.
+
+### Assigning users to a step from a dataset
+
+Click **Dataset** under **More assignment options** to select the assignees from a specific dataset.![](/migration-assets/assigning-steps/4.png)
+
+### Assign users to a step using a formula
+
+You can use system fields and functions to write [a formula](/t/q6h4alh/introduction-to-expressions-and-formulas). If you want the step to be assigned to the initiator’s manager, you can use a formula like this: `__created_by.Manager_`![](/migration-assets/assigning-steps/5.png)
+
+### Assign users to a step from a specific form table
+
+Click **Table** under **More assignment options** to select the assignees from a specific user column used in one of your process form tables.![](/migration-assets/assigning-steps/6.png)
+
+## Assigning steps to external users
+
+In some cases, you may want people outside your process to review or take action on a specific step. In such cases, you can assign a process step to external users even if they aren’t members of the process.
+
+When a step is assigned to an external user,
+
+-   They’ll receive an email notification to access the assigned item.
+    
+-   They can view only the items and comments they’ve been assigned to.
+    
+-   They’ll also be able to view the items they’ve previously participated in.

@@ -1,0 +1,82 @@
+---
+title: "Setting up conditional visibility for page components"
+description: "DRAFT (unverified) — migrated from /t/m1yzj98/setting-up-conditional-visibility-for-page-components"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+The conditional visibility feature enables you to set the visibility criteria for components in the page builder, allowing you to show or hide them based on specific conditions. This feature lets you repurpose the same page for users with different permission levels based on certain variables and parameters, adapt the contents for the device they are using, and display information tailored to their needs.
+
+<iframe src="https://player.vimeo.com/video/1019434592" title="AI-powered sample data generation" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+Let’s take an example of an employee management app with a dashboard tailored for both Manager and Employee roles.
+
+-   **Employees**: Employees can view their performance ratings and receive feedback from their managers directly on the dashboard.
+-   **Managers**: Managers can access team-related insights, such as performance charts and occupancy levels, and view their own performance ratings.
+
+Since both roles share some common data, you can streamline the experience by displaying these components on the same dashboard. By setting visibility conditions, you can easily show or hide specific information based on the user’s role, ensuring that users see only what’s relevant to them.
+
+## How does it work?
+
+1.  In the page builder, select the component for which you want to set visibility conditions.
+2.  On the right, click the **Visibility** tab. Here, use the toggle to set the default visibility. It will be set to visible by default, but you can change it to hidden.
+3.  Click **\+ Add a visibility** rule. To add a condition, choose the **Variables**, **Operator**, **Type**, and **value** for comparison. You can choose to map it to a value or data elements such as parameters and variables. This list will include both the global variables and local variables declared on the current page.![](/migration-assets/setting-up-conditional-visibility-for-page-components/2.gif)
+
+### **Variables**
+
+This list contains:
+
+-   Device type: indicating whether the user is on web or mobile (PWA)
+-   Current user’s details such as their user role, first name, last name, email
+-   All the available global and local variables, parameters used in the app
+
+### **Operators**
+
+This list includes standard operators such as equal to, greater than, and less than.
+
+### **Type**
+
+Select which type of value will be used for comparison based on the selected operator.
+
+Based on the above example, use these conditions to show a component to a **Manager** based on their role and the device they are on.
+
+**Variables**
+
+**Operator**
+
+**Type**
+
+**Value**
+
+Device type
+
+Equal to
+
+Value
+
+Web
+
+Current.user.Roles
+
+Contains
+
+Value
+
+Manager
+
+And select **Match all**. Now, only the user who satisfies both these conditions will be able to view the selected component.
+
+![](/migration-assets/setting-up-conditional-visibility-for-page-components/1.png)
+
+> **Note:** Only one visibility rule can be added per component, but it can contain multiple conditions.
+
+#### Points to note
+
+1.  Conditional visibility cannot be set for the Popup component and sub-components inside a component, e.g., individual tabs, columns, and listings within the Master details container.
+    
+2.  Setting visibility conditions shows or hides components only from the UI; the contents of the components can still be retrieved using the [Kissflow SDK methods for components](https://developers.kissflow.com/app/page/component/) provided the user has adequate permissions to access them.

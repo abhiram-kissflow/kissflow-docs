@@ -1,0 +1,357 @@
+---
+title: "Understanding use cases with SQL queries in Analytics"
+description: "DRAFT (unverified) — migrated from /t/h7yy9r2/understanding-use-cases-with-sql-queries-in-analytics"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+Understanding analytics is essential for enterprises, especially in cross-flow reporting and workload analysis. It is essential for managing [apps](/t/x2h9qkj/introduction-to-kissflow-apps) and other modules like [processes](/t/h7h4a18/process-overview), [boards](/t/q6h9ql3/board-overview), and [datasets](/t/p8h4alk/dataset-and-views-overview) efficiently. This document will guide you to create [dataviews](/t/83h9qzn/understanding-dataviews) for multiple use cases across Analytics.
+
+## Query samples and use cases
+
+### Workload activities across all Processes
+
+This query provides a comprehensive overview of workload activities across all processes in Kissflow. 
+
+```sql
+SELECT
+"_flow_name" AS "Process name",
+"ScriptName" AS "Workflow step",
+ActedBy.value:Name::string AS "Acted by",
+"ActedAt.value" AS "Acted at",
+ROUND("ActualTimeTaken", 0) AS "Time taken mins",
+ROUND("ActualTimeTaken"/60, 0) AS "Time taken hours",
+"IsSLABreached" AS "Is SLA Breached",
+"_status" AS "Status",
+"_created_at.value" AS "Created at",
+"_created_by.Name" AS "Created by",
+"AssignedAt.value" AS "Assigned at",
+"ExpectedAt.value" AS "Expected at",
+"_model_id" AS "Process id",
+"_id" AS "ActivityInstance id",
+"ProcessInstance" AS "Process item id"
+FROM
+"ActivityInstance",
+TABLE (FLATTEN(input=>"ActedBy", outer => true)) ActedBy
+```
+
+### Workload activities for selected processes
+
+This query allows users to focus specifically on activities within a particular process, in this case, the **Purchase\_Request**. It provides similar details as the first query but filters the results to show workload activities related to the specified process.
+
+```sql
+SELECT
+"_flow_name" AS "Process name",
+"ScriptName" AS "Workflow step",
+ActedBy.value:Name::string AS "Acted by",
+"ActedAt.value" AS "Acted at",
+ROUND("ActualTimeTaken", 0) AS "Time taken mins",
+ROUND("ActualTimeTaken"/60, 0) AS "Time taken hours",
+"IsSLABreached" AS "Is SLA Breached",
+"_status" AS "Status",
+"_created_at.value" AS "Created at",
+"_created_by.Name" AS "Created by",
+"AssignedAt.value" AS "Assigned at",
+"ExpectedAt.value" AS "Expected at",
+"_model_id" AS "Process id",
+"_id" AS "ActivityInstance id",
+"ProcessInstance" AS "Process item id"
+FROM
+"ActivityInstance",
+TABLE (FLATTEN(input=>"ActedBy", outer => true)) ActedBy WHERE
+"_model_id"='Purchase_Request'
+```
+
+### Combining two processes using JOIN statement (cross process report)
+
+The query allows you to create a comprehensive report by combining data from two different processes: **Purchase\_Request\_Analytics** and **Purchase\_Order\_Analytics**. By performing a right outer join on the common fields **Purchase\_Request\_Number** and **Purchase\_Request\_**, it ensures that data from both processes is aligned based on this key, providing a unified view of relevant information from both processes.
+
+```sql
+Select
+pr."Purchase_Request_Number" as pr_PurchaseRequestNumer,
+po."PO" as po_PurchaseOrderNumber,
+pr."Total_Amount.value" as pr_Total_Amount,
+pr."Total_Amount.display_value" as pr_Total_Amount_Display,
+po."_status" as po_Status
+from
+"Purchase_Request_Analytics" pr
+right outer join "Purchase_Order_Analytics" po on pr."Purchase_Request_Number" = po."Purchase_Request_"
+```
+
+> **Note:**
+> 
+> Previously, achieving this result required having relevant data equally distributed in both processes through hidden fields. Now, it is no longer necessary.
+
+### Combining two child tables using UNION statement 
+
+The query [combines and unifies data from two child tables](/t/83h9qz8/procurement-spend-analysis-report-by-department-and-product-category), namely **Purchase\_Order.Direct\_Order\_Line\_Items** and **Purchase\_Order.Model\_EPobz7DNe**V. This creates an aggregated or comprehensive list of products, especially in the context of KPC (Kissflow Procurement Cloud).
+
+The query uses the **UNION ALL** operator to combine the results of two **SELECT** statements, each addressing a specific child table. Child tables like Catalog and Non-Catalog should be unified to get an overall list of products especially for KPC.
+
+```sql
+SELECT
+c."PO_number",
+c."ItemCode",
+c."DeliveryDate"
+FROM
+(
+SELECT
+a."PO_number",
+b."Mfr_item_code_1_1" AS "ItemCode",
+b."Delivery_Date_2" AS "DeliveryDate"
+FROM
+"Purchase_Order" a
+JOIN "Purchase_Order.Direct_Order_Line_Items" b ON a."_id"=b."_instance_id"
+) c
+UNION ALL
+SELECT
+d."PO_number",
+d."ItemCode",
+d."DeliveryDate"
+FROM
+(
+SELECT
+a."PO_number",
+b."Mfr_item_code_2" AS "ItemCode",
+b."Delivery_Date" AS "DeliveryDate"
+FROM
+"Purchase_Order" a
+JOIN "Purchase_Order.Model_EPobz7DNeV" b ON a."_id"=b."_instance_id"
+) d
+```
+
+### Combining a process, process’ child table and dataset using JOIN statement
+
+The query retrieves and aggregates information from multiple sources related to the **Purchase\_Request\_Analytics** process. This query combines data from the main process table, the child table **Purchase\_Request\_Analytics.Model\_7MyXBt9-2u**, and the dataset **Purchase\_Catalog**. 
+
+```sql
+SELECT
+pr."Purchase_Request_Number" AS "PR number",
+pr."Department" AS "Department",
+pr."Requester_Name" AS "Requested by",
+pr."_status" AS "Status of the request",
+prc."Product_name" AS "Product name",
+ROUND(SUM(prc."Quantity"), 0) AS "Requested quantity",
+ROUND(SUM(prc."Item_Amount.value"), 2) AS "Products value",
+ROUND(SUM(pc."Available"), 0) AS "Available units"
+FROM
+"Purchase_Request_Analytics" pr
+JOIN "Purchase_Request_Analytics.Model_7MyXBt9-2u" prc ON pr."_id"=prc."_instance_id"
+JOIN "Purchase_Catalog" pc ON prc."Product_name"=pc."Product_Name"
+GROUP BY
+prc."Product_name",
+pr."Department",
+pr."Requester_Name",
+pr."_status",
+"PR number"
+```
+
+### Combining Activity instance table with a process table using JOIN
+
+The query retrieves information by joining the **ActivityInstance** table (representing individual workflow steps or activities) with the **RFP\_Approval** process.
+
+```sql
+SELECT
+ra."Name" AS "Item name",
+ai."_flow_name" AS "Process name",
+ai."ScriptName" AS "Workflow step",
+ActedBy.value:Name::string AS "Acted by",
+ai."ActedAt.value" AS "Acted at",
+ROUND(ai."ActualTimeTaken", 0) AS "Time taken mins",
+ROUND(ai."ActualTimeTaken"/60, 0) AS "Time taken hours",
+ai."IsSLABreached" AS "Is SLA Breached",
+ai."_status" AS "Status",
+ai."_created_at.value" AS "Created at",
+ai."_created_by.Name" AS "Created by",
+ai."AssignedAt.value" AS "Assigned at",
+ai."ExpectedAt.value" AS "Expected at",
+ai."_model_id" AS "Process id",
+ai."_id" AS "ActivityInstance id",
+ai."ProcessInstance" AS "Process item id"
+FROM
+"ActivityInstance" ai
+JOIN "RFP_Approval" ra ON ai."_instance_id"=ra."_id",
+TABLE (FLATTEN(input=>ai."ActedBy", outer => true)) ActedBy
+WHERE
+ai."_model_id"='Leave_Approval'
+```
+
+### Creating a view to identify the Inactive users based on tasks
+
+The query involves the creation of two dataviews (Workload Assignment and In progress items with inactive users) to identify and report on tasks assigned to inactive users. 
+
+#### Creating a dataview with the name - Workload assignment
+
+To get a comprehensive view of workload assignments, including details about assigned users, process instances, and activity instances, create a dataview using the provided query.
+
+```sql
+SELECT
+"_id" AS "Process instance id",
+AssignedTo.value:Name::string AS "Assigned to name",
+AssignedTo.value:_id::string AS "Assigned to id",
+"_flow_name" AS "Flow name",
+"AssignedAt.value" AS "Assigned at",
+"_status" AS "Status",
+"_modified_at.value" AS "Modified at",
+"CurrentActivityInstance" AS "Current activity instance id"
+FROM
+"ProcessInstance",
+TABLE (FLATTEN(input=>"AssignedTo", outer => true)) AssignedTo
+```
+
+#### Create another dataview with the name - In progress items with inactive users
+
+This dataview specifically helps identify items where tasks are assigned to inactive users.
+
+```sql
+SELECT
+"Assigned at",
+"Assigned to id",
+"Assigned to name",
+"Current activity instance id",
+"Flow name",
+"Modified at",
+"Process instance id",
+WS."Status" as "Item status",
+AI."ScriptName"
+FROM
+"Workload_Assignment" WS
+JOIN "User" us ON WS."Assigned to id"=us."_id"
+JOIN "ActivityInstance" AI ON AI."_id"=WS."Current activity instance id"
+WHERE
+us."Status"='InActive' and "Item status" != 'Completed'
+```
+
+### Parse a lookup field
+
+The query is used to extract and present specific information from a lookup field named **Product\_lookup** in the **Purchase\_Request\_Analytics.Model\_7MyXBt9-2u** table. By parsing the lookup field, users can access and analyze specific data without having to navigate complex data structures.
+
+![](/migration-assets/understanding-use-cases-with-sql-queries-in-analytics/1.png)
+
+```sql
+Select
+"Product_lookup",
+"Product_lookup": _id as "ID",
+"Product_lookup": Category as "Category",
+"Product_lookup": Unit_Price: v as Price_Value
+from
+"Purchase_Request_Analytics.Model_7MyXBt9-2u"
+```
+
+### How to configure current\_user in a dataview?  
+
+The query obtains information about the creator of purchase orders in the **Purchase\_Order\_Analytics** table. You can use this query to understand and retrieve details about the creator of the process.
+
+![](/migration-assets/understanding-use-cases-with-sql-queries-in-analytics/2.png)
+
+```sql
+SELECT
+po."_created_by" as "Created by"
+FROM
+"Purchase_Order_Analytics" po
+```
+
+### User workload report across all the processes
+
+The query provides information related to the [user workload](/t/q6h9qzt/creating-user-workload-report-for-processes) assignments across various processes. You can use this report to gain insights into workload distribution, track assignment timelines, and identify instances where SLAs are breached.
+
+```sql
+SELECT
+"_id" AS "Process instance id",
+AssignedTo.value:Name::string AS "Assigned to - name",
+AssignedTo.value:_id::string AS "Assigned to - id",
+"_flow_name" AS "Process name",
+"WorkflowModelId" AS "Process id",
+"AssignedAt.value" AS "Assigned at",
+"_status" AS "Status",
+"_modified_at.value" AS "Modified at",
+"CurrentActivityInstance" AS "Current activity instance id",
+IFF("ExpectedAt.value"<CURRENT_DATE(), TRUE, FALSE) AS "Is SLA breached"
+FROM
+"ProcessInstance",
+TABLE (FLATTEN(input=>"AssignedTo", outer => true)) AssignedTo
+ORDER BY
+"Process name"
+```
+
+### Parallel branch steps in a process
+
+The query obtains information about completed parallel branch steps for purchase requests. You can retrieve data specifically related to completed purchase requests, ensuring that only relevant information for the last executed parallel branch is considered.
+
+```sql
+SELECT
+pr."Purchase_Request_Number" AS "PR number",
+"ScriptName" AS "Workflow step",
+ActedBy.value:Name::string AS "Acted by",
+"ActedAt.value" AS "Acted at",
+ROUND("ActualTimeTaken", 0) AS "Time taken mins",
+ROUND("ActualTimeTaken"/60, 0) AS "Time taken hours",
+"IsSLABreached" AS "Is SLA Breached",
+ai."_created_at.value" AS "Created at",
+"AssignedAt.value" AS "Assigned at",
+"ExpectedAt.value" AS "Expected at"
+FROM
+"ActivityInstance" ai
+JOIN "Purchase_Request" pr ON ai."_instance_id"=pr."_id",
+TABLE (FLATTEN(input=>"ActedBy", outer => true)) ActedBy
+WHERE
+ai."_model_id"='Purchase_Request'
+AND pr."_status"='Completed'
+AND ai."ActivityDef"!='Activity_VhtBNH63q'
+AND ai."ActivityDef"!='Activity_jkaCj9YkT'
+AND ai."ActivityDef"!='Activity_9eJ_9xJpi'
+```
+
+> **Note:**
+> 
+> Filter out workflow steps within the parallel branch. This results in only one row of NodeType=Parallel which already contains the last executed parallel branch’s step.
+
+### Creating a process step performance view
+
+This query retrieves information about completed activities within a process to analyze the time each process item spends in each workflow step. Learn more about [step performance use case](/t/g9yqk6g/creating-process-step-performance-report-with-kissflow-analytics).
+
+```sql
+SELECT
+"_instance_id" AS "Item id",
+"_flow_name" AS "Process name",
+"ActedAt.value" AS "Acted at",
+"ScriptName" AS "Workflow step",
+ActedBy.value:Name::string AS "Acted by",
+ROUND("ActualTimeTaken", 2) AS "Timetaken mins",
+ROUND(MIN("ActualTimeTaken"),2) AS Min_time,
+ROUND(MAX("ActualTimeTaken"),2) AS Max_time,
+ROUND(AVG("ActualTimeTaken"),2) AS Avg_time,
+"IsSLABreached" AS "Is SLA Breached"
+FROM
+"ActivityInstance",
+TABLE (FLATTEN(input=>"ActedBy", outer => true)) ActedBy
+WHERE
+"_status"='Completed'
+GROUP BY
+"Acted at",
+"Workflow step",
+"Acted by",
+"Timetaken mins",
+"Item id",
+"Process name",
+"IsSLABreached"
+```
+
+### **Excluding holiday in calendar days**
+
+This query provides the list of week days excluding the holidays.
+
+```sql
+SELECT
+"Day",
+TO_DATE("Date_and_Time.value") as "Date",
+"Date_and_Time.value",
+DAYOFWEEK("Date_and_Time.value") as "DOW"
+FROM "Week_dates"
+WHERE DAYOFWEEK("Date_and_Time.value") NOT IN (0,6) and TO_DATE("Date_and_Time.value") NOT IN ('2024-01-26')
+```

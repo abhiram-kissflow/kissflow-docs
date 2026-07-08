@@ -1,0 +1,94 @@
+---
+title: "Process settings"
+description: "DRAFT (unverified) — migrated from /t/m1h9qt5/process-settings"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+When you create a process, you become the Process Admin. Here's more about what a Process Admin can do in a process.
+
+To configure or change the process settings, click the **Manage** button > **Settings.**
+
+## General settings
+
+On the **General** tab, you can configure form titles, lock submission, and share quick links.
+
+### Configuring form titles
+
+The form title is the unique name given to each item as it goes through the process workflow. To configure form titles, click the **Add button (+)** and arrange default system fields or form fields in the order that you want, and then click **Save**. Based on this format, titles are auto generated and are displayed on top of each process form.
+
+![](/migration-assets/process-settings/1.png)
+
+### Lock submission
+
+When you are working on the process or making significant changes, you may want to stop members of the process from starting new items. To lock submissions, select the **Do not allow new submission**s checkbox, and click **Save**.
+
+After enabling this, members will not be able to initiate new items and nothing will show in the feed. However, items in progress will continue to follow the workflow. Items in draft cannot be submitted until this option is removed.
+
+![](/migration-assets/process-settings/2.png)
+
+### Quick Link
+
+Share this link with members of your process so they can immediately start a new item if they are logged in. If they are not logged in, they will be directed to the login page first.
+
+![](/migration-assets/process-settings/3.png)
+
+## Notification settings
+
+On the **Notification settings** tab, you can enable and disable, preview, and customize the templates of long and short notifications sent to users for the different events triggered in your process.
+
+Learn more about [customizing email and notification templates](/t/g9y68h6/process-notifications).
+
+## Public form settings
+
+On the **Public form settings** tab, you can [enable and disable public form](/t/35h9qtk/public-forms) for a process.
+
+To enable, turn on the **Public form URL**. Then, copy the URL and share it with anyone outside the organization.
+
+To disable, turn off the **Public form URL,** and it will be disabled. Once the public form is disabled, the external users will not be able to initiate new items. However, items in progress will continue to follow the workflow.
+
+Learn more about [configuring a public form](/t/35h9qtk/public-forms).
+
+![](/migration-assets/process-settings/4.png)
+
+## Sequence numbers
+
+On the **Sequence numbers** tab, you’ll see all the configured sequence numbers for this process. 
+
+-   **Total sequence number** displays the active prefixes for your sequence number field.
+-   The **Prefix** shows the prefix you configured in the form. If you use a dynamic field such as Department, it will show you the different numbers generated for different departments. 
+-   **Current number** displays the number of current requests for each prefix. 
+
+![](/migration-assets/process-settings/5.png)
+
+To reset a prefix, click **Reset** on that particular prefix row. Then enter the number and click **Reset**. When a new request is raised in that department, the sequence number will start from that number.
+
+### Reset a particular sequence number
+
+To delete a prefix, click **Reset** on that particular prefix row. This will erase the ongoing sequence number. When a new item is initiated in that department, by default the sequence number will start from 1.
+
+### Reset all sequence numbers
+
+You can also choose to reset and delete all the active prefixes by clicking on **Reset all**. You’ll be asked for the number to reset with. When a new item is initiated, the sequence number will start with the entered number.
+
+![](/migration-assets/process-settings/6.png)
+
+## Multilingual settings
+
+Multilingual settings allow [Kissflow Process admins/developers](/t/p8h9qtp/managing-process-members-and-permissions) and [Board admins](/t/m1h9qls/managing-members-and-roles-boards) to customize and present their workflow forms in various languages by incorporating manually translated form labels.For instance, if you've designed a form in English but wish to cater to Chinese speakers, follow the steps below. Once set up, the form will adjust to Chinese for users who've chosen Chinese in their profile settings, ensuring a seamless experience for both English and Chinese speakers.
+
+1.  Select the language.
+2.  Download the form labels.
+3.  Manually translate the labels.
+4.  Import the labels back into the form.
+
+> **Note:**
+> 
+> This feature is available for the standalone Kissflow Processes and Boards. Only [languages available at the platform level](/t/60h9qzy/languages-supported-by-kissflow) will be supported within forms.
+
+Learn about [adding multiple languages](/t/83hvnzt/multilingual-settings) in detail.

@@ -1,4 +1,7 @@
 {
   "title": "Audit Log",
-  "pages": ["..."]
+  "pages": [
+    "audit-log",
+    "event-categories-and-actions"
+  ]
 }

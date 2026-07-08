@@ -1,0 +1,42 @@
+---
+title: "Ensuring smooth access to Kissflow [Troubleshooting tip]"
+description: "DRAFT (unverified) — migrated from /t/m1h9qz3/ensuring-smooth-access-to-kissflow-troubleshooting-tip"
+contentType: troubleshooting
+persona: shared
+section: reference
+---
+
+If you are unable to access Kissflow, you might want to ensure that you have whitelisted the Kissflow domains and that your Internet Service Provider (ISP) isn't blocking the Amazon or Google servers.
+
+## Whitelisting domains
+
+Whitelist the following domains in your organization’s firewall:
+
+-   [https://\*.kissflow.com](https://helpdocs.kissflow.com/faqs/troubleshooting-access-to-kissflow)
+    -   The asterisk symbol(\*) lets you whitelist any subdomain that belongs to your primary domain. However, if you haven't whitelisted Kissflow in the above-mentioned format, you have to specify the exact domain name along with its subdomain like "https://stark-corporation.kissflow.com/"
+    -   Likewise, remember to whitelist [https://static-cdn1.kissflow.com](https://helpdocs.kissflow.com/faqs/troubleshooting-access-to-kissflow), [https://static-cdn2.kissflow.com](https://static-cdn2.kissflow.com)(US users) and [https://static-cdn1.kissflow.eu](https://helpdocs.kissflow.com/faqs/troubleshooting-access-to-kissflow) (EU users)
+-   [https://o300529.ingest.sentry.io](https://o300529.ingest.sentry.io)
+-   [https://fonts.gstatic.com](https://fonts.gstatic.com)
+-   [https://fonts.googleapis.com](https://fonts.googleapis.com)
+-   [https://maps.googleapis.com](https://maps.googleapis.com)
+-   [https://www.googleapis.com](https://www.googleapis.com/)
+-   [https://app.posthog.com](https://app.posthog.com)
+-   [https://cdn.louassist.com](https://cdn.louassist.com)
+-   [https://viewer.louassist.com](https://viewer.louassist.com)
+-   [https://widget.intercom.io](https://widget.intercom.io)
+-   [https://run.louassist.com](https://run.louassist.com)
+-   [https://api.louassist.com](https://api.louassist.com)
+-   [https://js.intercomcdn.com](https://js.intercomcdn.com)
+-   [https://api-iam.intercom.io](https://api-iam.intercom.io)
+-   wss://nexus-websocket-a.intercom.io
+-   wss://\*.firebaseio.com
+-   [https://unpkg.com](https://unpkg.com/)
+-   [https://www.recaptcha.net](https://www.recaptcha.net/)
+-   https://\*.storage.googleapis.com
+-   [https://appstore.us.kissflow.store](https://appstore.us.kissflow.store)
+-   [https://resource.us.kissflow.store](https://resource.us.kissflow.store)
+-   [https://www.gstatic.com](https://www.gstatic.com)
+
+## Checking ISP
+
+Verify that your Internet Service Provider (ISP) is not blocking Amazon or Google servers. If Amazon or Google servers are blocked, then you need to access Kissflow through a Virtual Private Network (VPN).

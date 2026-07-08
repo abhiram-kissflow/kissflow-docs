@@ -1,0 +1,115 @@
+---
+title: "List expressions"
+description: "DRAFT (unverified) — migrated from /t/q6h4all/list-expression"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Some fields in Kissflow use the **list data type**, meaning they can hold multiple values at once. These fields include:
+
+-   Dropdown
+-   Checkbox/multi-select
+-   Checklist
+
+For example, the following expression returns a list of users:
+
+```
+Lastcompletedstep().assignees()
+```
+
+**Example used in this document**
+
+**Field ID**
+
+**Field type**
+
+**Possible values**
+
+**Selected values**
+
+Regions
+
+Checkbox
+
+Americas, EMEA, Asia Pacific
+
+EMEA, Asia Pacific
+
+## Methods
+
+You can apply methods to list fields using the dot (`.`) operator.
+
+**Function**
+
+**Field type**
+
+**Description**
+
+**Syntax**
+
+**Output**
+
+has
+
+Boolean
+
+TRUE if the value was selected.
+
+FALSE if it wasn't.
+
+Regions.has(“EMEA”)
+
+True
+
+hasall
+
+Boolean
+
+TRUE if all the values were selected.
+
+FALSE if any values are missing.
+
+Regions.hasAll(“Americas","EMEA")
+
+False
+
+length
+
+Number
+
+Shows the number of items selected.
+
+Regions.length()
+
+2
+
+get
+
+Text
+
+Shows a specific list option.
+
+Regions.get(2)
+
+Asia Pacific
+
+concatenate
+
+Text
+
+Shows all the selected values in a string.
+
+You can specify the joiner.
+
+Regions.concatenate()
+
+Regions.concatenate(", ")
+
+EMEA,Asia Pacific
+
+EMEA, Asia Pacific

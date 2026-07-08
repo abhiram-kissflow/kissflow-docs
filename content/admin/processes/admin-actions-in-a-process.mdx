@@ -1,0 +1,57 @@
+---
+title: "Admin actions in a process"
+description: "DRAFT (unverified) — migrated from /t/60h9qtj/admin-actions-in-a-process"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## Process administration
+
+The **Administration** section of a process lets Process admins and Data admins access the items, modify their status, and make necessary changes. Navigate to the process page and click the **More options** button (![](/migration-assets/admin-actions-in-a-process/2.svg)) at the top right > **Administration**.
+
+-   **Title** - Name of the [item](/t/m1h9qt5/process-settings#configuring-form-titles) configured in the process settings
+-   **Created at** - Time at which the item was first created
+-   **Created by** - Name of the person or guest (if created via public form) who created the item
+
+You can also apply filters or view additional fields by clicking the **Show/hide fields** button (![](/migration-assets/admin-actions-in-a-process/4.png)).
+
+### Searching items
+
+![](/migration-assets/admin-actions-in-a-process/1.png)You can use the search bar to find items quickly. The drop-down beside the search bar will list all the fields in the process from which you can select one. After you input a value in the search bar, all the items whose selected fields match with that value will be listed.
+
+### Viewing and editing data in items
+
+You can view and edit any item field, or reassign the item to someone else. All of your actions will be recorded in the [process audit log](/t/g9h9qtg/process-audit-log).To edit an item, open it > click **Update field values** at the top of the item form > make edits > click **Save changes.**![](/migration-assets/admin-actions-in-a-process/8.gif)
+
+## Performing bulk actions
+
+You can reassign items, mark them complete, or delete them as necessary. To perform these actions, navigate to your process and click the **More options** button (![](/migration-assets/admin-actions-in-a-process/2.svg)) > **Administration**. You will see a list of all the items in your process.![](/migration-assets/admin-actions-in-a-process/3.png)
+
+> **Note:**
+> 
+> You can perform these actions in bulk for a maximum of 100 items at a time.
+
+### Reassigning items
+
+If an item remains at a step for too long, it may be due to the assigned person being unavailable or unable to take action. In such cases, you can reassign the item to yourself or another user who has the right permissions to move it forward. The item can also be reassigned by its initiator, depending on the [permissions granted to them](/t/g9h9qt6/configuring-actions-for-process-steps#initiator-actions-for-items-in-progress).Select an item or a set of items you would like to reassign and click **Reassign.**![](/migration-assets/admin-actions-in-a-process/5.png)When you reassign an item that has more than one assignee, the previous assignment will be invalidated and the new assignment will take precedence. For example, let us assume you, John, and Linda are assigned to an item, and you choose to reassign it to Abraham.After the reassignment, Abraham will be the only assignee of the item, and the other assignees will be removed automatically, i.e., you, John, and Linda will no longer be assigned to the item. [Learn how reassigning works for a process member.](/t/x2h9qtz/using-a-process#reassigning-items)Also, the items that have already been completed, rejected, or withdrawn will be skipped or not considered for reassignment. i.e., only items in **In progress** status will be reassigned, and the items skipped will be prefixed by a yellow exclamation mark for your understanding.
+
+> **Note:**
+> 
+> Items inside parallel branches cannot be reassigned.
+
+### Marking items as completed
+
+Select an item or a set of items and click **Mark as completed**. When a task is marked complete, it will advance to the end of the workflow, skipping all the future steps. This is especially useful in case an item's assignee is unavailable and you want the item to be completed immediately.![](/migration-assets/admin-actions-in-a-process/6.png)
+
+### Deleting and restoring items 
+
+You can delete one or more items in bulk by selecting them and clicking **Delete**. Deleted items can be restored within 30 days of deletion. After that, they'll be permanently deleted. 
+
+To restore deleted items, click the **Deleted items** tab at the top. Select the items you want to restore and click **Restore**.
+
+![](/migration-assets/admin-actions-in-a-process/7.png)

@@ -1,0 +1,152 @@
+---
+title: "Introduction to expressions and formulas"
+description: "DRAFT (unverified) — migrated from /t/q6h4alh/introduction-to-expressions-and-formulas"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Expressions are used in Kissflow to create formulas and settings for fields and steps. 
+
+## The importance of data types
+
+Expressions in Kissflow are strongly dependent on the data type you are working with. Functions, methods, fields, and operators only work with the correct data type. If you have trouble with an expression, always start by examining the data type. 
+
+Every field type is associated with a particular data type.
+
+**Data type**
+
+**Field types**
+
+**Example output**
+
+Text
+
+Text, Textarea, Dropdown
+
+Stark Industries
+
+Number
+
+Number, Rating, Slider
+
+3,000
+
+Currency
+
+Currency
+
+$10,000
+
+Date
+
+Date
+
+May 29, 1970 
+
+Datetime
+
+Datetime
+
+May 29, 1970 3:30pm
+
+Boolean (True/False)
+
+Yes/ No
+
+TRUE
+
+User
+
+User
+
+![](/migration-assets/introduction-to-expressions-and-formulas/1.png)
+
+Reference
+
+Lookup
+
+List&#123;text&#125;
+
+Multi-select/ Checkbox
+
+“Operations”,”Sales”,”Marketing”
+
+List&#123;user&#125;
+
+Multi-select user
+
+> **Notes:** 
+> 
+> -   Aggregation fields can change their type based on the field they are evaluating. They can be a text, number, currency, date, or datetime.
+> -   Remote lookup fields will be either text or JSON.
+> -   There are no data types associated with image, attachment, rich text, or signature fields. You cannot use these fields in expressions. 
+
+## Detailed expression tips based on data type
+
+Because expressions are so connected to the data type, we’ve separated the instructions for creating expressions based on the data type. 
+
+-   [Text expressions](http://helpdocs.kissflow.com/expression/text-expressions)
+-   [Number and currency expressions](http://helpdocs.kissflow.com/expression/number-and-currency-expressions)
+-   [Date expressions](http://helpdocs.kissflow.com/expression/date-expressions)
+-   [IF function](http://helpdocs.kissflow.com/expression/if-function)
+-   [Logical expressions](http://helpdocs.kissflow.com/expression/logical-expressions)
+-   [User expressions](http://helpdocs.kissflow.com/expression/user-expressions)
+-   [Workflow step expressions](http://helpdocs.kissflow.com/expression/workflow-step-expressions)
+-   [List expressions](http://helpdocs.kissflow.com/expression/list-expression)
+
+## Parts of an expression
+
+Expressions can be made up of fields, functions, methods, and operators. 
+
+### Fields
+
+You can use any field on your form that has a data type associated with it. When using a field, you must use the field ID in the expression.
+
+You can also use [system fields](http://helpdocs.kissflow.com/expression/system-fields) that Kissflow automatically collects data about. 
+
+### Functions and methods
+
+Functions and methods allow you to act on data. A function comes first in an expression, whereas a method is called up after mentioning the field. 
+
+Every function has a specified number of parameters associated with it. For example, with an IF function, there are three parameters: the condition you are testing for, the value you display if it is true, and the value you display if it is false.
+
+_IF(Order\_total>5000, ”Yes”, ”No”)_
+
+Every function requires braces after it to tell the system you want to use that function, even if there are no parameters to include. For example, if you want to show the current date, you must type TODAY(). 
+
+### Operators
+
+An operator shows how different parts of the expression should be evaluated or connected. You can see a list of available operators depending on the field type you select.
+
+## Where can I use expressions?
+
+### Form field formulas
+
+You can use expressions as a part of a formula to calculate a field in your form. Form fields can display all data types except for Boolean.  
+
+### Step conditions
+
+You can use an expression to determine when a workflow step or branch happens. 
+
+These expressions must be Boolean. If the result is TRUE, the step or branch will happen. If it is FALSE, the step is skipped. 
+
+### Assigning a user to a step
+
+You can use an expression to assign a step to a user. 
+
+These expressions must result in a User data type.
+
+### Deadline times and messages
+
+You can use an expression to define how many hours until a step crosses a deadline. 
+
+This expression must be either a number or datetime data type. 
+
+You can also use an expression to define whom a notification or escalation message is sent to when a deadline is crossed. 
+
+This must be a user data type.

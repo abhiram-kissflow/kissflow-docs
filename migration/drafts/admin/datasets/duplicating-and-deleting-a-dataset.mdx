@@ -1,0 +1,33 @@
+---
+title: "Duplicating and deleting a dataset"
+description: "DRAFT (unverified) — migrated from /t/60h4alp/duplicating-and-deleting-a-dataset"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+You can easily duplicate datasets for reuse or delete them when they’re no longer needed. Here's how to manage both actions:
+
+## Duplicating a dataset
+
+If your business requirements are in such a way that you cannot use an existing dataset as is but need a slightly modified version of it, then you can opt to create a replica of it. Duplicating a dataset creates a copy of it so that you can modify its structure without affecting its original version.
+
+1.  Click the **More options** button (![](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/6.png)) and then click **Duplicate**
+2.  The default name of the new dataset is **Copy of &lt;original dataset name>**. However, you can modify it as you want.
+3.  Check the box if you would like to retain the same values and views for the new dataset.
+4.  Click **Duplicate**.
+
+![](/migration-assets/duplicating-and-deleting-a-dataset/1.png)
+
+## Deleting a dataset
+
+1.  Click the **More options** button (![](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/6.png)) and then click **Delete.** Kissflow checks if any flow is using the dataset you are trying to delete. Its dependencies, if any, will be shown on your screen. You can delete the dataset only after you remove the dependencies.![](/migration-assets/duplicating-and-deleting-a-dataset/2.png)  
+    When deleting a dataset with granted app access, only dependencies in the production environment will be displayed. Dependencies from the development environment will be ignored, and any app flows relying on the dataset fields will not function as expected after the dataset is deleted.  
+     
+2.  Click **Delete** if you are sure there are no dependencies or have removed them all.
+
+Deleting a dataset will permanently remove both the dataset and all its data. This action is irreversible.

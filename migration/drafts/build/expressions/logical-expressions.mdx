@@ -1,0 +1,214 @@
+---
+title: "Logical expressions"
+description: "DRAFT (unverified) — migrated from /t/h7h4aly/logical-expressions"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Logical expressions are Boolean, meaning they return either a value of TRUE or FALSE. 
+
+Boolean values won’t display directly on a form. They are used in two situations: 
+
+-   The logical test inside an IF function.
+-   To set the condition for if a workflow step or branch happens or not.
+
+## Example fields
+
+Here are some example fields to test out the logical expressions.
+
+**FieldID**
+
+**Field type**
+
+**Example value**
+
+num1
+
+Number
+
+6
+
+num2
+
+Number
+
+4
+
+text1
+
+Text
+
+Pepper
+
+## Operators
+
+There are six comparison operators you can use with logical expressions to compare fields. Some of them can only be used with certain data types. 
+
+**Name**
+
+**Symbol**
+
+**Data types**
+
+**Expression**
+
+**Value**
+
+Equal to
+
+\=
+
+Number, Currency, Date, Datetime1
+
+Text, User, Boolean
+
+num1 = num2
+
+False
+
+Not equal to
+
+&lt;>, !=
+
+Number, Currency, Date, Datetime
+
+Text, User, Boolean
+
+num1 &lt;> num2
+
+True
+
+Less than
+
+&lt;
+
+Number, Currency, Date, Datetime 
+
+num1 &lt; num2
+
+False
+
+Less than or equal to
+
+&lt;=
+
+Number, Currency, Date, Datetime
+
+num1 &lt;= num2
+
+False
+
+Greater than
+
+\>
+
+Number, Currency, Date, Datetime
+
+num 1 > num2
+
+True
+
+Greater than or equal to
+
+\>=
+
+Number, Currency, Date, Datetime
+
+num1 >= num2
+
+True
+
+> **Note**:
+> 
+> 1. Timezones affect how you compare datetime fields. For example, this expression is true:
+> 
+> `Datetime(2018,1,1,12,20,00,"Asia/Kolkata") > Datetime(2018,1,1,12,20,00,"America/Chicago")`
+
+## Functions
+
+**Function**
+
+**Description**
+
+**Syntax**
+
+**Value**
+
+and
+
+TRUE if both boolean expressions are true.
+
+FALSE if either expression is false.
+
+Only two parameters are allowed.
+
+AND(num1 = 6, num2 = 4)
+
+True
+
+&&
+
+Same as the AND function, but allows you to use multiple expressions.
+
+num1 = 6 && num2 = 4 && text1 = "Tony" 
+
+False
+
+or
+
+TRUE if either of the two boolean expressions is true.
+
+FALSE if neither expression is true.
+
+Only two parameters are allowed.
+
+OR(num1 = 6, num2 = 10)
+
+True
+
+\\|\\|
+
+Same as the OR function, but allows you to use multiple expressions.
+
+num1 = 6 \\|\\| num2 = 10 \\|\\| text1 = "Tony"
+
+True
+
+isBlank
+
+Check if a field is empty (TRUE) or has a value (FALSE).
+
+Can be used for any type of field.
+
+isBlank(text1)
+
+False
+
+False
+
+Shows the false boolean.
+
+false()
+
+False
+
+True
+
+Shows the true boolean.
+
+true()
+
+True
+
+Not
+
+Shows the opposite boolean.
+
+Not(num1 = 6)
+
+False

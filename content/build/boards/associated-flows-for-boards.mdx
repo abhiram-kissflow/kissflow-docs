@@ -1,0 +1,45 @@
+---
+title: "Associated flows for boards"
+description: "DRAFT (unverified) — migrated from /t/83yklrx/associated-flows-for-boards"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+   
+The **Associated flows** section helps you understand how your board interacts with other flows. They offer a visual map of dependencies, making it easier to manage changes.
+
+Click the **Manage** button at the top right and click the **Associated flows** button.  
+ 
+
+![](/migration-assets/associated-flows-for-boards/1.png)
+
+   
+There are two types of associations: **Looked up flows** and **Connected flows**.
+
+## 1\. Looked up flows
+
+[Lookup fields](/t/g9h4azr/lookup-field) allow a board to pull and display data from other flows.  
+ 
+
+![](/migration-assets/associated-flows-for-boards/2.png)
+
+Under **Looked up flows**, you can view these relationships:
+
+### a. Flows looked up to
+
+This section shows which flows are looking up this board to fetch and display information.
+
+**Example**: If another board needs to reference details like **IT asset availability** or **Vendor Names** from the current board, it would appear under **Flows looked up to**.
+
+### b. Flows looked up from
+
+This section displays the flows that the current board is looking up.
+
+**Example**: If your **IT Asset approval** board is pulling **Asset Types** or **Asset details** from a master dataset, the master list flow will appear under **Flows looked up from**.
+
+You can [configure lookup](/t/83ymdnx/security-settings-for-flows) settings directly from this page if you need to update or remove associations.

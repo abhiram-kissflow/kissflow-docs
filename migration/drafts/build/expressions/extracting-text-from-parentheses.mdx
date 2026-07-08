@@ -1,0 +1,47 @@
+---
+title: "Extracting text from parentheses"
+description: "DRAFT (unverified) — migrated from /t/y4y1p1f/extracting-text-from-parentheses"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Imagine you have a form where users enter their full name and ID in a single field, following a consistent format like **Name (ID)**. For example, a user might enter **Natasha (987334)**.
+
+For automation, reporting, or integration purposes, you often need to isolate just the ID and store it in a separate field. This guide shows you how to do this automatically using a simple formula.
+
+## **The solution: Using a formula to extract text between parentheses**
+
+You can pull a piece of text from within a larger string by finding its start and end points. This is perfect for situations where the data you need is enclosed in parentheses, brackets, or other consistent markers.
+
+To extract the ID, use the following formula on your customer name field:
+
+```
+CustomerName.subString(CustomerName.find("(") + 1, CustomerName.find(")") - 1)
+```
+
+## **How it works**
+
+This formula might look complex, but it's doing three simple things:
+
+1.  CustomerName.find("("): First, it finds the position of the opening parenthesis (.
+2.  CustomerName.find(")" ): Next, it finds the position of the closing parenthesis ).
+3.  CustomerName.subString(...): Finally, it extracts the text between those two positions.
+
+The + 1 and -1 is important because they tell the formula to start capturing text _after_ the opening parenthesis and stop before the closing parenthesis.
+
+You are telling the system: Find the text between the parentheses.
+
+## **Step-by-step implementation**
+
+Here's how to apply this in a form builder:
+
+1. **Identify Your Source Field:** You should have a text field where users input the combined information. Let's call it **CustomerName**.
+2. **Create a Destination Field:** Add a new text field to your form to hold the extracted number. Let's call it **ID**. Since it will be populated automatically, you can make this field read-only.
+3. **Apply the Formula**: In the settings for the ID field, navigate to the formula or calculation section and input the expression:
+4.  CustomerName.subString(CustomerName.find("(") + 1, CustomerName.find(")") - 1)
+5. **Test it out:** Save your changes. When a user enters Nat(88) in the CustomerName field, the ID field will automatically update to 88.
+
+![](/migration-assets/extracting-text-from-parentheses/1.png)
+
+This method is an efficient way to clean up and organize user data without manual work. It ensures you can easily separate composite inputs into distinct data points, making your data more reliable for lookups, integrations, and other business processes.

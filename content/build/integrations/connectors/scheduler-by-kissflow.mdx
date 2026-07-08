@@ -1,0 +1,112 @@
+---
+title: "Scheduler by Kissflow"
+description: "DRAFT (unverified) — migrated from /t/q6h4af8/scheduler-by-kissflow"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Scheduler by Kissflow is a built-in connector that allows you to schedule an integration trigger run at a specific interval. Integration runs are typically only executed when a trigger event occurs in a connector. You can use scheduler triggers to run your integration every day, week, month, or year.
+
+## How it works
+
+Here's an example of how you can use the scheduler.
+
+-   You select a day and time each week in the scheduler when a new task is required.
+-   Kissflow adds a new item to Kissflow Project on the specified date and time.
+
+## Configuring the scheduler
+
+1.  From the left navigation panel, click **\+ Create** and select **Integration**. Provide a unique name and description for the integration.
+    
+2.  Search for the connector **Scheduler by Kissflow**.
+    
+3.  Here, you can select a Daily, Weekly, Monthly, and Yearly trigger.![](/migration-assets/scheduler-by-kissflow/5.png)
+4.  Configure exactly when you want the scheduler to run and stop. For example, if you selected **Weekly**, you'll select a few parameters such as, **Day(s) of the Week,** S**tart time,** and **Stoppage based on.**
+5.  Click **Next** to test the trigger. Complete the scheduler setup by clicking **Done**.
+6.  Add a relevant action next to complete the integration.
+
+### Running your integration
+
+After creating a custom workflow with the scheduler and action steps, switch on the toggle button to activate the integration run.
+
+## Scheduled daily
+
+By default, this scheduler will trigger daily at the time that you enter.
+
+> **Note:**
+> 
+> The time you choose is associated with the time zone you selected in **My settings** > [**Format settings**](/t/q6h4az6/my-settings). If you have not selected a local time zone setting, it will default to the Admin [**time zone settings**](/t/p8h4akf/format-settings). 
+
+Specify these fields in the configuration form:
+
+-   **Select hour of the day**: The trigger will start at this time every day.
+-   **Repeat frequency (in days)**: The trigger repeats itself after this time interval. This number is specified in days.
+-   You can select when the scheduler should end based on the following selections:
+    -   **Specific end date**: The trigger will end at a scheduled calendar date.
+    -   **After number of occurrences**: The trigger will end after a specified number of runs.![](/migration-assets/scheduler-by-kissflow/1.png) 
+
+## Scheduled weekly 
+
+On the weekly scheduler, select the days of the week you want the scheduler to run, and also the time. 
+
+> **Note:**
+> 
+> The time you choose is associated with the time zone you selected in **My settings** > [**Format settings**](/t/q6h4az6/my-settings). If you have not selected a local time zone setting, it will default to the Admin [**time zone settings**](/t/p8h4akf/format-settings). 
+
+Specify these fields in the configuration form:
+
+-   **Repeat frequency**: It determines how often the scheduler runs. This number is specified in weeks.
+-   **Days of the week**: The trigger will run during the selected days of the week.
+-   **Hour of the day**: The trigger will run during the selected hour of the day.
+-   **Starts at**: The trigger will start at this time of the week.
+-   You can select when the scheduler should end based on the following selections:
+    -   **Specific end date**: The trigger will end at a scheduled calendar date.
+    -   **After number of occurrences**: The trigger will end after a specified number of runs.![](/migration-assets/scheduler-by-kissflow/3.png) 
+
+## Scheduled monthly
+
+Select the day of the month you want the scheduler to run and also the time. 
+
+> **Note:**
+> 
+> The time you choose is associated with the time zone you selected in **My settings** > [**Format settings**](/t/q6h4az6/my-settings). If you have not selected a local time zone setting, it will default to the Admin [**time zone settings**](/t/p8h4akf/format-settings). 
+
+Specify these fields in the configuration form:
+
+-   **Starts on:** Set the date on which you want your scheduled trigger to start.
+-   **Repeat frequency (in months)**: It determines how often the scheduler runs. This number is specified in months.
+-   **Calendar days of the month**: You have a date range of 1 to 31 days to choose from. If you select 29, 30, or 31 the scheduler will only run on months that have that many days. Select **Last day of the month** to make sure it happens every month. 
+-   **Time of the day**: The trigger will begin at this time of the month's calendar day.
+-   You can select when the scheduler should end based on the following selections:
+    -   **Specific end date**: The trigger will end at a scheduled calendar date.
+    -   **After number of occurrences**: The trigger will end after a specified number of runs.![](/migration-assets/scheduler-by-kissflow/4.png) 
+
+## Scheduled yearly
+
+On the yearly scheduler, select the calendar date and month of the year you want the scheduler to run, and also the time. 
+
+> **Note:**
+> 
+> The time you choose is associated with the time zone you selected in **My settings** > [**Format settings**](/t/q6h4az6/my-settings). If you have not selected a local time zone setting, it will default to the Admin [**time zone settings**](/t/p8h4akf/format-settings). 
+
+Specify these fields in the configuration form:
+
+-   **Starts on:** Set the date of the year on which you want your scheduled trigger to start.
+-   **Repeat frequency (in years)**: It determines how often the scheduler runs (calculated in years).
+-   **Calendar months of the year**: Select the months of the year when you want this trigger to run.
+-   **Calendar days of the month**: You have a date range of 1 to 31 days to choose from. If you select 29, 30, or 31 the scheduler will only run on months that have that many days. Select **Last day of the month** to make sure it happens every month. 
+-   **Hour of the chosen date**: The trigger will begin at this time of the month's calendar day.
+-   You can select when the scheduler should end based on the following selections:
+    -   **Specific end date**: The trigger will end at a scheduled calendar date.
+    -   **After number of occurrences**: The trigger will end after a specified number of runs.![](/migration-assets/scheduler-by-kissflow/2.png)
+
+> **Note:**
+> 
+> It is not possible to schedule a process to be shared or enabled only for a specific period using the scheduler. As a workaround, you can set up an integration to send reminder emails to the admin, one to enable or share the form on the required date, and another to disable it later.
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

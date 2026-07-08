@@ -1,0 +1,139 @@
+---
+title: "Administering portals"
+description: "DRAFT (unverified) — migrated from /t/p8h4atv/administering-portals"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+Portal admins have access to the Portal settings tab on the portal administration screen. From your portal page, click **Manage > Portal administration** > **Portal settings**. Here, you can view and customize your portal domain name, change the portal logo, apply format settings to the portal, and manage portal security.
+
+## Portal settings
+
+### Portal details
+
+While setting up the portal, you would have given a name for your portal and a unique portal domain URL. You can change the portal name and domain at any time, but if another portal that's part of your Kissflow account uses a particular domain URL, you cannot use that URL. 
+
+If you change the domain address yourself, Kissflow will automatically redirect the old domain to the new one, and all portal users will be locked out and notified. However, your former domain will become available to register by another organization. If it is claimed by someone else, your old domain will no longer redirect.
+
+![](/migration-assets/administering-portals/4.png)
+
+### Portal Customization
+
+#### Portal logo and Mobile branding
+
+Your organization’s logo is your default portal logo. It will appear on the sign in screen and certain product emails. You can also change it to a customized logo. 
+
+We recommend you use a rectangular logo that is 240 X 36 pixels. The logo file must be less than 250 KB and in JPG, PNG, or SVG format.  
+  
+Also, for portal on mobile phones, provide app name and app icon under the mobile branding section. App name will always be your portal name. The app icon must be  512\*512 pixels in resolution, less than 500 KB in size, and in PNG format.   
+ 
+
+![](/migration-assets/administering-portals/1.png)
+
+### Format settings 
+
+As a Portal Admin, you can control your portal's default settings that impact how data is formatted and displayed.
+
+**Portal time zone:** Your portal's time zone is considered when you configure a scheduled action in integrations or include a [deadline](/t/60h9qm980h4g2/configuring-deadline) in a workflow. All data will be matched to your portal's time zone. You can select a timezone using the map or directly from the dropdown. You can zoom in and out of the map to see all available time zones worldwide.
+
+**Language:** Choose the primary language for your portal account. Kissflow is currently offered in English, Simplified Chinese, Italian, Korean, Japanese, Spanish, Brazilian Portuguese, French, German, Russian, Vietnamese, Thai, and Arabic.
+
+**Date format:** You can choose a data format of your choice. This will adjust the formatting of your portal's number, date, and date-time fields. Here are the data format options provided by Kissflow:
+
+-   Local (based on your browser settings)
+-   US (D/MM/YYYY)
+-   European (MM/D/YYYY)
+-   ISO (YYYY-MM-DD)
+
+**Number and currency format:** Local number and currency conventions are automatically discovered from the browser settings. Numbers will always automatically be formatted based on the user's local conventions by default.
+
+An individual user's preferences can override the portal’s timezone, date and time format, and language.
+
+Click **Save** when you are done.  
+ 
+
+![](/migration-assets/administering-portals/2.png)
+
+### Portal security
+
+#### Manage how users sign in
+
+Your portal is assigned a unique URL that can be used for signing in. On the sign-in page, portal users can enter the email address and password they set up during the initial sign-up or after a password reset. Kissflow also supports OAuth-based sign-in for Google and Microsoft accounts.
+
+![](/migration-assets/administering-portals/5.png)
+
+#### Manage how users sign up
+
+Rather than individually inviting new users, you can choose to make your portal sign-up process globally accessible by sharing the custom sign-up URL. You can access **Sign-up preferences** under Portal administration and enable the **Allow new signups option**. 
+
+The URL expiry limit can be set anywhere from 1 to 7 days under the **Set invite link expiry** section. Anyone who visits this URL will be prompted to add their name and email address. Then, Portal Admins will be notified to approve the sign-up of the user. Choosing **No approval needed** will allow portal users to sign up directly without the approval of the Portal Admin. As a Portal Admin, you can manually choose the portal user from the Portal user tab and click the **Activate** button to provide an active license to the portal user.
+
+If you want to disable future sign-ups via this URL for new users, disable **Allow new signups** and click **Save**.
+
+![](/migration-assets/administering-portals/3.png)
+
+### Organization settings
+
+As a portal admin, you can define your trusted organizations and give them access to view and assign tasks to all portal users across organizations. This customization allows you to meet your portal’s operational needs.  
+  
+Choose the organizations you believe should have the visibility and authority to assign tasks to all portal users. You can select and add multiple organizations from the dropdown and click **Save**.  
+  
+This ensures that the right entities within your portal can effectively manage and coordinate tasks.
+
+![](/migration-assets/administering-portals/7.png)
+
+The organization names listed in the dropdown menu here in organization settings are sourced from the organization name column in **Portal administration > Portal users**.
+
+#### Managing organization name in portal users
+
+The organization name is an important field in [portal users](/t/q6yq2wc), helping to categorize and manage users based on their respective organizations. This field is auto-detected but can be manually edited if needed.
+
+![](/migration-assets/administering-portals/6.gif)
+
+#### Enabling cross-organization user access
+
+This toggle switch enables all portal users to view and assign tasks to all other portal users across organizations.
+
+![](/migration-assets/administering-portals/8.gif)
+
+> **Note:**  
+> Before enabling this option, ensure that cross-organization user access complies with your organization's policies and relevant regulations. If you do not want to provide this universal access, carefully define your trusted organizations in the organization settings section.
+
+#### FAQs
+
+**1\. Can I add a new organization directly in the dropdown menu?**
+
+No, new organization names must be added by updating the organization name field for a user in portal users.  
+  
+**2\. What happens if I delete an organization name from a user in portal users?**
+
+The organization name will be removed for that specific user, but if that particular organization name is assigned to at least one other user, it will remain visible in the dropdown menu under organization settings.  
+  
+However, if no other users have that organization name, it will no longer appear in the dropdown menu under organization settings.  
+  
+**3\. What is the default setting for organizational settings and cross-organization user access?**
+
+By default, organizational settings are not configured and cross-organization user access is turned off. This means portal users can only view and assign tasks to other portal users within their own organization.
+
+**4\. What happens if a user is using a public domain?**
+
+If a user is using a public domain, the organization name will be empty in portal users. However, the admin can edit this field to add an organization for the user.
+
+## Portal users
+
+[Portal Admins](/t/35h4ak0/user-roles-permissions) can activate, deactivate, and delete portal users here. They can also resend verification emails to unverified users and send reset password emails when necessary. The **[Portal users](/t/q6yq2wc/managing-portal-users)** table offers a way to modify details of multiple portal users simultaneously.
+
+## Audit log
+
+The **[Audit log](/t/y4ymrjg)** section stores the history of all the activities related to the portal. It allows the portal admin to search and find the portal-level and item-level changes made by users in a portal.
+
+## Deployment history
+
+Deployment history allows you to track the different version changes deployed while building the portal app. If multiple users are building the same app, it will show the details of who deployed a particular version and when it was deployed. You can learn more about it [here](/t/m1h9qkg/app-versioning#tracking-version-changes).
+
+![](/migration-assets/administering-portals/9.png)

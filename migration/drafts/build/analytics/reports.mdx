@@ -1,0 +1,124 @@
+---
+title: "Reports"
+description: "DRAFT (unverified) — migrated from /t/x2yzj9g/reports"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+[Reports](/t/35h9qzj/analytics-reports-an-overview) help you derive insights into how your process, board, or dataform functions. You can generate customized reports to find trends, patterns, and outliers in your app.
+
+Access reports by clicking the **Reports** tab on your form page.
+
+## Creating a new report inside a form
+
+To create a new report inside a process, board, or dataform, click the **Reports** tab > **New report**.
+
+1.  Provide a name for the report.
+2.  Choose the type of report.
+3.  Click **Create**.
+
+## Types of reports
+
+-   [Tabular reports](/t/g9h9qzby7h4gs/tabular-reports) display information in columns and rows, like a spreadsheet. 
+    
+-   [Charts](/t/h7h9qzry7h4gs/chart-reports) display data graphically in one of ten chart types including area, bar, doughnut, line, pie, and bubble chart.
+    
+-   [Pivot](/t/q6h9qz5y7h4gs/pivot-reports) reports can be used to quickly summarize large quantities of data. You can convert columns into rows and rows into columns.
+    
+-   [Card reports](/t/h7y8qgv/card-report-for-apps) display key analytics metrics and KPIs, providing a clear view of performance and trends at a glance, using essential data and comparison calculations.
+    
+
+> **Note:**
+> 
+> The reports you create within processes, boards, and dataforms provide data specific to each flow. Analytics reports, however, can only be created within the Analytics module of an app.
+
+## Enabling drilldown in chart and pivot reports
+
+<iframe src="https://player.vimeo.com/video/950964198?badge=0&autopause=0&player_id=0&app_id=58479" title="Embedded video" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+The drilldown feature allows you to delve deeper into your report data by displaying a tabular view of underlying rows associated with specific data points in chart and pivot reports. Drilldown is enabled by default when creating a report and can be toggled on or off in the report configuration.
+
+To enable drilldown:
+
+1.  Navigate to the settings tab in the report configuration page.
+2.  Under Drilldown, select at least two fields.
+3.  Click **Apply**.
+
+> **Note:**
+> 
+> The fields used to create reports are automatically selected as default drilldown fields. A minimum of two fields are required for enabling drilldown.
+
+### Previewing drilldown data
+
+1.  Hover over your chart or pivot report.
+    
+2.  Click on a data point to drill down into the data.
+    
+3.  A tabular view will appear, showing the underlying rows related to the clicked data point.
+    
+4.  You can search fields, show/hide columns, and sort data by clicking the dropdown on each column header. You can also export data at runtime.
+    
+
+### Exporting drilldown data
+
+You can export drilldown data at runtime once you save the report in the page. 
+
+To export drilldown data:
+
+1.  Click the **Export** icon.
+    
+2.  Select **CSV**, **JSON**, or **CSV (Multiple files)**.
+    
+3.  Check timezone settings to enable the time zone in the report.
+    
+4.  Click **Export**. The data will be sent to your email.
+    
+
+> **Note:**
+> 
+> When exporting, enable timezone settings to convert all date and time fields to your personal time zone. If not set, your account’s time zone will be used. Unchecked, fields will follow the report’s time zones.
+
+### Configuring On click events to link reports using drilldown
+
+Apart from the default drilldown, app developers can configure custom drilldown using on click events for chart and pivot components in the Page builder. This allows the redirection of reports to other reports or pages, providing a smooth navigation experience.
+
+1.  Select the report component in the page builder.
+    
+2.  Go to the **Event** properties tab.
+    
+3.  Add an on click event and select the action and target page for redirection. You can also select Open popup and [JavaScript action](/t/35yzj4x/variables-and-parameters-in-application-development#usage-in-javascript-editor) to configure the events.
+    
+4.  Once configured, click **Save & Preview**.
+    
+5.  You can view the page at runtime.
+    
+6.  When a user clicks on a portion of the chart or pivot component, relevant data (such as dimensions, measures, and configured legends) is passed as [event parameters](/t/35yzj4x/variables-and-parameters-in-application-development#event-parameters). 
+    
+
+> **Note:** When you add an event to the component, it will override the configured drilldown in the report.
+
+### Use case
+
+Imagine you have a pie chart displaying Purchase request data by status. By enabling the Drilldown feature, you can configure an on click event in the report using Javascript action. To configure a On click event,
+
+1.  Navigate to the application page.
+    
+2.  Drag and drop a report component inside the page builder.
+    
+3.  Select the component.
+    
+4.  Go to the **Events** tab.
+    
+5.  Add an on click event and select the [JavaScript action](/t/35yzj4x/variables-and-parameters-in-application-development#usage-in-javascript-editor) to configure the events.
+    
+6.  Once configured, click **Save & Preview** to view the page at runtime.
+    
+
+When a user clicks on a portion of the chart, the custom drilldown triggers another bar chart with relevant data. This way, you can link two reports using drilldown on the page. 
+
+Clicking on the pie chart segment showing **In Progress purchase requests** will display a stacked column chart showing detailed purchase requests by department and step. This interaction provides a deeper understanding of the data and allows for more targeted analysis.

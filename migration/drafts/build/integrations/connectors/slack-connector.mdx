@@ -1,0 +1,64 @@
+---
+title: "Slack connector"
+description: "DRAFT (unverified) — migrated from /t/x2h4afh/slack-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## What is Slack?
+
+Slack is a team communication platform for instant messaging, document sharing and knowledge search for modern teams. Documents and messages are easily searchable, accessible anywhere you go and made available, all-in-one place.
+
+## Getting started with Kissflow's Slack integration
+
+Kissflow's Slack connector enables you to connect with Slack instantly and to automate your work with other Kissflow apps and popular third party apps. To access this feature, you must have a valid Slack account and be a paid Kissflow customer. The Slack connector allows you to receive data from other flows or apps and perform specific actions and search actions in Slack.
+
+For now, the connector for Slack does not support any trigger events..
+
+### Actions in Slack connector
+
+**Action event(s)**
+
+**Description**
+
+Send a channel message
+
+This action posts a new message to a specific channel in Slack. You can also schedule a message for a later time.
+
+Send a direct message
+
+This action sends a direct message to a user or yourself from the Slackbot. You can also schedule a message for a later time.
+
+Invite a user to a channel
+
+This action invites an existing user to the Slack channel of which you are a member.
+
+Create a channel
+
+This action creates a new channel in Slack.
+
+Find a user by email
+
+This search action locates a user by using their email address as a match.
+
+### Slack connector as an action step
+
+1.  In your Kissflow account, click the **Create** button in the left navigation panel and select **Integration** from the list. Enter a unique name and description for your integration and click **[Create](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Once inside your editor, set up a trigger step, such as a Kissflow Process trigger event, **When an item is created.**
+    
+3.  After setting up your trigger step above, click the Add button (![](/migration-assets/slack-connector/2.png) ) next to set up your action step. Search for **Slack** and select a desired action.
+4.  After choosing your action event, authenticate the connector. Click **+Add an account** and sign in using your Slack account. Kissflow uses Slack OAuth for authentication.![](/migration-assets/slack-connector/1.png) 
+5.  After authenticating your Slack account, add relevant values against the Slack form fields. You can hit **Refresh fields** to view all the updated fields in the selected Slack form. You can also map Slack fields from your trigger step or previous action steps. After the action is executed, these values will be automatically added to item fields.![](/migration-assets/slack-connector/3.png) 
+6.  After a successful configuration, test whether your Slack action step is set up correctly by clicking the **T****est** button. The connector will pull field data from your selected Slack account and display it as a JSON output. Similar to trigger step, errors are notified to you right away. Fix them before retesting the action step.![](/migration-assets/slack-connector/4.png)
+
+### Setting up Slack connector
+
+After creating a custom workflow with your Slack connector's action steps, switch on the toggle button to activate the integration run. Once a trigger event occurs, the Slack actions are activated.
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

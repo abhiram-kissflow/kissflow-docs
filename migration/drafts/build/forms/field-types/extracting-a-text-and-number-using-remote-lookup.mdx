@@ -1,0 +1,36 @@
+---
+title: "Extracting a text and number using remote lookup"
+description: "DRAFT (unverified) — migrated from /t/h7h4azs/extracting-a-text-and-number-using-remote-lookup"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+You can use a remote lookup field to extract data from an external API. For example, you may want to display the general weather forecast and temperature for a particular city. 
+
+1.  Create a new text field called **City**. 
+2.  Create a remote lookup field called **Weather**. 
+3.  In the URL field, add the API link such as one from [OpenWeather](https://openweathermap.org/api).
+4.  In this link, we’ve entered the Field ID from the first field we made.
+5.  Choose **GET** as the request type.
+6.  Header name and Body name are not required for this example.
+7.  In the field **What kind of data are you working with?** choose **JSON**.
+8.  In J**SON path of value in result**, enter `$`. 
+9.  In the field **What kind of data are you working with ?** choose **Text**. 
+10.  In the field **How should the result be chosen?** choose **Autopopulate a value** and click **Done**.
+11.  To extract the forecast as text, create a new text field called **Forecast**. Enter the formula as `Weather.extractText("$.weather[*].main").get(1).`
+12.  To extract the temperature as a number, create a new number field called Temperature. Enter the formula as `Weather.extractNumber("$.main.temp", 1)` 
+
+When extracting any data from a JSON, use this pattern:
+
+`Remotelookup_Fieldname.extractNumber(path, index)`
+
+`Remotelookup_Fieldname.extractText(path, index)`
+
+We have deprecated the expression `Remotelookup_Fieldname.extractJson(path, index)`. However, we will continue supporting the fields which already have this expression. You will not be allowed to use this expression in a new field. 
+
+In the live form, when you type the city and click **Get Data**. The temperature and forecast will be displayed.

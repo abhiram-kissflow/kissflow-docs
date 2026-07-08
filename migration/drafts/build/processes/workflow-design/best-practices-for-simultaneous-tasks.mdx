@@ -1,0 +1,59 @@
+---
+title: "Best practices for simultaneous tasks"
+description: "DRAFT (unverified) — migrated from /t/x2h9qtq/best-practices-for-simultaneous-tasks"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+There are times in a workflow when you want multiple assignees to act on a step at the same time. There are two ways to do this in Kissflow.
+
+## Parallel branches
+
+Parallel branches create separate workflows and steps that can happen simultaneously.
+
+In the workflow section, click the **Add** button (![](/migration-assets/making-a-process-workflow/12.png)), and then **add a parallel branch**. Two branches will appear. If you want more branches, click **Add a branch**. Click **Change** to rename each branch or [write a condition](/t/83h9qth/conditional-steps) for when that branch should happen.
+
+You must add a step under each branch. Click the **Add** button (![](/migration-assets/making-a-process-workflow/12.png)), and click **Add a new step**. Name the step and then choose the assignees.
+
+Here’s how parallel tasks appear when reviewing the status of a workflow:
+
+![](/migration-assets/best-practices-for-simultaneous-tasks/1.png)
+
+## Single step with multiple assignees
+
+The second way you can create simultaneous tasks is to create a single task that you assign to multiple people. In the step, select the users you want to assign the task. Under **Assignment preference**, click **Change**. Then choose **Assign to all**, and **All assignees**.
+
+Here’s how a single task with multiple approvers appears in the workflow progress:
+
+![](/migration-assets/best-practices-for-simultaneous-tasks/2.png)
+
+## Which assignment preference mode is the best?
+
+Assigning multiple assignees to a step is the best option if:
+
+-   All the assignees will always need to act on the item, and
+-   All the assignees should see the same data on the form
+
+The advantage of using a single step with multiple assignees is that when you need to edit the workflow or permissions, you only have to change one step, instead of going through and changing multiple steps–it requires much less maintenance.
+
+Using parallel branches is best if:
+
+-   You want to set conditions on when some people are acting on an item, or
+-   You want to change the data shown to different people
+
+In both options, the workflow will not move forward until all the steps are completed. However, with parallel branches, you have the option of creating additional steps beneath some of the branches.
+
+## Use cases
+
+The first is employee onboarding. At a certain section of the workflow, you want the IT, Finance, and Admin teams to all perform an action simultaneously as a part of the onboarding process. None of the steps is dependent on the others, but to move forward in the workflow, all of them need to be completed. Each team has slightly different data you want to expose to them on the form, and different fields to enter data into.
+
+In this case, parallel branches are the right choice because you want the form details to appear differently. Also, if there are situations where a candidate didn’t need to have all three tasks happen, you could write a condition to allow for that.
+
+In the second use case, you need to get a purchase order approved by three people: the department head, the location head, and the purchasing manager. Similarly, they don’t need to happen in a particular order, but all of them must approve it before it can move on. All three will review the same information and provide their approval.
+
+In this case, the single step with multiple assignees is the right choice. All of the approvers will always need to act, and they are all looking at the same data.

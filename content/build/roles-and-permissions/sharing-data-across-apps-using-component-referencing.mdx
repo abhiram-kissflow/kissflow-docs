@@ -1,0 +1,90 @@
+---
+title: "Sharing data across apps using component referencing"
+description: "DRAFT (unverified) — migrated from /t/83y6m1q/sharing-data-across-apps-using-component-referencing"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+Component referencing across apps in Kissflow enables seamless and dynamic data sharing across applications within your account or [external portal apps](/t/m1h4azh/portal-overview). This guide provides a comprehensive overview of utilizing component referencing to access views, reports, and workflow steps from different data sources like your application's [processes](/t/g9yzjcd/process-form-overview), [boards](/t/g9yzjal/boards-overview), and [dataforms](/t/m1h9q1y/dataforms-overview).
+
+## Capabilities of component referencing across apps
+
+Component referencing enables several advanced interactions across applications:
+
+-   **Accessing views and reports**: This feature allows the integration and display of data layouts and reports from one application within another, ensuring consistent data utilization across your organization.
+    
+-   **Acting on workflow steps**: Facilitates the execution of actions related to workflow steps from one application to another, streamlining processes that span multiple applications.
+    
+-   **Initiating workflow items**: Enables users to start processes and initiate items in one application from the interface of another, enhancing workflow flexibility and responsiveness.
+    
+
+## Setting up component referencing across apps
+
+Here are the three prerequisites for referring flows of a source app from your current app:
+
+1.  [Adding a role](/t/h7yzj46/application-roles#adding-a-role-to-an-application) - Go to the source app from which you want to reference a component, and add the roles from your current app to the **External apps** section of the source app.  
+    ![](/migration-assets/sharing-data-across-apps-using-component-referencing/2.gif)
+    
+2.  [Permission assignment](/t/83yzj9j/role-permissions) - In the source app, navigate to the view, report, or process you wish to access from your current app. Assign the necessary permissions to the app roles added in the previous step.  
+      
+    **Note**: For external app roles, only **Initiate** permissions can be granted at the flow level share,  
+    which applies solely to [processes](/t/83yzjcs/managing-process-roles-and-permissions) and [boards](/t/m1yzjak/managing-board-roles-and-permissions).
+    
+      
+    ![](/migration-assets/sharing-data-across-apps-using-component-referencing/1.png)
+3. **Component consumption** -  After assigning roles and sharing components in the source app, you can access those components in the page builder of your current application. However, this is only possible if at least one role from your current app has been authorized to access the components in the source app.
+    
+    > **Note:**  
+    > Only individual components can be shared, not the entire flow.
+    
+
+![](/migration-assets/sharing-data-across-apps-using-component-referencing/3.png)
+
+### Practical use case example
+
+Consider a scenario where you manage the IT asset procurement through an internal procurement app and a vendor portal app. The internal procurement app, which is meant for the internal members of the organization, facilitates placing asset requests using a Purchase Order (PO) process form. The vendor portal app is dedicated to vendors to verify purchase orders sent to them and acknowledge the fulfillment.
+
+After you raise a purchase order, it’s to be sent to the vendor for approval before processing the receipt.
+
+#### Challenges in the current process
+
+-   **Step assignment**: Similar to the purchase order process, portal users trigger a status update process via integration. However, in-app members (source app) need help to track this process's status, making tracking and oversight challenging.
+    
+-   **View sharing**: Direct view sharing between apps is not supported. The workaround involves using a custom component to fetch data via API, which adds complexity.
+    
+
+#### Solution using component referencing across apps
+
+Component referencing across apps simplifies sharing data between the procurement (source) app and the vendor (portal) app, enabling efficient management of work items. Vendors can now actively participate in the procurement process and vice versa.
+
+For instance, the vendor must review and accept each Purchase Order (PO) before issuing an invoice.
+
+![](/migration-assets/sharing-data-across-apps-using-component-referencing/4.jpg)
+
+To facilitate this:
+
+1.  Link the vendor’s role to your app’s under External app roles.  
+      
+    ![](/migration-assets/sharing-data-across-apps-using-component-referencing/6.gif)
+    
+2.  Next, assign this role to the PO process. You can assign an initiate or manage permission to this role.  
+      
+    ![](/migration-assets/sharing-data-across-apps-using-component-referencing/5.gif)
+    
+3.  Assign this role with appropriate permissions to the PO process and add a workflow step, ensuring each order receives vendor approval before proceeding.  
+      
+    ![](/migration-assets/sharing-data-across-apps-using-component-referencing/7.gif)
+    
+
+Similarly, vendors can create, submit, and fulfill invoices in the vendor portal app upon your approval.
+
+## Advantages of component referencing across apps
+
+-   **Efficient collaboration**: Component referencing across apps allows for seamless data exchange and workflow coordination, reducing the need for manual intervention and closing communication gaps.
+    
+-   **Enhanced visibility:** Manage end-to-end data effectively while maintaining confidentiality where necessary.

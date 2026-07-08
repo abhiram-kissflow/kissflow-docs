@@ -1,0 +1,270 @@
+---
+title: "Importing and exporting data from a dataset"
+description: "DRAFT (unverified) — migrated from /t/x2h4alj/importing-and-exporting-data-from-a-dataset"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+The **CSV import** feature in your dataset will help you transfer data from a CSV file or a spreadsheet with a **.csv** extension to your Kissflow dataset. Once imported, your CSV rows will appear as rows in your dataset, and each column will contain metadata about your data. 
+
+## Organizing the data in your CSV file
+
+The CSV Import feature allows you to import data in bulk into Kissflow. Here are some guidelines to follow when preparing a CSV file for import:
+
+-   **Mandatory fields**: If mandatory fields exist in your Dataset form, you must map **at least one column** in your CSV file with the required fields.
+-   **Data**: Within the CSV file, you can map only the following field types to your dataset: **Text, Text area, Number, Rating, Date, Date-time, Currency, Yes/no, User, Single-select dropdown, Multi-select dropdown, Slider, and Checkbox**.
+    -   You cannot import data from a CSV file for the following field types: Attachment, checklist, signature, and image. 
+    -   For **Yes/No** fields, you can use any binary values: True/False, 1/0, Yes/No.
+-   **Delimiter**: You must only use the comma (**,**) as a delimiter inside the CSV file.
+-   **Rows**: The CSV file can have up to **50,000 rows**, excluding the header.
+-   **Columns**: Your CSV file can have up to 100 columns. The CSV column names can be alphanumeric but should contain only the following characters: space, hyphen (-), and underscore (\_).
+-   Encoding: The CSV file must have a .csv extension that supports UTF-8 encoding.
+
+> **Note:** To ensure consistent performance, datasets have default row and column limits. If you require an increase, please contact our support team with details about your use case. All requests to expand limits are evaluated individually, and expansions are approved at our team's discretion.
+
+### Supported date and time formats
+
+**Data Format**
+
+**Example**
+
+DD-MMM-YY
+
+02-DEC-20
+
+DD-MMM-YYYY
+
+02-DEC-2020
+
+DD/MM/YY
+
+02/12/20
+
+DD/MM/YYYY
+
+02/12/2020
+
+MM/DD/YY
+
+12/02/20
+
+MM/DD/YYYY
+
+12/01/2020
+
+DD.MM.YY
+
+02.12.20
+
+DD.MM.YYYY
+
+02.12.2020
+
+DD-MM-YYYY
+
+02-12-2020
+
+YYYY-MM-DD
+
+2020-12-02
+
+-   The supported datetime formats
+    
+
+**Datetime Format**
+
+**Example**
+
+DD-MMM-YYTHH:mmZ
+
+01-Jan-20T12:00Z
+
+DD-MMM-YY hh:mm A
+
+01-Jan-20 05:00 AM
+
+DD-MMM-YY HH:mm
+
+01-Jan-20 05:00
+
+DD-MMM-YYYY HH:mm
+
+01-Jan-2020 05:00
+
+DD-MMM-YYYY hh:mm A
+
+01-Jan-2020 05:00 AM
+
+DD-MMM-YYYYTHH:mmZ
+
+01-Jan-2020T05:00Z
+
+DD/MM/YY HH:mm
+
+01/12/20 05:00
+
+DD/MM/YYTHH:mmZ
+
+01/12/20T12:00Z
+
+DD/MM/YY hh:mm A
+
+01/12/20 12:00 AM
+
+MM/DD/YY HH:mm
+
+12/01/20 12:00
+
+MM/DD/YYTHH:mm
+
+12/01/20T12:00
+
+MM/DD/YY hh:mm A
+
+12/01/20 12:00 AM
+
+MM/DD/YYYY HH:mm
+
+12/01/2020 12:00
+
+MM/DD/YYYYTHH:mmZ
+
+12/01/2020T12:00Z
+
+MM/DD/YYYY hh:mm A
+
+12/01/2020 12:00 AM
+
+DD.MM.YY HH:mm
+
+01.12.20 12:00
+
+DD.MM.YYTHH:mmZ
+
+01.12.20T12:00Z
+
+DD.MM.YY hh:mm A
+
+01.12.20 12:00 PM
+
+DD.MM.YYYY HH:mm
+
+01.12.2020 12:00
+
+DD.MM.YYYYTHH:mmZ
+
+01.12.2020T12:00+05:30
+
+DD.MM.YYYY hh:mm A
+
+01.12.2020 12:00 PM
+
+-   Timestamp formats
+
+**Timestamp**
+
+**Example**
+
+D - Date
+
+DD - 01, 24
+
+M - Month
+
+MM - 01, 02, 12
+
+MMM - Jan, Feb
+
+Y - Year
+
+YY - 99, 00, 01
+
+YYYY - 1999, 2001
+
+T - Constant Character (As per ISO)
+
+T
+
+H - 24 Hour
+
+HH - 05, 17
+
+h - 12 Hour
+
+hh - 03, 05
+
+m - Minute
+
+mm - 00, 15, 59
+
+A - Meridiem
+
+A - AM, PM
+
+Z - Time Zon
+
+Z - Z, +05:30
+
+Once you have confirmed that your CSV file meets the above requirements, follow these steps to import the CSV data to your Kissflow Dataset:
+
+1.  Sign in to your Kissflow account. If you haven't already, create a new dataset.
+2.  On the top right section of the page, click **Import CSV** beside the Share button.
+3.  After the file picker opens, click **Choose your files**, browse your documents, and select your desired file with a **.csv** extension.
+4.  After importing the CSV file, the system checks it for file corruption and delimiter errors. If you find an issue, please correct it in the CSV file before re-uploading it.
+5.  Click **Next** to continue. Then choose the columns from your CSV file that you would like to appear in the dataset. You must map the columns in your CSV file to the fields in your dataset. For example, you can choose to map the email addresses from your CSV document into the Email field in your dataset.
+
+> **Note:**
+> 
+> -   CSV header names and data fields must be of the same data type.
+> -   The import tool currently supports only alphanumeric column headers in CSV files. To prevent errors, please ensure your CSV headers are in English and do not contain special characters. Once the file is accepted, you will be able to map these alphanumeric headers to your specific system fields during the import configuration step.
+
+![](/migration-assets/importing-and-exporting-data-from-a-dataset/2.gif)
+
+After mapping the dataset values, you will have the choice to handle the data in your dataset:
+
+1.  You can either add new rows and update existing rows, or add only new rows while importing the data.
+2.  You can delete or keep the dataset rows that are not in the CSV file.
+3.  You can skip specific rows or cancel the import in case of errors.
+
+After you have selected your options, click **Next**. Your data will begin importing. 
+
+You can close the window and continue working while waiting for all your data to be imported into your dataset. After the import is complete, you will be notified via email and push notifications.
+
+There are 3 possible scenarios.
+
+-   All the imported data was successfully uploaded into the dataset.
+    
+-   Some of the data was imported successfully, but some rows failed. You can download the failed rows, work on them, and upload the file again. 
+    
+-   The import was aborted. View the error logs to see what went wrong.   
+    
+
+## Exporting data from a dataset 
+
+To export a data from a dataset, follow these steps:
+
+1.  Click the **Export** button on the top right side of the screen next to the **Filter** button. 
+2.  You can export data in two file types: **CSV** file and **TXT** file.
+3.  Choose the file you prefer and click **Export**.
+4.  After exporting, you will receive an email link to the exported file.
+
+> **Note:**
+> 
+> CSV exports are limited to 100,000 rows per file. If your dataset exceeds this limit, the export will be split into multiple CSV files and bundled into a ZIP folder. This ensures smoother downloads and better compatibility with tools like Excel.
+
+![](/migration-assets/importing-and-exporting-data-from-a-dataset/1.gif)
+
+> **Note:**
+> 
+> When exporting datasets that include user fields, you’ll now receive an additional column with the user's email ID, alongside the existing User ID and User Name.
+
+## **FAQ**
+
+**Q) Can I use the Import CSV option in the dataset when auto-lookup is enabled in your dataset's lookup field?**  
+  
+Ans) When an auto lookup is enabled, you cannot use the import CSV option for a lookup column in Dataset. Auto lookup is designed to automatically populate the lookup column based on existing data relationships, which conflicts with manually importing data for that column.

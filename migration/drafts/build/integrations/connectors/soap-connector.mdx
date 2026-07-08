@@ -1,0 +1,80 @@
+---
+title: "SOAP connector"
+description: "DRAFT (unverified) — migrated from /t/g9h4afm/soap-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## What is SOAP?
+
+SOAP (Simple Object Access Protocol) is an XML-based protocol used to access web services through HTTP. SOAP web service providers publish their underlying table structures and associated data using WSDL. WSDL (Web Service Definition Language) is an XML document that describes its table schema and available operations.
+
+The Kissflow SOAP connector queries the WSDL URL published by applications (like ServiceNow, Microsoft Dynamics 365, Salesforce, etc.) and:
+
+-   Parse the WSDL response XML to retrieve specified SOAP attribute values.
+-   or use SOAP based calls to access data and perform certain actions on these applications.
+
+## Working with the SOAP connector
+
+Kissflow SOAP connector supports both **SOAP version 1.1 and 1.2**. It can be used to invoke a SOAP web service in your application to perform specific actions in your application or retrieve data for your workflow.
+
+Consider the following scenario: you want to create a purchase order in your Dynamics 365 account when a purchase request is granted in Kissflow Process. When the Kissflow Purchase request is approved, the SOAP connector queries the Dynamics 365 WSDL URL to create a purchase order in Dynamics 365. Alternatively, you can also fetch specific XML strings, such as the Purchase order serial number from Dynamics 365 and use it as an input to update your internal order dataset in Kissflow.
+
+### Action in SOAP connector
+
+Kissflow SOAP connector doesn't support any triggers for now.
+
+**Action**
+
+**Description**
+
+Make a SOAP call
+
+This action makes a SOAP call with your specified parameters to invoke a SOAP web service.
+
+## Configuring your SOAP connector
+
+1.  In your Kissflow account, click the **Create** button in the left navigation panel and select **Integration** from the list. Enter a unique name and description for your integration and click **[Create](/t/60h4akx/creating-an-integration)**. 
+    
+2.  In the editor, select the **SOAP** connector. You can also use the search to find the action directly.
+    
+3.  Click the **Action** dropdown menu, select **Make a SOAP call** and click **Next**.
+4.  Click **\+ Add an account** to consume a new SOAP web service.![](/migration-assets/soap-connector/3.png) 
+    
+5. **Consume SOAP**: Provide relevant fields values to authenticate your SOAP web service.
+    1.  **Connection label**: Name of your SOAP connection.
+    2.  **WSDL URL**: Specify the location of the Web Service definition (WSDL) provided by your web service provider. This address must return a valid WSDL definition.
+        
+        > **Note:**
+        > 
+        > When providing a remote WSDL URL, type it exactly the same way as you would type it into your web browser.
+        
+        ![](/migration-assets/soap-connector/1.png)
+        
+    3.  **HTTP authentication type**: Specify your Username and Password for URLs requiring **Basic** **authentication**. Select **None** if you don't want to authenticate your HTTP session.
+    4.  **Web services security type**: Specify the protocol that ensure security for SOAP-based messages. Specify your Username and Password for URLs requiring **Basic** **authentication.** Select **None** if you don't want to secure your SOAP messages.
+    5.  Click **Refresh fields** to fetch the updated fields in the form.
+    6.  Click **Next**.
+6.  To configure your SOAP call, enter the required values in the fields provided. When you consume a SOAP web service, Kissflow does the following for you:
+    -   Creates the SOAP web service.
+    -   Creates the exposed web services, ports, and operations with the corresponding input and output parameters.
+    -   Creates structures and static entities to hold the WSDL's complex types.
+    -   Maps the XML data types into Kissflow data types.![](/migration-assets/soap-connector/2.png)
+If the service supports more than one port, choose the port you wish to consume. Similarly, select the operation that you want to execute.8.  By default, NULL values will be sent when any mapped fields are left empty. Click the checkbox to stop sending these NULL values.  
+      
+    If the query sent to the WSDL URL returns the required payload, the step will show it as a success along with the data received. The data received by the SOAP connector can then also be consumed by other applications to perform specific actions.
+
+### Activating the SOAP connector
+
+After configuring your SOAP connector and your integration workflow, turn **ON** the toggle button on the upper-right corner of your editor to activate this integration.
+
+> **Note:**
+> 
+> SOAP messages are sent assuming that the recipient is XML compliant. A SOAP message does not have any encoding. It always decodes responses as UTF-8 and does not need the XML encoding header.
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

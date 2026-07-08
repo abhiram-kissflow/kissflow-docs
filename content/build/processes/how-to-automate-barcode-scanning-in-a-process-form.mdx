@@ -1,0 +1,26 @@
+---
+title: "Automating barcode scanning in a process form"
+description: "DRAFT (unverified) — migrated from /t/y4h9qtf/how-to-automate-barcode-scanning-in-a-process-form"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+If you are developing a process to streamline asset procurement requirements of your organization, you can customize your process form to allow end-users to scan an asset's barcode/QR code and automatically fetch the asset details. You can achieve it with the help of a [scanner field](/t/83h4azd/scanner-field), [lookup field](/t/g9h4azr/lookup-field)  linked to a [dataset](/t/h7h4alb/creating-a-dataset)'s key, and other required fields. When a particular asset’s code is scanned by the end-user, it will auto-populate the asset’s details in the form.Follow the steps below to configure a scanner field in your asset procurement process:
+
+1.  Create a [dataset](/t/h7h4alb/creating-a-dataset) named **Asset database** and fill it with relevant asset details.![](/migration-assets/how-to-automate-barcode-scanning-in-a-process-form/3.png)
+2.  Set unique barcode values as keys in the dataset. This will be the value fetched on scanning the code.
+3.  Create a [process form](/t/h7h4a18/process-overview), then add [scanner](/t/83h4azd/scanner-field) (Asset ID), and [lookup](/t/g9h4azr/lookup-field) (Asset details) fields.![](/migration-assets/how-to-automate-barcode-scanning-in-a-process-form/2.png)
+4.  From the **Asset details** lookup field in your form, select the **Asset database** dataset so you can lookup dataset fields like **Key**, **Asset type**, **Asset name**, and **Asset price**.
+    
+    ![](/migration-assets/how-to-automate-barcode-scanning-in-a-process-form/4.gif)
+    
+5.  Add a filter to match the dataset key with the value fetched by the **Asset ID** scanner field.![](/migration-assets/how-to-automate-barcode-scanning-in-a-process-form/5.png)
+6.  Enable **Automatically select the first value based on the filters**.![](/migration-assets/how-to-automate-barcode-scanning-in-a-process-form/1.png) 
+7.  Click **Go live.** 
+
+In the live process form, once you scan the asset’s barcode/QR code, the asset details will be auto-populated in the **Asset details** lookup field.

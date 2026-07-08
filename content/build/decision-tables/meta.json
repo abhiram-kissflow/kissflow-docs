@@ -1,4 +1,21 @@
 {
   "title": "Decision Tables",
-  "pages": ["overview", "where-used", "creating-a-decision-table", "conditions-and-results", "evaluation-settings", "testing", "importing-from-csv", "using-in-apps"]
+  "pages": [
+    "overview",
+    "where-used",
+    "creating-a-decision-table",
+    "conditions-and-results",
+    "auto-generating-values",
+    "evaluation-settings",
+    "importing-from-csv",
+    "testing",
+    "using-in-apps",
+    "decision-tables-overview",
+    "where-are-decision-tables-used",
+    "creating-conditions-and-results",
+    "importing-data-from-a-csv",
+    "auto-generating-condition-values",
+    "testing-a-decision-table",
+    "using-a-decision-table-inside-apps"
+  ]
 }

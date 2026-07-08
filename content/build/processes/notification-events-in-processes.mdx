@@ -1,0 +1,172 @@
+---
+title: "Notification events in processes"
+description: "DRAFT (unverified) — migrated from /t/h7y6kg2/notification-events-in-processes"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## Item notifications
+
+The item notifications listed below are predefined by the system, based on which you can create new custom notifications and configure trigger conditions, recipients, and content of your choice. These predefined notifications cannot be deleted but can only be toggled on or off.
+
+**[S.no](http://S.no).**
+
+**Notification event**
+
+**Trigger**
+
+**Recipient**
+
+1
+
+Item assigned
+
+When an item is assigned to a user
+
+Assignee
+
+2
+
+Item completed
+
+When an item completes its workflow
+
+Initiator
+
+3
+
+Item rejected
+
+When an item is rejected by a step assignee
+
+Initiator
+
+4
+
+Item withdrawn by the initiator
+
+When an item is withdrawn by an initiator
+
+Assignee
+
+5
+
+Item reassigned
+
+When an item is reassigned to a user
+
+Assignee
+
+6
+
+Item breached its deadline
+
+When an item breaches its deadline
+
+Assignee
+
+7
+
+Item breached its deadline (notification alert)
+
+When an item breaches its deadline
+
+Configured in workflow steps. [Learn more](/t/60h9qm9/configuring-deadline)
+
+8
+
+Item approaching deadline (notification alert)
+
+When an item approaches its deadline
+
+Configured in workflow steps. [Learn more](/t/60h9qm9/configuring-deadline)
+
+9
+
+Item breached its deadline (escalation)
+
+When an item breaches its deadline
+
+Configured in workflow steps. [Learn more](/t/60h9qm9/configuring-deadline)
+
+10
+
+Item approaching deadline (escalation)
+
+When an item approaches its deadline
+
+Configured in workflow steps. [Learn more](/t/60h9qm9/configuring-deadline)
+
+> **Note:**  
+> Notifications for all process related steps that are sent to the respective user will be redirected to the delegated user (if [task delegation](/t/60h4ak1) is **ON**), but **Item completed** (S.no. 2 in the above table) notification alone will be received only by the requestor or initiator of the item, even if the initiator/requestor has delegated their task to another user **.**
+
+## Process management notifications
+
+**[S.no](http://S.no).**
+
+**Notification event**
+
+**Trigger**
+
+**Recipient**
+
+1
+
+Member added to the process
+
+When a member is added to the process
+
+New member
+
+2
+
+Developer added to the process
+
+When a developer is added to the process
+
+New developer
+
+3
+
+Report Admin added to the process
+
+When a Report Admin is added to the process
+
+New Report Admin
+
+4
+
+Data Admin added to the process
+
+When a Data Admin is added to the process
+
+New Data Admin
+
+5
+
+Admin added to the process
+
+When an admin is added to the process
+
+New admin
+
+6
+
+Process renamed
+
+When a process is renamed
+
+All members
+
+7
+
+Published new version of a process
+
+When a new version of a process is published
+
+Admins and developers

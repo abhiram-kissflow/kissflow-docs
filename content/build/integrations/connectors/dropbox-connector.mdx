@@ -1,0 +1,71 @@
+---
+title: "Dropbox connector"
+description: "DRAFT (unverified) — migrated from /t/83h4afy/dropbox-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## What is Dropbox?
+
+Dropbox offers cloud storage, file synchronization, and personal cloud solutions for everyone.
+
+## About Kissflow's Dropbox integration
+
+Kissflow Integration's Dropbox connector allows you to link and synchronize your Dropbox folders and files with popular third-party apps and Kissflow apps. To integrate with Dropbox, you must have an active Dropbox account and be a paid Kissflow customer.
+
+Use the Dropbox connector to receive data from other flows or apps in order to perform particular actions. For the time being, the Dropbox connector does not support any trigger events.
+
+You can, for example, configure a workflow to save your Kissflow Process attachments to Dropbox. The Dropbox connector integration allows you to save these attachments to specific Dropbox folders.
+
+### Actions in Dropbox connector
+
+**Action event(s)**
+
+**Description**
+
+Create a folder
+
+This action creates a new folder at the specified path.
+
+Upload a file
+
+This action uploads a file or attachment to Dropbox. The maximun upload file size is 150 MB.
+
+Move a file/ folder
+
+This action moves a file or folder from within one folder to another.
+
+Find a file/ folder
+
+This search action finds a specific file or a folder by name.
+
+Find a file
+
+This search action finds a specific file by name.
+
+### Dropbox connector as an action step
+
+1.  In your Kissflow account, click the **Create** button in the left navigation panel and select **Integration** from the list. Enter a unique name and description for your integration and click **[Create](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Once inside your editor, set up a trigger step, for example, a Kissflow Process trigger event, **When a draft item is submitted.**
+3.  After setting up your trigger step above, click the Add button (![](/migration-assets/dropbox-connector/1.png) ) next to set up your action step. Search for **Dropbox** and select a desired [action](https://helpdocs.kissflow.com/app-connectors/dropbox-connector#action_s_in_dropbox_connector).![](/migration-assets/dropbox-connector/2.png)   
+4.  After choosing your action event, authenticate the connector. Click **+Add an account** and sign in using your Dropbox. Kissflow uses Dropbox's OAuth for authentication.![](/migration-assets/dropbox-connector/3.png)  
+5.  After authenticating with your Dropbox, form configuration is next. You can add relevant values against the Dropbox form fields and map fields from the previous steps. These values will be automatically added to item fields after the action is executed.
+    
+    Click **Refresh fields** to view all the updated fields in the selected Dropbox form.
+    
+    You can also use the **functions** button () to open the [formula editor](/t/35h4alz/computing-fields-using-formula-builder) to write any custom formulas.![](/migration-assets/dropbox-connector/4.png)
+6.  Click **Next**.
+7.  After a successful configuration, test whether your Dropbox action step is set up correctly. You can choose to use **Sample data** or **T****est** with the original configured data to make an API call.  
+    Based on your choice, the connector will pull field data from your selected Dropbox account and display it as a JSON output. Similar to trigger step, errors are notified to you right away. Fix them before retesting the action step.
+
+### Setting up a Dropbox connector
+
+After creating a custom workflow with your Dropbox connector's action steps, switch ON the toggle button to activate the integration run. Once a trigger event occurs, the Dropbox's actions are activated.
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

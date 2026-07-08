@@ -1,0 +1,33 @@
+---
+title: "Conditional steps"
+description: "DRAFT (unverified) — migrated from /t/83h9qth/conditional-steps"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+If you want a workflow step to happen only in a certain situation, you can create a condition for the step based on a [formula](/t/q6h4alh/introduction-to-expressions-and-formulas). The step will happen only when the conditions are met. To set up a condition, click on a step. Under **When does this step happen?**, select **Based on condition.** Then, you can enter the formula. You must use [logical expressions](/t/h7h4aly/logical-expressions) for conditional steps. 
+
+### Example 1
+
+Let’s say you only want a step to happen if the total purchase order value of a currency field is over $1 million. The formula will look like this:Total\_estimated\_cost.value()>1000000![](/migration-assets/conditional-steps/3.gif)
+
+In the above expression, you must convert a currency field to a number field using method value () to evaluate it against another number.
+
+## Logical operators in workflow conditions
+
+You can configure multiple conditions for a workflow step to create more specific and dynamic scenarios using logical operators.
+
+-   **\\|\\| (OR)**: This operator checks whether any one of the conditions is satisfied. For example: Request\_Status = "Done" \\|\\| Name = "Martin". This condition will evaluate as true if either the request status is "Done" or the Name is "Martin."  
+     
+-   **&& (AND)**: This operator checks whether all conditions are satisfied. For example: Request\_Status = "Done" && Name = "Martin". This condition will evaluate as true only if both the request status is "Done" and the Name is "Martin."
+
+## How conditional steps function
+
+After a condition is set, the step will have a small badge on the lower left side to show that the step happens conditionally.![](/migration-assets/conditional-steps/1.png)
+
+When you look at the workflow for a particular item, the step will show as **Skipped** if the conditions were not met. ![](/migration-assets/conditional-steps/2.png)

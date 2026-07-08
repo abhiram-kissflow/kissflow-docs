@@ -1,0 +1,175 @@
+---
+title: "Marketing automation"
+description: "DRAFT (unverified) — migrated from /t/q6ykcwk/marketing-automation"
+contentType: use-case
+persona: citizen-developer
+section: build
+---
+
+Marketing automation platforms are the engines of modern digital strategy. They empower businesses to communicate with customers and prospects at scale, delivering personalized messages at the right time. Integrations are the fuel for this engine. By connecting marketing platforms with other business systems like CRMs, e-commerce stores, and event management tools, companies can create a seamless, 360-degree view of their audience. This allows for powerful automation, from lead nurturing and customer segmentation to abandoned cart reminders and post-purchase follow-ups, ensuring that data flows freely and marketing efforts are efficient and effective.
+
+## Connectors in this vertical
+
+**Application**
+
+**Description**
+
+**[Active Campaign](/t/q6h4afp/activecampaign-connector)**
+
+A customer experience automation platform that combines email marketing, marketing automation, and CRM tools for advanced segmentation and personalization.
+
+**[MailChimp](/t/x2h4afl/mailchimp-connector)**
+
+An all-in-one marketing platform that helps businesses manage and talk to their clients, customers, and other interested parties, known for its user-friendly email builder.
+
+**[HTTP](/t/p8h4aky/http-connector)**
+
+Apart from the pre-built actions available in Kissflow Integrations for marketing, there may be scenarios where you need to perform a custom action. In such cases, you can use the HTTP connector to configure API calls from scratch to interact with any service that exposes a REST API.
+
+## Integration use cases with Kissflow
+
+Here are practical, scenario-based examples of how Kissflow can trigger actions in Active Campaign and Mailchimp to solve common business problems.
+
+### Active Campaign
+
+**Business goal**
+
+**Trigger (in Kissflow)**
+
+**Action (in ActiveCampaign)**
+
+**Detailed scenario**
+
+**Key benefit**
+
+Enrich lead data
+
+_Demo request_ form is approved.
+
+Create or update contact.
+
+Kissflow sends the prospect’s details. If the contact exists, their phone and company fields are updated; otherwise, a new contact is created in one efficient step.
+
+Ensures lead data is always up-to-date without creating duplicates.
+
+Onboard new employees
+
+HR submits a New E_mployee welcome_ form.
+
+Create contact.
+
+A brand-new contact is always created for the employee to ensure they receive critical onboarding emails and avoid conflicts with any existing records.
+
+Guarantees delivery of internal communications to new hires.
+
+Automate sales pipeline
+
+A pricing quote is approved in a quote-desk app.
+
+Create a deal.
+
+A new deal is created in the B2B sales pipeline with the quoted value, expected close date, and the prospect linked as the primary contact.
+
+Accelerates the sales cycle by instantly reflecting approvals in the sales pipeline.
+
+Manage supplier data
+
+The procurement team vets and approves a new supplier.
+
+Create an account.
+
+An account record for the new supplier is created with their company name, industry, and VAT number for full visibility across teams.
+
+Centralizes supplier information, making it accessible to all relevant departments.
+
+Alert teams to account changes
+
+Finance flags a customer as _Credit hold_ in a billing workflow.
+
+Update an account.
+
+The corresponding account is updated with a custom field _Credit status_ set to _On hold_ immediately alerting all reps.
+
+Provides real-time, critical account status updates to the entire sales team.
+
+Launch targeted campaigns
+
+Marketing launches a _VIP beta Program_ workflow.
+
+Create a list.
+
+A new contact list named _VIP-Beta-2025_ is automatically created, ready to be populated for targeted email sequences.
+
+Speeds up campaign preparation by automating list creation.
+
+Keep sales pipeline accurate
+
+The implementation team marks a project as 100 percent complete in a tracker.
+
+Update a deal.
+
+The linked deal is automatically updated to the _Won_ stage with 100% probability, and the actual close date is set to _today_.
+
+Improves sales forecasting accuracy with real-time deal status updates.
+
+Segment event attendees
+
+An attendee is confirmed for an event in the Kissflow app.
+
+Add a contact to a list.
+
+The attendee’s contact record is immediately added to the specific _Webinar-April-2025_ list for targeted follow-up communication.
+
+Enables timely and relevant post-event communication.
+
+Maintain list hygiene
+
+A request is approved to retire the _Spring-2023 promo_ campaign.
+
+Delete a list.
+
+The outdated contact list is automatically deleted, keeping the ActiveCampaign environment clean, compliant, and optimized.
+
+Reduces clutter and improves data governance and compliance.
+
+### MailChimp
+
+**Business goal**
+
+**Trigger (in Kissflow)**
+
+**Action (in Mailchimp)**
+
+**Detailed scenario**
+
+**Key benefit**
+
+Track customer behavior
+
+A customer completes checkout in an e-commerce workflow.
+
+Create a custom event.
+
+Kissflow fires a _Purchase completed_ event on the subscriber’s profile, triggering post-purchase thank you and upsell automations in Mailchimp.
+
+Enhances customer experience with immediate, behavior-driven follow-ups.
+
+Streamline campaign creation
+
+Product marketing approves new release notes in a process.
+
+Create a campaign.
+
+A draft campaign is instantly created in Mailchimp with the approved title, audience, and subject line, ready for final review.
+
+Reduces manual effort and potential errors in campaign setup.
+
+Automate campaign sending
+
+QA marks the draft email as _Cleared_ to send.
+
+Send a campaign.
+
+The integration immediately sends the approved campaign from Mailchimp, ensuring timely communication for product launches or announcements.
+
+Enables real-time campaign execution based on internal approvals.

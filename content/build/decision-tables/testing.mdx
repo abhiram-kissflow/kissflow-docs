@@ -1,0 +1,39 @@
+---
+title: "Testing a decision table"
+description: "Run sample condition values through a decision table to verify it returns the results you expect."
+contentType: guide
+persona: citizen-developer
+section: build
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - decision-tables
+  - testing
+---
+
+# Testing a decision table
+
+<PlanBadge plans={["enterprise"]} />
+
+Testing lets you verify that your decision table evaluates conditions correctly and returns the results you expect — before anything depends on it.
+
+<Callout type="info">
+  Testing requires at least **one condition and one result** in your decision table.
+</Callout>
+
+## Test your decision table
+
+1. Click the **Test** button in the top-right corner.
+2. In the test panel, enter sample values for each condition.
+3. Run the test.
+
+![Test panel with sample Age and Salary condition values entered, a Test button, and the returned Loan amount result shown in a table](/migration-assets/testing-a-decision-table/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+The decision table evaluates your sample values and displays the matching results in a table, following your [evaluation settings](/docs/build/decision-tables/evaluation-settings).
+
+## What's next
+
+- [Using a decision table inside apps](/docs/build/decision-tables/using-in-apps)

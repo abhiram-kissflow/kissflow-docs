@@ -1,0 +1,142 @@
+---
+title: "Process settings"
+description: "DRAFT (unverified) — migrated from /t/35yzjca/process-settings"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+As an application developer, you will have default access to various data that you create. To configure or change settings for the process, click **Settings** on the process editor.
+
+## **General settings**
+
+On the **General** **settings** tab, you can configure form titles and lock submission.
+
+![](/migration-assets/process-settings/7.png)
+
+### Configuring form titles
+
+The form title is the unique name given to each item as it goes through the process workflow. To configure form titles, click the **Add button (+)** and arrange default system fields or form fields in the order that you want, and then click **Save**. Based on this format, titles are auto-generated and are displayed on top of each process form.
+
+### Lock submission
+
+When you are working on the process or making significant changes, you may want to stop members of the process from starting new items. To lock submissions, select the **Do not allow new submission**s checkbox, and click **Save**.
+
+After enabling this, members will not be able to initiate new items and nothing will show in the feed. However, items in progress will continue to follow the workflow. Items in draft cannot be submitted until this option is removed.
+
+## [Access controls](/t/83ymdnx/security-settings-for-flows#access-controls) for process in apps
+
+You can allow or restrict permissions to users impacting their ability to print forms, and download attachments in processes.
+
+### [Print and download permissions](/t/83ymdnx/security-settings-for-flows#print-and-download-permissions) for process in apps
+
+You can toggle between two options: **Anyone** and **Only admins**. Setting the permission to **Anyone** would allow any user to download attachments or print forms. Choosing **Only admins** would restrict download and print permissions only to admins.Comment permissions for process in apps
+
+You can allow users to mention non-participants in the comments of a process.
+
+#### [Participants vs non-participants](/t/83ymdnx/security-settings-for-flows#participants-vs-non-participants)
+
+ 
+
+**Participant**
+
+**Non-participant**
+
+**Definition**
+
+Users who have participated in the item’s workflow up to the current step
+
+Users who have not participated in the item’s workflow up to the current step. 
+
+**Includes**
+
+Item’s initiator and all item approvers until the current step.
+
+-   Users who are future assignees.
+    
+-   Users who are not part of the process but are part of the account.
+    
+
+**Example**: If an item is currently at step C, its initiator and the approvers from steps A and B are participants. Everyone else is considered a non-participant.
+
+#### [Allowing assignees to mention non-participants](/t/83ymdnx/security-settings-for-flows#allowing-assignees-to-mention-non-participants)
+
+As the app admin, you can control whether assignees can mention non-participants in an item comment. This enables assignees to bring additional users into a comment thread for contextual collaboration, without adding them to the workflow.Open the development environment and open your app. Go to the process > click **Settings** > **Access controls** > **Comment permissions** and enable **Allow assignees to mention non-participants** toggle.You can:
+
+1. **Allow assignees to mention any user in this process** - Assignees can mention users to whom the process is shared. These users may or may not have participated in the item so far.
+    
+2. **Allow assignees to mention any user in this account** \- Assignees can mention any user in the account, even if they don’t currently have access to the process.
+    
+
+![](/migration-assets/process-settings/8.png)When a non-participant is mentioned:
+
+-   They can view all past and future comments in the item.
+    
+-   They can react and reply only in the relevant comment thread.
+    
+-   They can view the item’s data as shown at the step where they were mentioned.
+    
+-   They are not added as assignees or participants in the workflow.
+    
+
+> **Note**:
+> 
+> For a non-participant to join a comment thread, they must be mentioned in the parent comment of that thread.
+
+#### [Use case example:](/t/83ymdnx/security-settings-for-flows#use-case-example)
+
+An HR manager (current step assignee) is processing a **New Hire Contract** item. The workflow steps are: Start > HR Review > Finance Approval > Completed.At the **HR Review** step, the HR manager notices a custom clause that might need a legal check. Legal Lee is a user in the account but is not part of this HR process workflow.**Feature behavior:**
+
+1.  The HR manager mentions Legal Lee in the comments. Because the admin enabled **Allow assignees to mention any user in this account**, Legal Lee appears in the list.
+    
+2.  Legal Lee opens the item via notification.
+    
+3.  He sees all the contract data filled in during the **Start** and **HR Review** steps. He cannot see the fields of **Finance Approval** step because that step hasn't happened yet.
+    
+4.  Legal Lee leaves a reply: "Clause 4 looks good."
+    
+
+###  Watcher permissions
+
+**Allow process members to watch items** - When this toggle is enabled, item initiators can add users part of the current process as watchers to items they initiate. 
+
+![](/migration-assets/process-settings/9.png)
+
+#### What happens when this setting is enabled?
+
+-   Item initiators can add up to 10 process users as watchers to their items.
+-   Watchers can track item progress and its outcomes.
+-   Watchers can view the item form in read-only mode.
+-   Watchers can add comments and mention item participants.
+-   Watchers can be mentioned in comments.
+-   Watchers receive notifications when,
+    -   They are added or removed as a watcher, 
+    -   The item is completed, rejected, or withdrawn.
+    -   They are mentioned in a comment.
+    -   Someone reacts and replies to their comment.
+
+#### What happens when this setting is disabled?
+
+-   Existing watchers cannot watch their items.
+-   New watchers cannot be added to process items.
+-   Existing watchers stop receiving watcher-related notifications.
+-   Existing watchers are preserved and are not removed.
+-   If the setting is enabled again later, existing watcher capabilities become active again and notifications resume.
+
+## Public form settings
+
+On the **Public form settings** tab, you can [enable and disable public form](/t/35h9qtk/public-forms) for this process.
+
+To enable, turn **ON** the Public form URL. Then, copy the URL and share it with anyone outside the organization.
+
+To disable, turn **OFF** the Public form URL and it will be disabled. Once the public form is disabled, the external users will not be able to initiate new items. However, the items that are in progress will complete the workflow steps.
+
+![](/migration-assets/process-settings/10.png)
+
+> **Note:**
+> 
+> CSV import is not supported on public forms on any device (desktop or mobile). This is because public forms are often embedded on external sites, and Kissflow cannot securely verify the data source or support the backend requirements for bulk uploads. Therefore, CSV import is disabled for public forms to ensure system security.

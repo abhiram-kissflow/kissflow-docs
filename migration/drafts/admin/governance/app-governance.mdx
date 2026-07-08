@@ -1,0 +1,161 @@
+---
+title: "App governance"
+description: "DRAFT (unverified) — migrated from /t/q6ykkzc/app-governance"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+App governance offers [Super admins and IAM admins](/t/35h4ak0/user-roles-and-permissions), a lens into how apps are used across their Kissflow account. It highlights trends in app activity, helps spot idle or high-usage apps, and surfaces potential risks like unauthorized access or external data exposure. These insights are essential for making informed decisions around app lifecycle management and data governance.
+
+Click your profile at the top right corner inside Kissflow and click **Account governance** > **Apps** tab on the left. You can find the following sections in the overview page:
+
+-   **Active apps** - Apps that were most active during the selected time period. This helps you understand where most work is happening.
+    
+-   **Inactive apps** - Unused apps in the selected time range. This lets you reassess whether these apps are still required or can be retired.
+    
+-   Installed from app store
+    
+-   **External data** - Apps connected to external systems which may involve data exchange with platforms outside Kissflow.
+    
+
+Clicking any live app in the overall view takes you to its detailed page with deeper insights. View the app’s status, creator, creation date, and last deployed details. Apart from these details, you have a lot of other sections where you can learn more about the app.
+
+![](/migration-assets/app-governance/1.gif)
+
+### Users
+
+The **Users** section shows everyone who is part of the app across environments. Monitoring the app membership helps you control over who can interact with the app, reducing the risk of data leaks or unapproved changes.
+
+![](/migration-assets/portal-governance/1.png)
+
+> **Note:**
+> 
+> This is the only section available in the detailed page of a draft app.
+
+### Usage metrics
+
+**Unique users** - Check the number of distinct users who accessed the app in the selected time period to understand real engagement.
+
+### Roles
+
+This section lists the various roles defined within the app, along with the number of users assigned to each role. This helps you assess how responsibilities are distributed within the app.
+
+![](/migration-assets/portal-governance/3.png)
+
+Clicking a role takes you to its detailed page, where you can get more information about:
+
+-   Users - View the list of users in each role.
+    
+-   Flows - See which flows users in this role can access, ensuring access stays authorized.
+    
+-   Reports - Track report access for better control and compliance.
+    
+-   Views - Monitor which views are available to each role.
+    
+
+### External app roles
+
+Identify any roles that are linked to this app from other apps in your account. These roles may bring in users who aren’t explicitly part of the app but still have access due to broader role assignments elsewhere. Monitoring these links is key to minimizing unintended data exposure and ensuring that only the right users can access sensitive information within the app.
+
+![](/migration-assets/portal-governance/4.png)
+
+Clicking a role takes you to its detailed page, where you can get more information about:
+
+-   Users - View the list of users in each role.
+    
+-   Flows - See which flows users in this role can access, ensuring access stays authorized.
+    
+-   Reports - Track report access for better control and compliance.
+    
+-   Views - Monitor which views are available to each role.
+    
+
+### Integrations
+
+This section contains the list of integrations used within the app. It displays the status of each integration along with the connectors used, whether they link to internal Kissflow systems or external platforms. Reviewing this information helps you ensure that the app is only connected to the intended systems, reducing the risk of unauthorized data exposure.
+
+![](/migration-assets/portal-governance/10.png)
+
+### External data objects
+
+The **External data objects** section lets you see if the app connects to any third-party platforms to fetch or interact with external data. Monitoring these connections is essential for understanding where your app’s data is flowing and helps you assess any potential risks related to data security or compliance.
+
+![](/migration-assets/portal-governance/5.png)
+
+Clicking an external object takes you to its detailed page. This page provides a list of all the flows that retrieve and display data from that external object.
+
+### Flows created
+
+In this section, you can get a list of all flow types created within the app - processes, boards, and data forms. This gives you a sense of how the app is structured.
+
+![](/migration-assets/portal-governance/8.png)
+
+Clicking a flow directs you to its detailed page, which lets you view the information below:
+
+-   Roles and activity 
+    
+-   Public forms (process and dataform)
+    
+-   Integrations
+    
+-   Sensitive fields
+    
+-   Flow relationships: 
+    
+    -   Flows looked up from/to 
+        
+    -   Dependent and source flows (process and board)
+        
+-   Logs - Download logs, print logs (process and board), and export logs.
+    
+
+### Custom components
+
+You can view the list of [custom components](/t/p8h9q1s/creating-custom-components) built in this app, such as widgets or specialized interfaces. It’s helpful to identify unused or outdated components that can be retired to streamline the app.
+
+![](/migration-assets/portal-governance/6.png)
+
+### Public forms
+
+In this section, view all the process forms and data forms in this app that can be accessed from outside Kissflow. Any information in these forms is exposed externally.
+
+![](/migration-assets/portal-governance/9.png)
+
+### Decision tables
+
+In this section, you can view all the [decision tables](/t/60yxblt/decision-tables-overview) created in this app.
+
+![](/migration-assets/portal-governance/7.png)
+
+### Linked apps
+
+The **Linked apps** section shows you a list of apps and portals that are [linked to this app](/t/35yzjvd/application-to-application-lookup-through-linking) and look up data from it. This section helps you:
+
+-   Understand where this app’s data is being consumed externally, supporting better data visibility.
+    
+-   Identify potential data exposure, especially if sensitive information is being accessed by multiple apps.
+    
+
+![](/migration-assets/portal-governance/2.png)
+
+### Deployment history
+
+This section provides a complete timeline of the app’s deployment activity, including details of when changes were deployed and who made them. Each entry logs the deployment date and time, and the user responsible for the deployment.
+
+This deployment history is vital for:
+
+-   Maintaining a reliable audit trail of all app changes.
+    
+-   Tracking accountability by identifying who made specific updates.
+    
+-   Troubleshooting issues by pinpointing the exact version or deployment that introduced a change.
+    
+
+By monitoring the deployment history, you can ensure that all changes are intentional and authorized.
+
+![](/migration-assets/portal-governance/11.png)

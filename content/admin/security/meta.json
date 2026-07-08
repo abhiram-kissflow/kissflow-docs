@@ -1,4 +1,7 @@
 {
   "title": "Security",
-  "pages": ["..."]
+  "pages": [
+    "account-security",
+    "setting-up-saml-based-single-sign-on-for-microsoft-azure-id"
+  ]
 }

@@ -1,0 +1,62 @@
+---
+title: "Adobe Sign connector"
+description: "DRAFT (unverified) — migrated from /t/p8h4afj/adobe-sign-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise 
+
+## What is Adobe Sign?
+
+[Adobe Acrobat Sign](https://www.adobe.com/sign.html) is a cloud-based e-signature service that enables users to submit, sign, track, and manage signing procedures through a browser or mobile device. It is a feature of the Adobe Document Cloud service suite.
+
+### About Kissflow's Adobe Sign integration
+
+Kissflow Integration's Adobe Sign connector lets you connect Adobe Sign instantly with Kissflow apps and other popular third-party applications. It allows you to create and share PDF agreements using a template you made in your Adobe Sign account. To integrate with Adobe Sign, you must have a valid Adobe Sign account. You must also be a paid Kissflow account holder.
+
+Let's take an example in which you use the input from your Kissflow Process form and map it to fill the agreement template you created using the Adobe Sign connector. When the integration fires, Adobe Sign creates a PDF of this agreement and sends it to email addresses specified by you.
+
+### Triggers in Adobe Sign
+
+**Trigger events**
+
+**Description**
+
+When a document is signed
+
+Triggers when a document signing is completed in Adobe Sign.
+
+### Actions in Adobe Sign
+
+**Action events**
+
+**Description**
+
+Create an agreement using a template
+
+This action creates and transmits a PDF agreement based on your template.
+
+Create an agreement using a document
+
+This action creates and transmits a PDF agreement based on the uploaded document.
+
+## Configuring Adobe Sign connector
+
+1.  In your Kissflow account, click the **Create** button in the left navigation panel and select **Integration** from the list. Enter a unique name and description for your integration and click **[Create](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Inside your **Editor**, set up a trigger step. For instance, set up a Kissflow Process trigger.
+3.  After setting up your trigger step above, click the Add button (![](/migration-assets/xero-connector/1.png)) to set up your action or search for the action step. Search for **Adobe Sign** connector and select the action event.  ![](/migration-assets/adobe-sign-connector/1.png)
+4.  Authenticate your trigger by signing into your **Adobe Sign** account with your account email address and password.![](/migration-assets/adobe-sign-connector/2.png) 
+    
+5.  After authenticating with your Adobe Sign account email, add relevant values against the Adobe Sign configuration form fields. You can hit **Refresh** fields to view all the updated fields in the selected Adobe Sign configuration form. You can also map fields from your trigger step or fields from your previous action steps. These values will be automatically added to item fields after the action is executed.![](/migration-assets/adobe-sign-connector/3.png) 
+6.  After a successful configuration, check whether your Adobe Sign action step is set up correctly by clicking the **T****est** button. The connector will pull field data from your selected Adobe Sign account and display it as a JSON output. Similar to the trigger step, errors are notified to you right away. Fix them before retesting the action step.
+
+### Setting up an Adobe Sign connector
+
+After creating a custom workflow with your Adobe Sign connector's action steps, switch on the toggle button to activate the integration run. When you run a trigger step, a new document will be created based on the template you set up in Adobe Sign and it'll be forwarded to the email address specified by you.
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

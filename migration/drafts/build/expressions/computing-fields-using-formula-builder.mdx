@@ -1,0 +1,134 @@
+---
+title: "Computing fields using Formula Builder"
+description: "DRAFT (unverified) — migrated from /t/35h4alz/computing-fields-using-formula-builder"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+You can write expressions and create formulas for your computed fields with the help of our Formula builder.
+
+## What is Formula builder?
+
+The Formula builder is an inbuilt tool in Kissflow that helps you write, edit, and evaluate expressions more effectively.
+
+Enterprise plan users, please explore the [AI add-on](/t/83ylatd/ai-formula-builder) to formula builder.
+
+### Highlights of the feature
+
+-   Easy-to-use editor
+-   Auto-suggest options while using the dot operator "." and calling functions
+-   Simple drag-and-drop design to include fields and functions on the editor
+-   Ability to evaluate your expression before saving it
+-   Handy _Search_ interface to look out for a field or a function
+
+> **Note**:
+> 
+> Formula fields (computed fields) are read-only. They derive their values dynamically from other field inputs and cannot be edited manually.
+
+## Writing formula using the Formula builder
+
+1.  Navigate to the field in your process form for which you would like to write a formula.
+2.  Toggle the **'Is this a computed field?**' field to 'Yes' to enable it, and the **Formula builder** opens.
+3.  Enter your formula directly in the Formula editor or enter a prompt in the AI-powered space to generate your formula automatically.   ![](/migration-assets/computing-fields-using-formula-builder/1.png) 
+4.  Type the logic in the editor.
+    1.  You might require a field and a relevant function to build a formula. We support [system fields](/t/83h4alt/system-fields) and your form fields in the editor so that you can use any of them in your logic as necessary. We also have a specific set of functions that can be easily dragged and dropped onto the editor.  
+          
+        Make sure you don’t enclose field IDs with quotes when using them in a formula.
+5.  Drag and drop a relevant [function](/t/35h4alz/computing-fields-using-formula-builder#calling-inbuilt-functions) from the **Functions** section from your right-hand panel.
+    1.  A function operates on one or more fields so navigate to the **System** or **Form fields** section to look out for the relevant fields and build your formula.![](/migration-assets/computing-fields-using-formula-builder/2.png)
+6.  Drag and drop or double-click the relevant field from the **System fields** or **Form fields** section onto your function in the editor
+7.  Click **Beautify** to [format your code](/t/35h4alz/computing-fields-using-formula-builder#formatting-your-code) when you are done with its logic.
+8.  Click **Evaluate** to test your formula before saving it.
+    1.  [Evaluating the expression](/t/35h4alz/computing-fields-using-formula-builder#evaluating-expression) lets you give input to your function and check if you get the desired output. It also helps you [rectify any errors](https://helpdocs.kissflow.com/expression/computing-fields-using-formula-builder#referring_to_the_contextual_help) with respect to your formula if any.
+9.  Enter the required input to the fields and click **Run** to evaluate your expression.
+10.  Click **Save** after your expression is evaluated successfully.
+
+## How to use the editor in the Formula builder effectively?
+
+The editor has an intuitive interface that lets you build your formula within seconds. The following tips might come in handy when you write your logic:
+
+### Using dot operator
+
+You can use the **Dot** operator "." to insert inbuilt functions into your logic. You can choose a relevant function from the auto-suggest panel that shows up while you use a dot operator in your expression.
+
+### Calling inbuilt functions
+
+We support the following functions in the editor and you can drag and drop any of them onto your editor as necessary.
+
+#### **Number and Currency**
+
+There could be instances where you have to generate a random number or execute currency-related calculations in your formula. [Learn more on the Number and Currency expressions here.](/t/g9h4alx/number-and-currency-expressions)
+
+#### **Text**
+
+Perform operations on strings using the list of text-related functions that Kissflow supports. [Learn more on the Text expressions here.](/t/m1h4al6/text-expressions)
+
+#### **Date**
+
+Display current date with or without current timestamp, fetch the current day or the timestamp when an item was initiated as per your requirements using our date functions. [Learn more on the Date expressions here.](/t/p8h4al3/date-expressions)
+
+#### **Other logical expressions**
+
+We also supported a few logical functions in our editor. For example, you can check if a specific field is empty or not using the **isBlank()** function. [Learn more on the Logical expressions here.](/t/h7h4aly/logical-expressions)
+
+![](/migration-assets/computing-fields-using-formula-builder/3.png)
+
+### Formatting your code
+
+Are you worried about the cluttery look of your code on your editor when you try your hands on a complicated formula? We heard you!
+
+Click **Beautify** in the upper-right section of your Formula builder to format your code so that your logic is intended and neatly presented in the editor. Formatting not only gives a facelift to your code but also improves its readability.
+
+### Copy, Undo, and Redo
+
+You can copy the code to your clipboard, or undo/redo the changes as necessary from your editor. Access the Formula builder and go to the upper-right part of the editor to access these options.
+
+![](/migration-assets/computing-fields-using-formula-builder/5.png)
+
+### Using arithmetic and logical operators
+
+We support all the basic arithmetic and logical operators which are necessary to build a formula. Click any operator to insert them into your code as necessary.
+
+![](/migration-assets/computing-fields-using-formula-builder/6.png)
+
+Hover over an operator to learn about its usage.
+
+### Evaluating expression
+
+It's a recommended practice to evaluate your formula before executing it in your process. It helps you test the formula and check if you get the desired output.
+
+With the introduction of the **[AI Evaluate](/t/83ylatd/ai-formula-builder)** feature in Forms, the following steps are now applicable only for evaluating formulas in **Integrations**.
+
+![](/migration-assets/computing-fields-using-formula-builder/4.png)
+
+1.  Click **Evaluate** when you are good to test your logic.
+2.  Give your inputs for the fields under the **Evaluate formula** section in your right-hand panel.
+3.  Click **Run**
+4.  View the output of your expression at the bottom and retest the formula as many times as you want until you achieve the desired results.
+
+> **Note:**
+> 
+> The **Run** function will be disabled if the formula has errors. You will be able to evaluate the expression only after the errors are resolved.
+
+### Referring to the contextual help
+
+When you are not sure about how to use a specific function, hover over its name to learn about its usage. You can also do the same to fix syntax errors if any while evaluating your expression.
+
+![](/migration-assets/computing-fields-using-formula-builder/7.gif)
+
+In the following example, there is a syntax error in the expression. The output of the function '**randbetween()**' must be TEXT whereas its current datatype is NUMBER. Let's see how the issue is resolved with the help of the contextual help options available in the editor.
+
+![](/migration-assets/computing-fields-using-formula-builder/8.gif)
+
+Stages of the fix:
+
+1.  The intuitive design of the editor alerts the user that there is an issue with the logic. (Run disabled)
+2.  The user hovers over the syntax to learn what went wrong.
+3.  The user learns that the **randbetween()** function must be converted to TEXT as its current datatype is NUMBER.
+4.  The user calls the **totext()** function using the _Dot_ operator to get the output as a string.
+5.  Error is resolved and the expression gets evaluated successfully.

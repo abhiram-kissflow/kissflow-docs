@@ -1,0 +1,42 @@
+---
+title: "Adding conditions to an integration"
+description: "DRAFT (unverified) — migrated from /t/y4yx74p/adding-conditions-to-an-integration"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Currently, you can only use the [control connector](/t/p8h4al4/adding-conditions-and-iterations) in Kissflow to set up **Yes** or **No** conditions in an integration. Now, you can add conditions to each action in a Kissflow integration using the formula builder to execute certain actions only when the condition is met. The action will be skipped when the condition is not met. 
+
+Assume you want to automate the process of handling customer feedback submitted through a public form. However, you want to skip feedback that falls into the category of **General Information** and only proceed with sending emails for feedback type as **Issue** or **Feature Request**. You can use the Kissflow process and email connectors to achieve this with the help of conditions.
+
+> **Note:**
+> 
+> Conditions can be added only to actions 
+
+## Adding conditions to an action
+
+Here’s how you can add a condition to an action:
+
+1.  Choose the action for which you want to add the condition. Under the configuration step, click **Change** next to the **When does this step happen?** 
+    
+    ![](/migration-assets/adding-conditions-to-an-integration/1.png)
+2.  Open the formula builder to enter the necessary condition and configure it using the fields from the previous steps. Click **Save** once the condition has been added. 
+    
+    ![](/migration-assets/adding-conditions-to-an-integration/2.png)
+3.  Click **Next** and proceed with testing the action and finally click **Done**. If there are any errors associated with the condition an error message will appear.
+    
+
+Now when a new item is created with the type as **Issue** or **Feature Request** an email will be automatically sent to the customer asking for more information about that particular item. 
+
+Actions that have a condition attached to it can be identified using the **Happens conditionally** text that appears on the bottom of the action. 
+
+![](/migration-assets/adding-conditions-to-an-integration/3.png)
+
+## Identifying skipped actions
+
+You can use the run history of an integration to identify whether the action has been executed or skipped. Click the **Run history** button to view all the runs for that particular integration. Open the integration with a **Success** status to view whether the action was executed or skipped. Actions that were executed will have a **Condition met** status and the rest will have a **Skipped** status.

@@ -1,0 +1,40 @@
+---
+title: "Flow settings"
+description: "DRAFT (unverified) — migrated from /t/h7h4akl/flow-settings"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+[Super Admins and IAM Admins](/t/35h4ak036h4gg/user-roles-permissions) can control who can create new flows in Kissflow from your **Profile picture > Account administration > Flow settings.**
+
+All flows, including process, board, dataset, and integration, will be enabled by default. However, if you disable an existing flow, its data will be temporarily inaccessible. You cannot create a new flow until you enable it again. 
+
+You can change the settings for **Who can create a new flow?** You’ll see three options when you click a flow: 
+
+-   **Anyone**: All users in the organization can create a new flow without approval.
+-   **Super Admins**: Only the Account Owner and Super Admins can create a new flow.
+-   **Anyone, after the approval of:** All users, can create a new flow after the specified approvers approve the new flow request. You can update the approvers list by selecting them from the dropdown.![](/migration-assets/flow-settings/1.png) 
+
+You can enable or disable various flow types (processes, boards, etc.) for your account. When you make a change to existing flow settings, all changes to these settings will only affect new flow requests, not those already created.
+
+## **Print and download permissions**
+
+You can allow or restrict permissions to users, impacting their ability to print forms or download attachments across different flow types like Process, Board, Dataset etc.  
+ 
+
+![](/migration-assets/flow-settings/2.png)
+
+ They can use the toggle button to switch between the options of _Anyone_ and _Flow Admins_ for each flow type individually. These changes are **Account Administration** level changes, and they can, in some cases, supersede permissions set at an individual flow level. 
+
+Setting the permission to _Anyone_ would allow users to download attachments or print unless the Flow Admin explicitly chooses to restrict these permissions for a particular flow. 
+
+Choosing _Flow Admins_ would restrict download and print permissions only to Flow Admins, superseding any permissions set at an individual flow level, only allowing Flow Admins to download attachments and print forms across the flow. 
+
+## Email actions
+
+Enable this switch if you want process workflows to be acted upon via email.

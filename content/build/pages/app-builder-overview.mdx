@@ -1,0 +1,64 @@
+---
+title: "App builder overview"
+description: "DRAFT (unverified) — migrated from /t/m1yzj9p/app-builder-overview"
+contentType: overview
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+As a _Super Admin_ or _User_ of the **development** environment, you will be able to create applications from scratch and deploy them to the test environment. To build any app inside the development environment, you'll need to launch the app builder first.
+
+**Capabilities of the app builder**
+
+-   Build low or high-fidelity applications in no time.
+-   Design beautiful user interfaces and navigation paths for traditional web applications.
+-   Establish business processes using forms and variables.
+-   Use Vanilla JavaScript, React JS to add custom components to your application.
+-   Integrate with Kissflow and third-party apps using integrations.
+-   Manage access and security by assigning distinct roles within your apps.![](/migration-assets/app-builder-overview/1.png) ![](/migration-assets/app-builder-overview/2.png)   
+
+## The following areas constitute the app builder
+
+### App builder canvas
+
+This is the canvas in the app builder where you design the interface and logic of your app.
+
+### Components
+
+The component section and the left navigation panel of the app builder contain the widgets to build the pages and logic of your app. This area displays the following tabs:
+
+-   **Roles**: Manage different roles and permissions of members interacting with the app.
+-   **Forms**: Create data forms, processes, and boards for your app.
+-   **Variables**: Create custom global variables like Text, Number, DateTime, and Boolean variables to store data.
+-   **Pages**: Set up an intuitive user interface for different users of your app.
+-   **Navigation**: Create a navigation bar for accessing the various pages of your app.
+-   **Integration**: Create logical models for your app. You can find 25+ custom integration connectors and custom data forms and server scripting connectors.
+-   **Components**: Build custom components using our [SDK](https://developers.kissflow.com/gettingstarted/) or import external pages and widgets into your app pages.
+-   **Model viewer**: It's a read-only visualization of all the processes, boards, and data forms created within the app and the relationship established between them using lookup fields.
+-   **Developers**: Decide who can create and administer your app.
+-   **Settings**: Manage your app's general and deployment settings.
+
+## App details
+
+This is the section on the top left corner of the app builder where the app's name, description, and logo are displayed. You can manage the app from the **General settings** tab of the development toolbox.
+
+## Preview and validation
+
+Use the **Run** button to preview your app in your development environment before it's deployed to the test environment. Use this button to debug your app before moving it to the test environment.
+
+The **Deploy** button lets you deploy your app from the development environment to the test environment. When you deploy your app, an inbuilt wizard shows the progress and result of the deployment process. The inbuilt wizard also lets you identify potential gaps in your app and help you resolve them before deploying to the test environment.
+
+> **Important note:**
+> 
+> Please keep in mind that changes saved in your app while in the development environment are final, as the environment does not include an undo or recovery option.
+> 
+> What this means:
+> 
+> -   If you delete a child flow, like a page or a dataform, it will need to be recreated manually. There is no option to restore deleted flows.
+>     
+> -   Your work in the development environment is safely isolated from production until deployment. When you’re ready, deploying the app will move all of your new changes to production at once. Therefore, we urge you to review your changes before saving. This will help make sure all the necessary flows stay intact and reduces rework for you.
+>

@@ -1,0 +1,79 @@
+---
+title: "Integrations overview"
+description: "DRAFT (unverified) — migrated from /t/g9h4alw/integrations-overview"
+contentType: overview
+persona: citizen-developer
+section: build
+---
+
+![](/migration-assets/integrations-overview/1.svg)
+
+Kissflow Integration is a powerful workflow orchestration tool that connects your Kissflow applications with third-party services to automate business workflows. You can build integration workflows without programming knowledge or developer assistance, allowing anyone to create custom automated processes with just a few clicks.
+
+## What is Kissflow Integration?
+
+In Kissflow Integration, you can connect Kissflow workflows and applications, such as Processes, Boards, Datasets, Dataforms, and Apps, with external services like Slack, Gmail, Google Sheets, Google Calendar, Microsoft Outlook, and more. You can also use built-in webhooks to share data with any third-party application that supports them.
+
+For example, when you receive new newsletter subscribers in MailChimp, you can automatically save their information to a Google Sheet without manual intervention. Kissflow Integration handles this process for you, saving time and reducing manual effort.
+
+## How Kissflow Integration works
+
+An integration consists of a series of sequential steps that determine how data is transferred and transformed between different applications. Each step is built using connectors.
+
+Every integration begins with a trigger—an event in one of your connectors that initiates your workflow. This trigger pushes data through the flow to complete one or more connector actions.
+
+### Example workflows
+
+With Kissflow Integration, you can create various workflows from scratch. Here are some examples:
+
+-   Create Google Calendar events from the new Kissflow Board items
+-   Add new rows to Google Sheets for every new CRM lead
+-   Send email reminders to colleagues for every new item added to your Kissflow Process
+-   Share new Kissflow Board tickets in Slack
+-   Create Google Calendar events when hiring requests are approved in the Kissflow Process
+
+## Common terminologies
+
+### Connector
+
+A connector enables communication between services or applications. It allows you to perform actions that the apps couldn't do on their own. Connectors can serve as adapters for internal actions or for accessing third-party applications. Based on their use cases, connectors include triggers, actions, and search actions.
+
+### Trigger
+
+A trigger is the primary event of your integration that initiates other actions in your workflow.
+
+### Action
+
+An action is an event that a connector performs after it is triggered. For example, if you want to send an email each time you receive a helpdesk ticket, the action is _Send an email_. You can configure multiple actions for a single integration.  
+ 
+
+![](/migration-assets/integrations-overview/2.png)
+
+### Search action
+
+Search actions find or fetch specific data from your application based on your requirements.
+
+### Editor
+
+The Editor allows you to create an integration from scratch. In the editor, you can select and configure:
+
+-   Trigger connector
+-   Trigger event
+-   Action connectors
+-   Action events
+
+These components work together to build your custom integration.
+
+### Connection
+
+A connection is an authentication that allows Kissflow to interact with internal or external connectors in an integration. Integration runs require valid connections before triggers and actions can be configured.
+
+Kissflow connections use Access key and secret token authentication, whereas most external connectors use OAuth. Connections can be shared with other account users, allowing a shared connection to be used in integrations you didn't create.
+
+### Integration run
+
+Every piece of data that passes through the workflow system counts as an integration run. If your integration adds 20 tasks to a Kissflow Board, your integration has performed 20 integration runs. Each integration run saves you from having to perform a manual task. 
+
+![](/migration-assets/integrations-overview/3.png)
+
+You can track all integration runs from the **Run history** section of your integration page.

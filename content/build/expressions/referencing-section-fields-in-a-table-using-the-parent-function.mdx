@@ -1,0 +1,40 @@
+---
+title: "Referencing section fields in a table using the parent field"
+description: "DRAFT (unverified) — migrated from /t/p8yfwn6/referencing-section-fields-in-a-table-using-the-parent-function"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+You may have to reference values from one part of the form in another when building forms. In particular, when working with **Sections** and **Tables** in a form editor, you can use the **Parent** field to pull values from a section into a table.
+
+## Syntax
+
+```
+Parent.<Fieldname>
+```
+
+> **Note**
+> 
+> Table-to-table field references are not supported, and fields from a table cannot be referenced within a section.
+
+## Example
+
+Imagine you are building a form to collect employee data. One section of your form, **Employee PII**, contains various fields, such as the employee’s name, date of birth, and contact number.
+
+You also have a **Birthday preference** table in the form where employees can select whether to celebrate their birthdays. For consistency and ease of use, you want to automatically display the employee’s date of birth in this table.
+
+To achieve this, you can use the **Parent** field in the **Formula builder** to refer to the date of birth field from the **Employee PII** section in the **Birthday Preference** table.
+
+```
+Parent.Date_of_birth
+```
+
+![](/migration-assets/referencing-section-fields-in-a-table-using-the-parent-function/1.gif)
+
+## Advantages of the Parent field in the Formula builder
+
+-   Simplifies data entry for users by populating known values.
+-   Reduces redundancy and potential data entry errors.
+    
+-   Makes forms more dynamic and context-aware.

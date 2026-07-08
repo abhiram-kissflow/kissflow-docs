@@ -1,0 +1,147 @@
+---
+title: "Creating and managing items"
+description: "Create items in a Kissflow board, update their status and details, make bulk updates, and archive, delete, or clone items."
+contentType: guide
+persona: end-user
+section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - boards
+  - items
+---
+
+# Creating and managing items
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+Once a board and its form are set up for you, you can start creating items to track your work. Every item moves through the statuses configured in the board's workflow, starting in the first status of the **Not started** category.
+
+## Add a new item
+
+1. Click the **New item** button at the top right of the board.
+
+   <Callout type="info">
+     The button name changes based on the item type configured for the board — for example, **New ticket** on a ticketing board.
+   </Callout>
+
+2. In the form that opens, fill in the details:
+   - **Assignee** — the member responsible for the item.
+   - **Priority** — choose **Low**, **Medium**, **High**, or **Critical**.
+   - **Start date** — when work on the item should begin.
+   - **Due date** — when the item should be closed.
+   - **Requester** — the user who requested the item.
+   - Any other fields your board's form captures.
+3. Click **Submit**.
+
+<Callout type="info">
+  The **Priority** field is hidden if priority has been turned off in the board's settings.
+</Callout>
+
+![Board with the New item button at the top right and the list of items below](/migration-assets/creating-and-managing-items/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+New items appear in your board's current layout. Click the **All** tab to see every item in the board, or switch between [layouts](/docs/use/apps/using-board-layouts) to view items in different ways.
+
+## Create multiple items by pasting
+
+You can paste a list of text to create multiple items at once. Copy a list (for example, from a notepad), go to any board layout, and paste it (Ctrl/Cmd + V). In the **Paste and create items** dialog, select a field to map the title and click **Create**. The items are created in the first status of the **Not started** category.
+
+![Animation of pasting a copied list into a board and mapping the title field to create multiple items](/migration-assets/creating-and-managing-items/11.gif)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="info">
+  You can paste up to **20 items** at a time.
+</Callout>
+
+For larger batches, [import items from a CSV file](/docs/use/items/importing-items).
+
+## Update an item
+
+Open an item from any layout and make your changes in the **Details** tab on the right. All changes are saved automatically.
+
+- **Change status** — select the new status from the **Status** dropdown. You can also mark an item as completed by clicking the check mark on its card, which moves it to the board's completed status.
+
+  ![Item card with the check mark used to mark the item as completed](/migration-assets/creating-and-managing-items/2.png)
+  {/* TODO: verify screenshot matches current product UI */}
+
+  To strike through completed items, open the **More options** menu at the top right of the layout and check **Strikethrough for completed items**.
+
+  ![Board layout showing completed items struck through after enabling the strikethrough option](/migration-assets/creating-and-managing-items/3.png)
+  {/* TODO: verify screenshot matches current product UI */}
+
+- **Change assignee** — select another member to reassign the item.
+- **Change priority** — select a new priority: **Critical**, **High**, **Medium**, or **Low**.
+
+  ![Item details showing the Priority dropdown with Critical, High, Medium, and Low options](/migration-assets/creating-and-managing-items/4.png)
+  {/* TODO: verify screenshot matches current product UI */}
+
+## Update items in bulk
+
+You can update several items at once from the list, kanban, or matrix layout. Select the items, then use the action bar to update:
+
+- **Assignee**
+- **Status**
+- **Priority**
+- **Start and due dates** — sets the item’s start and due dates.
+
+You can also archive, unarchive, or delete the selected items from the same action bar, and update other form fields through the **More options** button.
+
+![Animation of selecting multiple items in the list layout and updating them with bulk actions](/migration-assets/creating-and-managing-items/9.gif)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Archive an item
+
+Archiving hides items from your board view without permanently deleting them. It's useful when an item is no longer needed for current work but may need to be restored later.
+
+To archive an item, click the **More options** button on the item and select **Archive**. An archived item becomes read-only — to edit it again, **Unarchive** it first.
+
+<Callout type="warn">
+  When you archive a connected item, its connections with its source and dependent items are removed.
+</Callout>
+
+![More options menu on an item showing the Archive action](/migration-assets/creating-and-managing-items/7.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Whether you can archive or unarchive an item depends on your board role:
+
+| Board role        | Archive and unarchive items |
+| ----------------- | --------------------------- |
+| Admin             | All items                   |
+| Member            | Only items they created     |
+| Initiator         | Only items they created     |
+| Viewer            | Not available               |
+| Restricted member | Not available               |
+
+To see archived items, go to **Views** at the top of the board and select **Archived items**.
+
+<Callout type="info">
+  The **Archived items** view is available with every board role, but the items shown in it follow your role's item visibility — for example, restricted members see only items assigned to them.
+</Callout>
+
+![Views menu open with the Archived items view selected](/migration-assets/creating-and-managing-items/8.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Delete an item
+
+Select an item in the board and click **Delete**. To delete several items at once, select them and click **Delete**. You can also open an item and click the **More options** button > **Delete**.
+
+## Clone an item
+
+Cloning quickly creates a duplicate that contains all the information captured in the original. The clone is an independent item and can be tracked and progressed separately.
+
+1. Open an item on your board.
+2. Click the **More options** button > **Clone**.
+
+![More options menu in the item form showing the Clone action](/migration-assets/creating-and-managing-items/12.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## What's next
+
+- [Adding advanced filters using AI](/docs/use/items/filtering-and-views) (Enterprise)
+- [Collaborating on items](/docs/use/items/collaborating)
+- [Creating and managing subitems](/docs/use/items/creating-subitems)
+- [Importing items from a CSV file](/docs/use/items/importing-items)
+- [Using board layouts](/docs/use/apps/using-board-layouts)

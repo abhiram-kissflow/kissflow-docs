@@ -1,0 +1,74 @@
+---
+title: "Connecting boards with other boards and processes"
+description: "DRAFT (unverified) — migrated from /t/m1ymay3/connecting-boards-with-other-boards-and-processes"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+By connecting a parent board with another board/process, you can interconnect workflows.  
+  
+A change in status in a parent board's item can act as a trigger to initiate an action in another board or process. This allows you to automate item creation and orchestrate the item’s end-to-end lifecycle across those flows. Here’s how you can do it:
+
+1.  Click the **Manage** button at the top right corner, and click **Edit workflow**. The **Workflow settings** modal will open up.
+    
+2.  Click **Connect a flow to a status**.
+    
+    ![](/migration-assets/connecting-boards-with-other-boards-and-processes/6.gif)
+    
+3.  In the panel that opens on the right, 
+    
+    -   Enter the name and description (optional) of the status.
+        
+    -   Select which board/process you want to connect to the status and create dependent items in it.
+        
+    -   **Map fields**: You can map fields between the connected flows so that the source item’s field values are inherited by the dependent item(s). You can map them either manually or using AI. Additionally, you can add functions while mapping the fields.
+        
+        ![](/migration-assets/connecting-boards-with-other-boards-and-processes/1.png)
+        
+        To do table-to-table field mapping between the current board and connected flow, click **Add a table**, select the table, and add the fields you want to map.  
+          
+        ![](/migration-assets/connecting-boards-with-other-boards-and-processes/3.gif)
+        
+    
+    -   **Lock source items**: You can lock the source item in the same status until all of its dependent items reach a desired status in the connected board. You cannot edit this source item until it is unlocked.
+        
+        1.  Select the status to which the dependent items should move and unlock their source item.
+            
+        2.  Select the status in the current board to which the source item should move after it’s unlocked.
+            
+            ![](/migration-assets/connecting-boards-with-other-boards-and-processes/2.png)
+            
+            Unlock the source item after its connected items reach the status.
+            
+            > **Note:**
+            > 
+            > Only admins can unlock the source item manually by clicking the **Unlock** button on the item or inside the form. Unlocking an item releases it from the lock configuration that is set for the particular status.  
+            >  
+            
+    -   Finally, set conditions for creating dependent items in the connected board/process. Only those items that match the conditions can enter the flow-connected status.
+        
+4.  Click **Go live** to update the changes or **Save & close** to return later and edit the workflow.
+    
+
+You can find the source and dependent items of an item in the **Connected items** tab on the right.
+
+## Creating multiple dependent items
+
+You can create multiple dependent items in the connected board/process from a source item’s table entries/rows. The number of dependent items created is equal to the number of rows in the selected table. Toggle **Create items from table entries** and select a table. 
+
+![](/migration-assets/connecting-boards-with-other-boards-and-processes/4.png)
+
+> **Note:**
+> 
+> You can select only one table to create multiple dependent items.
+
+You can also set conditions for creating those dependent items by adding a filter.
+
+![](/migration-assets/connecting-boards-with-other-boards-and-processes/5.png)
+
+When **Create items from table entries** is toggled on, the table fields from the source item will become available for field mapping.

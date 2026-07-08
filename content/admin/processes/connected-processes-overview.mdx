@@ -1,0 +1,50 @@
+---
+title: "Connected processes - Overview"
+description: "DRAFT (unverified) — migrated from /t/g9ytv27/connected-processes-overview"
+contentType: overview
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+ 
+<iframe src="https://player.vimeo.com/video/1010501301?app_id=122963" title="Subprocess - Overview video" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+In Kissflow, you can connect multiple processes to automatically initiate related items based on actions taken in a parent/source process. This streamlines workflow management, boosts overall efficiency, and allows team managers and IT admins to easily orchestrate and synchronize complex workflows across different departments. 
+
+### Benefits
+
+1. **Automate item initiation**: When a work item in a parent/source process reaches a certain step, new items are automatically initiated in the connected processes. This reduces the need for manual effort and speeds up the overall workflow.  
+     
+2. **Enhance coordination**: By connecting related processes, teams can work together more effectively, maintaining clear communication and a holistic view of the workflow’s overall goals.  
+     
+3. **Minimize errors**: Automation reduces human error, such as overlooking important tasks or miscommunication between teams, leading to more accurate and reliable outcomes.  
+     
+
+## Use case: Connecting Purchase Request and Purchase Order processes
+
+In many organizations, managing purchase requests and purchase orders efficiently is crucial for smooth operations. By connecting the Purchase Request process with the Purchase Order process workflows, you can automate the creation of purchase orders once a purchase request is approved, ensuring a seamless and error-free workflow.  
+ 
+
+### Example scenario
+
+**Step 1: Employee submits a purchase request**
+
+Let's say an employee, Jane Doe, from the marketing department, needs to purchase new software licenses for her team. In the **Purchase Request** process, she fills out a form detailing the required software, quantity, justification for the purchase, and so on.
+
+**Step 2: Approval**
+
+The purchase request goes through the necessary approval stages, involving Jane's manager and the finance department. Once the request is reviewed and approved, it moves to the step, **Ready for orde**r in the **Purchase Request** process.
+
+**Step 3: Automated item creation in Purchase Order process**
+
+As the **Ready for order** step in the **Purchase Request** process is connected to the **Purchase Order** process, a dependent item is automatically initiated in the **Purchase Order** process. The details from the purchase request, such as the software name, quantity, and cost, are inherited by the purchase order.
+
+**Step 4: Purchase Order processing**
+
+The procurement team receives the newly initiated purchase order in the **Purchase Order** process. They review the order, finalize any necessary details, and send it to the supplier. 
+
+After the dependent item in the **Purchase Orde**r process is completed, the source item in the **Purchase Request** process will resume its workflow and proceed to the next subsequent steps.

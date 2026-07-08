@@ -1,0 +1,55 @@
+---
+title: "Switching roles at runtime in Kissflow Apps"
+description: "DRAFT (unverified) — migrated from /t/83ytnlb/switching-roles-at-runtime-in-kissflow-apps"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Kissflow Apps offers the ability for developers to switch between different user roles during the runtime of an app, without interrupting the flow of development. This feature is designed to enhance the testing process by enabling developers to experience the app as different user personas without manually enrolling themselves in other roles.
+
+## Key benefits of role switching
+
+-   As a developer, you can switch between app roles at runtime without needing to exit the app.
+    
+-   When you switch to a role using the **Viewing as** dropdown, the system will automatically remove you from the current role and enroll you in the selected one. Due to this, the last role used by a developer is saved in user preferences and applied automatically the next time the developer runs the app.
+    
+
+## How to switch roles at runtime
+
+**Scenario:**
+
+You have set up custom navigation for the app with multiple menus that are intended for different user roles. Testing out how the navigation changes for each role by assigning users to roles manually can be a tedious process.
+
+Follow the below steps to switch roles with a single click:
+
+1.  Click **Run** to open the runtime view with the navigation menu.
+    
+2.  Click the **Viewing as** dropdown menu. It will list all the available roles in the app.
+    
+3.  Click the role whose view you want to see.
+    
+
+You will be automatically enrolled in the selected role, overriding the previous role that you were assigned to.
+
+![](/migration-assets/switching-roles-at-runtime-in-kissflow-apps/1.gif)
+
+![](/migration-assets/switching-roles-at-runtime-in-kissflow-apps/3.gif)
+
+> **Note:** The ability to switch roles is only available in the development environment. In staging and production, users will be assigned roles based on their initial setup, and role switching is not permitted.
+
+## How to assign multiple roles to a user
+
+1.  While role switching restricts you to one role at a time, you can manually add yourself to multiple roles and view pages assigned to those roles at once. To do this, go to **Manage > Roles**.
+2.  Click **Manage members** against the role you want and add your user name.
+    
+3.  Now, you will be enrolled into multiple roles, granting you access to all the pages for which these roles have permissions. Learn more about [adding users to roles](/t/h7yzj46/application-roles#creating-an-in-app-role).
+    
+
+![](/migration-assets/switching-roles-at-runtime-in-kissflow-apps/2.png)
+
+> **Note:** Manually assigned roles will be overridden whenever the **Viewing as** menu is used to switch to a different role.

@@ -1,0 +1,85 @@
+---
+title: "Zendesk connector"
+description: "DRAFT (unverified) — migrated from /t/60y6mk4/zendesk-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+## What is Zendesk?
+
+Zendesk is a cloud-based help desk management solution that offers customizable tools for building customer service portals, knowledge bases, and online communities.
+
+## About Kissflow's Zendesk integration
+
+The Zendesk connector of Kissflow Integration facilitates the seamless connection and synchronization of Zendesk modules with various third-party and Kissflow apps. To integrate with Zendesk, users must possess a valid Zendesk account and be a paid Kissflow customer.
+
+Imagine managing operations at a B2B manufacturing company. Whenever a POST request is received via a Kissflow webhook containing details of a _Quality issue_, a corresponding Zendesk ticket is automatically created with predefined fields like priority and subject. This streamlined setup eliminates manual intervention, allowing real-time issue tracking and faster resolution through seamless data transfer from Kissflow's webhook trigger to a corresponding Zendesk action. 
+
+The Zendesk connector currently does not support any trigger events. 
+
+## Actions in Zendesk connector
+
+**Action** 
+
+**Description**
+
+Raise a ticket
+
+This action raises a new ticket in your Zendesk account.
+
+Update a ticket
+
+This action updates an existing ticket in your Zendesk account.
+
+Create a user
+
+This action creates a new user in your Zendesk account.
+
+Add a comment
+
+This action adds a comment to an existing ticket.
+
+ 
+
+Find a ticket
+
+ 
+
+This action retrieves a ticket from your Zendesk account based on the search criteria. 
+
+ 
+
+Find a user
+
+ 
+
+This action retrieves a user's details from your Zendesk account based on the search criteria. 
+
+## Configuring Zendesk connector
+
+1.  In your Kissflow account, click the **Create** button in the left navigation panel and select **Integration** from the list. Enter a unique name and description for your integration and click **[Create](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Once inside your editor, set up a trigger step, for example, a Kissflow Board trigger event, **When an item is created**.
+    
+3.  After setting up your trigger step above, click the **Add button** ( ![](/migration-assets/zendesk-connector/1.png) ) next to set up your action step. Search for **Zendesk** and select an action event from the available options. 
+    
+    ![](/migration-assets/zendesk-connector/2.png)
+4.  After choosing your action event, authenticate the connector. Click **+Add an account**, and add the Subdomain of your Zendesk account. For example, if the subdomain is **[test.zendesk.com](http://test.zendesk.com)**, add ‘**test**’ under Subdomain. You will be redirected to your Zendesk to confirm your account, and after successful verification, you will be redirected back to **Kissflow**. Kissflow uses Zendesk’s OAuth for authentication.
+    
+5.  After authenticating with your Zendesk account, add relevant values against the Zendesk form fields. You can hit **Refresh fields** to view all the updated fields in the selected Zendesk form. You can also map Zendesk fields from your trigger step or fields from your previous action steps. These values will be automatically added to item fields after the action is executed.
+    
+    ![](/migration-assets/zendesk-connector/3.png)
+    
+6.  After a successful configuration, test whether your Zendesk action step is set up correctly by clicking the **Test** button. The connector will pull field data from your selected Zendesk account and display it as a JSON output. Similar to the trigger step, errors are notified to you right away. Fix them before retesting the action step.
+    
+
+#### Setting up a Zendesk connector
+
+After creating a custom workflow with your Zendesk connector's action steps, switch **ON** the toggle button to activate the integration run. Once a trigger event occurs, the Zendesk action is activated.
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

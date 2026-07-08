@@ -1,0 +1,189 @@
+---
+title: "Working with custom form field components"
+description: "DRAFT (unverified) — migrated from /t/35yfjp0/working-with-custom-form-field-components"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+## Building a custom form field component 
+
+You can build your own custom form fields as custom components to use across all forms in your app. To do this, follow the installation and building instructions provided [in this developer documentation](https://developers.kissflow.com/components/formfield/).
+
+> **Note:** The custom form fields must be built using the React framework and it is recommended to use Node.js version 16.
+
+### Guidelines for building a custom form field
+
+The installation steps will provide a scaffolding for your custom form field. However, you will need to write the UI configuration for your custom form field. You can use [these APIs](https://developers.kissflow.com/components/formfield/#building-a-custom-form-field) to build your custom field.
+
+Your custom form field must include the web layout configuration for the form view and three views: **Data table, Sheet,** and **Card**. Learn more about views [here](/t/35yfjp0/custom-form-field-components#previewing-the-custom-component).
+
+Optionally, you can also include mobile layout configuration for the form view and **Data table** view.
+
+> **Note:** The form view refers to how the form appears on a page in its default state, without being converted into one of the three views—**[Data table](/t/g9yzja2/data-table-view)**, **[Sheet](/t/x2yzjaw/sheet-view-in-data-forms)**, or **Card**.
+
+#### What happens if the custom form field does not have UI configuration?
+
+Ideally, your custom form field should be designed to support all four views across both web and mobile layouts. However, if the web layout configuration is missing for the **Data table** or **Card** view, a system-generated placeholder UI will be displayed. Note that this applies only to the web layout. The custom fields that do not include configurations for other views may not render properly within a form.
+
+> **Note:** The placeholder UI will not be displayed for custom form fields of the data types **Object** and **Array of objects**.
+
+## Creating a custom component
+
+1\. Create a custom field component using [these](/t/m1yfjgz/custom-components-in-kissflow-apps#managing-custom-components) steps.
+
+### Importing and previewing a custom component
+
+In the **Import component** page, click on the **Upload file** option to upload a .zip file of your custom form field.Before you upload your component, choose the data type of your component from the right panel. By default, the **Text** data type will be selected. Please ensure the selected data type corresponds to the data type of your custom form field.
+
+> **Note:** Once a custom field component is uploaded, its data type cannot be changed. The data type setting does not apply to page components.
+
+### Data types for custom form fields
+
+Kissflow allows custom form fields for select data types. When creating a custom form field, ensure that it corresponds to one of the six types below. Each data type serves a specific purpose based on the kind of data the field needs to handle:
+
+-   **Text** – A sequence of characters or words, such as names or descriptions.
+    
+-   **Number** – Any numerical value, including integers and decimals.
+    
+-   **Boolean** – A true/false value, often used for toggles or checkboxes.
+    
+-   **Object** – A structured collection of key-value pairs, useful for storing related data.
+    
+-   **Array of strings** – A list of text values, ideal for multiple-choice inputs.
+    
+-   **Array of objects** – A list of structured data items, commonly used for complex datasets.
+    
+
+#### Text
+
+The text data type represents a string of characters, equivalent to JavaScript’s **String** type. Use this for any field that accepts text input, such as names, addresses, or comments. Text fields can also support validation rules, such as character limits or required formats (e.g., email addresses).
+
+> **Note:** The maximum number of text strings allowed for a custom form field is 50.
+
+#### Number
+
+The number data type stores numeric values, including whole numbers and decimals. Unlike some programming languages, JavaScript uses a single Number type for all numerical values. This data type is useful for quantities, prices, percentages, and any field requiring numerical input. Validation can ensure numbers fall within a specific range or meet precision requirements.
+
+#### Boolean
+
+Boolean is a logical data type with only two possible values: true or false. This is ideal for binary choices, such as enabling/disabling a feature, confirming a preference, or responding to Yes/No questions.
+
+#### Array of Strings
+
+Array of string refers to a list of multiple string values. This is useful when a field needs to accept multiple text inputs, such as selecting multiple categories, entering tags, or listing skills. Arrays of strings can be displayed as checklists, multi-select dropdowns, or comma-separated input fields.
+
+#### Object
+
+An object is a collection of key-value pairs that store structured data. Objects allow grouping multiple related properties within a single field. For example, a user profile object may include fields like firstName, lastName, email, and role. Objects are useful when a single input needs to hold multiple attributes.
+
+#### Array of Objects
+
+Array of objects is an array containing multiple objects, each with its own set of properties. This is useful for managing structured datasets, such as a list of products, form submissions, or user profiles. For example, an array of order items might contain objects with productName, price, and quantity fields.
+
+> **Note:**
+> 
+> The maximum number of objects allowed for a custom form field is 10.The maximum of keys allowed per object is 20.The maximum nested levels allowed for each key is 3.
+
+For the **Object** and **Array of objects** data types, you must provide a valid JSON schema. Without a valid JSON schema, the custom form field will not be able to take proper inputs.For testing purposes, you can use a sample JSON schema. Click the **Populate sample** option to fill the field.![](/migration-assets/working-with-custom-form-field-components/5.gif)
+
+> **Note:** If the selected data type is **Object** or **Array of objects**, the custom form field cannot be previewed or published without entering a JSON schema.
+
+### Creating input parameters
+
+In the **Import component** page, you can define input parameters for your custom field. There are three types of input parameters you can create:
+
+-   **String** – Accepts text values.
+    
+-   **Number** – Accepts numerical values.
+    
+-   **Static drop-down** – A predefined list of selectable options.
+    
+
+#### Adding an input parameter
+
+1.  Click **Input parameters** on the right panel, then select **Add a parameter**.
+    
+2.  Enter a **Parameter name** and **ID**.
+    
+3.  Choose a **Parameter type** - String, Number, or Static Drop-down.
+    
+4.  Set a default value. This is required for Static Drop-down but optional for String and Number parameters.  
+     
+    
+    ![](/migration-assets/working-with-custom-form-field-components/4.gif)
+
+> **Note:** You can create as many input parameters as needed for your custom component.
+
+### Previewing the custom component
+
+There are four types of preview views available on Desktop, with two of them applicable for PWA/Mobile.
+
+#### 1\. Form view (Applicable for the mobile view)
+
+Displays how the custom field appears in a form, such as Dataform, Process, or Board forms.
+
+#### 2\. Sheet view
+
+Shows the custom field inside an editable table, allowing direct updates to entries (e.g., form tables, Sheet view in Dataform).
+
+#### 3\. Data Table View (Applicable for the mobile view)
+
+Displays the custom field in a read-only table, where entries cannot be updated (e.g., My Items table, tabular reports).
+
+#### 4\. Card View
+
+Shows the custom field within a card layout, such as in card reports or the Gallery view in Dataform.Note: You can preview your component in both **Editable** and **Read-only** modes by adjusting the permission states in the drop-down menu.
+
+> **Note:** You can preview your component in both Editable and Read-only modes by adjusting the permission states in the drop-down menu.
+
+![](/migration-assets/working-with-custom-form-field-components/1.png)
+
+### Live preview
+
+You can preview your component before uploading using the Live preview option. This allows you to see changes in real time as you build.
+
+#### Setting up live preview
+
+1.  Use the click here option to open the Live preview window.
+    
+2.  Enter your dev server URL (e.g., [http://127.0.0.1:9000](http://127.0.0.1:9000)) and press enter.
+    
+
+![](/migration-assets/working-with-custom-page-components/2.gif)
+
+> #### Important Note
+> 
+> Before using your dev server URL in the live preview, you must resolve any SSL certificate errors:
+> 
+> 1.  Open your dev server URL in a browser window.
+>     
+> 2.  If you see a "Your connection is not private" message, click Advanced > Proceed to \[your URL\].
+>     
+> 3.  This step is only required once and prevents SSL errors in the live preview.
+>     
+
+## Publishing a custom form field
+
+Once you've created the necessary input parameters and are satisfied with the preview, your custom form field is ready to be published. Simply click **Publish**, and the custom form field will be available for use across any form within the app where it is published.
+
+![](/migration-assets/working-with-custom-form-field-components/2.gif)
+
+### Using the custom form field in a form
+
+1.  Open a dataform or a process or a board form and scroll down in the All fields menu on the left panel.
+    
+2.  Under **Custom** you will find all the custom form fields that you have published.
+    
+3.  Drag and drop a custom field onto your form and configure it just like a default form field.
+    
+4.  Your custom form field is ready to use in all forms within your app.
+    
+
+![](/migration-assets/working-with-custom-form-field-components/3.gif)
+
+> **Note**: You can add up to 10 custom fields in a form.

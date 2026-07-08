@@ -1,0 +1,130 @@
+---
+title: "dateDiff function"
+description: "DRAFT (unverified) — migrated from /t/q6ygfyb/datediff-function"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+The dateDiff function calculates the difference between two specific points in time. It is designed to be flexible, allowing you to measure differences in various units (like days, months, or years) while providing control over what counts as a working day. By default, it ignores weekends, but you can override this behavior or provide a specific array of holiday dates to be excluded from the calculation.
+
+**Syntax** 
+
+```
+dateDiff(date1, date2, “unit”, holiday(), [holiday_list])
+```
+
+## Parameter details
+
+**Parameter**
+
+**Data type**
+
+**Required/Optional**
+
+date1
+
+Date
+
+Required
+
+date2
+
+Date
+
+Required
+
+unit
+
+String
+
+Required ("day",”year” "month", “hour”, “minute”, or “second”) 
+
+Default is day
+
+holiday
+
+Boolean
+
+Optional 
+
+Default: True
+
+holiday\_list
+
+Array
+
+Optional
+
+-   **date1 and date2**: The two timestamps or calendar dates you wish to compare.
+    
+-   **unit**: The interval used for the calculation. Supported strings: Year, Month, Day, Hour, Minute, and Second.
+    
+-   **holiday**: A flag to determine if weekends are counted.
+    
+    -   Use true() to ignore weekends (standard business logic).
+        
+    -   Use false() to include weekends as regular days.
+        
+-   **holiday\_list**: An array of specific dates (for example, \["2026-01-01", "2026-12-25"\]) that you want the function to treat as non-working days, even if they fall on a weekday.
+    
+
+## How the algorithm works
+
+1. **Initialize the counter**: The system begins with a total count of 0.
+    
+2. **Define the calculation window**: The system sets the calculation to start from the day after your date1 and continue through to the end of date2. This ensures that if your start and end dates are the same, the loop never runs, resulting in a count of 0)
+    
+3. **Step through the timeline**: It moves forward, one day at a time, looking at every day within that window.
+    
+4. **Run the validity checks**: For every day it lands on, it performs three quick checks:
+    
+    -   Is it a weekend? (Only if the holiday flag is set to true).
+        
+    -   Is it a holiday? The system checks your provided holiday\_list array to see if the date is a holiday.
+        
+    -   Is it a valid working day?
+        
+5. **Update the count**: If the day is valid (it is a working day and not in the holiday list), the system adds 1 to the counter.
+    
+    -   If the day is invalid (it's a weekend or a holiday), the system ignores that day.
+        
+6. **Finalize**: Once the system reaches the date2, it stops and provides the final calculated difference.
+    
+
+## Examples
+
+### Standard weekday calculation
+
+-   **Formula**: dateDiff(date1,date2,"Day")
+    
+-   **Sample input**: date1: 19th April 2026 (Sunday) and date2: 25th April 2026 (Saturday).
+    
+-   **Context**: The range covers a Sunday to a Saturday.
+    
+-   **Logic**:
+    
+    -   The calculation window starts from the day after date1 (April 20th).
+        
+    -   It evaluates the days from April 20th to April 25th.
+        
+    -   As the default setting excludes weekends, the system counts: Monday (20th), Tuesday (21st), Wednesday (22nd), Thursday (23rd), and Friday (24th). It ignores the Saturday (25th) as it falls on a weekend.
+        
+-   **Result**: 5
+    
+
+### Weekend inclusion
+
+-   **Formula**: dateDiff(date1,date2,"Day",false())
+    
+-   **Sample input**: date1: 23rd April 2026 (Thursday) and date2: 27th April 2026 (Monday).
+    
+-   **Context**: The range covers a Thursday to a Monday.
+    
+-   **Logic**: The calculation window starts from the day after date1 (April 24th).
+    
+    -   Because the false() flag is passed, the system ignores the weekend check and treats every day within the window as a valid day.
+        
+    -   The system counts: Friday (24th), Saturday (25th), Sunday (26th), and Monday (27th).
+        
+-    **Result**: 4

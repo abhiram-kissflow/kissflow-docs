@@ -1,0 +1,73 @@
+---
+title: "Managing filters"
+description: "DRAFT (unverified) — migrated from /t/g9h4al1/managing-filters"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+A filter helps you view a confined set of data that matches certain conditions. With advanced filters, you can filter contextually on a few attributes like user and time thereby giving more depth to the filter conditions.
+
+## Creating a filter
+
+1.  Click the **Filter** button (![](/migration-assets/managing-filters/5.png)) on the dataset's page.
+2.  Click **Add a filter**.
+3.  Select a field that you want to add to the filter from the **Select field** dropdown to define your filter conditions:
+    1.  The operators are contextually populated based on the field you select. Choose an appropriate operator such as **Equal to**, **Not equal to**, **Contains**, **Is empty**, and so on.
+    2.  Next, select a **Field** or enter the **Value** against which you are validating this condition.
+4.  Click **Add a condition** to add as many **AND/OR** conditions as you want.![](/migration-assets/managing-filters/1.png)  
+5.  Similarly, click **\+ Add new filter** to add as many filters as you want.
+    -   After adding enough conditions and filters, choose between **AND** and **OR** conditions based on your preference. **AND** **operator** checks if all the applied filter conditions are met, and **OR operator** checks if at least one of the applied filter conditions is met.
+6.  Click **Apply** to filter records in your dataset.
+
+You can use the ( - ) symbol in red beside every filter condition to remove it, and the close icon beside every filter to delete it.
+
+## User-based contextual filters
+
+An advanced filter is about giving more context to your filter conditions, so we have introduced user-based contextual filters that will help you choose the exact attribute related to the current user when you define filter conditions involving user names or text values.
+
+### Adding a filter condition based on a user
+
+While matching a text or user field against another field, you will see a field named **Current User** along with all its attributes like **Name**, **Email Address**, **User** **Type**, **Status**, and **Designation** in the right-hand side dropdown. Choose the attribute that's appropriate to your filter condition as necessary.
+
+![](/migration-assets/managing-filters/2.png)
+
+For example, if you wish to check if a specific department head's name is the current user's name, its filter condition would read as follows:
+
+\[**Department head\]** \[**Equal to\]** \[**Current User.Name\]**
+
+The user-based contextual fields are also available on the left-hand side **Select field** dropdown.
+
+![](/migration-assets/managing-filters/3.png)
+
+## Time-based contextual filters
+
+There are various options to filter your fields related to date and time.
+
+### Adding a filter condition based on time
+
+While matching a date or time-based field against a value, click the ellipsis icon to view the contextual options. You can choose an appropriate one according to your requirements.
+
+The following options are listed when a date or time field is selected:
+
+-   Now
+-   Next 6 hours
+-   Next 12 hours
+-   Today
+-   Tomorrow
+-   Yesterday
+-   This week
+-   Last 7 days
+-   Next 7 days
+-   Last 14 days
+-   Last 30 days
+-   This month
+-   This quarter
+-   Last quarter
+-   This year![](/migration-assets/managing-filters/4.png)
+
+You can also open the calendar after choosing a relevant value and modify the date as necessary in the **Value** field.

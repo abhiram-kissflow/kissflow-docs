@@ -1,0 +1,60 @@
+---
+title: "Process governance"
+description: "DRAFT (unverified) — migrated from /t/m1hvtsb/process-governance"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✕ Basic ✓ EnterpriseAs a [Super Admin, or an IAM Admin](/t/35h4ak0/user-roles-and-permissions), account governance helps you see all the ongoing processes in your Kissflow account. This feature makes it easier to manage data by giving you a better view and control, helping you make smart choices about how processes are used and improved.In the process governance page, the **Status** area shows you how many processes are live and how many are drafts, helping you see what's ready and what's not. The **Idle processes** area shows you all the processes that haven't had any activity for a while based on your chosen period. This way, you can spot which processes are no longer needed and take action on them as needed.![](/migration-assets/process-governance/1.png)
+
+## Security and permissions
+
+**The public forms enabled** section lists all the processes that have enabled public forms in their security settings. From this, you can determine which process forms can be accessed externally, as this exposes any information contained within the forms. From the **Externally connected** section, you can identify the processes exposing sensitive data outside your account through external connectors of your account’s integrations. Being aware of such processes helps you manage data security and minimize the risks associated with the exposure of sensitive data outside your Kissflow account.**Unrestricted download permissions** and **Unrestricted print permissions** sections inform you about the process attachments and forms that anyone can download and print, respectively. This helps you identify the processes that can share sensitive data with people or systems outside Kissflow.![](/migration-assets/process-governance/2.png)You can click any process to access its detailed page to see the status of the process, its creator, and its creation date. You can also see when and by whom the process was last published. Apart from these details, you have a lot of other sections where you can learn more about the process.
+
+## Admins
+
+The **Admins** section displays all the admins in a process and their roles. To ensure security and prevent unauthorized access, it is important to identify the individuals or groups with administrative privileges for a specific process. This information allows you to monitor and control privileged access. Regular monitoring and review of the admins can help you maintain the integrity and confidentiality of the process, reducing the risk of unauthorized actions or data breaches.![](/migration-assets/process-governance/5.png)
+
+## Activity
+
+You can assess the productivity of a process by analyzing the activity within it. This includes the number of item creations in the process and any submissions done in all the steps for a selected time period. This provides valuable insights into the process's effectiveness and helps you identify areas for improvement to enhance productivity and streamline operations.![](/migration-assets/process-governance/3.png)
+
+## Public form
+
+This section lets you know whether a process has enabled public forms. If this is enabled, the process form can be accessed by systems outside Kissflow and may expose sensitive data.
+
+## Integrations
+
+In this section, you can check out the list of integrations connected to a specific process. It shows you the statuses of those integrations and the connectors they use. This way, you can ensure the process is only connected to the integrations they're supposed to and avoid any data exposure risks.![](/migration-assets/process-governance/7.png)
+
+## AI-identified sensitive data 
+
+This section lets you know the form fields that may potentially contain sensitive data that AI identifies. With this information, you can take measures to prevent unwanted exposure of these sensitive data later on. These sensitive data are identified and classified by AI into three categories:
+
+**1\. Personal data** - Any data that could lead to identifying a specific individual. For example: Name, address, contact details, etc.
+
+**2\. Confidential data** - Any data demanding a high level of security and not intended for public access. This will include proprietary business information, financial data, sign in credentials, or other confidential details that would need protection.
+
+**3\. Health data** - Any data concerning an individual's physical or mental health, medical history, or treatment records.
+
+![](/migration-assets/process-governance/4.png)
+
+## Flows looked up from and looked up to
+
+Under the **Flows looked up from** section, you can view a list of flows from which a process can look up data. Data from those flows are exposed to the specific process.![](/migration-assets/process-governance/8.png)You can view a list of flows that can look up data from a specific process using the **Flows looked up** section. Data from this process is exposed to the flows that look up this process.![](/migration-assets/process-governance/9.png)
+
+## Dependent and source flows
+
+You can oversee all your [connected processes](/t/g9ytv27/connected-processes-overview) under the dependent and source flows sections, making it simpler to audit, monitor, and manage organizational workflows.  
+ **Dependent flows** - View the connected processes that can automatically initiate items from your current process' items.**Source flows** - View the connected processes that can automatically initiate items in your current process.![](/migration-assets/process-governance/6.png)
+
+## Download, print, and export logs
+
+In this section, you can watch all the downloads, prints, or exports of flow data (attachments, forms, and reports, respectively) in the last 30 days. Using this, you can spot any instances where sensitive data might be shared with people or systems inside and outside Kissflow and take action to prevent it. ![](/migration-assets/process-governance/10.png)
+
+## Audit log
+
+Utilizing the audit log allows you to gain visibility and valuable insights into activities performed in a process. It provides a comprehensive record of all actions in the last 30 days, allowing for detailed analysis and a deeper understanding of the process. Based on this, you can track and examine various activities for enhanced monitoring and security purposes.![](/migration-assets/process-governance/11.png)

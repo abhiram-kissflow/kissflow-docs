@@ -1,0 +1,60 @@
+---
+title: "ClickSend connector"
+description: "DRAFT (unverified) — migrated from /t/y4h4ala/click-send"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## What is ClickSend?
+
+ClickSend is a cloud-based service that lets you send and receive SMS, email, voice, and fax worldwide.
+
+## About Kissflow's ClickSend integration
+
+Kissflow's ClickSend connector lets you use ClickSend's bulk SMS service to send SMS to your contacts. To integrate with ClickSend, you must have a valid ClickSend account and be a paid Kissflow customer.
+
+You can use this service to send SMS messages when a specific task in your workflow is completed. Assume you're using a Kissflow Board to manage your service incidents. If a service incident in your board is completed, you can send an SMS to the phone number indicated in the board. This is enabled with the ClickSend connector.
+
+There are no trigger events supported by ClickSend connector.
+
+### Actions in ClickSend
+
+**Actions**
+
+**Description**
+
+Send SMS
+
+This action sends an SMS to a specified phone number.
+
+Send SMS to a contact list
+
+This action sends SMS to all the phone numbers in your contact list.
+
+### Configuring ClickSend connector
+
+1.  In your Kissflow account, click the **Create** button in the left navigation panel and select **Integration** from the list. Enter a unique name and description for your integration and click **[Create](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Set up trigger step, for example, you can use it to connect with a simple case management system like a service incident management tool.
+3.  After setting up your trigger step above, click the **Add** button (![](/migration-assets/click-send/1.png) ) next to set up your ClickSend action step. Search for **ClickSend** and select an available action event.![](/migration-assets/click-send/2.png) 
+
+4\. After choosing your action event, next step is to authenticate the connector. Click **+Add an account** and sign in to your ClickSend account. After signing in, go to **Developers** > **API credentials** and copy your unique **Username** and **API key.** Paste these copied credentials in your connector's authentication popup fields.
+
+> **Note:**If you don't have a ClickSend account yet, [create an account here](https://www.clicksend.com/).
+
+![](/migration-assets/click-send/3.png)
+
+5\. After authenticating with your ClickSend account credentials, add the relevant values against the ClickSend form fields, hit **Refresh fields** to view all the updated fields in the selected ClickSend form. You can also map ClickSend fields with your trigger step or previous action's fields. For instance, you can map a phone number field in your case system here. The field values will be automatically added to the item fields after the action is executed.
+
+6\. After a successful configuration, test whether your ClickSend action step is set up correctly by clicking the **T****est** button. The connector will pull field data from your selected ClickSend account and display it as a JSON output. Similar to the trigger step, errors are notified to you right away. Fix them before retesting the action step.
+
+#### Setting up a ClickSend connector
+
+After creating a custom workflow with your ClickSend connector's action step, switch **ON** the toggle button to activate the integration run. Once a trigger event occurs, the ClickSend connector will automatically send an SMS message to your contact(s).
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

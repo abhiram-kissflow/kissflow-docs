@@ -20,7 +20,8 @@
     "resources",
     "model-viewer",
     "ai-builder",
-    "themes"
+    "themes",
+    "external-data"
   ],
   "icon": "build"
 }

@@ -1,0 +1,69 @@
+---
+title: "Geolocation field"
+description: "DRAFT (unverified) — migrated from /t/q6h4az7/geolocation-field"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+The **geolocation field** lets you record the users' locations with their consent. You can view the recorded location in a **Google Maps** view embedded in the form. You can record the user’s current location, set a constant location for all users, or let the users manually enter their location using the map. 
+
+## Using the Geolocation field
+
+The **Geolocation** field is under [Advanced fields.](/t/y4h4azv/basic-and-advanced-fields) You can drag and drop the field onto your form or click the Geolocation field, which automatically places the field in your form.
+
+To configure the settings, edit the name, help text and make the field required if needed. You can also extract location values from these fields using [formulas](/t/35h4alz/computing-fields-using-formula-builder).
+
+> **Note**:
+> 
+> You can only add one geolocation field in a form, and geolocation fields are not supported inside [Child tables](/t/h7h4azm/creating-a-form#child-tablesnbsp) and filters.
+
+![](/migration-assets/geolocation-field/2.gif)
+
+The Geolocation field uses Google Maps for recording the location of the users. Therefore, a [Google Maps API key](https://developers.google.com/maps/documentation/javascript/get-api-key) is required for the field to function. You can add the Google Maps API key in the **Geolocation settings** inside **Manage** > **Account administration**. 
+
+![](/migration-assets/geolocation-field/3.gif)
+
+> **Note:**
+> 
+> Only Account Owners and Super Admins can access **Account administration**. If you’re not one, contact your [Super Admin](/t/35h4ak0/user-roles-permissions) to add a Google Maps API key.
+
+## Configuring the location type
+
+You can modify the field's behavior by selecting from three options that allow you to configure different types of locations.
+
+### Current location
+
+By choosing this option, you can configure the field to show the user’s current location. For this, the end-users should enable location access for Kissflow in their browsers.
+
+This is a non-editable field, therefore, end-users cannot modify their location. The user's location will only be saved upon submitting the form, and will not be saved if the user clicks **Save**, instead of **Submit.**
+
+### Preset location
+
+You can pick a location that will be shown to all the users and cannot be modified by them.
+
+### Custom location
+
+User will be prompted to manually choose a location from the map.
+
+## Geolocation settings
+
+You can add, edit or remove your Google Maps API key for the Geolocation field from the Geolocation settings. A Google Maps API key allows the Geolocation field in your form to access and use Google Maps. You can use an existing Google Maps API key or create a new one. To learn more about creating and using Google Maps API keys, click [here](https://developers.google.com/maps/documentation/javascript/get-api-key).
+
+> **Note**
+> 
+> For the API key to work without glitches, please enable the following services in the Google Cloud Console: Maps JavaScript API, Places API, and Geocoding API.
+> 
+> ![](/migration-assets/geolocation-field/1.png)
+
+Once you have your Google Maps API key, enter it in the field provided, and the system will validate the API key. If the API key entered is valid, you can proceed to save the settings by clicking **Save.** If the key is invalid, check the key for typos or enter another key.
+
+After changes are made to the API Key, all users are required to reload Kissflow for the changes to take effect.
+
+> **Note:**
+> 
+> Using Google Maps API is subject to charges as per [Google Cloud Platform pricing](https://developers.google.com/maps/billing-and-pricing/billing), and the billing does not fall under Kissflow pricing.

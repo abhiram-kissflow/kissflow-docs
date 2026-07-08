@@ -1,0 +1,194 @@
+---
+title: "Multilingual settings in forms"
+description: "DRAFT (unverified) — migrated from /t/83hvnzt/multilingual-settings-in-forms"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+<iframe src="https://player.vimeo.com/video/855305682?h=1f7a81df59&app_id=122963" title="Multilingual Support in Kissflow Forms" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+Multilingual settings allow Kissflow Process admins/developers and Board admins to customize and present their workflow forms in various languages. You can incorporate manually translated form labels or use the AI translation feature.
+
+For instance, if you've designed a form in English but wish to cater to Chinese speakers, follow the steps below. Once set up, the form will adjust to Chinese for users who've chosen Chinese in their profile settings, ensuring a seamless experience for both English and Chinese speakers.
+
+1.  Select the language.
+    
+2.  Download the form labels.
+    
+3.  Manually translate the labels or opt for AI translation.
+    
+4.  Import the labels back into the form if you manually translate the file.
+    
+
+> **Note**
+> 
+> This feature is available for the standalone Kissflow Processes and Boards. Only languages available at the platform level will be supported within forms.
+
+To implement multilingual capabilities, follow this guide, with examples using Kissflow Process. The same can be applied to Kissflow Boards too.
+
+## Accessing multilingual settings
+
+If you’re a Process admin/developer or Board admin, follow the below steps to access multilingual settings tab: 
+
+1.  In the top right corner your Process (or Board) page, click **Manage** \> **Settings.**
+    
+2.  Under settings navigation pane, click **Multilingual settings**.
+    
+3.  Turn on the **Configure multiple languages** toggle (
+    
+    ![](/migration-assets/multilingual-settings-in-forms/1.png)
+    
+     ![](/migration-assets/multilingual-settings-in-forms/2.gif)) button.
+    
+
+After turning on the settings, you can download the labels by clicking **Download JSON**.  However, if opting for automatic translation, click **AI translate**. 
+
+![](/migration-assets/multilingual-settings-in-forms/3.gif)
+
+### Manual translation
+
+1.  Under Language, click **+Add language** and choose **Translate manually**.
+    
+2.  In the pop-up window, choose your desired language from the dropdown.
+    
+3.  Click **Download JSON** and translate the file manually. ![](/migration-assets/multilingual-settings-in-forms/4.gif)
+    
+4.  After translation, in the next step of the pop-up window, click **Import JSON**.
+    
+5.  Confirm file verification and data validation, then click **Add.**
+    
+
+![](/migration-assets/multilingual-settings-in-forms/17.gif)
+
+### AI translation
+
+AI automatically translates your form labels and step names into the selected language as a JSON file. 
+
+1.  Under **Language**, click **+Add language** and choose **AI translate**.
+    
+2.  In the pop-up window, choose your desired language from the dropdown. 
+    
+3.  Click **Auto-translate**. 
+    
+
+![](/migration-assets/multilingual-settings-in-forms/5.gif)
+
+> **Note:**
+> 
+> Please review the generated file once to ensure there are no discrepancies.
+
+## Replacing the translated file
+
+### For manually translated files
+
+If you want to change any of the translated labels or add translation for new labels, modify the JSON file locally and upload the revised version.
+
+1.  Hover over the language you wish to modify in Multilingual settings and click the **More options** button. 
+    
+2.  Select **Replace JSON** and upload your file.
+    
+3.  Confirm file verification and data validation, and click **Replace**.
+    
+
+![](/migration-assets/multilingual-settings-in-forms/6.gif)
+
+> **Note:**
+> 
+> If you've misplaced your translated file, use **More options** button to retrieve the existing version.
+> 
+> ![](/migration-assets/multilingual-settings-in-forms/7.png)
+
+> **Note:**
+> 
+> **Instant notifications**
+> 
+> Missed translations will trigger a warning, showing the count of untranslated labels under your newly added language. Edit your JSON file to add these translations and replace the existing version.
+
+### For AI translated files
+
+If you’ve used AI translate to convert your form labels and step names, and there are new changes to the form, click **More options** > **Reranslate with AI** to upload the freshly translated file. 
+
+![](/migration-assets/multilingual-settings-in-forms/8.png)
+
+## Previewing the multilingual form
+
+Before you roll out the form to your audience, you can preview how the translated fields will appear on the screen.
+
+> **Note:**
+> 
+> The ability to preview multilingual forms isn’t available in Kissflow Boards.
+
+1.  At the top right corner of your process screen, click **Edit process**. The form editor opens.
+    
+2.  Click **Simulate**. The form will appear in its default language.
+    
+3.  Use the **Language** (
+    
+    ![](/migration-assets/multilingual-settings-in-forms/9.png)
+    
+     ![](/migration-assets/multilingual-settings-in-forms/13.gif)) icon’s dropdown at the top to switch languages.
+    
+
+![](/migration-assets/multilingual-settings-in-forms/12.gif)
+
+> **Note:**
+> 
+> Standard system actions, such as selecting yes or no in the Yes/No field and attaching files in the Attachment field, remain in the user's preferred language; only form labels change during simulation.
+
+## Updating the form fields
+
+When new fields are added to an existing multilingual form, you need to provide the updated translation to ensure your form is up-to-date. 
+
+Under **Configure multiple languages**, click **Download JSON**. It’ll provide you the latest version of the form with its newly added fields. 
+
+![](/migration-assets/multilingual-settings-in-forms/11.png)
+
+## Disabling translation 
+
+You can disable any of the added languages anytime by turning off the toggle button (
+
+![](/migration-assets/multilingual-settings-in-forms/10.png)
+
+ ![](/migration-assets/multilingual-settings-in-forms/14.gif)) next to the required language in the languages list.
+
+![](/migration-assets/multilingual-settings-in-forms/15.gif)
+
+## Using multilingual forms
+
+### Account users
+
+Access to multilingual forms depends on users' profile and account language settings. The profile setting takes precedence. If both are undefined, the form's original language is used.
+
+#### Setting up profile language preferences
+
+1.  Click Profile at the top right corner of the screen.
+    
+2.  Select **My settings**.
+    
+3.  Under **Personal info** > **Format settings**, select your preferred language from the Language dropdown list.
+    
+4.  Click **Save**.
+    
+
+![](/migration-assets/multilingual-settings-in-forms/20.gif)
+
+The selected language will be reflected throughout your entire profile. Now, if a form is assigned to a user with multilingual support available in the profile language, the user can automatically view the form in that language.
+
+> **Note:**
+> 
+> Translation of labels is limited to the form and home page labels. Admin activities found under the More options section will not be translated and will consistently appear in the source language in which the form was initially configured.
+
+### Public users
+
+Users can access the Language icon (
+
+![](/migration-assets/multilingual-settings-in-forms/16.png)
+
+ ![](/migration-assets/multilingual-settings-in-forms/19.gif)) dropdown menu at the form's top right corner, to select their viewing language.
+
+![](/migration-assets/multilingual-settings-in-forms/18.gif)

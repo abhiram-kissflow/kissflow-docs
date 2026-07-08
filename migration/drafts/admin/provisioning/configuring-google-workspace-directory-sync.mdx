@@ -1,0 +1,114 @@
+---
+title: "Configuring Google Workspace directory sync"
+description: "DRAFT (unverified) — migrated from /t/83h4a1y/configuring-google-workspace-directory-sync"
+contentType: guide
+persona: admin
+section: admin
+---
+
+You can add users and synchronize user information from your third-party directory accounts to Kissflow using the **Identity Provider** feature under **User Provisioning** in Kissflow. We currently support user provisioning from Google Workspace (formerly called G Suite) and via [SCIM](/t/p8h4ak436h4gg/managing-members-with-scim-provisioning).
+
+An account can have only one user provisioning service enabled at a time, so if you are currently using SCIM, we recommend you contact our customer support team to help you disable it.
+
+## Prerequisites
+
+Here are a few things you must know before you attempt to connect to Google Workspace:
+
+1.  You must be a [Super Admin, or an IAM Admin](/t/35h4ak036h4gg/user-roles-permissions) in your Kissflow account.
+2.  You must be an Administrator in your Google Workspace account with the following permissions:
+    -   Organization: Read
+    -   Organization unit: Read
+    -   Users: Read
+    -   Groups: Read
+    -   Domain Settings
+    -   Domain management
+    -   Schema Management: Schema Read
+
+If you are unsure whether you have the required permissions in your Google Workspace account, check this [link](https://support.google.com/a/answer/2405986?hl=en) to learn more about your role and privileges. Also, if your Administrator access is revoked in the future or your credentials do not work anymore, all the scheduled syncs will be disabled until you sign in back to your Google Workspace account.
+
+## Connecting to Google Workspace
+
+1.  Access your Kissflow account on your web browser and click your profile picture > **Account Administration** > **User provisioning** > **Identity providers** > **Google Workspace.**
+2.  Click **Configure.**
+3.  Click **Connect Google Workspace.**
+4.  Sign in to your Google Workspace account.
+    1.  Your connection might fail if you aren’t an [Administrator in your Google Workspace account](/t/83h4a1y36h4gg/configuring-google-workspace-directory-sync#prerequisites) or if the account you tried to sign in wasn’t a Google Workspace account.
+5.  Click **Allow** to let Kissflow access the information needed to connect to your Google Workspace account. This information includes your current role in Google Workspace, email address, domain, and users and groups under your domain.
+
+You may now proceed to set up your sync as follows.
+
+## Selecting domains
+
+After establishing a connection with your Google Workspace account, select the domains from which you would like to provision the users and their relevant group information to Kissflow. Click **Next** to proceed.
+
+![](/migration-assets/configuring-google-workspace-directory-sync/5.gif)
+
+## Selecting users or groups
+
+After you’ve selected your preferred domains, you can choose to sync all the users from those domains or sync users only from a specific set of groups available in the selected domains.
+
+![](/migration-assets/configuring-google-workspace-directory-sync/1.png)
+
+Under **User sync**,
+
+-   Select **All users** if you would like to add or sync all the users from the domains chosen by you in the previous step (or)
+-   Select **Users from a specific group(s)** and choose the groups if you would like to add or sync users from the domains you chose in the previous step.
+
+After selecting users, you can sync their group information by selecting the **Add group information additionally** checkbox. If you choose to sync users from specific groups, the selected groups will be populated automatically when you check this box. You can modify the list as you wish or leave it as is.
+
+Click **Next** to proceed or click **Previous** if you would like to [revisit the domains chosen for this configuration and modify the list](/t/83h4a1y36h4gg/configuring-google-workspace-directory-sync#selecting-domains).
+
+## Mapping and testing field attributes
+
+Testing field mapping helps you spot discrepancies in the data between the source and destination services and avoid sync failures at a later stage.
+
+By default, we will map three mandatory fields - First name, Last name, and Email ID from your Google Workspace account with their respective fields in your Kissflow account. Click **\+ New field** to add as many fields as you want from your Google Workspace account and map them with their equivalent fields in Kissflow.
+
+After mapping fields, you can select certain fields for which you wouldn't want future updates to be synced into Kissflow.
+
+![](/migration-assets/configuring-google-workspace-directory-sync/2.png)
+
+Toggle **Sync updates** OFF to prevent a field from being updated in the future. However, disabling this field doesn't restrict the field from being added for the first time.
+
+Let us assume an organization decides not to let its employees make changes to details such as their **First name** in Kissflow, but an employee changed his name from _Michael Doe_ to _Mike Doe_ now. If **Sync updates** is ON for the **First name** field, his new name 'Mike Doe' will be updated in Kissflow in the subsequent sync. If it is turned OFF, the changes to his First name will be discarded and retained as _Michale Doe_ in Kissflow.
+
+Click **Test** to preview the mapping results.
+
+Your field mapping might fail in the following scenarios:
+
+-   The source and destination fields must have the same data type. For example, you cannot map a ‘**Manager name**’ field (Text) in Google Workspace with a '**Joining date'** field (Date) in Kissflow.
+-   The field values must be in the accepted format. For example, the ‘**Joining date**’ field (Date) cannot have ‘**June sixth**’ as one of its values. Instead, it must follow the format 06/06/2019 (DD/MM/YYYY).
+
+Resolve the errors, if any, and retest the mapping as necessary. Click **Next** to proceed to the next step when you are done testing.
+
+## Setting sync preferences
+
+In this section, you can schedule sync, manage deleted Google Workspace users, and assign notification recipients for sync failures. Kissflow supports scheduled syncs only every week at the moment.
+
+> **Note**:  
+> If your organization gets a new hire during scheduled syncs and wants to add them to Kissflow immediately, you may add them manually by clicking the **Sync Now** button in **Account Administration** \> **User provisioning** > **Identity providers** > **Google Workspace**.
+
+-   You can choose to [delete](/t/y4h4aks36h4gg/add-manage-users#deleting-users) or [deactivate](/t/y4h4aks36h4gg/add-manage-users#deactivating-and-activating-users) users in Kissflow when they are deleted from your Google Workspace account.![](/migration-assets/configuring-google-workspace-directory-sync/3.png)  
+-   Select the recipients from the **Notify sync failures** dropdown to send them notifications in case of sync failure. The users will receive both in-app and email notifications in this regard.
+-   Click **Save & sync now** to save your configuration.
+
+> **Note**:  
+> Learn how to track the status of your sync, access sync history, and manage your configuration [here](/t/35h4a1336h4gg/managing-directory-sync-configuration).
+
+## Modifying configuration
+
+1.  Click **Edit configuration** after accessing the configuration under Account administration > User provisioning > Directory sync > Google Workspace.![](/migration-assets/configuring-google-workspace-directory-sync/6.gif)
+2.  Under **Domains**, [add new domains by selecting their respective checkboxes or remove existing domains](/t/83h4a1y36h4gg/configuring-google-workspace-directory-sync#selecting-domains) by deselecting their checkboxes accordingly.
+    New users belonging to the newly added domains will be added and synced in the subsequent syncs. The existing users from the excluded domains and their group information will be deferred from being synced up the next time. However, their information will be retained in Kissflow.
+3.  Similarly, [modify the users and their group information](/t/83h4a1y36h4gg/configuring-google-workspace-directory-sync#selecting-users-or-groups) in the next step as necessary.
+4.  [Test](/t/83h4a1y36h4gg/configuring-google-workspace-directory-sync#mapping-and-testing-field-attributes) the field mapping again to ensure there aren't any data discrepancies.
+5.  [Modify your sync preferences](/t/83h4a1y36h4gg/configuring-google-workspace-directory-sync#setting-sync-preferences) as necessary.
+6.  Click **Save & sync now** to save your changes and initiate the sync.
+
+> **Can you log in as a different user when the configuration is active?**
+> 
+> Yes, there could be instances when your credentials no longer work and you might have to log in again to avoid sync failures. Hover over your email address while editing the configuration to log out from your current session and log in again.
+
+![](/migration-assets/configuring-google-workspace-directory-sync/4.png)
+
+All the scheduled syncs will be disabled until the Administrator enters their Google Workspace account. Also, the existing configuration will be deleted permanently if you log in to a different Google Workspace account.

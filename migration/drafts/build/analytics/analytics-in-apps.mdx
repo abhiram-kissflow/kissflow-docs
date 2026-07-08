@@ -1,0 +1,148 @@
+---
+title: "Analytics in apps"
+description: "DRAFT (unverified) — migrated from /t/g9yzj45/analytics-in-apps"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+Analytics lets App developers extract valuable insights from various forms in the app. Each form’s data is represented in Analytics through tables, allowing the creation of tabular, chart, pivot reports by combining different forms. The data within analytics is updated within an hour.
+
+To access analytics in apps:
+
+1.  Inside the app builder, navigate to the left panel > click **Data**. 
+    
+2.  Select **Analytics** to view reports and dataviews you have created or have access to.
+    
+
+## What can you do with Analytics in Apps?
+
+1.  Create dataviews from one or more tables or other dataviews.
+    
+2.  Create reports based on dataviews or tables.
+    
+3.  Configure drilldown in reports.
+    
+
+## Creating dataviews in apps
+
+A dataview involves combining attributes from one or more forms such as process, board, and dataforms, in your app, and the resulting data will be in a tabular format. To create a [dataview](/t/83h9qzn/understanding-dataviews) in apps, follow these steps: 
+
+1.  Sign into Kissflow.
+    
+2.  Create an app or open an existing app.
+    
+3.  Inside the app builder, on the left navigation panel, under **Data** \> click **Analytics** \> **Dataviews** > **Create dataview**.
+    
+4.  Add an [SQL query](/t/h7yy9r2/understanding-use-cases-with-sql-queries-in-kissflow-analytics) in the query editor and run it. 
+    
+5.  Click **Save** to publish a dataview. 
+    
+6.  Once created, you can use the dataview to generate reports inside Apps.
+    
+
+![](/migration-assets/analytics-in-apps/1.png)
+
+> **Note:** The Analytics module present in an app caters only to the reports created within the specific app. Similarly, all data sources created within an app are exclusive and cannot be accessed by another app within the same Kissflow account.
+
+> **Note on concurrent editing of an analytics dataview:**To ensure data integrity and prevent conflicts, our system manages concurrent editing with a "first to save" rule. This means that if two or more users edit the same analytics dataview once, the changes from the person who edits the dataview first are auto-saved.
+> 
+> If another user edits a dataview before you, your version becomes outdated. When you try to edit, you will be prompted to take over editing and continue with the updates already made by the other user.
+> 
+> Please be aware that taking over editing will discard your unsaved work and will retain only the changes made by the previous user.
+
+## Creating analytics reports
+
+You can generate [reports](/t/35h9qzj/analytics-reports-an-overview) for processes, boards, dataforms, and dataviews to make it easy to understand trends, patterns, and outliers in your app. You can also combine different forms using dataviews and generate reports. 
+
+Every report is displayed in a card view. You can find out the following details from these cards: 
+
+-   Name
+-   Report type
+-   Share status of the report
+
+You can search for any reports you created inside Analytics. You can also sort the reports according to Created at, Last modified, or Alphabetical order.
+
+To create a report, follow these steps:
+
+1.  Under the Analytics tab > Reports > **Create report**.
+    
+2.  Select the required data source, report name, and description.
+    
+3.  Choose the type of report: Table, Chart, Pivot.
+    
+4.  Click **Create**.
+    
+
+## Enabling drilldown in chart and pivot reports
+
+The [drilldown feature](/t/x2yzj9g/reports#enabling-drilldown-in-chart-and-pivot-reports) allows you to delve deeper into your report data by displaying a tabular view of the underlying rows associated with specific data points in chart and pivot reports.
+
+To enable drilldown in reports,
+
+1.  Navigate to the **Settings** tab in report configuration page.
+2.  Under Drilldown, select the fields.
+3.  Click **Apply**.
+
+Hover over your chart or pivot report and click to drill down into the data. A tabular view will appear, showing the underlying rows related to the clicked data point. You can search fields, show/hide columns, and sort data by clicking the dropdown on each column header. Additionally, you can export data at runtime.  
+  
+![](/migration-assets/analytics-in-apps/2.gif)
+
+## Sharing and exporting a report
+
+Once you have created the report, you have several ways to administer it. Under Reports, click the **More options** button on the report you want to administer. 
+
+-   Share - Share the report with the [roles](/t/h7yzj46/application-roles) created in apps.  
+    
+-   Export - The export option is applicable only for tabular reports. This option allows you to export all the data in a tabular report as a CSV or JSON file. Once you export a report, you will receive an email with a link to download it.
+    
+
+> **Note**: You must enable the export header while configuring a tabular report on a page to use the export option.
+
+### Additional actions
+
+Click the **More options** button of the report you want > select one of the following.
+
+-   Click **Edit** \> Configure report page > Select the fields of the data source using the settings such as dimension, measure and legend > Click **Save**.
+    
+-   Rename a report > provide the new name > click **Rename**.
+    
+-   Click **Delete** to delete the report.
+    
+-   Select the **Duplicate** option > provide the required name for the copy of your report > Click **Duplicate**. A copy of the selected report, including the share permissions and the customizations, will be created in the **Reports** page.
+    
+
+## Using analytics reports in the page builder
+
+To utilize analytics within the page builder, follow these steps:
+
+1.  Drag and drop the report component - Tabular, Chart, Pivot that you wish to visualize onto your page.
+    
+2.  In the settings, choose the flow type as Analytics.
+    
+3.  Select the desired report that you want to appear in the page builder.
+    
+4.  If any filter parameters were added, they will appear under [Filter parameters](/t/h7yzj0v/using-advanced-filters-in-apps).
+    
+5.  Enable the **Show header** to access header for your reports.
+    
+
+Once the header is enabled, you can see options for data update, sorting, filtering, showing/hiding fields, and exporting.
+
+-   For charts, you can see data update icon and sorting on a page builder.
+-   For pivot reports, only the data update icon will be available. 
+
+The details of the report components such as Component ID, Report ID, and Data source ID can be viewed under Component details.
+
+-   The component ID is essential to get details about a particular report component using [SDK](https://developers.kissflow.com/gettingstarted/) commands.
+-   Report ID and Data source ID are used for reference.
+
+> **Note:** You can also configure [custom drilldown](/t/g9yzj45#enabling-drilldown-in-chart-and-pivot-reports) using on click events for your chart and pivot report component inside the page builder.
+
+> **Important note on concurrent editing of analytics reports:**To ensure data integrity and prevent conflicts, our system manages concurrent editing with a "first to save" rule. This means that if two or more users edit the same analytics report at once, the changes from the person who clicks **Save** first are successfully recorded.If another user saves the report before you, then your version of it becomes outdated. When you try to save your edits, you will be prompted to refresh the tab to load the latest updates.**Please be aware that the act of refreshing the tab will discard all of your unsaved work in the current tab.** This rule applies to both flow reports and analytics reports in an app.  
+>   
+> To avoid losing progress, we strongly recommend coordinating with your team to ensure only one person is actively editing a shared report at a time.

@@ -1,0 +1,55 @@
+---
+title: "SAP Business ByDesign connector"
+description: "DRAFT (unverified) — migrated from /t/h7ym3xd/sap-business-bydesign-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+## What is SAP Business ByDesign?
+
+SAP Business ByDesign offers pre-built processes for finance, sales, product management, and purchasing within a unified solution tailored for small and medium-sized businesses, streamlining operations and improving efficiency.
+
+## About Kissflow's SAP Business ByDesign integration
+
+The SAP Business ByDesign connector of Kissflow Integration facilitates the seamless connection and synchronization of SAP Business ByDesign modules with various third-party apps and Kissflow apps. To integrate with SAP Business ByDesign, users must possess a valid SAP Business ByDesign account and be a paid Kissflow enterprise customer.  
+  
+An employee submits an expense report in Kissflow for business trip expenses, which goes through a multi-level approval process. Once approved, Kissflow automatically triggers an API request to SAP Business ByDesign to create an expense entry, including details such as expense type, amount, date, and attached receipts. This integration ensures all approved expenses are promptly recorded in the SAP Business ByDesign account.
+
+Currently, there are no triggers for SAP Business ByDesign connector. 
+
+## Actions in SAP Business ByDesign connector
+
+**Action** 
+
+**Description**
+
+Make an API request 
+
+This action makes an API request to your SAP Business ByDesign account.
+
+## Configuring SAP Business ByDesign connector
+
+1.  In your Kissflow account, click the **Create** button in the left navigation panel and select **Integration** from the list. Enter a unique name and description for your integration and click **[Create](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Once inside your editor, set up a trigger step, for example, a Kissflow Process trigger event, **When an item completes its workflow**.
+    
+3.  After setting up your trigger step above, click the **Add** button (![](/migration-assets/sap-business-bydesign-connector/1.png)) next to set up your action step. Search for SAP Business ByDesign and select the action event **Make an API request**.
+    
+    ![](/migration-assets/sap-business-bydesign-connector/2.png)
+4.  After choosing your action event, authenticate the connector. Click **+Add an account**. Enter your SAP Business ByDesign account’s username and password for authentication.
+    
+5.  After authenticating with your SAP Business ByDesign account, add relevant values against the SAP Business ByDesign form fields. You can hit **Refresh fields** to view all the updated fields in the selected form. You can also map fields from your trigger step or fields from your previous action steps. These values will be automatically added to item fields after the action is executed.{/* TODO: screenshot — source image expired (Google CDN); recapture from product UI */}
+    
+6.  After a successful configuration, test whether your SAP Business ByDesign action step is set up correctly by clicking the **Test** button. The connector will pull field data from your selected SAP Business ByDesign account and display it as a JSON output. Similar to the trigger step, errors are notified to you right away. Fix them before retesting the action step.
+    
+
+### Setting up a SAP Business ByDesign connector
+
+After creating a custom workflow with your SAP Business ByDesign connector's action steps, switch on the toggle button to activate the integration run. Once a trigger event occurs, the SAP Business ByDesign action is executed.
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

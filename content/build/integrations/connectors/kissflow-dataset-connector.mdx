@@ -1,0 +1,90 @@
+---
+title: "Kissflow Dataset connector"
+description: "DRAFT (unverified) — migrated from /t/h7h4af7/kissflow-dataset-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## Working with the dataset connector
+
+[Kissflow Dataset](/category/datasets) is a collection of tabular data that you can use in your workflows. The Kissflow Dataset connector includes triggers and actions that let you create a new row or update an existing record in a dataset based on values from your trigger step or from any previous actions. For instance, if a new item is approved for purchase, you can add it to your purchasing catalog dataset. 
+
+> **Note**: Use our in-built AI agent to build [custom integrations](/t/h7yh4cyq5h9p9) for your unique use case.
+
+### Connecting to a dataset
+
+Members of your integration who have access to a [dataset](/category/datasets) can use connectors to receive data from other applications and update it in your dataset.
+
+Consider that your company has a purchase request process for managing its inventory and a purchase catalog to store and look up the data. Using the dataset connector, you can automatically add or update dataset records based on changes to the data in your purchase request child table.
+
+## Triggers for the dataset connector
+
+**Trigger**
+
+**Description**
+
+When an existing row is updated
+
+Triggers when an existing row is updated.
+
+## Actions for the dataset connector
+
+**Action**
+
+**Description**
+
+Create a dataset record
+
+This action creates a new dataset record.
+
+Create or update a dataset record
+
+This action updates an existing dataset based on the new data or creates a new dataset record if it doesn't exist.
+
+Bulk update dataset records
+
+This action updates a dataset's records in bulk.
+
+> **Note:**
+> 
+> The action updates up to 200 records in a dataset.
+
+Find records from a dataset
+
+This action finds specific records from your dataset.
+
+> **Note:** 
+> 
+> Up to 200 rows/records can be searched and retrieved using this action.
+
+Retrieve a row from a dataset
+
+This action retrieves a unique row from your dataset.
+
+## Configuring a dataset connector
+
+> **Note:**
+> 
+> You must always map the **Key** field in the dataset form with a text field in your step/previous step. Besides this, all other mapped fields must be of the same data type.
+
+1.  In your Kissflow account, click the **Add** button (![](/migration-assets/kissflow-dataset-connector/1.png)) at the bottom left corner of the screen and click **Integrations**. Provide the name and description for your dataset [integration](/t/60h4akx/creating-an-integration). Then, click **Create**.
+2.  In the editor, select a trigger step. You can select the dataset trigger or use the search to find any other trigger you choose. For instance, use a webhook from a third-party application or a process that consumes the dataset.
+3.  To configure the dataset trigger, follow along and complete the steps suggested by the wizard:
+    -   **Trigger and authentication:** The trigger name is auto-populated. Specify another account or choose your own account to authenticate the trigger.
+    -   **Configuration:** Choose a dataset from the available options. Click the **Refresh fields** button to update the dataset fields and their values.
+    -   **Output**: Click the **Test trigger** button to verify your trigger configuration and confirm whether it's set up correctly.  ![](/migration-assets/kissflow-dataset-connector/3.png)
+4.  After configuring the trigger step, click the **Add an action button** (![](/migration-assets/kissflow-dataset-connector/2.png)) next. Select the **Kissflow Dataset** connector and choose any of the available actions![](/migration-assets/kissflow-dataset-connector/5.png) 
+5.  Similar to how you set up a trigger, set up a connection with the required account credentials.  
+6.  After selecting a dataset, enter relevant values in the form fields. You can refresh fields to view all the updated fields in the form. You can also map form fields from your trigger step or fields from your previous action steps. These values will be automatically added to the fields after the action is executed.![](/migration-assets/kissflow-dataset-connector/4.png)     
+Check whether the action step is set up correctly. Click the **Test action** to validate the action. The connector will validate sample data against the fields in the dataset and display results in JSON format. Errors, if any, are notified to you right away. Fix them before retesting the action.
+
+### Using the connector
+
+After configuring your connector, turn on the toggle button in the upper-right corner of the editor to activate the action. When the configured action is triggered, the dataset records are automatically updated.
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

@@ -1,0 +1,10 @@
+{
+  "title": "Creating Triggers",
+  "pages": [
+    "creating-triggers",
+    "creating-actions",
+    "input-designer",
+    "environment-variables",
+    "creating-a-new-connector"
+  ]
+}

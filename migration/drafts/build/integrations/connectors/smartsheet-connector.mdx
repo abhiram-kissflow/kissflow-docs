@@ -1,0 +1,74 @@
+---
+title: "Smartsheet connector"
+description: "DRAFT (unverified) — migrated from /t/x2h4afc/smartsheet-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## What is Smartsheet?
+
+Smartsheet allows you to assign tasks, track project progress, manage calendars, share documents, and manage other work, using a tabular user interface.
+
+## About Kissflow's Smartsheet integration
+
+The Smartsheet connector from Kissflow Integration enables you to connect Smartsheet instantly and to automate your work with other Kissflow apps and popular third-party apps. You must have a valid Smartsheet account and be a paid Kissflow customer in order to integrate with Smartsheet. To perform specific actions, use the Smartsheet connector to receive data from other flows or apps. For now, the connector for Smartsheet does not support any trigger events.
+
+For example, you can use the data received on your Kissflow Process as a trigger to update a row in Smartsheets' sheet or even send a sheet as a PDF attachment to specified users.
+
+### Actions in Smartsheets connector
+
+**Action events**
+
+**Description**
+
+Add a row to sheet
+
+This action adds one or more rows to the sheet.
+
+Update a row by row number
+
+This action updates an existing row with a new value based on the sheet's row number.
+
+Send a sheet
+
+This action sends a sheet as a PDF attachment to the specified recipients via email.
+
+Get a row from sheet
+
+This action fetches a row from a sheet.
+
+Get rows from sheet
+
+This action fetches the first 100 records from a sheet.
+
+Update a row by row ID
+
+This action updates an existing row with new values. This requires a unique row ID.
+
+> **Note:**
+> 
+> To get the Smartsheet row ID, click the row number field > **Row Menu** > **Properties** > **Row ID**.
+
+### Smartsheets connector as an action step
+
+1.  In your Kissflow account, click the **Create** button in the left navigation panel and select **Integration** from the list. Enter a unique name and description for your integration and click **[Create](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Once inside your editor, set up a trigger step, for example, a Kissflow Process trigger event, **when an item completes its workflow**.
+    
+3.  After setting up your trigger step above, click the Add button (![](/migration-assets/smartsheet-connector/1.png) ) next to set up your action step. Search for **Smartsheet** and select a desired action.![](/migration-assets/smartsheet-connector/2.png)
+    
+4.  After choosing your action event, authenticate the connector. Click **+Add an account** and sign in using your Smartsheet account. Kissflow uses OAuth for authentication.![](/migration-assets/smartsheet-connector/3.png)
+    
+5.  After authenticating with your Smartsheet account, add relevant values against the Smartsheet form fields. You can hit Refresh fields to view all the updated fields in the selected Smartsheet form. You can also map Smartsheet fields from your trigger step or fields from your previous action steps. These values will be automatically added to item fields after the action is executed.![](/migration-assets/smartsheet-connector/4.png)  
+6.  After a successful configuration, test whether your Smartsheet action step is set up correctly by clicking the **T****est** button. The connector will pull field data from your selected Smartsheet account and display it as a JSON output. Similar to trigger step, errors are notified to you right away. Fix them before retesting the action step.
+
+### Setting up a Smartsheet connector
+
+After creating a custom workflow with your Smartsheet connector's action steps, switch on the toggle button to activate the integration run. Once a trigger event occurs, the Smartsheet's actions are activated.
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

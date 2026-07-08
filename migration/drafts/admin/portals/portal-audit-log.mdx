@@ -1,0 +1,62 @@
+---
+title: "Portal audit log"
+description: "DRAFT (unverified) — migrated from /t/y4ymrjg/portal-audit-log"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✕ Basic ✓ EnterpriseThe [audit log](/t/h7h4akc/admin-history) section stores the history of all the activities related to the portal. It allows the portal admin to search and find the portal-level and item-level changes made by users in a portal. To view your audit log, click the **More options** button ( ![](/migration-assets/audit-log/2.svg)) **\>** **Portal administration > Audit log**.![](/migration-assets/portal-audit-log/2.png)
+
+You can get the following details of events recorded as part of your portal from the audit log:
+
+-   **Audit ID**: This is a unique ID generated automatically by the system for every event that's recorded as part of the portal history.
+-   **Timestamp**: The exact time when a specific action happened or was performed.
+-   **Actor**: The user who performed the action.
+-   **Action**: The kind of activity or action that had taken place. 
+-   **Object**: The object or the underlying resource that is being changed
+-   **Event category**: Category name for a set of events that you can use to filter down.
+-   **Platform**: The device or OS from which the event was recorded.
+-   **IP**: The IP address from which the event was recorded.
+-   **Batch ID**: This is a unique ID generated automatically by the system for a group of events that are related to each other. Unlike Audit ID, the Batch ID of these events will be the same for reference purposes.
+
+## Sorting fields
+
+1.  On the portal page, click the **More options** button (![](/migration-assets/audit-log/2.svg)) > **Portal administration > Audit log**.
+2.  Click the **Down-arrow** button  (![](/migration-assets/process-audit-log/4.svg)) beside a field's name to sort a field in ascending or descending order.  
+     ![](/migration-assets/portal-audit-log/1.png) 
+
+## Searching fields
+
+1.  On the portal page, click the **More options** button **(![](/migration-assets/audit-log/2.svg)) > Portal administration > Audit log.**
+2.  Click the down-arrow button (![](/migration-assets/process-audit-log/4.svg)) beside a field filter to search for a specific entry as necessary.
+3.  Enter the search term in the search area that follows as necessary.![](/migration-assets/portal-audit-log/3.png)     
+
+## Filtering fields
+
+You will be able to filter the audit log events based on the following fields/criteria:
+
+-   **Audit period**
+    -   **Last 30 days**: Get event information for the previous 30 days from the current date.
+    -   **Custom date range**: Select a customized date range (within the last 90 days) to filter events.
+-   **Object**: Select one or more objects from the suggestions or enter the exact object name for which you would like to derive the log details.  
+     
+-   **Event category**: Filtering events based on event categories is one of the recommended ways to get specific events.  
+      
+-   **Actor**: You can select one or more account users to filter events based on users.  
+     
+-   **Action**: Enter a relevant action in the field's search bar or select one from the suggested list of actions as necessary. You can filter events based on only one action at a time.  
+     
+-   **Audit ID, Batch ID, & IP**: Filters are applied on these fields mostly to backtrace an event's history. Enter the exact Audit ID or Batch ID or IP address to filter events as necessary.
+
+## Removing filter conditions
+
+Applied filter conditions will be highlighted in _blue_ as in the screenshot below and to remove a specific filter condition, click the **Remove** button (![](/migration-assets/process-audit-log/7.svg)) to clear it.  
+ ![](/migration-assets/portal-audit-log/4.png)
+
+## Exporting an audit log
+
+1.  On the portal page, click the **More options** button (![](/migration-assets/audit-log/2.svg)) **\> Portal administration > Audit log**.
+2.  Click the **Export** button (![](/migration-assets/process-audit-log/8.svg)) to export the audit log as a file. An email with the download link will be sent immediately to your registered email address from where you can download the file.

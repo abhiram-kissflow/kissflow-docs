@@ -1,0 +1,81 @@
+---
+title: "Configuring field permissions for process steps"
+description: "DRAFT (unverified) — migrated from /t/60h9qtm/configuring-field-permissions-for-process-steps"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+You can customize the form to show different sections and fields depending on the item's current step. 
+
+## Viewing the form by steps
+
+You can configure the form viewing permissions in the third tab of the editor.
+
+![](/migration-assets/configuring-field-permissions-for-process-steps/1.png)
+
+On the left, you will see a list of all the steps you created as tabs. The form in the **Start** step is the initial form that’s displayed when someone creates a new item. Below that, you’ll see the sequential list of all the steps in the workflow. 
+
+![](/migration-assets/configuring-field-permissions-for-process-steps/6.png)
+
+## Configuring permissions for fields and sections
+
+When you click on a tab, the right side of the screen shows what the form will look like at that step. You can set the permission levels for individual fields or for the entire section. 
+
+Section permissions are configured at the top right corner of the section. Field permissions are configured by hovering over the field.  
+
+![](/migration-assets/configuring-field-permissions-for-process-steps/2.png)
+
+There are three permission settings:
+
+-   **Editable** - the user can add or edit values in a field
+-   **Read**\-**only** - field values are visible, but cannot be changed
+-   **Hidden** - fields are not displayed
+
+If a table is set as read-only, you cannot add rows or values to it.
+
+### Start and completed steps
+
+By default, the initiator can edit all the fields in the start step of the workflow, and the fields for every other section are read-only. You can change the permission settings for any field.
+
+For the completed step, all the fields will either be read-only or hidden. 
+
+### Section and field hierarchy
+
+Section permissions take precedence over field permissions. If you mark an entire section as hidden, but mark a field inside the section as editable, it will not show to the user. Instead, you should mark the section as editable, but set all other fields to hidden. 
+
+### Computed fields
+
+Computed fields are either read-only or hidden.
+
+### Global permissions for sections and fields
+
+If you want to set the permissions for a field or section across all the steps, you can click **Global permissions**. This will open up a pop-up that will let you quickly assign the permission for the field at every step. This is often very useful when you add a field into a process and want to quickly assign permissions without clicking through each tab on the left. 
+
+![](/migration-assets/configuring-field-permissions-for-process-steps/3.png)
+
+### Field appearance
+
+Hover over the field for which you would like to modify the appearance, and click **Style**.
+
+![](/migration-assets/configuring-field-permissions-for-process-steps/4.png)
+
+Select a relevant color of your choice from the color palette. 
+
+![](/migration-assets/configuring-field-permissions-for-process-steps/5.png)
+
+You can also [change the appearance of a field across all steps](/t/60h4azc/field-appearance) or based on data in the form.
+
+### Conditional visibility
+
+You can set conditional visibility for fields or sections based on other data in the form. You can hover over a field and navigate to a field's visibility settings or access it directly from the **Field properties** window that's displayed to your right side when you are on the form editor.
+
+![](/migration-assets/configuring-field-permissions-for-process-steps/7.gif)
+
+## Actions
+
+Learn how to [set actions for a process step](/t/g9h9qt6/configuring-actions-for-process-steps).

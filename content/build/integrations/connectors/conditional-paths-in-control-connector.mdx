@@ -1,0 +1,139 @@
+---
+title: "Conditional paths in control connector"
+description: "DRAFT (unverified) — migrated from /t/60ytd1r/conditional-paths-in-control-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## Overview
+
+The control connector supports two different actions: **[Conditional paths](/t/60ytd1r)** and **[Loop](/t/p8h4al4)**.
+
+Conditional paths let you create multiple paths within an integration, each with its own set of actions and execution conditions. This lets you design integrations that adapt to specific conditions, giving you control to meet your specific needs.
+
+With conditional paths, you can:
+
+-   Create multiple paths within a single action.
+    
+-   Set unique execution conditions for each path.
+    
+-   Add multiple actions to each path.
+    
+-   Customize execution based on specific criteria.
+    
+
+## Types of conditional paths
+
+There are two types of conditional paths:
+
+![](/migration-assets/conditional-paths-in-control-connector/1.png)
+
+### Execute first matching path
+
+-   Executes only the first path that meets the specified condition.
+    
+-   Best used when you want to execute only one path, even if multiple conditions are true.
+    
+
+### Execute all matching paths
+
+-   Executes all paths that meet the specified condition.
+    
+-   Ideal when you want to execute multiple paths that satisfy the required condition.
+    
+
+## Creating conditional paths
+
+To add conditional paths to your integration:
+
+1.  In the integration editor, click **Control connector.**
+    
+2.  Choose the path execution type: **Execute first matching path** or **Execute all matching paths**.
+    
+3.  Set up the execution sequence and conditions for each path.
+    
+4.  Add actions to each path as needed. 
+    
+
+### Execution sequence
+
+The execution sequence differs depending on the type of conditional path chosen:
+
+#### Execute first matching path
+
+-   The first path is preceded by an **If** statement.
+    
+-   Subsequent paths are preceded by **Else if** statements.
+    
+-   Each path shows: If conditions are met, execute X actions (where X is the number of actions in that path).
+    
+-   If conditions are not met, the integration proceeds to the next path.
+    
+-   Only the first path with conditions that evaluate to true will be executed.
+    
+    ![](/migration-assets/conditional-paths-in-control-connector/2.png)
+
+#### Execute all matching paths
+
+-   The first path is labeled **First check**.
+    
+-   Subsequent paths are labeled **Also check.**
+    
+-   Each path shows: If conditions are met, execute X actions.
+    
+-   The integration proceeds to the next path regardless of the outcome of the previous path.
+    
+-   All paths with conditions that evaluate to true will be executed. 
+    
+    ![](/migration-assets/conditional-paths-in-control-connector/3.png)
+    
+
+## Configuring path conditions
+
+For each path, you can set execution conditions that determine when that path will run. You can add multiple conditions to a single path. Paths will execute if one or all conditions are evaluated to be true. You can use two types of conditions:
+
+### Basic conditions
+
+1.  Choose the criteria (field to evaluate).
+    
+2.  Select the operator (equals, greater than, etc.).
+    
+3.  Enter the value to compare against.
+    
+    ![](/migration-assets/conditional-paths-in-control-connector/5.png)
+    
+
+### Advanced conditions
+
+You can use the formula builder to create more complex conditions that suit your use case.
+
+## Managing path actions
+
+Actions can be added to each path by dragging them from the actions panel. You can change or remove actions by clicking the trash icon.
+
+![](/migration-assets/conditional-paths-in-control-connector/4.png)
+
+You can also **nest paths** within other paths for more complex conditions, creating a layered logic structure. 
+
+![](/migration-assets/conditional-paths-in-control-connector/6.png)
+
+### Path management
+
+To manage your conditional paths effectively, you can reorder them by moving them left or right within the editor. If a path is no longer needed, it can be deleted along with its associated actions. 
+
+![](/migration-assets/conditional-paths-in-control-connector/7.png)
+
+Additionally, you can add a **default path** that will execute if no other paths match the specified conditions, ensuring that your integration handles all possible scenarios. 
+
+![](/migration-assets/conditional-paths-in-control-connector/8.png)
+
+## Best practices
+
+When working with conditional paths, it's important to use descriptive names for each path to make their purpose clear. Keeping the path logic as simple as possible aids in maintaining and troubleshooting in case the integration fails. A default path should be set up to handle any unexpected scenarios. 
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

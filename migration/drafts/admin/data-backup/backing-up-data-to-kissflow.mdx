@@ -1,0 +1,87 @@
+---
+title: "Backing up data to Kissflow"
+description: "DRAFT (unverified) — migrated from /t/y4y3t7g/backing-up-data-to-kissflow"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+> **Note:** This service is available on request. Please get in touch with our support team to enable it on your account.
+
+## Configuring data backup
+
+As a [Super Admin](/t/35h4ak0/user-roles-and-permissions#super-admin), you can configure your backup preferences according to your organization's needs. Here’s how you can backup your Kissflow data (via email):
+
+1.  Sign in to Kissflow.
+    
+2.  Click your profile picture on the top right corner of your page, then click **Account administration** > **Data backup**.
+    
+3.  Click **Start configuration** on the Data backup page to set up your data backup preferences.
+    
+4.  Data backup configuration involves three separate steps.
+    
+    1.  Authentication of storage modes.
+        
+    2.  Data backup management.
+        
+    3.  Selection of data categories.
+        
+
+## Selecting email as your storage mode
+
+1.  Select **Email** as the storage mode from the drop-down.
+    
+    ![](/migration-assets/backing-up-data-to-kissflow/1.png)
+
+2\. Click **Next**.
+
+> **Note:**   
+> After the backup action is completed, you'll receive a downloadable link via email. The backup file should be downloaded within seven days of receiving this email.
+
+## Managing backup
+
+Follow the steps below to manage backup settings:
+
+1. **Select ZIP file size**. You can select any of the following  ZIP file sizes: **4 GB, 8 GB, 16 GB, or 24 GB**. Files available in your account are automatically zipped and split according to your chosen size limit.  
+      
+    For instance, selecting a 24 GB limit for a 100 GB file results in four 24 GB files and one 4 GB file. Files 24 GB or smaller upload unchanged in this case.
+    
+    ![](/migration-assets/backing-up-data-to-kissflow/2.png)
+2. **Encrypt backup file**. Encrypting backed-up files is an optional feature. You can switch the toggle button to add a passphrase to encrypt your backed-up file. It offers additional security to the backed-up data.  
+      
+    Your passphrase must follow the conditions below:
+    
+    -   Contain at least eight characters.
+        
+    -   Contain upper and lower case characters.
+        
+    -   Contain at least one numeric character or symbol.
+        
+
+> **Note**:  
+>   
+> After you’ve encrypted your file, save your passphrase to access your backed-up files later.
+
+3\. Click **Save.**
+
+## Selecting data modules for backup
+
+Kissflow allows for modular data selection for backup, catering to specific organizational requirements. You can choose to backup:
+
+-   **User and group data**: Includes all account user and group data.
+    
+-   **Transactional data**: Encompasses all flow item details such as status, comments, and assignees.
+    
+-   **Audit log data**: Contains last year's audit logs at both flow and account levels.
+    
+-   **Attachments**: Covers all attachments within flows like processes, boards, datasets, and apps
+    
+    ![](/migration-assets/backing-up-data-to-google-cloud-service-gcs/2.png)Select one or more data categories by clicking the checkboxes and clicking **Next**. A backup confirmation popup will appear.![](/migration-assets/backing-up-data-to-kissflow/3.png)Verify the configuration details and click **Start backup**.
+
+However, you can restart the backup process if you save the configuration and exit the window. You can also edit the configuration, delete it, or view the backup history from this page.
+
+![](/migration-assets/backing-up-data-to-kissflow/4.png)

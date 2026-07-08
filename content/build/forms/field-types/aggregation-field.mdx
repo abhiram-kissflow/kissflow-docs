@@ -1,0 +1,111 @@
+---
+title: "Aggregation field"
+description: "DRAFT (unverified) — migrated from /t/83h4azk/aggregation-field"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Aggregation fields pull together data from multiple entries, showing meaningful results such as sum, average, or combined text (concatenate).
+
+You can use table data outside the table in other form sections. This allows you to perform calculations or combine information from table entries and display it as summary in other parts of the form.
+
+## Configuring aggregation fields
+
+After configuring the basic Field settings like Name, Field ID, and Help text, 
+
+### Aggregating table data
+
+Aggregation fields can show relationships between multiple entries in a table. To connect an aggregation field to a table, follow these steps:
+
+1.  Click the box that says _Aggregate table data in the context of a single item of the process._
+2.  Under _Choose a flow to look up_, select the form table from the available options.
+3.  Select the field you want to aggregate.
+4.  Select a function to apply to the field. Keep in mind that some functions may only work with certain types of fields.
+
+**Function name**
+
+**Description**
+
+**Allowed field types**
+
+SUM
+
+Displays the sum of all values.
+
+Number, Currency,  Slider.
+
+COUNT
+
+Displays the number of values.
+
+Any type.
+
+AVERAGE
+
+Displays the average of all values.
+
+Number, Currency, Rating, Slider.
+
+CONCATENATE
+
+Combines two or more values.
+
+Text, Text area, Dropdown.
+
+MIN
+
+Displays the minimum value.
+
+Number, Currency, Date, Date & Time, Rating, Slider.
+
+MAX
+
+Displays the maximum value.
+
+Number, Currency, Date, Date & Time, Rating, Slider.
+
+### Aggregation field types
+
+Aggregation fields are automatically assigned a field type based on their evaluation data. 
+
+-   SUM and AVERAGE are either Number or Currency.
+-   COUNT is Number.
+-   CONCATENATE are Text.
+-   MIN and MAX match the field type they evaluate. Rating and slider fields are converted to Numbers. 
+
+### Adding decimal places
+
+You can add decimal places to the aggregation field using the following steps:
+
+1.  Go to the form, and select an aggregation field.
+2.  In **Field properties >** **Settings**.
+3.  Configure the aggregation field based on your requirements.
+4.  In the **Number of decimal places field**, enter the number of decimal places you want the field to display.
+5.  Publish the form.
+
+![](/migration-assets/aggregation-field/3.gif)
+
+Once you publish the form, end-users can create new items, and the aggregation field will display values based on the number of decimal places entered. For example, if you have calculated the average amount of the allocated amount in your budget with the number of decimal places as two, your output is as shown in the GIF below.
+
+![](/migration-assets/aggregation-field/2.png)
+
+## Aggregating data from other flows
+
+If you uncheck the box that says **Aggregate table data in the context of a single item of the process**, you can select any flow in your Kissflow account. You can choose another process, board, or dataset. Choose the field and then the type of aggregation. 
+
+### Filters
+
+You can apply filters to restrict the values used in the aggregation. 
+
+![](/migration-assets/aggregation-field/1.png)
+
+## Live forms
+
+Aggregation fields from table fields update automatically when data is entered or edited into the form. 
+
+It's important to note that if you use an aggregation field to pull data from other datasets, processes, or boards, the value displayed in the field will remain static after it is initially gathered.

@@ -1,4 +1,12 @@
 {
   "title": "Datasets",
-  "pages": ["..."]
+  "pages": [
+    "managing-members-and-permissions",
+    "duplicating-and-deleting-a-dataset",
+    "security-settings-and-access-control",
+    "managing-filters",
+    "importing-and-exporting-data-from-a-dataset",
+    "managing-audit-logs-in-a-dataset",
+    "managing-associated-flows-in-a-dataset"
+  ]
 }

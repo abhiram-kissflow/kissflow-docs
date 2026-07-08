@@ -1,0 +1,40 @@
+---
+title: "Configuring Snowflake for Kissflow connector for BI"
+description: "DRAFT (unverified) — migrated from /t/x2h9qz1/configuring-snowflake-for-kissflow-connector-for-bi"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## Getting started
+
+For provisioning Kissflow connector for BI to your account, contact our customer success or partner team. As an **Account Owner**, you will receive a welcome email as soon as our team has provisioned your Kissflow connector for BI account. Before you begin, you must reset the password for your analytics database in Snowflake.
+
+![](/migration-assets/configuring-snowflake-for-kissflow-connector-for-bi/1.png)
+
+**To reset your password:**
+
+1.  Click the **Get started** button in the email. It will take you to the Snowflake portal.
+    
+    > **Note:**
+    > 
+    > Please keep in mind that the link on the **Get started** button is only valid for 4 hours from the time the email is received.
+    
+2.  Enter your password that you want to set in compliance with the [password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-password-policy) on the Snowflake page. Because you set the password for your Snowflake account, it is only known to you.
+
+![](/migration-assets/configuring-snowflake-for-kissflow-connector-for-bi/2.png)
+
+## Accessing your Kissflow data in Snowflake
+
+Once you set your password, you'll then be taken to your Snowflake Analytics Reader account page.
+
+1.  In the popup, click the **I’m a Data Consumer** button. ![](/migration-assets/configuring-snowflake-for-kissflow-connector-for-bi/3.png)
+On the top right corner of this page, you’ll notice that the role is set as **ReaderAdmin** and the warehouse is set as **READER\_WH**.![](/migration-assets/configuring-snowflake-for-kissflow-connector-for-bi/4.png)Expanding the database (your Kissflow Account ID) on the left panel reveals tables that are nothing more than process flows and datasets in your Kissflow account. Also, make sure that the child tables in your flows are created as separate tables.![](/migration-assets/configuring-snowflake-for-kissflow-connector-for-bi/5.png)You can still sign into [Snowflake's](https://docs.snowflake.com/en/user-guide/connecting) web interface using the Snowflake URL, username, and password at a later time. The Server URL and username will always be available in the first email you receive.
+
+## Connecting with BI tool
+
+You have now configured Snowflake for Kissflow connector for BI. Every piece of data, such as flows created, items submitted, and users added, will be synced into the appropriate databases within an hour. Using Snowflake as a connector, you may now access and analyze this data using a BI tool of your choice, such as [Power BI](/t/35yq1mq/connect-kissflow-analytics-with-power-bi) or Tableau.

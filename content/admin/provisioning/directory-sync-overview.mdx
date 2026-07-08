@@ -1,0 +1,44 @@
+---
+title: "Directory sync overview"
+description: "DRAFT (unverified) — migrated from /t/35h4a13/directory-sync-overview"
+contentType: overview
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+As a [Super Admin, or an IAM Admin](/t/35h4ak0), you can navigate to your **Identity provider** settings under **Account Administration** > **User provisioning** > **Directory sync** to manage and perform other actions related to your configuration. You can track the progress of ongoing sync, its current status, sync history, and perform actions like edit, delete, or disable configuration in this section. 
+
+![](/migration-assets/directory-sync-overview/1.png)
+
+As mentioned earlier, Kissflow supports both manual and scheduled syncs. Click **Sync now** to trigger sync manually anytime.
+
+## Disabling configuration
+
+-   Access the configuration and click the **More options** button (**...**) > **Disable**
+-   Read the alert message displayed on the popup window and click **Disable** if you would like to suspend the configuration temporarily. You can always enable it later when you want to.
+
+## Deleting configuration
+
+-   Access the configuration and click the **More options** button (**...**) > **Delete configuration**
+-   Read the alert message displayed on the popup window and click **Delete** if you would like to delete the configuration permanently. Please note that you have to create the configuration from scratch if you need it back in the future.
+
+## Managing sync history
+
+Access the configuration and click **More options** > **Sync history** or click the **View sync history** link present beside the last synced status information.
+
+![](/migration-assets/directory-sync-overview/2.gif)
+
+The following is the list of possible sync statuses:
+
+1. **Success**: Sync succeeded as expected.
+2. **Failure**: Sync failed due to a few critical issues.
+3. **Partial success**: Sync completed with errors.
+    -   This could happen when one of the attributes in a user record in your Identity provider account doesn't have an equivalent field in Kissflow.
+
+## User licenses and directory sync
+
+When integrating your Identity provider with Kissflow, it's important to note how users are provisioned and how licenses are allocated. When users are synced from your Identity provider, they are not immediately added to Kissflow. Rather, they are placed in an _Invited_ status, indicating they must accept their invite to activate their account.To illustrate this, imagine your organization has purchased 100 user licenses in Kissflow. If 120 users are synced from your Identity provider, each of these 120 users will receive an invitation email from Kissflow. However, Kissflow will only be able to accommodate the first 100 users who activate their accounts due to the limited number of licenses. The remaining 20 users will have to wait until a Super Admin, or a User Admin can activate their accounts since the pool of available user licenses has been completely utilized.Furthermore, any users who were previously deactivated in Kissflow during the syncing process but are still part of the synced workspace will be reactivated. New users who are not currently in Kissflow will be extended an invitation. Thus, regardless of their past status in Kissflow, all users in the synced workspace will be invited or reactivated. This comprehensive synchronization process ensures a smooth, cohesive experience for all users, pending availability of licenses.

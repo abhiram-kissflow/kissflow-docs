@@ -1,0 +1,56 @@
+---
+title: "Microsoft Teams connector"
+description: "DRAFT (unverified) — migrated from /t/60h4alv/microsoft-teams-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## What is Microsoft Teams?
+
+Microsoft Teams is a collaborative workspace within Microsoft 365 that acts as a central hub for workplace conversations, collaborative teamwork, video chats and document sharing, all designed to aid worker productivity in a unified suite of tools.
+
+## Getting started with Kissflow's Microsoft Teams integration
+
+Kissflow's Microsoft Teams connector enables you to connect with Microsoft Teams instantly and to automate your work with other Kissflow apps and popular third-party apps. To access this feature, you must have a valid Microsoft Teams account and be a paid Kissflow customer. The Microsoft Teams connector allows you to receive data from other flows or apps and perform specific actions and search actions in Microsoft Teams. For now, the connector for Microsoft Teams does not support any trigger events.
+
+Consider the following scenario: you connect your Kissflow Board to Microsoft Teams. As a result, whenever a new item is added to your Kissflow Board, a message with item details can be delivered to a channel in Microsoft Teams.
+
+### Actions in Microsoft Teams connector
+
+**Action events**
+
+**Description**
+
+Create a channel
+
+This action creates a new channel within a team.
+
+Send a channel message
+
+This action posts a new message to an existing channel.
+
+Send a chat message
+
+This action sends a message to an existing chat.
+
+### Microsoft Teams connector as an action step
+
+1.  In your Kissflow account, click the **Create** button in the left navigation panel and select **Integration** from the list. Enter a unique name and description for your integration and click **[Create](/t/60h4akx/creating-an-integration)**.
+    
+2.  Once inside your editor, set up a trigger step, such as a Kissflow Process trigger event, w**hen an item is created.**
+    
+3.  After setting up your trigger step above, click the Add button (![](/migration-assets/xero-connector/1.png)) next to set up your action step. Search for **Microsoft Teams** and select a desired action.![](/migration-assets/microsoft-teams-connector/1.png)
+4.  After choosing your action event, authenticate the connector. Click **+Add an account** and sign in using your **Microsoft Teams** account. Kissflow uses Microsoft Teams OAuth for authentication.
+5.  After authenticating with your Microsoft Teams account, add relevant values against the Microsoft Teams form fields. You can hit **Refresh fields** to view all the updated fields in the selected Microsoft Teams form. You can also map Microsoft Teams fields from your trigger step or fields from your previous action steps. These values will be automatically added to item fields after the action is executed.
+6.  After a successful configuration, test whether your Microsoft Teams action step is set up correctly by clicking the **T****est** button. The connector will pull field data from your selected Microsoft Teams account and display it as a JSON output. Similar to trigger step, errors are notified to you right away. Fix them before retesting the action step.
+
+### Setting up a Microsoft Teams connector
+
+After creating a custom workflow with your Microsoft Teams connector's action steps, switch **ON** the toggle button to activate the integration run. Once a trigger event occurs, the selected Microsoft Teams action is activated.
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

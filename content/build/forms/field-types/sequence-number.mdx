@@ -1,0 +1,80 @@
+---
+title: "Sequence number"
+description: "DRAFT (unverified) — migrated from /t/y4h4azw/sequence-number"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+You can use the **Sequence number** field when you want to add a recurring serial or sequence number to each item in your process and dataform. In a process form, you can generate the sequence number at a particular workflow step, whereas in a dataform, the sequence number is generated when you submit the form.
+
+## Configuring sequence numbers
+
+After you drag-and-drop a **Sequence number** field on your form editor, go to the right-hand **Settings** panel and provide a **Name** and **Field ID**. 
+
+-   In **Prefix**, add a formula to concatenate a field's value to your sequence number.   
+     
+-   Under **Format**, select the digits you want to use as the prefix when the sequence number starts. In this example, using the formula concatenate(\_created\_by.Department,"-"), the first number will be Marketing - 001, assuming the user who created this item belongs to the Marketing department. 
+
+> **Note**
+> 
+> Sequence numbers are subject to a 7-digit upper cap. Users may select a format up to 0000001 in the dropdown menu, allowing the sequence to increment until it reaches the limit of 9999999.
+
+While adding functions in the **Prefix**, the data type should be Text, not any other field type, such as Date or User. Learn [how to convert other fields to text fields](/t/m1h4al6/text-expressions). 
+
+![](/migration-assets/sequence-number/6.gif)
+
+-   Under **At what step should the sequence number be generated?** choose the step in the workflow where the sequence number should be generated. 
+
+In a dataform, a sequence number is generated only on form submission.
+
+Sequence numbers will not be generated when an item is in a draft state. It must be submitted to the workflow to be assigned a sequence number. Therefore, the field may look empty to the initial user. They should check the item after submitting it to view the sequence number.
+
+The sequence number will appear blank during simulation and only functions in the live form.
+
+> **Note:**
+> 
+> -   Workflow steps and parallel branches with conditions cannot be chosen as a starting point for a sequence number because there is a chance they will be skipped, and no sequence number will be generated. 
+> -   The **Sequence number** field cannot be added to a table.
+
+## Process settings
+
+There are additional settings for sequence numbers. On the process home page, click **Manage** > **Settings** and then **Sequence numbers.**
+
+Here you’ll see all the configured sequence numbers for this process. 
+
+-   **Total sequence number** displays the active prefixes for your sequence number field.
+-   **Prefix** shows the prefix you configured in the form. Using a dynamic field, such as _Department_, will show you the different numbers generated for different departments. 
+-   The **Current number** displays the number of current requests for each prefix. 
+
+![](/migration-assets/sequence-number/1.png)
+
+### Reset a particular sequence number
+
+To reset a prefix, click **Reset** on that particular prefix row. Then enter the number and click **Reset**. When a new request is raised in that department, the sequence number will start from that number.
+
+![](/migration-assets/sequence-number/5.gif)
+
+### Remove a particular sequence number
+
+To delete a prefix, click **Remove** on that particular prefix row. This will erase the ongoing sequence number. When a new item is initiated in that department, the sequence number will start from 1 by default.
+
+![](/migration-assets/sequence-number/2.png)
+
+### Reset all sequence numbers
+
+You can reset all the active prefixes by clicking on **Reset all**.
+
+![](/migration-assets/sequence-number/4.png)
+
+By clicking **Reset all**, you’ll be asked for the number to reset. When a new item is initiated, the sequence number will start with the entered number.
+
+### Remove all sequence numbers
+
+You can delete all the active prefixes by clicking on **Remove all**.
+
+![](/migration-assets/sequence-number/3.png)

@@ -1,0 +1,165 @@
+---
+title: "Image, Attachment, Smart attachment, and Signature fields"
+description: "DRAFT (unverified) — migrated from /t/y4h4az1/image-attachment-smart-attachment-and-signature-fields"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+There are three types of fields that can store data as files: 
+
+-   Attachment
+-   Image
+-   Signature
+
+## Attachment field
+
+The attachment field allows you to upload many types of files to the form.
+
+In the live form, click the **Attach files** button. After allowing access, upload a file from your local drive or a cloud storage provider.  
+
+You can attach any number of files to a single attachment field. There's no limit to the number of attachments added to an attachment field, but only 10 attachments can be uploaded from the file picker at a time. The cumulative size of the attachments should not exceed 100.
+
+Preview is available for the PDF, XLS, XLSX, and ODS file types. Click the file icon to get a preview of the file without having to download it.
+
+Hover on the attached file and click the **Remove** button (![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/1.png)) to remove a file.  
+
+![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/4.gif)
+
+### Validations
+
+There are four types of validation rules you can apply. 
+
+1. **Attachment file type:** You can restrict the types of files that can be attached. Choose from JPG, JPEG, PNG, BMP, GIF, DOC, DOCX, PDF, PPT, PPTX, XLS, XLSX, CSV, TXT, EML, and ZIP.
+2. **Max attachment size:** Set the attachment size up to 100 MB.
+3. **Maximum number of attachments:** Set the maximum number of attachments that can be added in a single field.
+4. **Minimum number of attachments:** Set the minimum number of attachments for a single field.  
+
+## Smart attachment field
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+The smart attachment field enables users to automatically fill empty form fields using an attached document. This AI-powered feature does intelligent document processing (IDP), by extracting data from the uploaded document and mapping it to respective fields in the form.
+
+### Adding a smart attachment field
+
+Under Field properties, provide **Name** and choose **Field type** as **Smart attachment**.
+
+![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/5.gif)
+
+> **Note:** 
+> 
+> -   You can upload only a PDF, JPEG, or PNG file that does not exceed 20MB.
+> -   Smart attachment is available only in process forms.
+> -   We support documents up to 20 pages.
+> -   Extracts up to 48,000 characters. Processing stops when this limit is reached.
+
+### Using a smart attachment field
+
+Click the **Upload file** button and choose a document from your local drive or a cloud storage provider. Once a file is uploaded to the smart attachment field, empty form fields are auto-populated, as shown below.
+
+![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/11.gif)
+
+Even after autofill, you can manually fill and edit the fields or use the **AI-suggested data** in the dropdown.
+
+Click **Replace file** to upload a different document. This will autofill the remaining empty fields and leave suggestions for already filled fields.
+
+![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/2.png)
+
+The latest enhancements on the smart attachment field are listed below,
+
+-   Autofill is enabled by default. You can choose to cancel autofill during file processing.
+-   Multiple language support processes documents in multiple languages. 
+-   Supports many document formats, and even handwritten documents can be uploaded.
+-   Improved autofill accuracy using [guided autofill](/t/m1yzcgv).
+
+> **Note:** While initial usage is covered under free credits, subsequent usages may incur charges. Contact our support executives for further details.
+
+## Image field
+
+The Image field allows you to **upload** and display an image directly onto the form. 
+
+In the live form, click **Upload image**. Upload an image from your local drive or a cloud storage provider after allowing access. The image will be immediately displayed on the form.  
+
+You can add only one image for each field. If you want to change the image, click **Replace image**, and choose a new one. You can also [annotate the image](/t/h7ytkjr) that you upload before submitting the form.  
+  
+To remove the image entirely click the **Remove** button (![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/1.png)) that appears when you hover over the image. 
+
+![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/6.gif)
+
+### Validations
+
+You can restrict the uploaded image type to JPG, JPEG, PNG, GIF or BMP. You can also limit the maximum size of an image to 100 MBs. [Learn more about all the validations](/t/m1h4az4/field-validations).
+
+## Mobile settings for Image and Attachment fields
+
+You can configure image upload limitations for users accessing forms via mobile devices. These settings ensure data authenticity for field operations. 
+
+Select an Image/Attachment field in your form builder, and locate the **Mobile settings** section in the right-hand **Settings** panel.
+
+-   **Allow camera captures only**: Toggle ON to restrict users to live camera capture only. This prevents users from uploading images from their mobile and cloud storage.
+    
+-   **Add watermark to captured images**: Toggle ON to overlay metadata onto the image when it is captured. The watermark is displayed in the bottom-right of the image; this position is fixed and cannot be changed. You can select specific watermark details:
+    
+    -   **Timestamp**: Adds the date and time the image was taken.
+        
+    -   **Location**: By default, GPS coordinates of the image's location are shown. By adding your Google Maps API key to **Account settings,** the actual physical address of the image's location can be added to the watermark.  
+          
+        If you enable the watermark settings, you must select at least one option (Timestamp or Location).
+        
+
+![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/8.gif)
+
+## Summarizer for Image, Attachment, and Smart attachment fields
+
+For a quick overview of long or complex files, you can use the built-in AI summarizer. It allows you to extract key insights without reviewing every page of an attachment.
+
+1. **Open your attachment**: Click on an uploaded attachment to open the preview window. You can also access attachments from the **Files panel**. 
+    
+2. **Generate summary**: Click the **Generate summary** icon (
+    
+    ![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/3.png)
+    
+     ) in the top-right toolbar.
+    
+    ![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/12.gif)
+3. **Review summary**: The **Attachment summary** panel will appear on the right, providing a bulleted breakdown of the file's key details.
+    
+4. **Refining the summary**: Click **Edit Prompt** to customize your summary. Enter your specific query and click **Generate** to refresh the results based on your new instructions.
+    
+    ![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/9.gif)
+
+> **Note**:
+> 
+> **Navigating files**
+> 
+> -   **Within the same field**: If you navigate between files using the next or previous arrows, your custom prompts are saved, but the summaries are not. You will need to click **Generate** again when returning to a file.
+>     
+> -   **Across different fields**: If you leave the current field to view attachments elsewhere, both the summary and your edited prompt will be cleared. You'll need to generate the summary again. 
+>     
+
+The Summarizer can be accessed from the **Files panel** at any stage of a Process. It is also available across all stages for items in a Board and within Dataforms, ensuring data visibility throughout the entire workflow.
+
+## Signature field
+
+The signature field enables you to collect electronic signatures.
+
+There are multiple ways to ask a user to input their signature:
+
+-   Users can draw their signature in forms either through a touch screen or mouse.  
+     
+-   Insert an already-configured signature in the users' **About me** section of the **My profile** page. ![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/7.gif)
+
+Kissflow lets form creators restrict their users' ability to draw signatures if needed, forcing users only to insert the signature configured in their profiles. Disabling the **Allow user to draw signature** in signature widgets allows form creators to do that. 
+
+![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/10.gif)
+
+This is a widget-level setting. Other signature widgets in a form may still allow users to draw their signatures unless specifically deactivated.
+
+If signature drawing is disabled and the user's profile has no signatures, the user must first configure a signature in their profile before completing the form.

@@ -1,0 +1,102 @@
+---
+title: "Working with resource manager in Apps"
+description: "DRAFT (unverified) — migrated from /t/h7yzjc4/working-with-resource-manager-in-apps"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ EnterpriseResource Manager in Apps is a file management system that allows you to store, organize, and quickly access image files from within Apps. Resource manager offers a resource library where you can consolidate all the image resources required to build an enterprise application in the same space, facilitating consistency and collaboration within a team.With the resource manager, you can store organization-specific images to build highly customized landing pages for your enterprise application. In addition, the resources added to the resource library can also be used for icons and background images in the page builder.To view the resource library in the app builder:
+
+Open an app.Click **Manage > Edit app.**Go to the left navigation panel, click **Data > Resources**.![](/migration-assets/working-with-resource-manager-in-apps/1.png)
+
+> **Note**:
+> 
+> The resource library and the files uploaded to it are specific to each app in your Kissflow account–this means that resources cannot be shared between different apps, even within the same Kissflow account.
+
+## Advantages of the resource manager in apps
+
+-   Provides a dedicated library to consolidate all app-specific images in a single place.
+-   It offers search and sort functions to help you locate files quickly and efficiently.
+-   It provides the ability to create nested folders to maintain your files in an organized way.
+-   The resource library can house and load several resources quickly and efficiently without affecting the app's overall performance.
+
+## Uploading resources to the resource library
+
+There are two ways in which you can upload files to the resource library:
+
+-   Using the upload option.
+-   Using drag-and-drop.
+
+## Using the upload option
+
+You can upload files from your local device or external drives such as Box, OneDrive, Dropbox, and Google Drive using the upload option.
+
+1.  Click the **Upload** button.
+2.  Choose your device or a drive from which you want to upload files.
+3.  Browse files and click open. The uploaded files will appear in the resource library.
+
+![](/migration-assets/working-with-resource-manager-in-apps/2.png)![](/migration-assets/working-with-resource-manager-in-apps/3.png)
+
+You can also upload files from the page builder using the same steps. All files uploaded there will be saved under the general files section in the resource library.![](/migration-assets/working-with-resource-manager-in-apps/4.png)
+
+> **Note:**  
+> The resource library supports the following file types: JPG, JPEG, SVG, GIF, and PNG.  
+> The size of each image file can be up to 5 MB. You can upload a maximum of 10 files in bulk.
+
+## Using drag-and-drop
+
+You can drag and drop files from a local folder onto the resource library to upload them. For a successful upload, ensure that the files are in the supported file formats and do not exceed 5 MB each. You can upload up to 5 files at a time via drag-and-drop.
+
+## Folders in the resource library
+
+Resource manager allows you to create nested folders to organize your resources within the library meaningfully.Click the folder icon in the resource library to create a folder. You can create a folder within another folder and upload files specifically to the newly created folder.![](/migration-assets/working-with-resource-manager-in-apps/5.png)
+
+The files uploaded within specific folders will not be visible in the general files section but will still be part of the resource library and available everywhere within the application.In addition, you can drag-and-drop folders into other folders to create nested folders without creating new ones.
+
+> **Note**:  
+> Folder names must be unique and cannot contain more than 80 characters.
+
+## Search and sort functions
+
+Resource manager offers a global search option to help you find files and folders anywhere within the library. Type in your search keyword in the search bar and press enter.![](/migration-assets/working-with-resource-manager-in-apps/6.png)
+
+Three different sort options are available: Default, Name, and Created at.You can display the resources in ascending or descending order for the Name and Created at options. The default sort displays resources in descending order per the creation time.![](/migration-assets/working-with-resource-manager-in-apps/7.png)
+
+## More options
+
+Resources come with a more options icon that has three options:Rename, Move to, Delete.
+
+### Rename
+
+Use this option to rename any existing resource. Resource names cannot exceed 80 characters, including file extensions. The bulk rename option is not available to ensure no duplication of file names.
+
+### Move to
+
+Use this option to move files to folders or folders to other folders.You can either move a single resource or multiple resources at once.Select one or more resources and click the move icon.![](/migration-assets/working-with-resource-manager-in-apps/8.png)
+
+In the Popup, you will see the available folders to move the selected resources.There are two instances in which the move option will not work:
+
+-   If the selected resource is a folder, it cannot be moved into itself.
+-   A folder cannot be moved into another folder that is nested within it.  
+    E.g., If Folder B is a folder created inside Folder A, then Folder A cannot be moved into Folder B using the move option.
+
+### Delete
+
+You can either delete resources individually using the more options or delete in bulk using the bulk delete icon.Select the required resources and click the delete icon.If you select a folder, all folders and files within the folder will also be deleted permanently. This operation cannot be reversed, so proceed with caution.
+
+## FAQs
+
+1.  What is the upload limit for resources?  
+      
+    You can upload up to 10 files using the Upload option; each file can be up to 5 MB. The bulk upload limit via drag-and-drop is five files.  
+     
+2.  Is it possible to limit the sources from which users can upload files?  
+      
+    A super administrator can do that through the Account Administrator settings. Go to **Profile > Account administration > File upload settings**. Use the toggle button near the respective drive names to add or remove them as a file upload source.  
+     
+3.  Will the resources I upload in the development environment be available in the production environment?  
+      
+    Yes. The entire resource library will be moved to the production environment during app deployment.

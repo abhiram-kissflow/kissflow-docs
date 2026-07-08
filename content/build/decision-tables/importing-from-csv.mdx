@@ -1,0 +1,54 @@
+---
+title: "Importing data from a CSV"
+description: "Import condition and result values into a decision table from a CSV file, with column mapping and error handling options."
+contentType: guide
+persona: citizen-developer
+section: build
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - decision-tables
+  - import
+---
+
+# Importing data from a CSV
+
+<PlanBadge plans={["enterprise"]} />
+
+Admins and members can import condition and result values into a decision table from a CSV file.
+
+<Callout type="info">
+  Your decision table needs at least **one condition or result** before you can import a CSV file.
+</Callout>
+
+## Import a CSV
+
+1. Click the **Import CSV** button in the top-right corner and select your `.csv` file. Kissflow checks the file for corruption and delimiter errors — if an issue is found, fix it in the file and upload again.
+2. Map the CSV columns to the conditions and results of your decision table, then click **Next**. The first 10 rows of your file are shown as a preview, and columns whose header names match are mapped automatically.
+
+   <Callout type="info">
+     A CSV column can only be mapped to a condition or result with the same data type.
+   </Callout>
+
+   ![Import CSV dialog in the Map Columns step, mapping CSV columns to decision table fields with a dropdown of available fields](/migration-assets/importing-data-from-a-csv/2.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+3. Choose how to handle the imported data:
+   - **When importing:** add new rows and delete existing ones, or add new rows and keep existing ones.
+   - **In case of errors:** skip the specific rows, or cancel the import.
+
+   ![Import CSV dialog showing options for when importing (add new rows and delete or keep existing ones) and in case of errors (skip specific rows or cancel the import)](/migration-assets/importing-data-from-a-csv/1.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+4. Click **Next**. Your data begins importing.
+
+## Limits
+
+- A decision table holds up to **50,000 rows**.
+- Up to **1,000 rows** can be added in a single import batch.
+
+## What's next
+
+- [Testing a decision table](/docs/build/decision-tables/testing)

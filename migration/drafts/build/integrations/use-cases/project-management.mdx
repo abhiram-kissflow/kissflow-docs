@@ -1,0 +1,235 @@
+---
+title: "Project management"
+description: "DRAFT (unverified) — migrated from /t/x2yk4c0/project-management"
+contentType: use-case
+persona: citizen-developer
+section: build
+---
+
+Project management platforms are the command center for modern teamwork, ensuring that projects are delivered on time, within budget, and to the required standard. The core challenge is maintaining visibility, alignment, and momentum across teams. Integrations are the key to creating a connected project ecosystem. By linking project management tools with other business processes, organizations can automate task creation, synchronize status updates, and ensure that stakeholders have a real-time view of progress, turning fragmented workflows into a cohesive operation.
+
+## Connectors in this vertical
+
+**Application**
+
+**Description**
+
+**[Monday.com](/t/35yf7bx/monday-com-connector)**
+
+A flexible Work OS where teams can create custom workflow apps to plan, run, and track their processes, projects, and everyday work.
+
+**[Basecamp](/t/m1h4al7/basecamp-connector)**
+
+A project management and team communication tool that helps teams stay organized by keeping all project-related tasks, files, discussions, and schedules in one place.
+
+**Kissflow platform**
+
+It includes native capabilities like [Boards](/t/83h4af4/kissflow-board-connector), [Processes](/t/h7h4akh/kissflow-process-connector), and custom triggers that allow for powerful internal automation and custom integration patterns.
+
+**[HTTP](/t/p8h4aky/http-connector)**
+
+Apart from the pre-built actions available in Kissflow Integrations for project management, there may be scenarios where you need to perform a custom action. In such cases, you can use the HTTP connector to configure API calls from scratch to interact with any service that exposes a REST API.
+
+## Integration use cases with Kissflow
+
+Here are practical, scenario-based examples of how Kissflow can trigger actions in [Monday.com](http://Monday.com) and Basecamp, as well as leverage its own platform capabilities to solve common business problems.
+
+### [Monday.com](http://Monday.com)
+
+**Business goal**
+
+**Trigger (in Kissflow)**
+
+**Action (in Monday.com)**
+
+**Detailed scenario**
+
+**Key benefit**
+
+Automate project setup
+
+A new project is initiated.
+
+Create a board.
+
+When a new project is approved in Kissflow, a new board titled Project: \[Project Name\] is created, pre-configured with essential columns.
+
+Standardizes project setup and ensures consistency across all new initiatives.
+
+Adapt to evolving needs
+
+A team decides to track a new metric during sprint planning.
+
+Create a column.
+
+The integration adds a new _Story points_ column to an existing board to capture the new metric without manual setup.
+
+Allows project boards to adapt quickly to changing team requirements.
+
+Organize project phases
+
+A new marketing campaign is launched.
+
+Create a group.
+
+The integration creates a group named _Campaign phase 1_ within the board to logically organize all related tasks.
+
+Improves project clarity and organization by structuring tasks into phases.
+
+Streamline task creation
+
+A new task, _Design homepage banner_, is approved.
+
+Create an item.
+
+An item with the correct assignee and due date is created under the _Campaign phase 1_ group.
+
+Ensures that approved tasks are immediately visible and actionable in the project plan.
+
+Keep boards tidy
+
+A project phase is completed and needs to be archived.
+
+Delete a group.
+
+The integration deletes the _Campaign phase 1_ group to maintain board cleanliness and focus on active work.
+
+Prevents clutter and helps teams focus on current and upcoming tasks.
+
+Replicate successful workflows
+
+A team wants to start a new phase based on a successful past one.
+
+Duplicate a group.
+
+The integration duplicates the _Campaign phase 1_ group, preserving all tasks and timelines for the new phase.
+
+Saves time and effort by reusing proven project structures and templates.
+
+Break down complex tasks
+
+A task _Write blog post_ requires multiple steps.
+
+Create a subitem.
+
+The integration creates a subitem titled _Research topic_ under the main task to break down the work into manageable steps.
+
+Improves task clarity and helps track progress on a more granular level.
+
+Provide real-time status
+
+The status of a task changes to _In Progress_.
+
+Update an item.
+
+The integration updates the corresponding item in [Monday.com](http://Monday.com) to reflect the status change instantly.
+
+Ensures the entire team has a real-time, accurate view of task progress.
+
+Track subtask progress
+
+A subitem _Research topic_ is completed.
+
+Update a subitem.
+
+The integration updates the subitem's status to _Completed_ in [Monday.com](http://Monday.com).
+
+Provides clear visibility into the completion of smaller steps within a larger task.
+
+Maintain naming consistency
+
+A task is renamed from _Design homepage banner_ to _Design website banner_.
+
+Update an item's name.
+
+The integration updates the item's name in [Monday.com](http://Monday.com) to match the change in Kissflow.
+
+Prevents confusion by ensuring task names are consistent across systems.
+
+Communicate task completion
+
+The _Design homepage banner_ task is completed.
+
+Create an update.
+
+An update is posted in [Monday.com](http://Monday.com) stating, _Banner design completed and ready for review_.
+
+Automates progress communication, keeping stakeholders informed without manual effort.
+
+Remove rejected tasks
+
+A task _Write blog post_ is rejected during approval.
+
+Delete an item.
+
+The integration deletes the corresponding item from [Monday.com](http://Monday.com) and removes it from the board.
+
+Keeps the project board clean and focused only on approved, relevant work.
+
+### Basecamp
+
+**Business goal**
+
+**Trigger (in Kissflow)**
+
+**Action (in Basecamp)**
+
+**Detailed scenario**
+
+**Key benefit**
+
+Generate leadership dashboards
+
+A scheduled workflow runs every Monday morning.
+
+Find all projects.
+
+A workflow retrieves the complete list of active Basecamp projects to build a fresh status summary board in Kissflow for leadership.
+
+Provides automated, regular visibility into the entire project portfolio for executive review.
+
+Provide quick context
+
+A help-desk agent selects a project in a request form.
+
+Find a project.
+
+The flow looks up the specific project in Basecamp, pulling its ID and current to-dos to embed in the Kissflow ticket.
+
+Empowers support agents with immediate project context to resolve issues faster.
+
+### Custom trigger
+
+A custom trigger allows you to use a single integration to handle multiple, related events. For example, instead of separate integrations for employee onboarding and offboarding, a custom trigger can listen for changes in an _Employee maste_r dataset. When a new employee is added or an existing one's status changes to _Terminated_, the same integration can trigger the appropriate onboarding or offboarding workflow in Kissflow, simplifying management and maintenance.
+
+### Kissflow Board
+
+**Pattern**
+
+**Scenario**
+
+**Key benefit**
+
+Automated subtask creation
+
+In a _Customer support_ board, a master ticket often requires action from multiple departments. When a ticket is created, the system can automatically create a subitem for each relevant team such as, IT, billing, technical.
+
+Ensures complex issues are correctly distributed to all necessary teams without manual intervention.
+
+Synchronized status updates
+
+If the status of a parent ticket is changed to _Cancelled_, the workflow can automatically update a subitem, looping through all related sub-tickets and setting their status to _Cancelled_ as well.
+
+Maintains data integrity and prevents teams from working on tasks related to a cancelled request.
+
+Automatic data cleansing
+
+In a sales CRM board, you want to remove invalid leads. When a new lead is added, a condition can check if the email is blacklisted or if the phone number is empty. If true, the system will delete an item.
+
+Keeps the sales pipeline clean and ensures reps only work on valid, actionable leads.
+
+### Kissflow Process
+
+#### Create and submit items in bulk
+
+In many organizations, teams need to initiate multiple process items at once, such as submitting dozens of purchase requests from a single spreadsheet. Instead of manual entry, Kissflow's create and submit items in bulk action can automate this. An integration can be scheduled to run daily, read all rows from a dataset (such as, an Excel file of purchase requests), and automatically create and submit an item in the _Purchase request_ process for each row, mapping the spreadsheet columns to the form fields. This saves hours of repetitive work and eliminates data entry errors.

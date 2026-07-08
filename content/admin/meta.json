@@ -15,7 +15,8 @@
     "boards",
     "datasets",
     "portals",
-    "audit-log"
+    "audit-log",
+    "account-settings"
   ],
   "icon": "admin"
 }

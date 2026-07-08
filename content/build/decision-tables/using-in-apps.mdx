@@ -1,0 +1,92 @@
+---
+title: "Using a decision table inside apps"
+description: "Evaluate a decision table from an app using the Kissflow SDK — a worked loan-approval example with form fields and button events."
+contentType: guide
+persona: citizen-developer
+section: build
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - decision-tables
+  - sdk
+---
+
+# Using a decision table inside apps
+
+<PlanBadge plans={["enterprise"]} />
+
+To evaluate a decision table from inside an app, use the [Kissflow SDK](https://developers.kissflow.com/gettingstarted/). This walkthrough uses a simple example: a bank approves a loan application based on the applicant's income.
+
+## 1. Create the decision table
+
+Create a decision table with an **Income** condition (Range: `>=` lower limit, `<` upper limit) and an **Eligibility** result:
+
+| Income >= | Income \< | Eligibility |
+|---|---|---|
+| 15000 | — | Approved |
+| 10000 | 15000 | Further review |
+| 0 | 10000 | Denied |
+
+## 2. Create the form
+
+Create a process and add these fields to its form:
+
+| Field name | Field type |
+|---|---|
+| Income | Currency |
+| Check approval | Button |
+| Approved or not? | Text |
+
+![Process form in the form builder with an Income currency field, a Check approval button, and an Approved or not? text field](/migration-assets/using-a-decision-table-inside-apps/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## 3. Configure the button event
+
+1. Select the **Check approval** button, open the **Event** tab, and click **Add an event**.
+
+   ![Animation of selecting the Check approval button, opening the Event tab, and clicking Add an event to open the code editor](/migration-assets/using-a-decision-table-inside-apps/2.gif)
+   {/* TODO: verify screenshot matches current product UI */}
+
+2. In the code editor, read the income value from the form using `getField()` from the [Forms SDK](https://developers.kissflow.com/form/about/):
+
+   ```js
+   let IncomeInput = await kf.context.getField("Income_process");
+   ```
+
+3. Evaluate the decision table using the [Apps SDK](https://developers.kissflow.com/app/decisiontable/):
+
+   ```js
+   let LoanDecisionTable = kf.app.getDecisionTable("Loan_decision_table_A00");
+   let decisionOutput = await LoanDecisionTable.evaluate({ Income_decision_table: IncomeInput });
+   ```
+
+   - Replace `"Loan_decision_table_A00"` with your decision table's ID — it's the segment after the last slash (`/`) in the decision table's URL.
+   - The keys in the `evaluate()` payload are your condition IDs. A condition's ID is shown in the **Field ID** of the condition's settings panel — open it by clicking the condition's column header.
+
+4. Read the result. The evaluation response contains a `Data` array of matched result rows:
+
+   ```js
+   let outputValue = decisionOutput.Data.at(0);
+   ```
+
+5. Write the result back to the form with `updateField()`:
+
+   ```js
+   kf.context.updateField({ Approved_or_not: outputValue?.Eligibility });
+   ```
+
+   ![Button onClick event code editor showing the complete script: getField, getDecisionTable, evaluate, and updateField calls](/migration-assets/using-a-decision-table-inside-apps/3.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+6. Click **Save**.
+
+## 4. Deploy and try it
+
+Deploy the app. In the process form, enter a value in the **Income** field and click **Check approval** — the decision table's result appears in the **Approved or not?** field.
+
+## What's next
+
+- [Evaluation settings](/docs/build/decision-tables/evaluation-settings)
+- [Kissflow SDK reference](https://developers.kissflow.com/)

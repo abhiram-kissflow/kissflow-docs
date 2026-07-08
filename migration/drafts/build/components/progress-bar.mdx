@@ -1,0 +1,38 @@
+---
+title: "Progress bar"
+description: "DRAFT (unverified) — migrated from /t/m1yzj4c/progress-bar"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic   ✓ Enterprise
+
+The progress bar component shows the progress status for a value range in different forms. There are three types of progress bars: Linear, Circular, Semicircular.
+
+![](/migration-assets/progress-bar/1.gif)
+
+#### How to use it?
+
+Drag and drop the progress bar component and choose a type from the dropdown under **Settings**. You can choose the progress bar style as well.
+
+You can set the value range of the maximum and the current value. The progress status will adjust based on the input values. There are options to add a caption, help text, and a tooltip for the progress bar based on your requirement.
+
+In [Style properties](/t/y4yzj9m/managing-component-style-properties), you will be able to align the progress bar, adjust the sizing and color. You can choose the bar linecap to be rounded or flat. There are further options to modify the padding and margin, and set the border size, color, and radius.
+
+### [On-click event capabilities](/t/83yljht/introducing-enhanced-progress-bars#on-click-event-capabilities)
+
+The progress bar component now supports configurable on-click events with the following capabilities:
+
+-   **Redirection**: Enables navigation to a specific page in the app or return to the current page.
+    
+-   **Open popup**: Opens a popup created using the Popup component, providing quick access to additional context or information.
+    
+-   **JavaScript action**: Provides the flexibility to define custom actions using JavaScript, allowing you to implement complex interactions and logic specific to your app’s requirements.
+    
+
+These options provide more design flexibility and offer a compact visualization for mobile and constrained interfaces, enabling developers to represent progress more dynamically and add interactive elements through configurable events.  
+  
+Example: In a project management dashboard, clicking a progress bar could redirect to a page that has additional task details or return a variable via the custom JavaScript code.
