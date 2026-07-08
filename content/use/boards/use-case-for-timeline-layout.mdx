@@ -1,47 +1,84 @@
 ---
-title: "Use case for timeline layout"
-description: "DRAFT (unverified) — migrated from /t/35hvrpc/use-case-for-timeline-layout"
+title: "Use cases for timeline layout"
+description: "See how a content production team uses the timeline layout to plan a multi-step workflow against dates, and where else the layout fits."
 contentType: guide
 persona: end-user
 section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - boards
+  - layouts
+  - timeline
 ---
 
-Kissflow plans:
+# Use cases for timeline layout
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
 
-Timeline layout helps you plan ahead, meet deadlines, and effectively communicate progress. It provides a bird's-eye view of your work items, allowing you to navigate through the timeline with ease and confidence. Here’s one of many use cases where the timeline layout can be very effective.
+The timeline layout lays your board items out against dates, giving you a bird's-eye view of what's coming up and helping you plan ahead and meet deadlines. This article walks through one example — a content production workflow — to show the layout in action.
+
+<Callout type="info">
+  For the full reference on timeline intervals, actions, and how this layout compares to list, kanban, and matrix, see [Using board layouts](/docs/use/apps/using-board-layouts).
+</Callout>
 
 ## Content production and marketing campaigns
 
-The timeline layout can prove invaluable for content production and marketing teams. Let’s consider a board for managing blog production. A set of tasks in this board might be related to creating a new blog post about the benefits of using their company's software. The sequence of actions will include: The content writer drafting the blog, the copyeditor editing it, the manager approving it, and finally the social media manager promoting it on social platforms. On converting the above tasks to board items, the timeline layout for this project would look something like this:![](/migration-assets/use-case-for-timeline-layout/1.png)**Week 1** 
+The timeline layout works well for content and marketing teams tracking a piece of content through multiple handoffs. Consider a board for managing blog production, where a post moves through four steps: the content writer drafts it, the copyeditor edits it, the manager approves it, and the marketing team promotes it on social platforms.
 
-1.  Research and outline of the blog post (Assignee: Content writer).
-2.  Blog writing (Assignee: Content writer).
+Converting these tasks to board items and laying them out on a timeline produces a view like this:
+
+![Timeline layout showing blog production tasks scheduled across two weeks with different assignees](/migration-assets/use-case-for-timeline-layout/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+**Week 1**
+
+1. Research and outline the blog post (Assignee: Content writer)
+2. Write the blog post (Assignee: Content writer)
 
 **Week 2**
 
-1.  Blog editing (Assignee: Copyeditor).
-2.  Blog review and approval (Assignee: Manager).
-3.  Blog promotion (Assignee: Marketing team).
+1. Edit the blog post (Assignee: Copyeditor)
+2. Review and approve the blog post (Assignee: Manager)
+3. Promote the blog post (Assignee: Marketing team)
 
-The statuses associated with these items can be,
+<Callout type="info">
+  Statuses such as **Yet to start**, **In progress**, **On hold**, and **Completed** are just an example here — your board's statuses are fully configurable in its workflow. See [Configuring statuses](/docs/build/boards/configuring-statuses).
+</Callout>
 
--   Yet to start
--   In progress
--   On hold
--   Completed
+## What the timeline view helps you spot
 
-Looking at the timeline representation, the below potential bottlenecks can be identified and avoided.**Dependencies and overlaps** -  The timeline layout helps you identify tasks with dependencies. In this use case, each step depends on the preceding step. By visualizing these dependencies, teams can ensure that tasks are sequenced appropriately, avoiding delays and ensuring smooth workflow. For example, if the content writer is unable to finish writing the blog post by the end of week 1, the team would need to make adjustments to their original estimated timeline as other upcoming tasks depend on this writing task. **Resource allocation** - The timeline layout reveals potential resource constraints and workload imbalances. When tasks are overcrowded within a specific timeframe, it indicates that teammates might be overallocated. For example, if the content writer is overloaded with tasks, the team can reallocate a few tasks to other members, or extend the timelines of low priority tasks to prevent burnout and maintain productivity.Finally, once the content is approved, the marketing team can take over in promoting the blog post.Here are a few added benefits of using the timeline layout:
+Because each item bar is positioned between its start and due dates, laying tasks out on a timeline makes a couple of things easier to catch early:
 
--   **Increased visibility** - The timeline layout provides everyone on the team with a clear view of the content production, which helps in improving communication and collaboration.
--   **Improved efficiency** - By planning out the project in advance, teams can identify and avoid potential bottlenecks or delays.
--   **Increased accountability** - The timeline layout gives a defined structure to project duration and maintains accountability among the team members involved.
+- **Sequencing risk** — in this example, each step depends on the one before it. Seeing the bars laid end-to-end makes it obvious when a delay in one task — for example, the writer missing the end-of-week-1 deadline — pushes back everything downstream, so the team can adjust the schedule before it becomes a problem.
 
-Other use cases for timeline layout include: 
+  <Callout type="warn">
+    The timeline layout doesn't track or enforce dependencies between items — it places bars purely by start and due date. Any sequencing insight comes from reading the layout, not from a dependency feature.
+  </Callout>
 
--   Event planning
--   Product development
--   Construction
--   Manufacturing
--   Agile project management
+- **Crowded stretches of time** — if several items land on the same assignee in overlapping windows, their bars visibly bunch up, which can be a cue to rebalance work or push out lower-priority items.
+
+  <Callout type="info">
+    For a dedicated breakdown of who's carrying the most work, use the **Workload distribution** widget on a [board dashboard](/docs/build/boards/board-dashboards) rather than the timeline layout.
+  </Callout>
+
+Once the content is approved, the marketing team takes over promotion — shown on the timeline as the final bar in the sequence.
+
+## Other use cases
+
+The same approach — converting tasks to items and laying them out against dates — works for any workflow with sequential handoffs and deadlines, such as:
+
+- Event planning
+- Product development
+- Construction
+- Manufacturing
+- Agile project management
+
+## What's next
+
+- [Using board layouts](/docs/use/apps/using-board-layouts)
+- [Creating and managing items](/docs/use/items/creating-items)
+- [Configuring statuses](/docs/build/boards/configuring-statuses)
+- [Board dashboards](/docs/build/boards/board-dashboards)

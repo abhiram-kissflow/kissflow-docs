@@ -18,6 +18,21 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
   const page = source.getPage(params.slug);
   if (!page) notFound();
 
+  const redirectTo = (page.data as { redirectTo?: string }).redirectTo;
+  if (redirectTo) {
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+    const target = `${basePath}${redirectTo}`;
+    return (
+      <>
+        <meta httpEquiv="refresh" content={`0;url=${target}`} />
+        <p>
+          This page has moved. If you are not redirected automatically,{' '}
+          <a href={target}>click here</a>.
+        </p>
+      </>
+    );
+  }
+
   const MDX = page.data.body;
   const markdownUrl = getPageMarkdownUrl(page).url;
 

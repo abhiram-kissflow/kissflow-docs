@@ -27,7 +27,7 @@ Once imported, each row in your CSV file becomes an item in your board, and each
 Follow these guidelines when preparing a CSV file for import:
 
 - **Mandatory fields** — if your board form has mandatory fields, you must map at least one CSV column to each of them.
-- **Field types** — you can map CSV columns to these field types: **Text**, **Text area**, **Number**, **Rating**, **Date**, **Date & time**, **Email**, **Currency**, **Yes/No**, **User**, **Single-select dropdown**, **Multi-select dropdown**, **Slider**, and **Checkbox**.
+- **Field types** — you can map CSV columns to these field types: **Text**, **Text area**, **Number**, **Rating**, **Date**, **Date & time**, **Email**, **Currency**, **Yes/No**, **User**, **Multiple users**, **Single-select dropdown**, **Multi-select dropdown**, **Slider**, and **Checkbox**.
 - **Delimiter** — use only the comma (`,`) as the delimiter.
 - **Rows** — the file can have up to **500 rows**, excluding the header.
 - **Encoding** — the file must have a `.csv` extension and use UTF-8 encoding.
@@ -59,13 +59,17 @@ Follow these guidelines when preparing a CSV file for import:
 
 4. Choose how to handle duplicate items:
    - **Create a new copy of the item** — adds the data as new items and keeps the original items in the board.
-   - **Skip the item** — skips rows that match existing items, based on a column you choose. Pick a column with distinct values (for example, Item ID, Email, or Phone number) so the system can tell whether an item already exists.
+   - **Skip the item** — skips rows that match existing items, based on a column you choose. Pick a column with distinct values (for example, Item ID or Phone number) so the system can tell whether an item already exists.
+
+     <Callout type="info">
+       Email isn't available as a duplicate-matching column — choose a different distinct-value field.
+     </Callout>
    - **Replace the existing item** — overwrites existing items that match, based on a column with distinct values that you choose.
 
    ![Duplicate handling step showing the options to create a copy, skip, or replace items](/migration-assets/importing-items-from-a-csv-file/3.png)
    {/* TODO: verify screenshot matches current product UI */}
 
-5. Click **Finish**. Your items begin importing — you can close the window and keep working while the import runs. You'll be notified by email and push notification when it completes.
+5. Click **Finish**. Your items begin importing — you can close the window and keep working while the import runs. You'll be notified by email when it completes.
 
 ## What's next
 
