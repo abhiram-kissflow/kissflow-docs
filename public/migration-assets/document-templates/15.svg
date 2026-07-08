@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>More Icon</title>
+    <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1-Chat-hub" transform="translate(-986.000000, -76.000000)" fill="#61656F" fill-rule="nonzero">
+            <g id="Chat-Messages" transform="translate(340.000000, 60.000000)">
+                <g id="Header">
+                    <g id="More" transform="translate(638.000000, 8.000000)">
+                        <g id="More-Icon" transform="translate(8.000000, 8.000000)">
+                            <circle id="Oval" cx="10" cy="10" r="2"></circle>
+                            <circle id="Oval" cx="2" cy="10" r="2"></circle>
+                            <circle id="Oval" cx="18" cy="10" r="2"></circle>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
