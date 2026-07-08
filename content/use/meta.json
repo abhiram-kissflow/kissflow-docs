@@ -8,7 +8,9 @@
     "search",
     "notifications",
     "mobile",
-    "apps"
+    "apps",
+    "boards",
+    "personal-settings"
   ],
   "icon": "use"
 }

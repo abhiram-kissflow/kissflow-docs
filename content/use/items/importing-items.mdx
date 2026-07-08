@@ -1,0 +1,73 @@
+---
+title: "Importing items from a CSV file"
+description: "Bulk-create items in a Kissflow board by importing a CSV file, with column mapping and duplicate handling options."
+contentType: guide
+persona: end-user
+section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - boards
+  - items
+  - import
+---
+
+# Importing items from a CSV file
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+CSV import lets you transfer items from a CSV file or a spreadsheet saved with a `.csv` extension into a Kissflow board. You can also use it to bring in data from other work management tools.
+
+Once imported, each row in your CSV file becomes an item in your board, and each mapped column fills in a field on those items.
+
+## Prepare your CSV file
+
+Follow these guidelines when preparing a CSV file for import:
+
+- **Mandatory fields** — if your board form has mandatory fields, you must map at least one CSV column to each of them.
+- **Field types** — you can map CSV columns to these field types: **Text**, **Text area**, **Number**, **Rating**, **Date**, **Date & time**, **Email**, **Currency**, **Yes/No**, **User**, **Single-select dropdown**, **Multi-select dropdown**, **Slider**, and **Checkbox**.
+- **Delimiter** — use only the comma (`,`) as the delimiter.
+- **Rows** — the file can have up to **500 rows**, excluding the header.
+- **Encoding** — the file must have a `.csv` extension and use UTF-8 encoding.
+
+## Import a CSV file
+
+1. On the top-right section of the board, click the down arrow next to the **New item** button and select **Import CSV**.
+
+   ![Dropdown next to the New item button showing the Import CSV option](/migration-assets/importing-items-from-a-csv-file/1.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+   <Callout type="info">
+     The **New item** button is named differently depending on the item type configured for the board.
+   </Callout>
+
+2. Choose your `.csv` file from the file picker. Kissflow checks the file for corruption and delimiter errors — if an error is reported, fix it in the CSV file and upload it again.
+
+   ![Animation of choosing a CSV file and uploading it to the board](/migration-assets/importing-items-from-a-csv-file/4.gif)
+   {/* TODO: verify screenshot matches current product UI */}
+
+3. Click **Next**, then map the columns in your CSV file to the fields in your board. For example, map the email addresses in your CSV file to the Email field in your board.
+
+   ![Column mapping step of the CSV import showing CSV columns matched to board fields](/migration-assets/importing-items-from-a-csv-file/2.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+   <Callout type="info">
+     A CSV column can only be mapped to a board field of the same data type.
+   </Callout>
+
+4. Choose how to handle duplicate items:
+   - **Create a new copy of the item** — adds the data as new items and keeps the original items in the board.
+   - **Skip the item** — skips rows that match existing items, based on a column you choose. Pick a column with distinct values (for example, Item ID, Email, or Phone number) so the system can tell whether an item already exists.
+   - **Replace the existing item** — overwrites existing items that match, based on a column with distinct values that you choose.
+
+   ![Duplicate handling step showing the options to create a copy, skip, or replace items](/migration-assets/importing-items-from-a-csv-file/3.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+5. Click **Finish**. Your items begin importing — you can close the window and keep working while the import runs. You'll be notified by email and push notification when it completes.
+
+## What's next
+
+- [Creating and managing items](/docs/use/items/creating-items)
+- [Exporting items from a board](/docs/use/items/exporting-items)

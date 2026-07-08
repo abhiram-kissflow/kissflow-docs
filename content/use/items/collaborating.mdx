@@ -1,0 +1,134 @@
+---
+title: "Collaborating on items"
+description: "Work together on board items with notes, track changes through status and activity logs, and watch items to stay updated on their progress."
+contentType: guide
+persona: end-user
+section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - boards
+  - items
+  - notes
+  - watchers
+---
+
+# Collaborating on items
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+Every item in a board carries its own conversation and history. Use notes to discuss work with stakeholders, the status and activity logs to trace what changed and when, and watching to stay updated on items that matter to you.
+
+## Notes
+
+Notes offer an easy way to collaborate with different stakeholders on an item. Use them to add comments, log updates or action items, and react to notes added by others.
+
+To add a note, open an item on your board, click the **Notes** tab in the right navigation strip, and type your comment in the text area.
+
+![Notes tab of an item showing the conversation thread and the text area for adding a note](/migration-assets/notes-status-logs-and-activity-logs-in-boards/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Type **/** in a note to open the formatting menu:
+
+- **Attach** — add a link, image, or video clip.
+- **List** — add a bulleted or numbered list.
+- **Formatting** — Bold, Italic, Underline, Strikethrough, Code snippet, and Blockquote.
+
+![Slash menu in a note showing the attach, list, and formatting options](/migration-assets/notes-status-logs-and-activity-logs-in-boards/2.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+In addition to formatting, you can add emojis, attach files or images, and annotate uploaded images.
+
+Tag someone by typing **@** and their name — the tagged user gets a notification about the note. You can acknowledge others' notes by clicking the thumbs-up icon, and copy a note's link to share with people so they land right on that note.
+
+![A note with an @mention and the option to copy the note's link](/migration-assets/notes-status-logs-and-activity-logs-in-boards/3.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+### AI summary of notes
+
+To get a quick summary of the recently added notes, click the **Summarize** button at the top of the **Notes** tab.
+
+![Animation of clicking the Summarize button to generate an AI summary of recent notes](/migration-assets/notes-status-logs-and-activity-logs-in-boards/6.gif)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Status log
+
+The status log captures every status change for an item, along with the time spent in each status. Open an item, click the **Item log** tab in the right navigation strip, and select the **Status log** subtab.
+
+![Status log of an item showing the history of status changes with timestamps](/migration-assets/notes-status-logs-and-activity-logs-in-boards/4.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Use the time spent in each status to spot items that are stuck — especially critical ones — so they get resolved without delays.
+
+## Activity log
+
+The **Activity log** subtab of the **Item log** tab lists the key actions performed on an item: changes to system fields such as **Priority**, **Assignee**, **Start date**, and **Due date**, along with when the item was created, closed, or cloned. For each field change, the value before and after the change is shown. Changes to custom fields are not displayed here.
+
+![Activity log of an item listing field changes with before and after values](/migration-assets/notes-status-logs-and-activity-logs-in-boards/5.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Each entry shows:
+
+- **Timestamp** — the exact time the action was performed.
+- **Performed by** — the member who performed the action.
+- **Activity** — the type of action, with details of any changes it caused.
+
+## Watching an item
+
+Watching an item keeps you updated on its progress as assignees and other collaborators modify it. You can watch any item in a board where you are an admin or a member, and you can add others in your account as watchers.
+
+### Watch an item
+
+1. On the board, open the item you want to watch.
+2. Click the **Watchers** button on the top panel of the form.
+3. Click **Watch** to receive updates about the item. Click **Stop watching** when you no longer want to follow it.
+
+![Animation of opening an item, clicking the Watchers button, and starting to watch it](/migration-assets/watching-an-item-in-a-board/1.gif)
+{/* TODO: verify screenshot matches current product UI */}
+
+In the kanban or matrix layout, you can also click the **Start watching** / **Stop watching** button directly on an item card.
+
+![Item card in the kanban layout with the watch button visible](/migration-assets/watching-an-item-in-a-board/2.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+### Add others as watchers
+
+1. Open the item you want to add watchers to.
+2. Click the **Watchers** button on the top panel of the form.
+3. Click **Add watchers** and select members from the list. They are added as watchers as soon as you select them.
+
+![Add watchers panel with a list of board members to select from](/migration-assets/watching-an-item-in-a-board/4.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="info">
+  An item can have only one assignee, but up to **49 watchers**.
+</Callout>
+
+Becoming a watcher is a great way for multiple stakeholders to stay up to date on an item's progress, even if it isn't assigned to them.
+
+### Remove watchers
+
+Removing someone from the watchers list stops them from receiving updates about the item.
+
+1. Open the item.
+2. Click the **Watchers** button on the top panel of the form.
+3. Under **Watchers**, hover over a user's name and click the **Remove** button.
+
+![Watchers list with the remove button shown on hover next to a user's name](/migration-assets/watching-an-item-in-a-board/5.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+### View your watchlist
+
+On your board, click the **Watchlist** button to see the items you are currently watching across statuses. Click it again to return to the original view.
+
+<Callout type="info" title="Board admins control this feature">
+  A board admin can enable or disable the **Watchers** setting from the board's optional settings. When enabled, admins and members can watch items, and watchers receive notifications on item updates.
+</Callout>
+
+## What's next
+
+- [Creating and managing items](/docs/use/items/creating-items)
+- [Creating and managing subitems](/docs/use/items/creating-subitems)
+- [Adding advanced filters using AI](/docs/use/items/filtering-and-views) (Enterprise)
