@@ -1,0 +1,148 @@
+---
+title: "Tabular reports"
+description: "DRAFT (unverified) — migrated from /t/g9h9qt7/tabular-reports"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Tabular reports can be used to display your data in rows and columns, forming a grid similar to a spreadsheet.
+
+## Creating a tabular report
+
+1.  To create a tabular report, click the **Reports** button at the top right. 
+    
+2.  Click **\+ Create report.**
+    
+3.  Provide a name, select **Table** as the report type**,** and click **Create**.
+    
+
+![](/migration-assets/tabular-reports/6.png)
+
+## Configuring the report
+
+You can configure your report by choosing the fields to be displayed, applying filters, and sorting the field values accordingly. 
+
+![](/migration-assets/tabular-reports/11.gif)
+
+Under **Columns**, you can choose the fields to be displayed in the report. There are three types of fields you get to choose from this dropdown:
+
+-   Process fields - The new fields created exclusively for your process using the form builder
+-   System fields - The predefined fields that are common and available across all the processes in Kissflow
+    -   Name - The item’s name
+    -   Created by - The user who created the item
+    -   Modified by - The user who modified the item recently
+    -   Created at - The time at which the item was created
+    -   Modified at - The time at which the form was last modified
+    -   Flow name - The name of the flow
+    -   Doc version
+    -   Current step - The step the item is currently in
+    -   Currently assigned to - The user currently assigned to the step; this field will be empty if the workflow is completed
+    -   Status - The status of the item
+-   Table fields - The fields in your process tables.
+-   Workflow fields - These are the steps you created in your workflow. The field will display when a step was completed, who completed it, the current status, and if the deadline was crossed. 
+
+> **Note:**
+> 
+> You can choose any number of fields from the **Columns** section for your report. You will see a sample set of 10 items in the report preview.
+
+### Column width, ordering
+
+Resize the column width by placing the cursor on the edge of the column and then dragging it to the length you want. You can also drag and drop the fields to reorder them.
+
+![](/migration-assets/tabular-reports/12.gif)
+
+### Applying filters
+
+You can add filters based on a condition in your report.
+
+1.  Click the **Add advanced filter** button under the **DATA FILTER** drop-down.
+2.  Click the **Add a filter** button.
+3.  Select the field you want to filter from the **Select field** dropdown
+4.  Choose a relevant operator that matches your condition and the selected field from the **Operator** dropdown![](/migration-assets/tabular-reports/9.png)    
+5.  Select a relevant value or field to compare the chosen report field with.
+6.  Click **+** **Add a condition** to create as many conditions as you want.
+    1.  The **AND** operator checks whether all the given conditions are met.
+    2.  The **OR** operator checks whether at least one condition is met.
+7.  Click **Add new filter** to add conditions for another field. Repeat the steps you just followed to set the filter criteria of a report field above.
+8.  Click **Apply** to view the results of your created filters.
+
+The results must match all the filters you created. Click the **Close** icon to delete a filter and the **Minus** symbol to remove a specific condition from your filter.
+
+### Sorting
+
+You can set the default sorting of your report. 
+
+1.  Select a field based on which the data in the report has to be sorted
+2.  Select **Sort ascending** or **Sort** **descending** based on your preference
+3.  Click **Save**
+
+![](/migration-assets/tabular-reports/7.png)
+
+## Applying styles to tabular reports
+
+For enhanced customization, you can apply the following styles to your tabular reports:  
+  
+**Normal state**
+
+Header
+
+Background color
+
+Font size
+
+Font color
+
+Font weight
+
+Icon color
+
+Row
+
+Font size
+
+Font color
+
+Font weight
+
+Line height
+
+Letter spacing
+
+Border color
+
+Border bottom width
+
+Cell
+
+Padding
+
+**Hovered state**
+
+**Header**
+
+Background color
+
+**Row**
+
+Background color
+
+![](/migration-assets/tabular-reports/10.png)
+
+## Actions in tabular reports
+
+Once you have configured and saved your report, you can perform the following actions:
+
+-   **Search** \- Enter any word in the search box to find relevant items in the report.
+-   **Filter** \- Add temporary filters to highlight different items based on the parameters you choose.
+-   Export
+-   **Show/hide fields** \- Select which fields you want to display on the current layout.
+-   Edit report
+
+![](/migration-assets/tabular-reports/8.png)
+
+If you share a report with someone, they can perform all these actions except editing.

@@ -1,0 +1,50 @@
+---
+title: "Managing board roles and permissions"
+description: "DRAFT (unverified) — migrated from /t/m1yzjak/managing-board-roles-and-permissions"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+As an app owner, you will have default access to the board form and the ability to change many settings.
+
+As an admin of your board, you can manage the roles and permissions of the board form. This way, you can specify which roles can access the board form, whether accessed internally (in-app) or from other external applications, such as other Kissflow apps or [portal apps](/t/m1h4azh/portal-overview). 
+
+To manage roles and permissions,
+
+1.  Access the **board** form > click **Share**.
+    
+2.  On the Share page, click **\+ Assign roles** to select and add members. The hierarchy of roles includes external app roles listed below and in-app roles, along with their respective app names.
+    
+3.  Add roles and assign **Read-only**, **Initiate**, **Edit**, or **Manage** permissions, and click confirm.
+    
+    ![](/migration-assets/managing-board-roles-and-permissions/2.gif)
+    
+    > **Note**:
+    > 
+    > External app roles cannot be provisioned with the **Manage** permission.
+    
+4.  Click the **Delete** button beside the role names in the **Share** page to remove roles from a board form. The role cannot access or view the contents of the board form after that.
+    
+5.  You can also change the permissions for roles after they are added. For example, if you want to change the role of a member from **Initiate** to **Manage**, use the radio button.
+    
+    ![](/migration-assets/managing-board-roles-and-permissions/1.png)
+    
+
+#### Roles and permissions
+
+You can assign roles to members to control what actions they can perform in your board form.
+
+There are three permissions for your roles:
+
+-   **Read-only** \- This permission allows a user to view items available in the system views, such as the All Items page, but the user cannot edit the data.
+    
+-   **Initiate** - This permission allows a user to initiate new items in the board form and gives them the ability to work on all the items they have created.
+    
+-   **Edit** \- Users can create board items. They can update all the items in the board, but can only delete the items created by themselves. They can also access all board reports, but cannot create any.
+    
+-   **Manage** - Users can create board items. They can update and delete all the items in the board. They can also create and access all board reports.

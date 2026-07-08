@@ -1,0 +1,149 @@
+---
+title: "Filtering items in a process"
+description: "DRAFT (unverified) — migrated from /t/83h9qtl/filtering-items-in-a-process"
+contentType: guide
+persona: end-user
+section: use
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+You can always resort to a filter view when there is a lot of data to manage as part of your process workflow. You need not have to always scroll through a million records every time you log into your process. A filter lets you apply certain conditions on the process data and fetch refined results. i.e. you get to see what you want to see.
+
+## Creating a filter
+
+A filter could be just a single condition that does the check and refines the data, or a set of conditions that must hold true based on which the results will be shown on the process page. You can filter items inside the **Draft**, **In progress**, **Completed**, **Withdrawn**, and **Rejected** tabs based on conditions.
+
+1.  Click the **Filter** button (![](/migration-assets/managing-filters/5.png)) on your process page.
+2.  Click + **Add a filter**.
+3.  Select a field that you want to add to the filter from the **Select field** dropdown to define your filter conditions:
+    1.  The operators are contextually populated based on the field you select. Choose an appropriate operator such as **Equal to**, **Not equal to**, **Contains**, **Is empty**, etc.
+        
+        ![](/migration-assets/filtering-items-in-a-process/6.gif)
+        
+    2.  Next, select a field or enter the value against which you are validating this condition.
+    3.  Click **Add new condition** to apply an AND/OR logical operator between the conditions in the filter group.
+        
+        > **Note:**
+        > 
+        > You will be able to apply **either an AND or OR operator** between the conditions in a filter group. i.e., If there are five conditions as part of the same filter group, it cannot be configured using a combination of AND/OR operators. It must be either AND or OR applied across conditions within the filter group.
+        
+4.  Similarly, click **\+ Add new filter** to add as many filter groups as you want. ![](/migration-assets/filtering-items-in-a-process/1.png)
+    1.  Apply a relevant logical operator AND/OR that suits your requirement before adding your filter conditions. The **AND** operator checks if all the conditions are true across filter groups and the **OR** operator checks if either one of the filter groups holds true.
+5.  Click **Apply** to filter the items.
+
+## User-based contextual filters
+
+An advanced filter is all about giving more context to your filter conditions so we support user-based contextual filters that will help you choose the exact attribute related to the current user when you define filter conditions involving user names or text values.
+
+### Adding a filter condition based on a user
+
+While matching a text or user field against another field, you will see a field named **Current User** along with all its attributes like **Name**, **Email Address**, **User** **Type**, **Status**, and **Designation** in the right-hand side dropdown. Choose the attribute that's appropriate to your filter condition as necessary.![](/migration-assets/filtering-items-in-a-process/3.png)For example, if you wish to check if a specific department head's name is the current user's name, its filter condition would read as follows:\[**Department head\]** \[**Equal to\]** \[**Current User.Name\]**
+
+## Time-based contextual filters
+
+We give you a range of options to filter your fields related to date and time.
+
+### Adding a filter condition based on time
+
+While matching a date or time-based field against a value, click the **More options** button (![](/migration-assets/filtering-items-in-a-process/2.png)) to view the contextual options from which you can choose an appropriate one as per your requirement.The following options are listed when a date/time field is selected:
+
+-   Now
+-   Next 6 hours
+-   Next 12 hours
+-   Today
+-   Tomorrow
+-   Yesterday
+-   This week
+-   Last 7 days
+-   Next 7 days
+-   Last 14 days
+-   Last 30 days
+-   This month
+-   This quarter
+-   Next quarter
+-   This year
+
+![](/migration-assets/filtering-items-in-a-process/5.png)You can also open the calendar after choosing a relevant value and modify the date as necessary in the **Value** field.
+
+## Adding advanced filters using AI
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+<iframe src="https://player.vimeo.com/video/1133474101?app_id=122963" title="AI-powered advanced filters - Overview video" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+Instead of manually building filter conditions, you can use natural language to tell AI what you want to see. 
+
+To create a filtered view using a text prompt,
+
+1.  Click the **Filter** button (![](/migration-assets/adding-advanced-filters-using-ai/1.png)).
+    
+2.  In the filter pane that opens, click **Advanced filter**.
+    
+3.  You will see a text box under the heading **Generate advanced filter using AI**. Type your filtering criteria in simple, plain language. For example: _My high priority assigned items._
+    
+4.  Click the **Generate** button. The AI will create the corresponding filter conditions in the section below.
+    
+5.  Once you are satisfied with the generated conditions, click **Apply** at the bottom of the pane to see your filtered results.
+    
+
+### Summarizing and regenerating filters using AI
+
+You can generate a summary of your filter conditions by clicking **Filter summary**. The system creates an AI-generated summary that describes what your filters represent, which you can then use as a base for new prompts.
+
+To modify it, click **Edit summary**. Update the summary text to reflect your new requirement, and then click **Regenerate** to make AI create a new set of filter conditions.
+
+For example, if the original summary says, _This filter shows items with priority High that are assigned to the current user_, you can edit it to say, _This filter shows items with priority Critical that are assigned to the current user,_ and regenerate filters accordingly.
+
+Here are some examples of what you can ask the AI to do:
+
+**To see...**
+
+**You can type...**
+
+High-priority items assigned to you
+
+"My high priority assigned items"
+
+Items that are past their due date
+
+"Show me all overdue tasks"
+
+Items created within the current week
+
+"Everything created this week"
+
+Items assigned to a specific person
+
+"Tasks assigned to Natasha Romanoff"
+
+Items with multiple conditions
+
+"All critical items in the approval step due today"
+
+### Troubleshooting common issues
+
+1\. Error: "Filter generation failed: Some required fields are hidden or couldn’t be selected. Please make them visible in the Show/hide fields menu or refine your prompt."
+
+-   **Why it happens**: The AI can only build filters using fields that are currently visible on your process. If your request mentions a field like "_Name_" or "_Asset type_,” but that field is hidden in **Show/Hide fields**, the AI cannot access it, and the filter will fail.
+    
+-   **How to fix it**:
+    
+    1.  Close the filter pane.
+        
+    2.  Click the **Show/hide fields** (![](/migration-assets/filtering-items-in-a-process/4.png)) button.
+        
+    3.  In the dropdown list, ensure the checkbox for every field you want to filter by is selected.
+        
+    4.  Try generating the AI filter again.
+        
+
+2\. The generated filters are not what I expected.
+
+-   **Why it happens**: The AI may have misinterpreted an unclear request.
+    
+-   **How to fix it**: Try rephrasing your request to be more direct and specific. For example, instead of "_Show old tasks_," try "_Show tasks created before October 1, 2025_." Including the names of the fields in your request can often lead to more accurate results.

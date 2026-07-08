@@ -1,0 +1,41 @@
+---
+title: "Dataset governance"
+description: "DRAFT (unverified) — migrated from /t/p8hvtsa/dataset-governance"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+As a [Super Admin, or an IAM Admin](/t/35h4ak0/user-roles-and-permissions), account governance offers valuable insights into all the datasets currently in your Kissflow account. This feature enhances data governance by providing visibility and control, and helps you in informed decision-making regarding dataset utilization and optimization in your account.You can view a list of all the datasets in your account under the **All datasets** section. The **Not looked up** section lists all the datasets that are not looked up by any other flow or system. Based on this, you can decide which datasets are no longer needed and can act on them accordingly.
+
+## Security and permissions
+
+From the **Externally connected** section, you can identify the datasets exposing sensitive data outside your account through external connectors of the integrations in your account.**Unrestricted download permissions** section informs you about the dataset attachments that anyone can download. This helps you identify any sensitive data that can be shared outside Kissflow.![](/migration-assets/dataset-governance/2.png)Selecting a dataset takes you to a detailed page where you can know who created the dataset and when. You also have other sections from which you can learn more about the dataset.
+
+## Admins
+
+The **Admins** section displays all the admins in a dataset and their roles. This information allows for thorough monitoring and control of privileged access, ensuring that only authorized personnel can make administrative changes or access sensitive data in the dataset.![](/migration-assets/dataset-governance/1.png)
+
+## Integrations
+
+In this section, you can explore the list of integrations linked to a particular dataset. It provides details about the status of each integration and the connectors used. This allows you to ensure that the dataset is only connected to the intended integrations, minimizing the potential for data exposure and associated risks.![](/migration-assets/dataset-governance/3.png)
+
+## AI-identified sensitive data 
+
+This section lets you know the form fields that may potentially contain sensitive data that AI identifies. With this information, you can take measures to prevent unwanted exposure of these sensitive data later on. These sensitive data are identified and classified by AI into three categories:**1\. Personal data** - Any data that could lead to identifying a specific individual. For example: Name, address, contact details, etc.**2\. Confidential data** - Any data demanding a high level of security and not intended for public access. This will include proprietary business information, financial data, sign in credentials, or other confidential details that would need protection.**3\. Health data** - Any data concerning an individual's physical or mental health, medical history, or treatment records.![](/migration-assets/board-governance/4.png)
+
+## Flows looked up from and looked up to
+
+In the **Flows looked up from** section, you can view a list of flows from which a dataset can look up data. Data from those flows are exposed to the specific dataset.![](/migration-assets/dataset-governance/5.png)You can view a list of flows that can look up data from a specific dataset using the **Flows looked up to** section. Data from this dataset is exposed to the flows that look up this dataset.![](/migration-assets/dataset-governance/4.png)
+
+## Download and export logs
+
+In the **Download logs** and **Export logs** section, you can keep an eye on all the instances of attachment downloads, and dataset exports in the last 30 days to see if any sensitive information is being exposed to people, or systems inside and outside Kissflow.![](/migration-assets/dataset-governance/6.png)![](/migration-assets/dataset-governance/7.png)
+
+## Audit log
+
+In the **Audit log** section, you can gain visibility and valuable insights into activities performed in a dataset. This log provides a comprehensive record of all actions in the last 30 days with respect to time, allowing for detailed analysis and a deeper understanding of the dataset. This is helpful to track and examine various activities in the dataset for enhanced monitoring and security purposes.![](/migration-assets/dataset-governance/8.png)

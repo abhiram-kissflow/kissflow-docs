@@ -1,0 +1,71 @@
+---
+title: "Overview of Kissflow Analytics"
+description: "DRAFT (unverified) — migrated from /t/m1h9qzd/overview-of-kissflow-analytics"
+contentType: overview
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Analytics, also referred to as data analytics, involves the systematic exploration of substantial data sets to discover, examine, and communicate fresh insights and information. Businesses depend on analytics to efficiently make informed decisions based on data, leading to increased revenue, gaining a competitive edge, and other favorable outcomes.
+
+**Kissflow Analytics** is a self-service reporting engine that enables you to draw insights from your Kissflow data by creating reports. You can create cross-flow reports, chart or pivot reports over child tables and datasets, workload analysis reports, all items reports, and more.
+
+## Data sources in Kissflow Analytics
+
+[Data sources](http://helpdocs.kissflow.com/working-kissflow-analytics/understanding-data-sources) in Kissflow are of two types:
+
+### Tables
+
+Tables hold the actual data that must be evaluated. A table, like a spreadsheet, is made up of columns which are the fields in the form and rows are the items submitted.
+
+Tables can be of these four types:
+
+-   **Process table:** This table contains all the fields in your process form.
+-   **Board table**: This table includes all the fields in your board as columns, with the subitems represented as rows.
+-   **Child table:** This is a table within a process form.
+-   **Dataset:** A table with rows and columns of data.
+-   **System table:** It refers to process instance tables and activity instance tables that consist of workflow activity data across processes, and user and group tables.
+
+### **Dataview**
+
+This is a one-of-a-kind data source created by using columns from one or more tables or [dataviews](http://helpdocs.kissflow.com/working-kissflow-analytics/understanding-dataviews) by writing an SQL query in the query editor.
+
+![](/migration-assets/overview-of-kissflow-analytics/1.jpg)
+
+## Reporting in Kissflow Analytics
+
+Reports, such as tables, charts, and pivots, make it easy to understand and explain data trends, outliers, and patterns. These visuals can be combined to tell a broader data story and aid decision-making. [Analytics reports](/t/35h9qzj/analytics-reports-an-overview) can be generated based on processes, boards, child tables, system tables, datasets, and dataviews to monitor various business activities.
+
+Analytics supports the following types of reports:
+
+-   **Tabular reports** allow you to display data in a simple tabular way. Using this view, you can generate a spreadsheet-style report containing all of your data.
+-   **Charts** display data graphically in one of ten chart types including bar, line, area, scatter, pie, doughnut, and combo.
+-   **Pivot tables** can quickly summarize, arrange, and compare large quantities of data. They allow you to easily interchange fields, rows, and columns.
+
+## Accessing Kissflow Analytics
+
+To access analytics:
+
+1.  Sign in to Kissflow Work Platform.
+2.  Click **Analytics** button (![](/migration-assets/overview-of-kissflow-analytics/2.png)) on the left navigation.
+3.  Under **Data explorer**, you can create dataviews and also find [data sources](/t/x2h9qzw) like process tables, board tables, child tables, system tables, dataviews, and datasets created by you or shared with you
+4.  Under **Reports**, you can create new reports and also find all the analytics reports that you’ve access to.  
+     ![](/migration-assets/overview-of-kissflow-analytics/3.png) 
+
+As a [Kissflow Super Admin](https://helpdocs.kissflow.com/user-management/user-roles-permissions#super_admins), you will have access to all data sources and dataviews. If you are a Kissflow user, you’ll have access to only those data sources that you created or were shared with you. You can create reports over these data sources, share them with other users, and also export them as a **CSV** or **JSON** file.
+
+## Usage scenarios
+
+Kissflow Analytics can be used across various business functions like procurement and employee management.
+
+### **Procurement**
+
+If you're someone who uses Kissflow Process to manage purchase requests, purchase orders, and vendor catalogs in your company, you can use Kissflow Analytics to draw insights that help you track orders, compliance, delivery quality, and other key performance indicators.
+
+### **Employee management (HR)**
+
+If you're someone who uses Kissflow Process to manage people operations in your company, you can use Kissflow Analytics to evaluate key performance indicators like turnover rate, average time for recruitment, cost per hire, employee satisfaction, etc. By creating reports over dataviews that join multiple tables, you can analyze employee performance and also take key hiring decisions.

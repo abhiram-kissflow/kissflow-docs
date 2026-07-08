@@ -1,0 +1,77 @@
+---
+title: "Managing reports"
+description: "DRAFT (unverified) — migrated from /t/p8h9qz2/managing-reports"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+To access [reports](/t/35h9qzj/analytics-reports-an-overview) in analytics, click **Analytics** in the left navigation bar and open the **Reports** page. Here, you can view all reports created in analytics to which you have access.
+
+Every report is displayed in a card view. You can find out the following details from these cards: 
+
+-   Name
+-   Report type
+-   Last modified time
+-   Share status of the report![](/migration-assets/managing-reports/1.png) 
+
+You can easily search and sort the reports alphabetically by when they were created or modified. You can also filter these reports using the following filters:
+
+-   **All reports** - Shows all reports on the page.
+-   **My reports** - Shows reports that you have created.
+-   **Shared reports** - Shows the reports for which you have access.
+
+When you open a report, you can see when its corresponding data source was last synced.  
+ 
+
+![](/migration-assets/managing-reports/2.png)
+
+> **Note:**
+> 
+> Reports and system reports existing within forms like processes, boards or datasets are not visible in analytics. The scope of the reports created here is limited to analytics.   
+
+## Administering a report
+
+After you’ve created a report, you have several ways to administer it. Click the **More options** button (![](/migration-assets/managing-reports/5.png)) on the report viewer page.
+
+1. **Share** - Share the report with users and groups. You have the option to let users share the report with more people.
+2. **Export** - Export all the data in the report as a **CSV** or **JSON** file. Exporting is only available for tabular reports. After exporting, you will receive an email with a link to download the report.
+
+> **Note:**  
+> You can only export data from a tabular report.
+
+When you click **Details** under the **More options** button (![](/migration-assets/managing-reports/5.png)) in the report viewer, you can see the report name, description, report admins, data source from which the report was create, time of creation, last modified time, and last synced time.
+
+![](/migration-assets/managing-reports/3.png)
+
+##  Managing roles and permissions
+
+There are two different report roles in analytics.
+
+-   **Admins**: They can edit, delete, and share a report.
+-   **Members**: They can view a report and optionally edit and share it.
+
+![](/migration-assets/managing-reports/4.png)
+
+By default, the creator of a report becomes the admin. A report can have many admins. Report Admin can add other users to the report as members or admins. However, only a Super Admin of the account can add additional users or themselves as admins.
+
+## Revoking access to reports
+
+To revoke access to a report:
+
+1.  On the report page, click the **More options** button (![](/migration-assets/managing-reports/5.png)) > **Share**.
+2.  Select the member whom you want to remove, and on the user card, click the **More options** button (![](/migration-assets/managing-reports/5.png)) > **Remove member**.
+
+> **Note:**
+> 
+> If a user's member access is revoked, they can no longer view or access the report.
+> 
+> If a user who was the sole admin of the report is removed, then the Super Admin of the account will be assigned as the new admin for the report. The users/groups with whom a user had shared a report before their access removal will still be able to access it.
+
+> **Note:**
+> 
+> Only a [Super Admin](/t/35h4ak0/user-roles-permissions#super-admins) can add an admin or revoke the access of a report admin.

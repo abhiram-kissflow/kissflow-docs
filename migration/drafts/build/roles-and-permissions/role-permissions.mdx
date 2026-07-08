@@ -1,0 +1,176 @@
+---
+title: "Role permissions"
+description: "DRAFT (unverified) — migrated from /t/83yzj9j/role-permissions"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+Kissflow Apps allows you to share your process form, board form, dataform, dataset, and list with different roles in your application and to external apps and assign them unique access permission.
+
+> **Note**: **Manage** permission cannot be assigned to externally linked roles. However, it is possible to assign the Initiate permission.
+
+#### [Process form](/t/x2h9q14/permissions#process-form)
+
+A role with access to any process form will have permission to initiate or manage the process form.
+
+**Initiate**
+
+**Manage**
+
+Initiate new items in the process form
+
+Create and manage items in the process form
+
+Work on all of the items they have created and assigned to them
+
+Have default access to all reports as part of the process form
+
+![](/migration-assets/role-permissions/1.png)
+
+### How permission inheritance works
+
+When a process is shared with a role, its permissions are automatically inherited by the associated reports.
+
+This means that when you assign a role to a process, all users in that role will automatically get access to the related reports without needing to share them separately.  
+You can still adjust or override the default permissions at any time.
+
+The table below shows how permissions are inherited for processes:
+
+**Permission level**
+
+**Access to process reports**
+
+Initiate
+
+❌
+
+Manage
+
+✅
+
+#### [Dataform](/t/x2h9q14/permissions#dataform)
+
+A role with access to any dataform will have permission to initiate or manage the dataform.
+
+**Read-only**
+
+**Edit**
+
+**Manage**
+
+Allows users only to view the items.
+
+Enables users to view, create, and update the items.
+
+Enables users to view, create, update, and delete the items.
+
+![](/migration-assets/role-permissions/2.png)
+
+### How permission inheritance works
+
+When a dataform is shared with a role, its permissions are automatically inherited by the associated views and reports.
+
+This means that when you assign a role to a dataform, all users in that role will automatically get access to the related views and reports without needing to share them separately.  
+You can still adjust or override the default permissions at any time.
+
+The table below shows how permissions are inherited for dataforms:
+
+**Permission level**
+
+**Access to dataform views**
+
+**Access to dataform reports**
+
+Read-only
+
+✅ (all except sheet view)
+
+❌
+
+Edit
+
+✅
+
+✅
+
+Manage
+
+✅
+
+✅
+
+For example, if a dataform is shared with **Read-only** permission, the users won’t have access to its reports by default.
+
+If the dataform is shared with **Edit** or **Manage** permission, users will automatically gain access to views and reports.
+
+#### [Board form](/t/x2h9q14/permissions#board-form)
+
+A role with access to any Board form will have permission to initiate or manage the Board form.
+
+![](/migration-assets/role-permissions/3.png)
+
+**Read-only**
+
+**Initiate**
+
+**Manage**
+
+**Edit**
+
+Can view items in the system views, but cannot edit them.
+
+Can initiate new items and work on all of the items created by them.
+
+Can create new board items, manage items created by them and assigned to them. They will have access to all reports.
+
+Can create, view, and update items.
+
+![](/migration-assets/role-permissions/4.png)
+
+### How permission inheritance works
+
+When a board is shared with a role, its permissions are automatically inherited by the associated views and reports.
+
+This means that when you assign a role to a board, all users in that role will automatically get access to the related views and reports without needing to share them separately.  
+You can still adjust or override the default permissions at any time.
+
+The table below shows how permissions are inherited for boards:
+
+**Permission level**
+
+**Access to board views**
+
+**Access to board reports**
+
+Read-only
+
+✅
+
+✅
+
+Initiate
+
+✅
+
+✅
+
+Edit
+
+✅
+
+✅
+
+Manage
+
+✅
+
+✅
+
+Board views and reports will be accessible at all permission levels.
+
+> **Note:** To override the inherited permissions, go to the [Roles](/t/h7yzj46/application-roles#adding-a-role-to-an-application) page and adjust the permissions as per your requirement.

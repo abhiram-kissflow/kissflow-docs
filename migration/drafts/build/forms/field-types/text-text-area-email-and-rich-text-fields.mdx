@@ -1,0 +1,124 @@
+---
+title: "Text, Text area, Email, and Rich text fields"
+description: "DRAFT (unverified) — migrated from /t/p8h4az5/text-text-area-email-and-rich-text-fields"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Learn how to create, and manage text-based fields in your flow form in this article. If you are unsure about what a field is, and how to add a field to a form, this [article](/t/h7h4azm/creating-a-form) might come in handy. You can learn the basics and come back here to understand how text-based fields work.
+
+## Text field
+
+A **Text** field can be used to store a single line of text. You can key in letters, symbols, numbers, and special characters to the text field.
+
+### Expressions/formulas
+
+[See all the text expressions you can use as a part of a formula.](/t/m1h4al6/text-expressions) 
+
+### Validations
+
+There are 13 types of validations you can use for a text field. [Learn more about all the validations](/t/m1h4az4/field-validations). 
+
+## Text area field
+
+A **Text area** field is generally used to store multiple lines of text. You can key in letters, symbols, numbers, and special characters to the text area field.
+
+![](/migration-assets/text-text-area-email-and-rich-text-fields/2.png)
+
+The formatting options: Bold, Italics, Hyperlink, Subscript, and Superscript are supported in the Text area field. Select a piece of text and click to remove the formatting that's applied already.
+
+> **Note:**
+> 
+> You cannot use any expressions or formulas on Text area fields. 
+
+### Validations
+
+There are 4 types of validations you can use with a Text area field: 
+
+-   Contains
+-   Does not contain
+-   Max length
+-   Min length
+
+### Email field
+
+The **Email** field lets you collect valid email addresses. This field requires a “@” and “.” from the user to be considered valid. 
+
+### Settings
+
+You cannot use any expressions or formulas with email fields. 
+
+### Validations
+
+There are [8 types of validations](/t/m1h4az4/field-validations) you can use for an email field.
+
+## Rich text field
+
+The **Rich text** field allows you to format and style your static text in a form. You can also add images and videos to any area of a form, integration email actions, and so on. 
+
+![](/migration-assets/text-text-area-email-and-rich-text-fields/3.gif)
+
+> **Note:**
+> 
+> To start a new paragraph in the rich text editor, click **Enter** or **Return**. Click and hold **Shift**, then **Enter** or **Return** to insert a line break without starting a new paragraph.
+
+There are two different ways in which text can be formatted and style applied inside a rich text field:
+
+1. **Type a text and select the content piece** to view the rich text editor in the horizontal view.
+
+![](/migration-assets/text-text-area-email-and-rich-text-fields/1.png)
+
+  2. Click **'/'** to view rich text editor commands in vertical view.
+
+![](/migration-assets/text-text-area-email-and-rich-text-fields/4.gif)
+
+There are multiple formatting and styling options available to use. Below you can find the list:
+
+-   Bold
+-   Italics
+-   Underline
+-   Strikethrough
+-   Text color
+-   Alignment
+    -   Left align
+    -   Right align
+    -   Center align
+    -   Justify
+-   Paragraph
+-   H1 and H2 headings
+-   Add a link (For example, upload a document to a drive and add its link to the field, so users can open it with a click.)
+-   Bulleted list
+-   Numbered list
+-   Blockquote
+-   Code snippet
+-   Subscript
+-   Superscript
+-   Add an image (available only on the no-code platform; not supported within apps)![](/migration-assets/text-text-area-email-and-rich-text-fields/6.gif)
+-   Add a video![](/migration-assets/text-text-area-email-and-rich-text-fields/5.gif) 
+-   Clear formatting
+
+> **Note**:
+> 
+> -   The rich text editor only supports adding images and videos. To replace an existing logo or image within a rich text field, you must first delete the current image. Once removed, type `/` to open the command menu and select the Image or Upload option to insert the new file.
+> -   The rich text editor in Kissflow does not render raw HTML or Markdown syntax. Any HTML or Markdown pasted directly will be displayed as plain text.
+
+### **Where can I use the rich text editor?**
+
+-   Process form - advanced field
+-   Board form - advanced field
+-   Board notes
+-   Organizational posts
+-   Teams' feeds and forums
+-   Integration action email body
+
+There are no validations or expressions for the **Rich text** field.
+
+> **Tip:**
+> 
+> -   If you need to display a table or complex formatting, we recommend creating it in an external tool (such as a spreadsheet), capturing a screenshot, and inserting it as an image into the editor.
+> -   To attach static files directly, use the [attachment field](/t/y4h4az1/image-attachment-smart-attachment-and-signature-fields#attachment-field). If you want to include attachments within the rich text field, insert a link that redirects users to an external location where they can access the file.

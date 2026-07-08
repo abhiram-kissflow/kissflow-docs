@@ -1,0 +1,99 @@
+---
+title: "Public forms"
+description: "DRAFT (unverified) — migrated from /t/35h9qtk/public-forms"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+Anyone without a Kissflow account can initiate a workflow in Kissflow with the help of a public form. By activating this setting, you let the users outside your organization submit their input to Kissflow.
+
+> **Use case**
+> 
+> Let us assume your organization uses process workflows as part of your Hiring process. The candidate information will be manually fed to the process form to trigger the Hiring process workflow. Now with the help of public forms, you can host a job application form online (public form) and use it to start the candidate screening process. 
+
+Public forms are only available for Enterprise accounts. Contact our [support](https://kissflow.com/support/) team to enable public forms for your account.
+
+## Enabling a public form
+
+Only the Process admins can enable public forms.
+
+1.  Navigate to the process for which you would like to enable the public form.
+2.  Click the **Manage** button > **Settings**.
+3.  Click **Public form settings**
+4.  Turn on the Public form URL field and copy the link to share it with anyone outside your organization. You can also [embed the public form in any website](/t/35h9qtk/public-forms#embedding-iframe-code) so that an external user can access it from elsewhere and submit their details to Kissflow.![](/migration-assets/public-forms/2.png)
+
+## Disabling a public form
+
+1.  Navigate to the process for which you would like to disable the public form.
+2.  Click the **Manage** button > **Settings** > **Public form settings**.
+3.  Turn **OFF** the Public form URL to disable it. Once the public form is disabled, the external users cannot initiate new items. However, the items that are in progress will complete the workflow steps. 
+
+> **Note**:
+> 
+> The items initiated via the public form will appear as **Created by Guest** in the process reports and in the [process administration page.](/t/60h9qtj/admin-actions-in-a-process)
+
+## Embedding iframe code
+
+&lt;iframe> code is a code snippet that can be added to any web page to let someone access a public form from elsewhere.
+
+For example, you can host the job application form which you recently created as part of your hiring process on the **Careers** page of your organization's website so that anyone who is interested can directly access the application and apply.
+
+1.  Click the **Copy** button (![](/migration-assets/public-forms/1.svg)) to copy the &lt;iframe> code.
+2.  Paste the code snippet to your website or any external platform where you would like to host the public form.
+
+This code snippet is automatically generated and available when you enable the **Public form URL** option.
+
+> **Note:**
+> 
+> If the public form is [disabled](/t/35h9qtk/public-forms#disabling-a-public-form) intentionally or if there is some other issue in accessing the public form, users will not be able to access the public form through the sites where this code snippet is embedded.
+
+## Form customization
+
+You can preview and customize your public form’s title and select a background color that fits your brand. Additionally, you can display your account’s logo, adding a more professional touch to the form.
+
+![](/migration-assets/public-forms/4.gif)
+
+## Post submission actions
+
+Decide what happens after a user submits the form with the below options:
+
+-   **Show confirmation message:** Set up a custom confirmation message that users will see once they submit the form. You can edit the message’s title and description to provide a clear next step or a thank-you note. Optionally, add a button below the message that can redirect users to a specific URL of your choice.
+    
+    ![](/migration-assets/public-forms/5.gif)
+    
+-   **Redirect to URL:** Automatically redirect users to a specified URL once they submit the form.
+    
+    ![](/migration-assets/public-forms/3.png)
+
+## Message for inaccessible form
+
+If a public form is disabled, you can customize the display message’s title and description to inform users why the form is inaccessible. You can also include a button below the message redirecting users to another page.
+
+![](/migration-assets/public-forms/6.gif)
+
+## FAQ
+
+An initiator is the recipient of a public form i.e., a person who wishes to use or uses a public form.
+
+1. **As an initiator, can I reject or send back a public form?**  
+    Initiators cannot reject or send back a public form, only the step assignees and process admins can.  
+     
+2. **Will the initiator of the form receive any notifications after they submit their details to Kissflow?**  
+    Since the initiator is not a part of Kissflow i.e. their name will be shown as **Guests** inside Kissflow, they will not receive any system-generated notifications.  
+     
+3. **A colleague shared a public form link with me and when I tried to access it, it threw an error. What could have gone wrong?**  
+    The public form must have been available when your colleague used it and it must have been disabled by the Process Admin in Kissflow for some reason. You can reach out to the person who shared the link with you.  
+     
+4. **Will the initiator be able to collaborate with the team inside Kissflow regarding their application?**  
+    No, the initiator cannot collaborate through comments with the step assignees.  
+     
+5. **I am sure the public form I am trying to access is not disabled yet, however, I am unable to access it. How do I troubleshoot this issue?**
+    -   Check if you are on **Incognito** mode on your web browser and enable the cookies to access the form.
+    -   If you aren't using an **Incognito** window, the cookies in your normal browser window must have expired. You have to refresh the page to access the form.  
+        If the above options didn't help, please contact our customer support executives immediately to resolve the issue.
+    -   Try clearing the cache and cookies in your browser.

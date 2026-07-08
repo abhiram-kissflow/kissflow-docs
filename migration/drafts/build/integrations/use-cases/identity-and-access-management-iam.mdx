@@ -1,0 +1,69 @@
+---
+title: "Identity and access management (IAM)"
+description: "DRAFT (unverified) — migrated from /t/g9ykcw7/identity-and-access-management-iam"
+contentType: use-case
+persona: citizen-developer
+section: build
+---
+
+Identity and Access Management is the security foundation of the modern enterprise, ensuring that the right individuals have access to the right resources at the right times, and for the right reasons. Integrations are the cornerstone of an effective IAM strategy, connecting HR systems and internal workflows with identity providers like Okta. By automating user lifecycle management, provisioning, audits, and de-provisioning, organizations can enhance security, ensure compliance, and provide a seamless access experience for employees from their first day to their last.
+
+## Connectors in this vertical
+
+**Application**
+
+**Description**
+
+**[Okta](/t/35h4afx/okta-connector)**
+
+A leading identity and access management platform that provides secure connections between people and technology, enabling single sign-on, multi-factor authentication, and automated user lifecycle management.
+
+**[HTTP](/t/p8h4aky/http-connector)**
+
+Apart from the pre-built actions available in Kissflow Integrations for IAM, there may be scenarios where you need to perform a custom action. In such cases, you can use the HTTP connector to configure API calls from scratch to interact with any service that exposes a REST API.
+
+## Integration use cases with Kissflow
+
+Here are practical, scenario-based examples of how Kissflow can trigger actions in Okta to solve common business problems.
+
+### Okta
+
+**Business goal**
+
+**Trigger (in Kissflow)**
+
+**Action (in Okta)**
+
+**Detailed scenario**
+
+**Key benefit**
+
+Automate user provisioning
+
+HR submits a _New Hire form_ and the offer is accepted.
+
+Add a user.
+
+Kissflow automatically adds the employee as a user in Okta, assigning them to the default _All Staff_ group.
+
+Ensures new hires have Day 1 access to essential systems and eliminates manual IT setup tasks.
+
+Streamline access audits
+
+IT enters an email into an _Access audit_ task.
+
+Get user details.
+
+The workflow retrieves that user’s profile from Okta: _status, groups, last login_ and displays it in the Kissflow form.
+
+Speeds up security and compliance audits by providing instant access to user data within the audit workflow.
+
+Secure employee offboarding
+
+A manager completes an _Employee exit_ checklist.
+
+Deactivate a user.
+
+Kissflow instantly deactivates the departing user in Okta, blocking all system access while downstream off-boarding steps continue.
+
+Mitigates security risks by ensuring immediate and reliable revocation of access for departing employees.

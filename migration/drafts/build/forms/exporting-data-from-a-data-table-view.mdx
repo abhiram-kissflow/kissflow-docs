@@ -1,0 +1,50 @@
+---
+title: "Exporting data from a data table view"
+description: "DRAFT (unverified) — migrated from /t/35yzja7/exporting-data-from-a-data-table-view"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+The [data table view](/t/g9yzja2/data-table-view) export feature in [dataforms](/t/35yzjag/creating-and-managing-dataforms) allows you to export data from your data table view as a downloadable CSV file. The CSV file is sent as an email to you, which can then be downloaded. After clicking the export button, you will receive an email with your exported data as a downloadable CSV file.
+
+As a Kissflow App user, if you have access to the live app page with the embedded data table view, you can export data from this view if the export button is enabled. You will be emailed a CSV file with your exported data when you click the export button. During application development, the app admin decides whether to enable or disable the export button in the data table view.
+
+For example, in an assets procurement application, the procurement manager requires the ability to export a list of all procured assets in a CSV file for sharing with their internal finance team. When the data table view export feature is turned on, the procurement manager can quickly add a filter and click Export to receive the data in a CSV file via email. 
+
+## Enabling the export button 
+
+The [App admin](/t/x2yz5hz/creating-an-app) can turn on/off the export button inside a data table view by following the steps below:
+
+1.  Open your [application builder](/t/m1yzj9p/app-builder-overview), and create a [data table view](/t/g9yzja2/data-table-view) in a [dataform](/t/35yzjag/creating-and-managing-dataforms).
+2.  Next, access [pages](/t/60yzj91/app-pages-overview) and [create a page](/t/g9yzj9k/creating-and-editing-pages). Drag and drop the [data table view component](/t/g9yzja2/data-table-view) of the dataform onto this page.
+3.  In the settings panel on the right, under **General properties** > **Settings**, you will find an **Export** toggle button(![](/migration-assets/exporting-data-from-a-data-table-view/1.png))
+4.  Turn it on/off to show or hide the **Export** button as part of the data table view in your deployed live application.![](/migration-assets/exporting-data-from-a-data-table-view/2.png) 
+
+> **Note:**
+> 
+> Export button can also be enabled for the **All items** component of the dataform.
+
+## Exporting data as a CSV file
+
+When the [app admin](/t/x2yz5hz/creating-an-app) enables the export button in the data table view of the app, app users can begin exporting data using it.
+
+As a user, you can start exporting data from your live app by clicking the **Export** button on the top-right corner of the data table view and confirming **Export**. You will receive an email with your exported data as a downloadable CSV file.
+
+> **Note:**
+> 
+> If you’ve applied filters to your data table view, just the data that is displayed will be exported. It will not export the filtered-out data that remains.
+
+![](/migration-assets/exporting-data-from-a-data-table-view/3.gif)
+
+> CSV exports are capped at 100,000 rows per file. If your dataform exceeds this limit, the export will be automatically split into multiple CSV files and bundled into a single ZIP file for easy download.Example:  
+> If your dataform contains 110,000 rows, your export will include two CSV files:
+> 
+> -   One with 100,000 rows
+>     
+> -   One with the remaining 10,000 rows
+>

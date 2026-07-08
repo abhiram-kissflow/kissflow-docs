@@ -1,0 +1,89 @@
+---
+title: "Creating a dataset"
+description: "DRAFT (unverified) — migrated from /t/h7h4alb/creating-a-dataset"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+You can create a dataset in two ways: from scratch or by installing a dataset template according to your business requirements.
+
+1.  Click **+Create** from the left navigation and select **Dataset**.
+2.  Enter the dataset name. You can also add a description to find your dataset later.
+3.  If you already have some data in a CSV, XLSX, or XLS format, you can click **Import data from other sources** and upload the file. You can only import a maximum of 10,000 rows.   
+      
+    The standard configuration supports up to 100 columns and 50,000 rows. This is a soft limit; if a business requirement necessitates a larger data volume, please reach out to the customer support team.  
+     
+4.  Click **Create**.
+
+![](/migration-assets/creating-a-dataset/1.png)
+
+> **Tip:**
+> 
+> You can choose a relevant dataset template by navigating to **Explore > Template gallery**, or create a new dataset from scratch by going to **Explore > + Create > Dataset** if none of the templates meet your needs.
+
+## The Key field
+
+The first field in the dataset is called Key. This is the only field you cannot rename, delete, or change the field type. Each row must contain a unique value such as an employee number, SKU, vendor name, or serial number.
+
+![](/migration-assets/creating-a-dataset/2.png)
+
+## Renaming a dataset
+
+To rename your dataset, click the current name, make changes, click **Enter**, or click off the name. You can change the description in the same way.
+
+All the changes are auto-saved.
+
+## Finding a dataset
+
+There are two ways to search for your dataset.
+
+First, click the **Search** icon (![](/migration-assets/creating-a-process/9.png)) on your page's top navigation bar, and type the dataset's name into the search box. You can also launch the search box using the keyboard shortcuts, 
+
+-   **Mac**: Command key, ⌘ + E
+-   **Windows**: Ctrl key + E
+
+![](/migration-assets/creating-a-dataset/5.gif)
+
+Second, click **Explore** in the left navigation bar and choose one of the three options:
+
+-   **Live**
+-   **Managed by me** \> **Datasets**
+-   **Others** \> **Datasets**
+
+![](/migration-assets/creating-a-dataset/3.png)
+
+Here, you can view all the datasets created and recently accessed.
+
+You can use the Search box to find the dataset you want, or you can sort them based on their name and last published date, whichever works best for you.
+
+## Finding an item in a dataset
+
+You can use the field dropdown menu to search for items in a dataset. Select the field name from the dropdown menu, enter your query, and the results will appear instantly. By default, the search dropdown points to the **Key** field.
+
+![](/migration-assets/creating-a-dataset/4.gif)
+
+This search bar is available in the primary dataset and also in its views.
+
+**Supported field types**
+
+-   Text, Text Area, Number, Dropdown, Yes/No, Multi-select, Checkbox, Currency, Email, Slider, and User fields.
+    
+-   System fields: Key, Created by, and Modified by.
+    
+
+> **Note:**
+> 
+> The search bar is not available for datasets with more than 200,000 rows.
+
+## Viewing dataset ID
+
+You might want to fetch and use the dataset ID while making API calls related to datasets in Kissflow.
+
+Access the dataset upon which you would like to make an API call and copy the last string that follows '../dataset/' from its URL. The string '**Employee\_Master**' in the following URL is the dataset ID for the dataset Employee\_Master:
+
+[https://stark-corporation.kissflow.com/view/dataset/Employee\_Master](https://stark-corporation.kissflow.com/view/dataset/Employee_Master)

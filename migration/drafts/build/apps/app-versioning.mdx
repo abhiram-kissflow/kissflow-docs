@@ -1,0 +1,43 @@
+---
+title: "App versioning"
+description: "DRAFT (unverified) — migrated from /t/m1h9qkg/app-versioning"
+contentType: overview
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+## Understanding app versioning
+
+Versioning your app allows you to easily add or update functionality without affecting existing users.
+
+By default, when you build and deploy your app within the App builder, it will be set to **version 1.0**. As you add new features and change the way your app works, you should deploy new versions and promote them to give users the most up-to-date information. The build number will be increased every time. Every time you deploy your app from the **Development** environment to the **Test** environment and then from the **Test** environment to the **Production** environment, they are tracked and retained for your analysis.  
+ 
+
+![](/migration-assets/app-versioning/1.png)
+
+Versioning allows you to save many draft versions of your app and send them to users as you finish features.
+
+> **Note:** We recommend using minor versions for small updates to your app (i.e., 1.1, 1.2, etc.) and major versions for changes that may affect the operations of your users (i.e., 1.0, 2.0, 3.0, etc.)
+
+### Changes that require a version change
+
+While the majority of configuration changes may be made with a minor version, a few require a major version. They are as follows:
+
+-   Changing the roles and permissions of an app.
+-   Introducing or retracting pages and forms.
+-   Changing the name and description of your app.
+-   Changing your app's URL.
+
+When adding a new feature to your app, you can use a minor version. If you add a whole new feature (view, component, or integration) to your app, it will have no influence on existing users' workflows. As a result, in such cases, you can use a minor version.
+
+### Tracking version changes
+
+You can track the deployment history of your app inside the development and test environments separately. This will help you monitor all the changes that were implemented and rolled out during every app version and build.
+
+In the development environment, the deployment history can be accessed under your App builder's **settings** tab. In the test environment, the same can be accessed under **App settings > Deployment history**.
+
+![](/migration-assets/app-versioning/2.png)

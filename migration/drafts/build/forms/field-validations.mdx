@@ -1,0 +1,331 @@
+---
+title: "Field validations"
+description: "DRAFT (unverified) — migrated from /t/m1h4az4/field-validations"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+You can validate a field against a certain set of conditions so that the form can only be submitted if the conditions are met.
+
+Hover over a field in your form editor and click the grey tick icon (![](/migration-assets/field-validations/1.svg)) to access its validation settings or navigate to the **Validation** tab from the **Field properties** panel to your right.
+
+![](/migration-assets/field-validations/2.png)
+
+The validation types that we support differs for every data type. Here's an overview of the fields and their supported validation types:
+
+**Validation**
+
+**Description**
+
+**Field type**
+
+Equal to
+
+The field must exactly match a static value or the value in another field.
+
+Text
+
+Email
+
+Number
+
+Currency
+
+Date
+
+Date & time
+
+Dropdown
+
+User
+
+Not equal to
+
+The field must not be a certain static value or the value in another field.
+
+Text
+
+Email
+
+Number
+
+Currency
+
+Date
+
+Date & Time
+
+Dropdown
+
+User
+
+Contains
+
+The field must contain certain characters, but might also have other characters.
+
+Ensures your value is found somewhere inside the user's input. For example, if your value is _New York_, the user could type _I love New York_ or _New York city_ to pass.
+
+Text
+
+Text area
+
+Email
+
+Does not contain
+
+The field must not contain certain characters.
+
+Text
+
+Text area
+
+Email
+
+Email format
+
+The field must be a valid email address.
+
+Text
+
+URL format
+
+The field must contain no spaces and a dot followed by at least two letters.
+
+Text
+
+Letters only
+
+The field must not have any numbers or symbols.
+
+Text
+
+Numbers only
+
+The field must not have any letters or symbols.
+
+Text
+
+No special characters
+
+The field must be only numbers and letters.
+
+Text
+
+Starts with
+
+The field must start with certain values.
+
+Email
+
+Ends with
+
+The field must end with certain values.
+
+Email
+
+Domain equal to
+
+The field must exactly match a domain value.
+
+Email
+
+Domain not equal to
+
+The field must not be a certain domain value.
+
+Email
+
+Max length
+
+The field must not exceed a certain number of characters.
+
+Text
+
+Text area
+
+Min length
+
+The field must be at least a certain number of characters.
+
+Text
+
+Text area
+
+Part of
+
+The value entered must be part of a static value, or part of the value of another field, such as Text, Text area, Dropdown, or text-based Remote Lookup.  
+  
+Ensures the user's input is a part of the value you define. For example, if your value is _New York_, users can type _New, York, ork,_ or _New York_ to pass.
+
+> **Note**:
+> 
+> This is case-sensitive.
+
+Text
+
+Not part of
+
+The value entered must not be part of a static value, or part of the value of another field, such as, Text, Text area, Dropdown, or text-based Remote Lookup.
+
+Text
+
+Greater than
+
+The value entered must be greater than another value or field.
+
+Number
+
+Currency
+
+Date
+
+Date & Time
+
+Less than
+
+The value entered must be less than another value or field.
+
+Number
+
+Currency
+
+Date
+
+Date & Time
+
+Greater than or equal to
+
+The value entered must be greater than or equal to another value or field.
+
+Number
+
+Currency
+
+Date
+
+Date & Time
+
+Less than or equal to
+
+The value entered must be less than or equal to another value or field.
+
+Number
+
+Currency
+
+Date
+
+Date & Time
+
+In the future
+
+The date entered cannot be today or in the past.
+
+Date
+
+Date & Time
+
+Not in the future
+
+The date may be today or in the past .
+
+Date
+
+Date & Time
+
+In the past
+
+The date entered cannot be today or in the future.
+
+Date
+
+Date & Time
+
+Not in the past
+
+The date may be today or in the future.
+
+Date
+
+Date & Time
+
+Yes
+
+The value must be yes.
+
+Yes/No
+
+No
+
+The value must be no.
+
+Yes/No
+
+Attachment file type
+
+The attachment must be a particular file type.
+
+Image
+
+Attachment
+
+Max attachment size
+
+The attachment must be less than a particular value of MBs.
+
+Image
+
+Attachment
+
+Max number of attachments
+
+The maximum number of files that can be added to this field.
+
+Attachment
+
+Min number of attachments
+
+The minimum number of files that can be added to this field.
+
+Attachment
+
+Max number of selections
+
+The maximum number of values a user can select.
+
+Checkbox/Multiselect
+
+Checklist
+
+Min number of selections
+
+The minimum number of values a user can select.
+
+Checkbox/Multiselect
+
+Checklist
+
+Selection should contain
+
+Ensures that one specified value is among the selections.
+
+Checkbox/Multiselect
+
+Selection should not contain
+
+Ensures that one specified value is not among the selections.
+
+Checkbox/Multiselect
+
+Select all
+
+Forces the user to check off all the items.
+
+Checklist
+
+If the validation is not met, an error message will be displayed underneath the field and the user will not be able to submit the form. You can customize the error message while editing the validation.

@@ -1,0 +1,61 @@
+---
+title: "Importing items from a CSV file"
+description: "DRAFT (unverified) — migrated from /t/g9h9ql6/importing-items-from-a-csv-file"
+contentType: guide
+persona: end-user
+section: use
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+The **CSV import** feature in your board will help you transfer items from a CSV file or a spreadsheet with a .**csv** extension to a Kissflow Board. You can also use this feature to import data from other work management tools using CSV files.
+
+Once imported, your CSV rows will appear as items in your board, and each column will contain metadata about your items. 
+
+## Organizing the data in your CSV file
+
+The CSV Import feature allows you to import data in bulk into Kissflow. Here are some guidelines to follow when preparing a CSV file for import:
+
+-   **Mandatory fields**: If there are mandatory fields in your board form, at least one column in your CSV file must be mapped to the required fields.  
+     
+-   **Data**: Within the CSV file, you can map only the following field types to your board: **Text**, **Text area**, **Number**, **Rating**, **Date**, **Date-time**, **Currency**, **Yes/no**, **User**, **Single-select** **dropdown**, **Multi-select** **dropdown**, **Slider**, **Checkbox** type fields.  
+     
+-   **Delimiter**: You’re only permitted to use the **comma** (**,**) as a delimiter inside the CSV file.  
+     
+-   **Rows**: The CSV file can only have up to **500** rows, excluding the header.  
+     
+-   **Encoding**: The CSV file must have a **.csv** extension that supports **UTF-8 encoding**.
+
+## Importing a CSV file to your board
+
+1.  Sign in to your Kissflow account. Create a board if you don't have one already.
+2.  On the top right section of the page, click the **Down arrow** next to the **\+ New** button and click **Import CSV**.![](/migration-assets/importing-items-from-a-csv-file/1.png)
+    
+    > **Note:**  
+    >   
+    > The **\+ New item** button will be named differently depending on the item type you specify.
+    
+After the file picker opens up, click Choose your files, browse your documents, and select your desired file with a **.csv** extension.  
+ ![](/migration-assets/importing-items-from-a-csv-file/4.gif)
+
+After importing the CSV file, the system checks it for file corruption and delimiter errors. When an error is notified, please correct the error in the CSV file before re-uploading it.![](/migration-assets/importing-items-from-a-csv-file/2.png) Click **Next** to continue. Then choose the column(s) from your CSV file that you would like to appear as the item details. You will be asked to map the columns in your CSV file to the fields in your board. For example, you can choose to map the email addresses from your CSV document into the Email field in your board.  
+ 6.  If you wish to map CSV values to any of the custom statuses under **Done** category, you have to enable the **Done** category from your **Workflow** **settings** first.
+
+> **Note:**
+> 
+> -   If there are mandatory fields in your board form, you must map at least one column in your CSV file to the required fields.
+>     
+> -   CSV header names and board fields must be of the same data type.
+>     
+
+## Managing duplicate items
+
+Following the mapping of your fields, you will be asked how you wish to handle duplicate items while importing You'll have three choices:
+
+1.  Select **Create a new copy of the item** to add the data to the board as new items. It will keep the original items in the board.
+2.  If you select **Skip the item**, this option will skip any duplicated data based on your chosen column. Choose a column with distinct values in your data (e.g., Item ID, Email, Phone number, etc.) to assist the system in determining whether this item already exists in your board.![](/migration-assets/importing-items-from-a-csv-file/3.png) 
+If you select **Replace the existing item,** you will be able to overwrite existing items based on the data in a specific column of your CSV file. Choose a column in your data with distinct values (Item ID, Email, Phone number, etc.) to assist the system in determining whether this item already exists in your board.
+
+Click **Finish**. Your items will begin importing. You can close the window and continue working while waiting for all your items to import into your board. After the import is complete, you will be notified via email and push notifications.

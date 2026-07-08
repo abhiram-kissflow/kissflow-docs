@@ -1,0 +1,194 @@
+---
+title: "Working with page layouts"
+description: "DRAFT (unverified) — migrated from /t/m1ykbax/working-with-page-layouts"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+The page builder in Kissflow Apps offers two layout styles: **Flex** and **Grid**.
+
+Each layout is designed to serve different use cases and skill levels. Understanding each layout's unique strengths and intended purposes will help you efficiently create practical and visually appealing designs as you build pages in Kissflow Apps.
+
+## What is the flex layout?
+
+Flex is a one-dimensional layout style designed to arrange and distribute items on a page either horizontally or vertically. Component’s spacing, size, and alignment can be managed using the properties in the **Style** tab.
+
+Flex layout allows you to create pages with dynamic content, custom alignment, and responsiveness. Your page's contents can grow, shrink, and wrap to fit the available space, giving you more control over how your pages appear at runtime.
+
+> **Note:** Flex is the default layout for pages.
+
+### How flex layout works
+
+In the **Flex** layout, the body container acts as the flex container by itself, and every container component you add to the page will also [adopt](/t/m1ykbax/working-with-page-layouts#layout-style-hierarchy) the flex layout.
+
+In flex, components on the page can flow in the horizontal or vertical direction. Components added within the flex layout automatically wrap to the following line. This means the components don’t visually snap into a grid; you manually fine-tune sizes and alignment. 
+
+The **Style** tab offers a variety of [styling options](/t/y4yzj9m/managing-component-style-properties), including resizing. You can resize your components by dragging the borders or by entering dimensions for height and width under Sizing.
+
+### When to use the flex layout?
+
+Flex layout is ideal when:
+
+-   You need precision and custom alignment.
+    
+-   You are building detailed reports or interactive views.
+    
+-   You are comfortable setting pixel-based configurations and working with options from the **Style** tab.
+    
+
+> **Example:**
+> 
+> Flex layout can be used to build a data-rich interface with multiple buttons, text blocks, icons, and sections that require fine control over spacing and alignment.
+
+![](/migration-assets/working-with-page-layouts/1.png)
+
+## What is the grid layout?
+
+Grid is a two-dimensional layout style designed for arranging components in rows and columns simultaneously. It offers a more visual experience, as you can drag and drop and arrange the components anywhere you want on the page builder canvas. Grid’s simplicity makes it easier to learn and ideal for building simple pages quickly.
+
+### How grid layout works
+
+The grid layout divides the canvas into rows and columns instead of pixels like the flex layout. You can place components anywhere and resize them by dragging the borders. To add visual balance to the components on your page, you can use the **Space around** property to add equal or unequal spacing around their borders.
+
+### When to use the grid layout?
+
+Grid layout is ideal when:
+
+-   You are creating dashboards, summaries, or quick reports.
+    
+-   You prefer a visual editing experience with drag-and-drop resizing.
+    
+-   You want to avoid dealing with granular configuration settings.
+    
+
+> **Example:**
+> 
+> A dashboard page – drag and resize components directly on the canvas to quickly arrange charts, counters, and widgets to build a dashboard.
+
+![](/migration-assets/working-with-page-layouts/7.png)
+
+## Choosing a layout style for the page
+
+**Flex** is the default layout for all pages. You can switch to the **Grid** layout using the **Layout style** toggle in the **Style** tab.
+
+![](/migration-assets/working-with-page-layouts/5.gif)
+
+You can switch between the layout styles at any time, but it is not recommended as it will disrupt the current structure and the component placement on your page.
+
+However, you can combine both layouts on the same page using the [container](/t/q6yzj4n/container) component.
+
+### Layout style hierarchy
+
+When you add a container to a page, it automatically inherits the layout style of the page body. For example, if the page uses the flex layout style, all containers within the page will also default to flex.
+
+However, you can change the layout of individual containers. By selecting a container and switching its layout to grid, the components inside it will follow grid behavior. You can place and resize them freely using rows and columns.
+
+Meanwhile, components outside this grid container (on the main page or in other containers) will continue to follow the flex layout, allowing you to mix and match both layout styles on a single page.
+
+This hybrid approach gives you the best of both: visual speed from grid and custom control from flex.
+
+![](/migration-assets/working-with-page-layouts/2.gif)
+
+## Managing styling properties for page layouts
+
+### Styling properties for the flex layout
+
+In the flex layout, you can [configure properties](/t/y4yzj9m/managing-component-style-properties) for your components from the **Style** tab.
+
+### Styling properties for the grid layout
+
+The **Style** tab offers common and component-specific properties for both layout styles. There are a few properties that are specific to the grid layout.
+
+#### Setting up the space around property
+
+The **Space around** property can be used to define the buffer space around the borders of a component, which can serve as a type of padding between components placed next to each other on the grid.
+
+Configuring space around can help you achieve visual balance and better alignment when multiple components are packed next to each other.
+
+You can either set up equal spacing for all sides of the components or configure a different number of pixels for each side.
+
+![](/migration-assets/working-with-page-layouts/3.gif)![](/migration-assets/working-with-page-layouts/4.gif)
+
+The space around property defined at a layout level applies to the body container and affects all the components on the page. However, you can override this for individual components:
+
+1.  Click a component on the canvas to select it.
+2.  In the **Style** tab, under **Space around,** choose either the **Default** or **Custom** option.
+3.  Choosing **Default** applies the globally defined space around value to the selected component.
+4.  Choosing **Custom** allows you to set a specific value—either uniform or varied—for that component, which will override and work independently of the global setting applied to the page layout.
+
+![](/migration-assets/working-with-page-layouts/6.gif)
+
+#### Setting up the sizing property
+
+You can set heights for your components under the **Sizing** option in the **Style** tab. In the grid layout or within a grid container, components and containers support two height modes: **Auto** and **Fixed**.
+
+##### Fixed mode
+
+In **Fixed** mode, you can manually set the height of a component by dragging the component borders on the canvas. The height stays precisely as defined and does not change dynamically based on content.
+
+![](/migration-assets/working-with-page-layouts/8.gif)
+
+##### Auto mode
+
+In Auto mode, the component's height adjusts automatically at runtime based on its size and the surrounding elements. However, you can choose to define the component's minimum and maximum height.
+
+To set these limits, choose **Auto** and turn on the **Max & min height limits** toggle.
+
+Now, you can use the drag handles at the top and bottom of the component on the canvas. By doing this, you define the number of rows the component is allowed to grow or shrink within.
+
+The component will auto-resize at runtime based on these limits, its contents, and the space available.
+
+If you choose **Auto** and don’t set the height limits, you cannot resize the component or container in the canvas, and it will resize dynamically at runtime based on its contents.
+
+> **Note:** You can freely resize components horizontally in both **Auto** and **Fixed** modes. These settings apply only to the height of the component.
+
+![](/migration-assets/working-with-page-layouts/11.gif)
+
+> **Note:** You can set max and min height limits to the following components: [Container](/t/q6yzj4n/container), [label](/t/g9yzj40/label), [button](/t/x2yzj42/button), [progress bar](/t/m1yzj4c/progress-bar), [hyperlink](/t/h7yzj9h/hyperlink), [rich text](/t/y4yk1bl/rich-text), [tab](/t/p8yzj4s/tab), [master details](/t/83yzj44/master-details), all types of views and reports.
+> 
+> This option will not apply to other components such as: [Divider](/t/x2yk12w/divider), [icon](/t/p8yzj4m/icon), [card](/t/35yzj4v/card), [image](/t/h7yzj47/image), [iframe](/t/y4yzj49/iframe), [popup](/t/35yzj4w/popup), [custom component](/t/m1yfjgz/working-with-custom-components-in-kissflow-apps).
+
+#### Setting up icon sizing
+
+The **Icon** component supports two sizing modes: Fixed and Auto, allowing you to control how the icon and its borders behave independently.
+
+##### Fixed mode for icon size
+
+In the **Fixed** mode, you can set the icon size in pixels directly. You can also define its horizontal or vertical alignment within the icon borders.
+
+-   The specified size applies only to the icon, not its borders.
+    
+-   You can manually resize the icon’s border by dragging the handles on the canvas.
+    
+-   The icon size remains unchanged even if you manually resize the borders.
+    
+
+![](/migration-assets/working-with-page-layouts/9.gif)
+
+##### Auto mode for icon size
+
+In **Auto** mode, the icon size is not set manually. Instead:
+
+-   The icon scales automatically based on the size of its border.
+    
+-   You can resize the borders freely on the canvas, and the icon adjusts proportionally to fit within it.
+    
+
+This option allows you to lock the icon’s size or let it respond to layout changes based on your design needs.
+
+![](/migration-assets/working-with-page-layouts/13.gif)
+
+## Managing components from the component tree
+
+When using the flex layout, you can reorder components by dragging them within the component tree. This directly changes their placement on the page.
+
+![](/migration-assets/working-with-page-layouts/10.gif)
+
+In the grid layout, reordering through the component tree is not supported. Instead, you can drag and arrange components freely on the canvas.
+
+If you are using both layouts on a single page, for example, grid containers inside a flex-based page, you can still reorder components in the tree for the flex containers and components outside the grid containers. However, reordering will be disabled only for the grid containers.
+
+![](/migration-assets/working-with-page-layouts/12.gif)
+
+You can still apply the other component tree actions, such as copy, enclose in container, and delete, for both layout types.

@@ -1,0 +1,84 @@
+---
+title: "App environments"
+description: "DRAFT (unverified) — migrated from /t/g9h9qkp/app-environments"
+contentType: overview
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+## Managing the application lifecycle using environments
+
+Kissflow's application lifecycle is an agile process of building applications in the development environment, deploying the application to test environment, and finally moving it to the live/production environment. Every Kissflow user will have default access to the Kissflow live account. As a [Super Admin](/t/35h4ak036h4gg/user-roles-permissions), you can add other Kissflow users to the development and test environments with admin or user privileges.
+
+## What are the environments in Kissflow Apps?
+
+Kissflow Apps offer a unified console with visibility to all your default environments:
+
+-   **Development**: This environment lets you build applications with an agile mindset. It can be shared with citizen developers and IT developers where they can design and build applications and fix bugs. As a Super Admin of the Kissflow account, you'll be able to add other users to the development environment. The default URL of this environment is dev-&lt;account\_name>.kissflow.com. You can always modify the URL if needed.
+-   **Production:** It's the live Kissflow environment for production-ready applications and finished content. Employees of your organization consume the application from this environment. It's always the primary account domain of your Kissflow account. The Account Owner, all Super Admins, User Admins, Billing Admins, and users have access to the production environment. The default URL of this environment is &lt;account\_name>.kissflow.com.
+
+### **Accessing environments**
+
+1.  Sign in to the production environment of your account.
+    
+2.  Click your profile picture on the top right corner of the page and click **Environments** from the dropdown**.**![](/migration-assets/app-environments/1.png)  
+
+### Managing environments
+
+Once you access the **Environments** page, you'll be able to copy all the environment URLs from here. Click **Manage** and you will be redirected to the **Account administration** page of that particular environment. This page contains all the settings and administrations options you will need to manage the environment, including options to add users and view the audit log. You can also modify the environment URLs under **[Account details](/t/m1h4akp/account-details-customization-and-connected-domains#account-details)**.  
+ 
+
+![](/migration-assets/app-environments/2.png)
+
+> When you change the domain address, you will be directed to the new URL and all users will be [notified](/t/35yzjv9/notifications-in-apps) about this change.
+
+Learn more about [geolocation settings](/t/p8y8zv6/geolocation-settings), [weekends and holidays](/t/q6h4aka/weekends-and-holidays).
+
+## User management
+
+### Adding users to the production environment
+
+To provide access to a user, you must add them to the production environment. Click **Manage** under the production environment URL and go to **User management**. Here you can [add users to various roles](/t/y4h4aks/adding-and-managing-users) and manage their details.
+
+### Adding users to the development environment
+
+The users who are added to the production will be automatically synced to the sub-environments (developement and testing). However, you must still manually map them to the individual sub-environment for the users to gain access to it.
+
+1.  To map users to the development/testing environment, click your profile icon > **Environments**. Click **Manage** under the development/testing environment URL.
+2.  Click **Add users**. In the popup that appears, select the users you wish to map to the development/test environment and click **Add**. Now, the mapped users will be able to access the sub-environment in addition to the production.
+
+> **Note:** Only the users who have been added to production with admin privileges will be visible under **User management** in the sub-environment.
+
+![](/migration-assets/app-environments/3.gif)
+
+> **Note:** Adding users from production to development is crucial because only then you will be able to share apps to those users from the development environment.
+
+### Important note
+
+Under **Account administration** in the production environment, the users who are only added to a [group](/t/y4h4akj/group-management) will not be synced with the sub-environments and therefore cannot be mapped to the development or test environments even if they have been assigned an admin role. To map users to other environments, they must be added to the User management table separately, even if they are part of an admin group under **Group management**.
+
+#### Sample scenario
+
+An enterprise has a super admin, Adam, and five other users who require admin access. Adam is added to the user management table in the production environment with Super Admin access. To grant admin access to the other five users, Adam creates a group and assigns User Admin access to them through the group. These users are not added to the user management table.
+
+In this scenario:
+
+-   Adam will have access to production and can be mapped as a user to the sub-environments.
+-   The five User Admins will have access to the production environment only. Adam will not be able to map them to the development/test environment as they are part of an admin group and not added to the user management table.
+
+User management table entries will always have precedence over user groups.
+
+### **Reasons for having separate environments**
+
+-   Application development is a continuous process. Because development involves extensive debugging and testing, mixing testing and production environments is never a good idea. Separate environments are required to avoid issues caused by application development and to limit the risk of business disruption.
+    
+-   To reduce the likelihood of unexpected downtime. You don't want any business to come to a halt because a new build has been put into production.
+-   You must ensure that quality assurance, unit tests, and stress testing are all carried out in a completely separate environment. If something goes wrong in development or QA, it will have a negative impact on the production environment, affecting live users and their mission-critical data.
+-   To increase the application's service level agreement (SLA) and give a better user experience for your users.
+-   To reduce the odds of sensitive production data, falling into the wrong hands. Handling production data, like client info or financial transactions, requires regulatory security assurance.
+
+> **Note:** You can delete and archive apps only in the production environment. [Learn](/t/x2yz5hz#archiving-and-deleting-an-app) how to archive and delete apps.

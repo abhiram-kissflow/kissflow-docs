@@ -1,0 +1,756 @@
+---
+title: "Text expressions"
+description: "DRAFT (unverified) — migrated from /t/m1h4al6/text-expressions"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Text expressions can be used with text fields. Text area fields cannot use expressions. 
+
+Kissflow will sometimes refer to a sequence of characters in an expression as a string. Strings are parts of text expressions. 
+
+## Example used
+
+For all of these examples, let’s assume that we have the following text field:
+
+**Field ID**
+
+**Field Type**
+
+**Value**
+
+text1
+
+Text
+
+Stark Industries
+
+## Functions
+
+A function goes at the start of the expression. 
+
+**Function**
+
+**Description**
+
+**Syntax**
+
+**Output**
+
+Concatenate
+
+Appends a suffix to a name or label in the mentioned field. 
+
+concatenate(text1, ", Inc")
+
+Stark Industries, Inc
+
+> **Tip**
+> 
+> To display a fixed, non-editable value in a text field, use the `concatenate()` function. The field will become read-only.
+> 
+> For example, using the formula `concatenate("natasha@kissflow.com")` will always display that email address and prevent users from editing it.
+
+## Methods
+
+Methods come after the fieldID and are called up with a dot operator. 
+
+**Function**
+
+**Data type**
+
+**Description**
+
+**Syntax**
+
+**Output**
+
+toUpperCase
+
+Text
+
+Makes all characters upper case.
+
+text1.toUpperCase()
+
+STARK INDUSTRIES
+
+toLowerCase
+
+Text
+
+Makes all characters lower case.
+
+text1.toLowerCase()
+
+stark industries
+
+trim
+
+Text
+
+Removes any spaces at the start and end.
+
+text1.trim()
+
+Stark Industries
+
+replace
+
+Text
+
+Replaces case-sensitive characters with others.
+
+Specify which occurrence of the character you want to replace.
+
+text1.replace("s", "x")
+
+text1.replace("s", "x", 2)
+
+Stark Induxtriex
+
+Stark Industriex
+
+find
+
+Number
+
+Returns the first location of a character in a string. starting from a specified position. By default, the search is case-sensitive. To perform a case-insensitive search, pass true() as an argument. 
+
+The find() function can also check if a specific value exists within a field.
+
+For example, if field1 contains the text "Apple, Orange, Banana." In field2 , use the formula, if(field1.find("Orange"), "True", "False")  
+If "Orange" is found in field 1, field 2 will return "True"; otherwise, it returns "False".
+
+> **Note:**  
+> While Kissflow's formula builder doesn't support the `contains()` function, you can use `find()` to get the same result.
+
+text1.find("s")
+
+text1.find(“s”, 12)
+
+text1.find(“s”, 1, true())
+
+if(text1.find("Orange"), "True", "False")
+
+11
+
+16
+
+1
+
+True
+
+substring
+
+Text
+
+Extracts a portion of a string based on specified starting and ending index positions.
+
+fieldname.substring(startindex,endindex)
+
+-   Start index: The position in the string where the extraction begins.
+    
+-   End index: The position in the string where the extraction ends.
+    
+
+text1.substring(1,3)
+
+Sta
+
+length
+
+Number
+
+Shows the number of characters in a string.
+
+text1.length()
+
+16
+
+## Converting values to a text field
+
+The toText method converts different data types to a text field. 
+
+Here are some more sample field IDs and values:
+
+-   NumField = 24.526
+-   CurField = USD $24.52
+-   DateField = 05/29/1971
+-   Datetimefield = 05/29/1971 9:35 AM
+
+**Change**
+
+**Description**
+
+**Syntax**
+
+**Output**
+
+Number to Text
+
+Converts a number value to a text value.
+
+Add formatting options to give placeholders. 
+
+When decimal places are included, the number will be rounded.
+
+numfield.totext()
+
+numfield.totext(“.00”)
+
+numfield.totext("0000")
+
+“24.526”
+
+“24.53”
+
+"0024"
+
+Currency to Text
+
+Converts a currency value to a text value.
+
+Add formatting options. 
+
+curfield.toText("0.00")
+
+“24.53”
+
+Date to Text
+
+Converts a date value to a text value.
+
+DD=Day
+
+MM=Month
+
+YY, YYYY=Year 
+
+datefield.totext(“DD/MM/YY")
+
+“29/05/71”
+
+Datetime to Text
+
+Converts a datetime value to a text value.
+
+24 hour format - HH=Hour, MM=Minute
+
+12 hour format - H:M
+
+AM/PM displays AM or PM
+
+datetimefield.totext(“DD/MM/YY H:M AM/PM”)
+
+“29/05/71 09:35 AM”
+
+1\. To use real-time exchange rates, [use a remote lookup field](/t/x2yq224/remote-lookup). 
+
+**Method**
+
+**Syntax**
+
+**Input type**
+
+**Output type**
+
+**Explanation**
+
+extractText
+
+Remotelookup\_Fieldname.extractText(&lt;path>, &lt;index>)
+
+Remotelookup\_Fieldname: JSON OBJECT&lt;path>: TEXT (valid json path)&lt;index>: TEXT
+
+LIST&#123;TEXT&#125;TEXT
+
+Extracts and returns a text array from the JSON object as filtered by the provided json path. If the index is provided then the text in the particular index is extracted.
+
+## Validating a text expression using regex
+
+A regular expression, that is, regex**,** is a sequence of characters that refers to a search pattern. You can use a regex to find whether a specific pattern is found in the text that's fed as the input.
+
+1.  Navigate to the process form and hover over the text field for which you would like to write a regex.
+2.  Click the **Validation** icon and click **+Add a validation rule** in the right panel that's displayed automatically.
+3.  Select **Regex** from the list.
+4.  Enter the regex expression without back-slashes in the Regex field. If you are trying to copy the regex from an external source, please remember to paste only the expression without the preceding and trailing backslashes. i.e. You have to type or paste the expression directly in the **Regex** field.
+    1.  Kissflow does not support regexes wrapped within a pair of backslashes. i.e. _"/&lt;regex>/" will not work._
+5.  Click **Customize error message** if you would like to display a specific error message if the regex doesn't match with the input text. However, if you do not set a customized error message, the system will display a default error message.
+6.  Save your changes and publish the workflow.
+
+> **Note:**
+> 
+> We do not support the '**i**' (Ignore case) and '**m**' (Multiline) flags in the regular expression. i.e. You cannot match an expression by ignoring its case or against a multi-line text.
+
+In the following example, we have used a regex to check if a text field contains only uppercase letters.
+
+We recommend you are familiar with the following regex rules to validate text inputs easily.
+
+**Regex to match a single character or a set of characters in a string:**
+
+**Format to search characters**
+
+**Description**
+
+**Sample** **Regex expression**
+
+**Example**
+
+**\[**_c__haracter\_group_**\]**
+
+Matches any single character present in the character group present in the regex.
+
+Note: The match is case-sensitive by default.
+
+\[xyz\]
+
+If the input text is "xerox", the regex \[xyz\] will find 2 matches - "x","x".
+
+**\[^** _character\_group_**\]**
+
+Matches any single character that's not present in the character group present in the regex.
+
+Note: The match is case-sensitive by default.
+
+\[^xyz\]
+
+If the input text is "xerox", the regex \[^xyz\] will find 3 matches - "e","r","o".
+
+**\[**first character **\-** last character**\]**
+
+Matches any single character that's present anywhere in the character range mentioned in the regex from the first to the last.
+
+Note: Since the regex matches are always case-sensitive, make sure to have capital letters if you want to search only for letters in uppercase.
+
+\[A-Z\]
+
+\[a-z\]
+
+\[1-9\]
+
+-   The regex **\[A-Z\]** checks for alphabets in uppercase in the input text. For example, the input text "AY976R" will have 3 matches - "A", "Y", and "R".
+
+-   The regex **\[a-z\]** checks for alphabets in lowercase only. For example, the input text "apple" will have 5 matches as all the letters in the string are in lowercase.
+
+-   The regex **\[1-9\]** checks for numbers from 1 to 9 in the input text. For example, the input text "00008" will have 1 match as the number "0" is not present in the regex format so the regex matches only with the number 8.
+
+**.**
+
+Matches any single character or set of characters present between the letter preceding the period and the letter following the period in the input text.
+
+Note: If you want to match a period character literally, then you can escape the character like "\\." in the regex
+
+m.t
+
+\\.
+
+-   The regex **m.t** matches with "market" in "marketing" and "mkt" in "mkt004".
+
+-   The regex **\\.** matches with "." in "google.com" and does not match with any character in "googleTV"
+
+\\d
+
+Matches any decimal digit.
+
+\\d
+
+\\d&#123;3&#125;
+
+-   The regex **\\d** matches with "4","5",and "6" in the string "4.56", "3","8",and "9" in the string "3abcde89".
+
+-   The regex **\\d&#123;3&#125;** matches with "123" in the string "1234" and "263", and "451" in the string "263451".
+
+-   This regex will find a match if there are three consecutive digits present in the input text.
+
+-   So, the regex will not be able to find a match if the input text is "abc78".
+
+**Regex to match a string pattern based on its position:**
+
+**Format to validate the position of the search string**
+
+**Description**
+
+**Sample Regex expression**
+
+**Example**
+
+^
+
+The match must be present at the beginning of the string.
+
+Note: If it is a multi-line text, it is considered as the beginning of the line.
+
+^\\d&#123;3&#125;
+
+Input text **A**: 263451
+
+Input te**xt B**: 1234
+
+Input text **C**: abc789
+
+The regex ^\\d&#123;3&#125; will match only if three consecutive digits are present at the beginning of the input text so it will match with "263" in A, "123" in B, and nothing in C.
+
+**Regex to match a specific string pattern logically:**
+
+**Format to validate the string based on logic**
+
+**Description**
+
+**Sample Regex expression**
+
+**Example**
+
+\\|
+
+Matches any one pattern separated by the vertical bar.
+
+wh(o\\|at\\|ich)
+
+(o\\|at\\|ich)
+
+Input string **A**\= "Who are you?"
+
+Input string **B**\= "What is your name?"
+
+Input string **C** = "Which is your notebook?"
+
+-   This regex **wh(o\\|at\\|ich)** matches with "who" in A, "what" in B, and "which" in C.
+
+-   The regex **(o\\|at\\|ich)** matches with "o" twice in A, "at" once, and "o" once in B, "ich" once, and "o" four times in C.
+
+**Commonly used regex patterns:**
+
+You can make a note of the most commonly used regular expressions here. You can directly copy a regex and paste it into the **Regex** field to use it.
+
+**What does the regex validate?**
+
+**Description**
+
+**Regular** **expression**
+
+**Example with output**
+
+Whole numbers
+
+Checks whether the input text has only whole numbers or not.
+
+^\\d+$
+
+Input string A = "345"
+
+Input string B= "2.56"
+
+The regex matches "345" in A and does not match with anything in B.
+
+Decimal numbers
+
+Checks whether the input text contains only decimal numbers or not.
+
+^\\d\*\\.\\d+$
+
+Input string A = "345"
+
+Input string B= "2.56"
+
+The regex does not match with anything in A and matches "2.56" in B.
+
+Whole numbers and Decimal numbers
+
+The regex matches if the input text has either of the two - whole numbers or decimal numbers. But it will not match if the input contains positive or negative numbers.
+
+^\\d\*(\\.\\d+)?$
+
+**Matches**:
+
+5.0
+
+3
+
+0.0
+
+**Does not match**:
+
+\-3.5
+
++2.5
+
++2
+
+\-3
+
+Alphanumeric characters without space
+
+Checks whether the input text is a combination of both alphabets and numbers without a space.
+
+^\[a-zA-Z0-9\]\*$
+
+**Matches**:
+
+hello
+
+what
+
+**Does not match**:
+
+how are you?
+
+Common email IDs
+
+This regex can be used to match the most commonly used email address formats.
+
+^(\[a-zA-Z0-9.\_%-\]+@\[a-zA-Z0-9.-\]+\\.\[a-zA-Z\]&#123;2,6&#125;)\*$
+
+**Matches**:
+
+[email@example.com](mailto:email@example.com)
+
+[firstname.lastname@example.com](mailto:firstname.lastname@example.com)
+
+[email@subdomain.example.com](mailto:email@subdomain.example.com)
+
+**Does not match**:
+
+[firstname+lastname@example.com](mailto:firstname+lastname@example.com) // this is actually valid
+
+email@123.123.123.123
+
+email@\[123.123.123.123\]
+
+"email"@example.com
+
+Password strength
+
+This regex can be used to check whether a password set is strong or not.
+
+It checks if the input text has 1 lowercase letter, 1 uppercase letter, 1 number, 1 special character, and is at least 8 characters long.
+
+```
+(?=(.*[0-9]))(?=.*[\!@#$%^&*()\\[\]{}\-_+=~`\|:;"'<>,./?])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{8,}
+```
+
+**Matches**:
+
+Pa$$wYu893
+
+**Does not match**:
+
+rty34
+
+Username
+
+Checks whether the username includes \_ and – having a length of 3 to 16 characters.
+
+^\[a-z0-9\_-\]&#123;3,16&#125;$
+
+**Matches**:
+
+hie
+
+helloWorld
+
+hello\_world
+
+hello-world
+
+**Does not match**:
+
+hello@world
+
+hellp!world
+
+URL (https protocol)
+
+Checks whether the entered URL has the "https" protocol.
+
+```
+https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#()?&//=]*)
+```
+
+**Does not match**:
+
+[www.google.com](http://www.google.com)
+
+**Matches**:
+
+[https://www.google.com](https://www.google.com)
+
+URL (protocol is optional)
+
+Checks whether the entered URL is valid and the "https" protocol validation is optional.
+
+```
+(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)
+```
+
+**Matches**:
+
+[www.google.com](http://www.google.com)
+
+[https://www.google.com](https://www.google.com)
+
+Date format
+
+Checks for the date format YYYY-MM-DD
+
+(\[12\]\\d&#123;3&#125;-(0\[1-9\]\\|1\[0-2\])-(0\[1-9\]\\|\[12\]\\d\\|3\[01\]))
+
+**Matches**:
+
+2008-09-31
+
+1600-12-25
+
+**Does not match**:
+
+1942-11-1
+
+1942-11-0
+
+1942-00-25
+
+Date format
+
+Checks for the date format DD MM YYYY with one of these separators - **/** , **.** , or **\-**
+
+^(?:(?:31(\\/\\|-\\|\\.)(?:0?\[13578\]\\|1\[02\]))\\1\\|(?:(?:29\\|30)(\\/\\|-\\|\\.)(?:0?\[1,3-9\]\\|1\[0-2\])\\2))(?:(?:1\[6-9\]\\|\[2-9\]\\d)?\\d&#123;2&#125;)$\\|^(?:29(\\/\\|-\\|\\.)0?2\\3(?:(?:(?:1\[6-9\]\\|\[2-9\]\\d)?(?:0\[48\]\\|\[2468\]\[048\]\\|\[13579\]\[26\])\\|(?:(?:16\\|\[2468\]\[048\]\\|\[3579\]\[26\])00))))$\\|^(?:0?\[1-9\]\\|1\\d\\|2\[0-8\])(\\/\\|-\\|\\.)(?:(?:0?\[1-9\])\\|(?:1\[0-2\]))\\4(?:(?:1\[6-9\]\\|\[2-9\]\\d)?\\d&#123;2&#125;)$
+
+**Matches:**
+
+01/01/2000
+
+31/01/2000
+
+**Does not match:**
+
+32/01/2000
+
+Contains @ and .com
+
+Checks whether the input text contains both `@` and `.com` in that order, with any characters (including none) in between.
+
+@.\*\\.com  
+ 
+
+**Matches**:
+
+[user@example.com](mailto:user@example.com)  
+  
+**Does not match**:
+
+[example.com](http://example.com)
+
+user@example
+
+[user@example.org](mailto:user@example.org)
+
+Uppercase alphanumeric characters
+
+Checks whether the input text contains uppercase alphabets (`A–Z`) and numbers (`0–9`). No lowercase letters, spaces, or special characters are allowed.
+
+^\[A-Z0-9\]+$
+
+**Matches**:
+
+HELLO123
+
+UPPERCASE  
+  
+**Does not match**:
+
+hello123
+
+ABC-123
+
+hello
+
+Numbers from 1 to 50
+
+Checks whether the input is a number between **1** and **50**. Does not allow leading zeros, letters, or symbols.
+
+^(?:\[1-9\]\\|\[1-4\]\[0-9\]\\|50)$
+
+**Matches**:
+
+1
+
+9
+
+25  
+  
+**Does not match**:
+
+0
+
+51
+
+25.0
+
+05
+
+30a
+
+Alphanumeric characters only
+
+Checks whether the input contains only alphabets (`a–z`, `A–Z`) and numbers (`0–9`). No spaces or special characters are allowed.
+
+^\[a-zA-Z0-9\]\*$
+
+**Matches**:
+
+Hello123
+
+abcXYZ789  
+  
+**Does not match**:
+
+Hello@123
+
+Hello 123
+
+Title case validation
+
+Checks whether every word in the input string starts with an uppercase letter followed by lowercase letters
+
+^(\[A-Z\]\[a-z\]+)(\\s\[A-Z\]\[a-z\]+)\*$
+
+**Matches**:
+
+John Doe  
+  
+**Does not match**:
+
+john doe
+
+Uppercase only
+
+Checks whether the input text consists strictly of uppercase letters (no lowercase, numbers, or symbols).
+
+^\[A-Z\]+$
+
+**Matches**:
+
+URGENT  
+  
+**Does not match**:
+
+urgent
+
+Prevent leading and trailing spaces
+
+Checks that the input does not start or end with a space (though it allows spaces in the middle).
+
+^\\S(.\*\\S)?$
+
+**Matches**:
+
+"Antony"  
+  
+**Does not match**:
+
+"Antony "

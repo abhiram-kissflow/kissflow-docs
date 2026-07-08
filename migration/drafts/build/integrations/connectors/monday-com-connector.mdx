@@ -1,0 +1,109 @@
+---
+title: "monday.com connector"
+description: "DRAFT (unverified) — migrated from /t/35yf7bx/monday-com-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+![](/migration-assets/monday-com-connector/1.png)
+
+## What is [monday.com](http://monday.com)?
+
+[monday.com](http://monday.com) is a versatile project management software that enables users to manage all their projects efficiently in one centralized platform. Teams can create customizable workflows, track project progress, assign tasks, and collaborate in real-time. Additionally, the platform can be utilized as a CRM for overseeing ad campaigns, tracking leads, managing customer relationships, and monitoring marketing performance metrics.
+
+## About Kissflow's [monday.com](http://monday.com) Integration
+
+The [monday.com](http://monday.com) connector of Kissflow Integration facilitates the seamless connection and synchronization of [monday.com](http://monday.com) boards with various third-party apps and Kissflow apps. To integrate with [monday.com](http://monday.com), users must possess a valid [monday.com](http://monday.com) account and be a paid customer of Kissflow.
+
+A marketing team uses Kissflow to manage its campaign approval process. When a new marketing campaign is created in Kissflow, it goes through multiple approval stages involving different stakeholders. Using the trigger "When an item completes its workflow," once a campaign is fully approved, Kissflow automatically creates a new board on [monday.com](http://monday.com) with the campaign name, then creates appropriate groups for different marketing activities (social media, email, content, etc.), and populates each group with relevant items including deadlines, assignees, and budget allocations.
+
+Currently, there are no triggers for the [monday.com](http://monday.com) connector.
+
+## Actions in [monday.com](http://monday.com) connector
+
+**Action**
+
+**Description**
+
+Create a board
+
+This action creates a new board in your [monday.com](http://monday.com) account.
+
+Create a column
+
+This action creates a new column on a [monday.com](http://monday.com) board.
+
+Create a group
+
+This action creates a new empty group on your [monday.com](http://monday.com) board.
+
+Create an item
+
+This action creates a new item on your [monday.com](http://monday.com) board.
+
+Delete a group
+
+This action deletes a group with all of its items on your [monday.com](http://monday.com) board.
+
+Duplicate a group
+
+This action duplicates a group with all its items on your [monday.com](http://monday.com) board.
+
+Create a subitem
+
+This action creates a new subitem for an existing item on your [monday.com](http://monday.com) board.
+
+Update an item
+
+This action updates an existing item on your [monday.com](http://monday.com) board.
+
+Update a subitem
+
+This action updates an existing subitem on your [monday.com](http://monday.com) board.
+
+Update an item's name
+
+This action updates the name of an existing item on your [monday.com](http://monday.com) board.
+
+Create an update
+
+This action adds an update comment to an item on your [monday.com](http://monday.com) board.
+
+Delete an item
+
+This action deletes an existing item on your [monday.com](http://monday.com) board.
+
+## Configuring [monday.com](http://monday.com) connector
+
+1.  Inside your Kissflow account, navigate to the left navigation bar and click the Create button. Then, click the integration button to set up a new integration. Provide a name and description for your integration.
+    
+2.  Once inside your editor, set up a trigger step, for example, a Kissflow Process trigger event, **When an item completes its workflow**.
+    
+3.  After setting up your trigger step above, click the **Add** button (+) next to set up your action step. Search for **[monday.com](http://monday.com)** and select the action event **Create a board**.
+    
+    {/* TODO: screenshot — source image expired (Google CDN); recapture from product UI */}
+4.  After choosing your action event, authenticate the connector. Click **+Add an account.** You'll need to enter your [monday.com](http://monday.com) API token for authentication. To find your personal token:
+    
+    -   Log into your [monday.com](http://monday.com) account
+        
+    -   Click your profile picture in the top right corner
+        
+    -   Select **Developers** to open the Developer Center in a new tab
+        
+    -   Click **My Access Tokens** > **Show**
+        
+    -   Copy your personal token
+        
+5.  Enter this token in the authentication field in Kissflow. This will establish the connection between Kissflow and your [monday.com](http://monday.com) account.
+    
+6.  After authenticating with your [monday.com](http://monday.com) account, add relevant values against the [monday.com](http://monday.com) form fields. You can hit **Refresh fields** to view all the updated fields in the selected board. You can also map fields from your trigger step or fields from your previous action steps. These values will be automatically added to item fields after the action is executed. 
+    
+    ![](/migration-assets/monday-com-connector/2.png)
+    
+7.  After a successful configuration, test whether your [monday.com](http://monday.com) action step is set up correctly by clicking the **Test** button. The connector will pull field data from your selected [monday.com](http://monday.com) account and display it as a JSON output. Similar to the trigger step, errors are notified to you right away. Fix them before retesting the action step.
+    
+
+## Setting up a [monday.com](http://monday.com) connector
+
+After creating a custom workflow with your [monday.com](http://monday.com) connector's action steps, switch **ON** the toggle button to activate the integration run. Once a trigger event occurs, the [monday.com](http://monday.com) action is executed.

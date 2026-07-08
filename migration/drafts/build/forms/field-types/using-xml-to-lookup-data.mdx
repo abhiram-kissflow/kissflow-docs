@@ -1,0 +1,23 @@
+---
+title: "Using XML to lookup data"
+description: "DRAFT (unverified) — migrated from /t/p8h4az0/using-xml-to-lookup-data"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+ Here’s an example that uses XML format to display the botanical name of a plant.
+
+1.  Create a remote lookup field called **Plant**. 
+2. **In the URL field**, add the API link, such as this sample one from [W3schools](https://www.w3schools.com/xml/plant_catalog.xml).
+3.  Choose **GET** as the request type.
+4.  In the field **What kind of data are you working with?** choose **XML**
+5. **In XML path of value in result,** enter `./PLANT/BOTANICAL`
+6.  In the field **What kind of data are you working with?** choose **XML**. 
+7.  In the field **How should the result be chosen?** choose **Select a value from the dropdown.**
+
+![](/migration-assets/using-xml-to-lookup-data/1.gif)

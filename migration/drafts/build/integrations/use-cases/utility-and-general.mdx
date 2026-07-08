@@ -1,0 +1,73 @@
+---
+title: "Utility and general"
+description: "DRAFT (unverified) — migrated from /t/35yk44g/utility-and-general"
+contentType: use-case
+persona: citizen-developer
+section: build
+---
+
+The utility and general vertical are not tied to a specific business function like sales or marketing; they provide foundational, versatile tools that enhance automated workflow. These connectors are the essential building blocks for creating more intelligent, customized, and robust integrations. They handle universal tasks like controlling timing, converting data, and creating custom connections, allowing organizations to solve unique challenges and fine-tune their processes with precision across any department.
+
+## Connectors in this vertical
+
+**Application**
+
+**Description**
+
+**[Delay](/t/83ytfv5/delay-connector)**
+
+A workflow control tool that pauses an integration for a specified duration or until a specific date and time, enabling time-based automations.
+
+**[XE.com](/t/83h4aff/xe-com)**
+
+A data utility that provides real-time currency exchange rate information, allowing for accurate currency conversions within any financial transaction workflow.
+
+**[Custom action](/t/p8h4aky/http-connector)**
+
+Apart from the pre-built actions available in Kissflow Integrations for miscellaneous purposes, there may be scenarios where you need to perform a custom action. In such cases, you can use the HTTP connector to configure API calls from scratch to interact with any service that exposes a REST API.
+
+## Integration use cases with Kissflow
+
+Here are practical, scenario-based examples of how Kissflow can leverage utility connectors to solve common business problems.
+
+### Utility
+
+**Business goal**
+
+**Trigger (in Kissflow)**
+
+**Action (Connector)**
+
+**Detailed scenario**
+
+**Key benefit**
+
+Automate timely communication
+
+A draft item is submitted during the hotel check-out process.
+
+Delay an action.
+
+A hotel captures a guest's check-out time. The workflow pauses until that exact moment and then sends a thank-you email. A formula ensures the date or time is in the correct format for the delay.
+
+Improves customer experience with perfectly timed communication and reduces manual follow-up for staff.
+
+Ensure accurate pricing
+
+A new item is submitted using a purchase order system.
+
+Convert currency ([XE.com](http://XE.com))
+
+When creating a purchase order for a vendor whose catalog is in EUR, the integration uses [XE.com](http://XE.com) to convert the value to USD in real-time before raising the PO.
+
+Mitigates financial risk from currency fluctuations and ensures POs have accurate, up-to-date values.
+
+Simplify integration management
+
+A custom trigger listens for changes in an _Employee master_ dataset.
+
+Trigger a Kissflow process (Custom action)
+
+Instead of two integrations, one custom trigger monitors a central employee dataset. The correct onboarding or offboarding workflow is initiated when a user is added or terminated.
+
+Reduces the number of integrations to manage, simplifies maintenance, and creates a more robust, centralized employee lifecycle process.

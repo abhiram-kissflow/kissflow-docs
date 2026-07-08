@@ -1,0 +1,170 @@
+---
+title: "Creating and managing dataforms"
+description: "DRAFT (unverified) — migrated from /t/35yzjag/creating-and-managing-dataforms"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+## Creating a new dataform
+
+To create a dataform inside your app builder,
+
+Click the quick create button on the left navigation menu, and click **Dataform**. You will get three options: **Build with AI**, **Create from scratch**, **Templates**. 
+
+![](/migration-assets/creating-and-managing-dataforms/2.png)
+
+### Creating from scratch
+
+1.  To create a dataform from scratch, click **Create from scratch**.
+2.  Enter a name and description and click **Create**. ![](/migration-assets/creating-and-managing-dataforms/1.png)
+
+### Building with AI
+
+Here again, you can either attach a document to create your dataform or enter a prompt.
+
+#### [Attach a document](/t/60yzjaf/creating-and-customizing-a-board#attach-a-document)
+
+1.  Upload a supported document from your system, formats include PNG, JPEG, JPG, PDF, or CSV.  
+     
+    
+    Here is a breakdown of how the input document determines the structure of the output:
+    
+    **Input document format**
+    
+    **Expected output and behavior**
+    
+    **CSV**
+    
+    • **Field assignment**: All column headers will be automatically assigned to specific field types; the form can accommodate up to 1000 fields.
+    
+    • **Organization**: Fields will be grouped section-wise to ensure logical flow.
+    
+    • **Table generation**: If applicable, tables will be created automatically.
+    
+    **Images or PDFs**
+    
+     
+    
+    (PDF, PNG, JPEG, JPG)
+    
+    • **Exact replication**: The AI will replicate the form layout exactly as it appears in the uploaded file. However, if you provide specific instructions in the prompt, AI will modify the output to match those requests.
+    
+    • **Table detection**: If the image or PDF contains a visible table, it will be automatically converted into a table field.
+    
+2.  Add a prompt in the space below to refine how the AI builds your dataform. This step is optional.
+    
+3.  Click **Start building**.
+    
+    ![](/migration-assets/creating-and-managing-dataforms/8.png)
+4.  Once the setup is complete, the **Add finishing touches** pop-up appears. It includes pre-filled dataform details. Review and edit them if needed.
+    
+5.  Click **Preview form** to view the dataform. If it looks good, select **Go to dataform**.
+    
+6.  Make the required changes to the dataform and click **Save**.
+    
+
+#### [Provide a prompt](/t/60yzjaf/creating-and-customizing-a-board#provide-a-prompt)
+
+Simply describe the dataform in the **Or provide a prompt** space, and click **Start building**. ![](/migration-assets/creating-and-managing-dataforms/5.png)In the **Add the finishing touches** pop-up, review the dataform details and preview the form. If everything looks good, click **Go to dataform** to customize your form before saving.
+
+### [Templates](/t/60yzjaf/creating-and-customizing-a-board#templates)
+
+Install a template from the **Template gallery**. You can customize it later to suit your needs.![](/migration-assets/creating-and-managing-dataforms/3.png)
+
+## Building a dataform
+
+After creating a dataform, you'll land on the dataform editor. The basic form, views, reports, roles, and settings are handled on the left side of the editor. The form appears on the center and the **basic** and **advanced** fields are provided on the right side of your editor. You can either click within the form or drag and drop the fields onto the form directly. Once the form is set up, click **Save** to make it available inside the app.
+
+![](/migration-assets/creating-and-managing-dataforms/4.png)
+
+## Renaming, duplicating, and archiving a dataform
+
+To rename your dataform, click the **More options** button (![](/migration-assets/creating-and-managing-dataforms/7.png)) on your dataform. Click **Rename.** Change your form's name and description. Follow the similar steps to Duplicate and Archive a dataform. When you duplicate a dataform, all the fields associated with the original dataform are also copied.
+
+Alternatively, you can rename, duplicate, and archive a dataform using the more options menu in the left navigation too.
+
+![](/migration-assets/creating-and-managing-dataforms/6.png)
+
+## Finding a dataform
+
+The left navigation menu lists all dataforms you have in your app. You can filter, sort, rename, duplicate, and archive using the more options in the left navigation menu.
+
+![](/migration-assets/creating-and-managing-dataforms/9.gif)
+
+## FAQs
+
+**1\. What are the various soft limits in Kissflow forms?**
+
+**Ans)** To improve performance and ensure efficient use of resources, Kissflow has put up the following restrictions on each dataform:
+
+-   A maximum of 1000 fields per dataform.
+    
+-   A default soft limit of 10 child tables in every dataform.
+    
+-   A default soft limit of 100 columns per child table.
+    
+-   An upper limit of 5000 rows per child table.
+    
+-   An upper limit of 30 events per dataform (button fields not included).
+    
+
+**2\. Can I change field data types with over 5000 items in a dataform?**
+
+**Ans)** You cannot change field data types in a dataform when there are more than 5000 records. This restriction is in place to prevent potential versioning issues when modifying data types for large dataforms. Changing data types for many values can lead to inconsistencies and performance problems.
+
+**3\. Are there any field types in Kissflow Dataforms that do not have soft limits?**
+
+**Ans)** Yes, certain field types in Kissflow forms are not subject to soft limits:
+
+-   Rich text fields.
+    
+-   Grid fields.
+    
+-   Button fields (these have a separate soft limit of 100 buttons per dataform, in addition to the default form limit).
+    
+
+Rich text and Grid fields are exempt from restrictions as they don't contain metadata.
+
+**4\. What happens if I duplicate a section with increased limits?**
+
+**Ans)** If a dataform with increased limits is duplicated, the new dataform will inherit the same incremented limits.
+
+**5\. Will I receive any warnings when approaching these limits?**
+
+**Ans)** Yes, warnings will appear when you are close to reaching the limits. For example, when you have 990 fields and 90 columns, you will receive warnings indicating that you are approaching the limit and suggesting that you request an extension if needed.
+
+**6\. How many records are displayed when using a dataform as a data source for checkbox and radio button fields?**
+
+**Ans)** The first 250 records alone will be displayed based on the sort order of the dataform.
+
+**7\. Which field types support dependent field behavior?**  
+**Ans)** Dependent field behavior capability is available for Dropdown and Radio button fields.
+
+**8\. Do Multi-select and Checkbox fields support dependency dropdowns?**  
+Ans) No, dependency dropdown capability does not apply to Multi-select dropdown and Checkbox fields.
+
+**9\. What are the possible data sources for field options?**  
+Ans) The options in the Dropdown, Radio, Checkbox, and Multi-select fields can be sourced from a list or a dataform.
+
+**10\. Is there a limit to the number of options when using a list as the source?**  
+Ans) Yes, by default, lists can have a maximum of 250 values.
+
+**11\. How many options are displayed when using a dataform as the source in a form field or a child table?**  
+Ans) This depends on the field type:
+
+-   **For Dropdown fields and Multi-select dropdown**: The entire set of values from the dataform is displayed.
+    
+-   **For Checkboxes and Radio fields:** Only the first 250 values from the dataform will be displayed.
+    
+
+**12\. Are the dataform values sorted or filtered when displayed?**  
+Ans) Yes, the 250 values displayed for Checkbox and Radio fields are based on any sort and filter conditions applied to the dataform.
+
+> **Important note on concurrent editing of a dataform:**To ensure data integrity and prevent conflicts, our system manages concurrent editing with a "first to save" rule. This means that if two or more users edit the same dataform form, view, or report at once, the changes from the person who clicks **Save** first are successfully recorded.If another user saves the dataform, view, or report before you, then your version of it becomes outdated. When you try to save your edits, you will be prompted to refresh the tab to load the latest updates.**Please be aware that the act of refreshing the tab will discard all of your unsaved work in the current tab.** This rule applies to the dataform, all types of dataform views, and reports in an app.  
+>   
+> To avoid losing progress, we strongly recommend coordinating with your team to ensure only one person is actively editing a shared dataform at a time.

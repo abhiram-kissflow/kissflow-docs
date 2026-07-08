@@ -1,0 +1,235 @@
+---
+title: "Sales"
+description: "DRAFT (unverified) — migrated from /t/m1yk44d/sales"
+contentType: use-case
+persona: citizen-developer
+section: build
+---
+
+Sales is the engine of business growth, focused on converting leads into customers and nurturing long-term relationships. Integrations are the high-octane fuel for this engine, connecting CRMs like Salesforce and Salesmate with all other parts of the business—from marketing and e-commerce to project management and finance. By automating the flow of data, sales teams can eliminate manual tasks, gain a 360-degree view of the customer, accelerate the sales cycle, and spend more time doing what they do best: selling.
+
+## Connectors in this vertical
+
+**Application**
+
+**Description**
+
+**[Salesforce](/t/83h4afb/salesforce-connector)**
+
+An enterprise-grade CRM platform that serves as the central source of truth for all customer interactions, sales opportunities, and service cases.
+
+**[Salesmate](/t/35h4af1/salesmate-connector)**
+
+A flexible and modern CRM designed to help sales teams manage their pipeline, automate outreach, and track activities efficiently.
+
+**[HTTP](/t/p8h4aky/http-connector)**
+
+Apart from the pre-built actions available in Kissflow Integrations for sales , there may be scenarios where you need to perform a custom action. In such cases, you can use the HTTP connector to configure API calls from scratch to interact with any service that exposes a REST API.
+
+## Integration use cases with Kissflow
+
+Here are practical, scenario-based examples of how Kissflow can trigger actions in Salesforce and Salesmate to solve common business problems.
+
+### Salesforce
+
+**Business goal**
+
+**Trigger (in Kissflow)**
+
+**Action (in Salesforce)**
+
+**Detailed scenario**
+
+**Key benefit**
+
+Automate opportunity creation
+
+A high-value wholesale order arrives via a Shopify webhook.
+
+Create an opportunity.
+
+Kissflow creates a new Opportunity in Salesforce, pre-filled with order value, product SKUs, and the reseller’s company name.
+
+Ensures high-value B2B orders are captured as formal deals in the CRM without manual entry.
+
+Maintain pipeline accuracy
+
+A project manager checks off _Go-live complete_ in a progress tracker.
+
+Update an opportunity.
+
+The flow immediately updates the related opportunity, setting _Stage = Closed won_ and stamping the actual go-live date.
+
+Improves sales forecasting accuracy by instantly reflecting project completion in the CRM.
+
+Enable proactive support
+
+An IoT sensor posts a critical fault message.
+
+Create a case.
+
+The workflow spins up a new case with priority = high, device ID, and customer location so support can act fast.
+
+Automates service case creation from device alerts, enabling rapid response to critical issues.
+
+Centralize field service
+
+A field-techie logs a repair visit in a mobile app.
+
+Update a case.
+
+The integration updates the open case to _Status = Awaiting customer confirmation_ and attaches the service report link.
+
+Keeps the central support case updated with the latest field service information.
+
+Accelerate event lead capture
+
+Staff submit badge scans through a form at a trade-show booth.
+
+Create a contact.
+
+Each submission creates a fresh contact in Salesforce with name, email, company, and an _Event = Expo 2025 tag_.
+
+Instantly captures trade-show leads in the CRM, enabling faster sales follow-up.
+
+Provide real-time risk alerts
+
+Finance marks a customer as _past-due_ in a billing board.
+
+Update a contact.
+
+The integration flips the custom field _Billing\_Status_ to _Delinquent_ on the matching contact so CSMs see the risk.
+
+Gives CSMs and reps critical, real-time risk alerts directly on the contact record.
+
+### Salesmate 
+
+**Business goal**
+
+**Trigger (in Kissflow)**
+
+**Action (in Salesmate)**
+
+**Detailed scenario**
+
+**Key benefit**
+
+Automate marketing lead capture
+
+A webinar sign-up form converts.
+
+Create a contact.
+
+Instantly creates a new contact in Salesmate with name, email, and _Lead source = Webinar May 2025_.
+
+Automates the capture of marketing-qualified leads directly into the sales CRM.
+
+Manage customer lifecycle
+
+A CSM marks _Onboarding complete_.
+
+Update a contact.
+
+The flow updates the existing Contact, setting the custom field _Customer\_Status = Active_ to switch playbooks from onboarding to expansion.
+
+Keeps customer status accurate, enabling context-aware sales and expansion plays.
+
+Centralize supplier data
+
+Procurement approves a new supplier.
+
+Create a company.
+
+An integration step creates a company in Salesmate with address, VAT number, and industry, ready for sales engagement.
+
+Makes supplier information accessible for sales and procurement processes.
+
+Synchronize financial data
+
+Finance changes a client’s credit limit.
+
+Update a company.
+
+The same value is pushed to the related company record in Salesmate for reps to see in real time.
+
+Ensures sales reps have the most current financial context when negotiating deals.
+
+Streamline _Quote-to-Deal_ Process
+
+An e-commerce _Bulk quote_ form is approved.
+
+Create a deal.
+
+The app creates a new deal in Salesmate with amount, expected close, and pipeline = _Wholesale_.
+
+Streamlines the process from customer price request to formal deal creation in the pipeline.
+
+Automate pipeline progression
+
+An implementation project hits 80 percent completion.
+
+Update a deal.
+
+The automation updates the corresponding Deal stage to _Negotiation won_ and probability = _100 percent_.
+
+Provides real-time visibility into deal progression based on actual project milestones.
+
+Ensure critical follow-up
+
+A support ticket is escalated.
+
+Create an activity.
+
+Auto-creates a follow-up activity (_Call customer to confirm resolution_) assigned to the account manager in Salesmate.
+
+Ensures critical support issues are handed off to the right person for follow-up via an actionable task.
+
+Close the loop on tasks
+
+A call outcome is logged.
+
+Update an activity.
+
+The integration updates the same activity to _status_ = c_ompleted_ with notes synced back.
+
+Ensures a complete activity history in the CRM by syncing task outcomes.
+
+Prevent duplicate data entry
+
+A rep types an email in a _Call log_ form.
+
+Find a contact.
+
+The integration searches contacts; if a match is found, the form auto-populates the contact’s name and phone.
+
+Saves rep time and prevents the creation of duplicate contacts by auto-populating forms.
+
+Route documents intelligently
+
+A project-handover app receives a project code.
+
+Find a deal.
+
+Kissflow searches deals by that external ID; if one open deal is returned, the workflow attaches a checklist and notifies the manager.
+
+Automates the attachment of relevant documents to the correct deal, improving handovers.
+
+Enable smart onboarding
+
+Vendor onboarding captures a supplier’s VAT number.
+
+Find a company.
+
+The workflow searches companies; if an exact match exists, the flow links to it, otherwise it branches to .
+
+Creates a smarter onboarding process that avoids duplicate company records.
+
+Proactively manage daily tasks
+
+A scheduled workflow runs each morning.
+
+Find an activity.
+
+The workflow searches for all incomplete activities due today and compiles the results into a Slack DM for every rep.
+
+Boosts productivity by proactively delivering a daily to-do list to each rep.

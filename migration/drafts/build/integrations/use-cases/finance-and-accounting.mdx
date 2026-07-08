@@ -1,0 +1,261 @@
+---
+title: "Finance and accounting"
+description: "DRAFT (unverified) — migrated from /t/m1yk4rd/finance-and-accounting"
+contentType: use-case
+persona: citizen-developer
+section: build
+---
+
+Finance and accounting platforms are the backbone of any business, managing cash flow, tracking expenses, invoicing customers, and ensuring regulatory compliance. The accuracy and timeliness of financial data are paramount. Integrations are crucial for maintaining this accuracy by connecting accounting software with other operational systems like sales (CRM), procurement, and HR. This creates a single source of truth for financial data, automating tedious processes like invoice creation, expense reporting, and customer billing. By doing so, businesses can close their books faster, reduce the risk of human error, and gain real-time visibility into their financial health.
+
+## Connectors in this vertical
+
+**Application**
+
+**Description**
+
+**[QuickBooks](/t/m1h4afz/quickbooks-connector)**
+
+A comprehensive accounting software package geared mainly toward small and medium-sized businesses, handling invoicing, bill management, expense tracking, and financial reporting.
+
+**[FreshBooks](/t/h7h4af6/freshbooks-connector)**
+
+An accounting software focused on service-based small businesses and freelancers, specializing in invoicing, expense management, and time tracking.
+
+**[Expensify](/t/60h4aft/expensify-connector)**
+
+A specialized expense management system that automates every step of the expense reporting process, from receipt scanning to reimbursement.
+
+**[HTTP](/t/p8h4aky/http-connector)**
+
+Apart from the pre-built actions available in Kissflow Integrations for HR management, there may be scenarios where you need to perform a custom action. In such cases, you can use the HTTP connector to configure API calls from scratch to interact with any service that exposes a REST API.
+
+## Integration use cases with Kissflow
+
+Here are practical, scenario-based examples of how Kissflow can trigger actions in QuickBooks, FreshBooks, and Expensify to solve common business problems.
+
+### QuickBooks
+
+**Business goal**
+
+**Trigger (in Kissflow)**
+
+**Action (in QuickBooks)**
+
+**Detailed scenario**
+
+**Key benefit**
+
+Streamline customer onboarding
+
+Sales approves a new client.
+
+Create a customer.
+
+When sales approves a new client in Kissflow, the integration creates a customer record in QuickBooks with billing and contact info for invoicing.
+
+Ensures timely and accurate invoicing from the first day without manual data entry.
+
+Maintain accurate client data
+
+A customer updates their details in a self-service portal.
+
+Update a customer.
+
+The QuickBooks customer record is updated instantly if a customer updates their address or payment terms in Kissflow’s portal.
+
+Guarantees that invoices and communications are always sent to the correct address.
+
+Automate invoicing
+
+Order fulfillment is confirmed.
+
+Create an invoice.
+
+After order fulfillment is confirmed in a Kissflow workflow, the integration creates an invoice for the shipped products in QuickBooks.
+
+Accelerates the billing cycle and improves cash flow by issuing invoices immediately.
+
+Simplify payment reconciliation
+
+A payment is received and verified.
+
+Create a payment.
+
+When a payment is recorded in Kissflow, the integration automatically records it against the correct invoice in QuickBooks.
+
+Reduces manual reconciliation effort and provides a real-time view of paid invoices.
+
+Manage vendor payables
+
+A supplier’s purchase order is approved.
+
+Create a bill.
+
+Upon receipt of a supplier’s PO approval in Kissflow, the integration creates a bill in QuickBooks for the vendor to process payment.
+
+Streamlines the accounts payable process and ensures vendors are paid on time.
+
+Automate vendor setup
+
+A new supplier is approved.
+
+Create a vendor.
+
+New suppliers approved in a Kissflow procurement workflow are instantly added as vendors in QuickBooks with tax and banking info.
+
+Centralizes vendor information and makes it immediately available for billing.
+
+Record point-of-sale transactions
+
+An instant retail payment is processed.
+
+Create a sales receipt.
+
+For instant payments processed via a Kissflow POS app, a sales receipt is created in QuickBooks to record the sale and payment together.
+
+Keeps financial records perfectly in sync with daily sales activities.
+
+Standardize sales quoting
+
+A sales quote is approved.
+
+Create an estimate.
+
+During sales quoting, Kissflow creates an estimate in QuickBooks from the approved quote, ready to be converted to an invoice later.
+
+Bridges the gap between sales quoting and financial tracking.
+
+Streamline the procurement cycle
+
+The procurement team approves a new order request.
+
+Create a purchase order.
+
+The integration creates a purchase order in QuickBooks with vendor details, items, and quantities, triggering the vendor to process the order.
+
+Automates the purchasing process, reduces manual errors, and provides a clear audit trail.
+
+Simplify expense reimbursement
+
+A travel reimbursement form is approved.
+
+Create an expense.
+
+The workflow creates an expense record in QuickBooks, attaches receipt details, and allocates the cost to the correct department budget.
+
+Ensures accurate and timely reimbursement while maintaining precise departmental budget tracking.
+
+Maintain product catalog sync
+
+The product team adds a new SKU to a product catalog form.
+
+Create an item.
+
+An item is automatically created in QuickBooks with price and inventory settings, ensuring sales and finance have the latest product info.
+
+Guarantees pricing and product consistency across all business functions.
+
+Empower support with data
+
+A customer service rep receives a client call.
+
+Find a customer.
+
+By entering the client's name in Kissflow, the system searches QuickBooks and retrieves their contact and transaction history.
+
+Improves first-call resolution by giving support agents instant access to financial history.
+
+Enable quick invoice lookup
+
+The finance team needs to check the status of an invoice.
+
+Find an invoice.
+
+They input the invoice number into Kissflow, which searches QuickBooks and displays its status, payment history, and balance.
+
+Provides immediate access to invoice details without needing to switch applications.
+
+Facilitate vendor management
+
+The procurement team reviews a vendor’s performance.
+
+Find a vendor.
+
+They enter the vendor's name in Kissflow to search QuickBooks for past transactions, payment terms, and performance metrics.
+
+Supports data-driven decisions by providing a complete view of vendor history.
+
+Provide real-time inventory data
+
+An inventory manager checks product availability.
+
+Find Products.
+
+They search in Kissflow to retrieve product details from QuickBooks, including stock levels, pricing, and supplier information.
+
+Helps prevent stockouts and informs purchasing decisions with up-to-date inventory data.
+
+Support financial audits
+
+The accounting team needs to review specific accounts.
+
+Find accounts.
+
+They input the account name into Kissflow, which searches QuickBooks and displays transaction history and current balances.
+
+Streamlines the audit process by making account information easily accessible.
+
+Ensure tax compliance
+
+The tax department prepares for a filing.
+
+Find tax codes.
+
+They search for tax codes in Kissflow, which retrieves the information from QuickBooks to ensure accurate calculations and compliance.
+
+Reduces compliance risk by providing easy access to correct tax information.
+
+### FreshBooks
+
+**Business goal**
+
+**Trigger (in Kissflow)**
+
+**Action (in FreshBooks)**
+
+**Detailed scenario**
+
+**Key benefit**
+
+Automate B2B invoicing
+
+A customer transaction completes its workflow.
+
+Create a new invoice.
+
+For a B2B apparel company, once a customer's order is processed in Kissflow, a new invoice is automatically created in FreshBooks.
+
+Speeds up the billing cycle for regular customers and eliminates manual invoice creation.
+
+### Expensify 
+
+**Business goal**
+
+**Trigger (in Expensify)**
+
+**Action (in Kissflow)**
+
+**Detailed scenario**
+
+**Key benefit**
+
+Create a seamless reimbursement process
+
+A new expense report is created from a Gmail receipt.
+
+Create a new item.
+
+A consultant's flight ticket from Gmail is sent to Expensify. The new Expensify report then triggers a reimbursement workflow in Kissflow.
+
+Creates a fully automated, end-to-end process from receipt to reimbursement approval.

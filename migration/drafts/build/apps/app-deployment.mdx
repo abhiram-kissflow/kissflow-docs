@@ -1,0 +1,133 @@
+---
+title: "App deployment"
+description: "DRAFT (unverified) — migrated from /t/h7yz5qq/app-deployment"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Deploying applications is how you give value to end users by releasing app updates. Apps can be deployed from the development environment to the test environment by the app developers.  
+App deployment is necessary for transferring your fully developed app from development to the target environment i.e., the test or production environment.
+
+## Deployment process
+
+The app deployment process goes through three stages: previewing the flows that are going to be deployed, initiating the deployment, successful deployment if there are no errors.
+
+### Deployment preview
+
+To preview the flows that will be included in a deployment, click the arrow icon in the top-right corner of the app builder and click **Deploy**. This action will display a preview window with the list of core changes that will be pushed to the target environment in this build. The actual deployment process will begin only when you click Deploy in this pop-up. Verify the flows and customize the version number if required.
+
+> **Note**:
+> 
+> You can click cancel any time at this stage and go back to the app builder but you cannot stop the deployment once you click the **Deploy** button here and start the deployment process.
+
+![](/migration-assets/app-deployment/1.png)
+
+#### What are core changes?
+
+The term **core changes** refers to the following flows: Board, Process, Dataform, Integrations, Analytics, and Page. Your app may contain other flows and components along with these but in this preview window only the aforementioned flows will be displayed.
+
+The following are some of the exceptions that will not be listed in the deployment preview:
+
+-   Connections in integrations.
+-   Custom components.
+-   Decision table.
+-   External data objects.
+-   Roles.
+-   Navigation menus.
+-   Any changes to the app name, description, display icon.
+
+> **Notes**:
+> 
+> 1\. The flows listed marked as core ones are not mandatory to be present in your app for a successful deployment.
+> 
+> 2\. Once the deployment process is initiated, all the flows and components in your app will be deployed, irrespective of whether they are part of the core changes list or not.
+
+### Initiating deployment to the target environment
+
+1.  In the preview window, click **Deploy**.
+2.  The deployment process will begin. All the flows included in this build will be validated and deployed one by one.
+
+![](/migration-assets/app-deployment/2.png)
+
+3. Upon successful deployment, you will be notified via the success pop-up, and through in-app and email notifications.
+
+![](/migration-assets/app-deployment/3.png)
+
+ 4. After the first deployment, all the integrations in your newly deployed app will be turned off by default. Click the link present in the success pop-up to go to the integrations page and manage them. You may have to reauthenticate the connectors to turn on the integrations.
+
+> **Note**:
+> 
+> In the subsequent deployments, integrations will be turned off if any of the following applies to them:
+> 
+> -   If the integration is newly added in this deployment.
+>     
+> -   If it is a previously archived integration that was unarchived for this deployment.
+>     
+> -   If the integration has updated triggers.
+>     
+> 
+> Disabled integrations can be turned on manually post-deployment.
+
+### Troubleshooting deployment failure
+
+App deployment can fail if the flows included in the app fail to pass the validation check that happens during the deployment process.
+
+Possible error scenarios include:
+
+1.  If an integration that is still active in the previous build of this app is archived for the current deployment, then it will throw an error. To fix this, you must turn off the particular integration in the target environment and initiate the deployment again.  
+     
+2.  API failure during deployment. You will be provided with the reason and/or a request ID. You can contact our support team with the request ID for further assistance on the errors.
+
+Please note that if you get any kind of error during deployment, it will be considered a failed deployment and recorded in the deployment history as such. To deploy the app, you must resolve the errors and initiate the deployment again.
+
+![](/migration-assets/app-deployment/4.png)
+
+> **Note**:
+> 
+> You can refer to the error details in the deployment history page as well. However, if you are unable to see the errors in deployment history, it could be because that was an older deployment attempt made prior to this update.
+
+### Deployment on hold
+
+App deployment could be put on hold if there is a data type mismatch in one or more flows in your app. This is not an error scenario as you can resolve the data type mismatch in the deployment window and continue with the deployment.
+
+![](/migration-assets/app-deployment/5.png)
+
+![](/migration-assets/app-deployment/6.png)
+
+Once you resolve the errors and click on continue, the deployment process will begin again.
+
+### Deployment dependencies
+
+Application deployment will fail if you have employed [application-to-application lookup](/t/35yzjvd/application-to-application-lookup-through-linking) in your app.
+
+The **Dependencies from other apps** popup appears when you have created form lookups from other applications that are not yet deployed.
+
+This popup displays the list of linked apps and the forms and fields in your application that uses the data. To fix this dependency, the applications listed here must be deployed first. Only then will you be able to deploy your application.
+
+![](/migration-assets/app-deployment/7.png)
+
+> **Note**:  
+> Deployment dependencies occur when you link two undeployed apps and look up data from one app to another.  
+> You will not encounter deployment dependencies in the following cases:  
+> **•** If you link an undeployed app to yours without looking up data from it.  
+> **•** If you link a deployed app and create data lookups from that app to yours.
+
+### Managing app data after deployment
+
+Deploying an app means moving the app from the development environment to testing or production environments.
+
+When you move the app from one environment to another, it is essential to reauthenticate the connections using the target environment's details to prevent disruptions.
+
+#### Data retrieval in Development vs. Production
+
+The data source for your application changes depending on the environment in which it is run:
+
+1.  During Development/Testing: The application retrieves data from the development environment. This allows you to work with test data and make changes without affecting live operations.
+2.  After Deployment: Once the app is deployed, it uses the production environment to retrieve its data. This environment supports live data and end-users, ensuring smooth operation for all stakeholders. This means, the development environment URLs will no longer work in production. For integrations, it is mandatory to reauthenticate after every deployment. Learn more [here](/t/m1yzjvt/managing-integrations-in-apps).
+
+Learn more about environments [here](/t/g9h9qkp/app-environments).

@@ -1,0 +1,71 @@
+---
+title: "Managing integrations in apps"
+description: "DRAFT (unverified) — migrated from /t/m1yzjvt/managing-integrations-in-apps"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+## Manage integrations
+
+To view all integrations associated with your app:
+
+1.  Open your app in the production environment.
+2.  Click **Manage > Integrations**.
+3.  Here, you can find a list of integrations, the connectors used, and the run history.
+
+![](/migration-assets/managing-integrations-in-apps/1.png)
+
+### Connections
+
+A connection is the authentication that lets Kissflow interact with an internal or external connector in an integration. Integration runs require valid connections before triggers and actions can be configured. Kissflow connections are based on Access key and secret token-based authentication. Most external connectors are authenticated using OAuth.
+
+![](/migration-assets/app-integration-overview/3.png)
+
+For new integrations, you must add a connection and authenticate them before turning the integration on.
+
+To do this, click **Connect now**. Enter the details of your Kissflow account for authentication. You can find your [account ID, account domain](/t/35h4az8/api-authentication#account-id), [Access key ID, Access key secret](/t/35h4az8/api-authentication#creating-a-new-access-key) under **My settings > Security settings > API authentication** in your Kissflow account's profile.
+
+![](/migration-assets/managing-integrations-in-apps/3.gif)
+
+ Under **Connections**, there are three actions you can perform:
+
+1.  View the number of integrations using a particular connection
+2.  Reauthenticate a connection to ensure the integrations runs as per schedule at runtime
+3.  Test the connection status to ensure the integration does not fail at runtime
+
+### Run history
+
+Every piece of data that passes through the workflow system in your application counts as an integration run. That means if your integration adds 20 items to Kissflow Board form, your integration has just performed 20 integration runs. Each time an integration run occurs, you save yourself a manual job. You can keep track of all the integration runs from the **Run history** of your integration page.
+
+![](/migration-assets/app-integration-overview/5.gif)
+
+ To access run history in production after deploying your app, go to **Manage > Integrations > Run history**.
+
+![](/migration-assets/app-integration-overview/6.gif)
+
+### All integrations
+
+Displays a list of all integrations available in this app. You can view the status of the integration (Live/Archived) and turn it on or off from this page.
+
+## Editing an integration
+
+To edit and manage individual integrations:
+
+1.  Click **Edit app** and open the app builder in the dev environment.
+2.  Here, click **Logic >** **Integration** from the left navigation menu.![](/migration-assets/managing-integrations-in-apps/2.png)
+3.  You can edit, rename, duplicate, and archive an integration from here. Note that you must deploy the app for your changes to take effect.
+
+> **Note:** Once your app is deployed, all integrations will be turned off by default.
+> 
+> For your integration to work in production after deployment, you must do the following:
+> 
+> 1.  Navigate to your app in the production environment and go to **Manage > Integration.**
+> 2.  Go to **Connections** and click **Connection now**.
+> 3.  Authenticate your integration again with your production environment's account ID, account domain, access key details. It is imperative you don't reuse the authentication details of your development environment.
+> 4.  Test connection status and turn on your integration. Now, it will function as expected.
+> 5.  You must reauthenticate your integration's connection using your production account's details after every deployment.

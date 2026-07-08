@@ -1,0 +1,36 @@
+---
+title: "Using remote lookup field to get currency exchange rate"
+description: "DRAFT (unverified) — migrated from /t/x2yq224/using-remote-lookup-field-to-get-currency-exchange-rate"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ EnterpriseThe remote lookup field is a great way to get data from external systems into your forms. 
+
+## Using JSON for currency exchange rate
+
+Let’s look at a common use case for getting a current currency exchange rate. We want to convert an order entered in USD into GBP.  In the Kissflow [form](/t/h7h4azm/creating-a-form), start with a currency field called _PO value_ that shows the total price of the PO in USD.Then add a remote lookup field called _GBP conversion rate_. In the URL field, enter the URL to direct toward the API.In this example, we are going to get the conversion URL to use a third-party API from **CurrencyLayer**. You can sign up for a free account at [https://currencylayer.com/product](https://currencylayer.com/product). Back in the Kissflow form, enter this [link](http://www.apilayer.net/api/live) in the URL field. In the body section, provide the access key. 
+
+1.  The remote lookup allows a GET or POST request. This example is a **GET**. 
+2.  Next, you can add **Header** and **Body** parameters to the API request. These are useful when authenticating calls to other API services. 
+3.  Click **+Add body**, then in the name field type _access\_key_. In the value field, enter the actual access key. Find your access key in Step 3 of the Quickstart guide from CurrencyLayer. With CurrencyLayer’s free account, your source currency will always be USD. 
+4.  In the field, **What is the format of the response data you are working with?** choose **JSON.**
+5.  In JSON path of value in result, enter `$.quotes.USD[CurrencyType]`. In our case, the JSON path will be: `$.quotes.USDGBP`.
+6.  In **What kind of data are you working with?** choose **Text**.
+7.  In **How should the result be chosen?** choose **Autopopulate a value**. 
+
+In the live form, you’ll see a button for GET requests that says **Get data**. Click the button, and Kissflow will perform a remote call and fetch the live value.  If you want to calculate the converted amount automatically, add a new currency field with two decimal places called **PO in GBP**. Mark it as a computed field and enter the formula:
+
+```
+PO_Value.value() * number(GBP_Conversion_Rate)
+```
+
+## Pro tips
+
+In addition to currency rates, you can use the remote lookup field to:
+
+-   Get stock and bullion rates.
+-   Refer to data on a different MDM system.

@@ -1,0 +1,44 @@
+---
+title: "Evaluation settings"
+description: "DRAFT (unverified) — migrated from /t/y4yxbl4/evaluation-settings"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+You can configure the logical operation to be performed between the condition values of a row while evaluating. Additionally, you can also determine the method or scope by which your decision table should evaluate those condition values. To open evaluation settings, click the **More options** button (![](/migration-assets/evaluation-settings/1.png)) > **Evaluation settings**.  
+ 
+
+![](/migration-assets/evaluation-settings/3.gif)
+
+## Logical operation
+
+In the **Evaluation settings** tab that pops up, choose a logical operation that determines how the conditions of your decision table should be evaluated. You can choose from the following logical operations:
+
+-   **AND** - All the conditions must be true to return the corresponding results.
+    
+-   **OR** - Any one of the conditions must be true to return the corresponding results.
+    
+
+## Evaluation method
+
+Under **Evaluation method**, you can choose the method or scope of evaluation for the condition values. Choose from the following:
+
+-   **Evaluate till the first match** - The system evaluates until the first value that matches the conditions and returns the corresponding results.  
+     
+-   **Evaluate all matches** - The system evaluates the entire table and returns the following (limited to 100 values):
+    -   **Return all matched values -** Returns all the matched values.
+    -   **Return the average -** Returns the average value of the evaluated condition values.
+    -   **Return the maximum value -** Returns the maximum value among the evaluated condition values.
+    -   **Return the minimum value -** Returns the minimum value among the evaluated condition values.
+    -   **Return the total -** Returns the total value of the evaluated condition values.
+
+> **Note:**
+> 
+> You can choose only Return all matched values if there is a non-numeric result.
+
+![](/migration-assets/evaluation-settings/2.png)

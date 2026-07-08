@@ -1,0 +1,56 @@
+---
+title: "FreshBooks connector"
+description: "DRAFT (unverified) — migrated from /t/h7h4af6/freshbooks-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## What is FreshBooks?
+
+[FreshBooks](https://www.freshbooks.com/) is an accounting software designed primarily for self-employed professionals and their teams. It lets you send invoices, track expenses, and collaborate on projects. 
+
+## About Kissflow's FreshBooks integration
+
+The FreshBooks connector of Kissflow Integration enables you to connect and synchronize your FreshBooks account with popular third-party apps and Kissflow apps. You must have a valid FreshBooks account and be a paid Kissflow customer to integrate with FreshBooks.
+
+Use the FreshBooks connector to receive data from other flows or apps and perform specific actions. The connector does not yet support trigger events.
+
+Assume you manage a B2B apparel firm with a few repeat customers. When a transaction completes its workflow in Kissflow Process, you may create a new invoice in FreshBooks by adding the FreshBooks connector as your action.  
+
+### Actions in FreshBooks connector
+
+**Action event**
+
+**Description**
+
+Create an invoice
+
+This action creates a new invoice in FreshBooks.
+
+## FreshBooks connector as an action step
+
+1.  In your Kissflow account, click the **Create** button in the left navigation panel and select **Integration** from the list. Enter a unique name and description for your integration and click **[Create](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Once inside your editor, set up a trigger and action steps as necessary. For example, your trigger event can be **When an item completes its workflow**. You can create a new invoice every time an item completes its workflow.
+3.  After setting up your trigger and action step above, click the **Add** button (![](/migration-assets/kissflow-dataset-connector/2.png)) next to set up your action step. Search for the FreshBooks connector and select the desired action.  ![](/migration-assets/freshbooks-connector/2.png) 
+4.  After choosing your action event, authenticate the connector. Click **+Add an account** and sign in using your FreshBooks account. Kissflow uses FreshBooks’ sign in credentials for authentication.
+5.  After authenticating with your FreshBooks account, add relevant values against the FreshBooks form fields. You can hit **Refresh fields** to view all the updated fields in the selected FreshBooks form.
+    
+    > **Note:**You can also map FreshBooks’ fields with your trigger step or fields from your previous action steps. These values will be automatically added to item fields after the action is executed.
+    
+6.  Click **Next**.
+
+![](/migration-assets/freshbooks-connector/1.png)
+
+7\. After a successful configuration, test whether your FreshBooks action step is set up correctly by clicking the **Test** button. The connector will pull field data from your selected FreshBooks account and display it as a JSON output. Similar to the trigger step, errors are notified to you right away. Fix them before retesting the action step.
+
+### Setting up a FreshBooks connector
+
+After creating a custom workflow with your FreshBooks connector's action steps, switch on the toggle button to activate the integration run. Once a trigger event occurs, the selected FreshBooks action is activated and changes are reflected in your FreshBooks account.
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

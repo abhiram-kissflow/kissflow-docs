@@ -1,0 +1,131 @@
+---
+title: "Managing audit logs in a dataset"
+description: "DRAFT (unverified) — migrated from /t/60yk88c/managing-audit-logs-in-a-dataset"
+contentType: guide
+persona: admin
+section: admin
+---
+
+**Audit log** is a chronological record of user activities within your dataset. These activities include actions performed on flows and items by users.
+
+Audit logs help maintain transparency and accountability by tracking changes at both the **Flow-level** and **Item-level**.
+
+## Accessing the Audit Log
+
+To view the audit log:
+
+-   Navigate to **Manage** \> **Audit log**.
+    
+-   Use the toggle to switch between **Flow-level** and **Item-level** views.
+    
+
+![](/migration-assets/managing-audit-logs-in-a-dataset/3.gif)
+
+## What you can see in the audit log
+
+Each log entry provides detailed information about a specific event:
+
+-   **Audit ID**: A unique identifier automatically generated for every recorded event.
+    
+-   **Timestamp**: The exact date and time the action occurred.
+    
+-   **Actor**: The user account that performed the action.
+    
+-   **Action**: Describes the specific activity, such as Dataset published, Items updated in batch, and so on.
+    
+-   **Object**: The resource or entity that was affected.
+    
+-   **Event Category**: A general label for the event type, useful for filtering. For example, Dataset administration. 
+    
+-   **Platform**: The device or operating system used during the action.
+    
+-   **IP Address**: The network address from which the action was performed.
+    
+-   **Batch ID**: A shared identifier for a group of related events, useful for correlating actions. Unlike the Audit ID, multiple events can share the same Batch ID.
+    
+
+> **Note**:
+> 
+> Audit log entries may appear in the interface with a short delay, typically ranging from a few seconds to up to four hours.
+
+For a deeper understanding of each entry, refer to the [**Interpreting audit logs**](#) guide.
+
+## Sorting fields in logs
+
+To easily organize and analyze entries on the **Audit log** page, you can sort individual fields:
+
+-   Click the **Expand** icon ( ![](/migration-assets/process-audit-log/4.svg) ) next to a field header to sort the entries in ascending or descending order.
+    
+
+![](/migration-assets/managing-audit-logs-in-a-dataset/4.gif)
+
+This helps you quickly find specific events based on timestamps, actions, actors, or other fields.
+
+## Searching fields
+
+To find specific entries in the **Audit log**, you can use the built-in search functionality:
+
+-   Click the **Expand** icon (  ![](/migration-assets/process-audit-log/4.svg) ) next to a field header to reveal the filter options.
+    
+-   Use the **Search box** ( ![](/migration-assets/managing-audit-logs-in-a-dataset/5.svg)) to enter the term you want to look up within that field.
+    
+
+![](/migration-assets/managing-audit-logs-in-a-dataset/1.png)
+
+This helps you quickly narrow down the log to the most relevant entries.
+
+## Filtering Audit log events
+
+You can filter audit log entries using the following fields and criteria:
+
+**Audit period**
+
+Choose a time range to view events from:
+
+-   **Last 30 days** – Displays events from the past 30 days.
+    
+-   **Last 60 days** – Displays events from the past 60 days.
+    
+-   **Last 90 days** – Displays events from the past 90 days.
+    
+-   **Custom date range** – Select a specific date range to view events within that period.
+    
+
+> **Note:** The audit log retains data for the past 90 days only. To access records older than 90 days, please contact our customer support team.
+
+**Object**
+
+Filter by object name to narrow down logs related to a specific item. You can either select from the suggested list or enter the exact object name manually.
+
+**Event category**
+
+Use event categories to locate specific types of events efficiently. If you're unsure of the category name, try entering a flow name (e.g., _Process_ or _Board_) in the search bar—this will return relevant event categories associated with that flow type.
+
+**Actor**
+
+Filter events based on one or more users who performed the actions. Simply select the users from the list.
+
+**Action**
+
+Search or select a specific action (For example, Dataset published). Please note that you can filter by only one action at a time.
+
+**Audit ID, Batch ID, and IP address**
+
+Use these fields to trace specific events:
+
+-   **Audit ID** – Filter by the unique ID assigned to each recorded event.
+    
+-   **Batch ID** – Use this to locate a group of related events.
+    
+-   **IP address** – Filter logs originating from a specific IP address.
+    
+
+![](/migration-assets/managing-audit-logs-in-a-dataset/2.png)
+
+## [Removing filter conditions](/t/h7h4akc/audit-log#removing-filter-conditions)
+
+To remove a specific filter condition, hover over it and click the **Remove** button (![](/migration-assets/process-audit-log/7.svg)) to clear it.
+
+## [Exporting an audit log](/t/h7h4akc/audit-log#exporting-an-audit-log)
+
+Click the **Export** button ( ![](/migration-assets/process-audit-log/8.svg)) to export the audit log as a file on the **Audit log** page. An email with the download link will be sent immediately to your registered email address from where you can download the file.

@@ -1,0 +1,91 @@
+---
+title: "Data backup overview"
+description: "DRAFT (unverified) — migrated from /t/83y3mfp/data-backup-overview"
+contentType: overview
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+> **Note**: This service is available on request. Please contact our support team to enable it on your account. 
+
+Data backup in Kissflow is essential for safeguarding organizational data against loss and security breaches and meeting annual audit requirements. It ensures data security and accessibility, thereby maintaining operational continuity.
+
+<iframe src="https://player.vimeo.com/video/904329490?h=49833021f2&app_id=122963" title="Introducing Data Backup in Kissflow" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+## Key features of Kissflow's data backup process
+
+Kissflow's data backup process is designed to meet diverse organizational needs, featuring:
+
+-   **Bi-annual backups for super admins**: [Super admins](/t/35h4ak0/user-roles-and-permissions#super-admin) can initiate a data backup every _six months_. 
+    
+-   **Configurable settings**: You can align data backup to specific organizational needs, including storage mode authentication, backup file management, and category-based data selection.
+    
+-   **[Backup history](/t/35y3mfj/compliance-and-backup-history)**: View a detailed log of all previous data backups performed.
+    
+
+![](/migration-assets/data-backup-overview/2.png)
+
+## Storage mode options for backups
+
+Kissflow supports various cloud storage options, such as:
+
+1.  [Google Drive](/t/y4y3tn4/backing-up-data-to-google-drive).
+    
+2.  [Amazon Simple Storage Service (S3)](/t/q6y3t81/backing-up-data-to-amazon-s3).
+    
+3.  [Google Cloud Storage (GCS)](/t/x2y3t8a/backing-up-data-to-google-cloud-service).
+    
+4.  [Kissflow backup](/t/y4y3t7g/backing-up-data-to-kissflow) (provides a downloadable link via email.)
+    
+
+## Options for data selection
+
+Users can back up the following data as JSON files:
+
+-   User and group data.
+    
+-   Transactional data. 
+    
+-   Audit log data. 
+    
+-   Attachments in process, boards, datasets, etc.
+    
+
+## What you'll receive
+
+Once your backup finishes, you receive your data as JSON files, packaged into ZIP files (split and optionally encrypted based on your configuration). The package mirrors the categories you selected, with up to three top-level items:
+
+-   **User and group data**: a single _UserAndGroup.json_ file listing every user and group.
+-   **Transactional data**: a folder organized by module type (Process, Board, Dataset, Form, Project), then by app. Each app folder holds its records, the users who had access, comments, and attachments in their original file formats.
+-   **Audit log data:** a set of numbered files covering roughly the last year of account and flow activity.
+
+Your data is exported for reading, archiving, and analysis. It is not a restorable database, so it can't be imported back into Kissflow.  
+  
+For a full breakdown of the folder structure, what each record looks like, how to match attachments and users back to records, and how to read your field values, see [Understanding your backup output](/t/q6ygsyz/understanding-your-backup-output).
+
+## Backup status and notifications 
+
+Kissflow provides real-time monitoring capabilities for ongoing backups, ensuring that super admins are always informed about the status of their backups.
+
+-   **Backup status monitoring:** The system shows real-time status updates, including stages like started, in progress, completed, and canceled.
+    
+    ![](/migration-assets/data-backup-overview/1.png)
+-   **Notifications:** Super admins receive notifications via email and in-app alerts when backups are initiated, in progress, and completed.
+    
+
+## Troubleshooting common issues in data backup
+
+In managing data backups, several common challenges may arise. Understanding how to address these can ensure smoother backup processes.
+
+-   **Backup delays.** Delays might occur due to large data volumes or system load. Backups should not be interrupted once initiated.
+    
+-   **Storage authentication errors** occur when cloud storage accounts aren't correctly authenticated. Verify the access credentials and permissions.
+    
+-   **File location and upload errors** occur when the given file location is not found or the data cannot be exported.
+    
+
+> **Note:** In case of any questions or concerns regarding data backup, please reach out to the support team.

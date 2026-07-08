@@ -1,0 +1,184 @@
+---
+title: "Chart reports"
+description: "DRAFT (unverified) — migrated from /t/h7h9qzr/chart-reports"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Charts offer a graphical representation of the data in reports. The following are the six major types of charts: **area**, **bar**, **doughnut**, **line, pie**, and **scatter** chart.
+
+Additionally, there are ten different chart options available for your specific needs.
+
+-   Area chart
+-   Stacked area chart
+-   Horizontal and Vertical bar charts
+-   Stacked horizontal and Stacked vertical bar charts
+-   100 percent stacked horizontal and vertical bar charts
+-   Line chart
+-   Combo chart
+-   Scatter chart
+-   Pie chart
+-   Doughnut chart
+
+## Creating chart reports
+
+![](/migration-assets/chart-reports/3.gif)
+
+1.  To create a chart, naviagte to the **Reports** tab on the Analytics page. 
+2.  Click the **Create Report** button.
+3.  Select the **data source**. 
+4.  Provide a name and select the type of report as **Chart.**
+5.  Click **Create**.
+
+Select **Auto** when unsure what kind of chart to choose, and Kissflow will make the best one for you.
+
+## Configuring chart reports
+
+In the **Configure report** section, select the chart type, click **\+ Add fields**, and select the required fields for dimension, measure, and legend. You can remove a field by clicking the **Delete** button (![](/migration-assets/chart-reports/1.png)). Adding a Filter is similar to that of [tabular reports](/t/g9h9qzb/tabular-reports). Select the scale type and the required labels. Click **Save** to configure the report.  
+ 
+
+### Settings
+
+To configure the report, choose the fields you want to display on the right panel. 
+
+-   **Dimension** is the primary field you want to use to compare data. For graphical charts, it will be the x-axis.
+-   **Measure i**s the other field(s) you want to use to compare data in a collective manner. This is the y-axis in graphical charts. You can display multiple measures in the same chart.
+-   A **legend** is the area in the chart describing each part of the chart and will be visible only in auto, horizontal, and vertical charts.  
+      
+    ![](/migration-assets/chart-reports/2.png)
+
+### Type of scale
+
+There are two types of scale:
+
+1. **Linear scales** are the default scale type and show the scale in equal increments.
+2. **Log (Logarithmic) scales** show the increment in multiples of the previous one, such as double or ten times its size.  
+      
+    ![](/migration-assets/chart-reports/4.png)
+
+### Labels
+
+You can choose which labels you want to display on your chart.
+
+-   **X-axis** is horizontal on most charts except for horizontal bar charts, where the X-axis is vertical.
+-   **Y-axis** is vertical on charts except for horizontal bar charts, where the Y-axis is horizontal.
+-   **Data labels** display the information on the line item or bar. Hover over the chart to view the label that will be displayed.
+-   **Legends** are explanations of the symbols used in the chart. It is located on the top-left of the chart.
+
+### ![](/migration-assets/chart-reports/8.png)  
+Adding filters
+
+To narrow down specific data in your report, you can add filters. Click the **Add advanced filter** button to add a filter. Choose the fields you want to use based on your filter and enter the conditions. 
+
+Click **\+ Add a filter** button to add more filters and conditions to the same field. The new condition can be either **AND** (all conditions must be met) or **OR** (any one condition must be met).
+
+{/* TODO: screenshot — source image expired (Google CDN); recapture from product UI */}
+
+### Enabling drilldown in charts
+
+The [drilldown feature](/t/y4h9qkr/reports#enabling-drilldown-in-chart-and-pivot-reports) enables you to delve deeper into your report data by displaying a tabular view of underlying rows associated with specific data points in charts. Drilldown is enabled by default when creating a report. You can toggle drilldown on or off in the report configuration.
+
+To enable drilldown,
+
+1.  Navigate to the settings tab.
+    
+2.  Under Drilldown, select at least two fields.
+    
+3.  Click **Apply**.
+    
+
+![](/migration-assets/chart-reports/24.gif)
+
+> **Note:** The report’s selected fields are automatically chosen as default drilldown fields. Ensure a minimum of two fields are selected for drilldown.
+
+#### Previewing drilldown data
+
+After configuring your chart, hover over it and click to drill down into the data. 
+
+Upon clicking the chart, a tabular preview will appear, showing the underlying data. You can search fields, show/hide columns, and export data at runtime. Click the dropdown on each column header to sort your data in ascending or descending order.  
+ 
+
+![](/migration-assets/chart-reports/14.png)
+
+#### Exporting drill down data
+
+You can export drill down data from the drilldown preview. 
+
+1.  Click the **Export** icon.
+    
+2.  Select **CSV**, **JSON**, **CSV (Multiple files)**.
+    
+3.  Check the timezone settings to enable the time zone in the report.
+    
+4.  Click **Export**. The exported drilldown data will be sent to your email. 
+    
+
+> **Note:** When exporting data, enable the timezone settings to convert all date and time fields in the report to the time zone set in My settings. If you haven’t set a personal timezone, your account’s time zone will be used. When unchecked, date and time fields will follow the time zones present in the report.
+
+### Sorting data in chart reports
+
+You can organize chart data in the order you want it to appear in your report. To sort a chart report, go to **Sort** on **Configure report** page > choose the required field in which you want to apply **Sort** > select whether you want the ascending or descending order > click **Save**.
+
+![](/migration-assets/chart-reports/5.png)
+
+ To sort a chart after creating a chart report, follow these steps:
+
+1.  Click the **Sort** button (![](/migration-assets/chart-reports/6.png)).
+2.  Choose the required field in which you want to apply **Sort**.
+3.  Select whether you want the order to be ascending or descending.
+
+To set the chart in the default order, click the **None** option. Once done, the chart will be arranged in the default data source order.
+
+![](/migration-assets/chart-reports/7.png)
+
+## Applying styles to charts
+
+Under the **Style** tab, you can choose from the 10 different color variants to customize your charts.
+
+{/* TODO: screenshot — source image expired (Google CDN); recapture from product UI */}
+
+## Actions in charts
+
+Once you have configured and saved your chart, you can perform the following actions:
+
+-   **Edit** the chart to make changes to the current configuration.
+-   **Share** charts with others in your account.
+-   Use the **legend** to control its appearance. Click the legend to add or remove the series.
+
+![](/migration-assets/chart-reports/15.gif)
+
+## Types of charts
+
+-   **Line chart** uses lines to represent changes to data over a period of time. The y-axis displays the value which is the measure, and the x-axis indicates the variable which is the dimension.![](/migration-assets/chart-reports/9.png)
+-   **Area chart** functions similarly to a line chart but with the areas below the lines filled in. For example, here, it shows which department has spent the most PR amount. You can use this chart to show how values develop over time.![](/migration-assets/chart-reports/10.png)   
+-   The **Stacked area chart** is an area chart that includes a stack of multiple areas. It can be used to compare development or trend over time.![](/migration-assets/chart-reports/11.png)   
+-   **Horizontal bar chart** shows a comparison among different items.![](/migration-assets/chart-reports/12.png) 
+-   **Vertical bar chart** similar to the horizontal bar chart also shows a comparison among different items.![](/migration-assets/chart-reports/13.png)
+-   **Stacked chart** consists of the total divided into parts (present in legend) for each category. It helps effectively display and compare the proportion of different data series within each category. You can create a Stacked horizontal bar chart and a Stacked vertical bar chart based on your preference.![](/migration-assets/chart-reports/16.png) 
+-   **100 percent stacked chart** shows the percentage of multiple data in stacked columns, where the total of stacked columns always equals 100 percent. You can create two types of 100 percent stacked charts: 100 percent stacked vertical bar chart and 100 percent Stacked horizontal bar chart.![](/migration-assets/chart-reports/17.png)    
+-   **Combo chart** lets you compare two measures, one shown as a vertical bar and one shown as a line.![](/migration-assets/chart-reports/18.png)     
+-   **Scatter chart** shows the relationship of the variables (measures) of a chart. In the below example, the chart shows how many units of inventory was sold or on hand for each item.![](/migration-assets/chart-reports/19.png)     
+-   **Doughnut chart** expresses a part-to-whole relationship, where all pieces represent 100 percent.  ![](/migration-assets/chart-reports/21.png)   
+-   **Pie chart** is similar to doughnut charts but with the middle area filled in. ![](/migration-assets/chart-reports/22.png)
+
+## Exporting chart reports
+
+You can export chart reports and download them to your device for sharing, presentations, or offline reference.
+
+To export,
+
+1.  Click the **More options** button ( ![](/migration-assets/chart-reports/20.svg) ) at the top right > **Export**.
+    
+2.  Select the required format: PNG or PDF
+    
+3.  Click **Export**.
+    
+
+![](/migration-assets/chart-reports/23.png)
+
+The report will be exported in the selected format and downloaded to your device.

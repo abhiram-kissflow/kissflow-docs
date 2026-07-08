@@ -1,0 +1,415 @@
+---
+title: "Field settings"
+description: "DRAFT (unverified) — migrated from /t/x2h4az9/field-settings"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+You can select the field in the editor, access its settings by clicking the **Gear** icon (![](/migration-assets/field-settings/2.svg)) or modify its settings directly from the **Field properties** panel.
+
+![](/migration-assets/field-settings/1.png)
+
+## Name and Field ID
+
+Enter the name of the field under **Name**. It is a mandatory field. The field type is the field's data type. It denotes the nature of the data that's stored in the field. Learn more about field types [here](/t/x2h4az9/field-settings#field-type).
+
+The field ID is a unique string mapped to the field automatically. You'll need it when creating [expressions](/t/q6h4alh/introduction-to-expressions-and-formulas). 
+
+-   Kissflow will automatically assign a field ID that is identical or similar to the field name. 
+-   You can customize the field ID when creating the field, but you cannot change it after publishing the form. 
+-   Field IDs cannot have spaces. Underscores will be added automatically if you press the spacebar. 
+-   There are a few restricted names like Status that you cannot use as the field ID.
+
+## Required
+
+When you mark a field as required by enabling the **Required?** toggle, it must have a value at the first step where it becomes [editable](/t/60h9qtm/configuring-field-permissions-for-process-steps).
+
+For example, if a field is required but hidden in the first two steps and only becomes editable in the third, the error message will appear at the third step if the field is left empty.
+
+> **Note:**
+> 
+> Required fields will have a small red asterisk beside them on the live form.
+> 
+> ![](/migration-assets/field-settings/3.png)
+
+### Adding conditions to required fields
+
+You can mark a field as required based on specific conditions using values entered in other fields.
+
+To set this up:
+
+1.  Turn on the **Required?** toggle for the field.
+    
+2.  Click the **+** icon next to Mark as required when. The **Add conditions** popup will appear.
+    
+3.  Add the conditions that should trigger the requirement.
+    
+    -   You can set multiple conditions and choose whether all must match (Match all) or any one (Match any).
+        
+4.  Click **Done** to apply the condition.
+    
+
+![](/migration-assets/field-settings/8.gif)
+
+For example, you can configure the _Attach bill_ field to be required only when the _Reimbursement amount_ is greater than $1000. This helps keep the form clean for smaller transactions while enforcing data collection for larger ones.
+
+#### Adding more conditions
+
+To add more conditions at any time, go to the field’s settings. Below the list of existing conditions, click **\+ Add a condition**. The **Add conditions** popup will appear, where you can define the required conditions.
+
+![](/migration-assets/field-settings/4.png)
+
+#### Removing a condition
+
+To remove a condition, simply click the remove (-) icon next to the applied condition.
+
+![](/migration-assets/field-settings/5.png)
+
+## Help text
+
+Help text appears underneath the field and helps users know what to enter. 
+
+![](/migration-assets/field-settings/7.png)
+
+## Default value
+
+This is a placeholder value that displays in the field before a user enters any information. 
+
+## Computed field
+
+![](/migration-assets/field-settings/6.png)
+
+Some fields allow you to use an expression to load data onto the field. Learn more about [expressions](/t/q6h4alh/introduction-to-expressions-and-formulas). 
+
+## Field type
+
+There are 20 different types of fields to use on your form. Each field is strongly associated with a certain data type. The data type is very important if you are going to use it in any expression. The field type also determines if you can have a default value, and what validations and appearance options you have.  
+
+**Name**
+
+**Data type**
+
+**Usage**
+
+**Example**
+
+**Default value?**
+
+**Expressions?**
+
+**More info**
+
+Text
+
+Text
+
+Enter a short amount of data on a single line.
+
+![](/migration-assets/field-settings/9.png)
+
+Y
+
+Y
+
+[More here](/t/p8h4az5/text-text-area-email-and-rich-text-fields#text-field)
+
+Text area
+
+Text
+
+Enter a larger amount of formattable data on multiple lines.
+
+![](/migration-assets/field-settings/11.png)
+
+N
+
+N
+
+[More here](/t/p8h4az5/text-text-area-email-and-rich-text-fields#text-area-field)
+
+Email
+
+Text
+
+Collects valid email addresses.
+
+![](/migration-assets/field-settings/12.png)
+
+Y
+
+N
+
+[More here](/t/p8h4az5/text-text-area-email-and-rich-text-fields#email-field)
+
+Number
+
+Number
+
+Enter only numbers.
+
+![](/migration-assets/field-settings/10.png)
+
+Y
+
+Y
+
+Uses commas for thousands, millions
+
+[Configure the number of decimal places to display](/t/60h4az2/number-field#number-field)
+
+Currency
+
+Number
+
+Enter a number displayed as currency.
+
+![](/migration-assets/field-settings/14.png)
+
+Y
+
+Y
+
+[Choose which currencies to accept](/t/m1h4azb/currency-field)
+
+Date
+
+Date
+
+Pick a date.
+
+![](/migration-assets/field-settings/13.png)
+
+Y
+
+Y
+
+Formatted based on your [locale](/t/x2h4azf/date-and-date-time-field#date-field)
+
+Date & Time
+
+Date
+
+Pick a date and time.
+
+![](/migration-assets/field-settings/17.png)
+
+Y
+
+Y
+
+Based on your [timezone](/t/x2h4azf/date-and-date-time-field#date-amp-time-field)
+
+Yes/ No
+
+Boolean
+
+Choose yes or no.
+
+![](/migration-assets/field-settings/15.png)
+
+Y
+
+N
+
+[More here](/t/35h4azn/yes-no-field)
+
+Image
+
+None
+
+Upload and view an image.
+
+![](/migration-assets/field-settings/16.png)
+
+N
+
+N
+
+[More here](/t/y4h4az1/image-attachment-and-signature#image-field)
+
+Rating
+
+Number
+
+Give a rating of 1-5 stars.
+
+![](/migration-assets/field-settings/18.png)
+
+Y
+
+N
+
+[More here](/t/60h4az2/number-field#rating-field)
+
+Dropdown
+
+Text
+
+Select one option from a list.
+
+![](/migration-assets/field-settings/21.png)
+
+Y
+
+N
+
+[More here](/t/35h4azp/dropdown-checkbox-checklist#dropdown-field)
+
+Checkbox/Multi-select checkbox
+
+List
+
+Select more than one option from a list.
+
+![](/migration-assets/field-settings/23.png)
+
+N
+
+N
+
+[Checkbox](/t/35h4azp/dropdown-checkbox-checklist#checkbox-field)/ [Multi-select checkbox](/t/35h4azp/dropdown-checkbox-checklist#multi-select-dropdown)
+
+Slider
+
+Number
+
+Select a number on a slider.
+
+![](/migration-assets/field-settings/19.png)
+
+Y
+
+N
+
+[Set the min and max range and intervals](/t/60h4az2/number-field#slider-field)
+
+User
+
+User
+
+Select a user in your system.
+
+![](/migration-assets/field-settings/20.png)
+
+N
+
+N
+
+[More here](/t/h7h4azj/user-field)
+
+Checklist
+
+List
+
+Check off items.
+
+![](/migration-assets/field-settings/22.png)
+
+N
+
+N
+
+[Cannot be made required](/t/35h4azp/dropdown-checkbox-checklist#checklist-field)
+
+Attachment
+
+Attachment
+
+Attach files.
+
+![](/migration-assets/field-settings/28.png)
+
+N
+
+N
+
+[Maximum size is 100 MB](/t/y4h4az1/image-attachment-and-signature#attachment-field)
+
+Signature
+
+Image
+
+Draw your signature.
+
+![](/migration-assets/field-settings/24.png)
+
+N
+
+N
+
+[More here](/t/y4h4az1/image-attachment-and-signature#signature-field)
+
+Lookup
+
+Reference
+
+Select items found in other flows.
+
+![](/migration-assets/field-settings/25.png)
+
+N
+
+N
+
+[More here](/t/g9h4azr/lookup-field)
+
+Remote lookup
+
+Text or JSON
+
+Retrieve real-time data from a third-party system.
+
+![](/migration-assets/field-settings/30.png)
+
+N
+
+N
+
+[More here](/t/x2yq224/remote-lookup)
+
+Rich text
+
+None
+
+Add static formatted text and media to your form.
+
+![](/migration-assets/field-settings/26.png)
+
+N
+
+N
+
+[More here](https://helpdocs.kissflow.com/field-types/text-text-area-email-and-rich-text-fields#rich_text_field)
+
+Aggregation
+
+Text or Number
+
+Aggregate table data.
+
+![](/migration-assets/field-settings/29.png)
+
+N
+
+N
+
+[More here](/t/83h4azk/aggregation-field)
+
+Sequence number
+
+Text
+
+Add a recurring serial or sequence number to each item in your process.
+
+![](/migration-assets/field-settings/27.png)
+
+N
+
+Y
+
+[More here](/t/y4h4azw/sequence-number)

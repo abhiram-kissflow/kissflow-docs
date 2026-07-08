@@ -1,0 +1,100 @@
+---
+title: "Application-to-application lookup through linking"
+description: "DRAFT (unverified) — migrated from /t/35yzjvd/application-to-application-lookup-through-linking"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+### What is application-to-application lookup?
+
+The application-to-application lookup feature allows other applications in your account to fetch information from your current application. Through this feature, you can link multiple applications to your application and provide varying levels of lookup permissions to enable them to utilize the data available in your application. In addition to other applications in your account, you can link [portals](/t/m1h4azh18h4g0/portal-overview) to your application.
+
+#### Advantages of application-to-application lookup
+
+-   The lookup feature reduces the need to create similar data sets in multiple applications within the same account, thereby reducing data redundancy and the risk of using potentially out-of-date information.
+-   When handling critical data, this feature can help you to define a single application as an authentic data source and allow the data to flow to other applications in a controlled manner.
+
+### How does application linking work?
+
+Assume you have an application named Employee Management in your account that contains the information of all the employees in your organization. You are creating another application called Leave Management to track employees' leave requests.
+
+In this case, you will need the employee details in the Leave Management app to track requests and approvals. Instead of creating a dataset with employee details in the Leave Management app, you can link it to the Employee Management app and provide the necessary permissions for the Leave Management app to perform a lookup from the Employee Management app.
+
+### Linking apps
+
+1.  Navigate to the app from which you want to allow other apps to look up information. In the above example, that is the Employee Management app.
+2.  Click **Manage >** **Edit app**.
+3.  In the left navigation bar, go to **Settings > Security settings**.
+4.  Here, click the **Link app** button. You will see a list of apps available in your account. Select an app and click **Next**.![](/migration-assets/application-to-application-lookup-through-linking/1.png) ![](/migration-assets/application-to-application-lookup-through-linking/2.png)
+    
+    >  **Note**: You can only link one app at a time.
+    
+     
+In the **Settings** page, click **Add flow** to view the the current app’s data sources.
+
+![](/migration-assets/application-to-application-lookup-through-linking/5.png)
+
+6\. In the popup window that appears, select the required processes, boards, or data forms and set up lookup permissions.
+
+There are three permission levels:
+
+-   **All fields** \- By default, all fields are shared but if you uncheck this option, lookup will be forbidden for the selected data source and other apps cannot retrieve data from this.
+-   **Lookup all fields** - Unrestricted access to look up any data from this data source.
+-   **Lookup specific fields** - Restricted access to look up particular fields from this data source.
+
+Click **Done** once you have set permissions.
+
+![](/migration-assets/application-to-application-lookup-through-linking/7.png)
+
+![](/migration-assets/application-to-application-lookup-through-linking/3.png)
+
+You have successfully linked an app to your app and provided lookup permissions.
+
+### Creating lookups with data from other apps
+
+Once you have provided lookup permissions for other apps to utilize the data from the processes, boards, or data forms in your app as data sources, lookups can be created.
+
+For example, go to the Leave Management app and open the form which requires data from the Employee Management app. Create a lookup field in this form, and you will find that the flows from the Employee Management app are listed in the field properties section and available for use.
+
+Follow the below steps:
+
+1.  Navigate to your app and open the form in which you wish to create a data lookup.
+2.  Under the **Add new fields** section, go to the **Data lookup** category in **All fields** and add a lookup field to your form.
+3.  Click the newly added lookup field. In the **Field properties** section, the **Choose a flow to look up** drop-down will list all the available flows that you can look up, including flows from the linked apps.
+4.  Select the required flow. In the next section, all the fields part of the chosen flow will appear. Select the required fields. You can select more than one field here.
+5.  Fill in the other required properties and click **Save**.
+
+![](/migration-assets/application-to-application-lookup-through-linking/4.png)
+
+You have now successfully created a data lookup from one application to another.
+
+Click [here](/t/g9h4azr36h4g7/lookup-field) to learn more about the lookup field.
+
+### Delinking apps
+
+You can either remove app linking completely or remove linking partially for selected data sources alone.
+
+1.  Navigate to **Settings > Security settings**.
+2.  To remove linking completely: click **Delink** beside the required app. Once you do this, the delinked app will no longer be able to look up data from your app.
+
+**Note**: Once you delink an app, the lookup fields that are using flows from the app will no longer work.
+
+![](/migration-assets/application-to-application-lookup-through-linking/8.png)3\. To partially remove permissions:
+
+-   Click the app name under **Linked apps**.
+-   Go to the required data source.
+-   Uncheck the **All fields** option and click **Done**.![](/migration-assets/application-to-application-lookup-through-linking/6.png) 
+
+### FAQs
+
+1. **Why am I not able to archive an application?**  
+    If you are unable to archive an app, it is possible that other linked apps are deriving data from this app through a data lookup. You must remove the data lookup dependencies to archive the app.
+2. **Why am I not able to delete some fields in my form?**  
+    You cannot delete form fields which are dependent on fields from other linked apps. You must remove the lookup dependency and then proceed to delete the field.
+**Why am I unable to deploy my application?**  
+If your application looks up data from other linked apps that are yet to be deployed, you cannot deploy your app until the linked apps are deployed. Click [here](/t/h7yz5qq/app-deployment#deployment-dependencies) for more information.

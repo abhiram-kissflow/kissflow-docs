@@ -1,0 +1,291 @@
+---
+title: "Managing integrations"
+description: "DRAFT (unverified) — migrated from /t/x2h4ak8/managing-integrations"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Access information about all your integrations by clicking on the **Explore** button (
+
+![](/migration-assets/managing-integrations/1.png) ) > **Managed by me** > **Integrations**.![](/migration-assets/managing-integrations/2.png)
+
+## Integrations
+
+You can find integrations in Kissflow in two different places:
+
+-   **Managed by me**: Displays the integrations you have created or those in which you are involved.
+-   **Others**: Displays all integrations available in your Kissflow account. Note that only Account Admins have access to these integrations.
+
+### Managing integrations
+
+From the integrations page, you can:
+
+-   Change integration states (**ON**/**OFF**)
+    
+-   Create duplicates
+    
+-   Archive or unarchive integrations
+    
+-   Delete integrations
+    
+-   Pin frequently used integrations to the navigation
+
+### Integration states
+
+Each integration can be in one of two states:
+
+-   **ON**: The integration actively checks for new data and performs actions when triggered. Note that any data received while the integration was turned off will not be processed when turned back on.
+-   **OFF**: The integration stops checking for new data and suspends all actions.
+
+To manage an individual integration, click its name to open the integration editor. 
+
+![](/migration-assets/managing-integrations/6.png)
+
+##  Viewing integrations
+
+On the **Integrations** page, you can choose to view the integrations based on three views:
+
+-   List view (
+    
+    ![](/migration-assets/managing-integrations/3.png)
+    
+     ) - View the integrations in a list format.
+    
+-    Grid view (
+    
+    ![](/migration-assets/managing-integrations/4.png)
+    
+    ) - View the integrations in a grid format.
+    
+-   Connector-based view (
+    
+    ![](/migration-assets/managing-integrations/5.png)
+    
+     ) - View the integrations based on the actions and triggers used within the connectors. 
+    
+    ![](/migration-assets/managing-integrations/13.gif)
+
+## Searching your integrations
+
+You can use the search bar at the top of the **Integrations** page to search for specific integrations by name.
+
+You can also sort your integrations based on the following:
+
+-   Recently created
+-   Recently accessed
+-   Ascending to descending, or vice versa
+-   Status - ON to OFF, or vice versa
+-   Archived to unarchive
+
+![](/migration-assets/managing-integrations/21.gif)
+
+## Managing failed integrations
+
+Integrations can fail for various reasons, such as incomplete authentication or incorrect payload. It's also possible that the trigger might not receive any new events because the webhook subscription for that particular trigger has expired. To continue receiving events associated with a specific trigger or action, you must manually renew the webhook subscription. You will be notified of any failures through email and in-app notifications. If an integration has failed due to a failed webhook subscription renewal, follow these steps:  
+ 
+
+1\. Choose the integration that has failed.
+
+2\. Change the integration's status from **ON** to **OFF** and then back to **ON**.
+
+> **Note:**  
+> The subscription renewal period varies for different integrations. For most integrations, the webhook expires after 30 days. 
+
+## Run history
+
+To open **Run history**, click the **Explore** button (
+
+![](/migration-assets/managing-integrations/7.png)
+
+  ) > **Managed by me** > **Integrations > Run history.**
+
+ The run history shows a log of all the runs based on date. It shows the unique run ID, integration name, status, and time of execution. When there is a failure, you can run the integration again by clicking the **Rerun** button. You can use the quick filters on the top of the page to filter history based on when it was performed, whether the run was a success or not, or by the integration name. 
+
+> **Note:**
+> 
+> Integration run history will be available for the last 100 days.
+
+![](/migration-assets/managing-integrations/8.png)
+
+ When you click an individual run, you can view: 
+
+-   The trigger and action names inside the integration.
+-   API payload with associated fields and values.
+-   Status of the integration run; convey the status of whether it's a success or failure.
+-   Error messages associated with the payload.![](/migration-assets/managing-integrations/9.png)You can use the error message when connecting with the [Kissflow support team](mailto:support@kissflow.com) for faster resolutions. 
+
+### AI troubleshooting for failed integrations
+
+The AI-powered troubleshoot feature helps you understand why an integration failed and suggests solutions.
+
+1.  Open the failed integration from the **Run history**.
+    
+2.  Click the **AI Troubleshoot** button. AI will take a few moments to analyze the error.
+    
+3.  You will get a failure analysis report with three simple sections:
+    
+    -   **Impact**: A gist of the error that occurred in the integration.
+        
+    -   **Root cause**: Technical reason for the failure.
+        
+    -   **Suggested solutions**: A list of probable solutions to fix the error. It ranks each solution by severity (High, Medium, or Low) to help you prioritize the most effective one first.
+        
+
+![](/migration-assets/managing-integrations/23.gif)
+
+> **Note:**
+> 
+> AI generates this analysis. Please review the suggested solutions to ensure they fit your setup before applying them.
+
+### Bulk rerun
+
+Using the bulk rerun feature, you can easily rerun multiple failed integration runs simultaneously, streamlining your troubleshooting process.
+
+### Using bulk rerun:
+
+1.  Navigate to **Explore** button (
+    
+    ![](/migration-assets/managing-integrations/10.png)
+    
+      ) > **Managed by me** > **Integrations > Run history.**
+    
+2.  Review the list of integration runs. Runs are marked as **Success**, **Failed**, or **In progress** with corresponding color-coded status indicators.
+    
+3.  Select the checkboxes next to the failed runs you want to retry. You can select up to 100 runs at a time. Only failed runs are eligible for rerun. 
+    
+4.  You can clear your selections by clicking **Clear all** at the top right.
+    
+5.  Click the **Rerun** button at the top right of the table to start the bulk rerun process.
+    
+6.  A confirmation dialog will appear. Click **Continue** to proceed with the rerun or **Cancel** to go back.
+    
+7.  The status of each rerun will be updated in real-time. 
+    
+8.  Once complete, you'll receive a notification about the bulk rerun results.
+    
+    ![](/migration-assets/managing-integrations/24.gif)
+    
+
+### Handling overlapping bulk reruns in integration run history
+
+When multiple users work with integration run history simultaneously, two people may attempt to rerun the same failed integration instances. Kissflow has a process in place to manage these situations smoothly.
+
+If you have selected some instances to rerun, but another user has already initiated the rerun process for some of those same instances just moments before you click **Rerun**, you will see a red alert message.
+
+The message will inform you that some of the integration runs you selected are already being rerun or have recently been rerun by another user. It will specify how many of the selected instances fall into this category.
+
+For example, the message might say, “8 of your 10 selected instances are already being rerun or have recently been rerun by another user.” 
+
+![](/migration-assets/managing-integrations/11.png)
+
+### Editing payloads
+
+In the event of a run failure, you can identify and edit an invalid payload that was sent, allowing you to address the issue and rerun the integration. This grants you enhanced flexibility and control over your failed integrations.To identify an invalid payload,
+
+1.  Open the failed integration from the **Run history**. The action associated with the error will be displayed automatically.
+2.  Navigate to the **Output data** tab, where you can locate the specific payload causing the failure. Click the **Copy** button to copy the payload details.  
+      
+    ![](/migration-assets/managing-integrations/12.gif)
+
+To edit the payload,
+
+1.  Go to the **Input data** tab within the same action and click the **Edit** button.
+2.  Edit and validate the details of the payload responsible for the failure.
+3.  Once you’ve made the necessary changes, click the **Rerun** button to run the integration again with the updated payload.
+
+![](/migration-assets/managing-integrations/17.gif)As an alternative approach, you also have the option to edit the payload directly from the **Run history**.
+
+1.  In the **Run history**, locate the specific run where the failure occurred.
+2.  Click the **Edit payload** button available for that particular run. This action will open the payload editor, allowing you to make the desired modifications to the payload details.
+3.  Once you’ve edited the payload to your requirements, click the **Rerun** button to run the integration again with the updated payload.
+
+### Refreshing the action's status
+
+If an action fails during the status check, you don’t need to edit the payload, just rerun the failed integration.
+
+The failure happens because the action took too long and timed out, not because of an issue with the payload. Since the payload remains unchanged, the option to edit it will be disabled, and you only need to rerun the failed step to refresh the status.
+
+## Connections
+
+Connections are secure authentications that allow Kissflow to communicate with other flows and third-party applications in the integration. Such authentications can be either Access key based or OAuth based. Connections can also be shared with other account members so that they can be used in other integrations. 
+
+For example, if you want to create a trigger step that will work with your Kissflow Process items, you must grant access permission to the specific Kissflow Process account. Integration runs require valid connections before triggers and actions can be configured and tested. 
+
+![](/migration-assets/managing-integrations/14.png)
+
+## Create a connection
+
+To create a new connection, click **New Connection** on the **Connections** tab. This will prompt you to set up a new connection. You must provide a name for the connection and select the connector from the drop down. Upon completion, click **Next**.
+
+Based on the connector you've selected, you will need to authenticate your connection with your Kissflow account Access key and secret or use the third-party OAuth based authentication.
+
+For Access key based authentication, you must enter your [Account domain](/t/m1h4akp/account-settings), [Access key, Account ID](/t/35h4az8y7h4gj/api-keys#access-keys) and click **Authenticate** after you enter the required values.
+
+Keep your [Access key](/t/35h4az8y7h4gj/api-keys#access-keys) status **ON** to ensure successful authentication.
+
+When you create a connection to most third-party connectors, Kissflow redirects you to their respective pages. There, you will be prompted to grant Kissflow access to your data, which is based on OAuth authentication.
+
+If everything goes well, a successful connection is established.
+
+## Testing your connections
+
+To test if the connection between a connector and Kissflow is still active, click the **Test connection status** on the connection.
+
+There are two possible cases after you test your connection. They are:
+
+-   **Test successful**: The connection is active.
+-   **Reconnection needed**: The connection is no longer active. You will need to reconnect with your connector.
+
+## Renaming your connections
+
+If you have multiple Kissflow accounts for the same connector linked to Kissflow, you can rename them to easily identify each of them in your Kissflow account.
+
+-   Go to the Connections tab.
+-   Click the **More options** button at the end of the connection name and select **Rename**. The new connection name will be auto-saved soon after entering the new connection name.
+
+## Re-authenticate your connections
+
+The connections between a connector and Kissflow may expire if the [Access key and secret](/t/35h4az8y7h4gj/api-keys#access-keys) are suspended/deleted or due to a connection error. To re-authenticate with a connector account, click the **Re-authenticate connection** (
+
+![](/migration-assets/managing-integrations/15.png)
+
+ ) button. You must re-authenticate your connection with a new Access key and secret or reconfigure your OAuth-based connection. 
+
+![](/migration-assets/managing-integrations/16.png)
+
+## Sharing connections
+
+Connections can also be shared with other account users. In this manner, a shared connection can be used in integration steps that you did not create. Connections can be viewed in either a list or a segment view. They can also be filtered to see connections created by you, connections shared with you, or a combined view.
+
+![](/migration-assets/managing-integrations/18.png)
+
+You can also view the list of integrations that the connection is a part of by clicking the integration count.
+
+![](/migration-assets/managing-integrations/19.png)
+
+**To share a connection:**
+
+-   Go to the Connections tab.
+    
+-   Click the **More options** (![](/migration-assets/managing-integrations/22.png)) button at the end of the connection name and select **Share**.
+    
+-   Then, click **\+ Add members** button to add members and assign them member or admin permissions.![](/migration-assets/managing-integrations/20.png)   
+
+**Connection role**
+
+**Permissions**
+
+Admin
+
+Can use and modify the connection in any integration steps
+
+Member
+
+Can only use the connection in any integration steps
+
+Connections used within an integration are not inherited unless they are intentionally shared with you.

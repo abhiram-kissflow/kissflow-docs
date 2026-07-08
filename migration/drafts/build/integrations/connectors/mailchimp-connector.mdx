@@ -1,0 +1,60 @@
+---
+title: "MailChimp connector"
+description: "DRAFT (unverified) — migrated from /t/x2h4afl/mailchimp-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## What is MailChimp?
+
+MailChimp is a cloud-based marketing automation platform and email marketing service for managing mailing lists and creating email marketing campaigns to send to customers.
+
+## About Kissflow's MailChimp integration
+
+Kissflow Integration's MailChimp connector lets you connect MailChimp instantly with Kissflow apps and other popular third-party applications. To integrate with MailChimp, you must have a valid MailChimp account as well as be a Kissflow paid customer. You can use the MailChimp connector to receive data from other flows or apps in order to perform specific MailChimp actions and search actions. For the time being, the MailChimp connector does not support any trigger events.
+
+For instance, you can create a custom event for selected subscribers in MailChimp when an event approval process is completed in your Kissflow Process.
+
+### Actions in MailChimp connector
+
+**Action events**
+
+**Description**
+
+Create a custom event
+
+This action creates a custom event in MailChimp for an existing subscriber.
+
+Create a campaign
+
+This action creates a campaign draft in MailChimp.
+
+Send a campaign
+
+This action sends a campaign draft to everyone who has joined the campaign.
+
+## Configuring MailChimp connector
+
+1.  In your Kissflow account, click the **Create** button in the left navigation panel and select **Integration** from the list. Enter a unique name and description for your integration and click **[Create](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Once inside your editor, set up a trigger step, for example, a Kissflow Process trigger event, **When an item completes a workflow.**
+3.  After setting up your trigger step above, click the Add button (![](/migration-assets/mailchimp-connector/1.png) ) next to set up your action step. Search for **MailChimp** and select an action event from the available options (as mentioned in the above table.)![](/migration-assets/mailchimp-connector/2.png)   
+
+4\. After choosing your action event, authenticate the connector. Click **+Add an account** and sign in using your MailChimp account. Provide your MailChimp username and password to complete authentication.![](/migration-assets/mailchimp-connector/4.png)
+
+5\. After authenticating with your MailChimp account, add relevant values against the MailChimp form fields. You can hit Refresh fields to view all the updated fields in the selected MailChimp form. You can also map MailChimp fields from your trigger step or fields from your previous action steps. These values will be automatically added to item fields after the action is executed.
+
+![](/migration-assets/mailchimp-connector/3.png)
+
+6\. After a successful configuration, test whether your MailChimp action step is set up correctly by clicking the **T****est** button. The connector will pull field data from your selected MailChimp account and display it as a JSON output. Similar to the trigger step, errors are notified to you right away. Fix them before retesting the action step.
+
+## Setting up a MailChimp connector
+
+After creating a custom workflow with your MailChimp connector's action steps, switch on the toggle button to activate the integration run. Once a trigger event occurs, the MailChimp action is activated.
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

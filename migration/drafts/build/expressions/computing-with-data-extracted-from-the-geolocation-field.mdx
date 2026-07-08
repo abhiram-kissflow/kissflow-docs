@@ -1,0 +1,82 @@
+---
+title: "Computing with data extracted from the Geolocation field"
+description: "DRAFT (unverified) — migrated from /t/y4yfvah/computing-with-data-extracted-from-the-geolocation-field"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+While the **Geolocation** field doesn't support direct computations, you can extract specific data using built-in methods. These values can then be used in formulas with other field inputs.
+
+## Supported methods with examples
+
+**Method**
+
+**Description**
+
+**Example**
+
+**Output**
+
+Address()
+
+Returns the full formatted address
+
+Geolocation\_field.Address()
+
+1600 Amphitheatre Pkwy, Mountain View, CA 94043
+
+City()
+
+Returns the city name
+
+If(Geolocation\_field.City() = "Boston", "HQ Office", "Remote Location")
+
+HQ Office
+
+State()
+
+Returns the state or province
+
+Concatenate(Geolocation\_field.City()","Geolocation\_field.State())
+
+Austin, Texas
+
+Country()
+
+Returns the country name
+
+If(Geolocation\_field.Country() = "India", "Domestic", "International")
+
+Domestic
+
+Zipcode()
+
+Returns the postal/ZIP code
+
+If(Geolocation\_field.Zipcode() = "10001", "NYC Office", "Other Location")
+
+NYC Office
+
+Latitude()
+
+Returns the latitude value
+
+If(Geolocation\_field.Latitude() > 0, "Northern Hemisphere", "Southern Hemisphere")
+
+Northern Hemisphere
+
+Longitude()
+
+Returns the longitude value
+
+If(Geolocation\_field.Longitude() &lt; 0, "Western Hemisphere", "Eastern Hemisphere")
+
+Western Hemisphere
+
+> ### Notes
+> 
+> -   These methods are **read-only** and are mainly used for display or decision-making in conditions.
+>     
+> -   The values are extracted from the selected geolocation data and cannot be altered through expressions.
+>

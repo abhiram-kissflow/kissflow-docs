@@ -1,0 +1,47 @@
+---
+title: "Refreshing lookup and aggregation field values"
+description: "DRAFT (unverified) — migrated from /t/m1h9qtt/refreshing-lookup-and-aggregation-field-values"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+The source data in the lookup and aggregation fields can change sometimes while a user is working on a form. 
+
+By default, those values are retrieved when the form is first submitted, and they don’t update as the item moves through the workflow. 
+
+However, as a Process Admin, you can choose to refresh [lookup](/t/g9h4azr/lookup-field) and [aggregation](/t/83h4azk/aggregation-field) fields in the form at certain steps in the workflow. When the user clicks an action button, the values in the lookup and aggregation fields are refreshed and updated.  
+
+## When should I refresh my form’s lookup and aggregation fields?
+
+-   When your source data is constantly changing or updating.
+-   When new data may be added throughout the workflow, which can change the values.
+
+Consider a scenario where you're submitting a **Capex (Capital expenditure) Request** that references the current available budget from a **Budget Master** dataset. While you're filling out the form, another request might get approved simultaneously, reducing the available budget. To ensure you're working with the most up-to-date data, you can use the **Refresh** action before submitting the form. This action updates the lookup field, pulling the latest budget information and preventing potential overspending.
+
+## How do I enable refreshing fields?
+
+Go to the **Permissions** tab in the process editor. Select any step and scroll down to the bottom of the form. Click **Configure** **actions**. Hover over the **Submit**, **Reject**, **Withdraw**, or **Send** **back** action and click **Advanced**.
+
+![](/migration-assets/refreshing-lookup-and-aggregation-field-values/1.png)
+
+ Under **Refresh fields,** choose the required lookup or aggregation fields that need to be refreshed.
+
+![](/migration-assets/refreshing-lookup-and-aggregation-field-values/2.png)
+
+If the field you want to refresh is in the form or in a table, select the lookup or aggregation field you want to refresh. You can select multiple fields from the same table.
+
+## Validations and refreshing fields
+
+Validations that you set up for **Advanced** **action** settings are impacted by refreshing fields. 
+
+For example, let’s say you have a validation that ensures a budget amount does not go below zero. At the first step, the budget was positive, and it passed the validation. However, at a later step, the values may change as a result of a refresh, and the budget amount may go below zero. In this case, the item cannot be advanced. 
+
+> #### Notes:
+> 
+> -   If you delete the lookup or aggregation field, the refresh configuration will disappear automatically. 
+> -   When a user tries to submit an item and the selected lookup value has been deleted, the submission is allowed unless the lookup field is marked as mandatory. In that case, a validation error will appear.

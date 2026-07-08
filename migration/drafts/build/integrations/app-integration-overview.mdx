@@ -1,0 +1,75 @@
+---
+title: "App integration overview"
+description: "DRAFT (unverified) — migrated from /t/m1yzjvq/app-integration-overview"
+contentType: overview
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+## What is Integration in Kissflow Apps?
+
+Integration in Kissflow Apps is a powerful workflow automation tool that allows you to automate your application's business workflows by connecting all of your favorite forms and data sources in your application with other third-party services.
+
+Inside your Application Builder, you can build a connector system to automate workflows without programming or relying on developers to build the integration. With a few clicks, anyone can create their own custom workflow.
+
+For instance, you can use the integration in the application builder to connect two different services like your application's process form and Google Sheet or Gmail. This way, the next time a new item is added to your process form, a new row is added to the Google Sheet with all the relevant data, or an email is sent to your Gmail inbox.
+
+### How does integration work in Kissflow Apps?
+
+An integration consists of a series of sequential steps that indicate how data should be transferred and transformed between different Kissflow flows or other third-party applications. Each of these steps are built using connectors.
+
+Any integration starts with a trigger—an event in one of your connectors that kick starts your workflow. It pushes data from the flow to complete one or many connector actions.
+
+With Kissflow Integration, there are a number of workflows you can create from scratch. Here’re a few examples to help inspire you:
+
+-   Create Google Calendar events from new Kissflow Project tasks.
+-   Add new rows on Google Sheet for every new CRM lead.
+-   Send an email reminder to your colleague for every new item added to your Kissflow Process.
+-   Share new Kissflow Board items in Slack.
+-   Create a new event in Google Calendar when a hiring request is approved in Kissflow Process.  
+
+![](/migration-assets/app-integration-overview/1.png)![](/migration-assets/app-integration-overview/2.png)
+
+### Common terminologies
+
+#### Connector
+
+A connector makes services communicate with each other. It allows you to do something that the application couldn't do on its own. Connectors can serve as an adapter to perform internal actions or access external third-party applications. Connectors comprise of triggers, actions, and search actions based on the use cases they serve.
+
+#### Trigger
+
+A trigger is the primary event of your integration that starts other actions in your workflow.
+
+#### Action
+
+An action is an event a connector performs after it is triggered. For example, if you want to send an email each time you receive a helpdesk ticket in your board form of your application, the action is send an email. You can have multiple actions for your integration.
+
+![](/migration-assets/app-integration-overview/4.png)
+
+#### Search action
+
+Search actions find/fetch specific data from your application based on your requirement.
+
+#### Editor
+
+The Editor allows you to create an integration from scratch. In the editor, you can select and configure the trigger connector, trigger event, action connector(s), and action events to build your own custom workflow.
+
+#### Connection
+
+A connection is the authentication that lets Kissflow interact with an internal or external connector in an integration. Integration runs require valid connections before triggers and actions can be configured. Kissflow connections are based on Access key and secret token-based authentication. Most external connectors are authenticated using OAuth.
+
+![](/migration-assets/app-integration-overview/3.png)
+
+#### Integration run history
+
+Every piece of data that passes through the workflow system in your application counts as an integration run. That means if your integration adds 20 items to Kissflow Board form, your integration has just performed 20 integration runs. Each time an integration run occurs, you save yourself a manual job. You can keep track of all the integration runs from the **Run history** of your integration page.
+
+![](/migration-assets/app-integration-overview/5.gif)
+
+ To access run history in production after deploying your app, go to **Manage > Integrations > Run history**.
+
+![](/migration-assets/app-integration-overview/6.gif)

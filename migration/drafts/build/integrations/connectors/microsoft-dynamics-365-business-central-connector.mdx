@@ -1,0 +1,128 @@
+---
+title: "Microsoft Dynamics 365 Business Central connector"
+description: "DRAFT (unverified) — migrated from /t/h7y65kq/microsoft-dynamics-365-business-central-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+## What is Microsoft Dynamics 365 Business Central?
+
+Microsoft Dynamics 365 Business Central is an all-in-one business management solution that helps organizations streamline processes, make informed decisions, and drive growth through finance, operations, sales, and customer service functionalities.
+
+## About Kissflow's Microsoft Dynamics 365 Business Central integration
+
+The Microsoft Dynamics 365 Business Central connector of Kissflow Integration facilitates the seamless connection and synchronization of Microsoft Dynamics 365 Business Central modules with various third-party apps and Kissflow apps. To integrate with Microsoft Dynamics 365 Business Central, users must possess a valid Microsoft Dynamics 365 Business Central account and be a paid Kissflow customer.  
+  
+An employee can submit a purchase request in a Kissflow Process, providing details such as the item description, quantity, preferred vendor, and additional notes. The request goes through several approval stages where managers can either approve or reject it. Once approved, the Kissflow Process connector automatically triggers the creation of a purchase order in Microsoft Dynamics 365 Business Central using the action Create a purchase order. The purchase order includes all the relevant information from the original request, such as the item description, quantity, vendor information, and specified notes. 
+
+### Triggers in Microsoft Dynamics 365 Business Central connector
+
+**Trigger** 
+
+**Description**
+
+When a customer is added
+
+Triggers when a new customer is added to your Microsoft Dynamics 365 account.
+
+When a vendor is added
+
+Triggers when a new vendor is added to your Microsoft Dynamics 365 account.
+
+When a sales invoice is created
+
+Triggers when a new sales invoice is created in your Microsoft Dynamics 365 account.
+
+When a purchase invoice is created
+
+Triggers when a new purchase invoice is created in your Microsoft Dynamics 365 account.
+
+When a purchase order is created
+
+Triggers when a new purchase order is created in your Microsoft Dynamics 365 account.
+
+When a sales order is created
+
+Triggers when a new sales order is created in your Microsoft Dynamics 365 account.
+
+### Actions in Microsoft Dynamics 365 Business Central connector
+
+**Action** 
+
+**Description**
+
+Find a customer
+
+This action finds and retrieves a customer's details from your Microsoft Dynamics 365 account.
+
+Find a vendor
+
+This action finds and retrieves a vendor's details from your Microsoft Dynamics 365 account.
+
+Get all customers
+
+This action gets the details of all customers in your Microsoft Dynamics 365 account.
+
+Get all vendors
+
+This action gets the details of all vendors in your Microsoft Dynamics 365 account.
+
+Get all items
+
+This action gets the details of all items in your Microsoft Dynamics 365 account. 
+
+Create an item
+
+This action creates a new item in your Microsoft Dynamics 365 account.
+
+Create a sales invoice
+
+This action creates a new sales invoice in your Microsoft Dynamics 365 account.
+
+Create a purchase invoice
+
+This action creates a new purchase invoice in your Microsoft Dynamics 365 account.
+
+Create a purchase order
+
+This action creates a new purchase order in your Microsoft Dynamics 365 account.
+
+Create a sales order
+
+This action creates a new sales order in your Microsoft Dynamics 365 account.
+
+Create a customer
+
+This action creates a new customer in your Microsoft Dynamics 365 account.
+
+Create a vendor
+
+This action creates a new vendor in your Microsoft Dynamics 365 account.
+
+## Configuring Microsoft Dynamics 365 Business Central connector
+
+1.  In your Kissflow account, click the **Create** button in the left navigation panel and select **Integration** from the list. Enter a unique name and description for your integration and click **[Create](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Once inside your editor, set up a trigger step, for example, a Kissflow Process trigger event, **When an item completes its workflow**.
+    
+3.  After setting up your trigger step above, click the **Add** button ( ![](/migration-assets/microsoft-dynamics-365-business-central-connector/1.png) ) next to set up your action step. Search for Microsoft Dynamics 365 Business Central and select an action event from the available options.
+    
+    ![](/migration-assets/microsoft-dynamics-365-business-central-connector/2.png)
+4.  After choosing your action event, authenticate the connector. Click **+Add an account**. Kissflow uses Microsoft Dynamics 365 Business Central’s OAuth for authentication.
+    
+    ![](/migration-assets/microsoft-dynamics-365-business-central-connector/3.png)
+5.  After authenticating with your Microsoft Dynamics 365 Business Central account, add relevant values against the Microsoft Dynamics 365 Business Central form fields. You can hit **Refresh fields** to view all the updated fields in the selected form. You can also map fields from your trigger step or fields from your previous action steps. These values will be automatically added to item fields after the action is executed.
+    
+6.  After a successful configuration, test whether your Microsoft Dynamics 365 Business Central action step is set up correctly by clicking the **Test** button. The connector will pull field data from your selected Microsoft Dynamics 365 Business Central account and display it as a JSON output. Similar to the trigger step, errors are notified to you right away. Fix them before retesting the action step.
+    
+
+### Setting up a Microsoft Dynamics 365 Business Central connector
+
+After creating a custom workflow with your Microsoft Dynamics 365 Business Central connector's action steps, switch on the toggle button to activate the integration run. Once a trigger event occurs, the Microsoft Dynamics 365 Business Central action is executed.
+
+To ensure your integrations are properly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.
