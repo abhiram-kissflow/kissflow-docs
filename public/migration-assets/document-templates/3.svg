@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+    <defs>
+        <filter id="twj3ndgfib" color-interpolation-filters="auto">
+            <feColorMatrix in="SourceGraphic" values="0 0 0 0 0.380392 0 0 0 0 0.396078 0 0 0 0 0.435294 0 0 0 1.000000 0"/>
+        </filter>
+        <path id="rbevg1jeza" d="M2 7.5H14V8.5H2z"/>
+        <mask id="g21jibatxc" width="12" height="1" x="0" y="0" fill="#fff" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox">
+            <use xlink:href="#rbevg1jeza"/>
+        </mask>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <g>
+                    <g>
+                        <g stroke="#979797" stroke-width="2" filter="url(#twj3ndgfib)" transform="translate(-465 -128) translate(12 12) translate(301 60) translate(24 48) translate(128 8)">
+                            <path fill-rule="nonzero" d="M6 -3L10 -3 10 -1.148 10 7 6 7" transform="rotate(90 8 2)"/>
+                            <path fill-rule="nonzero" d="M6 9L10 9 10 10.852 10 19 6 19" transform="rotate(-90 8 14)"/>
+                            <use stroke-dasharray="1 1" mask="url(#g21jibatxc)" transform="rotate(-180 8 8)" xlink:href="#rbevg1jeza"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
