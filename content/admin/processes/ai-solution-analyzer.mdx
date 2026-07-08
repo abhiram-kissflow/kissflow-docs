@@ -1,0 +1,128 @@
+---
+title: "AI solution analyzer"
+description: "DRAFT (unverified) — migrated from /t/q6y1jx0/ai-solution-analyzer"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+Solution analyzer is an AI-powered tool for process admins who create and manage workflow [solutions](/t/83y1b4v/solution). It reviews your form fields, workflow steps, and permissions against the intent the AI understands from your process design and description.  
+  
+The analyzer highlights potential issues and classifies them as either _Critical_ or _Suggestions_, and offers improvements before you take your [solution](/t/83y1b4v/solution) live. These are AI-generated findings, so you should always review them to ensure they are accurate for your process.
+
+> **Note:** Solution analyzer is currently available only for no-code processes. It is not supported inside apps or portals.
+
+## When to use it
+
+We recommend you to run the analyzer after you finish developing your process to validate whether:
+
+-   Forms have required validations.
+-   Workflow steps are assigned correctly.
+-   Permissions are aligned with your intent.
+
+## Accessing the solution analyzer
+
+Open your process. Click **Manage > Edit process** and this will take you to the **Form builder**.  
+  
+Click **Analyze** in the top-right corner of the builder. The analyzer will run automatically and display the results as shown in the gif below.   
+  
+You can also choose to run the analyzer in the background by either closing the analysis window or clicking **Run analysis in background**. When the analysis is complete, you’ll see a toast message as shown here.  
+ 
+
+![](/migration-assets/ai-solution-analyzer/4.gif)
+
+## Understanding the results
+
+If no issues are found, you’ll see a success message confirming that your process has been fully validated and no potential errors were detected. This means the workflow, form fields, and permissions align with the intended design, and the process is sound to go live.
+
+![](/migration-assets/ai-solution-analyzer/1.png)
+
+   
+If issues are detected, you’ll see a list of observations made as shown in the image below:  
+ 
+
+![](/migration-assets/ai-solution-analyzer/2.png)
+
+Each observation includes:
+
+-   **Title** – A concise description of what went wrong.
+    
+-   **Tags** –  To indicate whether the issue is related to the workflow design or permissions or the form setup.
+    
+-   **Severity** – Either critical or suggestive in nature:
+    
+    1.  **Critical**: These are serious issues that can lead to compliance risks, workflow breakdowns, or data exposure.
+        
+    2.  **Suggestions**: These are best-practice recommendations or missing elements that could improve efficiency and effectiveness but won’t necessarily break the process.
+        
+-   **Locate** – Clicking this highlights the exact part of the workflow or form where the issue exists, helping you navigate in context and resolve it.
+    
+
+At the top, you’ll also see a **count** of all observations (e.g., _7 observations made_) and the **timestamp** of the last analysis run. This helps you keep track of when the process was last validated.
+
+You can filter the list by severity and scope to focus on specific issues. When you click **Locate**, the analyzer takes you directly to the exact spot in the form, workflow, or permissions where the issue occurs. The issue list window becomes smaller, showing only the filtered results with **previous/next navigation** so you can move through them one by one as shown in the gif below:  
+ 
+
+![](/migration-assets/ai-solution-analyzer/6.gif)
+
+To return to the full list of issues, click **Back**. From there, you can adjust filters or review all issues together.
+
+> **Note:**  
+> The solution analyzer is AI-powered. Always review analyzer findings alongside your workflow requirements.
+
+## Rerunning the analyzer
+
+You can rerun the analyzer only after making updates to your process. The last run time is displayed in the analyzer window.
+
+When you rerun, the results may change — existing issues might get resolved, new ones might appear, or some may no longer be listed. Before clicking **Rerun analysis**, make sure you have reviewed the current issues, as the same results may not be available again.
+
+## Use cases
+
+### Use case 1: High-value purchase order approval – workflow critical issue
+
+**Process overview:**  
+This process handles purchase order requests in an ERP/CRM system. Employees across departments submit purchase orders which are then routed for approval. The process ensures that approvals are granted at the right authority level, particularly for high-value purchases.
+
+-   All purchase orders must first be approved by the department manager.
+-   Purchase orders under $50,000 can be approved by a junior manager.
+-   Purchase orders exceeding $50,000 must be approved by the finance director (for example, **Evelyn Thomas**).
+-   After the finance director’s approval, the procurement team processes the order.
+
+**The case:**  
+While setting up the high-value approval step, the process admin intended to assign it to **finance director Evelyn Thomas**, but by mistake clicked **Everyone** instead of **Evelyn**. As a result, the high-value approval step was open to all employees, creating a major compliance and security risk since anyone in the organization could approve a high-value purchase.
+
+**How solution analyzer helps:**  
+When the analyzer runs, it reviews the workflow assignments against the process intent. It detects that the **high-value approval step is assigned to Everyone instead of the finance director**. The analyzer flags this as a **critical** workflow misconfiguration as shown in the gif below, recommending that the step be reassigned specifically to the finance director role.  
+ 
+
+![](/migration-assets/ai-solution-analyzer/3.gif)
+
+### Use case 2: Employee compensation revision – permissions critical issue
+
+**Process overview:**  
+This process manages employee compensation revisions. A manager proposes a new salary, which is reviewed by HR and approved by finance. Finally, the employee acknowledges the change at the last step. The intent of the process is to keep salary data tightly controlled and secure, while still allowing the employee to confirm receipt of the change.
+
+-   The **compensation amount** field is entered once by the manager.
+-   In all subsequent steps (HR review, finance approval, and employee acknowledgment), the field must remain **read-only** to ensure data integrity.
+-   At the final step, the **employee should only be able to add comments or a digital signature for acknowledgment** — not edit the compensation field.
+
+**The case:**  
+The process admin accidentally configured the **compensation amount** field as **editable for the employee** in the final step. This creates a critical flaw: the employee could alter their own salary figure before submitting acknowledgment. Such a mistake can lead to payroll errors, compliance violations, and potential fraud.
+
+**How solution analyzer helps:**  
+The analyzer reviews the field permissions across steps and detects that the **compensation amount** field is incorrectly editable by the employee in the acknowledgment stage. It flags this as a **critical permissions misconfiguration**, recommending that the field remain **read-only** and that only the comments/acknowledgment section be editable by the employee. This scenario is illustrated in the gif below:  
+ 
+
+![](/migration-assets/ai-solution-analyzer/5.gif)
+
+In both scenarios, the **Solution analyzer acts as a safety net** for process admins:
+
+-   Detecting **workflow misassignments** that could cause financial, compliance, or operational issues.
+-   Flagging **permissions misconfigurations** that could lead to data breaches.
+-   Providing actionable recommendations to correct issues **before the process goes live**.
+
+This helps organizations maintain secure, compliant, and efficient workflows while reducing the risk of human error.

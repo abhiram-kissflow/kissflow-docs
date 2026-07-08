@@ -1,0 +1,186 @@
+---
+title: "Setting up SCIM with Azure Active Directory"
+description: "DRAFT (unverified) — migrated from /t/m1h4a1q/setting-up-scim-with-azure-active-directory"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+User provisioning through SCIM 2.0 is only available through the hosted AD version called **Azure Active Directory (AD)**. [Super Admins, and IAM Admins](/t/35h4ak036h4gg/user-roles-permissions) can set up SCIM-based user sync for Azure AD. Kissflow requires you to create an Azure enterprise application to sync your Azure AD users with your Kissflow account.
+
+## Generating a Base URL and SCIM token
+
+1.  Inside Kissflow, navigate to **Account a****dministration > User provisioning** and click **Configure** under **SCIM**.![](/migration-assets/setting-up-scim-with-azure-active-directory/7.png)
+2.  Generate a **SCIM token**, copy the **Base URL** and **SCIM token** to the clipboard. As you will need to paste these in your Azure Enterprise application later, we recommend you download the JSON file that contains your unique **Base URL** and **SCIM token**.
+    
+    > **Note:**
+    > 
+    > You must keep the SCIM token secure as the token once generated will not be available again for copy or download.
+    
+
+## Adding users and groups in Azure AD
+
+1.  After signing into Microsoft Azure, under Azure Services select **Azure Active Directory**.  
+     ![](/migration-assets/setting-up-scim-with-azure-active-directory/1.png)  
+     
+2.  You will be redirected to **Default Directory Overview** page, here on the left panel, under **Manage**, click **Users** or **Groups** based on what you want to create.
+3.  To create or invite new users to Azure AD, click the **\+ New User** button, update the user attribute values under **Identity**, **groups and roles**, **settings**, and **job info** and click **create**.
+4.  Similarly, to create groups in Azure AD, click the **\+ New group** button, update the group attribute values and click **create**.  
+      
+    
+
+> **Note:** Microsoft Azure Active Directory (Azure AD) was rebranded as **Microsoft Entra ID** in June 2023.
+
+## Creating a new enterprise application in Azure AD
+
+1.  Sign into your Azure Active Directory as an Administrator, go to **Enterprise applications**.
+2.  Select **New application** and choose **Non-gallery application**.
+3.  You will be asked for a name, enter a meaningful name for your enterprise app and click **Add**.
+
+## Assigning users to Azure enterprise application
+
+1.  On your enterprise app's left panel, under **Manage,** click the **Users and groups** tab.
+2.  Click the **\+ Add user** button, then manually select users and groups those of whom you want to sync with your Kissflow account.
+3.  Click **Assign**. You can assign multiple AD users and groups to your enterprise app. Only those users and groups that are assigned to your enterprise app can be provisioned to your Kissflow account.
+
+## Provisioning your enterprise app
+
+1.  Next, go to the **Provisioning** tab in your enterprise app.
+2.  From the **Provisioning Mode** dropdown, select **Automatic**. Under **Admin Credentials**, paste your copied **SCIM Base URL** in the Tenant URL field and the **SCIM token** in the **Secret Token** field.
+3.  Click **Test Connection**; a success toast message should appear.
+4.  Click **Save** at the top of your screen.
+
+## Mapping attributes of AD groups
+
+1.  Under **Provisioning** tab > **Mappings**, click "**Provision Azure Active Directory Groups**".![](/migration-assets/setting-up-scim-with-azure-active-directory/2.png)
+2.  Adjust your group **Attribute mappings** so that the result matches the following screenshot. Then, **Save** your changes.![](/migration-assets/setting-up-scim-with-azure-active-directory/3.png)
+
+## Mapping default attributes of AD users
+
+1.  Under **Provisioning** > **Mappings,** click "**Provision Azure Active Directory Users**".
+2.  Here, adjust your user **Attribute mappings** so as to include only those attributes of your Azure AD users that you want in Kissflow. You must delete all unwanted attributes for a successful provisioning to happen. You can arrange your default attributes as shown in the below screenshot. Click the **Save** button every time you perform an action within attribute mapping.
+    
+    ![](/migration-assets/setting-up-scim-with-azure-active-directory/4.png)
+    
+3.  These are the important points to note when you edit the AD user attributes:
+    1.  As shown in the image below, for the target customappsso attribute "**emails\[type eq "work"\].value**", change the source attribute from "**mail**" to "**userPrincipalName**" as shown here.
+        
+        ![](/migration-assets/setting-up-scim-with-azure-active-directory/8.png)
+        
+    2.  Similarly, for the target customappsso attribute "**active",** change the default expression value from "**Switch(\[IsSoftDeleted\], , "False", "True", "True", "False")**" to "**Not(\[IsSoftDeleted\])"** as shown below.
+        
+        ![](/migration-assets/setting-up-scim-with-azure-active-directory/9.png)
+        
+    3.  Also, for the target customappsso attribute "externalId", change the source attribute from "**mailNickname**" to "**objectId**" as shown below.
+        
+        ![](/migration-assets/setting-up-scim-with-azure-active-directory/5.png)
+        
+    4.  For Azure AD attribute **jobTitle**, values will be auto-updated in the **Designation** field of Kissflow User Management table after a successful SCIM sync.
+4.  Once the above attributes are successfully mapped, delete all unwanted attributes that you don't want in Kissflow. These attributes include, **facsimileTelephoneNumber, state, city, mobile, streetAdress**, etc.  
+    Since, Kissflow does not support the SCIM 2.0 Enterprise User schema extension, you'll also have to delete the default attributes like **employeeId**, **department**, and **manager** from the list. Instead, you will need to separately add custom target attribute values for these attributes.
+
+## Adding Kissflow custom schema attributes
+
+1.  To add these custom attributes from Kissflow, enable the **Show advanced options** checkbox, then click **Edit attribute list for customappsso**.
+    
+    ![](/migration-assets/setting-up-scim-with-azure-active-directory/6.png)
+    
+2.  Before updating the customappsso schema, make sure you also mark the AD source attribute "**userPrincipalName**" to **Required** as shown below. This action will automate synchronization of Azure AD email addresses with Kissflow during account provisioning.
+    
+    ![](/migration-assets/setting-up-scim-with-azure-active-directory/10.png)
+    
+3.  To add a **customappsso User Attribute**, copy the urn expression from the table below for each of the AD attributes and paste them in the blank field under customappsso User Attributes.
+4.  Next, change the Attribute type as listed in the table below.
+5.  Finally, you must select the following **Referenced Object Attribute** from the dropdown, "**urn:ietf:params:scim:schemas:extension:enterprise:2.0:User**". Leave the “**Reference Object Attribute**” blank unless the “**Type**“ is set to “**Reference**”.
+6.  Click **Save** to create a custom attribute mapping. In a similar way, you can create custom attributes for other AD attributes listed in the table below.  
+    Here's an example of how this mapping is done inside the Azure enterprise app.
+    
+    ![](/migration-assets/setting-up-scim-with-azure-active-directory/12.png)
+    
+
+**Azure Active Directory Attribute**
+
+**Attribute type**
+
+**customappsso User Attributes**
+
+manager
+
+Reference
+
+urn:kissflow:scim:schemas:extension:_Kissflow Account ID_:2:User:_&#123;Manager field ID in Kissflow&#125;_**_._**value
+
+department
+
+String
+
+urn:kissflow:scim:schemas:extension:_Kissflow Account ID_:2:User:&#123;_Department field ID in Kissflow&#125;_
+
+User type
+
+String
+
+urn:kissflow:scim:schemas:extension:_Kissflow Account ID_:2:User:_&#123;User type field ID in Kissflow&#125;__._value
+
+Number
+
+Number
+
+urn:kissflow:scim:schemas:extension:_Kissflow Account ID_:2:User:_&#123;Unique Number field ID in Kissflow&#125;_
+
+Currency
+
+String
+
+urn:kissflow:scim:schemas:extension:_Kissflow Account ID_:2:User:_&#123;Unique Currency field ID in Kissflow&#125;_
+
+Date
+
+String
+
+urn:kissflow:scim:schemas:extension:_Kissflow Account ID_:2:User:_&#123;Date field ID in Kissflow&#125;_
+
+Date time
+
+String
+
+urn:kissflow:scim:schemas:extension:_Kissflow Account ID_:2:User:_&#123;Date-time field ID in Kissflow&#125;_
+
+Yes/No
+
+Boolean
+
+urn:kissflow:scim:schemas:extension:_Kissflow Account ID_:2:User:_&#123;Boolean field yes/no in Kissflow&#125;_
+
+Dropdown
+
+String
+
+urn:kissflow:scim:schemas:extension:_Kissflow Account ID_:2:User:_&#123;Dropdown field ID in Kissflow&#125;_
+
+> **Note:**
+> 
+> You must add your actual [Kissflow Account ID](/t/35h4az8y7h4gj/api-keys) in place of the yellow highlighted text and your unique field ID in your Kissflow user management table in place of the green highlighted text.
+
+## Mapping Kissflow custom schema attributes
+
+The customappsso attributes that you map here are created using the [steps mentioned above](/t/m1h4a1q36h4gg/scim-azure-ad#adding-kissflow-custom-schema-attributes). These customappsso attributes get mapped to the relevant AD attributes that you want to sync with Kissflow.
+
+1.  To map your customappsso attribute, go back to the **User Attribute Mapping** screen.
+2.  Click **Add New Mapping.**
+    
+    ![](/migration-assets/setting-up-scim-with-azure-active-directory/11.png)
+    
+3.  In the **source attribute** field, select the relevant **Azure AD Attribute** that you've created**,** for example, **manager.** Similarly, in the **Target attribute** field, select the relevant **customappsso user attribute** that you've defined. You can map all your custom attributes that you've added previously.
+4.  Click **Save** to confirm provisioning.
+
+## Provisioning status
+
+1.  Under **Provisioning** tab > **Settings** section, switch **Provisioning Status** to **On**.
+2.  Pick the **Scope** as **Sync only assigned users and groups** and click **Save.**
+3.  Under current status, click **refresh.** This will initiate user provisioning between Azure AD and Kissflow.
+4.  Wait for some time to see the provisioning status in your enterprise app. Once the provisioning is completed, AD users and groups can be seen inside Kissflow user management table with relevant attribute values.

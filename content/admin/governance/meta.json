@@ -1,4 +1,17 @@
 {
   "title": "Governance",
-  "pages": ["..."]
+  "pages": [
+    "account-governance-overview",
+    "user-governance",
+    "group-governance",
+    "process-governance",
+    "board-governance",
+    "governing-connections",
+    "dataset-governance",
+    "governing-lists",
+    "governing-authentication-keys",
+    "portal-governance",
+    "ai-control-center",
+    "app-governance"
+  ]
 }

@@ -1,4 +1,10 @@
 {
   "title": "Portals",
-  "pages": ["..."]
+  "pages": [
+    "portal-overview",
+    "creating-and-managing-portals",
+    "administering-portals",
+    "managing-portal-users",
+    "portal-audit-log"
+  ]
 }

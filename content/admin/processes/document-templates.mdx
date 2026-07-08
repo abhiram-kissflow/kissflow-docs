@@ -1,0 +1,242 @@
+---
+title: "Document templates"
+description: "DRAFT (unverified) — migrated from /t/x2h9qtr/document-templates"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+You can use a document template to automate the generation of your process-related PDFs. You must be a [Process Admin](/t/p8h9qtp/managing-process-members-and-permissions#process-admin) or a [Process Developer](/t/p8h9qtp/managing-process-members-and-permissions#developer) to create these templates.
+
+For example, you are an HR manager in your organization and you manage the **Recruitment** process in your organization’s Kissflow account. You can create a document template that helps you generate offer letters automatically from the process that was used to close the interview.
+
+## Creating a document template
+
+You can create a document template in two ways:
+
+### Create from scratch
+
+Navigate to the process for which you would like to create a document template. Click **Manage** > **Document templates** > **Create template** > **Create from scratch**.  
+  
+Enter the name and description for your document template and click **Create from scratch** to manually build your document template.
+
+![](/migration-assets/document-templates/4.gif)
+
+### Generate using AI
+
+Use Kissflow AI to help you craft your document template instantly. Navigate to the process for which you would like to create a document template. Click **Manage** > **Document templates** > **Create template** > **Generate using AI**.  
+  
+Enter the document template name, for example, **Employee Offer Letter** or **Purchase Order**, select a language for the template, and click **Generate** to create the first draft called **Draft 1**.  
+  
+The AI uses these inputs as a prompt to generate draft 1 of your document template.
+
+![](/migration-assets/document-templates/3.gif)
+
+#### AI regeneration to enhance drafts
+
+You can refine drafts by adding additional information to a chosen draft and click **Regenerate** to get the desired changes in the new draft.
+
+![](/migration-assets/document-templates/5.gif)
+
+> **Note**:
+> 
+> -   You can navigate to any existing draft and use it as the base to regenerate a new draft with required changes.
+>     
+> -   Drafts can be used to regenerate only within one hour of creation. For instance if draft 7 was generated on January 19, 03:45 PM you can use this draft to regenerate before January 19, 04:45 PM.
+>     
+> -   A maximum of 10 drafts can be created.
+>     
+
+#### Finalizing a template draft
+
+Once satisfied, you can navigate to the draft you like the most and click **Use this draft** on the top right of the page. The chosen draft is transferred to the document template editor, where you can further customize the document.
+
+## Editing a document template
+
+You can further draft the content of your template in the editor. The editor supports all the formatting options like any other text editor and offers additional support to [insert process fields](/t/x2h9qtr/generating-document-templates#inserting-process-fields), [page breaks](/t/x2h9qtr/generating-document-templates#inserting-page-breaks), [images](/t/x2h9qtr/generating-document-templates#inserting-an-image), and [form tables](/t/x2h9qtr/generating-document-templates#adding-a-form-table) too.![](/migration-assets/document-templates/1.png)
+
+As this feature was built using the Jinja templating engine, you can explore its potential to the fullest by referring to its documentation [here](https://jinja.palletsprojects.com/en/3.0.x/). You can write advanced conditions or loops, and extend the functionality of the template if you are familiar with Jinja.
+
+### Inserting process fields
+
+You can insert a specific system or process field in two ways:Enter two curly braces without any space in between them (**&#123;&#123;**) to see the list of fields used in the current process and select the field that you want to insert in the document template.You can also drag and drop the specific field from the left panel onto the template editor.![](/migration-assets/document-templates/19.gif)Supported fields
+
+Only form tables and the below fields are supported inside document templates:
+
+-   Text
+-   Text area
+-   Number
+-   Currency
+-   Email
+-   Sequence number
+-   Date
+-   DateTime
+-   User
+-   Dropdown
+-   Yes/No
+-   Radio button
+-   Image
+-   Aggregation
+-   Signature
+-   Scanner
+
+#### Unsupported fields
+
+The following fields are not supported inside document templates:
+
+-   Multi-select dropdown
+-   Checkbox
+-   Lookup
+-   Remote lookup
+-   Attachment
+-   Smart attachment
+-   Geolocation
+-   Checklist
+-   Rating
+-   Slider
+-   Rich text
+-   Button
+
+### Inserting page breaks
+
+You can add as many pages as you want in your document. Click the **Page break** button (![](/migration-assets/document-templates/7.svg)) from the toolbar to insert a page break.![](/migration-assets/document-templates/2.png)
+
+### Adding a table
+
+You can insert the form tables created as part of your process into your document template.Drag and drop a form table in your process like how you would add a field onto the template editor. Please note that a line of code would be appended above and below your form table when you drag and drop it. These syntaxes are added by Kissflow and we recommend you do not remove or modify them as it will affect the functioning of the template.Enter the name of the column header and use double curly braces to insert a process field as its value.![](/migration-assets/document-templates/21.gif)
+
+> **Note:**
+> 
+> You cannot drag and drop a field while setting values for a specific field in a table. Make sure to use double curly braces to insert a specific process field as a value in a table.
+
+### Inserting an image
+
+You can add or insert an image in the following three ways:
+
+1. **From your desktop** - Drag and drop the image from your local into the template editor
+2. **From a web page** - Right-click on the image and click **Copy image address**. Navigate to your template editor and click the **Insert image** icon. Right-click and paste the image address. Click **Done**. Hover over the image to format, resize, or delete the image as necessary.![](/migration-assets/document-templates/20.gif) 
+3. **Copy and paste** - You can also simply do a **Command/Ctrl C + Command/Ctrl V** to copy and paste the images from your existing documents from Microsoft Word or Google Docs to your document template editor.
+
+> **Tip:**
+> 
+> You can also copy and paste text content from any external source into your editor.
+
+### Inserting a header and footer
+
+A header appears at the top of a PDF document, whereas a footer appears at the bottom, or foot, of a page. Typically, these areas are used to insert document information such as the document’s name, headings, page numbers, images, date, etc., which are repeated on all document pages.Here’s how you can add a header and footer to your document template: 
+
+1.  Click the **Header & Footer** button in the editor. A new editor window appears for the Header and footer. The height of the header and footer is determined by the top and bottom margins of the base canvas, which you can change using the **Margins** button. The header and footer can further have a top, and bottom margin, which you can configure inside the editor, and the maximum margin size is 400px. The base canvas determines the header and footer's left and right side margins and cannot be changed inside the editor.
+2.  You can include the following things in the header and footer:
+    
+    1.  Textual content.
+    2.  Images and static tables.
+    3.  Page number and page count.
+    
+    > **Note:**
+    > 
+    > You cannot insert a child table. 
+    
+3.  Once you've added the necessary content, you can preview the document template by **Saving** it and clicking the **Preview** button.   
+     ![](/migration-assets/document-templates/9.png) 
+
+## Formatting options for currency, number and date fields
+
+If you have inserted a **Number**, **Currency**, **Date**, or a **DateTime** [field](/t/y4h4azv/basic-and-advanced-fields), you can choose to format how all the values appear inside the document template using the **Format** option. **Currency**, **Number**, and **Timezone** are the three formatting options available.![](/migration-assets/document-templates/12.gif)
+
+> **Note:**
+> 
+> Any changes you make to the format are applied to all the fields inside the document template and not localized to one particular field. 
+
+### Currency
+
+You can format how currency values are displayed in the document template. You can choose between the currency code that appears after the value or the currency symbol before the value. ![](/migration-assets/document-templates/6.png)
+
+### Number
+
+You can format how numbers are separated inside the **Number** and **Currency** [fields](/t/y4h4azv/basic-and-advanced-fields). You have four different types of separators to choose from. By default, the American style separator is applied. You can later change that by selecting another option depending on your preferred style. ![](/migration-assets/document-templates/10.png)
+
+### Date and time zone
+
+This formatting option allows you to format the way the date and date-time fields are displayed inside the document template. You can choose the time zone that needs to be followed. You can also change the date order by selecting the style suitable for your company. The multitude of formatting options allows you to customize it according to your needs. After choosing the desired formatting option, you can see the expected result on top of the formatting options. ![](/migration-assets/document-templates/8.png)
+
+## Customizing your page
+
+The **Page setup** option allows you to configure the basic layout and appearance of your document.
+
+### Page orientation
+
+Choose the orientation for your pages:
+
+-   Portrait
+-   Landscape
+
+### Page color
+
+Set the background color of your pages.
+
+### Margins
+
+Configure the margins of your pages. You have two options:
+
+-   **Auto**: Automatically sets the margins to 92 pixels on the top, bottom, right, and left.
+-   **Custom**: Allows you to manually adjust the margins according to your needs.
+
+Click **Apply** to save the changes to your document.
+
+![](/migration-assets/document-templates/16.gif)
+
+## Previewing a document template
+
+Click the **Preview** button at the top of the editor after you complete drafting the template. You can maximize the preview screen, or download the document as a PDF file.![](/migration-assets/document-templates/11.png)
+
+> **Note:**
+> 
+> The document template will be saved automatically when you preview it. However, you can also click **Save** to save your changes as necessary.
+
+## Associating a document template
+
+You can automate the PDF generation by establishing a [connection](/t/h7h4akh/process-connector) between the process and the document template you had recently created.
+
+1.  Click the process connector and select the **Generate a PDF document** step from the available options.
+2.  Set up a connection with the required account as necessary.
+3.  After choosing a process, select the relevant process instance ID.  
+     ![](/migration-assets/document-templates/13.png) 
+4.  Select the document template that has to be mapped to the process.
+5.  Enter the title of the document and choose whether the document must be shared as an attachment in the process form. If yes, select the specific attachment field to which the generated PDF must be attached.
+    1.  You can refresh fields to view all the updated fields in the form. You can also map form fields from your trigger step or fields from your previous action steps. These values will be automatically added to the fields after the action is executed.
+6.  Click **Next**
+7.  Add a [Kissflow Email connector](/t/q6h4akq/send-email-connector) to share the generated PDF as an attachment in an email.![](/migration-assets/document-templates/17.png) 
+8.  Enter the values of all the email-related fields and make sure to select the '**key**' field under **Attachments > Fields > Generate PDF**.![](/migration-assets/document-templates/18.png)
+9.  Activate the integration by toggling it **ON**.
+
+## Managing a document template
+
+1.  Navigate to your process and click the **Manage** button > **Document templates**
+2.  Choose your preferred template and click the **More options** button (![](/migration-assets/document-templates/15.svg)) > edit, rename, duplicate, or delete the document template.  
+     ![](/migration-assets/document-templates/14.png)
+
+Supported languages
+
+-   English
+-   Italian (Italiano)
+-   Russian (Русский)
+-   German (Deutsch)
+-   Spanish (Español)
+-   French (Français)
+-   Brazilian Portuguese (Portuguesê (Brazil))
+-   Simplified Chinese (简体中文)
+-   Korean (한국어)
+-   Japanese (日本語)
+-   Vietnamese (Tiếng Việt)
+-   Thai (ภาษาไทย)
+-   Arabic (العربية)
+-   Polish (Język Polski)
+-   Slovak (Slovenčina)
+-   Czech (Čeština)
+-   Ukranian (Українська)
+-   Hindi (हिन्दी)
+-   Romanian (Română)

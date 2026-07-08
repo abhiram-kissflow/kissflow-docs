@@ -1,0 +1,268 @@
+---
+title: "Admin notification settings"
+description: "DRAFT (unverified) — migrated from /t/m1y6ydz/admin-notification-settings"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## Admin notification settings
+
+The **Notification settings** section allows Super Admins to customize account notification preferences according to their communication needs.  
+ 
+
+![](/migration-assets/admin-notification-settings/2.png)
+
+## Global notifications
+
+Click your profile picture > **Account administration** > **Notification settings**. Super Admins can choose to turn on or off the email, web app and push notifications from the account for all its users.
+
+**Email notifications**: Toggle this switch ON to receive notifications via email.
+
+**Web app notifications**: Toggle this switch ON to receive notifications within the web application.
+
+**Push notifications**: Toggle this switch ON to receive push notifications.
+
+> **Note**:
+> 
+> To ensure you receive critical updates and important information, the below essential system notifications are prioritized and will be sent to you regardless of your channel settings.
+> 
+> **Notifications**
+> 
+> **Trigger**
+> 
+> User activated
+> 
+> When a user’s account is activated.
+> 
+> User deactivated
+> 
+> When a user’s account is deactivated.
+> 
+> Resend email verification
+> 
+> When the verification email is resent.
+> 
+> Email address updated
+> 
+> When a user’s email address is updated.
+> 
+> User created
+> 
+> When a new user is created.
+> 
+> Reset password
+> 
+> When a user’s password is reset.
+> 
+> 2FA status changed
+> 
+> When a user’s two-factor authentication status is changed.
+> 
+> Two factor verification
+> 
+> When two factor authentication is enabled with email code.
+> 
+> Domain verification
+> 
+> When a verification email is sent to connect a domain.
+> 
+> Waiting for admin approval
+> 
+> When a user creates a process/board/dataset
+> 
+> Export
+> 
+> When any export related to a user, board, dataform, dataset, or report is carried out.
+
+## SMTP server settings
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+Super Admins can configure a custom SMTP server to route notification emails. By default, Kissflow uses its own server to send notification emails. However, configuring a custom SMTP server is required if you wish to route emails through your own infrastructure or if you need to skip email verification.
+
+Navigate to your profile icon at the top right corner of the screen and click **Account administration** > **Notification settings** > **SMTP server settings** to manage these preferences.
+
+![](/migration-assets/admin-notification-settings/6.gif)
+
+### Adding a custom SMTP Server
+
+You can switch from the default Kissflow server to a custom server to gain greater control over email deliverability.
+
+1.  Click **Add custom SMTP server**.
+    
+2.  In the popup window, fill in the server details:
+    
+    -    **SMTP server name**: Enter a name to identify this server configuration.
+        
+    -   **Host**: Enter your SMTP server host address.
+        
+    -   **Port**: Enter the port number.
+        
+    -   **Security protocol**: Select either **STARTTLS** or **SSL/TLS**.
+        
+    -   **Authentication type**: Choose the method that matches your email server's requirements:
+        
+        1.  **Basic auth**: Select this to authenticate using traditional credentials. Enter the **Username** and **Password** of your SMTP server.
+            
+            ![](/migration-assets/admin-notification-settings/1.png)
+        2.  **OAuth 2.0**: Choose your email provider (**Google** or **Microsoft**) from the dropdown menu. Note that you will be prompted to sign in and authorize Kissflow to access your email account to complete the setup.
+            
+            ![](/migration-assets/admin-notification-settings/3.png)
+3. **Sender profile**: Configure the Sender name, Sender email, and Reply-to email.
+    
+    -   **Default behavior**: The sender profile configured here is applied as the default for all your app environments (**Development**, **Test**, and **Production**).
+        
+        ![](/migration-assets/admin-notification-settings/4.png)
+    -   **Customizing for environments**: You can override the default profile for specific environments.
+        
+        1.  Click the environments hyperlink in the banner to view your list of environments.
+            
+        2.  Click **Manage** on the specific environment you wish to customize (for example, _Development_).
+            
+        3.  Navigate to **Notification settings**.
+            
+        4.  Under **SMTP server settings**, you will see the option to configure the profile.
+            
+        5.  Click **Create profile** (visible if your server is successfully configured), enter the specific sender details for that environment, and save.
+            
+            ![](/migration-assets/admin-notification-settings/11.gif)
+4. **Server failure alerts**: Enter a recipient email address to receive notifications if the custom SMTP server fails to send emails.
+    
+5.  Click **Save and test**. If the connection is successful, the server will be saved.
+    
+6.  You can switch between the **Default server** and your **Custom SMTP server** at any time from this page by clicking the **More options** icon (![](/migration-assets/admin-notification-settings/5.png) ) and selecting **Switch to this server**
+    
+    ![](/migration-assets/admin-notification-settings/12.gif) 
+
+### Skipping email verification
+
+The **Skip email verification** option allows users to receive notification emails immediately without being forced to verify their email address first.
+
+**Requirement**: This feature is only supported when using a custom SMTP server. You cannot enable this while using the default Kissflow server.
+
+**How to enable**: Toggle the Skip email verification switch ON on your custom SMTP server card.
+
+![](/migration-assets/admin-notification-settings/7.png)
+
+If you have not yet configured a custom server, switching this toggle when you navigate to the SMTP server settings, will automatically prompt you to add a custom SMTP server configuration.
+
+![](/migration-assets/admin-notification-settings/8.png)
+
+### Editing an active custom SMTP server
+
+You cannot make changes to a custom SMTP server while it is currently processing live emails. To edit the configuration of an active server:
+
+1.  Click the **Edit** icon (
+    
+    ![](/migration-assets/admin-notification-settings/9.png)
+    
+    ) on the active custom SMTP server card.
+    
+2.  A confirmation popup will appear alerting you that the server must be disabled before editing.
+    
+3.  Click **Disable and edit** to proceed.
+    
+4.  Make the necessary changes to your server details or sender profile.
+    
+5.  Click **Save and test**.
+    
+6.  Once the test is successful and the changes are saved, switch to the custom SMTP server.
+    
+7.  Edit or view the footer of emails sent from your account to include important contact information or legal disclaimers.
+    
+
+> **Note**:
+> 
+> Your account will temporarily switch to the **Default server** to ensure email delivery continues while you make changes.
+
+### Deleting an active custom SMTP server
+
+To permanently remove a custom SMTP server configuration that is currently in use:
+
+1.  Click the **Delete** icon (
+    
+    ![](/migration-assets/admin-notification-settings/10.png)
+    
+    ) on the active custom SMTP server card.
+    
+2.  A popup will appear stating that the server must be disabled before it can be deleted.
+    
+3.  Click **Disable and delete** to confirm.
+    
+4.  The custom server configuration will be removed, and the **Default server** will remain active.
+    
+
+> **Note**:
+> 
+> Your account will automatically revert to the Default server upon deletion.
+
+### Editing an inactive custom SMTP server
+
+If a custom server is not currently in use (inactive), you can update its configuration directly.
+
+1.  Click the **Edit** icon (
+    
+    ![](/migration-assets/admin-notification-settings/9.png)
+    
+     ) on the inactive custom SMTP server card.
+    
+2.  Update the server details, authentication credentials, or sender profile as needed in the popup window.
+    
+3.  Click **Save and test** to verify the new settings and update the configuration.
+    
+
+### Deleting an inactive custom SMTP server
+
+To remove an inactive custom server configuration:
+
+1.  Click the **Delete** icon (
+    
+    ![](/migration-assets/admin-notification-settings/10.png)
+    
+     ) on the inactive custom SMTP server card.
+    
+2.  A confirmation popup will appear warning that the configuration will be permanently removed. Click **Delete** to confirm.
+    
+
+## Customizing account notifications
+
+In the **Customize notifications** section, Super Admins can manage the settings related to email notifications and customize the content of email sent from the account to all users.
+
+Under the **General** tab, click Edit to customize the content and formatting of welcome emails sent from the account to new users. 
+
+### Editing emails
+
+Kissflow provides users with the flexibility to customize the welcome email and the resend verification email that is sent to new users. You can personalize the content using an in-built editor that allows you to add, remove, or modify text as per your preference. Use the provided custom fields and default system-generated fields to dynamically insert user-specific information like name, email, phone number, etc. Experiment with different text styles, colors, and formatting options.
+
+![](/migration-assets/admin-notification-settings/15.png)
+
+> **Note:**
+> 
+> Signature fields are not supported in email notifications (Default and customized emails).
+
+Once you have made the desired changes, click Preview to ensure everything looks correct and click Save to update the welcome email template.
+
+Regularly review and update the welcome email template to reflect any changes or updates to your organization's processes. Click **Reset** to default to the initial default welcome email content.
+
+### Header and footer
+
+Manage the appearance of email headers and footers to maintain brand consistency and professionalism in your communications.
+
+#### Header
+
+![](/migration-assets/admin-notification-settings/14.png)
+
+Edit or view the header of emails sent from your account to ensure a cohesive branding experience for recipients.
+
+#### Footer
+
+![](/migration-assets/admin-notification-settings/13.png)
+
+Edit or view the footer of emails sent from your account to include important contact information or legal disclaimers.
