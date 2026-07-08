@@ -15,6 +15,20 @@ yarn dev
 
 Open http://localhost:3000 with your browser to see the result.
 
+## AI Chat Security Baseline
+
+The chat endpoint (`/api/chat`) includes lightweight protections suitable for a free deployment:
+
+- Per-IP rate limit (default: `20` requests/minute)
+- Origin check (`Origin` must match current host by default)
+- Payload size check (`16KB` max request body)
+
+Optional environment variables:
+
+- `CHAT_RATE_LIMIT_PER_MINUTE` (example: `15`)
+- `CHAT_ALLOWED_ORIGINS` (comma-separated exact origins)
+  - Example: `https://docs.example.com,https://staging.example.com`
+
 ## Explore
 
 In the project, you can see:
