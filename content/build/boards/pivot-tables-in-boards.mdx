@@ -1,0 +1,172 @@
+---
+title: "Pivot tables in boards"
+description: "DRAFT (unverified) — migrated from /t/35h9ql2/pivot-tables-in-boards"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+You can generate pivot tables to summarize, arrange, and compare a large amount of data related to your board. Pivot tables allow you to easily interchange fields, rows, and columns. The representation of data in a pivot table reorients according to changes you make.
+
+## Creating a pivot table
+
+1.  To create a pivot table, click the **Reports** tab on your board page.
+    
+2.  Click **\+ Create report**.
+    
+3.  Provide a name, select **Pivot** as the report type**,** and click **Create**.
+    
+
+![](/migration-assets/pivot-tables-in-boards/1.png)
+
+## Configuring a pivot table
+
+To configure the pivot table, start by choosing the fields you want to display from the right panel. In the field selection click the **\+ Add fields** button to add the required fields.
+
+Choosing fields
+
+There are two types of fields to choose from.
+
+1. **Custom fields** - These are fields you created on your board form and are unique to your board.
+    
+2. **System fields** - These are system-generated fields that are created by default for a board such as Title, Created by, Modified by, Created at, Modified at, Flow name, DocVersion, Item ID, Assignee, Status, Priority, Start date, Due date, Requester, Estimated time, Watchers, and Resolution time.
+    
+
+> **Note:**
+> 
+> The resolution time of boards will be shown in seconds.
+
+#### Columns
+
+Add fields as columns from your board form. The order of your selection creates the column hierarchy.
+
+You can include up to 10 fields as columns, and subtotal columns are automatically generated for consecutive levels, with **Grand Total** appended to the column name.
+
+#### Values
+
+Under **Values**, select a field to apply aggregations like Sum, Average, Count, Min, Max, and Std dev.You can select only one aggregation type for the following field types:
+
+-   Number
+-   Currency
+-   Slider
+-   Rating
+
+Count is the only aggregation type shown for the other field types.
+
+#### Rows
+
+Add fields as rows from your board form. The selection order defines the row hierarchy. Successive rows follow the initial row based on field order. 
+
+You can add up to 10 fields as rows. 
+
+> **Tip:** If you hover over a cell value, you can see which row and column it belongs to, along with the value.
+
+### Filtering data
+
+To narrow down specific data in your pivot table, you can add filters. Click **Add advanced filter** to add a filter to your report during configuration. Choose the fields you want to filter and enter the conditions. Click Save to configure the report. 
+
+Click **\+ Add filter** button to add more filters and conditions to the same field. The new condition can be either AND (all conditions must be met) or OR (any one condition must be met). 
+
+### [Enabling drilldown in pivot reports](/t/g9y3tyw/pivot-tables-in-processes#enabling-drilldown-in-pivot-reports)
+
+The [drilldown](/t/y4h9qkr/reports#enabling-drilldown-in-chart-and-pivot-reports) feature enables you to delve deeper into your report data by displaying a tabular view of underlying rows associated with specific data points in [pivot reports](/t/q6h9qz5/pivot-reports#enabling-drilldown-in-pivot-reports). Drilldown is enabled by default when creating a report. You can toggle drilldown on or off in the report configuration.To enable drilldown,
+
+1.  Navigate to the **Settings** tab.
+    
+2.  Under **Drilldown** section, enable drilldown.
+    
+3.  Select at least two fields.
+    
+4.  Click **Apply**.
+    
+
+![](/migration-assets/pivot-tables-in-boards/4.png)
+
+> **Note:** 
+> 
+> The report’s selected fields are automatically chosen as default drilldown fields. Ensure a minimum of two fields are selected for drilldown.
+
+After configuring your pivot report, hover over it and click to drill down into the data. Upon clicking the pivot report, a tabular preview will appear, showing the underlying data. You can search fields, show/hide columns, and [export](/t/q6h9qz5/pivot-reports#exporting-drilldown-data) data at runtime. Click the dropdown on each column header to sort your data in ascending or descending order.
+
+### Grand totals
+
+Under **Grand totals**, choose how you would like to display grand totals from the dropdown:
+
+-   **Show grand totals** - display grand totals for all rows and columns.
+-   **Show grand totals for columns only** - display grand totals for each column.
+-   **Show grand totals for rows only** - display grand totals for each row.
+-   **Do not show grand totals** - hide grand totals for all rows and columns.
+
+### Value calculations
+
+Under **Value calculations**, choose how you would like to calculate values from the dropdown:
+
+-   **Keep as is** - don't change the values
+-   **% of grand total** - the table values will be displayed in percentage instead of sum.
+-   **% of row** - the row total will be displayed in percentage instead of sum.
+-   **% of columns** - the column total will be displayed in percentage instead of sum.
+
+> **Note:**
+> 
+> The resolution time of boards will be shown in DAYS+HR+MIN+SEC format (for example: 1 DAY 3HR 2MIN 5SEC).
+
+### Conditional formatting
+
+Conditional formatting enables you to visually enhance data cells within a pivot table using various styles, depending on specified conditions. This functionality allows you to color code and categorize data for simplified analysis. 
+
+During report configuration, you can customize the appearance of your data cells, including value and background color, by defining conditions. These conditions can be based on cell values, such as equal to, not equal to, greater than, less than, greater than or equal to, less than or equal to, between, and not between.
+
+Follow these steps to apply conditional formatting.
+
+1.  Under Conditional format, click **Add condition** > **\+ Add condition**.
+    
+2.  Select the condition you want to apply to the cell.
+    
+3.  Enter the value.
+    
+4.  Format the cell’s background color and font color.
+    
+5.  Click **Apply.**
+    
+
+You can easily rearrange conditions by using drag-and-drop during the addition process. In case of two conditions with the same value range, the latest condition applied through drag-and-drop will take precedence. You can then edit them based on your requirements.
+
+You can add any number of conditions. The specified conditions are evaluated from top to bottom, and the formatting options associated with the first matching condition are applied to the respective data cell. To remove a condition, click Remove condition icon (). 
+
+> **Note:**
+> 
+> Conditional formatting will not be applied for column and row totals (column based totals and row based totals) and grand totals. 
+
+## Applying styles to pivot reports
+
+Format the column header, cells, and grand totals of your report to suit your preferences. Choose the Normal state for the default appearance and the Hover state to preview styles on hovering.
+
+-   **Header section:** Customize the background color, font size, font color, font weight, and icon color of the column header. The font weight dropdown provides options like Regular, Medium, and Semi-bold.
+    
+-   **Cell settings:** Adjust the font size, font color, font weight, line height, and letter spacing for the cells in your pivot report.
+    
+-   **Grand total customization:** In the grand total section, you can adjust the background color, Font color, and Font weight of the grand total section of your report. 
+    
+
+![](/migration-assets/pivot-tables-in-boards/5.png)
+
+## Additional actions
+
+You can perform other actions in your report - rearrange rows and columns, apply filters, customize the view by expanding/collapsing pivot levels, and format currency fields.
+
+-   **Sort**: Arrange your rows and columns in ascending or descending order using the **Sort** button (![](/migration-assets/pivot-tables-in-boards/2.png)). Rows and columns are sorted in ascending order by default.
+    
+-   **Filter**: To filter by specific rows or columns, click the **Filter** button (![](/migration-assets/pivot-tables-in-boards/3.png)) beside the row/column > use search box to easily identify the fields or select the checkboxes next to the items you want to show > click **Apply**. Use **Select all** and **Clear all** to easily filter the items
+    
+-   **Expand/collapse**: **Expand** to see details of a section or **Collapse** to hide them. The chosen state (expand/collapse) is saved even if you leave the page.
+    
+-   **Widgets**: When selecting a currency-type field in **Values**, the currency format will be applied to the fields. User fields in rows and columns will be presented in a user widget format similar to forms.
+    
+
+> **Note:**
+> 
+> If a currency field value has various currency type formats, they will be displayed as numbers without any currency formatting.

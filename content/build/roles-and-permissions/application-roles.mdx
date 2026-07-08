@@ -1,0 +1,105 @@
+---
+title: "Application roles"
+description: "DRAFT (unverified) — migrated from /t/h7yzj46/application-roles"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+## [Creating functional roles for accessing an application](/t/83h9q19/application-roles#creating-functional-roles-for-accessing-an-application)
+
+Individuals or app-level user groups, be it in-app (within the same app) or external (portal apps), representing business units, departments, or divisions that will interact with the live app, are known as roles. Each role can be assigned access [permissions](/t/83yzj9j/role-permissions) to process, board, and dataform that apply to all its users.
+
+## [Adding a role to an application](/t/83h9q19/application-roles#adding-a-role-to-an-application)
+
+Inside the app builder, click the **Roles** option on the left navigation bar. You can create an in-app role or link a role from an external app.  
+In the **Roles** page, you will find both In-app and Linked roles to the left and the workflows in your app on the right. From this space, you can share workflows with roles and review the permissions that have been granted.  
+You can manage permissions for Dataforms and their corresponding views and reports , Boards and corresponding views and reports, Processes and their reports, Analytics reports, Decision tables, and External data objects.
+
+![](/migration-assets/application-roles/1.gif)
+
+### Creating an in-app role
+
+In a new app, you will have two in-app roles by default **Admin** and **User**. However, you can create any number of new roles based on your needs.
+
+1.  Click **\+ New role**.
+    
+2.  Provide a role name and description. Set the home page and navigation bar for users with these roles to see when the app gets published.
+    
+    ![](/migration-assets/application-roles/9.gif)
+    
+       
+    The home page and navigation are always set as default. You can change this to a page or navigation you've created. To do this, click the **Edit** icon near the role's name.
+    
+    ![](/migration-assets/application-roles/2.gif)
+3.  Click **Create** to save the role. To add users and groups to the roles, go to **Manage > Roles** and click **Manage members** to add members to the role you want.
+    
+    ![](/migration-assets/application-roles/3.gif)
+
+## Linking a role from an external app
+
+You can link a role from another app in your Kissflow account to your current one. This lets you assign specific workflow tasks to users in that role without granting them full access to your app's data.
+
+For example, imagine an app managed by C-suite executives in your organization contains a workflow that needs input from an Engineering Manager.
+
+-   **The problem:** You can't add the manager to the C-Suite App, as it contains confidential data.
+    
+-   **The solution:** You know the manager has the "Manager" role in the "Engineering App." You can link that "Manager" role from the Engineering App directly to the specific task in your C-Suite workflow.
+    
+
+This way, the Engineering Manager is assigned only the dataform they need to complete, while the rest of the C-Suite App remains secure.
+
+1.  Click **\+ New role > Linked role**
+    
+2.  Select the external app and the roles from the dropdown menus.
+    
+3.  Link the roles.  
+    Now you can view the roles from the **Linked** tab in the left panel.
+    
+    ![](/migration-assets/application-roles/7.gif)
+
+## [Editing roles and permissions](/t/83h9q19/application-roles#editing-roles-and-permissions)
+
+You can manage permissions for both in-app and linked roles from this tab. On the right, you will find all the workflows in your app and their corresponding child flows, such as views and reports. Using radio buttons, you can share main workflows such as dataforms, boards, processes, and the views and reports right from this page.
+
+### In-app roles
+
+1.  The new roles you create and the existing ones will be shown here to the left. Click a role on the left to select it and you can view the permissions assigned the selected role on the right.
+    
+2.  Click the radio buttons to manage permissions for working with processes, boards, datasets, and lists.
+    
+3.  When you click on a permission, it will be auto-saved and the workflow will be shared with the selected role instantly.
+    
+4.  If you have previously shared a workflow using its dedicated share button, those permissions will reflect here. Any changes you make here will override the previously assigned permission. For example, if you have given **Read-only** permission for the **User** role through the dataform's share icon, you can change it from the **Roles** tab and this will override the previously given **Read-only** permission.
+    
+    ![](/migration-assets/application-roles/8.gif)
+
+> **Note:** Permissions are inherited when a workflow (dataform, board, process) is shared with a role. [Learn more](/t/83yzj9j) about how inheritance works.
+
+### External app roles
+
+You cannot modify an external app’s role directly from the source app. Instead, you must edit the roles on the external app's in-app page.
+
+To view and grant permissions, select a linked role from the left panel and select a workflow on the right. The permissions granted for all data shared across various data modules in the app will be listed here.
+
+![](/migration-assets/application-roles/4.png)
+
+####  Limitations in sharing workflows with linked roles
+
+The following are the limitations in sharing workflows with roles linked from external apps:
+
+Dataforms - any kind of permission cannot be granted for accessing a dataform. However, dataform views (all except sheet view) and reports can be shared with linked roles.
+
+Boards and processes - Can be shared with **Initiate** permission but giving **Manage** permission is not allowed for board and process items.
+
+External data objects and decision tables - cannot be shared with linked roles.
+
+## [Deleting roles](/t/83h9q19/application-roles#deleting-roles)
+
+You can use the search bar to find a specific role if you have several roles in your app. 
+
+For in-app roles, you can click the **Delete** button (![](/migration-assets/application-roles/5.png)), while for external apps, you can use the **Delink** button (![](/migration-assets/application-roles/6.png)).

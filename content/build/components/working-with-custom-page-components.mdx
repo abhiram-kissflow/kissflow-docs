@@ -1,0 +1,99 @@
+---
+title: "Working with custom page components"
+description: "DRAFT (unverified) — migrated from /t/y4yzj4d/working-with-custom-page-components"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+## Creating custom page components
+
+There are two ways in which you can create custom page components:
+
+1.  [Building with AI](/t/p8yg3zm/creating-custom-components-using-ai)
+2.  Building from scratch using Kissflow SDK
+
+## Building custom components using Kissflow SDK
+
+The custom page component feature lets you build an entire page from scratch using HTML elements, bypassing the default components entirely.
+
+Use [Kissflow's JavaScript SDK bundle](https://developers.kissflow.com/components/page/) to develop custom components over the low-code platform. The SDK methods can help you configure different client and server functions in your custom page component.Three basic steps to create and use a custom component
+
+Design and build the required component. Use Kissflow's SDK methods to make it interactive and usable alongside other system components.
+
+Upload the component, create input parameters, and publish it.
+
+Add the custom component to a page and set up values for your input parameters. These values can be static or you can add a global/local variable.
+
+## Creating custom components
+
+You can import custom components into the app builder by:
+
+-   Uploading a .zip file containing the component entities.
+-   Entering the URL of the component's hosting location.
+
+### Importing a ZIP file
+
+Open app builder, click **Interface** in the left navigation panel, then select **Components**.2.  Click the **New component** button.
+3.  Choose **Page** as the type of custom component. Enter a name and description and click **Create**.
+4.  In the **Import component** page, upload the .zip file.
+
+![](/migration-assets/working-with-custom-page-components/1.gif)
+
+Once the file is imported, you can click **Preview** to instantly see your imported component in runtime mode.
+
+> **Note:**
+> 
+> The imported ZIP file must always include an **index.html file**. Here's a [sample ZIP file](https://d56vh6ph4jjmq.cloudfront.net/kissflow/help-articles/custom-component.zip) for you to experiment with.
+
+### Uploading using an external URL
+
+You can also import your component hosted on an external URL.
+
+Ensure that the component is in a ZIP file in the external link.Copy the URL of the component.Click the **Import from URL** option. Then paste your component address in the field.Click **Preview** to render the component in runtime mode.
+
+###  Live preview
+
+You can preview your component before uploading using the Live preview option. This allows you to see changes in real time as you build.
+
+#### Setting up live preview
+
+1.  Use the click here option to open the Live preview window.
+    
+2.  Enter your dev server URL (e.g., [http://127.0.0.1:9000](http://127.0.0.1:9000)) and press enter.
+    
+
+![](/migration-assets/working-with-custom-page-components/2.gif)
+
+> #### Important note:
+> 
+> Before using your dev server URL in Live preview, you must resolve any SSL certificate errors:
+> 
+> 1.  Open your dev server URL in a browser window.
+>     
+> 2.  If you see a "Your connection is not private" message, click Advanced > Proceed to \[your URL\].
+>     
+> 3.  This step is only required once and prevents SSL errors in the live preview.
+>     
+
+Setting up input parameters
+
+You can create three types of input parameters for your custom component: **String**, **Number**, **Static drop-down** parameters and define values for them in the app builder.
+
+To map the input parameters to your custom component, use the [watch params method](https://developers.kissflow.com/components/page/#watch-params) in your custom component's code.
+
+![](/migration-assets/working-with-custom-page-components/3.gif)
+
+Click **Publish** to publish the component. Now, it is ready to use in your pages.
+
+Using the custom component in a page
+
+To use the custom component in a page, drag and drop **Custom component** onto the page, select the required component from the **Select custom component** dropdown and save.
+
+> **Note:** You can add a custom component in addition to other system component in a page. However, the configuration settings in the page builder will apply only to the system components.
+
+![](/migration-assets/working-with-custom-page-components/4.gif)

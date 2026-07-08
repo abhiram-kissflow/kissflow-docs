@@ -1,0 +1,55 @@
+---
+title: "Decision tables overview"
+description: "Represent complex business logic as a table of conditions and results that workflows and apps can evaluate at runtime."
+contentType: overview
+persona: citizen-developer
+section: build
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - decision-tables
+  - business-logic
+---
+
+# Decision tables overview
+
+<PlanBadge plans={["enterprise"]} />
+
+A decision table is a structured representation of business logic for decision-making. Instead of writing nested conditions in code or workflow branches, you organize your inputs (conditions) and outcomes (results) in a table that Kissflow evaluates at runtime.
+
+<iframe src="https://player.vimeo.com/video/914754751?h=313c98a0bb&app_id=122963" title="Introducing Decision Tables in Kissflow" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+## Why decision tables?
+
+When business logic involves many input combinations, evaluating conditions one by one is error-prone — especially when the rules change over time. Decision tables give you:
+
+- **A single place for complex logic** — conditions and results live in one table instead of being scattered across workflow branches.
+- **Readability** — anyone on the team can scan the table and understand the rules.
+- **Reuse** — the same table can be evaluated from multiple places, so logic isn't copied and pasted.
+- **Business-user ownership** — rules can be changed by the people who own them, without a developer rewriting code.
+- **Flexibility for changing data** — adjust values in rows instead of restructuring logic.
+
+## How decision tables work
+
+At runtime, input values are compared against your conditions row by row. Depending on the [evaluation settings](/docs/build/decision-tables/evaluation-settings), the table returns the results of the first matching row, or aggregates results across all matching rows.
+
+![A loan amount approval decision table with a salary range condition, loan amount and interest rate results, and a default condition row](/migration-assets/decision-tables-overview/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Limits
+
+| Limit | Value |
+|---|---|
+| Conditions per table | 10 |
+| Results per table | 5 |
+| Rows per table | 50,000 |
+| Values returned by **Return all matched values** | 100 |
+| Rows added per CSV import | 1,000 |
+
+## What's next
+
+- [Where are decision tables used?](/docs/build/decision-tables/where-used)
+- [Creating a decision table](/docs/build/decision-tables/creating-a-decision-table)
+- [Creating conditions and results](/docs/build/decision-tables/conditions-and-results)

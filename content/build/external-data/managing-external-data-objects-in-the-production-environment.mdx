@@ -1,0 +1,94 @@
+---
+title: "Managing external data objects in the production environment"
+description: "DRAFT (unverified) — migrated from /t/p8y3myz/managing-external-data-objects-in-the-production-environment"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+Upon deploying an app with external data objects used in its lookup fields and integration, you’ll have to connect or reconnect the connection again in production to ensure that it functions seamlessly.
+
+Before initiating connection or reconnection, ensure you have Admin permissions to access your app's Manage external data objects page. If you don’t, contact your Super admin to grant you the necessary permission. 
+
+Super admins can follow the steps listed [here](/t/x2y3mhr/setting-up-an-external-data-connection#sharing-external-connection) to grant Admin access to users. 
+
+> **Note:**
+> 
+> If you’ve used an external data connection to create multiple external data objects in the same app or different apps and have already deployed the connection in production, skip this step.
+
+## Connecting to an external data connection
+
+For first time deployment, follow the below steps:
+
+### For Admins
+
+1.  Go to your account’s home page and open the app. 
+    
+2.  Click **More options** ![](/migration-assets/editing-an-external-data-object/1.png) and choose **Manage external data objects**. On this page, you’ll find a list of external data connections linked with that specific app.
+    
+    ![](/migration-assets/managing-external-data-objects-in-the-production-environment/1.gif)
+    
+3.  Click **Connect** and set up the connection. You’ll be redirected to the **Connect connections** page.  
+      
+    For existing connections, you will have the option to **Reconnect**.  
+     
+    
+4.  Provide the necessary general details and authentication credentials.
+    
+5. **Save** the connection.  
+     
+    
+    ![](/migration-assets/managing-external-data-objects-in-the-production-environment/2.png)
+
+> **Note:**
+> 
+> After setup, changing the connector or modifying the existing connector’s general details are not possible. 
+
+Now you’re all set and the external data object used in the app will function as intended. 
+
+### For Super admins
+
+You can directly access the external data connections in your account by clicking on,
+
+**Profile** > **External data connections**
+
+![](/migration-assets/managing-external-data-objects-in-the-production-environment/4.gif)
+
+From this page, choose the connection linked with the deployed app and click,
+
+**More options** ![](/migration-assets/editing-an-external-data-object/1.png) > **Connect** 
+
+## Reconnecting to an external data connection
+
+While reconnecting, you can only provide the authentication credentials. Changing the connector’s general details is not possible at this point. 
+
+If you’ve already established the connection and intend to reconnect, follow the below steps.
+
+### For Admins
+
+1.  Go to your account’s home page and open the app. 
+    
+2.  Click **More options** ![](/migration-assets/editing-an-external-data-object/1.png)and choose **Manage external data objects**. On this page, you’ll find a list of external data connections linked with that specific app.
+    
+3.  Click **Reconnect** and enter the authentication credentials.
+    
+    ![](/migration-assets/managing-external-data-objects-in-the-production-environment/3.gif)
+
+### For Super admins
+
+1.  Access the external data connections in your account by clicking on, **Profile** > **External data connections**.
+    
+2.  Locate the required connection and click **Reconnect**.
+    
+3.  Provide the authentication credentials to reconnect.  
+     
+    
+    ![](/migration-assets/managing-external-data-objects-in-the-production-environment/5.gif)
+
+> **Note:**
+> 
+> Modifying a connection will impact all the apps associated with it, as connections are shared across apps, and a change in one is applicable in various instances.

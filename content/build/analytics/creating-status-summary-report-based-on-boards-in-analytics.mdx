@@ -1,0 +1,177 @@
+---
+title: "Creating status summary report based on boards in Analytics"
+description: "DRAFT (unverified) — migrated from /t/g9yh306/creating-status-summary-report-based-on-boards-in-analytics"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+The Status summary report based on board Items provides a high-level overview of the number of items in each status across one or more boards. This report can be a valuable tool for tracking the progress of teams and projects and identifying areas where items are bottlenecked. In this use case, you can create a dataview using the query to gain insights from two boards together.
+
+## Creating a status summary dataview
+
+To create a dataview based on boards:
+
+1. **Sign in** to your Kissflow account, navigate to Analytics, and click **Data Explorer**. 
+    
+2.  Click **Create dataview** and provide a name for your dataview. 
+    
+3.  Then, click **Create**.
+    
+4.  In the query builder, input the following SQL query.
+    
+5.  In the query builder, paste the query into the text box.
+    
+    ```sql
+    SELECT
+    "_id" AS "ID",
+    "Name" AS "Task name",
+    "_status_name" AS "Task status",
+    "_counter" AS "Item count",
+    "_flow_name" AS "Board name"
+    FROM
+    "Task_management"
+    UNION
+    SELECT
+    "_id" AS "ID",
+    "Name" AS "Task name",
+    "_status_name" AS "Task status",
+    "_counter" AS "Item count",
+    "_flow_name" AS "Board name"
+    FROM
+    "Access_Requests"
+    ```
+    
+6.  Click **Run**.
+    
+7.  Review the results and click **Publish**.
+    
+
+![](/migration-assets/creating-status-summary-report-based-on-boards-in-analytics/5.gif)
+
+This use case combines two boards, Task Management, and Access Requests, into a single query result. The query result includes data from both boards, including subitems.  
+ 
+
+![](/migration-assets/creating-status-summary-report-based-on-boards-in-analytics/1.png)
+
+###  Query breakdown
+
+**Actual column name**
+
+**Alias name used in the query**
+
+**Description**
+
+\_id
+
+ID
+
+The system generates a unique string to identify an item.
+
+Name
+
+Task name
+
+The name given to an item by the user during its creation.
+
+\_status\_name
+
+Status name
+
+The current status of an item. Status names are defined within the default categories in the board workflow. This can be one of the default statuses, such as New, In progress, or any custom status you add to the board workflow.
+
+\_counter
+
+Item count
+
+An overall count of items, including all existing, moved and deleted subitems on a board.
+
+\_flow\_name
+
+Board name
+
+The name of a board.
+
+UNION
+
+ 
+
+The query uses the UNION operator to combine the results of two separate boards into a single result set. The first SELECT statement selects all tasks from the Task\_management board, and the second SELECT statement selects all tasks from the Access\_Requests board. Using UNION, the dataview can show all the tasks from both boards.
+
+## Creating a Status summary report
+
+To create a Status summary report based in boards using Kissflow Analytics:
+
+1. **Sign in** to your Kissflow account and navigate to Analytics.
+    
+2.  Click **Create Report**.
+    
+3.  Select the above dataview you created as the data source.
+    
+4.  Select **Chart** as the report type.
+    
+5.  Click **Create**.
+    
+
+### Configuring the report
+
+In the report configuration page, select **Vertical bar chart** and add the following:
+
+-   Dimension: Task status
+    
+-   Measure: Item count
+    
+-   Legend: Board name
+    
+
+![](/migration-assets/creating-status-summary-report-based-on-boards-in-analytics/2.png)
+
+You can sort the report by **Item count (COUNT)** and use filters if needed.
+
+## How are Analytics reports different from Status summary reports in Boards?
+
+**Aspect**
+
+**Status summary report in Analytics**
+
+**Status summary report in Board**
+
+Report
+
+![](/migration-assets/creating-status-summary-report-based-on-boards-in-analytics/3.png)
+
+![](/migration-assets/creating-status-summary-report-based-on-boards-in-analytics/4.png)
+
+Scope
+
+One or more boards 
+
+Single board
+
+Filtering
+
+Tailor-made filtering options while creating the chart report
+
+Filter by data range and custom fields of the specific board
+
+Data visualization
+
+Tabular report, charts, or pivot report
+
+Bar chart
+
+Usage scenario
+
+Get a more granular view of the status of one or more boards
+
+Get a quick overview of the status of a particular board
+
+Accessibility
+
+Accessible from the analytics platform
+
+Accessible from the board itself

@@ -1,0 +1,75 @@
+---
+title: "Using reports"
+description: "DRAFT (unverified) — migrated from /t/y4h9qzg/using-reports"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Analytics reports feature enable you to create cross-form reports over various data sources, including process tables, child tables, system tables, datasets, and dataviews, and interpret them in a visual or tabular format.
+
+## Creating a report from data source
+
+You can use two types of data sources to create reports. 
+
+[Table](/t/x2h9qzw/understanding-data-sources): Table holds the actual data that must be evaluated. A table, like a spreadsheet, is made up of columns, the fields in the form, and rows are the items submitted.
+
+[Dataview](/t/83h9qzn/understanding-dataviews): This is a one-of-a-kind data source created by using columns from one or more tables or dataviews by writing an SQL query in the query editor. Dataviews are unique data sources that combine one or more tables, and you can further simplify the data in the form of a report.
+
+You can create reports based on a data source inside the **Data explorer** page in two ways. 
+
+1.  Click **More options** button (![](/migration-assets/using-reports/1.png)) > **Create report**.![](/migration-assets/using-reports/2.png)
+
+ 2. Open a data source to **Create report**.  
+You can also create a dataview and generate a report. For example, a dataview can combine two different process tables, and then you can create a report over it. Learn [how to create a dataview.](/t/83h9qzn/understanding-dataviews#creating-a-dataview)
+
+## Creating a report from reports tab
+
+To create a new report in analytics:
+
+1.  Click the **Analytics** button (![](/migration-assets/using-reports/3.png)).
+2.  Under the **Reports** tab, click **Create report**.![](/migration-assets/using-reports/4.png) 
+3.  Select the **data source**. You can also sort the data sources by **Last modified** or in an **Alphabetical** order to get a better view.
+    
+4.  Provide a name and select the **Report type**.
+    
+    ![](/migration-assets/using-reports/8.png)
+    
+5.  Click **Create**.  
+     
+    
+    > **Note:**  
+    > When you create a report using a data source that you have not used before, a one-time data fetch occurs as shown in the gif below. Subsequently, the data source is scheduled for periodic synchronization to keep the data updated. This initial data fetch typically completes within zero to ten minutes, depending on the size and complexity of the data source.![](/migration-assets/using-reports/5.png)
+    
+
+### Enabling drilldown in reports
+
+Using [drilldown](/t/y4h9qkr/reports#enabling-drilldown-in-chart-and-pivot-reports) capability in [chart](/t/h7h9qzr/chart-reports#enabling-drilldown-in-charts) and [pivot](/t/q6h9qz5/pivot-reports#enabling-drilldown-in-pivot-reports) reports, you can also delve deeper into your report data by displaying a tabular view of underlying rows associated with specific data points.
+
+## Applying styles to your report
+
+You can apply styles to your report. In report configuration page, click **Style** tab beside the Settings tab. The style options vary according to the type of report.
+
+-   [Tabular reports](/t/g9h9qzb/tabular-reports#applying-styles-to-tabular-reports) allow style customization for **column headers**, **rows**, and **cells**.
+-   [Chart reports](/t/h7h9qzr/chart-reports#applying-styles-to-charts) have **10 color variants** for customized chart appearance.
+-   [Pivot tables](/t/q6h9qz5/pivot-reports#applying-styles-to-pivot-tables) can be styled for **headers**, **cells**, and **grand totals**.![](/migration-assets/using-reports/6.png) 
+
+## Additional actions
+
+You can get a live preview of your report without saving it as and when you change the report configuration.
+
+You can also **edit**, **rename**, **delete**, and **duplicate** a report. To do the following, click the **More options** button (![](/migration-assets/using-reports/1.png)) of the report you want > select one of the following.
+
+1.  Click **Share** > **Share settings** > click **Add member** > choose the required role - **Admin** or **Member** > click **Add**.
+2.  Click **Edit** > **Configure report** page > Select the fields of the data source using the settings such as dimension, measure and legend > Click **Save**.
+3.  Rename a report by clicking **Rename** > provide the new name > click **Rename**.
+4.  Click the **Delete** option > **Delete**.
+5.  Select the **Duplicate** option > provide the required name for the copy of your report > Click **Duplicate**. A copy of the selected report, including the share permissions and the customizations, will be created in the **Reports** page.![](/migration-assets/using-reports/7.png)
+
+> **Note:**
+> 
+> You cannot change the data source and report type when editing an existing report. You can only change the chart type and other properties.

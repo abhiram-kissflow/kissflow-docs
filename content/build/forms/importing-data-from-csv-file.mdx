@@ -1,0 +1,97 @@
+---
+title: "Importing data from CSV file"
+description: "DRAFT (unverified) — migrated from /t/q6yzjaj/importing-data-from-csv-file"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+The Import CSV feature allows you to import data from a CSV file into the dataform. Manually entering large amounts of data in the dataform can be quite tedious. Importing data is a snap with the CSV import feature inside the data table. You can import up to 5,000 rows of data at a time using the Import CSV feature.
+
+> **Note:**
+> 
+> The maximum number of rows that can be imported is 500 if the data table comprises fields such as [dropdown](/t/35h4azp/dropdown-checkbox-checklist), [aggregate](/t/83h4azk/aggregation-field), and [lookup](/t/g9h4azr/lookup-field).
+
+## Enabling the import CSV button in data table
+
+You can control the CSV import feature inside a data table by following the steps below:
+
+1.  Ensure you’ve created a dataform in the app builder.
+2.  Next, access [Pages](/t/60yzj91/app-pages-overview) and create a page. Drag and drop the **Form** component under **Views**. In the right side panel, Select Dataform as flow type, your dataform name as the flow, and All items under **Select view**
+
+> **Note:**
+> 
+> Currently, import CSV is available only in the **All items** component of the dataform.
+
+![](/migration-assets/importing-data-from-csv-file/1.png)3\. In the **Configure** panel on the right, under **Settings**, you will find the **Import** toggle button.
+
+4\. Turn it **ON/OFF** to show or hide the **Import CSV** button as part of the data table.
+
+## Importing data from a CSV file
+
+Once your data table is embedded as part of your app, and if the Import CSV button is turned **ON**, your app users can start importing data from any CSV file into the data table.
+
+> **Note:**
+> 
+> Import CSV button is available to only those who have Manage [permission](/t/35h9qkc/managing-data-form-roles) in the dataform.
+
+To start importing CSV data, follow the steps below:
+
+1.  Click **Import CSV** button.
+2.  Choose the CSV file that you’d like to import.
+3.  The file is verified, and the data is validated.
+4.  Match the file columns with the data table fields.
+5.  To handle duplicate entries, you can create a new copy of the item, skip the item or replace the existing item.
+6.  Click **Finish**.
+
+> **Note:**
+> 
+> Similar column names are automatically matched with the available data table fields. Column names in the CSV file should not contain special characters such as $, ., new line, etc.
+
+The GIF below illustrates how you can import a product catalog CSV file containing product order details into a dataform.
+
+![](/migration-assets/importing-data-from-csv-file/5.gif)
+
+> **Note:**
+> 
+> For a successful upload, please ensure the following before uploading your CSV.
+> 
+> -   Your CSV file must be saved with UTF-8 encoding.
+>     
+> -   Verify your data (e.g., dates, numbers) matches the format required by the fields in your app. After uploading, you will be required to map your CSV headers to the corresponding fields in your form.
+>     
+> -   Column headers must be English alphanumeric only (letters and numbers, like `CustomerName` or `OrderID`).
+>     
+> -   Headers with special characters or non-Latin scripts (e.g., Chinese characters) are not supported. If your file has non-English headers, please replace them with English alphanumeric equivalents before uploading.
+>     
+
+### Importing CSV into tables within a form
+
+In addition to importing data into the main form, you can import data directly into tables within the form.
+
+A table nested within a form is called a child table. It is useful for collecting detailed lists of information (such as line items in an invoice). However, manually entering large amounts of data into these tables can be a tedious process. You can streamline this by using the **Import CSV** feature to upload data in bulk.
+
+To enable CSV import for tables in a dataform:
+
+1.  Click the **Section settings** icon.
+2.  Click the **Enable table import** toggle on.
+
+![](/migration-assets/importing-data-from-csv-file/3.gif)
+
+Now, at runtime, you will see an **Import CSV** option for this table.
+
+![](/migration-assets/importing-data-from-csv-file/2.png)
+
+> **Note:** 
+> 
+> -   You can import up to 1,000 rows of data per table in a form.
+> -   Once enabled, the **Import CSV** option is available across all Dataform views, including **Datatable**, **Sheet**, and **Gallery** views.
+> -   Field permissions always take precedence over other permissions, therefore can override the Import CSV setting. If a child table is marked as Read-only, the system will prevent you from mapping fields and completing the import, even if the import feature is enabled.
+> 
+> ![](/migration-assets/importing-data-from-csv-file/4.gif)
+> 
+> ![](/migration-assets/importing-data-from-csv-file/6.gif)

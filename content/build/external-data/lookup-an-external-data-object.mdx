@@ -1,0 +1,35 @@
+---
+title: "Lookup an external data object"
+description: "DRAFT (unverified) — migrated from /t/x2y3myx/lookup-an-external-data-object"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+This real-time synchronization fetches up-to-date data from your external platforms via the configured external object. You have the flexibility to choose the fields you want to display in a specific lookup and can apply filters to showcase the data you need selectively.
+
+Once you've established a [connection to your external platform](/t/x2y3mhr/setting-up-an-external-data-connection) at the account level and [configured](/t/h7y3mhw/configuring-an-external-data-object) your application's corresponding external data object, the data is accessible to various modules in your app's data layer, including Process, Boards, and Forms.
+
+Looking up an external data object works the same way as how you’d look up your existing Process and Boards flows, using the [Lookup field](/t/g9h4azr/lookup-field) from the left side fields panel.
+
+For example, in a leave management process, you want to simplify the request submission by allowing users to select their department from a drop-down list. You can configure a dedicated lookup field to access the Department table from your HR database.
+
+Follow these steps to implement this scenario,
+
+1.  Drag and drop the **Lookup** field from the left side fields panel directly onto your form. 
+    
+2.  From the right side properties panel, set up the lookup field by providing basic details like its name, field ID, etc. 
+    
+3.  Under **Choose a flow to look up** menu, select the name of your external data object that contains the employees’ department table. This step establishes the connection between the lookup field and the specific data table.
+    
+4.  In the next step, choose the fields from the data table that you’ll use in this leave management process. 
+    
+5. **Save** the form.
+    
+    ![](/migration-assets/lookup-an-external-data-object/1.gif)
+
+When a user drafts a new request in the leave management process, the list of departments in their organization is auto-populated in the lookup field, making it readily available for selection.

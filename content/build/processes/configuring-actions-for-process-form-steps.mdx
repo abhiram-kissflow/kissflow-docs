@@ -1,0 +1,79 @@
+---
+title: "Configuring actions for process form steps"
+description: "DRAFT (unverified) — migrated from /t/x2yzjc7/configuring-actions-for-process-form-steps"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+You can determine what action the assignee and the initiator of an item can take at each step.
+
+Go to the **Permissions** tab in the process editor. Select any step and scroll down to the bottom of the form. Click **Configure** **actions** and hover over the actions.
+
+![](/migration-assets/configuring-actions-for-process-form-steps/1.png)
+
+##### Actions for new items
+
+When a user with the role to access the process form initiates a new item, they have two actions at the bottom. By default, these say **Submit** and **Discard**. 
+
+![](/migration-assets/configuring-actions-for-process-form-steps/2.png)
+
+To configure this, click the step called **Start** and scroll to the bottom. You can choose to **Hide** or **Show the Discard action** to the initiator by default. The **Submit** button cannot be hidden because it’s the action that  moves the item to the next step and must be shown.
+
+If you want to change the wording, hover over either **Discard** or **Submit** and click **Advanced**. You can change the name to another option or click **Custom** to enter a new name.
+
+![](/migration-assets/configuring-actions-for-process-form-steps/3.png)
+
+In the **Advanced settings**, you can also add a validation based on the data in any field. The field validations you configured in the form will also be in force, but this is a good option in case those values are dynamic throughout the workflow or if you want to use a system field.
+
+##### Assignee actions for items in progress
+
+At each step you can configure what actions can be taken by the assignee.
+
+![](/migration-assets/configuring-actions-for-process-form-steps/6.png)
+
+Choose any step on the left menu. Scroll down the form and click **Configure actions**.   
+
+-   **Submit** is the action that advances the workflow to the next step.
+-   **Reassign** allows the current assignee to assign the item to a different user in your app You can also restrict reassignment to specific roles by toggling the **Restrict reassignment** toggle and selecting a user or group from the drop-down.  
+     ![](/migration-assets/configuring-actions-for-process-form-steps/5.png)
+    
+    > **Note**:
+    > 
+    > In the runtime, you can reassign an item only to one individual user part of the permitted app roles at a time.
+    > 
+    > ![](/migration-assets/configuring-actions-for-process-form-steps/4.png)
+    
+-   **Send** **back** allows the assignee to send the item back to a previous step in the workflow.
+-   **Reject** sends the item back to the creator and cancels the workflow. Rejected items can be restarted, but are assigned a new request number. 
+
+Hovering over the options allows you to show, hide, or customize these buttons and also add validations.
+
+##### Initiator actions for items in progress
+
+Once initiators submit an item, they can track it in the workflow through **My items**. When they open the item, they will see the fields configured at the **Start** step. At the bottom will be a set of actions they can take. You can configure these options under **Configure actions** and then select **Configure initiator actions**.
+
+![](/migration-assets/configuring-actions-for-process-form-steps/7.png)
+
+-   Reassign allows the creator to assign the task to a different assignee. 
+-   Withdraw allows the creator to remove the item from the workflow. 
+
+You have the same options to either show, hide, or customize these buttons, as well as setting up validations, such as only if the item was created by a particular user. 
+
+#### Refresh fields
+
+To know how to set refresh fields in the form at certain steps in the workflow, click [here](/t/m1h9qtt/refreshing-lookup-and-aggregation-field-values).
+
+## [Restricting the option to send-back items](/t/g9h9qt6/configuring-actions-for-process-steps#restricting-the-option-to-send-back-items)
+
+You can decide to limit the number of preceding steps in your workflow to which an item can be sent back from a particular step in your process. This option allows additional control over the workflow. To enable this, turn on the toggle button and select the steps from the dropdown menu; the current step’s send-back functionality will then be limited to these steps.
+
+> **Note:**
+> 
+> When you disable this option, items can be sent to all preceding steps.
+
+![](/migration-assets/configuring-actions-for-process-form-steps/8.png)

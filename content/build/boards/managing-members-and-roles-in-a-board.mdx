@@ -1,0 +1,289 @@
+---
+title: "Managing members and roles in a board"
+description: "DRAFT (unverified) — migrated from /t/m1h9qls/managing-members-and-roles-in-a-board"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## Roles and permissions
+
+You can manage the members in your board by assigning different roles and permissions to their profiles based on the responsibilities mapped with them in a specific board.Kissflow offers the following roles for members in a board:
+
+### Admin
+
+A Board Admin has the highest set of privileges in a board. They can,
+
+-   Create, modify, and delete items.
+-   Create and manage views.
+-   Add and modify notes.
+-   Modify, and manage the settings of a board.
+-   Add or remove members.
+-   Perform bulk actions.
+-   Access the audit log.
+-   View transitions and activity.
+-   Generate custom reports.
+
+> **Tip:**
+> 
+> **Admins can modify the role of any member in a board.**  
+>   
+> An admin can make anyone in the board, an admin, member, initiator, viewer, or restricted member. They can also downgrade someone's role from an **Admin** to a **Restricted member** based on their requirements in the board.
+
+### Member
+
+A board member falls next in the hierarchy following the admin**,** and they can,
+
+-   Create, modify, and delete items.
+-   Create and manage views.
+-   Add and modify notes.
+-   View transitions and activity.
+
+There are a few things that a member cannot do in a board:
+
+-   They cannot duplicate or delete a board.
+-   They can access only the reports that are shared with them.
+
+### Initiator
+
+An initiator is someone who is a part of the board but has a limited set of privileges and responsibilities. They can only,
+
+-   Create new items.
+-   Update the items that are created or requested by them.
+
+> **Note:**
+> 
+> An initiator cannot assign an item to themselves, and they cannot be assigned to any item by anyone in the team either.
+
+### Restricted member
+
+A restricted member is someone who performs specific tasks on the board without necessarily being a part of it. They would be able to view only the items assigned to them.As a restricted member, one can only,
+
+-   Search for their items, sort and filter data among the items that they have access to.
+-   Create their private views but cannot access the shared views.
+-   Edit the custom fields, and view the activity and transitions on the items assigned to them.
+
+> **Note:**
+> 
+> A restricted member can act upon a specific item only if they are directly assigned to it. i.e., they must be the **Current assignee** of the item to modify its custom fields or view its transitions.  
+>   
+> There could be instances where the access granted to a restricted member on a specific item is revoked by the admin. In such instances, the restricted member must contact the admin to resume working on it as necessary.
+
+### Viewer
+
+A viewer is someone who can only view and access the board items without making changes to them. They can,
+
+-   Only access items and not edit them.
+-   Add and modify notes to items.
+-   View transitions and activity.
+-   Add themselves and other users (except restricted members) as watchers.
+
+Viewers cannot delete, clone, or modify items or subitems. However, they can create views based on their preferences, although they can’t share them with others.
+
+### How do you decide what role to choose?
+
+#### For the administrators
+
+The **Admin** role is very explicit in its nature and the responsibilities that come with it. You can make someone an Admin of a board if you want them to have ultimate control of everything in it. Right from having the privilege to perform any action in an item to upgrading or downgrading one's role, an Admin can do everything.
+
+#### For the go-getters
+
+Make someone a **Member** if you want them to create, modify, and act upon items and have complete control over them, meanwhile restricting them from altering the structure of a board, duplicating, or deleting it. In a nutshell, if you want the flow member to do their job but not super-do it like the Admin, you can make them a member inside a board.The **Restricted member** role is offered to map the contractors in your business as part of the boards you manage. A restricted member is someone who has restricted access and visibility to the data shared with them. i.e., they work on a specific task on an item without necessarily being part of the board. Businesses collaborating with vendors to get a chunk of their work done can make the best use of this role as part of their work management.
+
+#### For the request makers
+
+There could be instances where you want the board member only to make requests and not do much about it after they initiate the request. You can think of a **Bug tracking** system where certain users get to only report bugs and collaborate on the bugs that are only raised by them. These people can be assigned to the **Initiator** role inside a board so that they can only create and access the items they have created or requested.
+
+#### For the observers
+
+The viewer role is ideal if you want people to only observe, gain insights, oversee, and comment on items in your board. Consider a scenario where the finance team is a part of the procurement team’s board. The finance team should not act on items but only oversee them to ensure the purchase is not exceeding the budget. In this case, the finance team members can be added to the board as viewers where they can observe and keep an eye on the quoting prices, add notes to the items, and create views for them if necessary.
+
+### Adding members and groups to a board
+
+![](/migration-assets/managing-members-and-roles-in-a-board/1.png)
+
+1.  Click the **Manage** button at the top right corner \> **Share.**
+2.  Click **\+ Add members.**
+3.  Type the name or email address of the user or group in the text area present under **Select users and groups**.  
+      
+    ![](/migration-assets/managing-members-and-roles-in-a-board/2.png)  
+      
+    You can also invite an external user who isn't a part of your organization to your boards as part of the **Share** settings.
+    1.  Type the email address of the external user like the following and you'll see an **Invite** link below.
+    2.  Click the link to send an invite to the external user.
+        
+        ![](/migration-assets/managing-members-and-roles-in-a-board/4.png)
+        
+4.  Select a relevant role from the **Role** dropdown after adding the users. If you are not sure about which role to choose, learn about the different roles and permissions that Kissflow Board offers here.
+5.  Click **Add**.
+
+#### Modifying a member's role
+
+A member will lose their current set of privileges when they are downgraded to a role with fewer privileges.
+
+1.  Navigate to the board > click the **Manage** button in the top right corner > **Share**.
+2.  Click the **More options** button  (![](/migration-assets/managing-members-and-roles-in-a-board/3.svg)) beside a member's name.![](/migration-assets/managing-members-and-roles-in-a-board/5.png)
+    
+3.  Change their role by clicking on the **Make an admin**, **Make a restricted member**, **Make an initiator**, or **Make a member** options as necessary. Click **Remove** to remove the member from your board.
+    1.  When you modify a flow member's role to Initiator, you can choose to reassign the items currently assigned to them as they wouldn't be able to collaborate on their items after they become an initiator.  
+          
+        To reassign the member's items, select a user from the **Reassign items to** dropdown in the pop-up window that shows up after you click **Make an initiator**. You can also leave the dropdown as it is (i.e., not choosing any user from the **Reassign items to** dropdown) if you do not want to do the reassignment right away.![](/migration-assets/managing-members-and-roles-in-a-board/7.svg)
+    2.  When you modify the role of a specific group to **Initiator**, you can choose to reassign the items currently assigned to the members of the group as they wouldn't be able to collaborate on their items after they become an initiator.  
+          
+        To reassign the items assigned to the group members in bulk, select a user from the **Reassign items to** dropdown in the pop-up window that shows up after you click **Make an initiator**. You can also leave the dropdown as is (i.e., not choose any user from the **Reassign items to** dropdown) if you do not want to do the reassignment right away.![](/migration-assets/managing-members-and-roles-in-a-board/6.svg)
+
+There could be instances where a few members of the group that was recently made an initiator have dedicated roles like an Admin or a member inside the same board. The roles of such users will not be updated to **Initiator** as their direct/current privileges inside the board are higher or more powerful than an initiator.
+
+> **Tip:**
+> 
+> **The role a user plays as part of a user group takes higher precedence inside a board.**  
+>   
+> Let's assume a user named _Jake Landon_ is a part of a group called _Product Managers_, and you assign an **Admin** role to this group inside a board. Now, if the **board admin** attempts to make Jake an **Initiator** or a **Restricted** **member** inside the board where he is already an admin via the group _Product Managers_, this attempt to get his role changed to an **Initiator** will not work. Jake will continue to play the **Admin** role in the board as his group has administrator privileges already.
+
+Refer to the following table to learn the differences between each of the roles supported in a board:
+
+**Permissions**
+
+**Admin**
+
+**Member**
+
+**Initiator**
+
+**Restricted member**
+
+Update board settings
+
+Y
+
+\-
+
+\-
+
+\-
+
+Add or remove members
+
+Y
+
+\-
+
+\-
+
+\-
+
+Create, update, and delete items
+
+Y
+
+Y
+
+Y\* (Can create items and modify the ones created or requested by them )
+
+\-
+
+Create, rename, and delete filters
+
+Y
+
+Y
+
+Y
+
+Y
+
+Share custom filters
+
+Y
+
+\-
+
+\-
+
+\-
+
+Perform bulk actions
+
+Y
+
+Y\* (Cannot bulk-delete)
+
+Y\* (Cannot bulk-delete)
+
+Y\* (Cannot bulk-delete)
+
+Manage notifications
+
+Y
+
+Y
+
+Y
+
+Y
+
+View audit log
+
+Y
+
+\-
+
+\-
+
+\-
+
+Archive and delete boards
+
+Y
+
+\-
+
+\-
+
+\-
+
+Duplicate a board
+
+Y
+
+\-
+
+\-
+
+\-
+
+Add, edit, and delete notes
+
+Y
+
+Y
+
+Y
+
+Y\*(Only if the restricted member is the current assignee of the item )
+
+View transitions and activity
+
+Y
+
+Y
+
+Y
+
+Y\*(Only if the restricted member is the current assignee of the item )
+
+Generate custom reports
+
+Y
+
+Only the reports that are shared with them
+
+Only the reports that are shared with them
+
+Only the reports that are shared with them
+
+Learn more about [adding members and viewers to a specific board view](/t/p8h9ql8/creating-and-using-board-views#sharing-views).

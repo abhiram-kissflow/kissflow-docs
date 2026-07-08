@@ -1,0 +1,111 @@
+---
+title: "Integrating external data object"
+description: "DRAFT (unverified) — migrated from /t/83y3my8/integrating-external-data-object"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+App users who possess **Manage** permission to connect to external data objects can configure actions for specific events triggered within Kissflow. 
+
+For example, you have an HR app designed to handle various employee processes. When a termination request is completed, you want to configure an action to delete the particular employee’s PII from your employee table in the external database. 
+
+To achieve this, you should integrate the termination process and your external platform. Once established, you can configure a trigger within your process so that upon completion of the termination workflow, the corresponding record in your table is automatically deleted.
+
+> **Note:** Integration using external data objects is exclusive to apps at the moment. 
+
+## Accessing integration
+
+Once you've established the external connection and configured the external data object, navigate to the **Logic** icon on the left nav and follow the below steps,
+
+1.  Under **Integrations**, click **\+** icon. **Create an integration** window opens.
+    
+2.  Name the integration and click **Create**.
+    
+    ![](/migration-assets/integrating-external-data-object/1.gif)
+
+## Configuring a trigger
+
+This is a generic how-to for configuring a trigger. To learn more about how each connector works, refer to the [particular connector’s guide](/category/connectors).
+
+1.  Create an integration. 
+    
+2.  Choose a connector and select a trigger.
+    
+3.  You can select one of the existing accounts from the drop-down or add a new account. Authenticate the connection with auth keys and secret tokens and click **Next**. 
+    
+4.  Configure the event.
+    
+5.  Test your trigger.
+    
+    ![](/migration-assets/integrating-external-data-object/5.gif)
+
+> **Note:** Currently, configuring triggers using external data object as a connector is not supported. 
+
+## Configuring an action in external data
+
+Choose **External data object** as the connector and select an action.
+
+Action
+
+Description
+
+Read
+
+This action reads a single record from your external data table without storing it. 
+
+Create
+
+This action creates a new, single entry in your external data table.
+
+Update
+
+This action updates an existing single entry in your external data table. 
+
+List
+
+This action reads records from your external data table without storing it in Kissflow.
+
+Delete
+
+This action deletes a record in your external data table.
+
+> **Note:**  
+> You can successfully configure Create, Update, and Delete action under two conditions:
+> 
+> -   Your **Connection mode** while setting up an external data object must be set to **Write**.
+>     
+> 
+> -   Your external platform should support write operations from external systems, such as Kissflow.
+>     
+
+![](/migration-assets/integrating-external-data-object/6.gif)
+
+1.  Establish the connection by selecting from the existing external accounts or create a new account by providing the necessary authentication details.
+    
+    ![](/migration-assets/integrating-external-data-object/2.png)
+2.  For configuring the action, follow the below steps,
+    
+    1.  For actions focused on a single record, such as read, create, update, and delete, select the table from **Choose an external data object** drop-down. Then, map the table columns with the corresponding fields from your trigger’s connector.
+        
+        ![](/migration-assets/integrating-external-data-object/3.png)
+    2.  For multi-record actions like list, 
+        
+        1.  Select the table from **Choose an external data object** drop-down.
+            
+        2.  Choose the list of columns from which you wish to read the data.
+            
+        3.  Specify the page size to determine how many records are to be retrieved on a single page. 
+            
+        4.  Additionally, you can also apply a filter to narrow down the records
+            
+3.  Verify the setup of your action step by clicking the **Test action** button. Any errors, if present, will be notified at this step. Rectify it and retest the action.  
+     
+    
+    ![](/migration-assets/integrating-external-data-object/4.png)
+
+After setting up the required triggers and actions, go to the top right corner of the editor to turn on the integration so as to activate it.

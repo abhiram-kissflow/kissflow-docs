@@ -1,0 +1,91 @@
+---
+title: "Field events"
+description: "DRAFT (unverified) — migrated from /t/35h4alq/field-events"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+ Field events allow you to create events with your form fields using [Kissflow's Low-code SDK reference](https://developers.kissflow.com/gettingstarted/) and minimal JavaScript code. This allows the form fields to trigger event-based actions. As a form developer, you can add events to both [basic and advanced fields](/t/y4h4azv/basic-and-advanced-fields) in process forms, board forms, and data forms within apps. 
+
+## Accessing events in forms
+
+1.  Sign into Kissflow.
+2.  Open your process, board, or dataform.
+3.  Select a field to which you want to add an event.
+4.  Click **Events** found below [visibility.](/t/g9h4aza/field-visibility) ![](/migration-assets/field-events/2.png)
+5.  Type in your event actions in the console![](/migration-assets/field-events/1.png)   
+6.  Click **Save**.
+
+> **Note:**
+> 
+> Events for form fields can be triggered only using [Kissflow’s Low-code SDK reference](https://developers.kissflow.com/gettingstarted/), which is available on GitHub.
+
+## Event actions for fields
+
+Here’s a list of fields that triggers an event based on a specific action:
+
+**On Select**
+
+**On Change**
+
+**On Click**
+
+Date
+
+Text
+
+Button
+
+Date & Time
+
+Text area
+
+Dropdown
+
+Number
+
+Multi-select
+
+Yes/No
+
+User
+
+Checkbox
+
+Lookup
+
+Currency
+
+Remote lookup
+
+Email
+
+Rating
+
+Radio button
+
+Checklist
+
+Slider
+
+Scanner
+
+Fields for which events cannot be triggered:
+
+-   Attachment
+-   Smart attachment
+-   Image
+-   Aggregation
+-   Rich text
+-   Signature
+-   Sequence number
+-   Geolocation
+
+> **Note:**
+> 
+> If the field is a computed field, you cannot add events to it.

@@ -1,0 +1,223 @@
+---
+title: "Understanding dataviews"
+description: "DRAFT (unverified) — migrated from /t/83h9qzn/understanding-dataviews"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+## Dataviews
+
+A dataview is a unique data source created by composing, executing, and publishing an [SQL](https://docs.snowflake.com/en/sql-reference/constructs) query of Snowflake in the **query editor** and joining the attributes of one or more data sources. The data in dataview is presented in tabular form. 
+
+By performing an SQL join or union, you can create a dataview from one or more [data sources](/t/x2h9qzw/understanding-data-sources) or other dataviews. Once a dataview is created, you can create reports over it.
+
+### Creating a dataview
+
+To create a new dataview:
+
+1.  Sign in to Kissflow and click **Analytics** button (![](/migration-assets/overview-of-kissflow-analytics/2.png)) on the left navigation.
+2.  Click **Create dataview** on the top right corner of the page.![](/migration-assets/understanding-dataviews/1.png)     
+3.  Specify a name for your dataview, add a description if needed, and then click **Create**.
+4.  This will open up the query editor, where you can compose the SQL query to combine data from multiple data sources. You can also use another dataview as a data source.![](/migration-assets/understanding-dataviews/2.png)    
+5.  Once you have finished composing your query, click **Run** to execute it.
+6.  You can check the results under **Query result** and make changes to the query if needed.
+7.  After successfully running your query, you can click **Publish** to publish the dataview. When you publish a dataview, it moves from **Draft** state to **Published** state.
+8.  If you make any changes to the query after publishing it, you can click **Revert** to go back to the last published query.
+9.  To [create a report](/t/y4h9qzg/using-reports#creating-a-report-from-dataview) using the dataview, click **Create report**.
+
+> **Note:**
+> 
+> 1.  A dataview remains in the draft stage as long as it is not published at least once.
+> 2.  When you execute a query that calls a data source which has never been used in any analytics query or report before, a one-time data fetch occurs, as shown in the picture below. Subsequently, the data source is scheduled for periodic synchronization to keep the data updated. This initial data fetch typically completes within zero to ten minutes, depending on the size and complexity of the data source.![](/migration-assets/understanding-dataviews/5.jpg)
+
+### Using the dataview query editor
+
+The query editor has a text area where you type in your query. To the left of the editor, you have the schema browser that shows all the data sources you have access to, categorized into tables and dataviews. You can click a data source to view its structure which consists of form fields and system fields. 
+
+To preview a data source, hover over the data source, click the **More options** button (![](/migration-assets/understanding-dataviews/6.svg)), and select **Show preview**. This will display the rows and columns present in the data source under **Data preview**. You can drag and drop the names of tables and columns into the query editor.
+
+The query editor helps you compose an SQL query through different functions. When you click **Beautify**, it presents the query in proper structure for ease of viewing. You can click the **Copy to clipboard** button (![](/migration-assets/understanding-dataviews/4.png)) to copy your query.   
+ 
+
+![](/migration-assets/understanding-dataviews/9.gif)
+
+Here are some of the articles that will help you write SQL queries:
+
+-   [Select queries](https://docs.snowflake.com/en/sql-reference/sql/select)
+-   [Joining different tables](https://docs.snowflake.com/en/user-guide/querying-joins)
+-   [Constructing a join](https://docs.snowflake.com/en/sql-reference/constructs/join)
+-   [Aggregate functions](https://docs.snowflake.com/en/sql-reference/functions-aggregation)
+
+> **Note:**
+> 
+> The asterisk (\*) is not supported in Select queries (to display all columns).
+
+### Accessing dataviews
+
+All the dataviews to which you have access are visible in the **Data explorer** page. You can filter dataviews by selecting **My dataviews** or **Shared dataviews** from the data explorer page.
+
+After you publish a dataview, the resulting data is displayed in the form of a table. The **last synced** flag shows how much time has elapsed since the data was last synced with the data sources.
+
+![](/migration-assets/understanding-dataviews/3.png)
+
+You can create filters, show/hide fields to display specific fields, or even use the search to find the field name. To [create a report](/t/y4h9qzg/using-reports#creating-a-report-from-dataview) over the dataview, click the **\+ Create report** button on the top right corner of the page.
+
+Upon clicking **More options** button (![](/migration-assets/understanding-dataviews/6.svg)), you can **Share**, **Export**, or find **Details** about the dataview. You can export a dataview in **CSV** or **JSON** format.
+
+When you click **Details**, you can see the dataview name, description, owner, time of creation, last modified time, last synced time, and the corresponding reports created upon it.
+
+> **Note:**
+> 
+> **Filter** and **Show/hide** fields are only used to view and export a dataview. They cannot modify a published dataview.
+
+## Representation of fields in dataviews
+
+If you have a computed column in your dataview's SQL query (for example, Total\_Amount - 100 as Final Amount) and the result is shown as a number, you can express it as rating(![](/migration-assets/understanding-dataviews/11.png)) or currency (![](/migration-assets/understanding-dataviews/12.png)) in the dataview. When you select currency, the symbol **$** will be applied.
+
+![](/migration-assets/understanding-dataviews/7.png)
+
+The rating is always in the range of one to five. If the number is greater than five, it will be displayed as five.
+
+> **Note:**
+> 
+> The two different ways to express numbers in the query result are rating and currency. Changing how numbers are displayed has no effect on the data.
+
+### Currency fields
+
+The following is an example of how to represent columns in a currency field. In this example, the [currency field](/t/m1h4azb/currency-field) **Total\_Catalog\_Amount** is considered.
+
+![](/migration-assets/understanding-dataviews/8.png)
+
+Here, **value** is a number, **unit** is a character, and **display\_value** is a string that is displayed as a currency widget with the unit field's symbol. 
+
+### User fields
+
+When you expand a data source in the schema browser, you can see four columns for a user field. For example, consider the **\_created\_by** field, whose data may be viewed as a widget of user data type. You can, however, use **\_created\_by.\_id**, **\_created\_by.Kind**, or **\_created\_by.Name** in the query to refer to the specified value.
+
+**Field names**
+
+**Description**
+
+Name
+
+Name of the user.
+
+Kind
+
+User/Group.
+
+\_id
+
+Unique identifier for a user, which you can find in the User table.
+
+\_created\_by
+
+A JSON field that contains all the above information – name, type, and \_id. If you want to use the user field in reports, you can use this field in the query.
+
+#### Sample dataview
+
+![](/migration-assets/understanding-dataviews/10.png)
+
+## Managing roles and permissions
+
+There are two roles for dataviews:
+
+-   **Owner** - The user who created a dataview is the owner. There can be only one owner for a dataview. The owner can edit, rename, delete and share the dataview, and create reports on top of it.
+-   **Report creator** - This role lets you view the dataviews and create reports on top of them.
+
+**Action**
+
+**Owner**
+
+**Report creator**
+
+Create a dataview
+
+✅
+
+✅
+
+Access own dataview
+
+✅ (Can’t access dataviews that were created on top their dataview)
+
+❌
+
+Replace owner
+
+✅
+
+❌
+
+Add/remove a user/group as report creator
+
+✅
+
+❌
+
+Edit a dataview
+
+✅
+
+❌
+
+Delete a dataview
+
+✅
+
+❌
+
+Create a report over own dataview
+
+✅ 
+
+✅
+
+Access dataview report
+
+✅ (Only reports created over the original dataview)
+
+✅ (Only reports created over the original dataview)
+
+> **Note:**
+> 
+> A [Super Admin or Account Admin](/t/35h4ak0/user-roles-permissions#super-admins) role lets you join any dataview with report creator permissions. They can also make anyone an owner as well as add others as a report creator.
+
+> **Note:**
+> 
+> When you delete a dataview, all reports and other dataviews created over it will get affected.
+
+When you click **More options** button (![](/migration-assets/understanding-dataviews/6.svg)) on the dataview page, you can do the following actions based on the published state and role:
+
+**Dataview state**
+
+**Owner**
+
+**Report creator**
+
+Draft
+
+Edit, rename, and delete
+
+No access
+
+Published
+
+Create report, edit, share, delete
+
+Create report, share
+
+### Removing access from dataviews
+
+A report creator cannot access a dataview if the owner has revoked the report creator access. Any dataviews or reports created by the report creator over this dataview will still remain accessible. 
+
+To remove a user with report creator access, follow these steps:
+
+1.  In the **query editor** or **Data explorer** page, select a dataview card and click **More options** button (![](/migration-assets/understanding-dataviews/6.svg)).
+2.  Click **Share** to view the **Share settings** page. 
+3.  To remove a report creator, on the user’s card, click **More options** button (![](/migration-assets/understanding-dataviews/6.svg)) > **Remove report creator**.

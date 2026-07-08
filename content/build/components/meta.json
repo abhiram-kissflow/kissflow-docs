@@ -1,4 +1,27 @@
 {
   "title": "Components",
-  "pages": ["..."]
+  "pages": [
+    "container",
+    "label",
+    "button",
+    "icon",
+    "card",
+    "progress-bar",
+    "image",
+    "hyperlink",
+    "iframe",
+    "managing-component-style-properties",
+    "tab",
+    "master-details",
+    "popup",
+    "working-with-custom-page-components",
+    "columns-deprecated",
+    "creating-custom-components-using-ai",
+    "repeater",
+    "breadcrumb",
+    "rich-text",
+    "divider",
+    "working-with-custom-form-field-components",
+    "working-with-custom-components-in-kissflow-apps"
+  ]
 }

@@ -1,4 +1,9 @@
 {
   "title": "Roles and Permissions",
-  "pages": ["..."]
+  "pages": [
+    "role-permissions",
+    "application-roles",
+    "switching-roles-at-runtime-in-kissflow-apps",
+    "sharing-data-across-apps-using-component-referencing"
+  ]
 }

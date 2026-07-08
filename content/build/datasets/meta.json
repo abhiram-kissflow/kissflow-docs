@@ -1,4 +1,9 @@
 {
   "title": "Datasets",
-  "pages": ["..."]
+  "pages": [
+    "creating-dataset-views",
+    "dataset-and-views-overview",
+    "creating-a-dataset",
+    "modifying-fields-in-a-dataset"
+  ]
 }

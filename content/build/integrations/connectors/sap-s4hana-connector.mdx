@@ -1,0 +1,68 @@
+---
+title: "SAP S/4HANA connector"
+description: "DRAFT (unverified) — migrated from /t/p8ykk7q/sap-s4hana-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+## What is SAP S/4HANA?
+
+SAP S/4HANA is an in-memory database and application development platform that enables real-time processing of large volumes of data. It combines transactional and analytical capabilities in a single system to accelerate decision-making and simplify IT landscapes for businesses of all sizes.
+
+## About Kissflow's SAP S/4HANA Integration
+
+The SAP S/4HANA connector in Kissflow Integration allows seamless interaction with SAP S/4HANA’s in-memory database, enabling real-time data operations directly from Kissflow apps and workflows. To integrate with SAP S/4HANA, users must have access to a valid SAP S/4HANA instance via APIs and be a paid Kissflow enterprise customer.
+
+For example, a procurement team raises a vendor purchase request in a Kissflow process to source raw materials. Once the request is approved internally, Kissflow triggers an API call to SAP S/4HANA to insert a new purchase request record. The payload includes vendor details, item specifications, quantities, pricing, and required delivery dates. This real-time sync ensures that SAP S/4HANA immediately reflects approved procurement requests, allowing accurate tracking, budgeting, and reporting across departments.
+
+Currently, there are no triggers available for the SAP S/4HANA connector.
+
+## Actions in SAP S/4HANA connector
+
+**Action** 
+
+**Description**
+
+Create a purchase requisition
+
+This action initiates a new purchase requisition.
+
+Make an API request 
+
+This action makes an API request to your SAP S/4HANA account.
+
+Fetch vendor list
+
+This action retrieves the complete list of vendors or suppliers available.
+
+Fetch material master data
+
+This action retrieves the general information associated with the materials in the master record.
+
+### Configuring SAP S/4HANA connector
+
+1.  In your Kissflow account, click the **Create** button in the left navigation panel and select Integration from the list. Enter a unique name and description for your integration and click [Create](/t/60h4akx/creating-an-integration). 
+    
+2.  Once inside your editor, set up a trigger step, such as a Kissflow Process trigger event, When an item completes its workflow.
+    
+3.  After setting up your trigger step above, click the **Add button** (![](/migration-assets/sap-s4hana-connector/2.png)) next to set up your action step. Search for **SAP S/4HANA** and select the action event **Create a purchase requisition**.
+    
+4.  After choosing your action event, authenticate the connector. Click **\+ Add an account**. Enter your SAP S/4HANA account’s username and password for authentication.
+    
+5.  After authenticating with your SAP S/4HANA account, add relevant values against the SAP S/4HANA form fields. You can hit **Refresh fields** to view all the updated fields in the selected form. You can also map fields from your trigger step or fields from your previous action steps. These values will be automatically added to item fields after the action is executed.
+    
+6.  After a successful configuration, test whether your SAP S/4HANA action step is set up correctly by clicking the Test button. The connector will pull field data from your selected SAP S/4HANA account and display it as a JSON output. Similar to the trigger step, errors are notified to you right away. Fix them before retesting the action step.
+    
+
+![](/migration-assets/sap-s4hana-connector/1.png)
+
+### Setting up a SAP S/4HANA connector
+
+After creating a custom workflow with your SAP S/4HANA connector's action steps, switch ON the toggle button to activate the integration run. Once a trigger event occurs, SAP S/4HANA action is executed.
+
+To ensure your integrations are correctly configured and tested, review our [best practices guide](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) for tips on building robust and maintainable solutions.

@@ -1,0 +1,57 @@
+---
+title: "Assignment preference"
+description: "DRAFT (unverified) — migrated from /t/p8h9qt8/assignment-preference"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+The assignment preference options help you determine how many people must approve an item when it is assigned to multiple users. 
+
+![](/migration-assets/assignment-preference/1.png)
+
+## Assign to all
+
+This method assigns the item to all the selected assignees.
+
+-   **Only one assignee** - after one assignee submits the item, it will move to the next step.
+-   **All assignees** - all assignees must submit the item before it moves to the next step.
+-   **At least -** choose the number or percentage of assignees who must submit the item before it moves on.
+
+Learn [when to use assignment preferences vs parallel branches](/t/x2h9qtq/best-practices-for-simultaneous-tasks).
+
+### Picking items
+
+With the **Allow assignees to pick items** toggle turned on, assignees can pick items for themselves and move them out of other assignees’ queues. After an assignee picks an item, no other assignee will be able to see the item or act on it. This reduces redundant efforts by assignees and improves efficiency.
+
+### At least functionality
+
+For example, if you have 10 assignees, but only need 7 to act on an item. Select **At least** and enter 7.
+
+-   The task will go to all 10 assignees at the same time.
+-   The item will move to the next step as soon as 7 assignees approve it.
+-   The item will be rejected as soon as 4 assignees reject it.
+
+If you have many or a variable number of assignees, you may want to use a percentage. Let's assume that you want 60% of assignees to approve an item.
+
+-   The task will go to all assignees.
+-   The item will move to the next step as soon as the 60% positive threshold is met.
+-   The item will be rejected as soon as more than 40% of assignees reject it.
+
+Percentages are rounded up. If you enter 50% and there are 9 assignees, then you must have 5 approvals before the item moves on.
+
+If you enter a number in the **At least** section greater than the number of assignees, it will be automatically adjusted, and the item will be advanced after all assignees have approved it.
+
+If the Process Admin reassigns the item to someone when it is awaiting to be acted by the assignees, it will break the multi-user case and go as a normal step.
+
+## Round robin
+
+In this method, the item is only assigned to one user, but it rotates between all the selected users.
+
+## Least loaded
+
+In this method, the system assigns the item to the user with the least number of current tasks.

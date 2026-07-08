@@ -1,0 +1,49 @@
+---
+title: "FAQ - Connected boards"
+description: "DRAFT (unverified) — migrated from /t/35ymay8/faq-connected-boards"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+1.  ### Why am I not able to unlock a source item?
+    
+    Only the board admins can unlock a source item.  
+     
+2.  ### Why am I not able to see the board I want to connect to?
+    
+    ![](/migration-assets/faq-connected-boards/1.png)  
+    You can see only the boards where you have admin access.  
+     
+3.  ### Why can't I create dependent items for all the table entries in my source item at once?
+    
+    Based on the number of table entries/rows in the source item, you can create up to 100 dependent items in the connected board.   
+      
+    If the number of table entries in the source table is more than 100, you can still create only 100 dependent items.
+4.  ### I am getting an error while creating items in the connected board. What could cause this?
+    
+    It can be due to one of the below reasons:
+    -   The source item did not meet the set conditions.
+        
+    -   **Simultaneous bulk updates**: In the list layout, if you try to bulk-update items to a flow-connected status, while another bulk-update to the same status is already in progress.
+        
+5.  ### What happens if the table entries do not meet the conditions for creating dependent items?
+    
+    -   If no table entries meet the set condition, the source item will still move to the flow-connected status and remain unlocked even if the status has a lock configuration.   
+         
+    -   If at least one table entry meets the condition, the source item will move to the flow-connected status and get locked if the status has a lock configuration. In this case, the dependent items will be created for the table entries that meet the condition.
+6.  ### Can I create dependent items from the same source item for more than one time?
+    
+    By moving an item back to the flow-connected status, you can create dependent item(s) again.   
+     
+7.  ### Can I disable the lock configuration for a status if it contains locked items?
+    
+    Lock configuration cannot be disabled and made live as long as there is at least one locked item in the status.  
+     
+8.  ### Can I delete a status that is connected to a board?
+    
+    A flow-connected status can be deleted and made live only if it has no items in it. Ensure there are no items in the flow-connected status. If there are any items, they must also be deleted along with the status.

@@ -1,0 +1,259 @@
+---
+title: "Creating process step performance report with Analytics"
+description: "DRAFT (unverified) — migrated from /t/g9yqk6g/creating-process-step-performance-report-with-analytics"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+Time is a critical factor when it comes to creating a process workflow. Setting SLAs and deadlines relies on estimating the time needed for each workflow step based on complexity and available resources. Let's explore how to create a Step performance report in Kissflow Analytics to analyze the time each process item spends in each workflow step.
+
+## Step performance report
+
+![](/migration-assets/creating-process-step-performance-report-with-analytics/1.png)
+
+The image above displays the stepwise time taken for each item using Kissflow Analytics. This report is similar to the [Step performance](/t/p8h9qtn/reports-overview-new#step-performance) report available in the process system reports. Let's see how you can customize this report using Analytics.
+
+## Creating a dataview to track step performance
+
+1. **Sign in** to Kissflow and navigate to Analytics.
+2.  Under the **Data explorer** tab, click **Create Dataview**. Learn about [using the dataview query editor](/t/83h9qzn/understanding-dataviews#using-the-dataview-query-editor).
+
+### Sample query
+
+You can create a dataview using the Analytics query editor. Copy and paste the provided SQL query to get the desired data. This query retrieves approved items, i.e., those marked as **Completed**. It does not include **Sentback**, **Rejected**, **InProgress**, and **Withdrawn** items. 
+
+```sql
+SELECT
+"_instance_id" AS "Item id",
+"_flow_name" AS "Process name",
+"ActedAt.value" AS "Acted at",
+"ScriptName" AS "Workflow step",
+ActedBy.value:Name::string AS "Acted by",
+ROUND("ActualTimeTaken", 2) AS "Timetaken mins",
+ROUND(MIN("ActualTimeTaken"),2) AS Min_time,
+ROUND(MAX("ActualTimeTaken"),2) AS Max_time,
+ROUND(AVG("ActualTimeTaken"),2) AS Avg_time,
+"IsSLABreached" AS "Is SLA Breached"
+FROM
+"ActivityInstance",
+TABLE (FLATTEN(input=>"ActedBy", outer => true)) ActedBy
+WHERE
+"_status"='Completed'
+GROUP BY
+"Acted at",
+"Workflow step",
+"Acted by",
+"Timetaken mins",
+"Item id",
+"Process name",
+"IsSLABreached"
+```
+
+### Query breakdown
+
+The following table describes each part of the query. Along with the table name **ActivityInstance**, **FLATTEN** command is used here to parse **ActedBy** which is a JSON array and **outer=> true** provides the  list of all **ActedBy** including skipped steps like completed in a process. This command returns one row for each element in the array. 
+
+**Actual column name**
+
+**Alias name used in the query**
+
+**Description**
+
+\_instance\_id
+
+Item id
+
+The unique ID of the item.
+
+\_flow\_name
+
+Process name
+
+The name of the process which the item belongs to.
+
+ActedAt.value
+
+Acted at
+
+The date and time when the process step was approved.
+
+ScriptName
+
+Workflow step
+
+The name of the process step.
+
+ActedBy.value:Name::string
+
+Acted by
+
+The name of the user who approved the process step.
+
+IsSLABreached
+
+Is SLA Breached
+
+If the particular step has breached SLA, it will be marked as true.
+
+ROUND("ActualTimeTaken", 2)
+
+CycleTime mins
+
+The query part ROUND("ActualTimeTaken",2) AS "CycleTime mins" is used to calculate the cycle time in mins for each item. The ActualTimeTaken column contains the time in minutes it took for each item to be completed. 
+
+ROUND(MIN("ActualTimeTaken"),2)
+
+Min\_time
+
+Returns the round minimum value of the ActualTimeTaken column to two decimal places.
+
+ROUND(MAX("ActualTimeTaken"),2)
+
+Max\_time
+
+Returns the round maximum value of the ActualTimeTaken column to two decimal places.
+
+ROUND(AVG("ActualTimeTaken"),2)
+
+Avg\_time
+
+Returns the round average value of the ActualTimeTaken column to two decimal places.
+
+## Publishing the data in query editor
+
+![](/migration-assets/creating-process-step-performance-report-with-analytics/2.png)
+
+After writing the query:
+
+1. **Run** the query to preview the dataview.
+2.  Click **Publish** once the query results are displayed.
+
+![](/migration-assets/creating-process-step-performance-report-with-analytics/3.png)
+
+> **Note:**
+> 
+> If you encounter any error, refer to [Analytics FAQs](/t/y4h9qz6/faqs-analytics#frequently_asked_questions) for solutions.
+
+## Creating the step performance report 
+
+To create a report using the dataview as a [data source](/t/q6ymbj1/understanding-data-sources), follow these steps:
+
+1.  In Analytics, click the **[Reports](/t/y4h9qzg/using-reports#creating-a-report-from-data-source)** tab and click **Create report**.
+2.  Choose the previously created dataview from the dropdown menu.
+3.  Give the report a name, such as **_Step performance report_**.
+4.  Select **[Pivot report](/t/q6h9qz5/pivot-reports)** or **[Tabular](/t/g9h9qzb/tabular-reports)** for data visualization and click **Create**.
+
+![](/migration-assets/creating-process-step-performance-report-with-analytics/4.png)
+
+### Configuring pivot table
+
+1.  For a detailed report, configure the report page by adding the following.  
+    \- Values: Time Taken mins  
+    \- Rows: Process name, Workflow step, Item id, and Acted by  
+    \- Columns: Is SLA Breached  
+    \- Grand Totals: Show grand totals for columns only  
+    \- Value Calculations: Keep as is![](/migration-assets/creating-process-step-performance-report-with-analytics/7.gif)
+2.  Filter the report by applying the condition **Acted at Is not empty**.![](/migration-assets/creating-process-step-performance-report-with-analytics/5.png)
+3.  Click **Apply** and **Save** the report to view it.
+
+#### Illustration of row representation
+
+![](/migration-assets/creating-process-step-performance-report-with-analytics/6.png)
+
+In the provided image, the details are as follows:
+
+-   Process Name: Appointment Request
+-   Workflow Step: Executive Assistant Approval
+-   Acted By: Carol
+-   Item ID: Unique identifier for the items
+
+The **Is SLA Breached** field has two values:
+
+-   **Yes** represents the average time for items that have breached the SLA.
+-   **Other** represents the average time for items that were completed before the SLA breach deadline.
+
+### Configuring tabular report
+
+To create a tabular report with stepwise time for each item in the process, follow these steps.
+
+1.  In the **Configure report** page, add the following columns:  
+    Workflow step  
+    Acted by  
+    Timetaken mins  
+    Min\_time  
+    Max\_time  
+    Avg\_time  
+    Acted at (Date)  
+    Item id  
+    Process name  
+    Is SLA Breached
+2.  Sort the report by **Acted at** in descending order and click **Save**.
+
+![](/migration-assets/creating-process-step-performance-report-with-analytics/10.gif)
+
+#### Filtering the report
+
+You can **[filter](/t/g9h9qzb/tabular-reports#filtering-data)** the report to show specific data by process or workflow step. For example, you can filter the report only to show data for the **Purchase Request** process and the **Manager Approval** workflow step.
+
+## How are Analytics step performance report different from Process Step metrics report?
+
+**Aspect**
+
+**Step performance report in Kissflow Analytics**
+
+**Step metrics report in Kissflow Process**
+
+Report
+
+![](/migration-assets/creating-process-step-performance-report-with-analytics/9.png)
+
+![](/migration-assets/creating-process-step-performance-report-with-analytics/8.png)
+
+Overview
+
+Offers a detailed breakdown of step-wise time taken for each step by each user. Additionally, you can view item-wise time taken for each step.
+
+Provides an overview of the minimum, maximum, and average time taken for each step by users in a process.
+
+Filtering
+
+Tailor made filter options are configured while creating the report, allowing you to view step performance reports for a particular step in a process or across multiple processes.
+
+Filter by data range to see when items get created. This report provides insights for a specific process. 
+
+Scope
+
+Provides more granular insights at the step and item levels, allowing you to dive deeper into the performance of multiple processes.
+
+Focuses on providing you with process-level aggregated insights across steps and users.
+
+SLA Breach Identification
+
+Enables you to easily identify the number of items that have breached SLAs in the processes.
+
+Does not directly identify SLA breaches.
+
+Usage scenario
+
+Suitable for in-depth analysis, especially when you need to understand the performance of specific steps or identify patterns across multiple processes.
+
+Ideal for giving you a quick overview of process performance.
+
+Accessibility
+
+Accessible through the Kissflow Analytics platform.
+
+Accessible within the  Process’ Reports.
+
+Data visualization options
+
+Provides a wide range of data visualization options, including tabular report, different types of charts, and pivot tables.
+
+Table visualizations are auto-generated and read-only.
+
+Both Step metrics reports in Kissflow Process and Step performance reports in Analytics offer valuable insights into process performance. While the Step metrics reports give you a quick overview, the Step performance reports in Analytics offer deeper analysis. Depending on your specific needs, you can choose the most suitable report type to gain the necessary insights.

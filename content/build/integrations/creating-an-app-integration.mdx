@@ -1,0 +1,65 @@
+---
+title: "Creating an app integration"
+description: "DRAFT (unverified) — migrated from /t/35yzjvk/creating-an-app-integration"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✕ Basic ✓ Enterprise
+
+To create an integration inside the app builder of your application, one must either be an Admin or Member of that application.
+
+To create an integration in the app builder:
+
+1.  Click the left navigation menu and click **Logic** > **Integrations**.
+    
+2.  Click the + icon to open the **Create an integration** window. Provide a **name** and **description** for your integration and click **Create**.
+
+![](/migration-assets/creating-an-app-integration/1.png)
+
+### Setting up a trigger
+
+After creating an integration, go to **Editor**. Next, to create a trigger step, follow the steps below:
+
+1. **Select your connector**. The integration workflow will be triggered based on the event that occurs in this connector.
+2. **Select your trigger event**. This will be the event that occurs in the selected connector that triggers the integration.
+3. **Authenticate your connection**. Authenticate the connector by setting up a connection. You can link to your Kissflow Apps account or use another Kissflow account to authenticate the connector. Internal connections are established using the Access key and secret based authentication. For third-party connectors, authenticate the connector account using OAuth.
+4. **Configure your trigger step.** Customize your connector app to send data of your preference.
+5. **Test your trigger.** Test your trigger output to see if the trigger connector is properly configured.
+
+![](/migration-assets/creating-an-app-integration/3.png)
+
+If you encounter any errors while setting up the trigger, you will see all those error messages on the right side of the page. You can use this information to troubleshoot errors.
+
+> Even if the [Access key and secret](/t/q6h4akr/creating-and-managing-access-keys) associated with your trigger connection is deleted or turned off, your integration trigger will continue to operate.
+
+### Setting up actions
+
+Similar to the trigger step, set up your action by choosing your action connector and event:
+
+1. **Select your action connector**. The action is activated by the trigger step or another action step.
+2. **Select your action event**. This will be the event that occurs in the selected connector when it is triggered.  ![](/migration-assets/creating-an-app-integration/2.png) 
+3. **Authenticate your app connection**. Authenticate the connector by setting up a connection. You can link to your Kissflow account or use another Kissflow account to authenticate the connector. Internal connections are established using the Access key and secret based authentication. For third-party connectors, authenticate the connector account using OAuth.
+4. **Customize your action step**. Customize the app data that you want to send over to your action connector.
+5. **Test your action.** Test your action output to see if it's working as expected.
+
+### Naming your integration and connectors
+
+When you create an integration, you must first add a title and a brief description to it. You can change these at a later stage by clicking the name of your connector and entering a new name. You can also update the description by clicking the more actions icon.
+
+![](/migration-assets/creating-an-app-integration/4.png)
+
+Similarly, you can change the name of each trigger or action steps. Just click the **More options** button (![](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/6.png))) > **Rename** or click the default name of the connector, then enter your text in the field. Your changes will be saved automatically.
+
+### Turn on your integration
+
+After you build your integration, the next step is to turn it on. You can enable the toggle button in the upper right corner of the editor to switch it ON.
+
+After your integration is turned on, it’ll automatically run your action steps each time your trigger event occurs. You can also view your integration’s **Run history** to see a log of all your successful and failed integration runs with data that goes in and out of each of your integration steps.
+
+> **Important note on concurrent editing of a integration:**To ensure data integrity and prevent conflicts, our system manages concurrent editing with a "first to save" rule. This means that if two or more users edit the same integration at once, the changes from the person who clicks **Save** first are successfully recorded.If another user saves the integration before you, then your version of it becomes outdated. When you try to save your edits, you will be prompted to refresh the tab to load the latest updates.**Please be aware that the act of refreshing the tab will discard all of your unsaved work in the current tab.**  
+>   
+> To avoid losing progress, we strongly recommend coordinating with your team to ensure only one person is actively editing a shared integration at a time.

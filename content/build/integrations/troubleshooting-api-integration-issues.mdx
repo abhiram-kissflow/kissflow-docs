@@ -1,0 +1,116 @@
+---
+title: "Troubleshooting API integration issues"
+description: "DRAFT (unverified) — migrated from /t/60y13dt/troubleshooting-api-integration-issues"
+contentType: troubleshooting
+persona: citizen-developer
+section: build
+---
+
+API integrations in Kissflow allow you to connect with external systems and automate workflows. However, issues may occasionally arise due to authentication errors, misconfigurations, or endpoint problems.
+
+This article provides a structured guide to diagnosing and resolving common API integration issues in Kissflow, including specific error types such as **An unexpected error occurred** and **socket hang up.**
+
+## **Initial checks for issues in API integrations**
+
+### Check and reconnect the authentication
+
+-   Verify that the integration’s authentication is correctly configured.
+    
+-   Reconnect credentials if triggers fail or items are rejected.
+    
+-   Ensure the same authentication method (OAuth, API key, and so on.) is used consistently across all connection steps.
+    
+-   Confirm you are connected to the correct environment (production vs. testing).
+    
+
+### Verify configuration and settings
+
+-   Double-check that configurations align between Kissflow and the external system.
+    
+-   Validate all linkage, mapping, and settings across the integration.
+    
+-   If some trigger stages succeed but others fail, carefully recheck each step for minor inconsistencies.
+    
+
+###  Rebuild the integration
+
+-   If error messages are vague or troubleshooting does not resolve the issue, rebuild the integration from scratch.
+    
+-   Rebuilding helps eliminate compounded configuration issues.
+    
+-   This is especially useful when initial triggers succeed but later steps consistently fail.
+    
+
+## Troubleshooting common API errors
+
+### General API errors
+
+This error is often seen during third-party API calls. To resolve it:
+
+-   **Validate the API request**
+    
+    -   Check the JSON payload for syntax errors.
+        
+    -   Confirm the endpoint (URL) is correct.
+        
+    -   Test the request in Postman to verify it works.
+        
+-   **Confirm header configurations**
+    
+    -   Ensure all required headers are included.
+        
+    -   For example, if an authorization header is needed, include it with the correct value.
+        
+-   **Check API availability**
+    
+    -   Confirm the external system is online and able to accept requests.
+        
+-   **Gather error details**
+    
+    -   Collect error messages, payloads, and configurations.
+        
+    -   Share details with Kissflow support for deeper troubleshooting.
+        
+
+### Socket hang up errors
+
+A **socket hang up error** occurs when Kissflow cannot establish or maintain a connection with an external endpoint (such as a custom API or script).
+
+**How to diagnose and resolve**
+
+1. **Review logs**
+    
+    -   Check Kissflow execution logs for failed requests.
+        
+    -   If an external script (such as, Google Apps Script) is used, review its logs as well.
+        
+2. **Isolate the source**
+    
+    -   If failures are external, contact the endpoint or script provider.
+        
+    -   If the problem appears internal, escalate to Kissflow support with detailed logs.
+        
+3. **Handle transient errors**
+    
+    -   If rerunning the integration works, monitor for recurring failures.
+        
+    -   Repeated issues may indicate endpoint instability.
+        
+4. **Resolve known issues**
+    
+    -   Fix bugs in custom scripts (for example, updating Google Apps Script logic).
+        
+    -   Work with the endpoint provider to improve availability.
+        
+    -   Retry failed runs for temporary issues.
+        
+
+## Best practices for stable integrations
+
+-   Monitor execution logs regularly to catch and address issues early.
+    
+-   Update external APIs, scripts, and services to reduce compatibility issues.
+    
+-   Document recurring patterns in failures for faster root cause identification.
+    
+-   Escalate persistent issues to the endpoint provider or Kissflow support with complete error logs.

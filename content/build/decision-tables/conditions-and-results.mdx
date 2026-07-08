@@ -1,0 +1,73 @@
+---
+title: "Creating conditions and results"
+description: "Define the conditions a decision table evaluates and the results it returns, including operators and supported field types."
+contentType: guide
+persona: citizen-developer
+section: build
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - decision-tables
+---
+
+# Creating conditions and results
+
+<PlanBadge plans={["enterprise"]} />
+
+Conditions are the criteria your decision table evaluates; results are the values it returns when a row matches.
+
+## Create a condition
+
+1. Click the **Add** button (+) beside **Conditions**.
+2. Enter a name and choose the field type.
+3. Optionally, set validations to control what values can be entered in the column.
+
+![Create a condition panel with Settings and Validation tabs, showing fields for name, field type, field ID, help text, and operator](/migration-assets/creating-conditions-and-results/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+After creating the condition, enter its values in the table rows.
+
+![Decision table with Age and Salary conditions and a Loan amount result, with an empty row ready for condition values](/migration-assets/creating-conditions-and-results/2.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+### Supported field types
+
+Conditions and results support these field types: **Text**, **Number**, **Date**, **Date & time**, **Dropdown**, **Yes/No**, **Currency**, **User**, and **Email**.
+
+### Choosing operators
+
+Each condition evaluates its values with an operator. Choose the operator mode that fits your logic:
+
+- **Single** — evaluate with one operator. Available operators include `=`, `≠`, `>`, `>=`, `<`, `<=`, and for text fields, **Contains** and **Does not contain**.
+- **Range** — evaluate values within a range by choosing a lower-limit operator (`>` or `>=`) and an upper-limit operator (`<` or `<=`). Range mode is available for **Number**, **Currency**, **Date**, and **Date & time** conditions.
+
+**Example:** In a loan approval table, to evaluate credit scores between 600 and 800, choose **Range** with `>=` 600 and `<=` 800. To require a minimum score of 700, choose **Single** with `>=` 700.
+
+![Create a condition panel with the Range operation selected, showing lower and upper limit operator dropdowns for a Number condition](/migration-assets/creating-conditions-and-results/4.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Create a result
+
+1. Click the **Add** button (+) beside **Results**.
+2. Enter a name and choose the field type.
+3. Optionally, set validations for the result values.
+
+After creating the result, enter the result values for each condition row.
+
+![Create a result panel with Settings and Validation tabs, showing fields for name, field type, field ID, and help text](/migration-assets/creating-conditions-and-results/3.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Editing columns
+
+Click a condition or result column header to edit it. From the column menu you can also **Add column before**, **Add column after**, or delete the column.
+
+## Concurrent editing
+
+Only one person can edit a decision table at a time. If someone else is editing, you'll see a message that another developer is currently editing the decision table, and your changes are blocked until they finish. Their edits are auto-saved as they work.
+
+## What's next
+
+- [Evaluation settings](/docs/build/decision-tables/evaluation-settings)
+- [Auto-generating condition values](/docs/build/decision-tables/auto-generating-values)
