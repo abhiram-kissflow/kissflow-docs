@@ -3,6 +3,8 @@
 
 # generated content
 .source
+.tmp/
+.superpowers/
 
 # test & build
 /coverage

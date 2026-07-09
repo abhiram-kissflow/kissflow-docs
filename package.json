@@ -12,7 +12,10 @@
     "redirects": "npx tsx scripts/generate-redirects.ts",
     "graph:list": "bash scripts/codegraph-helper.sh list",
     "graph:project": "bash scripts/codegraph-helper.sh resolve",
-    "graph:payload": "bash scripts/codegraph-helper.sh payload"
+    "graph:payload": "bash scripts/codegraph-helper.sh payload",
+    "openapi:convert": "npx tsx scripts/postman-to-openapi.ts",
+    "openapi:normalize-auth": "npx tsx scripts/apply-auth-normalization.ts",
+    "openapi:lint": "npx redocly lint public/openapi/kissflow-api.json"
   },
   "dependencies": {
     "@ai-sdk/openai": "^3.0.82",
@@ -24,6 +27,7 @@
     "@phosphor-icons/react": "^2.1.10",
     "@radix-ui/react-use-controllable-state": "^1.2.3",
     "@rive-app/react-webgl2": "^4.29.5",
+    "@scalar/api-reference-react": "^0.9.54",
     "@streamdown/cjk": "^1.0.3",
     "@streamdown/code": "^1.1.1",
     "@streamdown/math": "^1.0.2",
@@ -65,6 +69,7 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@redocly/cli": "^2.38.0",
     "@tailwindcss/postcss": "^4.1.10",
     "@types/jsdom": "^28.0.3",
     "@types/mdx": "^2.0.13",
@@ -73,6 +78,7 @@
     "@types/react-dom": "^19.1.5",
     "@types/turndown": "^5.0.6",
     "postcss": "^8.5.4",
+    "postman-to-openapi": "^3.0.1",
     "serve": "^14.2.4",
     "tailwindcss": "^4.1.10",
     "tsx": "^4.22.4",
