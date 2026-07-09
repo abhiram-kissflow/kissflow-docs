@@ -8,17 +8,18 @@ const withMDX = createMDX();
 
 /** @type {import('next').NextConfig} */
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+const staticExport = process.env.STATIC_EXPORT === 'true' || Boolean(basePath);
 
 const config = {
-  output: 'export',
   basePath,
-  assetPrefix: basePath,
+  assetPrefix: basePath || undefined,
   images: {
-    unoptimized: true, // Required for static export
+    unoptimized: staticExport,
   },
   turbopack: {
     root: __dirname,
   },
+  ...(staticExport ? { output: 'export' } : {}),
 };
 
 export default withMDX(config);
