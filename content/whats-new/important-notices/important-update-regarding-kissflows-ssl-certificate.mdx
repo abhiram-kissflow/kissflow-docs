@@ -49,6 +49,8 @@ These errors happen because the affected system still relies on the old trust pa
 | kissflow.eu | February 13, 2026 |
 | kissflow.com | February 27, 2026 |
 
+Check the domain in your account's URL (the part before `.kissflow.com` or `.kissflow.eu`, for example `yourcompany.kissflow.com`) to see which deadline applies to you.
+
 ## Check whether your environment is compliant
 
 Run this check from the specific browser or environment you use to access Kissflow.
@@ -93,18 +95,18 @@ The following minimum versions natively support the new root:
 
 If your system can't receive regular OS/browser updates, install the R46 root manually before your domain's deadline.
 
-1. Download the [Sectigo Public Server Authentication Root R46 certificate](https://crt.sh/?d=1199354).
+1. Download the [Sectigo Public Server Authentication Root R46 certificate](https://crt.sh/?d=1199354). Note the filename it saves as — you'll need it in the steps below.
 2. Install it into your system's trusted root store:
 
    - **Windows** — Open `certmgr.msc` → **Trusted Root Certification Authorities → Import**.
    - **macOS** — Open **Keychain Access → System Roots → Import**.
-   - **Linux** — Copy the certificate to `/usr/local/share/ca-certificates/` and run:
+   - **Linux** — Copy the certificate to `/usr/local/share/ca-certificates/` (converting it to PEM format first if it isn't already) and run:
 
      ```shell
      sudo update-ca-certificates
      ```
 
-   - **Java** — Copy the certificate to `$JAVA_HOME/lib/security/cacerts` and run:
+   - **Java** — Import the certificate into the Java keystore with `keytool` (this adds it alongside the existing trusted certificates — it doesn't replace the keystore file). Replace the `-file` value below with the actual filename you downloaded:
 
      ```shell
      keytool -import -trustcacerts -keystore $JAVA_HOME/lib/security/cacerts \
@@ -117,4 +119,4 @@ If your system can't receive regular OS/browser updates, install the R46 root ma
   If you connect to Kissflow via Docker or other containerized environments, update the certificate inside those images and containers as well.
 </Callout>
 
-If you need help with this update, contact Kissflow support.
+If you need help with this update, [contact Kissflow support](/docs/whats-new/important-notices/slas-and-support-models#how-to-reach-support).
