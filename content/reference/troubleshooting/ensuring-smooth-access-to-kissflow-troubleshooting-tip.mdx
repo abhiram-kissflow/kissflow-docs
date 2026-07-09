@@ -27,6 +27,7 @@ Pages fail to load, styling or icons are missing, or features like chat support,
 
 - `https://*.kissflow.com` — the asterisk (`*`) whitelists any subdomain of `kissflow.com`, which covers your account's own subdomain (for example, `https://yourcompany.kissflow.com`). If your firewall doesn't support wildcard entries, whitelist your exact account subdomain instead.
 - `https://static-cdn1.kissflow.com` — static assets.
+- `https://www.gstatic.com` — subresources for Google-hosted embeds like reCAPTCHA and Google Maps.
 
 <Callout type="info">
   Some accounts are served additional static-asset domains depending on your data region (for example, a second CDN host for US accounts, or a `kissflow.eu` variant for EU accounts). If assets still fail to load after whitelisting the domains above, check with your Kissflow contact for the exact CDN domain for your account's region.

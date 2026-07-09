@@ -24,11 +24,11 @@ Not directly. Use the [Kissflow connector for BI](/docs/build/analytics/kissflow
 
 ### How often does my data sync into Analytics?
 
-Kissflow keeps Analytics data in sync with your processes, boards, datasets, and dataforms automatically as changes happen, with periodic checks that catch and retry anything that didn't sync the first time. If a report looks out of date, open the data source in **Data explorer** and check its **Last synced** time.
+Kissflow syncs your processes, boards, datasets, and dataforms into Analytics once every hour. If a report looks out of date, open the data source in **Data explorer** and check its **Last synced** time.
 
 ### How does data sync work with third-party middleware like Snowflake?
 
-There's no direct database access to your Kissflow data. Instead, integrations like the [Kissflow connector for BI](/docs/build/analytics/kissflow-connector-for-bi) go through middleware such as Snowflake, which reads from the same continuously-synced Analytics data. See [Configuring Snowflake for Kissflow connector for BI](/docs/build/analytics/configuring-snowflake-for-kissflow-connector-for-bi) for setup steps.
+There's no direct database access to your Kissflow data. Instead, integrations like the [Kissflow connector for BI](/docs/build/analytics/kissflow-connector-for-bi) go through middleware such as Snowflake, which reads from the same hourly-synced Analytics data. See [Configuring Snowflake for Kissflow connector for BI](/docs/build/analytics/configuring-snowflake-for-kissflow-connector-for-bi) for setup steps.
 
 ### Do I need a specific Kissflow plan to access Analytics?
 
@@ -40,7 +40,7 @@ See our [Analytics documentation](/docs/build/analytics) for common report examp
 
 ### What are the different roles for data sources and reports in Analytics?
 
-[Data sources](/docs/build/analytics/understanding-data-sources#roles-in-data-sources) have two roles: **Report admin**, who gets full control of the data source, including sharing it with others, and **Report creator**, who gets view access to the data source so they can build dataviews and reports from it. Note that data sources themselves — process tables, board tables, system tables, and so on — are generated automatically and can't be created, edited, or deleted by any role.
+[Data sources](/docs/build/analytics/understanding-data-sources#roles-in-data-sources) have two roles: **Report admin**, who gets full control of the data source, and **Report creator**, who gets view access to the data source so they can build dataviews and reports from it. Neither role can share a data source directly, or create, edit, or delete data sources — process tables, board tables, system tables, and so on are generated automatically.
 
 [Report roles](/docs/build/analytics/managing-reports#managing-roles-and-permissions) work differently: **Admins** have full control over a report, while **Members** can view and share it by default, and can be granted edit access.
 
