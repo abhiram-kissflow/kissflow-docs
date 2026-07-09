@@ -78,8 +78,8 @@ The nav switcher performs plain client-side route navigation between `/docs` and
 
 ## Testing
 
-- **Automated:** OpenAPI lint as an npm script, failing on an invalid spec. One Playwright smoke test hitting `/api-reference`, confirming the page renders and a known operation title is visible (this repo already has Playwright wired via `docs/playwright-crawl/`).
-- **Manual, per module:** spot-check enriched schemas/examples against the Postman collection's own response examples, once per phase, before merging that module.
+- **Automated:** OpenAPI lint as an npm script (`@redocly/cli`), failing on an invalid spec — run against the committed spec and, at build time, gating a build failure on lint failure. Repo has no test runner (no vitest/jest/Playwright as a devDependency today — `docs/playwright-crawl/` is untracked scratch content, not a wired test suite), so this stays consistent with existing conventions (`tsx` scripts + `tsc`/lint gates) rather than introducing a new test framework for one route.
+- **Manual:** `npm run dev`, visit `/api-reference`, confirm the page renders and a known operation is visible and interactive. Repeat per module as each phase's enrichment merges.
 
 ## Explicitly out of scope
 
