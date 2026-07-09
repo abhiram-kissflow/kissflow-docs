@@ -35647,10 +35647,24 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "example": {
-                  "Name": "<string>",
-                  "Field1": "<string>"
-                }
+                "description": "Fields to set on the dataset record identified by `Name`. `Field1` is a generic Postman placeholder field name standing in for any of the dataset's own custom fields — real requests include whichever fields you want to update, using your dataset's actual field names instead of the literal name \"Field1\".",
+                "properties": {
+                  "Name": {
+                    "type": "string",
+                    "description": "The record's Key-column value, used to identify which existing record to update. Inferred as required — not literally annotated by Postman on this raw-JSON body, but the same value is documented as \"(Required)\" when used as the `Name` query parameter on \"Get dataset record\"."
+                  },
+                  "Field1": {
+                    "type": "string",
+                    "description": "Placeholder for a dataset field to set on the record. The Postman example uses this literal generic name; substitute your dataset's actual field name(s) and value(s)."
+                  }
+                },
+                "required": [
+                  "Name"
+                ]
+              },
+              "example": {
+                "Name": "<string>",
+                "Field1": "<string>"
               }
             }
           }
@@ -35701,13 +35715,14 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "OK. The Postman example for this status captured an empty response body, so no response schema/example is available beyond that.",
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "No example response was captured in the source Postman collection for this operation."
                 },
-                "example": "{}"
+                "example": ""
               }
             }
           },
@@ -35724,14 +35739,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -35749,14 +35799,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -35774,14 +35859,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -35799,10 +35919,24 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "example": {
-                  "Name": "<string>",
-                  "Field1": "<string>"
-                }
+                "description": "Fields to set on the new dataset record. `Field1` is a generic Postman placeholder field name standing in for any of the dataset's own custom fields — real requests include whichever fields you want to set, using your dataset's actual field names instead of the literal name \"Field1\".",
+                "properties": {
+                  "Name": {
+                    "type": "string",
+                    "description": "The new record's Key-column value. Inferred as required — not literally annotated by Postman on this raw-JSON body, but the same value is documented as \"(Required)\" when used as the `Name` query parameter on \"Get dataset record\"."
+                  },
+                  "Field1": {
+                    "type": "string",
+                    "description": "Placeholder for a dataset field to set on the new record. The Postman example uses this literal generic name; substitute your dataset's actual field name(s) and value(s)."
+                  }
+                },
+                "required": [
+                  "Name"
+                ]
+              },
+              "example": {
+                "Name": "<string>",
+                "Field1": "<string>"
               }
             }
           }
@@ -35853,13 +35987,14 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "OK. The Postman example for this status captured an empty response body, so no response schema/example is available beyond that.",
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "No example response was captured in the source Postman collection for this operation."
                 },
-                "example": "{}"
+                "example": ""
               }
             }
           },
@@ -35876,14 +36011,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -35901,14 +36071,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -35926,14 +36131,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -35993,13 +36233,14 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "OK. The Postman example for this status captured an empty response body, so no response schema/example is available beyond that.",
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "No example response was captured in the source Postman collection for this operation."
                 },
-                "example": "{}"
+                "example": ""
               }
             }
           },
@@ -36016,14 +36257,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -36041,14 +36317,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -36066,14 +36377,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -36086,6 +36432,28 @@
         ],
         "summary": "Delete a dataset",
         "description": "Deletes a specific dataset in Kissflow.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Identifies which record to delete. This request body was present in the source Postman collection but missing from this operation in the spec prior to this enrichment pass.",
+                "properties": {
+                  "Name": {
+                    "type": "string",
+                    "description": "The record's Key-column value, used to identify which record to delete. Inferred as required — not literally annotated by Postman on this raw-JSON body, but the same value is documented as \"(Required)\" when used as the `Name` query parameter on \"Get dataset record\"."
+                  }
+                },
+                "required": [
+                  "Name"
+                ]
+              },
+              "example": {
+                "Name": "<string>"
+              }
+            }
+          }
+        },
         "security": [
           {
             "accessKeyId": [],
@@ -36132,13 +36500,14 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "OK. The Postman example for this status captured an empty response body, so no response schema/example is available beyond that.",
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "No example response was captured in the source Postman collection for this operation."
                 },
-                "example": "{}"
+                "example": ""
               }
             }
           },
@@ -36155,14 +36524,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -36180,14 +36584,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -36205,14 +36644,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -36323,74 +36797,184 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
-                },
-                "example": {
-                  "Filter": {},
-                  "Table_TableName": [
-                    {
-                      "response": [
-                        {
-                          "Name": "<string>",
-                          "_id": "<string>",
-                          "PONumber": "<string>",
-                          "TotalPrice": "<string>",
-                          "RequestedBy": {
-                            "_id": "<string>",
-                            "Name": "<string>"
+                  "type": "object",
+                  "description": "Matching records for the dataset view, grouped by table. All example values in this response are generic Postman placeholders (<string>/<boolean>), not real captured data — kept as captured rather than invented into more realistic-looking values, consistent with the rest of this module's examples. Records are grouped under a key literally captured by Postman as `Table_TableName`; in practice this key reflects the dataset view's actual internal table name (see this spec's Processes module, \"Get all items (Admin)\", for the same `Table_<TableFieldName>` pattern).",
+                  "properties": {
+                    "Filter": {
+                      "type": "object",
+                      "description": "Applied filter, if any. Empty in the Postman example."
+                    },
+                    "Columns": {
+                      "type": "array",
+                      "description": "Fields shown as columns in the view.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "Id": {
+                            "type": "string",
+                            "description": "Unique identifier of the field/column."
+                          },
+                          "Type": {
+                            "type": "string",
+                            "description": "Data type of the field."
+                          },
+                          "IsSystemField": {
+                            "type": "boolean",
+                            "description": "Whether this is a built-in system field rather than a custom dataset field."
+                          },
+                          "Name": {
+                            "type": "string",
+                            "description": "Display name of the field."
                           }
                         },
-                        {
-                          "Name": "<string>",
-                          "_id": "<string>",
-                          "PONumber": "<string>",
-                          "TotalPrice": "<string>",
-                          "RequestedBy": {
-                            "_id": "<string>",
-                            "Name": "<string>"
+                        "required": [
+                          "Id",
+                          "Type",
+                          "IsSystemField",
+                          "Name"
+                        ]
+                      }
+                    }
+                  },
+                  "additionalProperties": {
+                    "type": "array",
+                    "description": "Rows for the dataset view, keyed by the view's (dynamic) table name — captured literally as `Table_TableName` in this Postman example.",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "response": {
+                          "type": "array",
+                          "description": "Dataset record items.",
+                          "items": {
+                            "type": "object",
+                            "description": "A dataset record. The field set shown here (Name, PONumber, TotalPrice, RequestedBy) reflects the specific demo dataset used to capture this Postman example; real responses contain whatever fields are configured on your dataset instead.",
+                            "properties": {
+                              "Name": {
+                                "type": "string",
+                                "description": "Display name/key value of the record."
+                              },
+                              "_id": {
+                                "type": "string",
+                                "description": "Unique identifier of the record."
+                              },
+                              "PONumber": {
+                                "type": "string",
+                                "description": "Example dataset-specific field captured in this Postman sample."
+                              },
+                              "TotalPrice": {
+                                "type": "string",
+                                "description": "Example dataset-specific field captured in this Postman sample."
+                              },
+                              "RequestedBy": {
+                                "type": "object",
+                                "description": "Lookup-field value referencing a user.",
+                                "properties": {
+                                  "_id": {
+                                    "type": "string",
+                                    "description": "Unique identifier of the user."
+                                  },
+                                  "Name": {
+                                    "type": "string",
+                                    "description": "Display name of the user."
+                                  }
+                                },
+                                "required": [
+                                  "_id",
+                                  "Name"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "Name",
+                              "_id",
+                              "PONumber",
+                              "TotalPrice",
+                              "RequestedBy"
+                            ]
                           }
                         }
-                      ]
-                    },
-                    {
-                      "response": [
-                        {
-                          "Name": "<string>",
-                          "_id": "<string>",
-                          "PONumber": "<string>",
-                          "TotalPrice": "<string>",
-                          "RequestedBy": {
-                            "_id": "<string>",
-                            "Name": "<string>"
-                          }
-                        },
-                        {
-                          "Name": "<string>",
-                          "_id": "<string>",
-                          "PONumber": "<string>",
-                          "TotalPrice": "<string>",
-                          "RequestedBy": {
-                            "_id": "<string>",
-                            "Name": "<string>"
-                          }
-                        }
+                      },
+                      "required": [
+                        "response"
                       ]
                     }
-                  ],
-                  "Columns": [
-                    {
-                      "Id": "<string>",
-                      "Type": "<string>",
-                      "IsSystemField": "<boolean>",
-                      "Name": "<string>"
-                    },
-                    {
-                      "Id": "<string>",
-                      "Type": "<string>",
-                      "IsSystemField": "<boolean>",
-                      "Name": "<string>"
-                    }
+                  },
+                  "required": [
+                    "Filter",
+                    "Columns"
                   ]
+                },
+                "examples": {
+                  "records": {
+                    "summary": "200 OK",
+                    "value": {
+                      "Filter": {},
+                      "Table_TableName": [
+                        {
+                          "response": [
+                            {
+                              "Name": "<string>",
+                              "_id": "<string>",
+                              "PONumber": "<string>",
+                              "TotalPrice": "<string>",
+                              "RequestedBy": {
+                                "_id": "<string>",
+                                "Name": "<string>"
+                              }
+                            },
+                            {
+                              "Name": "<string>",
+                              "_id": "<string>",
+                              "PONumber": "<string>",
+                              "TotalPrice": "<string>",
+                              "RequestedBy": {
+                                "_id": "<string>",
+                                "Name": "<string>"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "response": [
+                            {
+                              "Name": "<string>",
+                              "_id": "<string>",
+                              "PONumber": "<string>",
+                              "TotalPrice": "<string>",
+                              "RequestedBy": {
+                                "_id": "<string>",
+                                "Name": "<string>"
+                              }
+                            },
+                            {
+                              "Name": "<string>",
+                              "_id": "<string>",
+                              "PONumber": "<string>",
+                              "TotalPrice": "<string>",
+                              "RequestedBy": {
+                                "_id": "<string>",
+                                "Name": "<string>"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "Columns": [
+                        {
+                          "Id": "<string>",
+                          "Type": "<string>",
+                          "IsSystemField": "<boolean>",
+                          "Name": "<string>"
+                        },
+                        {
+                          "Id": "<string>",
+                          "Type": "<string>",
+                          "IsSystemField": "<boolean>",
+                          "Name": "<string>"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -36408,14 +36992,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -36433,14 +37052,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -36458,14 +37112,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -36554,13 +37243,14 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "OK. The Postman example for this status captured an empty response body, so no response schema/example is available beyond that.",
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "No example response was captured in the source Postman collection for this operation."
                 },
-                "example": "{}"
+                "example": ""
               }
             }
           },
@@ -36577,14 +37267,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -36602,14 +37327,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -36627,14 +37387,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -36735,74 +37530,184 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
-                },
-                "example": {
-                  "Filter": {},
-                  "Table_TableName": [
-                    {
-                      "response": [
-                        {
-                          "Name": "<string>",
-                          "_id": "<string>",
-                          "PONumber": "<string>",
-                          "TotalPrice": "<string>",
-                          "RequestedBy": {
-                            "_id": "<string>",
-                            "Name": "<string>"
+                  "type": "object",
+                  "description": "Matching records for the dataset, grouped by table. All example values in this response are generic Postman placeholders (<string>/<boolean>), not real captured data — kept as captured rather than invented into more realistic-looking values, consistent with the rest of this module's examples. Records are grouped under a key literally captured by Postman as `Table_TableName`; in practice this key reflects the dataset's actual internal table name (see this spec's Processes module, \"Get all items (Admin)\", for the same `Table_<TableFieldName>` pattern).",
+                  "properties": {
+                    "Filter": {
+                      "type": "object",
+                      "description": "Applied filter, if any. Empty in the Postman example."
+                    },
+                    "Columns": {
+                      "type": "array",
+                      "description": "Fields shown as columns in the dataset.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "Id": {
+                            "type": "string",
+                            "description": "Unique identifier of the field/column."
+                          },
+                          "Type": {
+                            "type": "string",
+                            "description": "Data type of the field."
+                          },
+                          "IsSystemField": {
+                            "type": "boolean",
+                            "description": "Whether this is a built-in system field rather than a custom dataset field."
+                          },
+                          "Name": {
+                            "type": "string",
+                            "description": "Display name of the field."
                           }
                         },
-                        {
-                          "Name": "<string>",
-                          "_id": "<string>",
-                          "PONumber": "<string>",
-                          "TotalPrice": "<string>",
-                          "RequestedBy": {
-                            "_id": "<string>",
-                            "Name": "<string>"
+                        "required": [
+                          "Id",
+                          "Type",
+                          "IsSystemField",
+                          "Name"
+                        ]
+                      }
+                    }
+                  },
+                  "additionalProperties": {
+                    "type": "array",
+                    "description": "Rows for the dataset, keyed by the dataset's (dynamic) table name — captured literally as `Table_TableName` in this Postman example.",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "response": {
+                          "type": "array",
+                          "description": "Dataset record items.",
+                          "items": {
+                            "type": "object",
+                            "description": "A dataset record. The field set shown here (Name, PONumber, TotalPrice, RequestedBy) reflects the specific demo dataset used to capture this Postman example; real responses contain whatever fields are configured on your dataset instead.",
+                            "properties": {
+                              "Name": {
+                                "type": "string",
+                                "description": "Display name/key value of the record."
+                              },
+                              "_id": {
+                                "type": "string",
+                                "description": "Unique identifier of the record."
+                              },
+                              "PONumber": {
+                                "type": "string",
+                                "description": "Example dataset-specific field captured in this Postman sample."
+                              },
+                              "TotalPrice": {
+                                "type": "string",
+                                "description": "Example dataset-specific field captured in this Postman sample."
+                              },
+                              "RequestedBy": {
+                                "type": "object",
+                                "description": "Lookup-field value referencing a user.",
+                                "properties": {
+                                  "_id": {
+                                    "type": "string",
+                                    "description": "Unique identifier of the user."
+                                  },
+                                  "Name": {
+                                    "type": "string",
+                                    "description": "Display name of the user."
+                                  }
+                                },
+                                "required": [
+                                  "_id",
+                                  "Name"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "Name",
+                              "_id",
+                              "PONumber",
+                              "TotalPrice",
+                              "RequestedBy"
+                            ]
                           }
                         }
-                      ]
-                    },
-                    {
-                      "response": [
-                        {
-                          "Name": "<string>",
-                          "_id": "<string>",
-                          "PONumber": "<string>",
-                          "TotalPrice": "<string>",
-                          "RequestedBy": {
-                            "_id": "<string>",
-                            "Name": "<string>"
-                          }
-                        },
-                        {
-                          "Name": "<string>",
-                          "_id": "<string>",
-                          "PONumber": "<string>",
-                          "TotalPrice": "<string>",
-                          "RequestedBy": {
-                            "_id": "<string>",
-                            "Name": "<string>"
-                          }
-                        }
+                      },
+                      "required": [
+                        "response"
                       ]
                     }
-                  ],
-                  "Columns": [
-                    {
-                      "Id": "<string>",
-                      "Type": "<string>",
-                      "IsSystemField": "<boolean>",
-                      "Name": "<string>"
-                    },
-                    {
-                      "Id": "<string>",
-                      "Type": "<string>",
-                      "IsSystemField": "<boolean>",
-                      "Name": "<string>"
-                    }
+                  },
+                  "required": [
+                    "Filter",
+                    "Columns"
                   ]
+                },
+                "examples": {
+                  "records": {
+                    "summary": "200 OK",
+                    "value": {
+                      "Filter": {},
+                      "Table_TableName": [
+                        {
+                          "response": [
+                            {
+                              "Name": "<string>",
+                              "_id": "<string>",
+                              "PONumber": "<string>",
+                              "TotalPrice": "<string>",
+                              "RequestedBy": {
+                                "_id": "<string>",
+                                "Name": "<string>"
+                              }
+                            },
+                            {
+                              "Name": "<string>",
+                              "_id": "<string>",
+                              "PONumber": "<string>",
+                              "TotalPrice": "<string>",
+                              "RequestedBy": {
+                                "_id": "<string>",
+                                "Name": "<string>"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "response": [
+                            {
+                              "Name": "<string>",
+                              "_id": "<string>",
+                              "PONumber": "<string>",
+                              "TotalPrice": "<string>",
+                              "RequestedBy": {
+                                "_id": "<string>",
+                                "Name": "<string>"
+                              }
+                            },
+                            {
+                              "Name": "<string>",
+                              "_id": "<string>",
+                              "PONumber": "<string>",
+                              "TotalPrice": "<string>",
+                              "RequestedBy": {
+                                "_id": "<string>",
+                                "Name": "<string>"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "Columns": [
+                        {
+                          "Id": "<string>",
+                          "Type": "<string>",
+                          "IsSystemField": "<boolean>",
+                          "Name": "<string>"
+                        },
+                        {
+                          "Id": "<string>",
+                          "Type": "<string>",
+                          "IsSystemField": "<boolean>",
+                          "Name": "<string>"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -36820,14 +37725,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -36845,14 +37785,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -36870,14 +37845,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -36900,10 +37910,12 @@
                 "properties": {
                   "Data": {
                     "type": "string",
-                    "description": "Add records to the body payload.",
-                    "example": "[Object]"
+                    "description": "JSON-encoded array of up to 500 dataset records to create or update, keyed by `_id` (an existing `_id` updates that record; a new or omitted `_id` creates one) — per this operation's own description. The captured Postman example value, \"[Object]\", is Postman's own placeholder rendering for an unexpanded object/array value pasted into a text-type multipart field, not literal example content, so no realistic array example is available from the source capture."
                   }
-                }
+                },
+                "required": [
+                  "Data"
+                ]
               }
             }
           }
@@ -36966,30 +37978,83 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
-                },
-                "example": [
-                  {
-                    "Name": "<string>",
-                    "_id": "<string>",
-                    "PONumber": "<string>",
-                    "TotalPrice": "<string>",
-                    "RequestedBy": {
-                      "_id": "<string>",
-                      "Name": "<string>"
-                    }
-                  },
-                  {
-                    "Name": "<string>",
-                    "_id": "<string>",
-                    "PONumber": "<string>",
-                    "TotalPrice": "<string>",
-                    "RequestedBy": {
-                      "_id": "<string>",
-                      "Name": "<string>"
-                    }
+                  "type": "array",
+                  "description": "The dataset records created or updated by this bulk operation. All example values are generic Postman placeholders (<string>), not real captured data. Fixed a pre-existing schema/example type mismatch here: the schema previously said `type: object` while its example was an array — corrected to `type: array` per the array/envelope-shape risk this spec has flagged since Module 4.",
+                  "items": {
+                    "type": "object",
+                    "description": "A dataset record. The field set shown here (Name, PONumber, TotalPrice, RequestedBy) reflects the specific demo dataset used to capture this Postman example; real responses contain whatever fields are configured on your dataset instead.",
+                    "properties": {
+                      "Name": {
+                        "type": "string",
+                        "description": "Display name/key value of the record."
+                      },
+                      "_id": {
+                        "type": "string",
+                        "description": "Unique identifier of the record."
+                      },
+                      "PONumber": {
+                        "type": "string",
+                        "description": "Example dataset-specific field captured in this Postman sample."
+                      },
+                      "TotalPrice": {
+                        "type": "string",
+                        "description": "Example dataset-specific field captured in this Postman sample."
+                      },
+                      "RequestedBy": {
+                        "type": "object",
+                        "description": "Lookup-field value referencing a user.",
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "description": "Unique identifier of the user."
+                          },
+                          "Name": {
+                            "type": "string",
+                            "description": "Display name of the user."
+                          }
+                        },
+                        "required": [
+                          "_id",
+                          "Name"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "Name",
+                      "_id",
+                      "PONumber",
+                      "TotalPrice",
+                      "RequestedBy"
+                    ]
                   }
-                ]
+                },
+                "examples": {
+                  "records": {
+                    "summary": "200 OK",
+                    "value": [
+                      {
+                        "Name": "<string>",
+                        "_id": "<string>",
+                        "PONumber": "<string>",
+                        "TotalPrice": "<string>",
+                        "RequestedBy": {
+                          "_id": "<string>",
+                          "Name": "<string>"
+                        }
+                      },
+                      {
+                        "Name": "<string>",
+                        "_id": "<string>",
+                        "PONumber": "<string>",
+                        "TotalPrice": "<string>",
+                        "RequestedBy": {
+                          "_id": "<string>",
+                          "Name": "<string>"
+                        }
+                      }
+                    ]
+                  }
+                }
               }
             }
           },
@@ -37006,14 +38071,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -37031,14 +38131,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -37056,14 +38191,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -37083,11 +38253,11 @@
             "multipart/form-data": {
               "schema": {
                 "type": "object",
+                "description": "Low-information Postman capture: this operation's own description says it bulk-creates/updates up to 500 fields and values of a dataset view, but the actual request field name/shape was not legibly captured — the sole formdata field's key (\"Add record\") and value (\"Record\") read as generic UI-label stand-ins rather than a literal field name/value. Kept as captured rather than invented into a richer shape (for example, no array-of-records structure is assumed here, unlike the sibling \"Bulk update dataset records\" operation, since nothing in this capture supports that shape specifically).",
                 "properties": {
                   "Add record": {
                     "type": "string",
-                    "description": "Add a dataform record in the body payload.",
-                    "example": "Record"
+                    "description": "Add a dataform record in the body payload. Generic/low-information Postman placeholder — this field's real name and shape in a live request are not established by the source capture."
                   }
                 }
               }
@@ -37162,30 +38332,83 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
-                },
-                "example": [
-                  {
-                    "Name": "<string>",
-                    "_id": "<string>",
-                    "PONumber": "<string>",
-                    "TotalPrice": "<string>",
-                    "RequestedBy": {
-                      "_id": "<string>",
-                      "Name": "<string>"
-                    }
-                  },
-                  {
-                    "Name": "<string>",
-                    "_id": "<string>",
-                    "PONumber": "<string>",
-                    "TotalPrice": "<string>",
-                    "RequestedBy": {
-                      "_id": "<string>",
-                      "Name": "<string>"
-                    }
+                  "type": "array",
+                  "description": "The dataset view records created or updated by this bulk operation. All example values are generic Postman placeholders (<string>), not real captured data. Fixed a pre-existing schema/example type mismatch here: the schema previously said `type: object` while its example was an array — corrected to `type: array` per the array/envelope-shape risk this spec has flagged since Module 4.",
+                  "items": {
+                    "type": "object",
+                    "description": "A dataset record. The field set shown here (Name, PONumber, TotalPrice, RequestedBy) reflects the specific demo dataset used to capture this Postman example; real responses contain whatever fields are configured on your dataset instead.",
+                    "properties": {
+                      "Name": {
+                        "type": "string",
+                        "description": "Display name/key value of the record."
+                      },
+                      "_id": {
+                        "type": "string",
+                        "description": "Unique identifier of the record."
+                      },
+                      "PONumber": {
+                        "type": "string",
+                        "description": "Example dataset-specific field captured in this Postman sample."
+                      },
+                      "TotalPrice": {
+                        "type": "string",
+                        "description": "Example dataset-specific field captured in this Postman sample."
+                      },
+                      "RequestedBy": {
+                        "type": "object",
+                        "description": "Lookup-field value referencing a user.",
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "description": "Unique identifier of the user."
+                          },
+                          "Name": {
+                            "type": "string",
+                            "description": "Display name of the user."
+                          }
+                        },
+                        "required": [
+                          "_id",
+                          "Name"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "Name",
+                      "_id",
+                      "PONumber",
+                      "TotalPrice",
+                      "RequestedBy"
+                    ]
                   }
-                ]
+                },
+                "examples": {
+                  "records": {
+                    "summary": "200 OK",
+                    "value": [
+                      {
+                        "Name": "<string>",
+                        "_id": "<string>",
+                        "PONumber": "<string>",
+                        "TotalPrice": "<string>",
+                        "RequestedBy": {
+                          "_id": "<string>",
+                          "Name": "<string>"
+                        }
+                      },
+                      {
+                        "Name": "<string>",
+                        "_id": "<string>",
+                        "PONumber": "<string>",
+                        "TotalPrice": "<string>",
+                        "RequestedBy": {
+                          "_id": "<string>",
+                          "Name": "<string>"
+                        }
+                      }
+                    ]
+                  }
+                }
               }
             }
           },
@@ -37202,14 +38425,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -37227,14 +38485,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -37252,14 +38545,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -37282,10 +38610,13 @@
                 "properties": {
                   "Attachment": {
                     "type": "string",
-                    "description": "Attach sample file in the body payload.",
+                    "description": "Attach sample file in the body payload. Must target a field on the dataset configured as an attachment/file field.",
                     "format": "binary"
                   }
-                }
+                },
+                "required": [
+                  "Attachment"
+                ]
               }
             }
           }
@@ -37368,41 +38699,128 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
-                },
-                "example": {
-                  "response": [
-                    {
-                      "Name": "<string>",
-                      "_id": "<string>",
-                      "PONumber": "<string>",
-                      "TotalPrice": "<string>",
-                      "_modified_by": {
-                        "_id": "<string>",
-                        "Name": "<string>"
-                      },
-                      "RequestedBy": {
-                        "_id": "<string>",
-                        "Name": "<string>"
-                      },
-                      "_modified_at": "<dateTime>"
-                    },
-                    {
-                      "Name": "<string>",
-                      "_id": "<string>",
-                      "PONumber": "<string>",
-                      "TotalPrice": "<string>",
-                      "_modified_by": {
-                        "_id": "<string>",
-                        "Name": "<string>"
-                      },
-                      "RequestedBy": {
-                        "_id": "<string>",
-                        "Name": "<string>"
-                      },
-                      "_modified_at": "<dateTime>"
+                  "type": "object",
+                  "description": "Wrapper containing the dataset record(s) affected by the attachment upload. All example values are generic Postman placeholders, not real captured data.",
+                  "properties": {
+                    "response": {
+                      "type": "array",
+                      "description": "Dataset record(s) reflecting the newly attached file.",
+                      "items": {
+                        "type": "object",
+                        "description": "A dataset record. The field set shown here (Name, PONumber, TotalPrice, RequestedBy, _modified_by, _modified_at) reflects the specific demo dataset used to capture this Postman example; real responses contain whatever fields are configured on your dataset instead.",
+                        "properties": {
+                          "Name": {
+                            "type": "string",
+                            "description": "Display name/key value of the record."
+                          },
+                          "_id": {
+                            "type": "string",
+                            "description": "Unique identifier of the record."
+                          },
+                          "PONumber": {
+                            "type": "string",
+                            "description": "Example dataset-specific field captured in this Postman sample."
+                          },
+                          "TotalPrice": {
+                            "type": "string",
+                            "description": "Example dataset-specific field captured in this Postman sample."
+                          },
+                          "_modified_by": {
+                            "type": "object",
+                            "description": "User who last modified the record (i.e. who uploaded the attachment).",
+                            "properties": {
+                              "_id": {
+                                "type": "string",
+                                "description": "Unique identifier of the user."
+                              },
+                              "Name": {
+                                "type": "string",
+                                "description": "Display name of the user."
+                              }
+                            },
+                            "required": [
+                              "_id",
+                              "Name"
+                            ]
+                          },
+                          "RequestedBy": {
+                            "type": "object",
+                            "description": "Lookup-field value referencing a user.",
+                            "properties": {
+                              "_id": {
+                                "type": "string",
+                                "description": "Unique identifier of the user."
+                              },
+                              "Name": {
+                                "type": "string",
+                                "description": "Display name of the user."
+                              }
+                            },
+                            "required": [
+                              "_id",
+                              "Name"
+                            ]
+                          },
+                          "_modified_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Timestamp of the last modification. Captured in the Postman example as the literal placeholder \"<dateTime>\", not a real timestamp."
+                          }
+                        },
+                        "required": [
+                          "Name",
+                          "_id",
+                          "PONumber",
+                          "TotalPrice",
+                          "_modified_by",
+                          "RequestedBy",
+                          "_modified_at"
+                        ]
+                      }
                     }
+                  },
+                  "required": [
+                    "response"
                   ]
+                },
+                "examples": {
+                  "records": {
+                    "summary": "200 OK",
+                    "value": {
+                      "response": [
+                        {
+                          "Name": "<string>",
+                          "_id": "<string>",
+                          "PONumber": "<string>",
+                          "TotalPrice": "<string>",
+                          "_modified_by": {
+                            "_id": "<string>",
+                            "Name": "<string>"
+                          },
+                          "RequestedBy": {
+                            "_id": "<string>",
+                            "Name": "<string>"
+                          },
+                          "_modified_at": "<dateTime>"
+                        },
+                        {
+                          "Name": "<string>",
+                          "_id": "<string>",
+                          "PONumber": "<string>",
+                          "TotalPrice": "<string>",
+                          "_modified_by": {
+                            "_id": "<string>",
+                            "Name": "<string>"
+                          },
+                          "RequestedBy": {
+                            "_id": "<string>",
+                            "Name": "<string>"
+                          },
+                          "_modified_at": "<dateTime>"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -37420,14 +38838,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -37445,14 +38898,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -37470,14 +38958,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -37500,10 +39023,13 @@
                 "properties": {
                   "Add image": {
                     "type": "string",
-                    "description": "Add image in the body payload.",
+                    "description": "Add image in the body payload. Must target a field on the dataset configured as an image field.",
                     "format": "binary"
                   }
-                }
+                },
+                "required": [
+                  "Add image"
+                ]
               }
             }
           }
@@ -37586,41 +39112,128 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
-                },
-                "example": {
-                  "response": [
-                    {
-                      "Name": "<string>",
-                      "_id": "<string>",
-                      "PONumber": "<string>",
-                      "TotalPrice": "<string>",
-                      "_modified_by": {
-                        "_id": "<string>",
-                        "Name": "<string>"
-                      },
-                      "RequestedBy": {
-                        "_id": "<string>",
-                        "Name": "<string>"
-                      },
-                      "_modified_at": "<dateTime>"
-                    },
-                    {
-                      "Name": "<string>",
-                      "_id": "<string>",
-                      "PONumber": "<string>",
-                      "TotalPrice": "<string>",
-                      "_modified_by": {
-                        "_id": "<string>",
-                        "Name": "<string>"
-                      },
-                      "RequestedBy": {
-                        "_id": "<string>",
-                        "Name": "<string>"
-                      },
-                      "_modified_at": "<dateTime>"
+                  "type": "object",
+                  "description": "Wrapper containing the dataset record(s) affected by the image upload. All example values are generic Postman placeholders, not real captured data.",
+                  "properties": {
+                    "response": {
+                      "type": "array",
+                      "description": "Dataset record(s) reflecting the newly attached image.",
+                      "items": {
+                        "type": "object",
+                        "description": "A dataset record. The field set shown here (Name, PONumber, TotalPrice, RequestedBy, _modified_by, _modified_at) reflects the specific demo dataset used to capture this Postman example; real responses contain whatever fields are configured on your dataset instead.",
+                        "properties": {
+                          "Name": {
+                            "type": "string",
+                            "description": "Display name/key value of the record."
+                          },
+                          "_id": {
+                            "type": "string",
+                            "description": "Unique identifier of the record."
+                          },
+                          "PONumber": {
+                            "type": "string",
+                            "description": "Example dataset-specific field captured in this Postman sample."
+                          },
+                          "TotalPrice": {
+                            "type": "string",
+                            "description": "Example dataset-specific field captured in this Postman sample."
+                          },
+                          "_modified_by": {
+                            "type": "object",
+                            "description": "User who last modified the record (i.e. who uploaded the image).",
+                            "properties": {
+                              "_id": {
+                                "type": "string",
+                                "description": "Unique identifier of the user."
+                              },
+                              "Name": {
+                                "type": "string",
+                                "description": "Display name of the user."
+                              }
+                            },
+                            "required": [
+                              "_id",
+                              "Name"
+                            ]
+                          },
+                          "RequestedBy": {
+                            "type": "object",
+                            "description": "Lookup-field value referencing a user.",
+                            "properties": {
+                              "_id": {
+                                "type": "string",
+                                "description": "Unique identifier of the user."
+                              },
+                              "Name": {
+                                "type": "string",
+                                "description": "Display name of the user."
+                              }
+                            },
+                            "required": [
+                              "_id",
+                              "Name"
+                            ]
+                          },
+                          "_modified_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Timestamp of the last modification. Captured in the Postman example as the literal placeholder \"<dateTime>\", not a real timestamp."
+                          }
+                        },
+                        "required": [
+                          "Name",
+                          "_id",
+                          "PONumber",
+                          "TotalPrice",
+                          "_modified_by",
+                          "RequestedBy",
+                          "_modified_at"
+                        ]
+                      }
                     }
+                  },
+                  "required": [
+                    "response"
                   ]
+                },
+                "examples": {
+                  "records": {
+                    "summary": "200 OK",
+                    "value": {
+                      "response": [
+                        {
+                          "Name": "<string>",
+                          "_id": "<string>",
+                          "PONumber": "<string>",
+                          "TotalPrice": "<string>",
+                          "_modified_by": {
+                            "_id": "<string>",
+                            "Name": "<string>"
+                          },
+                          "RequestedBy": {
+                            "_id": "<string>",
+                            "Name": "<string>"
+                          },
+                          "_modified_at": "<dateTime>"
+                        },
+                        {
+                          "Name": "<string>",
+                          "_id": "<string>",
+                          "PONumber": "<string>",
+                          "TotalPrice": "<string>",
+                          "_modified_by": {
+                            "_id": "<string>",
+                            "Name": "<string>"
+                          },
+                          "RequestedBy": {
+                            "_id": "<string>",
+                            "Name": "<string>"
+                          },
+                          "_modified_at": "<dateTime>"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -37638,14 +39251,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -37663,14 +39311,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -37688,14 +39371,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "en_message",
+                    "args",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "en_message": "<string>",
-                  "args": {},
-                  "message": "<string>"
+                "examples": {
+                  "error": {
+                    "summary": "Error response",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "en_message": "<string>",
+                      "args": {},
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
