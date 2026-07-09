@@ -130,28 +130,110 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
-                },
-                "example": {
-                  "_id": "<string>",
-                  "ProfilePicture": "<string>",
-                  "LastName": "<string>",
-                  "NickName": "<string>",
-                  "UserSystemType": "<integer>",
-                  "Status": "<string>",
-                  "Groups": [
-                    {
-                      "_id": "<string>"
+                  "type": "object",
+                  "description": "A Kissflow user (summary representation).",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier of the user."
                     },
-                    {
-                      "_id": "<string>"
+                    "ProfilePicture": {
+                      "type": "string",
+                      "description": "URL of the user's profile picture."
+                    },
+                    "LastName": {
+                      "type": "string",
+                      "description": "User's last name."
+                    },
+                    "NickName": {
+                      "type": "string",
+                      "description": "User's nickname/display name."
+                    },
+                    "UserSystemType": {
+                      "type": "integer",
+                      "description": "Internal numeric code for the user's system type."
+                    },
+                    "Status": {
+                      "type": "string",
+                      "description": "User's account status (for example, Active or Invited)."
+                    },
+                    "Groups": {
+                      "type": "array",
+                      "description": "Groups the user belongs to.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "description": "Unique identifier of the group."
+                          }
+                        },
+                        "required": [
+                          "_id"
+                        ]
+                      }
+                    },
+                    "Name": {
+                      "type": "string",
+                      "description": "User's full display name."
+                    },
+                    "FirstName": {
+                      "type": "string",
+                      "description": "User's first name."
+                    },
+                    "Kind": {
+                      "type": "string",
+                      "description": "Entity kind, for example \"User\"."
+                    },
+                    "Phone": {
+                      "type": "string",
+                      "description": "User's phone number."
+                    },
+                    "UserType": {
+                      "type": "string",
+                      "description": "Type/role of the user in the account, for example \"User\" or \"Admin\"."
                     }
-                  ],
-                  "Name": "<string>",
-                  "FirstName": "<string>",
-                  "Kind": "<string>",
-                  "Phone": "<string>",
-                  "UserType": "<string>"
+                  },
+                  "required": [
+                    "_id",
+                    "ProfilePicture",
+                    "LastName",
+                    "NickName",
+                    "UserSystemType",
+                    "Status",
+                    "Groups",
+                    "Name",
+                    "FirstName",
+                    "Kind",
+                    "Phone",
+                    "UserType"
+                  ]
+                },
+                "examples": {
+                  "user": {
+                    "summary": "200 OK",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "ProfilePicture": "https://kf-uploads.kissflow.com/profile/5f3a1c2e9b1d4a0012a34567.jpg",
+                      "LastName": "Doe",
+                      "NickName": "johnd",
+                      "UserSystemType": 1,
+                      "Status": "Active",
+                      "Groups": [
+                        {
+                          "_id": "5f3a1c2e9b1d4a0012a34aaa"
+                        },
+                        {
+                          "_id": "5f3a1c2e9b1d4a0012a34bbb"
+                        }
+                      ],
+                      "Name": "John Doe",
+                      "FirstName": "John",
+                      "Kind": "User",
+                      "Phone": "+1-202-555-0181",
+                      "UserType": "User"
+                    }
+                  }
                 }
               }
             }
@@ -169,14 +251,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "unauthorized": {
+                    "summary": "401 Unauthorized",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "unauthorized",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -194,14 +311,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "forbidden": {
+                    "summary": "403 Forbidden",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "forbidden",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -219,14 +371,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "not_found": {
+                    "summary": "404 Not Found",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "not_found",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -245,44 +432,84 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "example": [
-                  {
-                    "_id": "<string>",
-                    "Roles": [
-                      {
-                        "_id": "<string>",
-                        "Name": "<string>",
-                        "Kind": "<string>",
-                        "IsDelete": "<boolean>"
-                      },
-                      {
-                        "_id": "<string>",
-                        "Name": "<string>",
-                        "Kind": "<string>",
-                        "IsDelete": "<boolean>"
+                "type": "array",
+                "description": "List of bulk user actions to perform (name change, email change, role change, deletion, etc.). Each item targets one user by _id.",
+                "items": {
+                  "type": "object",
+                  "description": "A single bulk action to apply to one user.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier of the user to update."
+                    },
+                    "Roles": {
+                      "type": "array",
+                      "description": "Roles to add to or remove from the user.",
+                      "items": {
+                        "type": "object",
+                        "description": "Role to assign to, or remove from, the user.",
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "description": "Unique identifier of the role."
+                          },
+                          "Name": {
+                            "type": "string",
+                            "description": "Display name of the role."
+                          },
+                          "Kind": {
+                            "type": "string",
+                            "description": "Entity kind, for example \"Role\"."
+                          },
+                          "IsDelete": {
+                            "type": "boolean",
+                            "description": "Set to true to remove this role from the user, false (or omitted) to add it."
+                          }
+                        },
+                        "required": [
+                          "_id",
+                          "Kind",
+                          "IsDelete"
+                        ]
                       }
-                    ]
+                    }
                   },
-                  {
-                    "_id": "<string>",
-                    "Roles": [
-                      {
-                        "_id": "<string>",
-                        "Name": "<string>",
-                        "Kind": "<string>",
-                        "IsDelete": "<boolean>"
-                      },
-                      {
-                        "_id": "<string>",
-                        "Name": "<string>",
-                        "Kind": "<string>",
-                        "IsDelete": "<boolean>"
-                      }
-                    ]
-                  }
-                ]
-              }
+                  "required": [
+                    "_id",
+                    "Roles"
+                  ]
+                }
+              },
+              "example": [
+                {
+                  "_id": "5f3a1c2e9b1d4a0012a34567",
+                  "Roles": [
+                    {
+                      "_id": "5f3a1c2e9b1d4a0012a34111",
+                      "Name": "Process Admin",
+                      "Kind": "Role",
+                      "IsDelete": false
+                    },
+                    {
+                      "_id": "5f3a1c2e9b1d4a0012a34222",
+                      "Name": "Board Admin",
+                      "Kind": "Role",
+                      "IsDelete": true
+                    }
+                  ]
+                },
+                {
+                  "_id": "5f3a1c2e9b1d4a0012a34568",
+                  "Roles": [
+                    {
+                      "_id": "5f3a1c2e9b1d4a0012a34111",
+                      "Name": "Process Admin",
+                      "Kind": "Role",
+                      "IsDelete": false
+                    }
+                  ]
+                }
+              ]
             }
           }
         },
@@ -334,18 +561,41 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
-                },
-                "example": [
-                  {
-                    "_id": "<string>",
-                    "Name": "<string>"
-                  },
-                  {
-                    "_id": "<string>",
-                    "Name": "<string>"
+                  "type": "array",
+                  "description": "The users that were updated by the bulk action.",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "description": "Unique identifier of the updated user."
+                      },
+                      "Name": {
+                        "type": "string",
+                        "description": "Display name of the updated user."
+                      }
+                    },
+                    "required": [
+                      "_id",
+                      "Name"
+                    ]
                   }
-                ]
+                },
+                "examples": {
+                  "batchResult": {
+                    "summary": "200 OK",
+                    "value": [
+                      {
+                        "_id": "5f3a1c2e9b1d4a0012a34567",
+                        "Name": "John Doe"
+                      },
+                      {
+                        "_id": "5f3a1c2e9b1d4a0012a34568",
+                        "Name": "Jane Smith"
+                      }
+                    ]
+                  }
+                }
               }
             }
           },
@@ -362,14 +612,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "unauthorized": {
+                    "summary": "401 Unauthorized",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "unauthorized",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -387,14 +672,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "forbidden": {
+                    "summary": "403 Forbidden",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "forbidden",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -412,14 +732,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "not_found": {
+                    "summary": "404 Not Found",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "not_found",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -439,25 +794,89 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "example": {
-                  "Email": "<email>",
-                  "Designation": "<string>",
-                  "LastName": "<string>",
-                  "Groups": [
-                    "<string>",
-                    "<string>"
-                  ],
-                  "AboutMe": "<string>",
-                  "Manager": {
-                    "_id": "<string>",
-                    "Name": "<string>",
-                    "Kind": "<string>"
+                "description": "Details of the user to create.",
+                "properties": {
+                  "Email": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "Email address of the new user. Used as the user's login identity."
                   },
-                  "NickName": "<string>",
-                  "FirstName": "<string>",
-                  "Phone": "<string>",
-                  "UserType": "<string>"
-                }
+                  "Designation": {
+                    "type": "string",
+                    "description": "Job title/designation of the user."
+                  },
+                  "LastName": {
+                    "type": "string",
+                    "description": "User's last name."
+                  },
+                  "Groups": {
+                    "type": "array",
+                    "description": "Unique identifiers of the groups to add the new user to.",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "AboutMe": {
+                    "type": "string",
+                    "description": "Short bio/description for the user's profile."
+                  },
+                  "Manager": {
+                    "type": "object",
+                    "description": "Reference to the user's manager.",
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "description": "Unique identifier of the manager."
+                      },
+                      "Name": {
+                        "type": "string",
+                        "description": "Display name of the manager."
+                      },
+                      "Kind": {
+                        "type": "string",
+                        "description": "Entity kind, for example \"User\"."
+                      }
+                    }
+                  },
+                  "NickName": {
+                    "type": "string",
+                    "description": "User's nickname/display name."
+                  },
+                  "FirstName": {
+                    "type": "string",
+                    "description": "User's first name."
+                  },
+                  "Phone": {
+                    "type": "string",
+                    "description": "User's phone number."
+                  },
+                  "UserType": {
+                    "type": "string",
+                    "description": "Type/role to assign the new user, for example \"User\" or \"Admin\"."
+                  }
+                },
+                "required": [
+                  "Email"
+                ]
+              },
+              "example": {
+                "Email": "jane.smith@example.com",
+                "Designation": "Product Manager",
+                "LastName": "Smith",
+                "Groups": [
+                  "5f3a1c2e9b1d4a0012a34aaa",
+                  "5f3a1c2e9b1d4a0012a34bbb"
+                ],
+                "AboutMe": "Product manager for the Finance suite.",
+                "Manager": {
+                  "_id": "5f3a1c2e9b1d4a0012a34567",
+                  "Name": "John Doe",
+                  "Kind": "User"
+                },
+                "NickName": "janes",
+                "FirstName": "Jane",
+                "Phone": "+1-202-555-0199",
+                "UserType": "User"
               }
             }
           }
@@ -519,89 +938,426 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "The newly created user.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier of the new user."
+                    },
+                    "DelegationStartDate": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "Start date of the user's task delegation, if configured."
+                    },
+                    "DelegationEndDate": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "End date of the user's task delegation, if configured."
+                    },
+                    "Designation": {
+                      "type": "string",
+                      "description": "Job title/designation of the user."
+                    },
+                    "LastName": {
+                      "type": "string",
+                      "description": "User's last name."
+                    },
+                    "UserSystemType": {
+                      "type": "integer",
+                      "description": "Internal numeric code for the user's system type."
+                    },
+                    "_created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Timestamp the user was created."
+                    },
+                    "Signature": {
+                      "type": "string",
+                      "description": "User's email signature."
+                    },
+                    "FirstName": {
+                      "type": "string",
+                      "description": "User's first name."
+                    },
+                    "Kind": {
+                      "type": "string",
+                      "description": "Entity kind, for example \"User\"."
+                    },
+                    "_modified_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Timestamp the user was last modified."
+                    },
+                    "Language": {
+                      "type": "string",
+                      "description": "User's preferred language."
+                    },
+                    "DelegatedTo": {
+                      "type": "object",
+                      "description": "User the tasks are delegated to, if configured.",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "description": "Unique identifier of the delegate."
+                        },
+                        "Name": {
+                          "type": "string",
+                          "description": "Display name of the delegate."
+                        },
+                        "Kind": {
+                          "type": "string",
+                          "description": "Entity kind, for example \"User\"."
+                        }
+                      }
+                    },
+                    "Phone": {
+                      "type": "string",
+                      "description": "User's phone number."
+                    },
+                    "UserType": {
+                      "type": "string",
+                      "description": "Type/role of the user in the account."
+                    },
+                    "Status": {
+                      "type": "string",
+                      "description": "User's account status, for example Active or Invited."
+                    },
+                    "_created_by": {
+                      "type": "object",
+                      "description": "A Kissflow user (summary representation).",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "description": "Unique identifier of the user."
+                        },
+                        "ProfilePicture": {
+                          "type": "string",
+                          "description": "URL of the user's profile picture."
+                        },
+                        "LastName": {
+                          "type": "string",
+                          "description": "User's last name."
+                        },
+                        "NickName": {
+                          "type": "string",
+                          "description": "User's nickname/display name."
+                        },
+                        "UserSystemType": {
+                          "type": "integer",
+                          "description": "Internal numeric code for the user's system type."
+                        },
+                        "Status": {
+                          "type": "string",
+                          "description": "User's account status (for example, Active or Invited)."
+                        },
+                        "Groups": {
+                          "type": "array",
+                          "description": "Groups the user belongs to.",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "_id": {
+                                "type": "string",
+                                "description": "Unique identifier of the group."
+                              }
+                            },
+                            "required": [
+                              "_id"
+                            ]
+                          }
+                        },
+                        "Name": {
+                          "type": "string",
+                          "description": "User's full display name."
+                        },
+                        "FirstName": {
+                          "type": "string",
+                          "description": "User's first name."
+                        },
+                        "Kind": {
+                          "type": "string",
+                          "description": "Entity kind, for example \"User\"."
+                        },
+                        "Phone": {
+                          "type": "string",
+                          "description": "User's phone number."
+                        },
+                        "UserType": {
+                          "type": "string",
+                          "description": "Type/role of the user in the account, for example \"User\" or \"Admin\"."
+                        }
+                      },
+                      "required": [
+                        "_id",
+                        "ProfilePicture",
+                        "LastName",
+                        "NickName",
+                        "UserSystemType",
+                        "Status",
+                        "Groups",
+                        "Name",
+                        "FirstName",
+                        "Kind",
+                        "Phone",
+                        "UserType"
+                      ]
+                    },
+                    "_modified_by": {
+                      "type": "object",
+                      "description": "A Kissflow user (summary representation).",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "description": "Unique identifier of the user."
+                        },
+                        "ProfilePicture": {
+                          "type": "string",
+                          "description": "URL of the user's profile picture."
+                        },
+                        "LastName": {
+                          "type": "string",
+                          "description": "User's last name."
+                        },
+                        "NickName": {
+                          "type": "string",
+                          "description": "User's nickname/display name."
+                        },
+                        "UserSystemType": {
+                          "type": "integer",
+                          "description": "Internal numeric code for the user's system type."
+                        },
+                        "Status": {
+                          "type": "string",
+                          "description": "User's account status (for example, Active or Invited)."
+                        },
+                        "Groups": {
+                          "type": "array",
+                          "description": "Groups the user belongs to.",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "_id": {
+                                "type": "string",
+                                "description": "Unique identifier of the group."
+                              }
+                            },
+                            "required": [
+                              "_id"
+                            ]
+                          }
+                        },
+                        "Name": {
+                          "type": "string",
+                          "description": "User's full display name."
+                        },
+                        "FirstName": {
+                          "type": "string",
+                          "description": "User's first name."
+                        },
+                        "Kind": {
+                          "type": "string",
+                          "description": "Entity kind, for example \"User\"."
+                        },
+                        "Phone": {
+                          "type": "string",
+                          "description": "User's phone number."
+                        },
+                        "UserType": {
+                          "type": "string",
+                          "description": "Type/role of the user in the account, for example \"User\" or \"Admin\"."
+                        }
+                      },
+                      "required": [
+                        "_id",
+                        "ProfilePicture",
+                        "LastName",
+                        "NickName",
+                        "UserSystemType",
+                        "Status",
+                        "Groups",
+                        "Name",
+                        "FirstName",
+                        "Kind",
+                        "Phone",
+                        "UserType"
+                      ]
+                    },
+                    "NickName": {
+                      "type": "string",
+                      "description": "User's nickname/display name."
+                    },
+                    "ProfilePicture": {
+                      "type": "string",
+                      "description": "URL of the user's profile picture."
+                    },
+                    "Groups": {
+                      "type": "array",
+                      "description": "Unique identifiers of the groups the user belongs to.",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "TimeZone": {
+                      "type": "object",
+                      "description": "User's configured time zone settings."
+                    },
+                    "Manager": {
+                      "type": "object",
+                      "description": "Reference to the user's manager.",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "description": "Unique identifier of the manager."
+                        },
+                        "Name": {
+                          "type": "string",
+                          "description": "Display name of the manager."
+                        },
+                        "Kind": {
+                          "type": "string",
+                          "description": "Entity kind, for example \"User\"."
+                        }
+                      }
+                    },
+                    "Accessibility": {
+                      "type": "string",
+                      "description": "Accessibility preference configured for the user."
+                    },
+                    "AppConfig": {
+                      "type": "object",
+                      "description": "Application configuration returned for the user's session.",
+                      "properties": {
+                        "ProfileBasePath": {
+                          "type": "string",
+                          "description": "Base path used to resolve the user's profile assets."
+                        },
+                        "UploadHost": {
+                          "type": "string",
+                          "description": "Host used for file uploads."
+                        }
+                      }
+                    },
+                    "Name": {
+                      "type": "string",
+                      "description": "User's full display name."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "DelegationStartDate",
+                    "DelegationEndDate",
+                    "Designation",
+                    "LastName",
+                    "UserSystemType",
+                    "_created_at",
+                    "Signature",
+                    "FirstName",
+                    "Kind",
+                    "_modified_at",
+                    "Language",
+                    "DelegatedTo",
+                    "Phone",
+                    "UserType",
+                    "Status",
+                    "_created_by",
+                    "_modified_by",
+                    "NickName",
+                    "ProfilePicture",
+                    "Groups",
+                    "TimeZone",
+                    "Manager",
+                    "Accessibility",
+                    "AppConfig",
+                    "Name"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "DelegationStartDate": "<date>",
-                  "DelegationEndDate": "<date>",
-                  "Designation": "<string>",
-                  "LastName": "<string>",
-                  "UserSystemType": "<integer>",
-                  "_created_at": "<dateTime>",
-                  "Signature": "<string>",
-                  "FirstName": "<string>",
-                  "Kind": "<string>",
-                  "_modified_at": "<dateTime>",
-                  "Language": "<string>",
-                  "DelegatedTo": {
-                    "_id": "<string>",
-                    "Name": "<string>",
-                    "Kind": "<string>"
-                  },
-                  "Phone": "<string>",
-                  "UserType": "<string>",
-                  "Status": "<string>",
-                  "_created_by": {
-                    "_id": "<string>",
-                    "ProfilePicture": "<string>",
-                    "LastName": "<string>",
-                    "NickName": "<string>",
-                    "UserSystemType": "<integer>",
-                    "Status": "<string>",
-                    "Groups": [
-                      {
-                        "_id": "<string>"
+                "examples": {
+                  "createdUser": {
+                    "summary": "201 Created",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34999",
+                      "DelegationStartDate": "2026-01-01",
+                      "DelegationEndDate": "2026-01-15",
+                      "Designation": "Product Manager",
+                      "LastName": "Smith",
+                      "UserSystemType": 1,
+                      "_created_at": "2026-07-09T10:15:30.000Z",
+                      "Signature": "Jane Smith, Product Manager",
+                      "FirstName": "Jane",
+                      "Kind": "User",
+                      "_modified_at": "2026-07-09T10:15:30.000Z",
+                      "Language": "en",
+                      "DelegatedTo": {
+                        "_id": "5f3a1c2e9b1d4a0012a34567",
+                        "Name": "John Doe",
+                        "Kind": "User"
                       },
-                      {
-                        "_id": "<string>"
-                      }
-                    ],
-                    "Name": "<string>",
-                    "FirstName": "<string>",
-                    "Kind": "<string>",
-                    "Phone": "<string>",
-                    "UserType": "<string>"
-                  },
-                  "_modified_by": {
-                    "_id": "<string>",
-                    "ProfilePicture": "<string>",
-                    "LastName": "<string>",
-                    "NickName": "<string>",
-                    "UserSystemType": "<integer>",
-                    "Status": "<string>",
-                    "Groups": [
-                      {
-                        "_id": "<string>"
+                      "Phone": "+1-202-555-0199",
+                      "UserType": "User",
+                      "Status": "Invited",
+                      "_created_by": {
+                        "_id": "5f3a1c2e9b1d4a0012a34567",
+                        "ProfilePicture": "https://kf-uploads.kissflow.com/profile/5f3a1c2e9b1d4a0012a34567.jpg",
+                        "LastName": "Doe",
+                        "NickName": "johnd",
+                        "UserSystemType": 1,
+                        "Status": "Active",
+                        "Groups": [
+                          {
+                            "_id": "5f3a1c2e9b1d4a0012a34aaa"
+                          },
+                          {
+                            "_id": "5f3a1c2e9b1d4a0012a34bbb"
+                          }
+                        ],
+                        "Name": "John Doe",
+                        "FirstName": "John",
+                        "Kind": "User",
+                        "Phone": "+1-202-555-0181",
+                        "UserType": "User"
                       },
-                      {
-                        "_id": "<string>"
-                      }
-                    ],
-                    "Name": "<string>",
-                    "FirstName": "<string>",
-                    "Kind": "<string>",
-                    "Phone": "<string>",
-                    "UserType": "<string>"
-                  },
-                  "NickName": "<string>",
-                  "ProfilePicture": "<string>",
-                  "Groups": [
-                    "<string>",
-                    "<string>"
-                  ],
-                  "TimeZone": {},
-                  "Manager": {
-                    "_id": "<string>",
-                    "Name": "<string>",
-                    "Kind": "<string>"
-                  },
-                  "Accessibility": "<string>",
-                  "AppConfig": {
-                    "ProfileBasePath": "<string>",
-                    "UploadHost": "<string>"
-                  },
-                  "Name": "<string>"
+                      "_modified_by": {
+                        "_id": "5f3a1c2e9b1d4a0012a34567",
+                        "ProfilePicture": "https://kf-uploads.kissflow.com/profile/5f3a1c2e9b1d4a0012a34567.jpg",
+                        "LastName": "Doe",
+                        "NickName": "johnd",
+                        "UserSystemType": 1,
+                        "Status": "Active",
+                        "Groups": [
+                          {
+                            "_id": "5f3a1c2e9b1d4a0012a34aaa"
+                          },
+                          {
+                            "_id": "5f3a1c2e9b1d4a0012a34bbb"
+                          }
+                        ],
+                        "Name": "John Doe",
+                        "FirstName": "John",
+                        "Kind": "User",
+                        "Phone": "+1-202-555-0181",
+                        "UserType": "User"
+                      },
+                      "NickName": "janes",
+                      "ProfilePicture": "https://kf-uploads.kissflow.com/profile/5f3a1c2e9b1d4a0012a34999.jpg",
+                      "Groups": [
+                        "5f3a1c2e9b1d4a0012a34aaa",
+                        "5f3a1c2e9b1d4a0012a34bbb"
+                      ],
+                      "TimeZone": {},
+                      "Manager": {
+                        "_id": "5f3a1c2e9b1d4a0012a34567",
+                        "Name": "John Doe",
+                        "Kind": "User"
+                      },
+                      "Accessibility": "Default",
+                      "AppConfig": {
+                        "ProfileBasePath": "https://kf-uploads.kissflow.com/profile/",
+                        "UploadHost": "https://uploads.kissflow.com"
+                      },
+                      "Name": "Jane Smith"
+                    }
+                  }
                 }
               }
             }
@@ -619,14 +1375,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "bad_request": {
+                    "summary": "400 Bad Request",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "bad_request",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -644,14 +1435,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "unauthorized": {
+                    "summary": "401 Unauthorized",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "unauthorized",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -669,14 +1495,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "forbidden": {
+                    "summary": "403 Forbidden",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "forbidden",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -694,14 +1555,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "not_found": {
+                    "summary": "404 Not Found",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "not_found",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -799,52 +1695,135 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
-                },
-                "example": [
-                  {
-                    "_id": "<string>",
-                    "ProfilePicture": "<string>",
-                    "LastName": "<string>",
-                    "NickName": "<string>",
-                    "UserSystemType": "<integer>",
-                    "Status": "<string>",
-                    "Groups": [
-                      {
-                        "_id": "<string>"
+                  "type": "array",
+                  "description": "The users matching the query.",
+                  "items": {
+                    "type": "object",
+                    "description": "A Kissflow user (summary representation).",
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "description": "Unique identifier of the user."
                       },
-                      {
-                        "_id": "<string>"
-                      }
-                    ],
-                    "Name": "<string>",
-                    "FirstName": "<string>",
-                    "Kind": "<string>",
-                    "Phone": "<string>",
-                    "UserType": "<string>"
-                  },
-                  {
-                    "_id": "<string>",
-                    "ProfilePicture": "<string>",
-                    "LastName": "<string>",
-                    "NickName": "<string>",
-                    "UserSystemType": "<integer>",
-                    "Status": "<string>",
-                    "Groups": [
-                      {
-                        "_id": "<string>"
+                      "ProfilePicture": {
+                        "type": "string",
+                        "description": "URL of the user's profile picture."
                       },
-                      {
-                        "_id": "<string>"
+                      "LastName": {
+                        "type": "string",
+                        "description": "User's last name."
+                      },
+                      "NickName": {
+                        "type": "string",
+                        "description": "User's nickname/display name."
+                      },
+                      "UserSystemType": {
+                        "type": "integer",
+                        "description": "Internal numeric code for the user's system type."
+                      },
+                      "Status": {
+                        "type": "string",
+                        "description": "User's account status (for example, Active or Invited)."
+                      },
+                      "Groups": {
+                        "type": "array",
+                        "description": "Groups the user belongs to.",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "_id": {
+                              "type": "string",
+                              "description": "Unique identifier of the group."
+                            }
+                          },
+                          "required": [
+                            "_id"
+                          ]
+                        }
+                      },
+                      "Name": {
+                        "type": "string",
+                        "description": "User's full display name."
+                      },
+                      "FirstName": {
+                        "type": "string",
+                        "description": "User's first name."
+                      },
+                      "Kind": {
+                        "type": "string",
+                        "description": "Entity kind, for example \"User\"."
+                      },
+                      "Phone": {
+                        "type": "string",
+                        "description": "User's phone number."
+                      },
+                      "UserType": {
+                        "type": "string",
+                        "description": "Type/role of the user in the account, for example \"User\" or \"Admin\"."
                       }
-                    ],
-                    "Name": "<string>",
-                    "FirstName": "<string>",
-                    "Kind": "<string>",
-                    "Phone": "<string>",
-                    "UserType": "<string>"
+                    },
+                    "required": [
+                      "_id",
+                      "ProfilePicture",
+                      "LastName",
+                      "NickName",
+                      "UserSystemType",
+                      "Status",
+                      "Groups",
+                      "Name",
+                      "FirstName",
+                      "Kind",
+                      "Phone",
+                      "UserType"
+                    ]
                   }
-                ]
+                },
+                "examples": {
+                  "userList": {
+                    "summary": "200 OK",
+                    "value": [
+                      {
+                        "_id": "5f3a1c2e9b1d4a0012a34567",
+                        "ProfilePicture": "https://kf-uploads.kissflow.com/profile/5f3a1c2e9b1d4a0012a34567.jpg",
+                        "LastName": "Doe",
+                        "NickName": "johnd",
+                        "UserSystemType": 1,
+                        "Status": "Active",
+                        "Groups": [
+                          {
+                            "_id": "5f3a1c2e9b1d4a0012a34aaa"
+                          },
+                          {
+                            "_id": "5f3a1c2e9b1d4a0012a34bbb"
+                          }
+                        ],
+                        "Name": "John Doe",
+                        "FirstName": "John",
+                        "Kind": "User",
+                        "Phone": "+1-202-555-0181",
+                        "UserType": "User"
+                      },
+                      {
+                        "_id": "5f3a1c2e9b1d4a0012a34568",
+                        "ProfilePicture": "https://kf-uploads.kissflow.com/profile/5f3a1c2e9b1d4a0012a34568.jpg",
+                        "LastName": "Smith",
+                        "NickName": "janes",
+                        "UserSystemType": 1,
+                        "Status": "Invited",
+                        "Groups": [
+                          {
+                            "_id": "5f3a1c2e9b1d4a0012a34aaa"
+                          }
+                        ],
+                        "Name": "Jane Smith",
+                        "FirstName": "Jane",
+                        "Kind": "User",
+                        "Phone": "+1-202-555-0199",
+                        "UserType": "User"
+                      }
+                    ]
+                  }
+                }
               }
             }
           },
@@ -861,14 +1840,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "unauthorized": {
+                    "summary": "401 Unauthorized",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "unauthorized",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -886,14 +1900,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "forbidden": {
+                    "summary": "403 Forbidden",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "forbidden",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -911,14 +1960,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "not_found": {
+                    "summary": "404 Not Found",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "not_found",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -938,54 +2022,151 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "example": {
-                  "Name": "<string>",
-                  "Description": "<string>",
-                  "Users": [
-                    {
-                      "_id": "<string>",
-                      "Name": "<string>",
-                      "Kind": "<string>",
-                      "IsDelete": "<boolean>"
-                    },
-                    {
-                      "_id": "<string>",
-                      "Name": "<string>",
-                      "Kind": "<string>",
-                      "IsDelete": "<boolean>"
+                "description": "Details of the group to create.",
+                "properties": {
+                  "Name": {
+                    "type": "string",
+                    "description": "Display name of the group."
+                  },
+                  "Description": {
+                    "type": "string",
+                    "description": "Description of the group's purpose."
+                  },
+                  "Users": {
+                    "type": "array",
+                    "description": "Users to add as members of the group.",
+                    "items": {
+                      "type": "object",
+                      "description": "Reference to a user.",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "description": "Unique identifier of the user."
+                        },
+                        "Name": {
+                          "type": "string",
+                          "description": "Display name of the user."
+                        },
+                        "Kind": {
+                          "type": "string",
+                          "description": "Entity kind."
+                        },
+                        "IsDelete": {
+                          "type": "boolean",
+                          "description": "Set to true to remove this reference, false (or omitted) to add it."
+                        }
+                      },
+                      "required": [
+                        "_id"
+                      ]
                     }
-                  ],
-                  "Groups": [
-                    {
-                      "_id": "<string>",
-                      "Name": "<string>",
-                      "Kind": "<string>",
-                      "IsDelete": "<boolean>"
-                    },
-                    {
-                      "_id": "<string>",
-                      "Name": "<string>",
-                      "Kind": "<string>",
-                      "IsDelete": "<boolean>"
+                  },
+                  "Groups": {
+                    "type": "array",
+                    "description": "Sub-groups to nest inside this group.",
+                    "items": {
+                      "type": "object",
+                      "description": "Reference to a group.",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "description": "Unique identifier of the group."
+                        },
+                        "Name": {
+                          "type": "string",
+                          "description": "Display name of the group."
+                        },
+                        "Kind": {
+                          "type": "string",
+                          "description": "Entity kind."
+                        },
+                        "IsDelete": {
+                          "type": "boolean",
+                          "description": "Set to true to remove this reference, false (or omitted) to add it."
+                        }
+                      },
+                      "required": [
+                        "_id"
+                      ]
                     }
-                  ],
-                  "Roles": [
-                    {
-                      "_id": "<string>",
-                      "Name": "<string>",
-                      "Kind": "<string>",
-                      "IsDelete": "<boolean>"
-                    },
-                    {
-                      "_id": "<string>",
-                      "Name": "<string>",
-                      "Kind": "<string>",
-                      "IsDelete": "<boolean>"
+                  },
+                  "Roles": {
+                    "type": "array",
+                    "description": "Roles to associate with the group.",
+                    "items": {
+                      "type": "object",
+                      "description": "Reference to a role.",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "description": "Unique identifier of the role."
+                        },
+                        "Name": {
+                          "type": "string",
+                          "description": "Display name of the role."
+                        },
+                        "Kind": {
+                          "type": "string",
+                          "description": "Entity kind."
+                        },
+                        "IsDelete": {
+                          "type": "boolean",
+                          "description": "Set to true to remove this reference, false (or omitted) to add it."
+                        }
+                      },
+                      "required": [
+                        "_id"
+                      ]
                     }
-                  ],
-                  "Email": "<email>",
-                  "_id": "<string>"
-                }
+                  },
+                  "Email": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "Email address associated with the group."
+                  },
+                  "_id": {
+                    "type": "string",
+                    "description": "Unique identifier for the group. Typically left unset when creating a group; the server assigns one."
+                  }
+                },
+                "required": [
+                  "Name"
+                ]
+              },
+              "example": {
+                "Name": "Finance Approvers",
+                "Description": "Users who approve finance-related requests.",
+                "Users": [
+                  {
+                    "_id": "5f3a1c2e9b1d4a0012a3111",
+                    "Name": "User 111",
+                    "Kind": "User",
+                    "IsDelete": false
+                  },
+                  {
+                    "_id": "5f3a1c2e9b1d4a0012a3222",
+                    "Name": "User 222",
+                    "Kind": "User",
+                    "IsDelete": false
+                  }
+                ],
+                "Groups": [
+                  {
+                    "_id": "5f3a1c2e9b1d4a0012a3333",
+                    "Name": "Group 333",
+                    "Kind": "Group",
+                    "IsDelete": false
+                  }
+                ],
+                "Roles": [
+                  {
+                    "_id": "5f3a1c2e9b1d4a0012a3444",
+                    "Name": "Role 444",
+                    "Kind": "Role",
+                    "IsDelete": false
+                  }
+                ],
+                "Email": "finance-approvers@example.com"
               }
             }
           }
@@ -1038,11 +2219,30 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "description": "Result status of the operation, for example \"success\"."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable result message."
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "status": "<string>",
-                  "message": "<string>"
+                "examples": {
+                  "groupCreated": {
+                    "summary": "201 Created",
+                    "value": {
+                      "status": "success",
+                      "message": "Group created successfully."
+                    }
+                  }
                 }
               }
             }
@@ -1060,14 +2260,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "bad_request": {
+                    "summary": "400 Bad Request",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "bad_request",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -1085,14 +2320,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "unauthorized": {
+                    "summary": "401 Unauthorized",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "unauthorized",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -1110,14 +2380,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "forbidden": {
+                    "summary": "403 Forbidden",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "forbidden",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -1135,14 +2440,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "not_found": {
+                    "summary": "404 Not Found",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "not_found",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -1224,24 +2564,62 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
-                },
-                "example": [
-                  {
-                    "_id": "<string>",
-                    "GroupCount": "<integer>",
-                    "Name": "<string>",
-                    "UserCount": "<integer>",
-                    "SyncFrom": "<string>"
-                  },
-                  {
-                    "_id": "<string>",
-                    "GroupCount": "<integer>",
-                    "Name": "<string>",
-                    "UserCount": "<integer>",
-                    "SyncFrom": "<string>"
+                  "type": "array",
+                  "description": "The groups matching the query.",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "description": "Unique identifier of the group."
+                      },
+                      "GroupCount": {
+                        "type": "integer",
+                        "description": "Number of sub-groups nested inside this group."
+                      },
+                      "Name": {
+                        "type": "string",
+                        "description": "Display name of the group."
+                      },
+                      "UserCount": {
+                        "type": "integer",
+                        "description": "Number of users who are members of this group."
+                      },
+                      "SyncFrom": {
+                        "type": "string",
+                        "description": "Source the group is synced from, if it was provisioned via directory sync (for example, an identity provider)."
+                      }
+                    },
+                    "required": [
+                      "_id",
+                      "GroupCount",
+                      "Name",
+                      "UserCount",
+                      "SyncFrom"
+                    ]
                   }
-                ]
+                },
+                "examples": {
+                  "groupList": {
+                    "summary": "200 OK",
+                    "value": [
+                      {
+                        "_id": "5f3a1c2e9b1d4a0012a34aaa",
+                        "GroupCount": 0,
+                        "Name": "Finance Approvers",
+                        "UserCount": 12,
+                        "SyncFrom": ""
+                      },
+                      {
+                        "_id": "5f3a1c2e9b1d4a0012a34bbb",
+                        "GroupCount": 2,
+                        "Name": "Engineering",
+                        "UserCount": 48,
+                        "SyncFrom": "Azure AD"
+                      }
+                    ]
+                  }
+                }
               }
             }
           },
@@ -1258,14 +2636,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "unauthorized": {
+                    "summary": "401 Unauthorized",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "unauthorized",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -1283,14 +2696,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "forbidden": {
+                    "summary": "403 Forbidden",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "forbidden",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -1308,14 +2756,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "not_found": {
+                    "summary": "404 Not Found",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "not_found",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -1380,58 +2863,174 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
-                },
-                "example": {
-                  "_id": "<string>",
-                  "GroupCount": "<integer>",
-                  "GroupMembers": [
-                    {
-                      "_id": "<string>",
-                      "ProfilePicture": "<string>",
-                      "LastName": "<string>",
-                      "NickName": "<string>",
-                      "UserSystemType": "<integer>",
-                      "Status": "<string>",
-                      "Groups": [
-                        {
-                          "_id": "<string>"
-                        },
-                        {
-                          "_id": "<string>"
-                        }
-                      ],
-                      "Name": "<string>",
-                      "FirstName": "<string>",
-                      "Kind": "<string>",
-                      "Phone": "<string>",
-                      "UserType": "<string>"
+                  "type": "object",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier of the group."
                     },
-                    {
-                      "_id": "<string>",
-                      "ProfilePicture": "<string>",
-                      "LastName": "<string>",
-                      "NickName": "<string>",
-                      "UserSystemType": "<integer>",
-                      "Status": "<string>",
-                      "Groups": [
+                    "GroupCount": {
+                      "type": "integer",
+                      "description": "Number of sub-groups nested inside this group."
+                    },
+                    "GroupMembers": {
+                      "type": "array",
+                      "description": "Users who are members of this group.",
+                      "items": {
+                        "type": "object",
+                        "description": "A Kissflow user (summary representation).",
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "description": "Unique identifier of the user."
+                          },
+                          "ProfilePicture": {
+                            "type": "string",
+                            "description": "URL of the user's profile picture."
+                          },
+                          "LastName": {
+                            "type": "string",
+                            "description": "User's last name."
+                          },
+                          "NickName": {
+                            "type": "string",
+                            "description": "User's nickname/display name."
+                          },
+                          "UserSystemType": {
+                            "type": "integer",
+                            "description": "Internal numeric code for the user's system type."
+                          },
+                          "Status": {
+                            "type": "string",
+                            "description": "User's account status (for example, Active or Invited)."
+                          },
+                          "Groups": {
+                            "type": "array",
+                            "description": "Groups the user belongs to.",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "_id": {
+                                  "type": "string",
+                                  "description": "Unique identifier of the group."
+                                }
+                              },
+                              "required": [
+                                "_id"
+                              ]
+                            }
+                          },
+                          "Name": {
+                            "type": "string",
+                            "description": "User's full display name."
+                          },
+                          "FirstName": {
+                            "type": "string",
+                            "description": "User's first name."
+                          },
+                          "Kind": {
+                            "type": "string",
+                            "description": "Entity kind, for example \"User\"."
+                          },
+                          "Phone": {
+                            "type": "string",
+                            "description": "User's phone number."
+                          },
+                          "UserType": {
+                            "type": "string",
+                            "description": "Type/role of the user in the account, for example \"User\" or \"Admin\"."
+                          }
+                        },
+                        "required": [
+                          "_id",
+                          "ProfilePicture",
+                          "LastName",
+                          "NickName",
+                          "UserSystemType",
+                          "Status",
+                          "Groups",
+                          "Name",
+                          "FirstName",
+                          "Kind",
+                          "Phone",
+                          "UserType"
+                        ]
+                      }
+                    },
+                    "Name": {
+                      "type": "string",
+                      "description": "Display name of the group."
+                    },
+                    "UserCount": {
+                      "type": "integer",
+                      "description": "Number of users who are members of this group."
+                    },
+                    "SyncFrom": {
+                      "type": "string",
+                      "description": "Source the group is synced from, if it was provisioned via directory sync."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "GroupCount",
+                    "GroupMembers",
+                    "Name",
+                    "UserCount",
+                    "SyncFrom"
+                  ]
+                },
+                "examples": {
+                  "groupDetails": {
+                    "summary": "200 OK",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34aaa",
+                      "GroupCount": 0,
+                      "GroupMembers": [
                         {
-                          "_id": "<string>"
+                          "_id": "5f3a1c2e9b1d4a0012a34567",
+                          "ProfilePicture": "https://kf-uploads.kissflow.com/profile/5f3a1c2e9b1d4a0012a34567.jpg",
+                          "LastName": "Doe",
+                          "NickName": "johnd",
+                          "UserSystemType": 1,
+                          "Status": "Active",
+                          "Groups": [
+                            {
+                              "_id": "5f3a1c2e9b1d4a0012a34aaa"
+                            },
+                            {
+                              "_id": "5f3a1c2e9b1d4a0012a34bbb"
+                            }
+                          ],
+                          "Name": "John Doe",
+                          "FirstName": "John",
+                          "Kind": "User",
+                          "Phone": "+1-202-555-0181",
+                          "UserType": "User"
                         },
                         {
-                          "_id": "<string>"
+                          "_id": "5f3a1c2e9b1d4a0012a34568",
+                          "ProfilePicture": "https://kf-uploads.kissflow.com/profile/5f3a1c2e9b1d4a0012a34568.jpg",
+                          "LastName": "Smith",
+                          "NickName": "janes",
+                          "UserSystemType": 1,
+                          "Status": "Active",
+                          "Groups": [
+                            {
+                              "_id": "5f3a1c2e9b1d4a0012a34aaa"
+                            }
+                          ],
+                          "Name": "Jane Smith",
+                          "FirstName": "Jane",
+                          "Kind": "User",
+                          "Phone": "+1-202-555-0199",
+                          "UserType": "User"
                         }
                       ],
-                      "Name": "<string>",
-                      "FirstName": "<string>",
-                      "Kind": "<string>",
-                      "Phone": "<string>",
-                      "UserType": "<string>"
+                      "Name": "Finance Approvers",
+                      "UserCount": 12,
+                      "SyncFrom": ""
                     }
-                  ],
-                  "Name": "<string>",
-                  "UserCount": "<integer>",
-                  "SyncFrom": "<string>"
+                  }
                 }
               }
             }
@@ -1449,14 +3048,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "unauthorized": {
+                    "summary": "401 Unauthorized",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "unauthorized",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -1474,14 +3108,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "forbidden": {
+                    "summary": "403 Forbidden",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "forbidden",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -1499,14 +3168,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "not_found": {
+                    "summary": "404 Not Found",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "not_found",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -1524,54 +3228,149 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "example": {
-                  "Name": "<string>",
-                  "Description": "<string>",
-                  "Email": "<email>",
-                  "Users": [
-                    {
-                      "_id": "<string>",
-                      "Name": "<string>",
-                      "Kind": "<string>",
-                      "IsDelete": "<boolean>"
-                    },
-                    {
-                      "_id": "<string>",
-                      "Name": "<string>",
-                      "Kind": "<string>",
-                      "IsDelete": "<boolean>"
+                "description": "Fields to update on the group. Include entries in Users, Groups, or Roles with IsDelete set to true to remove them, or false/omitted to add them.",
+                "properties": {
+                  "Name": {
+                    "type": "string",
+                    "description": "Display name of the group."
+                  },
+                  "Description": {
+                    "type": "string",
+                    "description": "Description of the group's purpose."
+                  },
+                  "Email": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "Email address associated with the group."
+                  },
+                  "Users": {
+                    "type": "array",
+                    "description": "Users to add to, or remove from, the group.",
+                    "items": {
+                      "type": "object",
+                      "description": "Reference to a user.",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "description": "Unique identifier of the user."
+                        },
+                        "Name": {
+                          "type": "string",
+                          "description": "Display name of the user."
+                        },
+                        "Kind": {
+                          "type": "string",
+                          "description": "Entity kind."
+                        },
+                        "IsDelete": {
+                          "type": "boolean",
+                          "description": "Set to true to remove this reference, false (or omitted) to add it."
+                        }
+                      },
+                      "required": [
+                        "_id"
+                      ]
                     }
-                  ],
-                  "Groups": [
-                    {
-                      "_id": "<string>",
-                      "Name": "<string>",
-                      "Kind": "<string>",
-                      "IsDelete": "<boolean>"
-                    },
-                    {
-                      "_id": "<string>",
-                      "Name": "<string>",
-                      "Kind": "<string>",
-                      "IsDelete": "<boolean>"
+                  },
+                  "Groups": {
+                    "type": "array",
+                    "description": "Sub-groups to add to, or remove from, the group.",
+                    "items": {
+                      "type": "object",
+                      "description": "Reference to a group.",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "description": "Unique identifier of the group."
+                        },
+                        "Name": {
+                          "type": "string",
+                          "description": "Display name of the group."
+                        },
+                        "Kind": {
+                          "type": "string",
+                          "description": "Entity kind."
+                        },
+                        "IsDelete": {
+                          "type": "boolean",
+                          "description": "Set to true to remove this reference, false (or omitted) to add it."
+                        }
+                      },
+                      "required": [
+                        "_id"
+                      ]
                     }
-                  ],
-                  "Roles": [
-                    {
-                      "_id": "<string>",
-                      "Name": "<string>",
-                      "Kind": "<string>",
-                      "IsDelete": "<boolean>"
-                    },
-                    {
-                      "_id": "<string>",
-                      "Name": "<string>",
-                      "Kind": "<string>",
-                      "IsDelete": "<boolean>"
+                  },
+                  "Roles": {
+                    "type": "array",
+                    "description": "Roles to add to, or remove from, the group.",
+                    "items": {
+                      "type": "object",
+                      "description": "Reference to a role.",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "description": "Unique identifier of the role."
+                        },
+                        "Name": {
+                          "type": "string",
+                          "description": "Display name of the role."
+                        },
+                        "Kind": {
+                          "type": "string",
+                          "description": "Entity kind."
+                        },
+                        "IsDelete": {
+                          "type": "boolean",
+                          "description": "Set to true to remove this reference, false (or omitted) to add it."
+                        }
+                      },
+                      "required": [
+                        "_id"
+                      ]
                     }
-                  ],
-                  "_id": "<string>"
+                  },
+                  "_id": {
+                    "type": "string",
+                    "description": "Unique identifier of the group being updated."
+                  }
                 }
+              },
+              "example": {
+                "Name": "Finance Approvers",
+                "Description": "Users who approve finance-related requests.",
+                "Email": "finance-approvers@example.com",
+                "Users": [
+                  {
+                    "_id": "5f3a1c2e9b1d4a0012a3111",
+                    "Name": "User 111",
+                    "Kind": "User",
+                    "IsDelete": false
+                  },
+                  {
+                    "_id": "5f3a1c2e9b1d4a0012a3222",
+                    "Name": "User 222",
+                    "Kind": "User",
+                    "IsDelete": true
+                  }
+                ],
+                "Groups": [
+                  {
+                    "_id": "5f3a1c2e9b1d4a0012a3333",
+                    "Name": "Group 333",
+                    "Kind": "Group",
+                    "IsDelete": false
+                  }
+                ],
+                "Roles": [
+                  {
+                    "_id": "5f3a1c2e9b1d4a0012a3444",
+                    "Name": "Role 444",
+                    "Kind": "Role",
+                    "IsDelete": false
+                  }
+                ],
+                "_id": "5f3a1c2e9b1d4a0012a34aaa"
               }
             }
           }
@@ -1634,11 +3433,30 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "description": "Result status of the operation, for example \"success\"."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable result message."
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "status": "<string>",
-                  "message": "<string>"
+                "examples": {
+                  "groupUpdated": {
+                    "summary": "200 OK",
+                    "value": {
+                      "status": "success",
+                      "message": "Group updated successfully."
+                    }
+                  }
                 }
               }
             }
@@ -1656,14 +3474,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "unauthorized": {
+                    "summary": "401 Unauthorized",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "unauthorized",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -1681,14 +3534,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "forbidden": {
+                    "summary": "403 Forbidden",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "forbidden",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -1706,14 +3594,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "not_found": {
+                    "summary": "404 Not Found",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "not_found",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -1776,11 +3699,30 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "description": "Result status of the operation, for example \"success\"."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable result message."
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "status": "<string>",
-                  "message": "<string>"
+                "examples": {
+                  "groupDeleted": {
+                    "summary": "200 OK",
+                    "value": {
+                      "status": "success",
+                      "message": "Group deleted successfully."
+                    }
+                  }
                 }
               }
             }
@@ -1798,14 +3740,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "unauthorized": {
+                    "summary": "401 Unauthorized",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "unauthorized",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -1823,14 +3800,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "forbidden": {
+                    "summary": "403 Forbidden",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "forbidden",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -1848,14 +3860,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "not_found": {
+                    "summary": "404 Not Found",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "not_found",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -1947,52 +3994,135 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
-                },
-                "example": [
-                  {
-                    "_id": "<string>",
-                    "ProfilePicture": "<string>",
-                    "LastName": "<string>",
-                    "NickName": "<string>",
-                    "UserSystemType": "<integer>",
-                    "Status": "<string>",
-                    "Groups": [
-                      {
-                        "_id": "<string>"
+                  "type": "array",
+                  "description": "Users who are members of the group.",
+                  "items": {
+                    "type": "object",
+                    "description": "A Kissflow user (summary representation).",
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "description": "Unique identifier of the user."
                       },
-                      {
-                        "_id": "<string>"
-                      }
-                    ],
-                    "Name": "<string>",
-                    "FirstName": "<string>",
-                    "Kind": "<string>",
-                    "Phone": "<string>",
-                    "UserType": "<string>"
-                  },
-                  {
-                    "_id": "<string>",
-                    "ProfilePicture": "<string>",
-                    "LastName": "<string>",
-                    "NickName": "<string>",
-                    "UserSystemType": "<integer>",
-                    "Status": "<string>",
-                    "Groups": [
-                      {
-                        "_id": "<string>"
+                      "ProfilePicture": {
+                        "type": "string",
+                        "description": "URL of the user's profile picture."
                       },
-                      {
-                        "_id": "<string>"
+                      "LastName": {
+                        "type": "string",
+                        "description": "User's last name."
+                      },
+                      "NickName": {
+                        "type": "string",
+                        "description": "User's nickname/display name."
+                      },
+                      "UserSystemType": {
+                        "type": "integer",
+                        "description": "Internal numeric code for the user's system type."
+                      },
+                      "Status": {
+                        "type": "string",
+                        "description": "User's account status (for example, Active or Invited)."
+                      },
+                      "Groups": {
+                        "type": "array",
+                        "description": "Groups the user belongs to.",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "_id": {
+                              "type": "string",
+                              "description": "Unique identifier of the group."
+                            }
+                          },
+                          "required": [
+                            "_id"
+                          ]
+                        }
+                      },
+                      "Name": {
+                        "type": "string",
+                        "description": "User's full display name."
+                      },
+                      "FirstName": {
+                        "type": "string",
+                        "description": "User's first name."
+                      },
+                      "Kind": {
+                        "type": "string",
+                        "description": "Entity kind, for example \"User\"."
+                      },
+                      "Phone": {
+                        "type": "string",
+                        "description": "User's phone number."
+                      },
+                      "UserType": {
+                        "type": "string",
+                        "description": "Type/role of the user in the account, for example \"User\" or \"Admin\"."
                       }
-                    ],
-                    "Name": "<string>",
-                    "FirstName": "<string>",
-                    "Kind": "<string>",
-                    "Phone": "<string>",
-                    "UserType": "<string>"
+                    },
+                    "required": [
+                      "_id",
+                      "ProfilePicture",
+                      "LastName",
+                      "NickName",
+                      "UserSystemType",
+                      "Status",
+                      "Groups",
+                      "Name",
+                      "FirstName",
+                      "Kind",
+                      "Phone",
+                      "UserType"
+                    ]
                   }
-                ]
+                },
+                "examples": {
+                  "groupMembers": {
+                    "summary": "200 OK",
+                    "value": [
+                      {
+                        "_id": "5f3a1c2e9b1d4a0012a34567",
+                        "ProfilePicture": "https://kf-uploads.kissflow.com/profile/5f3a1c2e9b1d4a0012a34567.jpg",
+                        "LastName": "Doe",
+                        "NickName": "johnd",
+                        "UserSystemType": 1,
+                        "Status": "Active",
+                        "Groups": [
+                          {
+                            "_id": "5f3a1c2e9b1d4a0012a34aaa"
+                          },
+                          {
+                            "_id": "5f3a1c2e9b1d4a0012a34bbb"
+                          }
+                        ],
+                        "Name": "John Doe",
+                        "FirstName": "John",
+                        "Kind": "User",
+                        "Phone": "+1-202-555-0181",
+                        "UserType": "User"
+                      },
+                      {
+                        "_id": "5f3a1c2e9b1d4a0012a34568",
+                        "ProfilePicture": "https://kf-uploads.kissflow.com/profile/5f3a1c2e9b1d4a0012a34568.jpg",
+                        "LastName": "Smith",
+                        "NickName": "janes",
+                        "UserSystemType": 1,
+                        "Status": "Active",
+                        "Groups": [
+                          {
+                            "_id": "5f3a1c2e9b1d4a0012a34aaa"
+                          }
+                        ],
+                        "Name": "Jane Smith",
+                        "FirstName": "Jane",
+                        "Kind": "User",
+                        "Phone": "+1-202-555-0199",
+                        "UserType": "User"
+                      }
+                    ]
+                  }
+                }
               }
             }
           },
@@ -2009,14 +4139,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "unauthorized": {
+                    "summary": "401 Unauthorized",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "unauthorized",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -2034,14 +4199,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "forbidden": {
+                    "summary": "403 Forbidden",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "forbidden",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
@@ -2059,14 +4259,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier associated with the error/request, if any."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Additional structured context for the error, if any. May be empty."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "message",
+                    "en_message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "message": "<string>",
-                  "en_message": "<string>"
+                "examples": {
+                  "not_found": {
+                    "summary": "404 Not Found",
+                    "value": {
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "not_found",
+                      "args": {},
+                      "message": "The request could not be completed.",
+                      "en_message": "The request could not be completed."
+                    }
+                  }
                 }
               }
             }
