@@ -20,7 +20,7 @@ export function Suggestion({ suggestion, onClick, className, ...props }: Suggest
       type="button"
       onClick={() => onClick?.(suggestion)}
       className={cn(
-        'max-w-full rounded-full border border-fd-border bg-fd-background px-3 py-1.5 text-left text-sm hover:bg-fd-muted',
+        'max-w-full rounded-full border border-fd-border bg-fd-background px-3 py-1.5 text-left text-sm text-fd-foreground hover:bg-fd-muted',
         className,
       )}
       {...props}
