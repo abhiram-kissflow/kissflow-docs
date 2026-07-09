@@ -1,206 +1,166 @@
 ---
 title: "Homepage overview"
-description: "DRAFT (unverified) — migrated from /t/83yzsc6/homepage-overview"
-contentType: tutorial
+description: "Your homepage is the first thing you see after signing in — search, notifications, the Ask AI agent, and a widget dashboard you can make your own."
+contentType: overview
 persona: shared
 section: get-started
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - homepage
+  - ask-ai
+  - widgets
+  - dashboard
 ---
 
-Kissflow plans:
+# Homepage overview
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
 
-Your home page is your starting point after [signing in](/t/60h9qz9/signing-in-to-kissflow) to the platform. This page provides at-a-glance summary of items, workflows, and other key information to help you stay organized and productive. Below is a detailed guide to everything in your homepage.
+Your homepage is your starting point after [signing in](/docs/get-started/signing-in) to Kissflow. It gives you an at-a-glance summary of your items, your workflows, and other key information, so you can pick up where you left off without digging through menus.
 
-## **Key features on the home page**
+![Kissflow homepage with the top navigation bar and default widget dashboard](/migration-assets/homepage-overview/1.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-The top bar provides access to  global search, help icon, notifications and account profile.
+## The top bar
 
-![](/migration-assets/homepage-overview/1.png)
+Across the top of every page, you have quick access to:
 
-## **Global Search**
+- **[Global search](/docs/get-started/contextual-global-search)** — search across items, workflows, and apps by name or keyword.
+- **Help** — click the help icon to open the help documentation or reach the Kissflow community.
+- **[Notifications](/docs/use/personal-settings/viewing-notifications)** — the bell icon shows updates on items assigned to you and other account activity.
+- **Your profile** — click your profile picture to get to **My settings**, **Themes**, or to sign out.
 
-[Global search](/t/83h9qlq/global-search) is located prominently at the top center, this feature allows you to search for anything across the product from items, workflows, or apps. You can search by item name, or keywords to quickly locate what you need.
+## Ask: Kissflow's AI agent
 
-## **Help icon**
+Ask lets you query your workflow data using natural language and get reports and insights back instantly, without building a report by hand. Click **Ask** on your homepage to start a conversation.
 
-Found on the top-right corner, the help icon connects you to:
+Before you can ask a question, add context: click **+ Add context** and select the processes, boards, apps, or datasets you want the AI to draw on. You can select up to **3 workflows** at a time.
 
--   The **help documentation** for guidance on using the platform.
--   The **Kissflow community**, where you can interact with other users and share insights.
+<Callout type="info">
+  Only workflows you have sufficient access to are available to add as context. If a workflow you expect to see is missing, check your permissions on it.
+</Callout>
 
-## User profile
+![Adding context and asking a natural-language question in the Ask panel](/migration-assets/homepage-overview/2.gif)
+{/* TODO: verify screenshot matches current product UI */}
 
-Click on your profile picture on the top-right corner to access:
+Once you've added context, type your question in plain language. Ask interprets your intent, identifies the relevant fields in the selected workflows, queries the data, and returns a response.
 
--   **[My settings](/category/my-settings)** to customize your profile details and account preferences.
--   **[Themes](/category/themes)** to change the look and feel of the platform.
--   **Sign out** to log out of the platform.  
-     
+The conversation doesn't reset after each question — Ask keeps up to 40 previous messages as context, so you can ask follow-up questions without repeating yourself.
 
-## **Ask - Kissflow's AI agent**
+### Generating a report
 
-Ask Kissflow AI Agent enables users to interact with workflow data using natural language and generate insights instantly. It eliminates the need for manual report building and makes analytics accessible to everyone.
+You can also use Ask to create [reports](/category/reports-in-analytics) with a simple prompt. When Ask generates a report, click **Edit and save** to send it to the Analytics report builder, where you can refine it further. Saved reports show up under **Analytics > Reports**.
 
--   Query workflow data using natural language
--   Generate reports instantly
--   Explore insights conversationally
+![Editing and saving an Ask-generated report into the Analytics report builder](/migration-assets/homepage-overview/11.gif)
+{/* TODO: verify screenshot matches current product UI */}
 
-#### Getting started
+### Checking a response
 
-Ask is a smart agent, that can generate insights you want from your workflows, follow these easy steps to get started:
+Every response comes with a plain-language explanation of the result. Click **Show details** to see exactly how Ask got there:
 
-Step 1: Click **Ask** directly from your homepage.  
-Step 2: Click **\+ Add context** to select relevant workflows from apps, process, board, and dataset to guide the AI in generating accurate responses. A maximum of 3 workflows can be selected.  
-Step 3: Enter your query in natural language to retrieve insights or generate reports. The agent interprets your intent, identifies the relevant fields within the selected workflows, queries the database, and returns a response.  
- 
+- **Sources** — the workflows used and the fields referenced.
+- **Query** — the exact query run against the data.
 
-![](/migration-assets/homepage-overview/2.gif)
+![Show details panel with Sources and Query tabs for an Ask response](/migration-assets/homepage-overview/3.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-> ****Note:**** You must add context, to begin a conversation. Only workflows where you are a Process Admin, Report Admin, or Data Admin are available for selection.
+You can rate any response with a thumbs up or thumbs down, and optionally add more detail — whether the response was accurate, how fast it was, and any other comments. This feedback helps improve Ask over time.
 
-#### **Generating a report**
+![Feedback options on an Ask response, including thumbs up, thumbs down, and additional comments](/migration-assets/homepage-overview/5.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-Use simple prompts to create [reports](/category/reports-in-analytics) instantly. When a report is generated, click **Edit and save** to take the report to Analytics report builder, where you can make further changes and save the report, which will then be available in **Analytics > Reports.**  
- 
+Use **More options** to open the help documentation or clear the current conversation. You can also expand the Ask interface for a more focused, full-screen view.
 
-![](/migration-assets/homepage-overview/11.gif)
+![More options menu in Ask with links to help documentation and clear conversation](/migration-assets/homepage-overview/7.gif)
+{/* TODO: verify screenshot matches current product UI */}
 
-   
-Ask provides a conversational experience where you can continue with follow-up questions without resetting the context. It retains up to 40 previous conversations as context, helping you to maintain continuity.
+## Default widgets
 
-#### **Response and feedback system**
+By default, your homepage shows five widgets, each using fixed system fields as columns:
 
-The agent provides a clear explanation of results with key highlights. When you click **Show details**, it helps you understand how the response was generated. **Sources** shows you the workflows used and fields referenced while **Query** shows the exact database query used to fetch answers to your input.
+- **Items in your queue** — items assigned to you.
+- **Items created by you** — items you've initiated.
+- **Recently accessed** — items you opened most recently.
+- **Tagged comments** — comments where you've been mentioned.
+- **My to-do** — items you've marked as to-do.
 
-![](/migration-assets/homepage-overview/3.png)![](/migration-assets/homepage-overview/4.png)
-
-You can quickly share feedback on each response using the thumbs up or thumbs down options. A thumbs up indicates that the response was helpful, while a thumbs down lets us know it didn’t meet your expectations. When you provide feedback, you’ll also have the option to share more details—such as whether the response was accurate, how fast it was, and any additional comments. This helps us continuously improve the quality and usefulness of the AI’s responses.  
- 
-
-![](/migration-assets/homepage-overview/5.png)
-
-Click the **More options** button to visit the help documentation, or to clear conversation.  You can also expand the interface for a more focused view.  
- 
-
-![](/migration-assets/homepage-overview/7.gif)
-
-## **Bell icon for notifications**
-
-The [notification](/t/x2h4azy/viewing-notifications) icon shows updates on items assigned to you, including due dates and workflow progress.
-
-![](/migration-assets/homepage-overview/6.png)
-
-## Default widgets on your homepage
-
-By default, your homepage contains five widgets with fixed system fields as columns:
-
--   **Items in your queue** – Items assigned to you.
--   **Items created by you** – Items you have initiated.
--   **Recently accessed** – Items you opened most recently.
--   **Tagged comments** – Comments where you have been mentioned.
--   **My to-do** – Items you’ve marked as to-do.![](/migration-assets/homepage-overview/12.gif) 
+![Default homepage dashboard with the five standard widgets](/migration-assets/homepage-overview/12.gif)
+{/* TODO: verify screenshot matches current product UI */}
 
 ### Marking items as to-do
 
-Process and board items assigned to you include **Mark as to-do** and **Remove from to-do** options at the top right, as shown in the gif below. Alternatively, from **items in your queue** in your homepage, you can open any item and mark it as a to-do. Once marked, the item will appear under the **My to-do** widget for easier tracking and prioritization as shown in the gif below.  
- 
+Open any process or board item assigned to you and use **Mark as to-do** (or **Remove from to-do**) at the top of the item. You can do this directly from the **Items in your queue** widget. Items you've marked appear in the **My to-do** widget for easier tracking.
 
-![](/migration-assets/homepage-overview/8.gif)
+![Marking an item as to-do from its header, and the item appearing under My to-do](/migration-assets/homepage-overview/8.gif)
+{/* TODO: verify screenshot matches current product UI */}
 
 ## Customizing your homepage with widgets
 
-Kissflow plans:
+<Callout type="info">
+  Widget customization is an Enterprise feature. On the Basic plan, your homepage always shows the five default widgets.
+</Callout>
 
-✕ Basic ✓ Enterprise
+If your account has customization enabled, you can add, remove, and rearrange widgets to build a dashboard that matches how you work. Click **Customize** at the top right of the homepage to open the widget picker, drag the widgets you want into your dashboard, arrange them, and click **Save**.
 
-You can customize your homepage by adding, removing, and arranging widgets to match the way you work. This makes it easier to keep important information within reach. To start customizing, select the **Customize** button at the top right of the homepage. There are 13 widgets you can choose from, some are standard widgets while  some are flow-specific. Flow-specific need to be configured as shown in the gif below. Basically this is what you do:
+![Customizing the homepage dashboard by adding and arranging widgets](/migration-assets/homepage-overview/10.gif)
+{/* TODO: verify screenshot matches current product UI */}
 
--   Click **Customize** to pick the widgets you want.
--   Arrange them neatly and click **Save** as shown in the gif.
--   **Reset** will take you back to your last saved dashboard setup.
--   Deleting all widgets will restore the default dashboard with 5 widgets.  
-     ![](/migration-assets/homepage-overview/10.gif)   
+There are 13 widgets to choose from — most are standard and work out of the box, while a few are flow-specific and need to be configured before they'll show data.
 
 ### Standard widgets
 
-These widgets come ready to use and don’t require configuration.
+| Widget | Description |
+|---|---|
+| Items in your queue | Shows all items currently assigned to you. |
+| Items in your queue – overdue | Shows items in your queue that have passed their due date. |
+| Items in your queue – due today | Shows items in your queue that are due today. |
+| Tagged comments | Displays comments where you've been tagged. |
+| My to-do | Shows items you've marked as to-do from processes or boards assigned to you. |
+| Recently accessed | Quick access to the items you opened most recently. |
+| Access requests | Lists access requests awaiting your action. |
+| Flow creation requests | Displays requests for creating new flows. |
 
-**Widgets**
-
-**Description**
-
-Items in your queue
-
-Shows all items currently assigned to you.
-
-Items in your queue - overdue
-
-Shows items in your queue that have passed their due date.
-
-Items in your queue - due today
-
-Shows items in your queue that are due today.
-
-Items created by you
-
-Lists all items initiated by you.
-
-Tagged comments
-
-Displays comments where you have been tagged.
-
-My to-do
-
-Shows items you’ve marked as to-do from processes or boards assigned to you.
-
-Recently accessed
-
-Quick access to the items you opened most recently.
-
-Access requests
-
-Lists access requests awaiting your action.
-
-Flow creation requests
-
-Displays requests for creating new flows.
+<Callout type="info">
+  **Items created by you** is also on the widget picker, but unlike the widgets above it needs a quick one-time configuration (setting a status filter) before it can be saved to your dashboard.
+</Callout>
 
 ### Flow-specific widgets
 
-These widgets need to be configured. For example, you can narrow down to items in your queue, items created by me, chart or table reports from a specific flow.
+These widgets need to be configured with a specific flow (and, for reports, a specific report) before they show data:
 
-**Widgets**
+| Widget | Description |
+|---|---|
+| Items in your queue – specific flow | Shows items assigned to you from a chosen flow. |
+| Items created by me – specific flow | Lists items you created in a specific flow. |
+| Chart reports | Visual representation of a report from one of your flows. |
+| Tabular reports | Tabular view of a report from one of your flows. |
 
-**Description**
+<Callout type="warn">
+  You can add up to 3 report widgets (chart or tabular), and up to 15 widgets in total, on your homepage.
+</Callout>
 
-Items in your queue - specific flow
-
-Shows items assigned to you from a chosen flow.
-
-Items created by me - specific flow
-
-Lists items you created in a specific flow.
-
-Chart reports
-
-Visual representation of reports from your flows.
-
-Tabular reports
-
-Tabular report views from your flows.
-
-> **Note:** You can add up to 3 report widgets. In all 15 widgets can be placed on your homepage.
+Use **Reset** to discard unsaved changes and go back to your last saved dashboard. If you remove every widget and save, your dashboard reverts to the five default widgets rather than staying empty.
 
 ## Using AI auto suggest
 
-Instead of setting up each widget manually, you can use AI auto suggest as shown in the gif to:
+Instead of building your dashboard widget by widget, use AI auto suggest from the widget picker:
 
--   **Get suggestions**: Our AI analyzes and surfaces widgets that are most likely to benefit you, based on your activity and usage patterns. This saves you the effort of configuring widgets. You only need to review the options and place them where they fit best.
-    
--   **Ask for widgets:** Type what you need, for example, _I need items created by me in employee confirmation_, and the AI will auto configure the flow-specific widgets. You just need to drag and drop.  
-     
-    
-    ![](/migration-assets/homepage-overview/9.gif)
+- **Get suggestions** — AI surfaces widgets likely to be useful based on your activity and usage patterns. You just review the suggestions and place the ones you want.
+- **Ask for widgets** — type what you're looking for, for example _items created by me in employee confirmation_, and AI configures the matching flow-specific widget for you to drag into place.
 
-> **Note:** AI does not create new widgets. It only suggests from the available list of widgets (shown in the table above) and one step further gives you configured flow-specific widgets based on your request.
+![Using AI auto suggest to get and configure widget recommendations](/migration-assets/homepage-overview/9.gif)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="idea">
+  AI auto suggest only recommends widgets from the standard 13-widget catalog — it doesn't create new widget types. For flow-specific widgets, it can go one step further and hand you a fully configured widget based on your request.
+</Callout>
+
+## What's next
+
+- [Viewing notifications](/docs/use/personal-settings/viewing-notifications)
+- [Contextual global search](/docs/get-started/contextual-global-search)
+- [My items](/docs/get-started/my-items)
+- [User notification settings](/docs/use/personal-settings/user-notification-settings)

@@ -1,35 +1,39 @@
 ---
 title: "Apps FAQs"
-description: "DRAFT (unverified) — migrated from /t/60h9qp1/apps-faqs"
+description: "Answers to common questions about building Kissflow Apps, trying them out, the App Store, and public access to apps."
 contentType: reference
 persona: shared
 section: reference
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - apps
+  - faq
+  - app-store
+  - public-access
 ---
 
-#### What programming languages can I use to create Kissflow Apps?
+### What programming languages can I use to create Kissflow Apps?
 
-Kissflow Apps is not focused on a single programming language; nevertheless, our [Software Development Kit (SDK)](https://developers.kissflow.com/) is designed for client-side apps and is written in JavaScript. You can also interact with server-side apps using our Run script connector in integration.
+Kissflow Apps isn't tied to a single programming language. Our [Software Development Kit (SDK)](https://developers.kissflow.com/) is designed for client-side apps and is written in JavaScript. To interact with server-side apps, use the **Run script** connector in Integration.
 
-#### Can you provide me with a Kissflow Apps account for testing purposes?
+### Can I get a Kissflow Apps account for testing purposes?
 
-You can try out the Kissflow Apps module with the Basic and Enterprise plan during the 14-day trial phase. If you don't already have an account, you may sign up for a free trial by going to Kissflow and entering your work email address.
+Yes. If you don't already have an account, sign up for a free trial with your work email address at [Kissflow](https://kissflow.com/). Trial availability and duration depend on your plan, so check the current pricing page for details before you sign up.
 
-#### Do you have a central platform to access different low-code apps?
+### Is there a central platform to access different low-code apps?
 
-Not at the moment! However, we are in the process of building a Kissflow App Store where you can build and share your applications using the Kissflow Apps framework. You'll also have access to hundreds of applications from different Kissflow users.
+Yes — the [Kissflow App Store](/docs/app-store). It hosts ready-made apps you can install with little to no coding, and you can also build and share your own apps with other Kissflow users. See [Introduction to Kissflow App Store](/docs/app-store/introduction-to-kissflow-app-store) to get started.
 
-How can I manage public and private access to Kissflow Apps and their processes?
+### How do I provide public access to an app?
 
-#### How do I provide public access to apps?
+Kissflow Apps themselves don't support public links, so there's no direct way to make an entire app publicly accessible. Specific components within an app, such as processes, offer limited public access through [public forms](/docs/build/processes/public-forms). These let external users interact with a process form without accessing the app itself.
 
-Kissflow Apps themselves do not support public links. This means there is no direct way to provide public access to an entire app. However, specific components within the app, such as processes, offer limited public access in the form of public process links. [Public links](/t/q6yzjas/public-form) are exclusive to these individual processes and enable public users to interact with forms but not access the app itself.
+### How do I share private access to an app?
 
-##### Private Access and Sharing Methods
+Since apps can't have public links, share access intentionally instead: invite the users you want to have access and assign them appropriate roles. They need to be licensed users to open the app.
 
-Since apps cannot have public links, providing access requires sharing the app intentionally with specific users. You can share the app with intended users by inviting them and assigning appropriate roles. Ensure they are licensed users to access the app.
+If you need to collect data from external users, use a public link on the specific process that needs it rather than trying to share the whole app. Public process links are built for external interactions like form submissions, while the app itself stays private.
 
-If you need to collect data from external users, consider using public links for specific processes rather than attempting to share the entire app. Public process links are designed for enabling external interactions, such as form submissions, while maintaining the private status of the app.
+### What if I need an entire app to be public?
 
-##### What if I need an entire app to be public?
-
-[Kissflow Portals](/t/m1h4azh/portal-overview) can also be used as an alternative to an app that needs to be shared and accessed by external users.
+Use a [Kissflow Portal](/docs/admin/portals/portal-overview) instead. Portals are built for sharing flows and apps with external users who don't have a Kissflow license.

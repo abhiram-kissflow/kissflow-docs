@@ -1,108 +1,145 @@
 ---
 title: "Analytics FAQs"
-description: "DRAFT (unverified) — migrated from /t/y4h9qz6/faqs-analytics"
+description: "Answers to common questions about Kissflow Analytics — data sources, sync, roles and permissions, report types, dataviews, and troubleshooting."
 contentType: reference
 persona: shared
 section: reference
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - analytics
+  - faq
+  - reports
+  - data-sources
 ---
 
 ## General
 
-1. **Can I bring in data from external sources into Kissflow Analytics?**  
-    Kissflow Analytics can only be used to create reports and analyze data that already exist in your Kissflow account.
-    
-2. **Can I connect BI tools like Power BI or Tableau to Kissflow Analytics?**  
-    No, you need the [Kissflow connector for BI](/t/83h9qzp/enabling-kissflow-analytics) to connect with other BI tools. For more details, you can contact our support team.
-    
-3. **What is the frequency at which my data in analytics is synced?**  
-    Analytics data will be synced once every hour. Any changes made in the process, boards, dataset, or dataforms will get reflected in analytics after an hour.     
-    
-4. **How does data synchronization work with third-party middleware like Snowflake?**  
-    While there are no direct options to access databases, we rely on third-party middleware like Snowflake. Data synchronization is periodic and occurs once every hour. We are actively working to improve this process, aiming to reduce the synchronization interval to every 30 minutes. We anticipate this update to be implemented in the next couple of months.
-    
-5. **How can I access analytics if I am not on the Kissflow Work Platform plans?**  
-    Analytics is only available in the Kissflow Enterprise plans. If you're on any other plan, you must first upgrade to the Kissflow Enterprise plan to access analytics.
-    
-6. **What are some of the commonly used use-cases with Kissflow Analytics?**  
-    There are many use-cases that are possible with Analytics. You can refer to [our documentation](/category/analytics) for the commonly used use-cases such as [Process item completion time report](/t/p8yq165/lead-time-tracking-with-kissflow-analytics), [Process step performance report](/t/g9yqk6g/process-step-performance-report-with-kissflow-analytics), and [User workload report](/t/q6h9qzt/creating-user-workload-report-for-processes).
-    
-7. **What are the different roles for data sources and reports in Analytics?**  
-    [Roles for data sources](/t/x2h9qzw/understanding-data-sources#roles-in-data-sources) are Report admin and Report creator. Report admins can create, edit, and delete data sources, while Report creators can only create and edit data sources. [Report roles](/t/p8h9qz2/managing-report#managing-roles-and-permissions) include Admins who have full control over reports, while members can only view and share them.
-    
-8. **Why can’t other users edit the reports that I have shared with them?**  
-    [Report members](/t/p8h9qz2/managing-report#managing-roles-and-permissions) can only view reports by default. To allow them to edit, grant edit report access.
-    
-9. **How will the child tables in process and boards appear in Analytics?**  
-    Each child table will be created separately in Analytics under the process or [board](/t/83yqk6f/board-tables-in-analytics#child-table) name followed by the child table name. For example, if you have a process called **Purchase Order** with a child table called **Item Details**, the [child table](/t/83yq9jv/process-table-in-analytics#child-table) will be created as **Purchase Order Item Details**. 
-    
-10. **Can I edit/modify a query once it is published?**  
-     Yes, the Dataview owner can edit a published [dataview](/t/83h9qzn/understanding-dataviews) by going to the **Data explorer** > selecting **My dataviews** from the dropdown menu > clicking **More options** \> selecting **Edit**.
-     
-11. **If I add or remove fields from a dataview, will the changes be reflected in existing reports?**  
-     No, you cannot see the changes in the report that is already created from the dataview before making the changes. If you are modifying the dataview by adding additional fields or removing fields, you should create a new report to view the updated changes.
-     
-12. **What are system tables in Kissflow Analytics?**  
-     System tables are system-generated tables that contain all the details about the activities and history of items present in processes and boards. These tables can be used to create meaningful reports. There are three types of system tables: [Process Instance](/t/83yq9jv/process-table-in-analytics#processinstance-table) and [Activity Instance](/t/83yq9jv/process-table-in-analytics#activityinstance-table) for processes, [Board Workflow Instance](/t/83yqk6f/board-tables-in-analytics#board-workflow-instance-table) for boards, [User](/t/h7yq95d/system-table-in-analytics#user-table) and [group](/t/h7yq95d/system-table-in-analytics#group-table) tables.
-     
-13. **How can I open the Kissflow process from a PowerBI Report or dashboard?**  
-     You can achieve this by adding a dynamic URL to go to a specific web page. Learn more: [Useful links to get started](https://community.fabric.microsoft.com/t5/Desktop/Adding-dynamic-URL-to-go-to-a-specific-web-page/td-p/1189841), [Power BI Hyperlinks in Tables](https://learn.microsoft.com/en-us/power-bi/create-reports/power-bi-hyperlinks-in-tables?tabs=powerbi-desktop).
-     
-14. **What is the table naming convention in Analytics? How can I relate it to the flow name?**  
-     The table name in Analytics will be displayed with an underscore. For instance, you have a process named **Purchase Request**, the table name in Analytics for the process will be **Purchase\_Request**. You can also identify the process table based on the process table name given in the URL. Please refer the [entity relationship diagram](/t/83yq9jv/process-table-in-analytics) to learn about the structure of the tables in Analytics.
-     
+### Can I bring in data from external sources into Kissflow Analytics?
+
+No. Kissflow Analytics is built to report on data that already exists in your Kissflow account — processes, boards, datasets, and dataforms. It isn't a general-purpose BI tool for importing outside data.
+
+### Can I connect BI tools like Power BI or Tableau to Kissflow Analytics?
+
+Not directly. Use the [Kissflow connector for BI](/docs/build/analytics/kissflow-connector-for-bi) to connect Kissflow data to external BI tools. See [Enabling Kissflow connector for BI](/docs/build/analytics/enabling-kissflow-connector-for-bi) to set it up, or contact Kissflow support for help.
+
+### How often does my data sync into Analytics?
+
+Kissflow keeps Analytics data in sync with your processes, boards, datasets, and dataforms automatically as changes happen, with periodic checks that catch and retry anything that didn't sync the first time. If a report looks out of date, open the data source in **Data explorer** and check its **Last synced** time.
+
+### How does data sync work with third-party middleware like Snowflake?
+
+There's no direct database access to your Kissflow data. Instead, integrations like the [Kissflow connector for BI](/docs/build/analytics/kissflow-connector-for-bi) go through middleware such as Snowflake, which reads from the same continuously-synced Analytics data. See [Configuring Snowflake for Kissflow connector for BI](/docs/build/analytics/configuring-snowflake-for-kissflow-connector-for-bi) for setup steps.
+
+### Do I need a specific Kissflow plan to access Analytics?
+
+It depends on the capability. Some Analytics features — like creating [dataviews](/docs/build/analytics/understanding-dataviews) with SQL — are only available on higher-tier plans. Check your account's plan details, or contact your Kissflow admin or our support team to confirm what's included for your account.
+
+### What are some common use cases for Kissflow Analytics?
+
+See our [Analytics documentation](/docs/build/analytics) for common report examples, including a [process item completion time report](/docs/build/analytics/creating-process-item-completion-time-report-with-analytics), a [process step performance report](/docs/build/analytics/creating-process-step-performance-report-with-analytics), and a [user workload report](/docs/build/analytics/creating-user-workload-report-with-analytics).
+
+### What are the different roles for data sources and reports in Analytics?
+
+[Data sources](/docs/build/analytics/understanding-data-sources#roles-in-data-sources) have two roles: **Report admin**, who gets full control of the data source, including sharing it with others, and **Report creator**, who gets view access to the data source so they can build dataviews and reports from it. Note that data sources themselves — process tables, board tables, system tables, and so on — are generated automatically and can't be created, edited, or deleted by any role.
+
+[Report roles](/docs/build/analytics/managing-reports#managing-roles-and-permissions) work differently: **Admins** have full control over a report, while **Members** can view and share it by default, and can be granted edit access.
+
+### Why can't other users edit the reports I've shared with them?
+
+[Report members](/docs/build/analytics/managing-reports#managing-roles-and-permissions) can only view reports by default. To let them edit, grant them edit access on the report.
+
+### How will child tables in a process or board appear in Analytics?
+
+Each child table is created as its own table in Analytics, named after the parent process or [board](/docs/build/analytics/board-table-in-analytics#child-table) followed by the child table's name. For example, a **Purchase Order** process with a child table called **Item Details** appears in Analytics as [**Purchase Order Item Details**](/docs/build/analytics/process-table-in-analytics#child-table).
+
+### Can I edit or modify a query once it's published?
+
+Yes. The dataview's owner can edit a published [dataview](/docs/build/analytics/understanding-dataviews) from **Data explorer** > **My dataviews** > **More options** > **Edit**.
+
+### If I add or remove fields in a dataview, will the changes show up in existing reports?
+
+No. Reports created from a dataview don't pick up field changes automatically. If you add or remove fields in the dataview, create a new report to see the updated data.
+
+### What are system tables in Kissflow Analytics?
+
+System tables are system-generated tables that hold activity and history data for items in your processes and boards, and you can build any report type on top of them. There are three kinds: [Process Instance and Activity Instance](/docs/build/analytics/process-table-in-analytics#processinstance-table) for processes, [Board Workflow Instance](/docs/build/analytics/board-table-in-analytics#board-workflow-instance-table) for boards, and User and Group tables for account-wide user and group data.
+
+### How can I open a Kissflow process from a Power BI report or dashboard?
+
+Add a dynamic URL to your Power BI report that links to the specific Kissflow web page. See Microsoft's guides on [adding a dynamic URL](https://community.fabric.microsoft.com/t5/Desktop/Adding-dynamic-URL-to-go-to-a-specific-web-page/td-p/1189841) and [Power BI hyperlinks in tables](https://learn.microsoft.com/en-us/power-bi/create-reports/power-bi-hyperlinks-in-tables?tabs=powerbi-desktop) for the steps.
+
+### What's the table naming convention in Analytics, and how do I relate it to the flow name?
+
+Analytics displays table names with underscores in place of spaces. For example, a process named **Purchase Request** appears as the **Purchase_Request** table. You can also match a process to its table using the process name in the process's URL. See the [entity relationship diagram](/docs/build/analytics/process-table-in-analytics) for how tables relate to each other.
 
 ## Reporting features
 
-1. **Can I create a report based on a child table present within a process?**  
-    You can create a report based on a [child table](/t/83yq9jv/process-table-in-analytics#child-table). Child tables can be located under **Data explorer** > **My tables**. Individual child tables will be listed as cards with the following names: process name - child table name.
-    
-2. **Can I create a report based on a dataset?**  
-    You can create a report based on a dataset in analytics. [Datasets](/t/60yq9rz/dataset-table-in-analytics) can be found under **Data explorer** > **My tables**.
-    
-3. **Can I create a report based on a board?**  
-    You can create reports based on individual boards or by combining data from multiple boards in Analytics. [Board tables](/t/83yqk6f/board-tables-in-analytics) can be found under **Data explorer** for each board you create in your Kissflow account.
-    
-4. **How can I create reports based on subitems in boards?**  
-    You can find [subitems](/t/83yqk6f/board-tables-in-analytics) in a board table by filtering the Parent ID, a column in the board table. Once you filter the subitems, you can click **Create report**.
-    
-5. **Can I join multiple tables to create reports in Analytics?**  
-    Yes, you can join multiple tables in Kissflow Analytics using SQL JOIN statements to create reports. These statements combine data or rows from two or more tables based on a common field between them. For example, to create a [Procurement spend analysis report](/t/83h9qz8/procurement-spend-analysis-report-by-department-and-product-category), you could join a Purchase Order table with a Vendors table to show which vendors received the most spend.
-    
-6. **How to create metrics reports in Kissflow Analytics?**  
-    To create a report similar to the system metrics report, join the process table and activity instance table by matching **\_instance\_id** in activity instance table with **\_id** in the process table. Find more information about the various [reports](/t/p8yq165/lead-time-tracking-with-kissflow-analytics), columns, schema of [process](/t/83yq9jv/process-table-in-analytics) and [system tables](/t/h7yq95d/system-table-in-analytics) in our documentation.
-    
-7. **How can I create a summary report of my board data in Analytics?**  
-    You can create a customizable [Summary report](/t/g9yh306/status-summary-report-based-on-boards-in-kissflow-analytics) in Analytics using [dataviews](/t/83h9qzn/understanding-dataviews) to get insights from one or more boards. This is more comprehensive than boards' Summary report, which only provides insights for a specific board.
-    
-8. **How can I use Analytics to create custom reports to track my team performance?**  
-    You can create reports such as [Step performance report](/t/g9yqk6g/process-step-performance-report-with-kissflow-analytics) to track the time each process item spends in each workflow step. [Item completion time report](/t/p8yq165/lead-time-tracking-with-kissflow-analytics) lets you track the time it takes for the task to be completed from the moment it is created. These reports can be customized according to your choice. For more information, refer to our [documentation](/category/analytics).
-    
-9. **What are the report types supported by Kissflow Analytics?**  
-    Kissflow Analytics supports three types of reports: [tabular](/t/g9h9qzb/tabular-reports), [chart](/t/h7h9qzr/chart-reports), and [pivot](/t/q6h9qz5/pivot-reports). Chart reports can be created in ten different chart types, including area, bar, doughnut, line, pie, and scatter.
-    
-10. **Can I export a report in Analytics?**     
-     Export option is available only for tabular reports. Click the **More options** button ({/* TODO: screenshot — source image expired (Google CDN); recapture from product UI */}) on the reports page and select **[Export](/t/p8h9qz2/managing-report#administering-a-report)** > **CSV** or **JSON**. You will receive an email with a link to download the report.
-     
-11. **Is there an option to view information participated in by colleagues working in the same department?**  
-     Create and [share](/t/p8h9qz2/managing-report#managing-roles-and-permissions) custom reports, whether in Process or Analytics, with the team to ensure colleagues can access them.
-     
-12. **How do I filter the Step Performance and User Performance reports for a particular division or department?**  
-     Create a dataview in Analytics that joins the [ActivityInstance](/t/83yq9jv/process-table-in-analytics#activityinstance-table) table and the respective [Process table](/t/83yq9jv/process-table-in-analytics). You can also create a Step performance or User performance report within Kissflow.  Learn more on [how to create Process Step Performance Report with Kissflow Analytics.](/t/g9yqk6g/creating-process-step-performance-report-with-kissflow-analytics) Alternatively, you can achieve this easily in Power BI using the above mentioned tables with your existing BI connector.
-     
+### Can I create a report based on a child table within a process?
 
-## Solutions 
+Yes. Find [child tables](/docs/build/analytics/process-table-in-analytics#child-table) under **Data explorer** > **My tables**, then create a report from them the same way you would from any other table.
 
-1. **How can I join two processes?**  
-    You can join two processes using a common field present in both processes. For example, the Purchase Request process will have a PR ID, which will also be present as a field in the Purchase Order process. You can use a PR ID to join Purchase Request and Purchase Order.
-    
-2. **I am getting an error in my SQL query that says You don't have permission to access this resource when I try to access a Dataview as a Super Admin of the account. How can I resolve this error?**  
-    This error occurs when a user does not have permission to access the table or system table that the dataview is querying. Once a user has been added to the table or system table via **Share**, they can run the queries with that table or system table mentioned. To learn more about **Share**, refer to the [Process](/t/83yq9jv/process-table-in-analytics), [Board](/t/83yqk6f/board-tables-in-analytics), [Dataset](/t/60yq9rz/dataset-table-in-analytics), [Dataform](/t/m1h9q1y/data-forms-overview), and [System table](/t/h7yq95d/system-table-in-analytics). The Super Admins can only access some tables and system tables by default. In this error scenario, a Super Admin must add themselves to the relevant table or system table.
-    
-3. **How can I join a process table and a child table?**  
-    You can join a process table and its corresponding child table by matching **\_id** in the process table with **\_instance\_id** in the child table. Find more information about columns and schema of [process tables](/t/83yq9jv/process-table-in-analytics) in our documentation.
-    
-4. **I am getting an error in my SQL query that says purchase\_Request does not exist in the account Kissflow. How can I resolve this error?**  
-    This error occurs when the datasource name is not used correctly in the query. Make sure to use the correct datasource name, as [Dataview](/t/83h9qzn/understanding-dataviews) is case-sensitive.
-    
-5. **What can I do if I lose the BI connector credentials?**  
-    You will receive an email with the credentials once you provision the [Kissflow connector for BI](/t/h7yqvd3/kissflow-connector-for-bi) for your account. However, if you lose access to the credentials, transfer your role as an Account Owner to the relevant user. You can contact our support team to receive a new email with the credentials.
+### Can I create a report based on a dataset?
+
+Yes. [Datasets](/docs/build/analytics/dataset-table-in-analytics) appear under **Data explorer** > **My tables**.
+
+### Can I create a report based on a board?
+
+Yes — from a single board or by combining data across several boards. [Board tables](/docs/build/analytics/board-table-in-analytics) are listed under **Data explorer** for every board in your account.
+
+### How can I create reports based on subitems in a board?
+
+Filter the board table by the **Parent ID** column to isolate subitems, then click **Create report**. See [Board table in Analytics](/docs/build/analytics/board-table-in-analytics) for the filter steps.
+
+### Can I join multiple tables to create reports in Analytics?
+
+Yes. Use SQL `JOIN` statements in a [dataview](/docs/build/analytics/understanding-dataviews) to combine rows from two or more tables on a common field. For example, a [procurement spend analysis report](/docs/build/analytics/creating-procurement-spend-analysis-report-by-department-and-product-category) joins a Purchase Order table with a Vendors table to show which vendors received the most spend.
+
+### How do I create metrics reports in Kissflow Analytics?
+
+Join the process table with the activity instance table, matching `_instance_id` on the activity instance side with `_id` on the process side. See [Process table in Analytics](/docs/build/analytics/process-table-in-analytics) and [System tables in Analytics](/docs/build/analytics/system-tables-in-analytics) for the columns and schema involved, and [Creating process item completion time report with Analytics](/docs/build/analytics/creating-process-item-completion-time-report-with-analytics) for a worked example.
+
+### How can I create a summary report of my board data in Analytics?
+
+Build a customizable [status summary report](/docs/build/analytics/creating-status-summary-report-based-on-boards-in-analytics) using [dataviews](/docs/build/analytics/understanding-dataviews) to pull insights from one or more boards. This gives you more flexibility than a board's built-in Summary report, which only covers that one board.
+
+### How can I use Analytics to track my team's performance?
+
+Try a [step performance report](/docs/build/analytics/creating-process-step-performance-report-with-analytics) to see how long items spend in each workflow step, or an [item completion time report](/docs/build/analytics/creating-process-item-completion-time-report-with-analytics) to track time from creation to completion. Both can be customized — see our [Analytics documentation](/docs/build/analytics) for more report ideas.
+
+### What report types does Kissflow Analytics support?
+
+Three: [tabular](/docs/build/analytics/tabular-reports), [chart](/docs/build/analytics/chart-reports), and [pivot](/docs/build/analytics/pivot-reports). Chart reports offer ten chart types, including area, bar, doughnut, line, pie, and scatter — see [Chart reports](/docs/build/analytics/chart-reports) for the full list.
+
+### Can I export a report in Analytics?
+
+Only tabular reports support data export. Click **More options** on the reports page, select **[Export](/docs/build/analytics/managing-reports#administering-a-report)**, then choose **CSV** or **JSON**. You'll get an email with a link to download the file.
+
+### Can colleagues in the same department view reports together?
+
+Yes — create a report (in Process or Analytics) and [share](/docs/build/analytics/managing-reports#managing-roles-and-permissions) it with the team so everyone who needs it has access.
+
+### How do I filter Step Performance and User Performance reports by division or department?
+
+Create a dataview that joins the [ActivityInstance table](/docs/build/analytics/process-table-in-analytics#activityinstance-table) with the relevant [process table](/docs/build/analytics/process-table-in-analytics), then build a Step Performance or User Performance report from it. See [Creating process step performance report with Analytics](/docs/build/analytics/creating-process-step-performance-report-with-analytics) for the walkthrough. You can also do this in Power BI using the same tables through your BI connector.
+
+## Solutions
+
+### How can I join two processes?
+
+Join them on a common field. For example, if a Purchase Request process and a Purchase Order process both have a PR ID field, use that field to join the two in a dataview.
+
+### I'm getting "You don't have permission to access this resource" in a SQL query, even as a Super Admin. How do I fix it?
+
+This happens when the querying user doesn't have access to the table or system table the dataview references. Super Admins don't get access to every table by default — add yourself to the relevant table or system table via **Share** first, then re-run the query. See [Process table in Analytics](/docs/build/analytics/process-table-in-analytics), [Board table in Analytics](/docs/build/analytics/board-table-in-analytics), [Dataset table in Analytics](/docs/build/analytics/dataset-table-in-analytics), and [System tables in Analytics](/docs/build/analytics/system-tables-in-analytics) for how sharing works on each.
+
+### How can I join a process table and a child table?
+
+Match `_id` in the process table with `_instance_id` in the child table. See [Process table in Analytics](/docs/build/analytics/process-table-in-analytics) for the columns and schema involved.
+
+### I'm getting "purchase_Request does not exist" in my SQL query. How do I fix it?
+
+This usually means the datasource name in your query doesn't match exactly — [dataview](/docs/build/analytics/understanding-dataviews) queries are case-sensitive, so double-check the datasource name's capitalization.
+
+### What do I do if I lose my BI connector credentials?
+
+You receive the credentials by email when you provision the [Kissflow connector for BI](/docs/build/analytics/kissflow-connector-for-bi) for your account. If you lose access to that email, ask your current Account Owner to [transfer ownership](/docs/admin/users/user-roles-and-permissions#transferring-account-ownership) to you, or contact Kissflow support to have the credentials resent.

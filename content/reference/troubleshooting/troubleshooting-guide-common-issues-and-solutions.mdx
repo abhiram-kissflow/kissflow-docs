@@ -1,57 +1,131 @@
 ---
 title: "Troubleshooting guide - common issues and solutions"
-description: "DRAFT (unverified) — migrated from /t/q6h9qtv/troubleshooting-guide-common-issues-and-solutions"
+description: "Symptoms, causes, and fixes for common Kissflow issues — account access, form validation, process assignees, and integration errors."
 contentType: troubleshooting
 persona: shared
 section: reference
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - troubleshooting
+  - errors
+  - workflows
+  - integrations
 ---
 
-This troubleshooting guide provides solutions to common problems encountered by Kissflow users. Let's take a closer look at them.
+# Troubleshooting guide - common issues and solutions
 
-## **General**
+This guide covers the issues Kissflow users run into most often, grouped by area, with the likely cause and how to fix each one. If a fix here doesn't resolve your issue, contact support via chat.
 
-1. **When you try to access a Kissflow application, you see the  error message, “Something went wrong. Please contact customer support.”**  
-    This is the most common error in Kissflow, and it could be the result of a newly inserted formula or a workflow error. Clear the cache in your browser and try again. If this does not help, please get in touch with our support team via chat.  
-     
-2. **You signed up for Kissflow, but you can’t access your account since the account approval is still pending.**  
-    Every Kissflow account comes with a set of user licenses that Account Admins may use to invite users to their account. Account Admins have complete control over the activation of user licenses. When you sign up for Kissflow, you are normally added as an inactive user to the account. For you to be able to access your account, an Account Admin must manually activate it. So, if your account is in the pending stage, please contact one of your Account Admins to get your request granted. ![](/migration-assets/troubleshooting-guide-common-issues-and-solutions/1.png) 
-3. **You get a validation error while submitting any workflow or project form.**  
-    If you receive a validation error while submitting a workflow or project form, double-check the values of the fields, as well as whether the on-submit validation and sequence fields are properly configured. If this does not address the problem, please contact our support team. ![](/migration-assets/troubleshooting-guide-common-issues-and-solutions/2.png) 
-4. **When you try opening the Kissflow Homepage, you see an empty screen.**  
-    This error occurs when there’s an issue with recent system updates and installations, or when there is a connection problem with the monitor or screen. In such cases, clear the browser cache and try again. If the issue persists, contact the support team for assistance. ![](/migration-assets/troubleshooting-guide-common-issues-and-solutions/3.png) 
-5. **You attempt to sign in to the Kissflow account using the verification email. However, you receive an error message indicating that the verification link has expired.**  
-    The verification link is only valid for 24 hours. When you view the page after that, you will see the error notice "**Verification Link Expired**." You can request a new verification email from your Account Admin. ![](/migration-assets/troubleshooting-guide-common-issues-and-solutions/4.png) 
-6. **You make modifications to the workflow form, but the changes are not reflected when you preview it.**  
-    To make the changes appear in the workflow form, reset the data by clicking the **Reset data** button in the bottom left corner of the form and try previewing again. 
+## General
 
-## **Workflows**
+### "Something went wrong. Please contact customer support."
 
-### **Process**
+This generic error can appear for several reasons — most often a recently added formula or a workflow misconfiguration. Start with the basics:
 
-1. **As a process approver, you do not see the Send back and Reject buttons in your Kissflow Process form.**  
-    If you can't find the [send back or reject button](/t/83h9qk0/configuring-actions-for-process-form-steps), it's because the process administrator has set it to be hidden. In such circumstances, please contact the process administrator to fix the issue. ![](/migration-assets/troubleshooting-guide-common-issues-and-solutions/5.png) 
-2. **You receive the error "No assignee at the next step" while initiating a request in your process workflow.**  
-    This error occurs when the workflow is not configured with the proper assignee. In such cases, we must examine the assignee’s and formulas’ settings. If it’s populated via a lookup, the lookup configuration should be examined. ![](/migration-assets/troubleshooting-guide-common-issues-and-solutions/6.png) 
-3. **You wish to update the form title of a process workflow as a process administrator, but you don't know how.**  
-    In order to edit a form title of your process workflow, follow the steps below:
+1. Clear your browser cache and reload the page.
+2. Try the same action in an incognito/private window to rule out a stale cache or extension conflict.
+3. If a specific form or workflow triggers it consistently, check any formulas or automations you recently added there.
 
--   Sign into your Kissflow account and open the process.
--   Click the **Manage** button at the top right > **Settings.**
--   Click the **General Settings** tab > [Configure form title](/t/m1h9qt580h4g2/process-settings#configuring-form-titles).
+If the error persists, contact our support team via chat with the steps that reproduce it.
 
-### **Integration**
+### Account approval is pending after sign-up
 
-**You configured an integration with multiple steps, but it did not complete due to an unknown error.**  
-Every integration that you create in your account will have its integration runs documented in the [Run history](/t/x2h4ak8q5h4gn/integration-data#run-history). This also includes error details related to an integration run.  
-To access the [integration run history](/t/x2h4ak8q5h4gn/integration-data), follow the steps below:
+New sign-ups are added to the account as pending users, not active ones. Every Kissflow account has a set of user licenses, and an Account Admin controls who gets activated with one. If your account is stuck in the pending stage, you can't sign in until an Account Admin manually activates it.
 
-1.  To open **Run history**, click the **Explore** button > **Managed by me** > **Integrations** > **Run history.**
-2.  Choose the desired integration for which the error has been documented.
-3.  You add new fields to your workflow, but they don’t get shown in the integration form during configuration.  
-    Sometimes the additional fields added to the workflow are not updated when you configure them in an integration step. Follow the steps below to resolve this issue:
+Contact one of your Account Admins and ask them to approve your access request.
 
--   Access the integration that you want to check.
--   Open the integration editor.
--   Edit the trigger or action step of the integration.
--   In the configuration form, click the **Refresh fields** button on the bottom left corner. 
--   Check the fields to see if they have been updated. Update the fields and test the trigger or action again.
+![Pending user approval notice shown to a new sign-up](/migration-assets/troubleshooting-guide-common-issues-and-solutions/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+### Validation error when submitting a workflow or project form
+
+If a form won't submit and shows a validation error, check:
+
+- **Field values** — make sure required fields are filled in and match the expected format.
+- **On-submit validation** — a custom validation rule on the form may be rejecting the input.
+- **Sequence fields** — misconfigured sequence number settings can also block submission.
+
+If the form still won't submit after checking these, contact support.
+
+![Validation error shown on a process form during submission](/migration-assets/troubleshooting-guide-common-issues-and-solutions/2.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+### Kissflow Homepage loads as an empty screen
+
+This usually clears up with a hard refresh:
+
+1. Clear your browser cache.
+2. Reload the page.
+
+If the homepage is still blank after that, contact support — it may be a browser extension or network issue on your end that's worth ruling out together.
+
+![Empty Kissflow Homepage screen](/migration-assets/troubleshooting-guide-common-issues-and-solutions/3.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+### "Verification Link Expired" when signing in from the verification email
+
+Account verification links are valid for **24 hours** only. If you open the link after that window, you'll see the **Verification Link Expired** error instead of being signed in.
+
+Ask your Account Admin to send you a new verification email.
+
+![Verification Link Expired error message](/migration-assets/troubleshooting-guide-common-issues-and-solutions/4.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+### Form changes don't show up when previewing a workflow
+
+If you edit a workflow form and the preview still shows the old version, the preview is likely holding on to simulated data from an earlier run.
+
+Click **Reset data** in the bottom-left corner of the preview form, then preview again.
+
+<Callout type="info">
+  Resetting clears only the preview's simulation data — it doesn't affect any live requests already submitted on the form.
+</Callout>
+
+## Workflows
+
+### Process
+
+#### Send back and Reject buttons are missing from an approval step
+
+If you're an approver and don't see the [Send back or Reject buttons](/docs/build/processes/configuring-actions-for-process-form-steps) on a process form, the process administrator has hidden them for that step. Only the process administrator can restore them — contact them if you need those actions available.
+
+![Approval step in a process form without the Send back and Reject buttons](/migration-assets/troubleshooting-guide-common-issues-and-solutions/5.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+#### "There is no assignee for the next step" when initiating a request
+
+This error means the next step in the process workflow doesn't resolve to a valid assignee. Check:
+
+- The step's assignee configuration — is an assignee actually set for this step?
+- Any formula used to determine the assignee.
+- If the assignee comes from a lookup field, the lookup configuration itself — an empty or broken lookup result will leave the step without an assignee.
+
+![No assignee error shown when initiating a process request](/migration-assets/troubleshooting-guide-common-issues-and-solutions/6.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+#### Changing a process form's title
+
+As a process administrator, you can rename a process form's title:
+
+1. Open the process and click **Manage** at the top right.
+2. Go to **Settings** > **General Settings**.
+3. Use [Configure form title](/docs/build/processes/process-settings#configuring-form-titles) to set the new title.
+
+### Integration
+
+#### An integration with multiple steps fails with an unknown error
+
+Every run of an integration is logged, including error details for failed runs. Check the [run history](/docs/build/integrations/managing-integrations#run-history) for the specific step and error that failed:
+
+1. Click **Explore** > **Managed by me** > **Integrations** > **Run history**.
+2. Select the integration you want to check.
+3. Open the failed run to see which step failed and why.
+
+#### New workflow fields don't appear in an integration step's configuration
+
+Fields you add to a workflow after an integration step was already configured don't sync into that step automatically. Refresh the step to pick them up:
+
+1. Open the integration editor for the integration you want to update.
+2. Edit the trigger or action step that needs the new fields.
+3. In the configuration form, click **Refresh fields** in the bottom-left corner.
+4. Confirm the new fields now appear, then test the trigger or action again.

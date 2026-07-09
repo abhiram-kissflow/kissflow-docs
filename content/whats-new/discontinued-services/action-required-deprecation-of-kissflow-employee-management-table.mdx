@@ -1,24 +1,34 @@
 ---
-title: "Action Required: Deprecation of  Kissflow Employee Management Table"
-description: "DRAFT (unverified) — migrated from /t/h7y3zaw/action-required-deprecation-of-kissflow-employee-management-table"
+title: "Action required: Deprecation of Kissflow Employee Management Table"
+description: "Kissflow deprecated the Employee Management Table in mid-January 2024 — employee data now lives in the User Management table, and _employee() is replaced by user()."
 contentType: reference
 persona: shared
 section: whats-new
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - users
+  - deprecation
+  - discontinued
 ---
 
-In mid-January 2024, we will deprecate the employee management table in Kissflow. Post this, you will no longer be able to access employee details through this table.  
- 
+# Action required: Deprecation of Kissflow Employee Management Table
 
-**Transition to User Management Table:**  
-All relevant details, previously available in the employee management table, will now be accessible through the user management table. Please use the user management table to view and manage employee information.  
- 
+Effective **mid-January 2024**, Kissflow deprecated the Employee Management Table. After this date, employee details are no longer accessible through that table.
 
-**Changes in Data Sharing:**  
-While the employee management table allows users to share employee details with others, the user management table will have different access restrictions. Only User admins / IAM admins / Super admins will have the ability to access and view user details. This change is implemented to enhance data security and privacy.  
-  
-**Action Required:**  
-Please familiarize yourself with the user management table. If you have been sharing employee details with other users, kindly inform them of this change and advise them to contact User admins / IAM admins / Super admins for any required information. Also, note that you will not be able to use the \_employee() system field in the future. Existing fields with \_employee() will be replaced with user() automatically.  Moving forward, you can use user() in your new workflows.
+## What changed
 
-We understand that changes like these can impact your daily operations, and we appreciate your cooperation during this transition period. If you have any questions or concerns, please feel free to reach out to our support team in the community. 
+All employee details previously available in the Employee Management Table are now accessible through the User Management table.
 
-**Note:** This applies to users in the following plans - KF Digital Workflow, KF Process, KF Project, KF Workflow Lite, KF Workflow Suite, and KF Workflow.
+Access is more restricted than before: only User admins, IAM admins, and Super admins can view user details there. Previously, employee details could be shared with a wider set of users.
+
+The `_employee()` system field is no longer available for new use. Existing fields that referenced `_employee()` were automatically replaced with `user()`. Use `user()` in new workflows going forward.
+
+## What to do
+
+If you were sharing employee details with other users through the Employee Management Table, let them know about this change and direct them to a User admin, IAM admin, or Super admin for anything they still need.
+
+<Callout type="info">
+  This change applies to accounts on the KF Digital Workflow, KF Process, KF Project, KF Workflow Lite, KF Workflow Suite, and KF Workflow plans.
+</Callout>
+
+If you have questions, contact Kissflow support.
