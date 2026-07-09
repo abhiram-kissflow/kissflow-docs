@@ -5,7 +5,6 @@ import {
 } from 'ai';
 import { openai } from '@ai-sdk/openai';
 import { searchHelpArticles } from '@/lib/rag/help';
-import { searchBackendGraph, searchFrontendGraph } from '@/lib/rag/graph';
 
 export const runtime = 'nodejs';
 
@@ -22,26 +21,16 @@ function getLatestUserText(messages: UIMessage[]): string {
 
 function contextBlock(query: string): string {
   const helpHits = searchHelpArticles(query, 4);
-  const frontendHits = searchFrontendGraph(query, 6);
-  const backendHits = searchBackendGraph(query, 6);
 
   const help = helpHits
     .map((hit, i) => `${i + 1}. ${hit.title} (${hit.url})\n   ${hit.snippet}`)
     .join('\n');
-  const frontend = frontendHits.map((hit) => `- ${hit.method} ${hit.route}`).join('\n');
-  const backend = backendHits.map((hit) => `- ${hit.method} ${hit.route}`).join('\n');
 
   return [
     'Grounding context (use this before answering):',
     '',
     'Help article matches:',
     help || '- none',
-    '',
-    'Frontend graph route matches:',
-    frontend || '- none',
-    '',
-    'Backend graph route matches:',
-    backend || '- none',
   ].join('\n');
 }
 
@@ -67,10 +56,9 @@ export async function POST(request: Request): Promise<Response> {
             type: 'text',
             text: `You are the Kissflow docs assistant.
 
-Always ground answers in the provided help-article and graph context.
+Always ground answers in the provided help-article context.
 If context is missing, say what is missing.
 For product guidance, prioritize help articles and cite URLs inline.
-For technical route behavior, reference frontend/backend routes explicitly.
 Keep responses concise and structured.`,
           },
         ],

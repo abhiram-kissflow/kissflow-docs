@@ -25,34 +25,34 @@ import { Suggestion, Suggestions } from '@/components/ai-elements/suggestion';
 import { cn } from '@/lib/cn';
 
 const STARTER_SUGGESTIONS = [
-  'Show how decision tables map to app and process routes.',
-  'Find watchlist-related frontend and backend routes.',
-  'List backend APIs for process submit/create actions.',
-  'Map app components to the related backend routes.',
+  'How do decision tables work in Kissflow?',
+  'Show setup guides for approvals and automations.',
+  'Where can I find API documentation for process actions?',
+  'Help me troubleshoot common publish issues.',
 ];
 
 const EMOJI_SET = ['🙂', '✅', '🚀', '🎯', '🛠️', '📎'];
 
 const SLASH_COMMANDS = [
   {
-    id: '/frontend',
-    label: 'Search frontend graph',
-    template: 'Search frontend graph for: ',
+    id: '/guide',
+    label: 'Find a guide',
+    template: 'Find documentation for: ',
   },
   {
-    id: '/backend',
-    label: 'Search backend graph',
-    template: 'Search backend graph for: ',
+    id: '/api',
+    label: 'Find API docs',
+    template: 'Find API documentation for: ',
   },
   {
     id: '/docs',
-    label: 'Search help docs',
+    label: 'Search docs',
     template: 'Search Kissflow help docs for: ',
   },
   {
-    id: '/compare',
-    label: 'Compare FE and BE',
-    template: 'Compare frontend and backend behavior for: ',
+    id: '/troubleshoot',
+    label: 'Troubleshoot',
+    template: 'Help me troubleshoot: ',
   },
 ];
 
@@ -248,7 +248,7 @@ export default function AIChat() {
         <div className="mb-2 flex items-center justify-between gap-2">
           <div className="inline-flex items-center gap-1.5 text-xs text-fd-muted-foreground">
             <Loader2 className="h-3.5 w-3.5 animate-spin text-[#CF2C91]" />
-            Thinking through docs and graph context...
+            Thinking through docs context...
           </div>
           <button
             type="button"
@@ -273,7 +273,7 @@ export default function AIChat() {
                   <MessageResponse className="space-y-2">
                     <div className="text-xl font-semibold leading-none">Hi there</div>
                     <div className="text-base text-fd-foreground">
-                      Ask me about Kissflow docs, frontend graph, or backend graph, and I will guide you step by step.
+                      Ask me about Kissflow docs, APIs, and setup steps, and I will guide you step by step.
                     </div>
                   </MessageResponse>
                 </MessageContent>
