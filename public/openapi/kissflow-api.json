@@ -32409,7 +32409,41 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "example": "{\n  \"Name_1\": \"<string>\",\n  \"Employee_ID\": \"<string>\"\n  \"Department\": \"<string>\"\n  \"Emergency_contact\": \"<string>\"\n  \"Address\":\"<string>\"\n  \"DOB\":\"<date>\"\n}\n"
+                "description": "Field values for the new dataform record, keyed by field name. The field set shown here (Name_1, Employee_ID, Department, Emergency_contact, Address, DOB) reflects the specific demo dataform used to capture this Postman example; real requests must use whatever fields are configured on your own dataform instead. Because dataform fields are account-specific and their required-ness is not annotated in the source, no fields are marked required here.",
+                "properties": {
+                  "Name_1": {
+                    "type": "string",
+                    "description": "Example dataform field captured in this Postman sample."
+                  },
+                  "Employee_ID": {
+                    "type": "string",
+                    "description": "Example dataform field captured in this Postman sample."
+                  },
+                  "Department": {
+                    "type": "string",
+                    "description": "Example dataform field captured in this Postman sample."
+                  },
+                  "Emergency_contact": {
+                    "type": "string",
+                    "description": "Example dataform field captured in this Postman sample."
+                  },
+                  "Address": {
+                    "type": "string",
+                    "description": "Example dataform field captured in this Postman sample."
+                  },
+                  "DOB": {
+                    "type": "string",
+                    "description": "Example dataform field captured in this Postman sample (date)."
+                  }
+                }
+              },
+              "example": {
+                "Name_1": "Jane Doe",
+                "Employee_ID": "109001",
+                "Department": "Marketing",
+                "Emergency_contact": "623892836",
+                "Address": "31/33, Park avenue, Elcot city",
+                "DOB": "09-04-1998"
               }
             }
           }
@@ -32460,13 +32494,14 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "OK. The Postman example for this status captured an empty response body, so no response schema/example is available beyond that.",
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "The Postman example response body for this status was empty."
                 },
-                "example": "{}"
+                "example": ""
               }
             }
           },
@@ -32494,17 +32529,67 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Error type/class name."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message. For errors like DocumentNotFound this may be an unsubstituted template (for example \"The item, {instance_id}, could not be located within {model_name}.\"); en_message carries the filled-in text."
+                    },
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Response status indicator, for example \"error\"."
+                    },
+                    "request_id": {
+                      "type": "string",
+                      "description": "Identifier of the backend operation that produced this error, useful when contacting support."
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "error_code",
+                    "en_message",
+                    "message",
+                    "_id",
+                    "args",
+                    "status",
+                    "request_id"
+                  ]
                 },
-                "example": {
-                  "type": "PermissionDeniedError",
-                  "error_code": "KISSFLOW_ERROR_00010",
-                  "en_message": "You don't have permission to access this resource.",
-                  "message": "You don't have permission to access this resource.",
-                  "_id": "023062bf-3472-4233-a198-ff4dc69c117c",
-                  "args": {},
-                  "status": "error",
-                  "request_id": "Form.create-and-submit-instance-dba7c3fe-863f-4dd0-830f-e18430ffa5f3"
+                "examples": {
+                  "forbidden": {
+                    "summary": "403 Forbidden",
+                    "value": {
+                      "type": "PermissionDeniedError",
+                      "error_code": "KISSFLOW_ERROR_00010",
+                      "en_message": "You don't have permission to access this resource.",
+                      "message": "You don't have permission to access this resource.",
+                      "_id": "023062bf-3472-4233-a198-ff4dc69c117c",
+                      "args": {},
+                      "status": "error",
+                      "request_id": "Form.create-and-submit-instance-dba7c3fe-863f-4dd0-830f-e18430ffa5f3"
+                    }
+                  }
                 }
               }
             }
@@ -32522,14 +32607,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error, unlike this operation's other error responses.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "en_message",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "en_message": "<string>",
-                  "message": "<string>"
+                "examples": {
+                  "not_found": {
+                    "summary": "404 Not Found",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "args": {},
+                      "en_message": "<string>",
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
@@ -32549,7 +32669,21 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "example": "{\n  \"Emergency_contact\": \"<string>\"\n  \"Address\":\"<string>\"\n}\n"
+                "description": "Field values to update on the record, keyed by field name. The field set shown here (Emergency_contact, Address) reflects the specific demo dataform used to capture this Postman example; real requests must use whatever fields are configured on your own dataform instead. Only the fields you include are updated (a partial update); because dataform fields are account-specific and their required-ness is not annotated in the source, no fields are marked required here.",
+                "properties": {
+                  "Emergency_contact": {
+                    "type": "string",
+                    "description": "Example dataform field captured in this Postman sample."
+                  },
+                  "Address": {
+                    "type": "string",
+                    "description": "Example dataform field captured in this Postman sample."
+                  }
+                }
+              },
+              "example": {
+                "Emergency_contact": "0981902839",
+                "Address": "40, Titanium towers, Hudson yard"
               }
             }
           }
@@ -32622,13 +32756,41 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "The updated record. Echoes back the fields that were included in the update request, plus system fields such as _id and _modified_at. Field names beyond the system fields are dataform-specific.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier of the updated record."
+                    },
+                    "Emergency_contact": {
+                      "type": "string",
+                      "description": "Example dataform field echoed back because it was included in the update request."
+                    },
+                    "Address": {
+                      "type": "string",
+                      "description": "Example dataform field echoed back because it was included in the update request."
+                    },
+                    "_modified_at": {
+                      "type": "string",
+                      "description": "Timestamp of the update. The Postman example shows the literal placeholder text \"date time value\" rather than a real timestamp."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "_modified_at"
+                  ]
                 },
-                "example": {
-                  "_id": "someItemId",
-                  "Emergency_contact": "0981902839",
-                  "Address": "40, Titanium towers, Hudson yard",
-                  "_modified_at": "date time value"
+                "examples": {
+                  "updated": {
+                    "summary": "200 OK",
+                    "value": {
+                      "_id": "someItemId",
+                      "Emergency_contact": "0981902839",
+                      "Address": "40, Titanium towers, Hudson yard",
+                      "_modified_at": "date time value"
+                    }
+                  }
                 }
               }
             }
@@ -32646,17 +32808,67 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Error type/class name."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message. For errors like DocumentNotFound this may be an unsubstituted template (for example \"The item, {instance_id}, could not be located within {model_name}.\"); en_message carries the filled-in text."
+                    },
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Response status indicator, for example \"error\"."
+                    },
+                    "request_id": {
+                      "type": "string",
+                      "description": "Identifier of the backend operation that produced this error, useful when contacting support."
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "error_code",
+                    "en_message",
+                    "message",
+                    "_id",
+                    "args",
+                    "status",
+                    "request_id"
+                  ]
                 },
-                "example": {
-                  "type": "UnauthorizedException",
-                  "error_code": "KISSFLOW_ERROR_00014",
-                  "en_message": "You are not authorized to access this resource.",
-                  "message": "You are not authorized to access this resource.",
-                  "_id": "1696a0d7-af5b-4564-87de-20ce190c143d",
-                  "args": {},
-                  "status": "error",
-                  "request_id": "Form.update-form-item-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                "examples": {
+                  "unauthorized": {
+                    "summary": "401 Unauthorized",
+                    "value": {
+                      "type": "UnauthorizedException",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
+                      "message": "You are not authorized to access this resource.",
+                      "_id": "1696a0d7-af5b-4564-87de-20ce190c143d",
+                      "args": {},
+                      "status": "error",
+                      "request_id": "Form.update-form-item-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                    }
+                  }
                 }
               }
             }
@@ -32674,17 +32886,67 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Error type/class name."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message. For errors like DocumentNotFound this may be an unsubstituted template (for example \"The item, {instance_id}, could not be located within {model_name}.\"); en_message carries the filled-in text."
+                    },
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Response status indicator, for example \"error\"."
+                    },
+                    "request_id": {
+                      "type": "string",
+                      "description": "Identifier of the backend operation that produced this error, useful when contacting support."
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "error_code",
+                    "en_message",
+                    "message",
+                    "_id",
+                    "args",
+                    "status",
+                    "request_id"
+                  ]
                 },
-                "example": {
-                  "type": "PermissionDeniedError",
-                  "error_code": "KISSFLOW_ERROR_00010",
-                  "en_message": "You don't have permission to access this resource.",
-                  "message": "You don't have permission to access this resource.",
-                  "_id": "023062bf-3472-4233-a198-ff4dc69c117c",
-                  "args": {},
-                  "status": "error",
-                  "request_id": "Form.update-form-item-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                "examples": {
+                  "forbidden": {
+                    "summary": "403 Forbidden",
+                    "value": {
+                      "type": "PermissionDeniedError",
+                      "error_code": "KISSFLOW_ERROR_00010",
+                      "en_message": "You don't have permission to access this resource.",
+                      "message": "You don't have permission to access this resource.",
+                      "_id": "023062bf-3472-4233-a198-ff4dc69c117c",
+                      "args": {},
+                      "status": "error",
+                      "request_id": "Form.update-form-item-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                    }
+                  }
                 }
               }
             }
@@ -32702,20 +32964,84 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
-                },
-                "example": {
-                  "type": "DocumentNotFound",
-                  "error_code": "KISSFLOW_ERROR_01015",
-                  "en_message": "The item, Pk9GcIGoUptV, could not be located within Employee Data.",
-                  "message": "The item, {instance_id}, could not be located within {model_name}.",
-                  "_id": "47bcb156-f564-487f-8b66-db3ff2dcc566",
-                  "args": {
-                    "instance_id": "Pk9GcIGoUptV",
-                    "model_name": "Employee Data"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Error type/class name."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message. For errors like DocumentNotFound this may be an unsubstituted template (for example \"The item, {instance_id}, could not be located within {model_name}.\"); en_message carries the filled-in text."
+                    },
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template.",
+                      "properties": {
+                        "instance_id": {
+                          "type": "string",
+                          "description": "The record identifier that could not be found."
+                        },
+                        "model_name": {
+                          "type": "string",
+                          "description": "Display name of the dataform/model the record was looked up in."
+                        }
+                      },
+                      "required": [
+                        "instance_id",
+                        "model_name"
+                      ]
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Response status indicator, for example \"error\"."
+                    },
+                    "request_id": {
+                      "type": "string",
+                      "description": "Identifier of the backend operation that produced this error, useful when contacting support."
+                    }
                   },
-                  "status": "error",
-                  "request_id": "Form.update-form-item-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                  "required": [
+                    "type",
+                    "error_code",
+                    "en_message",
+                    "message",
+                    "_id",
+                    "args",
+                    "status",
+                    "request_id"
+                  ]
+                },
+                "examples": {
+                  "not_found": {
+                    "summary": "404 Not Found",
+                    "value": {
+                      "type": "DocumentNotFound",
+                      "error_code": "KISSFLOW_ERROR_01015",
+                      "en_message": "The item, Pk9GcIGoUptV, could not be located within Employee Data.",
+                      "message": "The item, {instance_id}, could not be located within {model_name}.",
+                      "_id": "47bcb156-f564-487f-8b66-db3ff2dcc566",
+                      "args": {
+                        "instance_id": "Pk9GcIGoUptV",
+                        "model_name": "Employee Data"
+                      },
+                      "status": "error",
+                      "request_id": "Form.update-form-item-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                    }
+                  }
                 }
               }
             }
@@ -32788,9 +33114,175 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Details of a dataform record. BEST-EFFORT PARTIAL RECONSTRUCTION: the Postman example for this response was captured as a pasted Chrome DevTools console object dump (\"{_id: \\\"...\\\", Name: \\\"...\\\",…}\" followed by an expanded property listing), and Task 2's sanitizer replaced it with an empty placeholder because it isn't valid JSON. This schema/example was rebuilt directly from that raw console-dump text. The console's inline preview line is truncated with an ellipsis after the first two fields (_id, Name), but the full expanded property listing immediately below it is NOT further truncated (it ends cleanly after _modified_by, with no trailing ellipsis), so all fields shown here were legible in the source — nothing past this point was cut off, and no field values were invented or extrapolated beyond what the source showed. Field names other than the leading underscore-prefixed system fields (Address, Blood_group, DOB, Date_of_joining, Department, Email_ID, Emergency_contact, Employee_ID, Name, Name_1, Personal_email_ID) are specific to the demo dataform used to capture this example; real records use whatever fields are configured on your own dataform instead.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier of the record."
+                    },
+                    "Name": {
+                      "type": "string",
+                      "description": "Display name of the record (system-derived title field)."
+                    },
+                    "Address": {
+                      "type": "string",
+                      "description": "Example dataform field captured in this Postman sample."
+                    },
+                    "Blood_group": {
+                      "type": "string",
+                      "description": "Example dataform field captured in this Postman sample."
+                    },
+                    "DOB": {
+                      "type": "string",
+                      "description": "Example dataform field captured in this Postman sample (date)."
+                    },
+                    "Date_of_joining": {
+                      "type": "string",
+                      "description": "Example dataform field captured in this Postman sample (date)."
+                    },
+                    "Department": {
+                      "type": "string",
+                      "description": "Example dataform field captured in this Postman sample."
+                    },
+                    "Email_ID": {
+                      "type": "string",
+                      "description": "Example dataform field captured in this Postman sample."
+                    },
+                    "Emergency_contact": {
+                      "type": "number",
+                      "description": "Example dataform field captured in this Postman sample. Captured as an unquoted number in the source, unlike the string-typed Emergency_contact field seen in the create/update examples for this same demo dataform."
+                    },
+                    "Employee_ID": {
+                      "type": "number",
+                      "description": "Example dataform field captured in this Postman sample. Captured as an unquoted number in the source."
+                    },
+                    "Name_1": {
+                      "type": "string",
+                      "description": "Example dataform field captured in this Postman sample."
+                    },
+                    "Personal_email_ID": {
+                      "type": "string",
+                      "description": "Example dataform field captured in this Postman sample."
+                    },
+                    "_application_id": {
+                      "type": "string",
+                      "description": "Identifier of the app the dataform belongs to."
+                    },
+                    "_created_at": {
+                      "type": "string",
+                      "description": "Creation timestamp, ISO 8601."
+                    },
+                    "_created_by": {
+                      "type": "object",
+                      "description": "User who created the record.",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "description": "Unique identifier of the user."
+                        },
+                        "Name": {
+                          "type": "string",
+                          "description": "Display name of the user."
+                        },
+                        "Kind": {
+                          "type": "string",
+                          "description": "Entity kind, for example \"User\"."
+                        }
+                      },
+                      "required": [
+                        "_id",
+                        "Name",
+                        "Kind"
+                      ]
+                    },
+                    "_doc_version": {
+                      "type": "string",
+                      "description": "Internal document version identifier."
+                    },
+                    "_flow_name": {
+                      "type": "string",
+                      "description": "Display name of the dataform."
+                    },
+                    "_flow_type": {
+                      "type": "string",
+                      "description": "Type of the flow, for example \"Form\" for a dataform."
+                    },
+                    "_modified_at": {
+                      "type": "string",
+                      "description": "Last-modified timestamp, ISO 8601."
+                    },
+                    "_modified_by": {
+                      "type": "object",
+                      "description": "User who last modified the record.",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "description": "Unique identifier of the user."
+                        },
+                        "Name": {
+                          "type": "string",
+                          "description": "Display name of the user."
+                        },
+                        "Kind": {
+                          "type": "string",
+                          "description": "Entity kind, for example \"User\"."
+                        }
+                      },
+                      "required": [
+                        "_id",
+                        "Name",
+                        "Kind"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "_application_id",
+                    "_created_at",
+                    "_created_by",
+                    "_doc_version",
+                    "_flow_name",
+                    "_flow_type",
+                    "_modified_at",
+                    "_modified_by"
+                  ]
                 },
-                "example": {}
+                "examples": {
+                  "recordDetails": {
+                    "summary": "200 OK (best-effort partial reconstruction)",
+                    "value": {
+                      "_id": "PkAuBpLW2MWe",
+                      "Name": "Employee data from Jane Doe",
+                      "Address": "Ronald avenue",
+                      "Blood_group": "o+ve",
+                      "DOB": "1980-05-14",
+                      "Date_of_joining": "2025-02-05",
+                      "Department": "Marketing",
+                      "Email_ID": "jane@kissflow.com",
+                      "Emergency_contact": 563252535,
+                      "Employee_ID": 11838,
+                      "Name_1": "Jane Doe",
+                      "Personal_email_ID": "jane@gmail.com",
+                      "_application_id": "HRMS_app_A00",
+                      "_created_at": "2025-02-25T06:55:21Z",
+                      "_created_by": {
+                        "_id": "Us8WjMSnu7f6",
+                        "Name": "Jane Doe",
+                        "Kind": "User"
+                      },
+                      "_doc_version": "170529622467989792",
+                      "_flow_name": "Employee data",
+                      "_flow_type": "Form",
+                      "_modified_at": "2025-02-25T06:55:21Z",
+                      "_modified_by": {
+                        "_id": "Us8WjMSnu7f6",
+                        "Name": "Jane Doe",
+                        "Kind": "User"
+                      }
+                    }
+                  }
+                }
               }
             }
           },
@@ -32807,17 +33299,67 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Error type/class name."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message. For errors like DocumentNotFound this may be an unsubstituted template (for example \"The item, {instance_id}, could not be located within {model_name}.\"); en_message carries the filled-in text."
+                    },
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Response status indicator, for example \"error\"."
+                    },
+                    "request_id": {
+                      "type": "string",
+                      "description": "Identifier of the backend operation that produced this error, useful when contacting support."
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "error_code",
+                    "en_message",
+                    "message",
+                    "_id",
+                    "args",
+                    "status",
+                    "request_id"
+                  ]
                 },
-                "example": {
-                  "type": "UnauthorizedException",
-                  "error_code": "KISSFLOW_ERROR_00014",
-                  "en_message": "You are not authorized to access this resource.",
-                  "message": "You are not authorized to access this resource.",
-                  "_id": "1696a0d7-af5b-4564-87de-20ce190c143d",
-                  "args": {},
-                  "status": "error",
-                  "request_id": "Form.get-item-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                "examples": {
+                  "unauthorized": {
+                    "summary": "401 Unauthorized",
+                    "value": {
+                      "type": "UnauthorizedException",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
+                      "message": "You are not authorized to access this resource.",
+                      "_id": "1696a0d7-af5b-4564-87de-20ce190c143d",
+                      "args": {},
+                      "status": "error",
+                      "request_id": "Form.get-item-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                    }
+                  }
                 }
               }
             }
@@ -32835,17 +33377,67 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Error type/class name."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message. For errors like DocumentNotFound this may be an unsubstituted template (for example \"The item, {instance_id}, could not be located within {model_name}.\"); en_message carries the filled-in text."
+                    },
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Response status indicator, for example \"error\"."
+                    },
+                    "request_id": {
+                      "type": "string",
+                      "description": "Identifier of the backend operation that produced this error, useful when contacting support."
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "error_code",
+                    "en_message",
+                    "message",
+                    "_id",
+                    "args",
+                    "status",
+                    "request_id"
+                  ]
                 },
-                "example": {
-                  "type": "PermissionDeniedError",
-                  "error_code": "KISSFLOW_ERROR_00010",
-                  "en_message": "You don't have permission to access this resource.",
-                  "message": "You don't have permission to access this resource.",
-                  "_id": "023062bf-3472-4233-a198-ff4dc69c117c",
-                  "args": {},
-                  "status": "error",
-                  "request_id": "Form.get-item-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                "examples": {
+                  "forbidden": {
+                    "summary": "403 Forbidden",
+                    "value": {
+                      "type": "PermissionDeniedError",
+                      "error_code": "KISSFLOW_ERROR_00010",
+                      "en_message": "You don't have permission to access this resource.",
+                      "message": "You don't have permission to access this resource.",
+                      "_id": "023062bf-3472-4233-a198-ff4dc69c117c",
+                      "args": {},
+                      "status": "error",
+                      "request_id": "Form.get-item-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                    }
+                  }
                 }
               }
             }
@@ -32863,20 +33455,84 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
-                },
-                "example": {
-                  "type": "DocumentNotFound",
-                  "error_code": "KISSFLOW_ERROR_01015",
-                  "en_message": "The item, Pk9GcIGoUptV, could not be located within Employee Data.",
-                  "message": "The item, {instance_id}, could not be located within {model_name}.",
-                  "_id": "47bcb156-f564-487f-8b66-db3ff2dcc566",
-                  "args": {
-                    "instance_id": "Pk9GcIGoUptV",
-                    "model_name": "Tuesday"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Error type/class name."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message. For errors like DocumentNotFound this may be an unsubstituted template (for example \"The item, {instance_id}, could not be located within {model_name}.\"); en_message carries the filled-in text."
+                    },
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template.",
+                      "properties": {
+                        "instance_id": {
+                          "type": "string",
+                          "description": "The record identifier that could not be found."
+                        },
+                        "model_name": {
+                          "type": "string",
+                          "description": "Display name of the dataform/model the record was looked up in."
+                        }
+                      },
+                      "required": [
+                        "instance_id",
+                        "model_name"
+                      ]
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Response status indicator, for example \"error\"."
+                    },
+                    "request_id": {
+                      "type": "string",
+                      "description": "Identifier of the backend operation that produced this error, useful when contacting support."
+                    }
                   },
-                  "status": "error",
-                  "request_id": "Form.get-item-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                  "required": [
+                    "type",
+                    "error_code",
+                    "en_message",
+                    "message",
+                    "_id",
+                    "args",
+                    "status",
+                    "request_id"
+                  ]
+                },
+                "examples": {
+                  "not_found": {
+                    "summary": "404 Not Found",
+                    "value": {
+                      "type": "DocumentNotFound",
+                      "error_code": "KISSFLOW_ERROR_01015",
+                      "en_message": "The item, Pk9GcIGoUptV, could not be located within Employee Data.",
+                      "message": "The item, {instance_id}, could not be located within {model_name}.",
+                      "_id": "47bcb156-f564-487f-8b66-db3ff2dcc566",
+                      "args": {
+                        "instance_id": "Pk9GcIGoUptV",
+                        "model_name": "Tuesday"
+                      },
+                      "status": "error",
+                      "request_id": "Form.get-item-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                    }
+                  }
                 }
               }
             }
@@ -32949,14 +33605,37 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
-                },
-                "example": [
-                  {
-                    "_id": "PkAryUa7pA2T",
-                    "_is_deleted": true
+                  "type": "array",
+                  "description": "Confirmation of the deletion, as a single-item array. Even though this endpoint deletes exactly one record, the Postman example shows the response wrapped in an array rather than returned as a bare object — kept as captured rather than flattened to a single object.",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "description": "Unique identifier of the deleted record."
+                      },
+                      "_is_deleted": {
+                        "type": "boolean",
+                        "description": "Whether the record was successfully deleted."
+                      }
+                    },
+                    "required": [
+                      "_id",
+                      "_is_deleted"
+                    ]
                   }
-                ]
+                },
+                "examples": {
+                  "deleted": {
+                    "summary": "200 OK",
+                    "value": [
+                      {
+                        "_id": "PkAryUa7pA2T",
+                        "_is_deleted": true
+                      }
+                    ]
+                  }
+                }
               }
             }
           },
@@ -32973,17 +33652,67 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Error type/class name."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message. For errors like DocumentNotFound this may be an unsubstituted template (for example \"The item, {instance_id}, could not be located within {model_name}.\"); en_message carries the filled-in text."
+                    },
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Response status indicator, for example \"error\"."
+                    },
+                    "request_id": {
+                      "type": "string",
+                      "description": "Identifier of the backend operation that produced this error, useful when contacting support."
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "error_code",
+                    "en_message",
+                    "message",
+                    "_id",
+                    "args",
+                    "status",
+                    "request_id"
+                  ]
                 },
-                "example": {
-                  "type": "UnauthorizedException",
-                  "error_code": "KISSFLOW_ERROR_00014",
-                  "en_message": "You are not authorized to access this resource.",
-                  "message": "You are not authorized to access this resource.",
-                  "_id": "1696a0d7-af5b-4564-87de-20ce190c143d",
-                  "args": {},
-                  "status": "error",
-                  "request_id": "Form.delete-form-item-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                "examples": {
+                  "unauthorized": {
+                    "summary": "401 Unauthorized",
+                    "value": {
+                      "type": "UnauthorizedException",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
+                      "message": "You are not authorized to access this resource.",
+                      "_id": "1696a0d7-af5b-4564-87de-20ce190c143d",
+                      "args": {},
+                      "status": "error",
+                      "request_id": "Form.delete-form-item-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                    }
+                  }
                 }
               }
             }
@@ -33001,17 +33730,67 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Error type/class name."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message. For errors like DocumentNotFound this may be an unsubstituted template (for example \"The item, {instance_id}, could not be located within {model_name}.\"); en_message carries the filled-in text."
+                    },
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Response status indicator, for example \"error\"."
+                    },
+                    "request_id": {
+                      "type": "string",
+                      "description": "Identifier of the backend operation that produced this error, useful when contacting support."
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "error_code",
+                    "en_message",
+                    "message",
+                    "_id",
+                    "args",
+                    "status",
+                    "request_id"
+                  ]
                 },
-                "example": {
-                  "type": "PermissionDeniedError",
-                  "error_code": "KISSFLOW_ERROR_00010",
-                  "en_message": "You don't have permission to access this resource.",
-                  "message": "You don't have permission to access this resource.",
-                  "_id": "023062bf-3472-4233-a198-ff4dc69c117c",
-                  "args": {},
-                  "status": "error",
-                  "request_id": "Form.delete-form-item-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                "examples": {
+                  "forbidden": {
+                    "summary": "403 Forbidden",
+                    "value": {
+                      "type": "PermissionDeniedError",
+                      "error_code": "KISSFLOW_ERROR_00010",
+                      "en_message": "You don't have permission to access this resource.",
+                      "message": "You don't have permission to access this resource.",
+                      "_id": "023062bf-3472-4233-a198-ff4dc69c117c",
+                      "args": {},
+                      "status": "error",
+                      "request_id": "Form.delete-form-item-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                    }
+                  }
                 }
               }
             }
@@ -33029,20 +33808,84 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
-                },
-                "example": {
-                  "type": "DocumentNotFound",
-                  "error_code": "KISSFLOW_ERROR_01015",
-                  "en_message": "The item, Pk9GcIGoUptV, could not be located within Employee Data.",
-                  "message": "The item, {instance_id}, could not be located within {model_name}.",
-                  "_id": "47bcb156-f564-487f-8b66-db3ff2dcc566",
-                  "args": {
-                    "instance_id": "Pk9GcIGoUptV",
-                    "model_name": "Tuesday"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Error type/class name."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message. For errors like DocumentNotFound this may be an unsubstituted template (for example \"The item, {instance_id}, could not be located within {model_name}.\"); en_message carries the filled-in text."
+                    },
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template.",
+                      "properties": {
+                        "instance_id": {
+                          "type": "string",
+                          "description": "The record identifier that could not be found."
+                        },
+                        "model_name": {
+                          "type": "string",
+                          "description": "Display name of the dataform/model the record was looked up in."
+                        }
+                      },
+                      "required": [
+                        "instance_id",
+                        "model_name"
+                      ]
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Response status indicator, for example \"error\"."
+                    },
+                    "request_id": {
+                      "type": "string",
+                      "description": "Identifier of the backend operation that produced this error, useful when contacting support."
+                    }
                   },
-                  "status": "error",
-                  "request_id": "Form.delete-form-item-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                  "required": [
+                    "type",
+                    "error_code",
+                    "en_message",
+                    "message",
+                    "_id",
+                    "args",
+                    "status",
+                    "request_id"
+                  ]
+                },
+                "examples": {
+                  "not_found": {
+                    "summary": "404 Not Found",
+                    "value": {
+                      "type": "DocumentNotFound",
+                      "error_code": "KISSFLOW_ERROR_01015",
+                      "en_message": "The item, Pk9GcIGoUptV, could not be located within Employee Data.",
+                      "message": "The item, {instance_id}, could not be located within {model_name}.",
+                      "_id": "47bcb156-f564-487f-8b66-db3ff2dcc566",
+                      "args": {
+                        "instance_id": "Pk9GcIGoUptV",
+                        "model_name": "Tuesday"
+                      },
+                      "status": "error",
+                      "request_id": "Form.delete-form-item-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                    }
+                  }
                 }
               }
             }
@@ -33061,16 +33904,29 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "example": [
-                  {
-                    "_id": "<string>"
+                "type": "array",
+                "description": "List of records to delete, identified by _id.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier of the record to delete."
+                    }
                   },
-                  {
-                    "_id": "<string>"
-                  }
-                ]
-              }
+                  "required": [
+                    "_id"
+                  ]
+                }
+              },
+              "example": [
+                {
+                  "_id": "<string>"
+                },
+                {
+                  "_id": "<string>"
+                }
+              ]
             }
           }
         },
@@ -33132,18 +33988,41 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
-                },
-                "example": [
-                  {
-                    "_id": "PkAryUa7pA2T",
-                    "_is_deleted": true
-                  },
-                  {
-                    "_id": "WkAryUa7pA2T",
-                    "_is_deleted": true
+                  "type": "array",
+                  "description": "Confirmation of the deletions, one entry per deleted record.",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "description": "Unique identifier of the deleted record."
+                      },
+                      "_is_deleted": {
+                        "type": "boolean",
+                        "description": "Whether the record was successfully deleted."
+                      }
+                    },
+                    "required": [
+                      "_id",
+                      "_is_deleted"
+                    ]
                   }
-                ]
+                },
+                "examples": {
+                  "batchDeleted": {
+                    "summary": "200 OK",
+                    "value": [
+                      {
+                        "_id": "PkAryUa7pA2T",
+                        "_is_deleted": true
+                      },
+                      {
+                        "_id": "WkAryUa7pA2T",
+                        "_is_deleted": true
+                      }
+                    ]
+                  }
+                }
               }
             }
           },
@@ -33160,17 +34039,67 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Error type/class name."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message. For errors like DocumentNotFound this may be an unsubstituted template (for example \"The item, {instance_id}, could not be located within {model_name}.\"); en_message carries the filled-in text."
+                    },
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Response status indicator, for example \"error\"."
+                    },
+                    "request_id": {
+                      "type": "string",
+                      "description": "Identifier of the backend operation that produced this error, useful when contacting support."
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "error_code",
+                    "en_message",
+                    "message",
+                    "_id",
+                    "args",
+                    "status",
+                    "request_id"
+                  ]
                 },
-                "example": {
-                  "type": "UnauthorizedException",
-                  "error_code": "KISSFLOW_ERROR_00014",
-                  "en_message": "You are not authorized to access this resource.",
-                  "message": "You are not authorized to access this resource.",
-                  "_id": "1696a0d7-af5b-4564-87de-20ce190c143d",
-                  "args": {},
-                  "status": "error",
-                  "request_id": "Form.delete-form-items-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                "examples": {
+                  "unauthorized": {
+                    "summary": "401 Unauthorized",
+                    "value": {
+                      "type": "UnauthorizedException",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
+                      "message": "You are not authorized to access this resource.",
+                      "_id": "1696a0d7-af5b-4564-87de-20ce190c143d",
+                      "args": {},
+                      "status": "error",
+                      "request_id": "Form.delete-form-items-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                    }
+                  }
                 }
               }
             }
@@ -33188,17 +34117,67 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Error type/class name."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message. For errors like DocumentNotFound this may be an unsubstituted template (for example \"The item, {instance_id}, could not be located within {model_name}.\"); en_message carries the filled-in text."
+                    },
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Response status indicator, for example \"error\"."
+                    },
+                    "request_id": {
+                      "type": "string",
+                      "description": "Identifier of the backend operation that produced this error, useful when contacting support."
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "error_code",
+                    "en_message",
+                    "message",
+                    "_id",
+                    "args",
+                    "status",
+                    "request_id"
+                  ]
                 },
-                "example": {
-                  "type": "PermissionDeniedError",
-                  "error_code": "KISSFLOW_ERROR_00010",
-                  "en_message": "You don't have permission to access this resource.",
-                  "message": "You don't have permission to access this resource.",
-                  "_id": "023062bf-3472-4233-a198-ff4dc69c117c",
-                  "args": {},
-                  "status": "error",
-                  "request_id": "Form.delete-form-items-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                "examples": {
+                  "forbidden": {
+                    "summary": "403 Forbidden",
+                    "value": {
+                      "type": "PermissionDeniedError",
+                      "error_code": "KISSFLOW_ERROR_00010",
+                      "en_message": "You don't have permission to access this resource.",
+                      "message": "You don't have permission to access this resource.",
+                      "_id": "023062bf-3472-4233-a198-ff4dc69c117c",
+                      "args": {},
+                      "status": "error",
+                      "request_id": "Form.delete-form-items-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                    }
+                  }
                 }
               }
             }
@@ -33216,20 +34195,84 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
-                },
-                "example": {
-                  "type": "DocumentNotFound",
-                  "error_code": "KISSFLOW_ERROR_01015",
-                  "en_message": "The item, Pk9GcIGoUptV, could not be located within Employee Data.",
-                  "message": "The item, {instance_id}, could not be located within {model_name}.",
-                  "_id": "47bcb156-f564-487f-8b66-db3ff2dcc566",
-                  "args": {
-                    "instance_id": "Pk9GcIGoUptV",
-                    "model_name": "Tuesday"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Error type/class name."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message. For errors like DocumentNotFound this may be an unsubstituted template (for example \"The item, {instance_id}, could not be located within {model_name}.\"); en_message carries the filled-in text."
+                    },
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template.",
+                      "properties": {
+                        "instance_id": {
+                          "type": "string",
+                          "description": "The record identifier that could not be found."
+                        },
+                        "model_name": {
+                          "type": "string",
+                          "description": "Display name of the dataform/model the record was looked up in."
+                        }
+                      },
+                      "required": [
+                        "instance_id",
+                        "model_name"
+                      ]
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Response status indicator, for example \"error\"."
+                    },
+                    "request_id": {
+                      "type": "string",
+                      "description": "Identifier of the backend operation that produced this error, useful when contacting support."
+                    }
                   },
-                  "status": "error",
-                  "request_id": "Form.delete-form-items-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                  "required": [
+                    "type",
+                    "error_code",
+                    "en_message",
+                    "message",
+                    "_id",
+                    "args",
+                    "status",
+                    "request_id"
+                  ]
+                },
+                "examples": {
+                  "not_found": {
+                    "summary": "404 Not Found",
+                    "value": {
+                      "type": "DocumentNotFound",
+                      "error_code": "KISSFLOW_ERROR_01015",
+                      "en_message": "The item, Pk9GcIGoUptV, could not be located within Employee Data.",
+                      "message": "The item, {instance_id}, could not be located within {model_name}.",
+                      "_id": "47bcb156-f564-487f-8b66-db3ff2dcc566",
+                      "args": {
+                        "instance_id": "Pk9GcIGoUptV",
+                        "model_name": "Tuesday"
+                      },
+                      "status": "error",
+                      "request_id": "Form.delete-form-items-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                    }
+                  }
                 }
               }
             }
@@ -33248,26 +34291,71 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "example": [
-                  {
-                    "_id": "string",
-                    "TotalPrice": "new string",
-                    "PONumber": "new string",
-                    "RequestedBy": {
-                      "_id": "string",
-                      "Name": "new string"
+                "type": "array",
+                "description": "A list of record operations, each either an update (identified by _id) or a create (marked with _is_created: true). Up to 500 records can be created/updated per request. The field set shown in the example (TotalPrice, PONumber, Name, RequestedBy) reflects the specific demo dataform used to capture this Postman example; real requests must use whatever fields are configured on your own dataform instead.",
+                "items": {
+                  "type": "object",
+                  "description": "A single create or update operation. To update: include _id and the fields to change. To create: include _is_created: true and the new record's field values. Because dataform fields are account-specific, only the operation-marker semantics (_id for update, _is_created for create) are guaranteed; other fields are not marked required here.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier of the existing record to update. Required to update a record; must be omitted when creating a new record."
                     },
+                    "_is_created": {
+                      "type": "boolean",
+                      "description": "Set to true to create a new record instead of updating an existing one. Must be omitted (not present) when updating."
+                    },
+                    "TotalPrice": {
+                      "type": "string",
+                      "description": "Example dataform field captured in this Postman sample."
+                    },
+                    "PONumber": {
+                      "type": "string",
+                      "description": "Example dataform field captured in this Postman sample."
+                    },
+                    "Name": {
+                      "type": "string",
+                      "description": "Example dataform field captured in this Postman sample."
+                    },
+                    "RequestedBy": {
+                      "type": "object",
+                      "description": "Example dataform lookup-field value captured in this Postman sample.",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "description": "Unique identifier of the referenced record/user."
+                        },
+                        "Name": {
+                          "type": "string",
+                          "description": "Display name of the referenced record/user."
+                        }
+                      },
+                      "required": [
+                        "_id",
+                        "Name"
+                      ]
+                    }
+                  }
+                }
+              },
+              "example": [
+                {
+                  "_id": "string",
+                  "TotalPrice": "new string",
+                  "PONumber": "new string",
+                  "RequestedBy": {
+                    "_id": "string",
                     "Name": "new string"
                   },
-                  {
-                    "_is_created": true,
-                    "TotalPrice": "string",
-                    "PONumber": "string",
-                    "Name": "string"
-                  }
-                ]
-              }
+                  "Name": "new string"
+                },
+                {
+                  "_is_created": true,
+                  "TotalPrice": "string",
+                  "PONumber": "string",
+                  "Name": "string"
+                }
+              ]
             }
           }
         },
@@ -33329,9 +34417,68 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "array",
+                  "description": "The records that were created or updated by this bulk operation. NOT A TRUNCATED-DATA RECOVERY IN THE SAME SENSE AS THIS MODULE'S OTHER 3 flagged operations: the raw Postman response body for this status was a complete, non-ellipsis-truncated JSON array (each record's fields were fully legible) — the only defect was a trailing comma after the first record's \"_id\" field, which made it fail strict JSON parsing and caused Task 2's sanitizer to replace it with an empty placeholder. This schema/example was rebuilt by fixing that syntax error and preserving every value exactly as captured; nothing was invented. Each array item reflects whichever fields were included in that specific record's create/update operation, plus the system fields _id and _modified_at which every item includes.",
+                  "items": {
+                    "type": "object",
+                    "description": "A single record after the create/update. Field names beyond the system fields (_id, _modified_at) are dataform-specific and vary per item based on what was submitted for that record; only _id and _modified_at are common to every item in this example.",
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "description": "Unique identifier of the record."
+                      },
+                      "Name_1": {
+                        "type": "string",
+                        "description": "Example dataform field, present on this item because it was part of that record's update."
+                      },
+                      "Emergency_contact": {
+                        "type": "string",
+                        "description": "Example dataform field, present on this item because it was part of that record's update."
+                      },
+                      "Address": {
+                        "type": "string",
+                        "description": "Example dataform field."
+                      },
+                      "DOB": {
+                        "type": "string",
+                        "description": "Example dataform field (date), present on this item because it was part of that record's update."
+                      },
+                      "Department": {
+                        "type": "string",
+                        "description": "Example dataform field, present on this item because it was part of that record's update."
+                      },
+                      "_modified_at": {
+                        "type": "string",
+                        "description": "Timestamp of the update, ISO 8601."
+                      }
+                    },
+                    "required": [
+                      "_id",
+                      "_modified_at"
+                    ]
+                  }
                 },
-                "example": {}
+                "examples": {
+                  "batchResult": {
+                    "summary": "200 OK",
+                    "value": [
+                      {
+                        "Name_1": "John Doe",
+                        "Emergency_contact": "623892836",
+                        "Address": "31/33, Park avenue, Elcot city",
+                        "DOB": "09-04-1998",
+                        "_modified_at": "2025-03-14T08:59:42Z",
+                        "_id": "Pkuawduh"
+                      },
+                      {
+                        "Department": "Revenue",
+                        "Address": "new address",
+                        "_modified_at": "2025-03-14T08:59:45Z",
+                        "_id": "Pkdudolp"
+                      }
+                    ]
+                  }
+                }
               }
             }
           },
@@ -33348,17 +34495,67 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Error type/class name."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message. For errors like DocumentNotFound this may be an unsubstituted template (for example \"The item, {instance_id}, could not be located within {model_name}.\"); en_message carries the filled-in text."
+                    },
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Response status indicator, for example \"error\"."
+                    },
+                    "request_id": {
+                      "type": "string",
+                      "description": "Identifier of the backend operation that produced this error, useful when contacting support."
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "error_code",
+                    "en_message",
+                    "message",
+                    "_id",
+                    "args",
+                    "status",
+                    "request_id"
+                  ]
                 },
-                "example": {
-                  "type": "UnauthorizedException",
-                  "error_code": "KISSFLOW_ERROR_00014",
-                  "en_message": "You are not authorized to access this resource.",
-                  "message": "You are not authorized to access this resource.",
-                  "_id": "1696a0d7-af5b-4564-87de-20ce190c143d",
-                  "args": {},
-                  "status": "error",
-                  "request_id": "Form.batch-update-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                "examples": {
+                  "unauthorized": {
+                    "summary": "401 Unauthorized",
+                    "value": {
+                      "type": "UnauthorizedException",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
+                      "message": "You are not authorized to access this resource.",
+                      "_id": "1696a0d7-af5b-4564-87de-20ce190c143d",
+                      "args": {},
+                      "status": "error",
+                      "request_id": "Form.batch-update-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                    }
+                  }
                 }
               }
             }
@@ -33376,17 +34573,67 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Error type/class name."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message. For errors like DocumentNotFound this may be an unsubstituted template (for example \"The item, {instance_id}, could not be located within {model_name}.\"); en_message carries the filled-in text."
+                    },
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Response status indicator, for example \"error\"."
+                    },
+                    "request_id": {
+                      "type": "string",
+                      "description": "Identifier of the backend operation that produced this error, useful when contacting support."
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "error_code",
+                    "en_message",
+                    "message",
+                    "_id",
+                    "args",
+                    "status",
+                    "request_id"
+                  ]
                 },
-                "example": {
-                  "type": "PermissionDeniedError",
-                  "error_code": "KISSFLOW_ERROR_00010",
-                  "en_message": "You don't have permission to access this resource.",
-                  "message": "You don't have permission to access this resource.",
-                  "_id": "023062bf-3472-4233-a198-ff4dc69c117c",
-                  "args": {},
-                  "status": "error",
-                  "request_id": "Form.batch-update-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                "examples": {
+                  "forbidden": {
+                    "summary": "403 Forbidden",
+                    "value": {
+                      "type": "PermissionDeniedError",
+                      "error_code": "KISSFLOW_ERROR_00010",
+                      "en_message": "You don't have permission to access this resource.",
+                      "message": "You don't have permission to access this resource.",
+                      "_id": "023062bf-3472-4233-a198-ff4dc69c117c",
+                      "args": {},
+                      "status": "error",
+                      "request_id": "Form.batch-update-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                    }
+                  }
                 }
               }
             }
@@ -33404,20 +34651,84 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
-                },
-                "example": {
-                  "type": "DocumentNotFound",
-                  "error_code": "KISSFLOW_ERROR_01015",
-                  "en_message": "The item, Pk9GcIGoUptV, could not be located within Employee Data.",
-                  "message": "The item, {instance_id}, could not be located within {model_name}.",
-                  "_id": "47bcb156-f564-487f-8b66-db3ff2dcc566",
-                  "args": {
-                    "instance_id": "Pk9GcIGoUptV",
-                    "model_name": "Tuesday"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Error type/class name."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message. For errors like DocumentNotFound this may be an unsubstituted template (for example \"The item, {instance_id}, could not be located within {model_name}.\"); en_message carries the filled-in text."
+                    },
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template.",
+                      "properties": {
+                        "instance_id": {
+                          "type": "string",
+                          "description": "The record identifier that could not be found."
+                        },
+                        "model_name": {
+                          "type": "string",
+                          "description": "Display name of the dataform/model the record was looked up in."
+                        }
+                      },
+                      "required": [
+                        "instance_id",
+                        "model_name"
+                      ]
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Response status indicator, for example \"error\"."
+                    },
+                    "request_id": {
+                      "type": "string",
+                      "description": "Identifier of the backend operation that produced this error, useful when contacting support."
+                    }
                   },
-                  "status": "error",
-                  "request_id": "Form.batch-update-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                  "required": [
+                    "type",
+                    "error_code",
+                    "en_message",
+                    "message",
+                    "_id",
+                    "args",
+                    "status",
+                    "request_id"
+                  ]
+                },
+                "examples": {
+                  "not_found": {
+                    "summary": "404 Not Found",
+                    "value": {
+                      "type": "DocumentNotFound",
+                      "error_code": "KISSFLOW_ERROR_01015",
+                      "en_message": "The item, Pk9GcIGoUptV, could not be located within Employee Data.",
+                      "message": "The item, {instance_id}, could not be located within {model_name}.",
+                      "_id": "47bcb156-f564-487f-8b66-db3ff2dcc566",
+                      "args": {
+                        "instance_id": "Pk9GcIGoUptV",
+                        "model_name": "Tuesday"
+                      },
+                      "status": "error",
+                      "request_id": "Form.batch-update-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                    }
+                  }
                 }
               }
             }
@@ -33527,9 +34838,158 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "BEST-EFFORT PARTIAL RECONSTRUCTION: the Postman example for this response was captured as a pasted Chrome DevTools console object dump, and Task 2's sanitizer replaced it with an empty placeholder because it isn't valid JSON. This schema/example was rebuilt from that raw console-dump text; genuinely truncated portions are called out per field below rather than invented. Top-level shape: an object (not a bare array) whose Data property is the array of matching records — verified against the raw Postman text rather than assumed, per the array/envelope risk flagged in this spec's Module 4 review.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier of the dataform these records belong to."
+                    },
+                    "Columns": {
+                      "type": "array",
+                      "description": "Partial/best-effort: the console dump showed only 1 column entry before the array itself was truncated with an ellipsis (\"…]\"), so the true number of columns and the shape of any columns beyond the first are genuinely unknown — not assumed to be just one.",
+                      "items": {
+                        "type": "object",
+                        "description": "Partial/best-effort: the source console dump showed this one column object's preview truncated after 6 properties (\"...MapTo: null,…}\"), so additional properties may exist on real column objects beyond Id, Name, Type, ReadOnly, Width, and MapTo — those further properties are genuinely unknown, not omitted by choice.",
+                        "properties": {
+                          "Id": {
+                            "type": "string",
+                            "description": "Field identifier this column maps to."
+                          },
+                          "Name": {
+                            "type": "string",
+                            "description": "Display name of the column."
+                          },
+                          "Type": {
+                            "type": "string",
+                            "description": "Data type of the column, for example \"Text\"."
+                          },
+                          "ReadOnly": {
+                            "type": "boolean",
+                            "description": "Whether the column is read-only."
+                          },
+                          "Width": {
+                            "type": "integer",
+                            "nullable": true,
+                            "description": "Display width of the column, or null if unset."
+                          },
+                          "MapTo": {
+                            "type": "string",
+                            "nullable": true,
+                            "description": "Field this column maps to, or null if unset."
+                          }
+                        },
+                        "required": [
+                          "Id",
+                          "Name",
+                          "Type",
+                          "ReadOnly",
+                          "Width",
+                          "MapTo"
+                        ]
+                      }
+                    },
+                    "Data": {
+                      "type": "array",
+                      "description": "Partial/best-effort: the collapsed preview of this array showed 3 entries (as minimal {_id} stubs: PkAryRdojeZJ, PkAryzBsK6m6, PkArz7xtXHkj) followed by an ellipsis, meaning more records exist beyond what was captured; the true total is unknown (the sibling `count` field below may or may not represent it — not assumed either way). The console dump separately expanded two array indices (labelled \"0:\" and \"1:\") to their full field set — but those expanded entries carry different _id values (PkAsQq9l6Mef, PkAuBpLW2MWe) than the 3 stub entries in the collapsed preview line. This is a genuine inconsistency in the source capture (most likely the array was re-evaluated by DevTools between the two prints), not something reconciled here. Because the expanded entries are the only place a complete field set was legible, the example below uses those two records for the item shape rather than the mismatched stubs; it should not be read as confirming the collapsed preview's specific _id values also have this shape.",
+                      "items": {
+                        "type": "object",
+                        "description": "A dataform record. The console dump fully expanded this shape for two records; both had the identical 6-property set below with no further truncation on either, so those two are treated as fully recovered. Field names beyond _id are specific to the demo dataform used to capture this example; real records use whatever fields are configured on your own dataform instead.",
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "description": "Unique identifier of the record."
+                          },
+                          "Name_1": {
+                            "type": "string",
+                            "description": "Example dataform field captured in this Postman sample."
+                          },
+                          "Employee_ID": {
+                            "type": "number",
+                            "description": "Example dataform field captured in this Postman sample. Captured as an unquoted number in the source."
+                          },
+                          "Department": {
+                            "type": "string",
+                            "description": "Example dataform field captured in this Postman sample."
+                          },
+                          "DOB": {
+                            "type": "string",
+                            "description": "Example dataform field captured in this Postman sample (date)."
+                          },
+                          "Blood_group": {
+                            "type": "string",
+                            "description": "Example dataform field captured in this Postman sample."
+                          }
+                        },
+                        "required": [
+                          "_id"
+                        ]
+                      }
+                    },
+                    "Filter": {
+                      "type": "object",
+                      "description": "Applied filter, if any. Empty in the Postman example."
+                    },
+                    "Sort": {
+                      "type": "array",
+                      "description": "Applied sort order, if any. Empty in the Postman example.",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "count": {
+                      "type": "integer",
+                      "description": "A count value returned alongside the records. The source did not make clear whether this is the total matching record count across all pages or the count for this page — left unspecified rather than guessed."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "Columns",
+                    "Data",
+                    "Filter",
+                    "Sort",
+                    "count"
+                  ]
                 },
-                "example": {}
+                "examples": {
+                  "dataformRecords": {
+                    "summary": "200 OK (best-effort partial reconstruction)",
+                    "value": {
+                      "_id": "Employee_datatable_A00",
+                      "Columns": [
+                        {
+                          "Id": "Name_1",
+                          "Name": "Name",
+                          "Type": "Text",
+                          "ReadOnly": false,
+                          "Width": null,
+                          "MapTo": null
+                        }
+                      ],
+                      "Data": [
+                        {
+                          "_id": "PkAsQq9l6Mef",
+                          "Name_1": "Ron Wellesly ",
+                          "Employee_ID": 8924,
+                          "Department": "IT",
+                          "DOB": "2006-05-10",
+                          "Blood_group": "B+ve"
+                        },
+                        {
+                          "_id": "PkAuBpLW2MWe",
+                          "Name_1": "Jane Doe",
+                          "Employee_ID": 11838,
+                          "Department": "Marketing",
+                          "DOB": "1980-05-14",
+                          "Blood_group": "o+ve"
+                        }
+                      ],
+                      "Filter": {},
+                      "Sort": [],
+                      "count": 5
+                    }
+                  }
+                }
               }
             }
           },
@@ -33546,17 +35006,67 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Error type/class name."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message. For errors like DocumentNotFound this may be an unsubstituted template (for example \"The item, {instance_id}, could not be located within {model_name}.\"); en_message carries the filled-in text."
+                    },
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Response status indicator, for example \"error\"."
+                    },
+                    "request_id": {
+                      "type": "string",
+                      "description": "Identifier of the backend operation that produced this error, useful when contacting support."
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "error_code",
+                    "en_message",
+                    "message",
+                    "_id",
+                    "args",
+                    "status",
+                    "request_id"
+                  ]
                 },
-                "example": {
-                  "type": "UnauthorizedException",
-                  "error_code": "KISSFLOW_ERROR_00014",
-                  "en_message": "You are not authorized to access this resource.",
-                  "message": "You are not authorized to access this resource.",
-                  "_id": "1696a0d7-af5b-4564-87de-20ce190c143d",
-                  "args": {},
-                  "status": "error",
-                  "request_id": "Form.get-form-items-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                "examples": {
+                  "unauthorized": {
+                    "summary": "401 Unauthorized",
+                    "value": {
+                      "type": "UnauthorizedException",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
+                      "message": "You are not authorized to access this resource.",
+                      "_id": "1696a0d7-af5b-4564-87de-20ce190c143d",
+                      "args": {},
+                      "status": "error",
+                      "request_id": "Form.get-form-items-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                    }
+                  }
                 }
               }
             }
@@ -33574,17 +35084,67 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Error type/class name."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message. For errors like DocumentNotFound this may be an unsubstituted template (for example \"The item, {instance_id}, could not be located within {model_name}.\"); en_message carries the filled-in text."
+                    },
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Response status indicator, for example \"error\"."
+                    },
+                    "request_id": {
+                      "type": "string",
+                      "description": "Identifier of the backend operation that produced this error, useful when contacting support."
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "error_code",
+                    "en_message",
+                    "message",
+                    "_id",
+                    "args",
+                    "status",
+                    "request_id"
+                  ]
                 },
-                "example": {
-                  "type": "PermissionDeniedError",
-                  "error_code": "KISSFLOW_ERROR_00010",
-                  "en_message": "You don't have permission to access this resource.",
-                  "message": "You don't have permission to access this resource.",
-                  "_id": "023062bf-3472-4233-a198-ff4dc69c117c",
-                  "args": {},
-                  "status": "error",
-                  "request_id": "Form.get-form-items-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                "examples": {
+                  "forbidden": {
+                    "summary": "403 Forbidden",
+                    "value": {
+                      "type": "PermissionDeniedError",
+                      "error_code": "KISSFLOW_ERROR_00010",
+                      "en_message": "You don't have permission to access this resource.",
+                      "message": "You don't have permission to access this resource.",
+                      "_id": "023062bf-3472-4233-a198-ff4dc69c117c",
+                      "args": {},
+                      "status": "error",
+                      "request_id": "Form.get-form-items-6eafc588-6c5f-486f-b15d-a0e35425fc3d"
+                    }
+                  }
                 }
               }
             }
@@ -33695,9 +35255,164 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "BEST-EFFORT PARTIAL RECONSTRUCTION: the Postman example for this response was captured as a pasted Chrome DevTools console object dump, and Task 2's sanitizer replaced it with an empty placeholder because it isn't valid JSON. This schema/example was rebuilt from that raw console-dump text; genuinely truncated portions are called out per field below rather than invented. Top-level shape: an object (not a bare array) whose Data property is the array of matching records — verified against the raw Postman text rather than assumed, per the array/envelope risk flagged in this spec's Module 4 review.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Identifier of the dataform this view belongs to."
+                    },
+                    "Columns": {
+                      "type": "array",
+                      "description": "Partial/best-effort: the console dump showed only 1 column entry before the array itself was truncated with an ellipsis (\"…]\"), so the true number of columns and the shape of any columns beyond the first are genuinely unknown — not assumed to be just one.",
+                      "items": {
+                        "type": "object",
+                        "description": "Partial/best-effort: the source console dump showed this one column object's preview truncated after 6 properties (\"...MapTo: null,…}\"), so additional properties may exist on real column objects beyond Id, Name, Type, ReadOnly, Width, and MapTo — those further properties are genuinely unknown, not omitted by choice.",
+                        "properties": {
+                          "Id": {
+                            "type": "string",
+                            "description": "Field identifier this column maps to."
+                          },
+                          "Name": {
+                            "type": "string",
+                            "description": "Display name of the column."
+                          },
+                          "Type": {
+                            "type": "string",
+                            "description": "Data type of the column, for example \"Text\"."
+                          },
+                          "ReadOnly": {
+                            "type": "boolean",
+                            "description": "Whether the column is read-only."
+                          },
+                          "Width": {
+                            "type": "integer",
+                            "nullable": true,
+                            "description": "Display width of the column, or null if unset."
+                          },
+                          "MapTo": {
+                            "type": "string",
+                            "nullable": true,
+                            "description": "Field this column maps to, or null if unset."
+                          }
+                        },
+                        "required": [
+                          "Id",
+                          "Name",
+                          "Type",
+                          "ReadOnly",
+                          "Width",
+                          "MapTo"
+                        ]
+                      }
+                    },
+                    "ComponentFilter": {
+                      "type": "object",
+                      "description": "View-specific component filter state, if any. Empty in the Postman example. Present on this dataform-view endpoint's response in addition to the plain `Filter` field — this is a genuine difference from the equivalent plain dataform \"Get all dataform records\" response, which does not include ComponentFilter."
+                    },
+                    "Data": {
+                      "type": "array",
+                      "description": "Partial/best-effort: the collapsed preview of this array showed 3 entries (as minimal {_id} stubs: PkAryRdojeZJ, PkAryzBsK6m6, PkArz7xtXHkj) followed by an ellipsis, meaning more records exist beyond what was captured; the true total is unknown (the sibling `count` field below may or may not represent it — not assumed either way). The console dump separately expanded two array indices (labelled \"0:\" and \"1:\") to their full field set — but those expanded entries carry different _id values (PkAsQq9l6Mef, PkAuBpLW2MWe) than the 3 stub entries in the collapsed preview line. This is a genuine inconsistency in the source capture (most likely the array was re-evaluated by DevTools between the two prints), not something reconciled here. Because the expanded entries are the only place a complete field set was legible, the example below uses those two records for the item shape rather than the mismatched stubs; it should not be read as confirming the collapsed preview's specific _id values also have this shape.",
+                      "items": {
+                        "type": "object",
+                        "description": "A dataform-view record. The console dump fully expanded this shape for two records; both had the identical 6-property set below with no further truncation on either, so those two are treated as fully recovered. Field names beyond _id are specific to the demo dataform used to capture this example; real records use whatever fields are configured on your own dataform instead.",
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "description": "Unique identifier of the record."
+                          },
+                          "Name_1": {
+                            "type": "string",
+                            "description": "Example dataform field captured in this Postman sample."
+                          },
+                          "Employee_ID": {
+                            "type": "number",
+                            "description": "Example dataform field captured in this Postman sample. Captured as an unquoted number in the source."
+                          },
+                          "Department": {
+                            "type": "string",
+                            "description": "Example dataform field captured in this Postman sample."
+                          },
+                          "DOB": {
+                            "type": "string",
+                            "description": "Example dataform field captured in this Postman sample (date)."
+                          },
+                          "Blood_group": {
+                            "type": "string",
+                            "description": "Example dataform field captured in this Postman sample."
+                          }
+                        },
+                        "required": [
+                          "_id"
+                        ]
+                      }
+                    },
+                    "Filter": {
+                      "type": "object",
+                      "description": "Applied filter, if any. Empty in the Postman example."
+                    },
+                    "Sort": {
+                      "type": "array",
+                      "description": "Applied sort order, if any. Empty in the Postman example.",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "count": {
+                      "type": "integer",
+                      "description": "A count value returned alongside the records. The source did not make clear whether this is the total matching record count across all pages or the count for this page — left unspecified rather than guessed."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "Columns",
+                    "ComponentFilter",
+                    "Data",
+                    "Filter",
+                    "Sort",
+                    "count"
+                  ]
                 },
-                "example": {}
+                "examples": {
+                  "dataformViewRecords": {
+                    "summary": "200 OK (best-effort partial reconstruction)",
+                    "value": {
+                      "_id": "Employee_datatable_A00",
+                      "Columns": [
+                        {
+                          "Id": "Name_1",
+                          "Name": "Name",
+                          "Type": "Text",
+                          "ReadOnly": false,
+                          "Width": null,
+                          "MapTo": null
+                        }
+                      ],
+                      "ComponentFilter": {},
+                      "Data": [
+                        {
+                          "_id": "PkAsQq9l6Mef",
+                          "Name_1": "Ron Wellesly ",
+                          "Employee_ID": 8924,
+                          "Department": "IT",
+                          "DOB": "2006-05-10",
+                          "Blood_group": "B+ve"
+                        },
+                        {
+                          "_id": "PkAuBpLW2MWe",
+                          "Name_1": "Jane Doe",
+                          "Employee_ID": 11838,
+                          "Department": "Marketing",
+                          "DOB": "1980-05-14",
+                          "Blood_group": "o+ve"
+                        }
+                      ],
+                      "Filter": {},
+                      "Sort": [],
+                      "count": 5
+                    }
+                  }
+                }
               }
             }
           },
@@ -33714,17 +35429,67 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Error type/class name."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message. For errors like DocumentNotFound this may be an unsubstituted template (for example \"The item, {instance_id}, could not be located within {model_name}.\"); en_message carries the filled-in text."
+                    },
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Response status indicator, for example \"error\"."
+                    },
+                    "request_id": {
+                      "type": "string",
+                      "description": "Identifier of the backend operation that produced this error, useful when contacting support."
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "error_code",
+                    "en_message",
+                    "message",
+                    "_id",
+                    "args",
+                    "status",
+                    "request_id"
+                  ]
                 },
-                "example": {
-                  "type": "UnauthorizedException",
-                  "error_code": "KISSFLOW_ERROR_00014",
-                  "en_message": "You are not authorized to access this resource.",
-                  "message": "You are not authorized to access this resource.",
-                  "_id": "1696a0d7-af5b-4564-87de-20ce190c143d",
-                  "args": {},
-                  "status": "error",
-                  "request_id": "FormView.get-list-view-items-93ac9d62-29de-4cfc-b84a-09124b2f049c"
+                "examples": {
+                  "unauthorized": {
+                    "summary": "401 Unauthorized",
+                    "value": {
+                      "type": "UnauthorizedException",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
+                      "message": "You are not authorized to access this resource.",
+                      "_id": "1696a0d7-af5b-4564-87de-20ce190c143d",
+                      "args": {},
+                      "status": "error",
+                      "request_id": "FormView.get-list-view-items-93ac9d62-29de-4cfc-b84a-09124b2f049c"
+                    }
+                  }
                 }
               }
             }
@@ -33742,17 +35507,67 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response.",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Error type/class name."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message. For errors like DocumentNotFound this may be an unsubstituted template (for example \"The item, {instance_id}, could not be located within {model_name}.\"); en_message carries the filled-in text."
+                    },
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Response status indicator, for example \"error\"."
+                    },
+                    "request_id": {
+                      "type": "string",
+                      "description": "Identifier of the backend operation that produced this error, useful when contacting support."
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "error_code",
+                    "en_message",
+                    "message",
+                    "_id",
+                    "args",
+                    "status",
+                    "request_id"
+                  ]
                 },
-                "example": {
-                  "type": "PermissionDeniedError",
-                  "error_code": "KISSFLOW_ERROR_00010",
-                  "en_message": "You don't have permission to access this resource.",
-                  "message": "You don't have permission to access this resource.",
-                  "_id": "023062bf-3472-4233-a198-ff4dc69c117c",
-                  "args": {},
-                  "status": "error",
-                  "request_id": "FormView.get-list-view-items-93ac9d62-29de-4cfc-b84a-09124b2f049c"
+                "examples": {
+                  "forbidden": {
+                    "summary": "403 Forbidden",
+                    "value": {
+                      "type": "PermissionDeniedError",
+                      "error_code": "KISSFLOW_ERROR_00010",
+                      "en_message": "You don't have permission to access this resource.",
+                      "message": "You don't have permission to access this resource.",
+                      "_id": "023062bf-3472-4233-a198-ff4dc69c117c",
+                      "args": {},
+                      "status": "error",
+                      "request_id": "FormView.get-list-view-items-93ac9d62-29de-4cfc-b84a-09124b2f049c"
+                    }
+                  }
                 }
               }
             }
@@ -33770,14 +35585,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error, unlike this operation's other error responses.",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Unique identifier for this error occurrence."
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Machine-readable error code."
+                    },
+                    "args": {
+                      "type": "object",
+                      "description": "Structured values substituted into the message template, if any. Empty for generic errors."
+                    },
+                    "en_message": {
+                      "type": "string",
+                      "description": "English-language version of the error message."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Human-readable error message."
+                    }
+                  },
+                  "required": [
+                    "_id",
+                    "error_code",
+                    "args",
+                    "en_message",
+                    "message"
+                  ]
                 },
-                "example": {
-                  "_id": "<string>",
-                  "error_code": "<string>",
-                  "args": {},
-                  "en_message": "<string>",
-                  "message": "<string>"
+                "examples": {
+                  "not_found": {
+                    "summary": "404 Not Found",
+                    "value": {
+                      "_id": "<string>",
+                      "error_code": "<string>",
+                      "args": {},
+                      "en_message": "<string>",
+                      "message": "<string>"
+                    }
+                  }
                 }
               }
             }
