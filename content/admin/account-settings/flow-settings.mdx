@@ -1,40 +1,83 @@
 ---
 title: "Flow settings"
-description: "DRAFT (unverified) — migrated from /t/h7h4akl/flow-settings"
+description: "Control who can create new flows, enable or disable flow types, and manage account-wide print, download, and email action permissions."
 contentType: guide
 persona: admin
 section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - flows
+  - permissions
+  - security
 ---
 
-Kissflow plans:
+# Flow settings
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
 
-[Super Admins and IAM Admins](/t/35h4ak036h4gg/user-roles-permissions) can control who can create new flows in Kissflow from your **Profile picture > Account administration > Flow settings.**
+[Super Admins and IAM Admins](/docs/admin/users/user-roles-and-permissions) can control who's allowed to create new flows in your account, enable or disable flow types, and set account-wide print, download, and email action permissions.
 
-All flows, including process, board, dataset, and integration, will be enabled by default. However, if you disable an existing flow, its data will be temporarily inaccessible. You cannot create a new flow until you enable it again. 
+## Access flow settings
 
-You can change the settings for **Who can create a new flow?** You’ll see three options when you click a flow: 
+1. Click your profile picture at the top right.
+2. Select **Account administration** > **Flow settings**.
 
--   **Anyone**: All users in the organization can create a new flow without approval.
--   **Super Admins**: Only the Account Owner and Super Admins can create a new flow.
--   **Anyone, after the approval of:** All users, can create a new flow after the specified approvers approve the new flow request. You can update the approvers list by selecting them from the dropdown.![](/migration-assets/flow-settings/1.png) 
+All flow types — process, board, dataset, and integration — are enabled by default.
 
-You can enable or disable various flow types (processes, boards, etc.) for your account. When you make a change to existing flow settings, all changes to these settings will only affect new flow requests, not those already created.
+## Enable or disable a flow type
 
-## **Print and download permissions**
+1. On the **Flow settings** page, click the flow type you want to configure.
+2. Toggle the flow type **on** or **off**.
 
-You can allow or restrict permissions to users, impacting their ability to print forms or download attachments across different flow types like Process, Board, Dataset etc.  
- 
+<Callout type="warn">
+  If you disable a flow type, its existing data becomes temporarily inaccessible and no one can create a new flow of that type until you enable it again.
+</Callout>
 
-![](/migration-assets/flow-settings/2.png)
+## Control who can create a new flow
 
- They can use the toggle button to switch between the options of _Anyone_ and _Flow Admins_ for each flow type individually. These changes are **Account Administration** level changes, and they can, in some cases, supersede permissions set at an individual flow level. 
+1. On the **Flow settings** page, click the flow type you want to configure.
+2. Under **Who can create a new flow?**, choose one of three options:
+   - **Anyone** — every user in the organization can create a new flow of this type without approval.
+   - **Super Admins** — only the Account Owner and Super Admins can create a new flow.
+   - **Anyone, after the approval of** — any user can request a new flow, but it's created only after the approvers you specify approve the request. Use the dropdown to add or remove approvers.
 
-Setting the permission to _Anyone_ would allow users to download attachments or print unless the Flow Admin explicitly chooses to restrict these permissions for a particular flow. 
+![Flow settings page showing the who-can-create options for a flow type](/migration-assets/flow-settings/1.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-Choosing _Flow Admins_ would restrict download and print permissions only to Flow Admins, superseding any permissions set at an individual flow level, only allowing Flow Admins to download attachments and print forms across the flow. 
+<Callout type="info">
+  Changing this setting only affects new flow requests going forward — it doesn't change access on flows that already exist.
+</Callout>
+
+## Print and download permissions
+
+For process, board, and dataset flows, you can control whether users can print forms or download attachments.
+
+1. On the **Flow settings** page, click the flow type you want to configure.
+2. Under **Print** and **Download**, toggle between:
+   - **Anyone** — any user can print or download.
+   - **Flow Admins** — only Flow Admins can print or download.
+
+![Flow settings page showing the print and download toggle for a flow type](/migration-assets/flow-settings/2.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="info">
+  This is an Account Administration–level setting. When it's set to **Flow Admins**, it takes precedence over any print or download permission configured at the individual flow's [security settings](/docs/admin/processes/security-settings-for-flows#print-and-download-permissions).
+</Callout>
 
 ## Email actions
 
-Enable this switch if you want process workflows to be acted upon via email.
+For process flows, **Email actions** lets assignees approve or reject items directly from their email inbox, without logging into Kissflow.
+
+1. On the **Flow settings** page, click **Process**.
+2. Toggle **Email actions** on.
+
+Learn more in [Email actions](/docs/build/processes/workflow-design/email-actions).
+
+## What's next
+
+- [Security settings for flows](/docs/admin/processes/security-settings-for-flows)
+- [User roles and permissions](/docs/admin/users/user-roles-and-permissions)
+- [Email actions](/docs/build/processes/workflow-design/email-actions)

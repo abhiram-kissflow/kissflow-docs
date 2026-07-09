@@ -1,44 +1,61 @@
 ---
 title: "Reviewing publish changes"
-description: "DRAFT (unverified) — migrated from /t/83yp8v4/reviewing-publish-changes"
+description: "View a consolidated summary of form, workflow, and permission changes since the last publish, get AI-powered explanations of complex updates, and discard changes you don't want to keep."
 contentType: guide
 persona: admin
 section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - processes
+  - publishing
+  - workflow
 ---
 
-Kissflow plans:
+# Reviewing publish changes
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
 
-The **review changes** feature helps **Process admins** and **Developers** get complete visibility into all updates made to a process before publishing it live. Instead of manually comparing versions or tracking edits across sessions, you get a clear and organized summary of every change.
+The **Review changes** feature gives Process admins and Developers complete visibility into every update made to a process before it goes live. Instead of manually comparing versions or tracking edits across sessions, you get a clear, consolidated summary of what changed.
 
 <iframe src="https://player.vimeo.com/video/1138389042?app_id=122963" title="Review changes in Kissflow Process" className="aspect-video w-full rounded-lg border" allowFullScreen />
 
-In the **Review changes** page, you can view a consolidated summary of what has been deleted, added, and modified in your form, workflow, and permissions since the last published version. This feature also uses **AI-powered summaries** (Enterprise plan) to explain complex changes in simple terms.
+## Open Review changes
 
-![](/migration-assets/reviewing-publish-changes/1.png)
+Inside the process editor, you can review changes in two ways:
 
-## Discarding changes
+1. **While editing** — Click **Review changes** at the top-right corner at any time during your editing session, without needing to publish.
+2. **Before publishing** — Click **Go live** at the bottom-right, then select **Review changes** in the confirmation pop-up.
 
-If certain updates are no longer needed, you can choose to **discard changes** directly from the **Review changes** page. This action removes all draft updates made after the last published version and restores the process to its previously published state.
+![Go live confirmation pop-up with the option to review changes before publishing](/migration-assets/reviewing-publish-changes/2.gif)
 
-## When you can review the changes
+## What the summary shows
 
-Inside the process editor, you can review the changes in two ways:
+The **Review changes** page lists everything that's been **added**, **deleted**, or **modified** in your form, workflow, and permissions since the last published version.
 
-1. **While editing the process** - Click **Review changes** at the top-right corner at any time during your editing session. This helps you keep track of your ongoing updates without needing to publish.  
-     
-2. **Before publishing** - Click **Go live** at the bottom-right. In the confirmation pop-up, select **Review changes**. 
+![Review changes page showing a consolidated summary of form, workflow, and permission changes](/migration-assets/reviewing-publish-changes/1.png)
 
-![](/migration-assets/reviewing-publish-changes/2.gif)
+<Callout type="info">
+  On the Enterprise plan, complex changes are also explained in plain language using **AI-powered summaries**.
+</Callout>
 
-## Reviewing changes made by other users
+## Discard changes
 
-When you are [taking over editing](/t/y4h9qtb/publishing-editing-duplicating-archiving-and-deleting-a-process#editing-a-process) from another user, you’ll first have to review the changes after the last published version to:
+If some updates are no longer needed, click **Discard changes** on the **Review changes** page. This removes all draft updates made after the last published version and restores the process to its previously published state.
 
--   **Go live with changes** - Publish the process and make all reviewed changes available for your users.
-    
--   **Discard changes** - If you decide not to keep the updates, you can discard all changes made after the last published version. This action removes all draft edits and restores the process to its previously published state.
-    
+## Reviewing changes made by another user
 
-![](/migration-assets/reviewing-publish-changes/3.gif)
+When you [take over editing](/docs/admin/processes/publishing-editing-duplicating-archiving-and-deleting-a-process#edit-a-process) from another Process admin or Developer, you're first asked to review the changes made since the last published version. Choose:
+
+- **Discard changes and take over editing** — removes all unpublished changes made by the other user and lets you start fresh from the last published version.
+- **Save changes and take over editing** — keeps the other user's changes as your draft so you can continue from where they left off. This doesn't publish the process — you'll still need to click **Go live** separately when you're ready.
+
+![Take over editing pop-up with options to discard or save the other user's changes](/migration-assets/reviewing-publish-changes/3.gif)
+
+## What's next
+
+- [Publishing, editing, duplicating, archiving, and deleting a process](/docs/admin/processes/publishing-editing-duplicating-archiving-and-deleting-a-process)
+- [AI Solution analyzer](/docs/admin/processes/ai-solution-analyzer)
+- [Process audit log](/docs/admin/processes/process-audit-log)

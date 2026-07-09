@@ -1,87 +1,100 @@
 ---
 title: "Backing up data to Kissflow"
-description: "DRAFT (unverified) — migrated from /t/y4y3t7g/backing-up-data-to-kissflow"
+description: "Configure a Kissflow-hosted data backup that's delivered as a downloadable link by email, with configurable ZIP size, encryption, and data categories."
 contentType: guide
 persona: admin
 section: admin
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - data-backup
+  - security
+  - compliance
 ---
 
-Kissflow plans:
+# Backing up data to Kissflow
 
-✕ Basic ✓ Enterprise
+<PlanBadge plans={["enterprise"]} />
 
-> **Note:** This service is available on request. Please get in touch with our support team to enable it on your account.
+<Callout type="info">
+  Data backup is available on request. Contact Kissflow support to enable it on your account.
+</Callout>
 
-## Configuring data backup
+This is the simplest of Kissflow's backup destinations: instead of authenticating a cloud storage account, you choose **Email** as the storage mode and receive a downloadable link once the backup completes. As a [Super Admin](/docs/admin/users/user-roles-and-permissions#super-admin), you configure preferences once and reuse them for every future backup.
 
-As a [Super Admin](/t/35h4ak0/user-roles-and-permissions#super-admin), you can configure your backup preferences according to your organization's needs. Here’s how you can backup your Kissflow data (via email):
+<Callout type="warn">
+  You can only back up your data once every six months, and a backup can't be canceled once it starts. Plan your configuration and timing accordingly.
+</Callout>
 
-1.  Sign in to Kissflow.
-    
-2.  Click your profile picture on the top right corner of your page, then click **Account administration** > **Data backup**.
-    
-3.  Click **Start configuration** on the Data backup page to set up your data backup preferences.
-    
-4.  Data backup configuration involves three separate steps.
-    
-    1.  Authentication of storage modes.
-        
-    2.  Data backup management.
-        
-    3.  Selection of data categories.
-        
+## Start data backup configuration
 
-## Selecting email as your storage mode
+1. Sign in to Kissflow.
+2. Click your profile picture at the top right of the page, then click **Account administration** > **Data backup**.
+3. Click **Start configuration** on the **Data backup** page.
 
-1.  Select **Email** as the storage mode from the drop-down.
-    
-    ![](/migration-assets/backing-up-data-to-kissflow/1.png)
+Configuration involves three steps: authenticating a storage mode, managing backup settings, and selecting data categories.
 
-2\. Click **Next**.
+## Select email as your storage mode
 
-> **Note:**   
-> After the backup action is completed, you'll receive a downloadable link via email. The backup file should be downloaded within seven days of receiving this email.
+1. Select **Email** as the storage mode from the dropdown.
 
-## Managing backup
+   ![Data backup storage mode dropdown with Email selected](/migration-assets/backing-up-data-to-kissflow/1.png)
+   {/* TODO: verify screenshot matches current product UI */}
 
-Follow the steps below to manage backup settings:
+2. Click **Next**.
 
-1. **Select ZIP file size**. You can select any of the following  ZIP file sizes: **4 GB, 8 GB, 16 GB, or 24 GB**. Files available in your account are automatically zipped and split according to your chosen size limit.  
-      
-    For instance, selecting a 24 GB limit for a 100 GB file results in four 24 GB files and one 4 GB file. Files 24 GB or smaller upload unchanged in this case.
-    
-    ![](/migration-assets/backing-up-data-to-kissflow/2.png)
-2. **Encrypt backup file**. Encrypting backed-up files is an optional feature. You can switch the toggle button to add a passphrase to encrypt your backed-up file. It offers additional security to the backed-up data.  
-      
-    Your passphrase must follow the conditions below:
-    
-    -   Contain at least eight characters.
-        
-    -   Contain upper and lower case characters.
-        
-    -   Contain at least one numeric character or symbol.
-        
+<Callout type="info">
+  After the backup completes, you'll receive a downloadable link by email. Download the file within seven days of receiving that email — the link expires after that.
+</Callout>
 
-> **Note**:  
->   
-> After you’ve encrypted your file, save your passphrase to access your backed-up files later.
+## Manage backup settings
 
-3\. Click **Save.**
+1. **Select ZIP file size.** Choose **4 GB**, **8 GB**, **16 GB**, or **24 GB**. Files in your account are automatically zipped and split according to your chosen limit.
 
-## Selecting data modules for backup
+   For example, a 24 GB limit applied to a 100 GB export produces four 24 GB files and one 4 GB file. Files 24 GB or smaller upload unchanged.
 
-Kissflow allows for modular data selection for backup, catering to specific organizational requirements. You can choose to backup:
+   ![ZIP file size selection dropdown](/migration-assets/backing-up-data-to-kissflow/2.png)
+   {/* TODO: verify screenshot matches current product UI */}
 
--   **User and group data**: Includes all account user and group data.
-    
--   **Transactional data**: Encompasses all flow item details such as status, comments, and assignees.
-    
--   **Audit log data**: Contains last year's audit logs at both flow and account levels.
-    
--   **Attachments**: Covers all attachments within flows like processes, boards, datasets, and apps
-    
-    ![](/migration-assets/backing-up-data-to-google-cloud-service-gcs/2.png)Select one or more data categories by clicking the checkboxes and clicking **Next**. A backup confirmation popup will appear.![](/migration-assets/backing-up-data-to-kissflow/3.png)Verify the configuration details and click **Start backup**.
+2. **Encrypt backup file** (optional). Switch on this toggle to add a passphrase that encrypts your backed-up files for additional security. Your passphrase must contain:
+   - At least eight characters.
+   - Both upper and lower case characters.
+   - At least one numeric character or symbol.
 
-However, you can restart the backup process if you save the configuration and exit the window. You can also edit the configuration, delete it, or view the backup history from this page.
+   <Callout type="warn">
+     Save your passphrase somewhere secure. You'll need it to decrypt and access your backed-up files later, and it can't be recovered if lost.
+   </Callout>
 
-![](/migration-assets/backing-up-data-to-kissflow/4.png)
+3. Click **Save**.
+
+## Select data categories for backup
+
+Choose one or more categories to include:
+
+- **User and group data** — all account user and group data.
+- **Transactional data** — flow item details such as status, comments, and members involved.
+- **Audit log data** — the last year's audit logs at both the flow and account levels.
+- **Attachments** — attachments across flows, including processes and boards.
+
+Select your categories and click **Next**. In the confirmation popup, verify your configuration details and click **Start backup**.
+
+![Backup confirmation popup showing configuration details and the Start backup button](/migration-assets/backing-up-data-to-kissflow/3.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="info">
+  Not ready to start? Click **Save and exit** to store your configuration and resume it later instead of running the backup immediately.
+</Callout>
+
+From the **Data backup** home page, you can also edit your configuration, delete it, or view your backup history.
+
+![Data backup home page with options to edit configuration, delete it, or view backup history](/migration-assets/backing-up-data-to-kissflow/4.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## What's next
+
+- [Data backup overview](/docs/admin/data-backup/data-backup-overview)
+- [Understanding your backup output](/docs/admin/data-backup/understanding-your-backup-output)
+- [Compliance and backup history](/docs/admin/data-backup/compliance-and-backup-history)
+- [Backing up data to Amazon S3](/docs/admin/data-backup/backing-up-data-to-amazon-s3)

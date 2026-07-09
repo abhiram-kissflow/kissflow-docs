@@ -1,77 +1,108 @@
 ---
 title: "Process audit log"
-description: "DRAFT (unverified) — migrated from /t/g9h9qtg/process-audit-log"
+description: "View, sort, filter, and export the audit trail of flow-level and item-level changes made in a process."
 contentType: guide
 persona: admin
 section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - process
+  - audit-log
+  - admin
+  - compliance
 ---
 
-Kissflow plans:
+# Process audit log
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
 
-The [audit log](/t/h7h4akc/admin-history) section stores the history of all the activities related to your process. It allows the [Process Admins](/t/p8h9qtp/managing-process-members-and-permissions#process-admin) to search and find the flow-level and item-level changes made by users in your process. To view your audit log, click the **Manage** button > **Audit log**.
+The audit log stores the history of all activity related to a process, and lets [Process Admins](/docs/admin/processes/managing-process-members-and-permissions#process-admin) search flow-level and item-level changes made by users in the process.
 
-![](/migration-assets/process-audit-log/1.png)
+<Callout type="info">
+  The audit log is available only to Process Admins. If you don't see it, check with your Process Admin.
+</Callout>
 
-You can get the following details of events recorded as part of your process from the audit log:
+## Open the audit log
 
--   **Audit ID**: This is a unique ID generated automatically by the system for every event that's recorded as part of the process history.  
-     
--   **Timestamp**: The exact time when a specific action happened or was performed.  
-     
--   **Actor**: The user who performed the action.  
-     
--   **Action**: The kind of activity or action that had taken place. Examples include **Process published**_,_ **Item created**_,_ **Item deleted**_,_ etc.  
-     
--   **Object**: The object or the underlying resource that is being changed.  
-     
--   **Event category**: Common name for an event that you can use to filter down to similar events. Examples: Process Administration, Process Settings, etc.  
-     
--   **Platform**: The device or OS from which the event was recorded.  
-     
--   **IP**: The IP address from which the event was recorded.  
-     
--   **Batch ID**: This is a unique ID generated automatically by the system for a group of events that are related to each other. Unlike Audit ID, the Batch ID of these events will be the same for reference purposes.
+1. Open the process and click the **Manage** button.
+2. Click **Audit log**.
 
-## Sorting fields
+![Process manage menu with the Audit log option](/migration-assets/process-audit-log/1.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-1.  On the process page, click the **Manage** button > **Audit log**.
-2.  Click the **Down-arrow** button  (![](/migration-assets/process-audit-log/4.svg)) beside a field's name to sort a field in ascending or descending order.![](/migration-assets/process-audit-log/2.png)
+Each entry in the log shows the following columns:
 
-## Searching fields
+- **Audit ID** — a unique ID the system generates automatically for every recorded event.
+- **Time** — when the action happened.
+- **Acted by** — the user who performed the action.
+- **[Event](/docs/admin/audit-log/event-categories-and-actions)** — the kind of activity that took place, for example **Process published**, **Item created**, or **Item deleted**.
+- **Object** — the resource that was changed.
+- **[Event category](/docs/admin/audit-log/event-categories-and-actions)** — a common name for a set of events, useful for filtering down to similar events. Examples include **Process Administration** and **Process Settings**.
+- **Platform** — the device or OS the event was recorded from.
+- **IP** — the IP address the event was recorded from.
+- **Batch ID** — a unique ID the system generates automatically for a group of related events. Unlike **Audit ID**, every event in the same batch shares the same **Batch ID**.
 
-1.  On the process page, click the **Manage** button > **Audit log**.
-2.  Click the down-arrow button (![](/migration-assets/process-audit-log/4.svg)) beside a field filter to search for a specific entry as necessary.
-3.  Enter the search term in the search area that follows as necessary.![](/migration-assets/process-audit-log/3.png)   
+## Sort the log
 
-## Filtering fields
+1. Click the down-arrow beside the **Time** column header.
+2. Select **Ascending** or **Descending** to sort the log by time.
 
-You will be able to filter the audit log events based on the following fields/criteria:
+<Callout type="info">
+  Sorting is available only on the **Time** column. The down-arrow on other columns lets you pin or unpin them instead, so key details stay visible while you scroll horizontally.
+</Callout>
 
--   **Audit period**
-    -   Last 30 days: Get event information for the last 30 days from the current date.
-    -   Custom date range: Select a customized date range to filter events.
--   **Object**: Select one or more objects from the suggestions or enter the exact object name for which you would like to derive the log details.  
-     
--   **Event category**: Filtering events based on event categories is one of the recommended ways to get specific events. If you are unsure about how to go with the event category, enter a flow name like "process" or "case" in its search bar and it will list all the categories relevant to the flow type you just entered.![](/migration-assets/process-audit-log/5.png)  
--   **Actor**: You can select one or more account users to filter events based on users.  
-     
--   **Action**: Enter a relevant action in the field's search bar or select one from the suggested list of actions as necessary. You can filter events based on only one action at a time.  
-     
--   **Audit ID, Batch ID, & IP**: Filters are applied on these fields mostly to backtrace an event's history. Enter the exact Audit ID or Batch ID or IP address to filter events as necessary.
+## Search a filter
 
-## Removing filter conditions
+Some filters — **Audit ID**, **Batch ID**, and **IP** — search by exact value:
 
-Applied filter conditions will be highlighted in _blue_ as in the above screenshot and to remove a specific filter condition, click the **Remove** button (![](/migration-assets/process-audit-log/7.svg)) to clear it.  
- 
+1. Click the down-arrow beside the filter.
+2. Enter the exact value in the search area that appears and apply it.
 
-![](/migration-assets/process-audit-log/6.png)
+![Search area that opens for the Audit ID, Batch ID, and IP filters](/migration-assets/process-audit-log/3.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-## Exporting an audit log
+## Filter the log
 
-You can export the audit log for the last 90 days.
+You can filter audit log events on the following fields:
 
-1.  On the process page, click the **Manage** button > **Audit log**.
-2.  Go to **Flow-level** **logs** or **Item-level logs** based on your requirement.
-3.  Click the **Export** button (![](/migration-assets/process-audit-log/8.svg)) to export the audit log as a file. An email with the download link will be sent immediately to your registered email address, from which you can download the file.
+- **Audit period** — choose **Last 7 days**, **Last 30 days**, **Last 90 days**, or a **Custom date range**.
+
+  <Callout type="info">
+    **Last 30 days** may not be available on every account — it depends on whether extended log retention is enabled.
+  </Callout>
+
+- **Object** — select one or more objects from the suggestions, or enter the exact object name.
+- **[Event category](/docs/admin/audit-log/event-categories-and-actions)** — filtering by event category is one of the recommended ways to narrow down results. If you're not sure which category to pick, search for a flow name like "process" and the field lists every category relevant to it.
+
+  ![Event category filter listing categories relevant to a flow](/migration-assets/process-audit-log/5.png)
+  {/* TODO: verify screenshot matches current product UI */}
+
+- **Acted by** — select one or more account users to filter events by who performed them.
+- **Event** — enter or select one action from the suggested list. This filter accepts only one value at a time.
+- **Audit ID, Batch ID, and IP** — enter the exact value to filter events, mainly useful to backtrace a specific event's history.
+
+Each applied filter shows a control to clear it, and you can click **Clear all** to reset every filter at once.
+
+![Audit log with filters applied and a clear control on each](/migration-assets/process-audit-log/6.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Export the audit log
+
+You can export up to 90 days of the audit log at a time.
+
+1. Open the process and click **Manage** > **Audit log**.
+2. Go to **Flow-level logs** or **Item-level logs**, depending on which log you want to export.
+3. Click the **Export** button and confirm the export.
+
+<Callout type="info">
+  Export runs as a background job. Once it finishes, you'll receive an email with the download link at your registered email address — this can take a few minutes rather than being instant.
+</Callout>
+
+## What's next
+
+- [Managing process members and permissions](/docs/admin/processes/managing-process-members-and-permissions)
+- [Event categories and actions](/docs/admin/audit-log/event-categories-and-actions)
+- [Admin actions in a process](/docs/admin/processes/admin-actions-in-a-process)

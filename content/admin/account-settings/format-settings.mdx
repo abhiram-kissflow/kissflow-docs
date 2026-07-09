@@ -1,42 +1,73 @@
 ---
 title: "Format settings"
-description: "DRAFT (unverified) — migrated from /t/p8h4akf/format-settings"
+description: "Set your account's default timezone, language, and date format from Account Administration."
 contentType: guide
 persona: admin
 section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - account-settings
+  - timezone
+  - language
+  - date-format
 ---
 
-Kissflow plans:
+# Format settings
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
 
-As a Super Admin, you can control your account’s default settings that impact how data is formatted and displayed.
+As a Super Admin — or any admin granted the Format Settings permission — you control your account's default time zone, language, and date format. These settings determine how dates, times, and flow data are displayed across your organization.
 
-## **Account timezone**
+<Callout type="info">
+  Individual users can override the account's time zone, date format, and language for their own account from **My settings**. See [Personal info, format settings, and task delegation](/docs/use/personal-settings/personal-info-format-settings-and-task-delegation).
+</Callout>
 
-Your organization's timezone is considered when you configure a scheduled action in integrations or include a [deadline](/t/p8h4a16/configuring-deadline) in a workflow. All flow data will be matched to your organization’s time zone. You can select a timezone using the map-based timezone picker or directly from the dropdown. The map can be zoomed in and out to see all available time zones worldwide.
+## Update format settings
 
-![](/migration-assets/format-settings/1.png)
+1. Click your profile picture in the upper-right corner of the Home screen.
+2. Click **Account administration** > **Format settings**.
+3. Set your account's time zone, language, and date format (details below).
+4. Click **Save**.
 
-## **Language**
+![Format settings page with the timezone map, language, and date format options](/migration-assets/format-settings/1.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-Choose the language for your Kissflow account. Kissflow is currently offered in English, Simplified Chinese, Italian, Korean, Japanese, Spanish, Brazilian Portuguese, French, German, Russian, Vietnamese, Thai, and Arabic.
+### Time zone
 
-## **Date format**
+Your organization's time zone is used when a scheduled action in an integration runs, or when a [deadline](/docs/build/processes/workflow-design/configuring-deadline) in a workflow is evaluated — all flow data is matched to this time zone.
 
-You can choose a date format of your choice. This will adjust the formatting of your account's number, date, and datetime fields. Here are the date format options available,
+Select a time zone directly from the dropdown, or use the map below it: click a region to select its time zone, and use the zoom controls to find smaller zones more precisely.
 
--   Local (based on your browser settings)
--   US (D/M/YYYY)
--   European (MM/DD/YYYY)
--   ISO (YYYY-MM-DD)
+### Language
 
-## **Number and currency format**
+Choose the display language for your account. Kissflow supports more than 20 languages, including English, French, Spanish, German, Italian, Russian, Korean, Simplified Chinese, Japanese, Vietnamese, Thai, Polish, Portuguese, Slovak, Czech, Ukrainian, Hindi, and Romanian.
 
-Local number and currency conventions are automatically discovered from the browser settings. By default, numbers will always automatically be formatted based on the user's local conventions.
+<Callout type="info">
+  Arabic is the exception — it's only available if your account has been enabled for it (see [Languages supported by Kissflow](/docs/whats-new/important-notices/languages-supported-by-kissflow)).
+</Callout>
 
-> **Note:**
-> 
-> An individual user's preferences can override the organization's timezone, date and time format, and language.
+### Date format
 
-Click **Save** when you are done.
+Choose how date and datetime fields are displayed across your account:
+
+- **Local** — based on your browser settings.
+- **US** — M/D/YYYY.
+- **European** — D/M/YYYY.
+- **ISO** — YYYY-MM-DD.
+
+<Callout type="info">
+  Date format only affects date and datetime fields. Number and currency formatting is separate — see below.
+</Callout>
+
+### Number and currency format
+
+Number and currency formatting is always based on the browser's local conventions and isn't configurable from this page.
+
+## What's next
+
+- [Personal info, format settings, and task delegation](/docs/use/personal-settings/personal-info-format-settings-and-task-delegation)
+- [Task delegation](/docs/admin/account-settings/task-delegation) (Admin)
+- [User roles and permissions](/docs/admin/users/user-roles-and-permissions)

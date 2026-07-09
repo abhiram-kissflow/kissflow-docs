@@ -1,212 +1,180 @@
 ---
 title: "Security settings for flows"
-description: "DRAFT (unverified) — migrated from /t/83ymdnx/security-settings-for-flows"
+description: "Control how a process, board, dataset, or dataform shares data with other flows, plus print, comment, watcher, and impersonation permissions."
 contentType: guide
 persona: admin
 section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - security
+  - permissions
+  - lookup
+  - processes
 ---
 
-Kissflow plans:
+# Security settings for flows
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
 
-## Introduction
+Flow Admins can control how their process, board, dataset, or dataform shares data with other flows in your Kissflow account. The **Security** page gives you two layers of control — an account-wide default and per-flow overrides — plus a set of access controls for printing, downloading, commenting, watching, and impersonation.
 
-Flow Admins can manage the sharing of their flow data with other flows within the Kissflow platform through the security settings page. This system provides a more robust, flexible, and granular approach to controlling access to processes, datasets, boards, and data forms.
+## Access security settings
 
-The security settings page allows you to manage permissions for lookup fields:
+1. Go to the process, board, dataset, or dataform you want to manage.
+2. Click **Manage** > **Security**.
 
-## Accessing security settings
+![Manage menu open with the Security option highlighted](/migration-assets/security-settings-for-flows/1.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-To manage the security settings for a specific flow, follow these steps:
+## Global permissions
 
-1.  Go to the process, board, dataset, or dataform you want to manage.
-    
-2.  Click the **Manage** button > **Security**
-    
+Global permissions are the default access rule that applies to every flow in your account. Today, **Lookup** is the only artifact with a true global toggle — an **All flows** setting that's turned on by default, so any flow in your account can look up this flow's data unless you turn it off or override it for a specific flow.
 
-![](/migration-assets/security-settings-for-flows/1.png)
+<Callout type="info">
+  Integration access doesn't have a global setting. It must be granted to each flow individually — see [Customized permissions](#customized-permissions) below.
+</Callout>
 
-### Global permissions
+### Turn off global lookup access
 
-Global permissions are the overarching access rules that apply to all flows within your account. They serve as the default access settings for all the flows in your Kissflow account. By default, **All flows** permission is enabled for most artifacts except for integration and impersonation. 
+1. On the **Security** page, find the **Global permissions** section.
+2. Clear the **Lookup** checkbox for **All flows**.
 
-### Setting up global permissions
+Unchecking it means no flow in the platform can look up this flow's data by default — you'd need to grant access to specific flows individually instead.
 
-On the **Security** page, locate the **Global permissions** section. For each artifact, such as **Lookup** or **Integrations**, you'll see a checkbox. Enable or disable the checkbox to set global permissions for that artifact. By default, permissions for **All flows** are turned **ON** for all artifacts except **Integration** and **Impersonation**. To adjust these permissions, simply check or uncheck the desired artifacts. For example, unchecking the **Lookup** artifact for **All flows** ensures that no flow in the platform can perform lookups on this flow.
+<Callout type="warn">
+  Turning off global Lookup access restricts it across every flow unless you override it with a customized permission for a specific flow.
+</Callout>
 
-> **Note:**
-> 
-> Disabling an artifact here will restrict its use across all flows unless overridden by customized permissions.
+## Customized permissions
 
-### Customized permissions
+Customized permissions let you grant or restrict access for one specific flow, overriding whatever the global setting says for that flow. Use them when most flows should follow the global default but a handful need an exception — or, for Integration access, because that's the only way to grant it at all.
 
-Customized permissions allow for fine-grained control over access at the individual flow level, overriding global permissions when configured. These settings can be set for specific flows, providing more detailed control over which artifacts and fields can be accessed.
+### Set up a customized permission
 
-### Setting up customized permissions
+1. On the **Security** page, add the flow you want to configure under **Customized permissions**.
+2. Choose the permissions to grant — for **Lookup**, select **All fields** to expose every field, or **Select fields** to expose only specific ones.
+3. Save your changes.
 
-Custom permissions allow flow admins to grant exclusive permissions for specific flows. These permissions can be configured to override global permissions. To set up custom permissions, go to the security settings page of the desired flow and select the specific permissions needed. You can choose to grant permissions for all fields or select specific fields for the **Lookup** artifact. When adding a new flow under custom permissions, the global settings are carried over and can be overridden. If custom permissions are removed, the global permissions will automatically apply.
+When you add a flow this way, it starts out carrying over the current global settings, which you can then override.
 
-> **Note:**
-> 
-> If no customized permission is set for a flow, it follows the global permission settings.
+<Callout type="info">
+  If a flow has no customized permission, it simply follows the global permission settings.
+</Callout>
 
-### Removing customized permissions
+### Remove a customized permission
 
-If you remove customized permissions for a specific flow, the flow will revert to using global permission settings. This change takes effect immediately. To remove customized permissions for a specific flow, click the **Remove customized permission** button on the right of the flow. Next, check if there are any lookup dependencies or other impacts from deleting this permission. Finally, click **Remove** to confirm and remove the customized permissions.
+1. On the **Security** page, find the flow under **Customized permissions**.
+2. Click **Remove customized permission** next to the flow.
+3. Review any lookup fields that depend on this permission — removing it may affect them.
+4. Click **Remove** to confirm.
 
-### Lookup field selection
+The flow immediately reverts to the global permission settings, and any specific permissions you'd configured for it are lost.
 
-When configuring Lookup permissions, you have the option to select **All fields** to grant access to all fields in the lookup. Alternatively, you can choose **Select fields** to specify which fields are accessible. If you opt to select specific fields, a list of available fields will be displayed for you to choose from.
+## Share lookup fields within apps
 
-### Within apps
+For apps built in Kissflow:
 
-For applications within Kissflow:
+- App Admins can link apps together.
+- When linking, an App Admin can choose which fields from the source flow are accessible to the destination app.
 
--   App admins have the ability to link apps together.
-    
--   When linking, admins can specify which fields from the source flow within an app are accessible to the destination app.
-    
+## Access controls
 
-## [Access controls](/t/m1h9qt5/process-settings#access-controls)
+Flow Admins can allow or restrict permissions that affect users' ability to print forms, download attachments, mention people in comments, add watchers, and impersonate other users.
 
-[Process Admins](/t/p8h9qtp/managing-process-members-and-permissions#process-admin) can allow or restrict permissions to users impacting their ability to print forms, download attachments, or impersonate in processes.
+### Print and download permissions
 
-### [Print and download permissions](/t/m1h9qt5/process-settings#print-and-download-permissions)
+For each flow, you can toggle **Anyone** or **Only admins** for print and download access. **Anyone** lets any user download attachments or print forms; **Only admins** restricts both actions to Flow Admins.
 
-You can toggle between two options: **Anyone** and **Only admins** for each flow type individually. These changes are flow-level changes, and they can, in some cases, be overridden by [permissions set at Account Administration level](/t/h7h4akl/flow-settings).Setting the permission to **Anyone** would allow any user to download attachments or print forms. Choosing **Only admins** would restrict download and print permissions only to Flow Admins.
+<Callout type="info">
+  This is a flow-level setting. It can be overridden by [permissions set at the Account Administration level](/docs/admin/account-settings/flow-settings), which take precedence when configured.
+</Callout>
 
 ### Comment permissions
 
-#### Participants vs non-participants
+#### Participants vs. non-participants
 
- 
+| | Participant | Non-participant |
+| --- | --- | --- |
+| **Definition** | A user who has participated in the item's workflow up to the current step | A user who hasn't participated in the item's workflow up to the current step |
+| **Includes** | The item's initiator and every approver up to the current step | Future assignees, and any account user not part of the process |
 
-**Participant**
+For example, if an item is currently at step C, its initiator and the approvers from steps A and B are participants — everyone else is a non-participant.
 
-**Non-participant**
+#### Allow assignees to mention non-participants
 
-**Definition**
+As a Flow Admin, you can let assignees mention non-participants in an item comment, bringing them into a discussion for context without adding them to the workflow.
 
-Users who have participated in the item’s workflow up to the current step
+1. Go to **Manage** > **Security** > **Access controls** > **Comment permissions**.
+2. Enable **Allow assignees to mention non-participants**.
+3. Choose a scope:
+   - **Allow assignees to mention any user in this process** — assignees can mention any user the process is shared with, whether or not they've participated so far.
+   - **Allow assignees to mention any user in this account** — assignees can mention any user in the account, even without current access to the process.
 
-Users who have not participated in the item’s workflow up to the current step. 
+![Comment permissions settings with the non-participant mention toggle and scope options](/migration-assets/security-settings-for-flows/2.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-**Includes**
+Once a non-participant is mentioned, they can:
 
-Item’s initiator and all item approvers until the current step.
+- View all past and future comments on the item.
+- React and reply only within that comment thread.
+- View the item's data as it stood at the step where they were mentioned.
 
--   Users who are future assignees.
-    
--   Users who are not part of the process but are part of the account.
-    
+They aren't added as an assignee or participant in the workflow.
 
-**Example**: If an item is currently at step C, its initiator and the approvers from steps A and B are participants. Everyone else is considered a non-participant.
+<Callout type="info">
+  A non-participant generally needs to be mentioned in a thread's parent comment to join that thread.
+</Callout>
 
-#### Allowing assignees to mention non-participants
+<Callout type="idea">
+  **Example:** An HR manager processing a New Hire Contract item spots a custom clause that needs a legal check. Legal Lee is an account user but isn't part of the HR workflow. Because **Allow assignees to mention any user in this account** is enabled, the HR manager can mention Legal Lee directly in the comments. Legal Lee opens the item from the notification, sees the data filled in through the current step (but nothing from steps that haven't happened yet), and replies in the thread — without ever becoming a participant in the workflow.
+</Callout>
 
-As a **Process Admin**, you can control whether assignees can mention non-participants in an item comment. This enables assignees to bring additional users into a comment thread for contextual collaboration, without adding them to the workflow.
-
-Go to **Manage** > **Security** > **Access controls** > **Comment permissions** and enable **Allow assignees to mention non-participants** toggle. You can:
-
-1. **Allow assignees to mention any user in this process** - Assignees can mention users to whom the process is shared. These users may or may not have participated in the item so far.
-    
-2. **Allow assignees to mention any user in this account** \- Assignees can mention any user in the account, even if they don’t currently have access to the process.
-    
-
-![](/migration-assets/security-settings-for-flows/2.png)
-
-When a non-participant is mentioned:
-
--   They can view all past and future comments in the item.
-    
--   They can react and reply only in the relevant comment thread.
-    
--   They can view the item’s data as shown at the step where they were mentioned.
-    
--   They are not added as assignees or participants in the workflow.
-    
-
-> **Note**:
-> 
-> For a non-participant to join a comment thread, they must be mentioned in the parent comment of that thread.
-
-#### Use case example:
-
-An HR manager (current step assignee) is processing a **New Hire Contract** item. The workflow steps are: Start > HR Review > Finance Approval > Completed.
-
-At the **HR Review** step, the HR manager notices a custom clause that might need a legal check. Legal Lee is a user in the account but is not part of this HR process workflow.
-
-**Feature behavior:**
-
-1.  The HR manager mentions Legal Lee in the comments. Because the **Process Admin** enabled **Allow assignees to mention any user in this account**, Legal Lee appears in the list.
-    
-2.  Legal Lee opens the item via notification.
-    
-3.  He sees all the contract data filled in during the **Start** and **HR Review** steps. He cannot see the fields of **Finance Approval** step because that step hasn't happened yet.
-    
-4.  Legal Lee leaves a reply: "Clause 4 looks good."
-    
-
-> **Tip:**
-> 
-> To enable this option for a process within Kissflow Apps, open the development environment of the app:
-> 
-> Open the process > click **Settings** > **Access controls** > **Comment permissions** and enable **Allow assignees to mention non-participants** toggle.
+<Callout type="info">
+  To enable this for a process built inside Kissflow Apps, open the app's development environment, then go to the process's **Settings** > **Access controls** > **Comment permissions** and enable **Allow assignees to mention non-participants**.
+</Callout>
 
 ### Watcher permissions
 
-**Allow process members to watch items** - When this toggle is enabled, item initiators can add users part of the current process as watchers to items they initiate. 
+Enable **Allow process members to watch items** so item initiators can add other process members as watchers on the items they raise.
 
-![](/migration-assets/security-settings-for-flows/3.png)
+![Watcher permissions toggle in the Security page](/migration-assets/security-settings-for-flows/3.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-#### What happens when this setting is enabled?
+When this setting is **on**:
 
--   Item initiators can add up to 10 process users as watchers to their items.
-    
--   Watchers can track item progress and its outcomes.
-    
--   Watchers can view the item form in read-only mode.
-    
--   Watchers can add comments and mention item participants.
-    
--   Watchers can be mentioned in comments.
-    
--   Watchers receive notifications when, 
-    
-    -   They are added or removed as a watcher, 
-        
-    -   The item is completed, rejected, or withdrawn.
-        
-    -   They are mentioned in a comment.
-        
-    -   Someone reacts and replies to their comment.
-        
+- Initiators can add up to **10** process users as watchers per item.
+- Watchers can track an item's progress and outcome, and view its form in read-only mode.
+- Watchers can add comments, mention participants, and be mentioned themselves.
+- Watchers get notified when they're added or removed as a watcher, when the item is completed, rejected, or withdrawn, and when they're mentioned in or get a reaction/reply to a comment.
 
-#### What happens when this setting is disabled?
+When this setting is **off**:
 
--   Existing watchers cannot watch their items.
-    
--   New watchers cannot be added to process items.
-    
--   Existing watchers stop receiving watcher-related notifications.
-    
--   Existing watchers are preserved and are not removed.
-    
--   If the setting is enabled again later, existing watcher capabilities become active again and notifications resume.
-    
+- No one can add new watchers to process items.
+- Existing watchers can no longer watch their items, and stop receiving watcher notifications.
+- Existing watchers aren't removed — turning the setting back on restores their watcher capabilities.
 
-To enable or disable watchers for a process,
+To enable or disable watchers for a process:
 
-1.  Click **Manage** > **Security settings**.
-    
-2.  Under **Access controls**, toggle **Allow process members to watch items**.
-    
-3.  Click **Save**.
-    
+1. Click **Manage** > **Security**.
+2. Under **Access controls**, toggle **Allow process members to watch items**.
+3. Click **Save**.
 
-![](/migration-assets/security-settings-for-flows/5.gif)
+![Toggling the watcher permission setting and saving the change](/migration-assets/security-settings-for-flows/5.gif)
+{/* TODO: verify screenshot matches current product UI */}
 
-### [Impersonation](/t/m1h9qt5/process-settings#impersonation)
+### Impersonation
 
-Using impersonation, you can act on behalf of a user or an item inside your Kissflow account. [Learn more about impersonating a user.](/t/p8h4akb/impersonation-in-service-accounts)![](/migration-assets/security-settings-for-flows/4.png)
+Impersonation lets a service account act on behalf of a user or an item in your Kissflow account. Learn more in [Impersonation in service accounts](/docs/admin/service-accounts/impersonation-in-service-accounts).
+
+![Impersonation option on the flow's Access controls settings](/migration-assets/security-settings-for-flows/4.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## What's next
+
+- [Managing process members and permissions](/docs/admin/processes/managing-process-members-and-permissions)
+- [Process settings](/docs/admin/processes/process-settings)
+- [Impersonation in service accounts](/docs/admin/service-accounts/impersonation-in-service-accounts)
+- [Flow settings](/docs/admin/account-settings/flow-settings)

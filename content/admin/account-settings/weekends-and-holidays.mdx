@@ -1,19 +1,54 @@
 ---
 title: "Weekends and holidays"
-description: "DRAFT (unverified) — migrated from /t/q6h4aka/weekends-and-holidays"
+description: "Set your organization's non-working days and holidays so they're excluded from workflow deadlines and SLA calculations."
 contentType: guide
 persona: admin
 section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - holidays
+  - weekends
+  - deadlines
+  - sla
 ---
 
-Kissflow plans:
+# Weekends and holidays
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
 
-As a [Super Admin](/t/35h4ak0#super-admin), Kissflow lets you manually update your organization’s workweek and holidays so they are considered while defining [deadlines](/t/p8h4a16/configuring-deadline) in your workflow. Your organization's weekend days are left unselected by default. However, you can change this by clicking the appropriate days.
+As a [Super Admin](/docs/admin/users/user-roles-and-permissions), you can set your organization's workweek and holidays so they're factored in when [deadlines](/docs/build/processes/workflow-design/configuring-deadline) and SLAs are calculated for workflow activities.
 
-You can add your office holidays to your calendar. Click **Add holiday,** select the date, and give the holiday a name. Your holiday list does not recur annually and must be added yearly. You can input holidays for the current and coming years.
+## Set your organization's weekend
 
-![](/migration-assets/weekends-and-holidays/1.png)
+1. Click your profile picture in the top right corner and go to **Account administration** > **Account settings** > **Weekends and holidays**.
+2. Under **Weekends**, click each day your organization doesn't work to select it.
 
-These settings will be used when your deadline and SLA calculations are made. For example, if a task with a 24-hour deadline starts on Thursday evening, but you have a holiday set for Saturday and don’t work on Sunday, the deadline will shift to Monday.
+<Callout type="info">
+  No weekend days are selected by default. Set your weekend here before it's needed for deadline or SLA calculations.
+</Callout>
+
+## Add office holidays
+
+1. Click **Add holiday**.
+2. Select the date.
+3. Give the holiday a name.
+
+![Weekends and holidays settings page showing the weekly working days and holiday list](/migration-assets/weekends-and-holidays/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="warn">
+  Holidays don't recur automatically. Your holiday list is for a single year, so you'll need to add next year's holidays yourself when the time comes.
+</Callout>
+
+## How this affects deadlines and SLAs
+
+Weekend days and holidays you've configured here are excluded from [deadline](/docs/build/processes/workflow-design/configuring-deadline) and SLA calculations for workflow activities. If part of a task's allotted time falls on a non-working day, that day isn't counted — the deadline extends to give the assignee the full amount of working time you intended.
+
+## What's next
+
+- [Configuring deadline](/docs/build/processes/workflow-design/configuring-deadline)
+- [Format settings](/docs/admin/account-settings/format-settings)
+- [User roles and permissions](/docs/admin/users/user-roles-and-permissions)

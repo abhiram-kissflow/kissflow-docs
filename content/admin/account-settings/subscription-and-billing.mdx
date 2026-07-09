@@ -1,28 +1,55 @@
 ---
 title: "Subscription and billing"
-description: "DRAFT (unverified) — migrated from /t/g9h4akk/subscription-and-billing"
+description: "View your account's plan status and user license count, and download invoices from Account administration."
 contentType: guide
 persona: admin
 section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - billing
+  - subscription
+  - invoices
+  - account-settings
 ---
 
-Kissflow plans:
+# Subscription and billing
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
 
-## Managing subscription
+Your account's subscription details — plan status, user license count, and invoices — are all available from Account administration.
 
-Super Admins and Billing Admins can access an account’s subscription details by clicking **Account administration** > **Subscription & billing**. You can know the current status of your plan, and number of user licenses that can be availed as part of your plan in this section.
+<Callout type="info">
+  Only Super Admins and Billing Admins can access this page. Learn more about [roles in Kissflow](/docs/admin/users/user-roles-and-permissions).
+</Callout>
 
-![](/migration-assets/subscription-and-billing/1.png)
+## View your subscription details
 
-You can also contact our support executives for account-related queries.
+1. Click your profile picture in the top-right corner and select **Account administration**.
+2. Go to **Subscription & billing**.
 
-> **Note:**  
-> **Super Admins** and **Billing Admins** have access to this page. Learn more about [roles in Kissflow](/t/35h4ak0/user-roles-and-permissions).
+   ![Subscription and billing page showing plan status and user license details](/migration-assets/subscription-and-billing/1.png)
+   {/* TODO: verify screenshot matches current product UI */}
 
-## Invoice details
+This page shows the current status of your plan and the number of user licenses available under it.
 
-Go to **Account administration** > **Subscription & billing** > **View invoice** to view and download your invoice. 
+<Callout type="info">
+  Kissflow offers several plan tiers beyond the basics. To purchase additional licenses, change plans, or adjust your billing frequency, click **Chat for help** under **Subscription details** — see [Deprecation of self-serve option in Kissflow subscription & billing](/docs/whats-new/discontinued-services/important-announcement-deprecation-of-self-serve-option-in-kissflow-subscription-billing).
+</Callout>
 
-![](/migration-assets/subscription-and-billing/2.png)
+## View and download an invoice
+
+1. Go to **Account administration** > **Subscription & billing**.
+2. Click **View invoice**.
+
+   ![Subscription and billing page with the View invoice action](/migration-assets/subscription-and-billing/2.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+From here, you can view and download the invoice for your account.
+
+## What's next
+
+- [User roles and permissions](/docs/admin/users/user-roles-and-permissions)
+- [Account details, customization, and connected domains](/docs/admin/account-settings/account-details-customization-and-connected-domains)

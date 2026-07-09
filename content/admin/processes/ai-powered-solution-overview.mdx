@@ -1,62 +1,80 @@
 ---
 title: "AI-powered solution overview"
-description: "DRAFT (unverified) — migrated from /t/p8y1ntk/ai-powered-solution-overview"
+description: "Generate a readable, AI-written breakdown of a process's form, workflow, and connections so admins and developers can understand its design without digging through every setting."
 contentType: overview
 persona: admin
 section: admin
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - processes
+  - ai
+  - documentation
 ---
 
-Kissflow plans:
+# AI-powered solution overview
 
-✕ Basic ✓ Enterprise
+<PlanBadge plans={["enterprise"]} />
+
+A solution overview gives you a complete, AI-generated breakdown of a process in a readable, structured format that highlights how its different components come together to solve a business problem. It helps **process admins** and **developers** understand the overall structure and logic behind a process without having to manually explore every configuration detail.
 
 <iframe src="https://player.vimeo.com/video/1125778517?app_id=122963" title="AI-powered solution overview" className="aspect-video w-full rounded-lg border" allowFullScreen />
 
-A solution overview gives you a complete, AI-generated breakdown of your process in a readable, structured format that highlights how different components come together to solve a business problem. It helps **Process admins** and **developers** understand the overall structure and logic behind a process without having to manually explore every configuration detail.
+## Generate a solution overview
 
-To access the solution overview of a process, click the **More options** button (![](/migration-assets/ai-powered-solution-overview/1.png)) at the top right and click **Solution overview**. While the overview is generating, you can safely navigate away or continue other work.
+To access the solution overview of a process, click the **More options** button at the top right and select **Solution overview**.
 
-![](/migration-assets/ai-powered-solution-overview/2.png)
+![More options menu with the Solution overview action](/migration-assets/ai-powered-solution-overview/1.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-## Sections of solution overview
+<Callout type="info">
+  **Solution overview** only appears for a published (live) process. It isn't available while you're still working on a draft version.
+</Callout>
+
+Generating the overview can take a moment since it's written fresh by AI based on your process's current design. While it's generating, you can safely navigate away or continue other work — come back later and the completed overview will be waiting for you.
+
+![Solution overview generating for a process](/migration-assets/ai-powered-solution-overview/2.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Sections of the solution overview
 
 The generated overview is organized into five sections:
 
-### 1\. Overview
-
-This section gives you a brief description of what the process is designed to do. 
-
-### 2\. Glossary
-
-This section lists important terms and components used in the solution, such as [connected flow](/t/g9ytv27/connected-processes-overview), form, integration, section, and workflow, ensuring that business users can easily interpret the overview.
-
-### 3\. Detailed explanation
-
-This section gives an end-to-end walkthrough of how the process works, including:
-
--   **Form** - Lists all sections and the type of information each section collects, along with required and computed fields.
-    
--   **Workflow** - Explains each step in order, showing who it’s assigned to, deadlines, editable/hidden sections, and any connected flows or integrations triggered.
-    
-
-### 4\. Summary
-
-This section provides a concise walkthrough of the entire process from start to finish. It highlights key transitions, decision points, and how data moves through the flow.
-
-### 5\. FAQ
-
-This section answers common questions a business user might have about the process. For example, who initiates it, what triggers connected flows, and how permissions are set.
+- **Overview** — a brief description of what the process is designed to do.
+- **Glossary** — definitions of the terms and components used in the solution, such as connected flow, form, integration, goto, parallel branch, section, and workflow, so that business users can easily interpret the rest of the overview.
+- **Detailed explanation** — an end-to-end walkthrough of how the process works:
+  - **Form** — lists all sections and the type of information each collects, along with required and computed fields.
+  - **Workflow** — explains each step in order, showing who it's assigned to, deadlines, editable or hidden sections, and any connected flows or integrations it triggers.
+- **Summary** — a concise, start-to-finish walkthrough of the process, highlighting key transitions, decision points, and how data moves through the flow.
+- **FAQ** — answers to a handful of common questions a business user might have about the process, such as who initiates it, what triggers connected flows, and how permissions are set.
 
 ## Associated flows and integrations
 
-In the right panel of the solution overview, you can view the list of connected flows, integrations, and looked up flows. When clicked, you are taken to the corresponding flows and integrations.
+The right panel of the solution overview lists the process's connected flows, integrations, and looked-up flows. Click any of them to open the corresponding flow or integration in a new tab.
 
-![](/migration-assets/ai-powered-solution-overview/3.png)
+![Associated flows and integrations panel in the solution overview](/migration-assets/ai-powered-solution-overview/3.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-## Regenerating solution overview
+## Keep the overview up to date
 
-The overview can be refreshed anytime if you’ve made changes to any component of your solution. If the solution has been modified, you’ll see a banner at the top of the solution overview prompting you to refresh.
+A solution overview reflects the process design at the time it was generated. If you publish changes to the process afterward — or update an integration it uses — a banner appears at the top of the overview prompting you to refresh it.
 
-## Printing and saving solution overview
+<Callout type="info">
+  There's no separate manual regenerate control — refresh only appears once changes are actually detected, so you always know whether the overview you're reading matches the live process.
+</Callout>
 
-You can print or save the solution overview as a PDF. Click the **Print** button (![](/migration-assets/ai-powered-solution-overview/4.png)) in the top right corner of the overview and select your desired options.
+## Print or save as a PDF
+
+You can print the solution overview or save it as a PDF. Click the **Print** button in the top right corner of the overview and choose your desired options from your browser's print dialog.
+
+![Print button in the solution overview](/migration-assets/ai-powered-solution-overview/4.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## What's next
+
+- [AI solution analyzer](/docs/admin/processes/ai-solution-analyzer) — catch form, workflow, and permission issues before you publish.
+- [Connected processes overview](/docs/admin/processes/connected-processes-overview)
+- [Associated flows for processes](/docs/admin/processes/associated-flows-for-processes)
+- [Publishing, editing, duplicating, archiving, and deleting a process](/docs/admin/processes/publishing-editing-duplicating-archiving-and-deleting-a-process)

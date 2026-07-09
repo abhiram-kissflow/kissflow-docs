@@ -1,57 +1,119 @@
 ---
 title: "Admin actions in a process"
-description: "DRAFT (unverified) — migrated from /t/60h9qtj/admin-actions-in-a-process"
+description: "Access, search, edit, reassign, complete, and delete process items from the Administration section, and restore deleted items within 30 days."
 contentType: guide
 persona: admin
 section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - processes
+  - administration
+  - workflow
 ---
 
-Kissflow plans:
+# Admin actions in a process
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
 
-## Process administration
+The **Administration** section of a process gives Process admins and Data admins a single place to view every item, edit its data, and step in when an item is stuck — by reassigning, completing, or deleting it. This article covers opening the Administration section and using each of these actions.
 
-The **Administration** section of a process lets Process admins and Data admins access the items, modify their status, and make necessary changes. Navigate to the process page and click the **More options** button (![](/migration-assets/admin-actions-in-a-process/2.svg)) at the top right > **Administration**.
+## Open the Administration section
 
--   **Title** - Name of the [item](/t/m1h9qt5/process-settings#configuring-form-titles) configured in the process settings
--   **Created at** - Time at which the item was first created
--   **Created by** - Name of the person or guest (if created via public form) who created the item
+1. Navigate to the process.
+2. Click the **More options** button ( ![More options icon](/migration-assets/admin-actions-in-a-process/2.svg) ) at the top right.
+3. Select **Administration**.
 
-You can also apply filters or view additional fields by clicking the **Show/hide fields** button (![](/migration-assets/admin-actions-in-a-process/4.png)).
+This opens a list of every item in the process, showing:
 
-### Searching items
+- **Title** — the [item's name](/docs/admin/processes/process-settings#configure-the-form-title), as configured in the process settings.
+- **Created at** — when the item was first created.
+- **Created by** — the person, or guest (if submitted via a public form), who created the item.
 
-![](/migration-assets/admin-actions-in-a-process/1.png)You can use the search bar to find items quickly. The drop-down beside the search bar will list all the fields in the process from which you can select one. After you input a value in the search bar, all the items whose selected fields match with that value will be listed.
+Click the **Show/hide fields** button ( ![Show/hide fields icon](/migration-assets/admin-actions-in-a-process/4.png) ) to add other fields to the list or apply filters.
 
-### Viewing and editing data in items
+## Search for items
 
-You can view and edit any item field, or reassign the item to someone else. All of your actions will be recorded in the [process audit log](/t/g9h9qtg/process-audit-log).To edit an item, open it > click **Update field values** at the top of the item form > make edits > click **Save changes.**![](/migration-assets/admin-actions-in-a-process/8.gif)
+Use the search bar to find items quickly. Its dropdown lists every field in the process — select one, then enter a value to list only the items whose selected field matches it.
 
-## Performing bulk actions
+![Search bar with a field dropdown for filtering items](/migration-assets/admin-actions-in-a-process/1.png)
 
-You can reassign items, mark them complete, or delete them as necessary. To perform these actions, navigate to your process and click the **More options** button (![](/migration-assets/admin-actions-in-a-process/2.svg)) > **Administration**. You will see a list of all the items in your process.![](/migration-assets/admin-actions-in-a-process/3.png)
+## Edit an item's fields
 
-> **Note:**
-> 
-> You can perform these actions in bulk for a maximum of 100 items at a time.
+You can view and edit any field on an item, or reassign it to someone else.
 
-### Reassigning items
+1. Open the item.
+2. Click **Update field values** at the top of the item form.
+3. Make your edits.
+4. Click **Save changes**.
 
-If an item remains at a step for too long, it may be due to the assigned person being unavailable or unable to take action. In such cases, you can reassign the item to yourself or another user who has the right permissions to move it forward. The item can also be reassigned by its initiator, depending on the [permissions granted to them](/t/g9h9qt6/configuring-actions-for-process-steps#initiator-actions-for-items-in-progress).Select an item or a set of items you would like to reassign and click **Reassign.**![](/migration-assets/admin-actions-in-a-process/5.png)When you reassign an item that has more than one assignee, the previous assignment will be invalidated and the new assignment will take precedence. For example, let us assume you, John, and Linda are assigned to an item, and you choose to reassign it to Abraham.After the reassignment, Abraham will be the only assignee of the item, and the other assignees will be removed automatically, i.e., you, John, and Linda will no longer be assigned to the item. [Learn how reassigning works for a process member.](/t/x2h9qtz/using-a-process#reassigning-items)Also, the items that have already been completed, rejected, or withdrawn will be skipped or not considered for reassignment. i.e., only items in **In progress** status will be reassigned, and the items skipped will be prefixed by a yellow exclamation mark for your understanding.
+![Editing field values on an item and saving the changes](/migration-assets/admin-actions-in-a-process/8.gif)
 
-> **Note:**
-> 
-> Items inside parallel branches cannot be reassigned.
+<Callout type="info">
+  All of these actions are recorded in the [process audit log](/docs/admin/processes/process-audit-log).
+</Callout>
 
-### Marking items as completed
+## Perform bulk actions
 
-Select an item or a set of items and click **Mark as completed**. When a task is marked complete, it will advance to the end of the workflow, skipping all the future steps. This is especially useful in case an item's assignee is unavailable and you want the item to be completed immediately.![](/migration-assets/admin-actions-in-a-process/6.png)
+From the Administration section, you can reassign, mark complete, or delete several items at once — up to 100 items in a single batch.
 
-### Deleting and restoring items 
+1. Navigate to the process and click the **More options** button ( ![More options icon](/migration-assets/admin-actions-in-a-process/2.svg) ) > **Administration**.
+2. Select the items you want to act on.
 
-You can delete one or more items in bulk by selecting them and clicking **Delete**. Deleted items can be restored within 30 days of deletion. After that, they'll be permanently deleted. 
+![List of process items with checkboxes for bulk selection](/migration-assets/admin-actions-in-a-process/3.png)
 
-To restore deleted items, click the **Deleted items** tab at the top. Select the items you want to restore and click **Restore**.
+### Reassign items
 
-![](/migration-assets/admin-actions-in-a-process/7.png)
+If an item sits at a step too long — because the assigned person is unavailable or unable to act — you can reassign it to yourself or another user with the right permissions to move it forward.
+
+<Callout type="info">
+  An item's initiator can also reassign it, depending on the [permissions granted to them](/docs/build/processes/step-configuration/configuring-actions-for-process-steps#initiator-actions-for-items-in-progress).
+</Callout>
+
+1. Select one or more items.
+2. Click **Reassign**.
+
+![Reassign action selected for one or more items](/migration-assets/admin-actions-in-a-process/5.png)
+
+<Callout type="warn">
+  Reassigning an item with more than one assignee invalidates the previous assignment entirely — it doesn't just add the new assignee alongside the others. For example, if you, John, and Linda are all assigned to an item and you reassign it to Abraham, Abraham becomes the sole assignee. You, John, and Linda are all removed automatically. This is different from how [reassignment works for a process member](/docs/use/tasks/member-actions-in-a-process#reassign-items-in-bulk), where the reassigning member is simply replaced by the new assignee and the rest stay on the item.
+</Callout>
+
+Items that are already completed, rejected, or withdrawn are skipped during reassignment — only items in **In progress** status are reassigned. Skipped items are prefixed with a yellow exclamation mark so you can identify them.
+
+<Callout type="info">
+  Items inside parallel branches cannot be reassigned.
+</Callout>
+
+### Mark items as completed
+
+Select one or more items and click **Mark as completed**.
+
+![Mark as completed action for selected items](/migration-assets/admin-actions-in-a-process/6.png)
+
+Marking an item complete advances it straight to the end of the workflow, skipping every remaining step. This is useful when an item's assignee is unavailable and you need the item closed out immediately.
+
+### Delete and restore items
+
+Select one or more items and click **Delete**.
+
+<Callout type="info">
+  Deleted items can be restored within 30 days of deletion. After that, they're permanently deleted.
+</Callout>
+
+To restore a deleted item:
+
+1. Click the **Deleted items** tab at the top of the process.
+2. Select the items you want to restore.
+3. Click **Restore**.
+
+![Deleted items tab with items selected and the Restore action available](/migration-assets/admin-actions-in-a-process/7.png)
+
+## What's next
+
+- [Process audit log](/docs/admin/processes/process-audit-log)
+- [Member actions in a process](/docs/use/tasks/member-actions-in-a-process)
+- [Configuring actions for process steps](/docs/build/processes/step-configuration/configuring-actions-for-process-steps)
+- [Process settings](/docs/admin/processes/process-settings)

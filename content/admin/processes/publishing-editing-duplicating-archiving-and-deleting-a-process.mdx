@@ -1,90 +1,118 @@
 ---
 title: "Publishing, editing, duplicating, archiving, and deleting a process"
-description: "DRAFT (unverified) — migrated from /t/y4h9qtb/publishing-editing-duplicating-archiving-and-deleting-a-process"
+description: "Publish a process live, resolve editing conflicts with other admins, duplicate an existing process, and archive or delete a process you no longer need."
 contentType: guide
 persona: admin
 section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: "kf-xg-frontend@92fd3889d43"
+tags:
+  - processes
+  - publishing
+  - archiving
+  - duplicating
 ---
 
-Kissflow plans:
+# Publishing, editing, duplicating, archiving, and deleting a process
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
 
-## Publishing a process
+Process Admins and Developers manage a process through its full lifecycle — from publishing it live, to editing it later, to duplicating, archiving, or deleting it when it's no longer needed.
 
-As a **Process Admin** or **Developer,** you can publish a process live. Once you've finished designing your process [form](/t/h7h4azm/creating-a-form) and [workflow](/t/m1h9qmv/making-a-process-workflow), you can use the **[AI Solution analyzer](/t/q6y1jx0/ai-solution-analyzer)** as the final step in the process/solution development process to inspect for any potential errors in the process development.  
-  
-After completing this recommended supplementary step, you can click the **Go live** button at the bottom right corner of the process editor as shown in the image below. This will publish your process, including all the latest changes you’ve made to the form, workflow, and permissions.
+## Publish a process
 
-![](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/1.png)
+1. Finish designing the process [form](/docs/build/forms/creating-a-form) and [workflow](/docs/build/processes/workflow-design/making-a-process-workflow).
+2. Run the [AI Solution analyzer](/docs/admin/processes/ai-solution-analyzer) to check for potential errors in your design. This step is optional but recommended.
+3. Click **Go live** at the bottom right of the process editor.
 
-If you need to make further updates later, you can always return to the process editor and make changes. Any new changes will also need to be published before they take effect. The previous version of the process cannot be restored, so make sure to review everything before publishing.
+   ![Go live button at the bottom right of the process editor](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/1.png)
 
-Changes that you make in the process editor are automatically saved. In case you've made some unwanted changes before going live and want to revert them, you can ask another Process Admin to edit the process simultaneously and [discard you're changes while they take over](/t/y4h9qtb#editing-a-process).
+<Callout type="info">
+  Going live publishes the process in one step — all of your latest changes to the form, workflow, and permissions go live together.
+</Callout>
 
-> **Note:**
-> 
-> Changing a field type is not recommended if existing items already contain data. Doing so can cause data field version conflicts once the process is published.
-> 
-> For processes with over 5,000 item submissions, modifying field data types is restricted to preserve data integrity.
+<Callout type="warn">
+  The previous version of a process can't be restored once you publish. Review your changes carefully before clicking **Go live**.
+</Callout>
 
-## Editing a process
+Changes you make in the process editor are saved automatically as you work. If you've made unwanted changes before publishing, you can ask another Process Admin to open the process and [discard your changes while they take over editing](#edit-a-process).
 
-Process admins, and developers can customize or simulate the form, workflow, and field permissions of their processes. 
+<Callout type="warn">
+  Changing a field's type isn't recommended once the field already has data in it. If the field existed before the process's last publish, Kissflow restricts which type changes are allowed to avoid data conflicts when you publish again.
+</Callout>
 
-To edit a process, click the **Manage** button at the top right and click **Edit process**.
+## Edit a process
 
-![](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/7.gif)
+1. Click **Manage** at the top right of the process.
+2. Click **Edit process**.
 
-If another **Process Admin**, or a **Developer** is currently editing a process, you'll see a message saying that they're currently editing the process.
+   ![Manage menu open with the Edit process option](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/7.gif)
 
-![](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/2.png)
+If another Process Admin or Developer is currently editing the process, you'll see a message letting you know.
 
-You can [review their changes](/t/83yp8v4/reviewing-publish-changes), and choose to:
+![Message showing that another user is currently editing the process](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/2.png)
 
-1. **Discard their changes and take over editing -** This will remove any unpublished changes made by the other user and allow you to start fresh. Use this option if you’re sure you don’t need their updates.
-2. **Save their changes and take over editing** - This will save the other user’s changes before you take over the editing. Choose this if you want to keep their progress and continue working from there.
+You can [review their changes](/docs/admin/processes/reviewing-publish-changes) and choose one of the following:
 
-Alternatively, you can ask the other user to publish their changes live if you'd prefer not to interrupt their work.  
- 
+1. **Discard their changes and take over editing** — removes any unpublished changes made by the other user, so you start fresh.
+2. **Save their changes and take over editing** — saves the other user's changes first, then hands editing over to you.
 
-## Duplicating a process
+<Callout type="info">
+  If you'd rather not interrupt their work, ask the other user to publish their changes instead.
+</Callout>
 
-Process admins can create another process very similar to one by duplicating it. The duplicated process will have the same configured fields, sections, tables, workflow, and permissions. There will not be any data and items for the duplicated process. 
+## Duplicate a process
 
-To duplicate a process,
+Duplicating a process creates a copy with the same fields, sections, tables, workflow, and permissions as the original. Items and data are not carried over.
 
-1.  Click the **More options** button (![](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/6.png)) and then click **Duplicate**. 
-2.  The default name of the new process will be **Copy of &lt;original process name>** which you can change later.
-3.  Select if you want to duplicate with all the same reports as the original process.
-4.  Click **Duplicate**
+1. Click the **More options** button (![More options icon](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/6.png)) and select **Duplicate**.
+2. The new process is named **Copy of &lt;original process name&gt;** by default — you can rename it later.
+3. Choose whether to duplicate the original process's reports.
+4. Click **Duplicate**.
 
-![](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/3.png)
+   ![Duplicate process dialog with a name field and a checkbox to duplicate reports](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/3.png)
 
-After a process is duplicated, it will be locked for submission, i.e., users will not be able to initiate items. This happens so that you can check your reports manually before anyone uses the process. To enable users to submit items, you have to be a Process Admin. If you're not, you can contact a Process Admin to unlock the process for item submissions.
+<Callout type="info">
+  A newly duplicated process is typically locked for submissions, so no one can initiate items until you've had a chance to check its reports and settings. A Process Admin can unlock it for submissions when it's ready.
+</Callout>
 
-> **Note:**
-> 
-> While duplicating a process, its associated integrations will not be duplicated. You'll have to [duplicate those integrations](/t/35h4akt/duplicating-archiving-and-deleting-an-integration) manually.
+<Callout type="warn">
+  Integrations associated with the original process aren't duplicated. [Duplicate those integrations](/docs/build/integrations/duplicating-archiving-and-deleting-an-integration) separately.
+</Callout>
 
-## Archiving and deleting a process
+## Archive a process
 
-You can archive a process when you don’t need it anymore. When you archive a process, no one can view or take action on any item. However, all of the data is retained.
+Archive a process you don't need active anymore. Its data is retained, but no one can view or act on its items while it's archived.
 
-However, if you are an admin of the process, you can access the audit log for process as well as unarchive or delete them.
+1. Click the **More options** button (![More options icon](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/6.png)) at the top right of the process.
+2. Click **Archive**.
 
-To archive a process, click the **More options** button (![](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/6.png))  at the top right and then click **Archive**.
+Process Admins can access the audit log for an archived process and unarchive or delete it.
 
-To find the archived processes you once managed, click **Explore** from the left panel and select the **Managed by me** tab at the top. To view the archived processes managed by others, select the **Others** tab. Select the **Processes** tab in the left navigation panel and select the status as **Archived**.
+To find an archived process you manage, go to **Explore** > **Managed by me** > **Processes**, then filter the status to **Archived**. To find archived processes managed by others, use the **Others** tab instead.
 
-![](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/4.png)
+![Explore panel filtered to archived processes](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/4.png)
 
-Once the process is archived, click the more options icon again and click **Delete** to delete the process. Note that a process needs to be archived first and only then it can be deleted. Since deleting a process is irreversible, we recommend reviewing the impacts on team members with whom this process is shared and the other workflows connected to the process.
+### Unarchive a process
 
-> **Note:** Archived process can be unarchived and made available again. However, deleting a process will remove the process and all of its data permanently.
+1. Go to **Explore** > **Managed by me** (or **Others**) > **Processes**, and filter the status to **Archived**.
+2. Select the process and click **Unarchive**.
 
-### Unarchiving a process
+   ![Archived process list with the Unarchive action](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/5.png)
 
-To unarchive a process you managed, click **Explore** > **Managed by me** > **Process** > **Status - Archived**. To unarchive other processes, click **Explore** > **Others** > **Process** > **Status - Archived**. Select a process and click **Unarchive** to make the process available again.
+## Delete a process
 
-![](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/5.png)
+A process must be archived before it can be deleted. From the archived process, click the **More options** button and select **Delete**.
+
+<Callout type="warn">
+  Deleting a process removes it and all of its data permanently — this can't be undone. Before you delete, review who the process is shared with and check for any other processes connected to it.
+</Callout>
+
+## What's next
+
+- [Reviewing publish changes](/docs/admin/processes/reviewing-publish-changes)
+- [Running the AI Solution analyzer](/docs/admin/processes/ai-solution-analyzer)
+- [Managing process members and permissions](/docs/admin/processes/managing-process-members-and-permissions)
+- [Process settings](/docs/admin/processes/process-settings)

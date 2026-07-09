@@ -1,43 +1,96 @@
 ---
-title: "Setting up SAML-based Single Sign-on for Microsoft Entra ID"
-description: "DRAFT (unverified) — migrated from /t/x2h4a1h/setting-up-saml-based-single-sign-on-for-microsoft-azure-id"
+title: "Setting up SAML-based single sign-on for Microsoft Entra ID"
+description: "Configure SAML-based single sign-on between Kissflow and Microsoft Entra ID by exchanging metadata files and mapping the identity provider settings."
 contentType: guide
 persona: admin
 section: admin
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - security
+  - saml
+  - single-sign-on
+  - authentication
 ---
 
-Kissflow plans:
+# Setting up SAML-based single sign-on for Microsoft Entra ID
 
-✕ Basic ✓ EnterpriseSAML is an acronym for Security Assertion Markup Language (SAML). Its primary function in online security is to allow you to access multiple web applications with a single set of sign in credentials. Setting up SAML-based SSO requires uploading files in Entra ID and Kissflow.
+<PlanBadge plans={["enterprise"]} />
 
-You must be a [Super Admin or an IAM Admin](/t/35h4ak0/user-roles-permissions) to access Account security and set up SAML-based SSO in Kissflow.
+SAML (Security Assertion Markup Language) lets your users sign in to Kissflow with the same credentials they already use for Microsoft Entra ID, instead of managing a separate Kissflow password. Setting it up is a back-and-forth exchange of metadata files between Kissflow and Entra ID.
 
-To set up SAML-based SSO,
+<Callout type="info">
+  You need to be a [Super Admin or an IAM Admin](/docs/admin/users/user-roles-and-permissions) to access **Account security** and set up SAML-based SSO.
+</Callout>
 
-1.  Navigate to **Account Administration** \> **Account settings**. Under **Account security**, click the **Configure SAML** button beside **Sign in with SAML**.![](/migration-assets/setting-up-saml-based-single-sign-on-for-microsoft-azure-id/2.png)
-2.  The first step is to download the metadata file from Kissflow and upload it to your Entra ID account. Under **Service Provider URLs**, click **Download metadata** to download the metadata from your Kissflow account.![](/migration-assets/setting-up-saml-based-single-sign-on-for-microsoft-azure-id/1.png)
-3.  Sign in to your  Entra ID account. Then, navigate to your homepage to **create your application**. Provide a name for your application and select **Integrate any other application you don't find in the gallery (Non-gallery)**.
-    
-    ![](/migration-assets/setting-up-saml-based-single-sign-on-for-microsoft-azure-id/8.png)
-    
-4.  Now, you can create a Single Sign-on method using SAML. Click **Upload metadata file** to upload the metadata file downloaded from Kissflow. Click **Save** once the file has been uploaded.
-    
-    ![](/migration-assets/setting-up-saml-based-single-sign-on-for-microsoft-azure-id/6.png)
-    
-5.  Scroll down to Federation Metadata XML and click **Download**. The downloaded file should be uploaded inside Kissflow.
-    
-    ![](/migration-assets/setting-up-saml-based-single-sign-on-for-microsoft-azure-id/5.png)
-    
-6.  Inside Kissflow, click the **Upload XML file** to upload the Federation Metadata XML file downloaded from Entra ID. All the fields under the **IdP configuration** will be populated automatically after the XML file has been uploaded successfully. 
-    
-    ![](/migration-assets/setting-up-saml-based-single-sign-on-for-microsoft-azure-id/3.png)
-    
-7.  You can make changes under **Advanced settings** to determine the unique identifier for users. **Email address** is the default unique identifier.
-    
-    > **Note:**  
-    > Check the box if you want Kissflow to automatically create new accounts when a new user signs in via SAML-SSO. 
-    
-8.  Click **Save** to save your SAML configuration in Kissflow. 
-9.  Go back to Entra ID to test if your configuration works by clicking **Test this application** on the top navigation bar. If the configuration is successful, Entra ID will lead you to the homepage of your Kissflow account.![](/migration-assets/setting-up-saml-based-single-sign-on-for-microsoft-azure-id/7.png)
+## Download the metadata file from Kissflow
 
-Once the configuration is completed, toggle the button inside Account Security to enable SAML. You can now add **users and groups** in Entra ID to be authenticated in Kissflow via SAML.![](/migration-assets/setting-up-saml-based-single-sign-on-for-microsoft-azure-id/4.png)
+1. Go to **Account Administration** > **Account settings** > **Account security**.
+2. Beside **Sign in with SAML**, click **Configure SAML**.
+
+   ![Account security page with the Configure SAML button beside Sign in with SAML](/migration-assets/setting-up-saml-based-single-sign-on-for-microsoft-azure-id/2.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+3. Under **Service Provider URLs**, click **Download metadata**.
+
+   ![Service Provider URLs panel with the Download metadata button](/migration-assets/setting-up-saml-based-single-sign-on-for-microsoft-azure-id/1.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+This downloads a metadata file that identifies Kissflow as the service provider. You'll upload it to Entra ID in the next step.
+
+## Create the application in Entra ID
+
+1. Sign in to your Microsoft Entra ID account and go to your homepage to create a new application.
+2. Name the application, then select **Integrate any other application you don't find in the gallery (Non-gallery)**.
+
+   ![Entra ID dialog for creating a non-gallery application](/migration-assets/setting-up-saml-based-single-sign-on-for-microsoft-azure-id/8.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+3. Set up single sign-on using SAML, then click **Upload metadata file** and select the metadata file you downloaded from Kissflow.
+4. Click **Save**.
+
+   ![Entra ID SAML setup with the Upload metadata file option](/migration-assets/setting-up-saml-based-single-sign-on-for-microsoft-azure-id/6.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+5. Scroll to **Federation Metadata XML** and click **Download**.
+
+   ![Entra ID Federation Metadata XML section with the Download link](/migration-assets/setting-up-saml-based-single-sign-on-for-microsoft-azure-id/5.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+You'll upload this file back in Kissflow to complete the exchange.
+
+## Configure the IdP details in Kissflow
+
+1. Back in Kissflow's SAML configuration screen, click **Upload XML file** and select the Federation Metadata XML file you downloaded from Entra ID.
+
+   ![IdP configuration panel with the Upload XML file option](/migration-assets/setting-up-saml-based-single-sign-on-for-microsoft-azure-id/3.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+   <Callout type="info">
+     Once the upload succeeds, the **IdP configuration** fields — Security key, Sign-out URL, and IdP URL — populate automatically from the XML file.
+   </Callout>
+
+2. Under **Advanced settings**, review the **Unique identifier** for users. **Email address** is the default.
+3. Check the box to have Kissflow automatically create new accounts when a user who doesn't already exist in Kissflow signs in via SAML-SSO.
+4. Click **Save** to save the SAML configuration.
+
+## Test and enable SSO
+
+1. Go back to Entra ID and click **Test this application** on the top navigation bar. If the configuration is correct, Entra ID takes you to your Kissflow account's homepage.
+
+   ![Entra ID application page with the Test this application option](/migration-assets/setting-up-saml-based-single-sign-on-for-microsoft-azure-id/7.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+2. Once the test succeeds, go to **Account security** in Kissflow and toggle SAML on.
+
+   ![Account security page with the SAML sign-in toggle enabled](/migration-assets/setting-up-saml-based-single-sign-on-for-microsoft-azure-id/4.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+With SSO enabled, you can add the users and groups in Entra ID that should be authenticated in Kissflow via SAML.
+
+## What's next
+
+- [Account security](/docs/admin/security/account-security)
+- [User roles and permissions](/docs/admin/users/user-roles-and-permissions)

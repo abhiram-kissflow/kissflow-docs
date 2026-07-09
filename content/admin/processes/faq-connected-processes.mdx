@@ -1,46 +1,54 @@
 ---
 title: "FAQ - Connected processes"
-description: "DRAFT (unverified) — migrated from /t/x2yz355/faq-connected-processes"
+description: "Answers to common questions about connecting processes, initiating dependent items, and troubleshooting connected process errors."
 contentType: guide
 persona: admin
 section: admin
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: "kf-xg-frontend@92fd3889d43"
+tags:
+  - processes
+  - connected-processes
+  - dependent-items
+  - faq
 ---
 
-Kissflow plans:
+<PlanBadge plans={["enterprise"]} />
 
-✕ Basic ✓ Enterprise
+### Why can't I see the process I want to connect to?
 
-### 1\. Why am I not able to see the process I want to connect to?
+You can only pick from processes where you have admin access — processes you don't administer won't appear in the list.
 
 ![](/migration-assets/faq-connected-processes/1.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-You can see only the processes where you have admin access.  
- 
+### Why can't I initiate dependent items for all the table rows in my source item at once?
 
-### 2\. Why can't I initiate dependent items for all the table entries in my source item at once?
+Kissflow initiates up to 100 dependent items per source item, based on the number of matching table rows. If your source item's table has more than 100 rows, only 100 dependent items are created — the rest are not initiated.
 
-Based on the number of table entries/rows in the source item, you can initiate up to 100 dependent items in the connected process. 
+### I'm getting an error while creating dependent items in the connected process. What could cause this?
 
-If the number of table entries in the source table is more than 100, you can still initiate only 100 dependent items.  
- 
+A couple of things to check:
 
-### 3\. I am getting an error while creating dependent items in the connected process. What could cause this?
+- **Unmet conditions** — the source item, or the specific table rows you expected to trigger dependent items, may not satisfy the conditions configured for creating them.
+- **Assignee on the connected process' first step** — if that step's assignee is set to **Created by**, **Modified by**, or **Initiator** rather than an actual user, it can prevent items from being created correctly. Assign a real user (for example, Stephen Strange) instead.
 
-It could be due to one of the below reasons:
+<Callout type="info">
+  If neither of these explains the error you're seeing, contact Kissflow support with the item ID and a screenshot of the error.
+</Callout>
 
-1.  The source item did not meet the conditions that were set for creating dependent items.
-    
-2.  The first step of the connected process has **Created by**, **Modified by**, or Initiator as an assignee. It should have an actual user as an assignee (For example, Stephen Strange). 
-    
+### Can I initiate dependent items from the same source item more than once?
 
-### 4\. Can I initiate dependent items from the same source item for more than one time?
-
-When the item moves back to the flow-connected step, you can initiate dependent item(s) again. 
+Not while the earlier set of dependent items is still in progress or already completed. Moving the source item back to the flow-connected step doesn't automatically clear the existing connection — Kissflow blocks a second round of dependent items until the prior ones are resolved, to avoid creating duplicates.
 
 ![](/migration-assets/faq-connected-processes/2.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-### 5\. My source item has been in the flow-connected step for a long time. How do I advance the source item?
+### My source item has been stuck in the flow-connected step for a long time. How do I move it along?
 
--   **Complete the dependent items** - By moving all of the dependent items to the **Completed** step, the source item can be automatically advanced to the next step.
-    
--   **Contact the connected process’ admin** - Sometimes, you may not have access to the connected process. In that case, you can ask the admin of the connected process to complete the dependent items of the source item.
+You have two options:
+
+- **Complete the dependent items** — once all dependent items reach the connected process' **Completed** step, the source item automatically advances to its next step.
+- **Contact the connected process' admin** — if you don't have access to the connected process yourself, ask its admin to complete the dependent items on your behalf.

@@ -1,64 +1,71 @@
 ---
 title: "File upload settings"
-description: "DRAFT (unverified) — migrated from /t/60h4akw/file-upload-settings"
+description: "Choose which file attachment services your account users can upload from, and see how Kissflow keeps uploaded attachments secure."
 contentType: guide
 persona: admin
 section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - account-settings
+  - attachments
+  - file-upload
+  - security
 ---
 
-Kissflow plans:
+# File upload settings
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
 
-As a [Super Admin, or an IAM Admin](/t/35h4ak036h4gg/user-roles-permissions) of your Kissflow account, you can choose which file attachment services all account users can use to upload files to Kissflow. You must turn on at least one service to upload files or attachments to Kissflow. You cannot turn off all. 
+As a [Super Admin, or an IAM Admin](/docs/admin/users/user-roles-and-permissions), you control which file attachment services account users can upload files from in Kissflow.
 
-![](/migration-assets/file-upload-settings/1.png)You can decide to use the following services by turning on or off the respective toggle button,
+## Choose your attachment services
 
--   Google Drive
--   Dropbox
--   Box
--   OneDrive
--   Local files
+1. Click your profile picture in the upper-right corner of the Home screen.
+2. Click **Account administration** > **Account settings** > **File upload settings**.
+3. Turn the toggle on or off for each service you want to allow:
+   - Google Drive
+   - Dropbox
+   - Box
+   - OneDrive
+   - Local files
 
-## File attachment security
+![File upload settings page with toggles for Google Drive, Dropbox, Box, OneDrive, and Local files](/migration-assets/file-upload-settings/1.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-Kissflow allows [Super Admins](/t/35h4ak0/user-roles-permissions#super-admins) and [Account Admins](/t/35h4ak0/user-roles-permissions) to easily manage and customize how users handle attachments, ensuring data integrity in their workflows.
+<Callout type="info">
+  At least one service must stay enabled. Kissflow won't let you turn off the last remaining toggle, since users need at least one way to upload attachments.
+</Callout>
 
-## Google Cloud Storage
+## How Kissflow secures your attachments
 
-All Kissflow attachments are securely hosted in Google Cloud Storage (GCS). [GCS's encryption policies](https://cloud.google.com/storage/docs/introduction#securing_your_data) guarantee data privacy and protection, warding off potential threats and misuse of sensitive data.
+All Kissflow attachments are hosted in Google Cloud Storage (GCS). Data is [encrypted in transit and at rest](https://cloud.google.com/storage/docs/introduction#securing_your_data) using GCS's standard security policies, with Kissflow's application and GCS mutually authenticating each other.
 
-GCS uses Transport Layer Security (TLS) to encrypt data during transmission between your application and GCS servers, preventing eavesdropping and tampering. 
+To upload or download an attachment, Kissflow generates a secure link so the file transfer happens directly between the client and GCS instead of routing through additional hops.
 
-GCS also employs strong encryption standards and enables it by default to safeguard your data. Kissflow enhances the security further by mutually authenticating between your application and GCS. 
+Kissflow also blocks manipulated or disguised files from being uploaded. For example, if only JPGs are allowed for a field and someone tries to upload a `.exe` file renamed with a `.jpg` extension, Kissflow detects the mismatch and blocks it. This check is based on the file's metadata — its name, extension, and declared type — rather than inspecting the file's contents, for privacy.
 
-Kissflow also lets the clients directly use the Google-provided data transfer links to read and write the attachments.
+<Callout type="idea">
+  If you can't preview an uploaded file, it's likely disguised or invalid. Treat this as a safety flag worth double-checking.
+</Callout>
 
-## Adding validation rules to attachment fields in forms
+## Validation rules for attachment fields
 
-As an admin of a flow, you’ll be able to oversee various file attachments, including [Smart attachments](https://helpdocs.kissflow.com/field-types/image-attachment-and-signature#smart_attachment_field) and attachments in [Multilingual](https://helpdocs.kissflow.com/forms/multilingual-settings) and [public forms.](https://helpdocs.kissflow.com/processes/public-forms)
+Beyond account-wide upload settings, admins building a flow's form can add validation rules to individual attachment fields — including [Smart attachment](/docs/build/forms/field-types/image-attachment-smart-attachment-and-signature-fields) fields and attachments on multilingual and public forms. These rules are set on the **Validations** tab of the field:
 
-In the form’s validations tab, flow admins can tailor the attachment field's properties to meet specific needs and avoid errors.
+- **Minimum number of attachments** — the least number of files required for the field.
+- **Maximum number of attachments** — the most files a user can add to the field.
+- **File type restrictions** — limit uploads to specific formats, including images (JPG, JPEG, PNG, BMP, GIF, TIF), documents (DOC, DOCX, PDF), presentations (PPT, PPTX), spreadsheets (XLS, XLSX), and others (CSV, TXT, EML).
+- **Attachment size limit** — cap file size, up to 100 MB.
 
-### Validations
+<Callout type="info">
+  For more on configuring these fields, see [Image, Attachment, Smart attachment, and Signature fields](/docs/build/forms/field-types/image-attachment-smart-attachment-and-signature-fields).
+</Callout>
 
-These are the various validation rules that a flow admin can apply to an attachment field of a form:
+## What's next
 
-1. **Minimum number of attachments**: Set the least number of attachments needed for a field.
-    
-2. **Maximum number of attachments**: Determine the most attachments users can add to a single field.
-    
-3. **File type restrictions**: Choose from a variety of file formats, from images (JPG, JPEG, PNG, BMP, GIF, TIF) to documents (DOC, DOCX, PDF), presentations (PPT, PPTX), spreadsheets (XLS, XLSX), and others (CSV, TXT, EML).
-    
-4. **Attachment size limit**: Set an upper limit for file sizes, typically up to 100 MB.
-    
-
-## Ensuring file format security
-
-Kissflow does not allow manipulated/disguised or invalid files to be uploaded. For instance, if only JPGs are allowed, and someone tries uploading a disguised .exe file, Kissflow will prevent the upload.
-
-This is checked by reading the files’ metadata and not any other data for privacy considerations. 
-
-> **Tip**:
-> 
-> If you cannot preview an uploaded file, then it’s most likely a disguised or an invalid one. Always double check such instances as an added safety measure.
+- [User roles and permissions](/docs/admin/users/user-roles-and-permissions)
+- [Image, Attachment, Smart attachment, and Signature fields](/docs/build/forms/field-types/image-attachment-smart-attachment-and-signature-fields)
+- [Format settings](/docs/admin/account-settings/format-settings)

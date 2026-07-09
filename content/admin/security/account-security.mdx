@@ -1,102 +1,131 @@
 ---
 title: "Account security"
-description: "DRAFT (unverified) — migrated from /t/83h4akg/account-security"
+description: "Configure sign-in options, password policy, SAML-based SSO, session timeout, sign-up preferences, and access key expiry for your Kissflow account."
 contentType: guide
 persona: admin
 section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - security
+  - authentication
+  - sso
+  - account-settings
 ---
 
-Kissflow plans:
+# Account security
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
 
-[Super Admins and IAM Admins](/t/35h4ak036h4gg/user-roles-permissions) have complete control over the sign in page customization and custom sign-up URL associated with your organization’s domain.
+[Super Admins and IAM Admins](/docs/admin/users/user-roles-and-permissions) manage sign-in, sign-up, password, and session security for your account from **Account Administration** > **Account security**.
 
-## Manage sign in preferences
+## Manage sign-in preferences
 
-Your account is assigned a unique URL that can be used for signing in. Kissflow supports the following sign in options that can be controlled from **Account security** > **Sign in** **preferences**, you can also restrict the options for signing in:  
- 
+Your account has a unique URL that users sign in from. Go to **Account security** > **Sign in preferences** to see the sign-in options available to your users and to restrict which ones are allowed.
 
-![](/migration-assets/account-security/1.png)
+![Sign in preferences page listing the available sign-in options](/migration-assets/account-security/1.png)
+{/* TODO: verify screenshot matches current product UI */}
 
 ### Sign in with Kissflow
 
-**Email and Password** is the conventional method where users can enter the email address and password they set up on the sign in page during the initial sign up or after a [password reset](/t/y4h4aks/add-manage-users).
+**Email and password** is the conventional method — users enter the email address and password they set during sign-up or after a [password reset](/docs/admin/users/adding-and-managing-users).
 
-#### Password policy
+#### Configure a password policy
 
-You can enforce a password policy for all users in your account to strengthen security and reduce risks caused by weak passwords. To configure the password policy, go to **Account security > Sign in preferences > Password policy > Configure**.
+You can enforce a password policy for every user in your account to reduce the risk of weak passwords.
 
-![](/migration-assets/account-security/6.gif)
+1. Go to **Account security** > **Sign in preferences** > **Password policy** > **Configure**.
+2. Set your requirements:
+   - **Minimum number of characters** — the shortest password Kissflow will accept.
+   - **Password complexity** — require a mix of uppercase and lowercase letters, numbers, and special characters.
+   - **Password history to remember** — stop users from reusing their recent passwords.
+   - **Password expiry** — how often users must update their password.
+3. Click **Update** to save your requirements.
 
-Password policy options:
+<Callout type="info">
+  Click **Reset to default** at any time to revert to Kissflow's default password requirements.
+</Callout>
 
--   **Minimum number** **of characters** – Set the minimum number of characters required in a password.
--   **Password complexity** – Require users to include a mix of uppercase and lowercase letters, numbers, and special characters.
--   **Password history to remember** – Restrict users from reusing their recent passwords.
--   **Password expiry** – Define how often users must update their password.  
-      
-    Click **Update** to save your password requirements. You could always get back to the default settings provided by Kissflow by using the **Reset to default** button.
-
-> **Note:**  
-> When you update the password policy, password expiry date is recalculated as per new settings. Users will be enforced to reset their passwords according to the new policy, when the current password expires. 
+![Password policy configuration panel with complexity, history, and expiry options](/migration-assets/account-security/6.gif)
+{/* TODO: verify screenshot matches current product UI */}
 
 ### Sign in with Google and Microsoft
 
-Kissflow supports OAuth based sign in using **Google** and **Microsoft** accounts by default. You can also configure other providers for OAuth authentication, such as GitHub, Slack, LinkedIn, or Azure by contacting our support team.  
- 
+Kissflow supports OAuth-based sign-in with **Google** and **Microsoft** accounts.
+
+<Callout type="info">
+  Contact Kissflow support if you want to configure another OAuth provider for your account.
+</Callout>
 
 ### Sign in with SAML
 
-**Custom SSO (Single Sign On)**, organizations using a SAML-based SSO (e.g., Okta, OneLogin, etc.) can configure it for their Kissflow account. 
+Organizations using a SAML-based SSO provider (for example, Okta or OneLogin) can configure it for their Kissflow account.
 
-To enable a SAML-based SSO sign-in for your customers, enter the following details after clicking the **[Configure SAML](/t/x2h4a1h/setting-up-saml-based-single-sign-on-for-microsoft-azure-ad)** button:
+Click **Configure SAML** next to **Sign in with SAML** and enter the following details:
 
--   **_Identity provider (IdP) URL_** - This URL comes from the SAML provider you've chosen. Once a user clicks on the SSO button from the sign-in page, they will be directed to this remote sign-in URL of your SAML server. 
--   **_Sign out URL_** - This is an optional field. You can provide the sign-out URL to direct your users to a particular URL after signing out of the SAML provider and Kissflow platform. 
--   **_Security key_** - Kissflow uses the SHA2 fingerprint of the SAML signed token certificate from your SAML server to decrypt the data from your SAML provider. 
--   **_Consumer assertion URL to Kissflow_** - This is the URL you must provide to the SAML provider. This URL is unique to your account.
--   **_User field where SAML identifier is stored_** - Specify the column name in the user management table where you want the unique SAML identifier stored.
--   **_Create users when they exist in the IdP_** - Enable to automatically add your company's users after they verify their user identity.
+- **Identity provider (IdP) URL** — the sign-in URL from your SAML provider. Users are redirected here when they click the SSO button on the sign-in page.
+- **Sign-out URL** (optional) — where to send users after they sign out of the SAML provider and Kissflow.
+- **Security key** — the SHA2 fingerprint of the SAML signed token certificate from your SAML server, used to decrypt data from your SAML provider.
+- **Consumer assertion URL** — the URL you give to your SAML provider. It's unique to your account.
+- **User field where the SAML identifier is stored** — the column in User Management where Kissflow stores each user's unique SAML identifier.
+- **Create users when they exist in the IdP** — automatically add users after they verify their identity with your IdP.
 
-After entering all the information, click Save to enable SSO using SAML.  
- 
+Click **Save** to enable SSO using SAML.
 
-![](/migration-assets/account-security/4.png)
+![SAML configuration form with IdP URL, sign-out URL, and security key fields](/migration-assets/account-security/4.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-> **Note:**  
-> Contact our support team if you want to configure other providers for OAuth authentication.  
-> Click [here](/t/x2h4a1h/setting-up-saml-based-single-sign-on-for-microsoft-azure-ad) to learn how to set up a SAML-based SSO for Microsoft Azure AD. 
+<Callout type="info">
+  See [Setting up SAML-based single sign-on for Microsoft Entra ID](/docs/admin/security/setting-up-saml-based-single-sign-on-for-microsoft-azure-id) for a step-by-step walkthrough with a specific IdP.
+</Callout>
 
 ## Inactive session timeout
 
-The **inactive session timeout** setting lets account admins define how long a user can remain inactive before being automatically signed out. This helps improve security by preventing unauthorized access if a session is left open.
+The inactive session timeout setting signs users out automatically after a period of inactivity, reducing the risk of an unattended session being misused.
 
-To configure the timeout value, choose from preset time intervals ranging from **1 hour to 24 hours**. The session timer runs only when a user is inactive and automatically resets when activity resumes.
+Kissflow configures this separately **for web** and **for mobile**:
 
-Users will be automatically signed out once the selected inactivity limit is reached.
+- **Web** — choose an interval from 1 hour up to 24 hours.
+- **Mobile** — choose an interval from 1 day up to 1 month.
 
-![](/migration-assets/account-security/2.png)
+The timer only runs while a user is inactive and resets as soon as activity resumes. Once the selected limit is reached, the user is signed out automatically.
 
-## Manage sign up preferences
+![Inactive session timeout settings with separate web and mobile options](/migration-assets/account-security/2.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-Rather than individually inviting new users, you can make your Kissflow sign-up process globally accessible by sharing the custom URL. You can access Sign-up preferences and enable the **Allow new signups** option.
+## Manage sign-up preferences
 
-![](/migration-assets/account-security/3.png)
+Instead of inviting users one by one, you can open your Kissflow sign-up process to anyone with the link.
 
-Anyone who visits this URL will be prompted to add their name and email address. Then, as a Super Admin, or an IAM Admin you will be notified to approve the user's sign-up. You can manually choose the user from the **User Management** tab and click the **Activate** button to provide an active license to the user.
+1. Go to **Account security** > **Sign-up preferences**.
+2. Turn on **Allow new signups**.
 
-If you want to disable future sign-ups via this URL for new users, disable **Allow new signups** and click **Save**.
+![Sign-up preferences page with the Allow new signups toggle and shareable URL](/migration-assets/account-security/3.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Anyone who visits the sign-up URL is prompted for their name and email address. Depending on your account's sign-up approval setting, new sign-ups may need a Super Admin or IAM Admin to review and activate them from **User Management** before they get an active license.
+
+To stop accepting new sign-ups through this URL, turn off **Allow new signups** and click **Save**.
 
 ## Access key setting
 
-You can limit the maximum expiry duration of the access keys created via the Kissflow account you are currently administering with the help of this setting.
+Cap how long an access key can stay valid when it's created for a service account in your Kissflow account.
 
-Navigate to **Account administration** > **Account security** > **Access key setting** to set the expiry limit.
+1. Go to **Account Administration** > **Account security** > **Access key setting**.
+2. Choose an expiry limit: **6 months**, **1 year**, or **2 years**. The default, **No limit**, leaves expiry uncapped.
 
-![](/migration-assets/account-security/5.png)
+![Access key setting dropdown with expiry limit options](/migration-assets/account-security/5.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-The expiry duration periods we currently offer are 6 months, 1 year, and 2 years. You can also opt to have no limit for the expiry, the default value set for this dropdown.
+<Callout type="warn">
+  This limit applies only to access keys created after you change it. Keys that already exist keep their original expiry.
+</Callout>
 
-> **Note:**  
-> This is an account-level setting, and any changes made here will affect all the existing and new access keys.
+## What's next
+
+- [Setting up SAML-based single sign-on for Microsoft Entra ID](/docs/admin/security/setting-up-saml-based-single-sign-on-for-microsoft-azure-id)
+- [Adding and managing users](/docs/admin/users/adding-and-managing-users)
+- [User roles and permissions](/docs/admin/users/user-roles-and-permissions)
+- [Creating and managing access keys](/docs/admin/service-accounts/creating-and-managing-access-keys)

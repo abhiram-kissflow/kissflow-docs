@@ -1,115 +1,120 @@
 ---
-title: "Backing up data to Google Cloud Service (GCS)"
-description: "DRAFT (unverified) — migrated from /t/x2y3t8a/backing-up-data-to-google-cloud-service-gcs"
+title: "Backing up data to Google Cloud Storage (GCS)"
+description: "Configure Kissflow to back up your account data to a Google Cloud Storage bucket, with service account authentication, ZIP size and encryption preferences, and data category selection."
 contentType: guide
 persona: admin
 section: admin
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - data-backup
+  - gcs
+  - security
 ---
 
-Kissflow plans:
+# Backing up data to Google Cloud Storage (GCS)
 
-✕ Basic ✓ Enterprise
+<PlanBadge plans={["enterprise"]} />
 
-> **Note:** This service is available on request. Please contact our support team to enable it on your account.
+<Callout type="info">
+  Data backup is available on request. Contact Kissflow support to enable it on your account.
+</Callout>
 
-## GCS prerequisites
+Google Cloud Storage is one of the storage destinations you can configure for account data backups, alongside Amazon S3, Google Drive, and Kissflow's own storage. Once configured, Kissflow exports your account data as JSON files, packages them into ZIP files, and uploads them directly to the GCS bucket you specify.
 
-Before you start account backup configuration in Kissflow, you must grant the following Google Cloud storage bucket permissions in your IAM policy:
+As a [Super Admin](/docs/admin/users/user-roles-and-permissions#super-admin), you can configure Kissflow to back up your account data to a Google Cloud Storage (GCS) bucket you control.
 
--   **storage.buckets.get** - Returns metadata from a specified bucket.
-    
--   **storage.object.create** - Stores objects and metadata within the cloud storage.
-    
--   **storage.object.get** - Retrieves object metadata from the cloud storage.
-    
+## Prerequisites
 
-![](/migration-assets/backing-up-data-to-google-cloud-service-gcs/6.gif)
+Before you start configuration, grant these permissions in your Google Cloud IAM policy for the target bucket:
 
-You must additionally [create service account keys](https://cloud.google.com/iam/docs/keys-create-delete#iam-service-account-keys-create-console). These keys should be copied to your clipboard or downloaded as a JSON file for authentication inside Kissflow.
+- **storage.buckets.get** — returns metadata for the bucket.
+- **storage.objects.create** — allows Kissflow to write backup files to the bucket.
+- **storage.objects.get** — allows Kissflow to read object metadata from the bucket.
 
-## Configuring data backup
+You'll also need a [service account key](https://cloud.google.com/iam/docs/keys-create-delete#iam-service-account-keys-create-console) downloaded as a JSON file — you upload this file inside Kissflow to authenticate.
 
-As a [Super Admin](/t/35h4ak0/user-roles-and-permissions#super-admin), you can configure your backup preferences according to your organization's needs. Here’s how you can backup your Kissflow data to GCS:
+![Animation of creating a Google Cloud service account key](/migration-assets/backing-up-data-to-google-cloud-service-gcs/6.gif)
+{/* TODO: verify screenshot matches current product UI */}
 
-1.  Sign in to Kissflow.
-    
-2.  Click your profile picture on the top right corner of your page, then click Account administration > Data backup.
-    
-3.  Click Start configuration on the Data backup page to set up your data backup preferences.
-    
-    ![](/migration-assets/backing-up-data-to-amazon-s3/1.png)
-4.  Data backup configuration involves three separate steps.
-    
-    1.  Authentication of storage modes.
-        
-    2.  Data backup management.
-        
-    3.  Selection of data categories.
-        
+## Start data backup configuration
 
-## Authenticating GCS account
+1. Sign in to Kissflow.
+2. Click your profile picture at the top right of the page, then click **Account administration** > **Data backup**.
+3. Click **Start configuration** on the **Data backup** page.
 
-Follow the steps below to authenticate your GCS account:
+   ![Data backup page with the Start configuration button](/migration-assets/backing-up-data-to-amazon-s3/1.png)
+   {/* TODO: verify screenshot matches current product UI */}
 
-1.  Select **Google Cloud Storage** as the storage mode from the drop-down.
-    
-2.  Click the **Upload JSON** button to auto-populate your **GCS service account keys**.
-    
-    ```
-    Note: You can alternatively paste your copied credentials in the respective fields.
-    ```
-    
-3.  Click Next.
-    
-    ![](/migration-assets/backing-up-data-to-google-cloud-service-gcs/1.png)
+Configuration involves three steps: authenticating a storage mode, managing backup settings, and selecting data categories.
 
-> **Note:**  
->   
-> If you wish to change your GCS service account keys, click the **Replace JSON** button to upload a new JSON file containing service account keys.
+## Authenticate your GCS account
 
-## Managing backup
+1. Select **Google Cloud Storage** as the storage mode from the dropdown.
+2. Click **Upload JSON** and select the service account key file you downloaded from Google Cloud. This auto-populates your GCS service account keys.
+3. Click **Next**.
 
-Follow the steps below to manage backup settings:
+   ![Storage mode dropdown with Google Cloud Storage selected and the Upload JSON button](/migration-assets/backing-up-data-to-google-cloud-service-gcs/1.png)
+   {/* TODO: verify screenshot matches current product UI */}
 
-1. **Bucket URL**. Paste the GCS Bucket URI where you want your files to be stored.
-    
-2. **Select ZIP file size**. You can select any of the following  ZIP file sizes: **4 GB, 8 GB, 16 GB, or 24 GB**. Files you upload are automatically zipped and split according to your chosen size limit.  
-      
-    For instance, selecting a 24 GB limit for a 100 GB file results in four 24 GB files and one 4 GB file. Files 24 GB or smaller upload unchanged in this case.
-    
-3. **Encrypt backup file**. Encrypting backed-up files is an optional feature. You can switch the toggle button to add a passphrase to encrypt your backed-up file. It offers additional security to the backed-up data.  
-      
-    Your passphrase must follow the conditions below:
-    
-    -   Contain at least eight characters.
-        
-    -   Contain upper and lower case characters.
-        
-    -   Contain at least one numeric character or symbol.
-        
+<Callout type="info">
+  To change your service account keys later, click **Replace JSON** and upload a new key file.
+</Callout>
 
-> Note: After you’ve encrypted your file, save your passphrase to access your backed-up files later.
+## Manage backup settings
 
--   Click **Save.**![](/migration-assets/backing-up-data-to-google-cloud-service-gcs/4.png)
+1. **Bucket URI.** Paste the GCS bucket URI where your backup files should be stored.
+2. **Select ZIP file size.** Choose **4 GB**, **8 GB**, **16 GB**, or **24 GB**. Files in your account are automatically zipped and split according to your chosen limit.
 
-## Selecting data modules for backup
+   For example, a 24 GB limit applied to a 100 GB export produces four 24 GB files and one 4 GB file. Files 24 GB or smaller upload unchanged.
 
-Kissflow allows for modular data selection for backup, catering to specific organizational requirements. You can choose to backup:
+3. **Encrypt backup file** (optional). Switch on this toggle to add a passphrase that encrypts your backed-up files for additional security. Your passphrase must contain:
+   - At least eight characters.
+   - Both upper and lower case characters.
+   - At least one numeric character or symbol.
 
--   **User and group data**: Includes all account user and group data.
-    
--   **Transactional data**: Encompasses all flow item details such as status, comments, and assignees.
-    
--   **Audit log data**: Contains last year's audit logs at both flow and account levels.
-    
--   **Attachments**: Covers all attachments within flows like processes, boards, datasets, and apps
-    
-    ![](/migration-assets/backing-up-data-to-google-cloud-service-gcs/2.png)Select one or more data categories by clicking the checkboxes and clicking **Next**. A backup confirmation popup will appear.
+   <Callout type="warn">
+     Save your passphrase somewhere secure. You'll need it to decrypt and access your backed-up files later, and it can't be recovered if lost.
+   </Callout>
 
-![](/migration-assets/backing-up-data-to-google-cloud-service-gcs/5.png)
+4. Click **Save**.
 
-Verify the configuration details and click **Start backup**.  
-  
-However, if you save the configuration and exit the window, you can restart the backup process again. You can also edit the configuration, delete it, or view the backup history from this page.
+   ![Backup preferences with bucket URI, ZIP file size, and encryption options](/migration-assets/backing-up-data-to-google-cloud-service-gcs/4.png)
+   {/* TODO: verify screenshot matches current product UI */}
 
-![](/migration-assets/backing-up-data-to-google-cloud-service-gcs/3.png)
+## Select data categories for backup
+
+Choose one or more categories to include:
+
+- **User and group data** — all account user and group data.
+- **Transactional data** — flow item details such as status, comments, and assignees.
+- **Audit log data** — the last year's audit logs at both the flow and account levels.
+- **Attachments** — attachments across flows, including processes, boards, datasets, and apps.
+
+![Data category selection with checkboxes for user and group data, transactional data, audit logs, and attachments](/migration-assets/backing-up-data-to-google-cloud-service-gcs/2.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Select your categories and click **Next**. In the confirmation popup, verify your configuration details and click **Start backup**.
+
+![Backup confirmation popup showing configuration details and the Start backup button](/migration-assets/backing-up-data-to-google-cloud-service-gcs/5.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="info">
+  Not ready to start? Save your configuration and exit — you can resume it later instead of running the backup immediately.
+</Callout>
+
+From the **Data backup** home page, you can also edit your configuration, delete it, or view your backup history.
+
+![Data backup home page with options to edit configuration, delete it, or view backup history](/migration-assets/backing-up-data-to-google-cloud-service-gcs/3.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## What's next
+
+- [Data backup overview](/docs/admin/data-backup/data-backup-overview)
+- [Understanding your backup output](/docs/admin/data-backup/understanding-your-backup-output)
+- [Compliance and backup history](/docs/admin/data-backup/compliance-and-backup-history)
+- [Backing up data to Amazon S3](/docs/admin/data-backup/backing-up-data-to-amazon-s3)
+- [Backing up data to Google Drive](/docs/admin/data-backup/backing-up-data-to-google-drive)
+- [Backing up data to Kissflow](/docs/admin/data-backup/backing-up-data-to-kissflow)

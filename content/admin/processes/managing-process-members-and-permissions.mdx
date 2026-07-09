@@ -1,347 +1,199 @@
 ---
 title: "Managing process members and permissions"
-description: "DRAFT (unverified) — migrated from /t/p8h9qtp/managing-process-members-and-permissions"
+description: "Assign roles to process members, control what each role can do, and add, change, or remove members and their permissions."
 contentType: guide
 persona: admin
 section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - processes
+  - roles
+  - permissions
 ---
 
-Kissflow plans:
+# Managing process members and permissions
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
 
-## Roles and permissions in a process
+Every member added to a process is assigned a role that determines what they can do — from initiating items to editing the workflow itself. This article covers the available roles, what each one can do, and how to add members, change their roles, and manage their permissions.
 
-You can add users to a process in the following roles: 
+Whoever creates a process becomes its **Process Admin** by default. From there, only a Process Admin can add other members and assign them a role.
+
+## Roles in a process
 
 ### Process Admin
 
-A Process Admin has the highest privilege in a process. They can perform any operations related to a process and add, remove, or modify the roles of other members in the process.
+A Process Admin has the highest privilege in a process. They can perform any operation on the process, including adding, removing, or modifying the roles of other members. As a Process Admin, you can:
 
-As a Process Admin, they will be able to:
-
--   Edit the form and workflow.
--   Assign a role to a user while adding them to a process.
--   Add Process Admins, Process Developers, Data Admins, Report Admins, and Members anytime in the due course of the process.
--   Remove any member belonging to any role in the process.
--   Grant or revoke the permissions a member has in the process.
--   Share reports with the members or anyone outside the process.
+- Edit the form and workflow.
+- Assign a role to a member while adding them to the process.
+- Add Process Admins, Developers, Data Admins, Report Admins, and Members at any point in the process's lifecycle.
+- Remove any member, regardless of their role.
+- Grant or revoke permissions for a member.
+- Share reports with members or with anyone outside the process.
 
 ### Data Admin
 
-A Data Admin can perform any kind of operation on the process data and create reports. We support this role in our **Enterprise plan** only.
+A Data Admin can view, edit, and delete process data, and create reports.
 
-As a Data Admin, they will be able to:
+<Callout type="info">
+  Data Admin is available on the **Enterprise** plan only.
+</Callout>
 
--   View, edit, and delete process-related information.
--   View all the reports, access a process form from a specific report, and access the metrics report of a specific process.
--   Initiate items (optional).
+As a Data Admin, you can:
 
-> **Note:**
-> 
-> A Data Admin **cannot** add members to a process.
+- View, edit, and delete process data.
+- View all reports, open a process form from a specific report, and access the process's metrics report.
+- Initiate items (optional — a Process Admin must grant this separately).
+
+<Callout type="info">
+  A Data Admin cannot add members to a process.
+</Callout>
 
 ### Report Admin
 
-A Report Admin can create, modify, or delete reports in a process. They can also access and modify others' reports. We support this role in our **Enterprise plan** only.
+A Report Admin can create, edit, share, and delete reports in a process, including reports created by other members.
 
-As a Report Admin, they can:
+<Callout type="info">
+  Report Admin is available on the **Enterprise** plan only.
+</Callout>
 
--   View, create, edit, share, and delete reports.
--   Access a process form and its relevant comments from a report.
--   Access their reports even if their role is downgraded by the Process Admin. However, a Process Admin can choose to revoke a Report Admin's access to their reports if required.
--   Initiate items (optional).
+As a Report Admin, you can:
 
-> **Note:**
-> 
-> A Report Admin **cannot** add members to a process.
+- View, create, edit, share, and delete reports.
+- Open a process form and its comments from a report.
+- Keep access to your reports even if your role is later downgraded — unless a Process Admin explicitly revokes it.
+- Initiate items (optional — a Process Admin must grant this separately).
+
+<Callout type="info">
+  A Report Admin cannot add members to a process.
+</Callout>
 
 ### Developer
 
-A process developer can build or modify a process from scratch they can,
+A Developer builds and modifies a process. As a Developer, you can:
 
--   Edit the form and workflow.
--   Access and edit a process, and initiate items.
--   Add initiators to a process while editing or modifying workflows.
--   Create (optional), edit, share, publish (optional), and delete reports created by them.
--   Access their reports even if their role is downgraded by the Process Admin. However, a Process Admin can choose to revoke a Process Developer's access to their reports if required.
--   Publish a process.  
+- Edit the form and workflow.
+- Access and edit the process, and initiate items.
+- Add initiators to the process while editing or modifying the workflow.
+- Create, edit, share, and delete reports you've created (report creation is optional — a Process Admin must grant it separately).
+- Keep access to your reports even if your role is later downgraded — unless a Process Admin explicitly revokes it.
+- Publish the process (optional — a Process Admin must grant this separately, from the **More permissions** menu).
 
 ### Member
 
-A member can access a process and initiate items. They can,
+A Member can access a process and initiate items. As a Member, you can:
 
--   Initiate items as part of a process.
--   Create reports if relevant permission is granted to them. They can access the reports created by and shared with them.
+- Initiate items in the process.
+- Create reports if a Process Admin grants that permission, and access reports you've created or that were shared with you.
 
-Here is a detailed overview of the permissions mapped with each of these roles:
+## Permissions by role
 
-**Permissions**
+| Permission | Process Admin | Data Admin | Report Admin | Developer | Member |
+| --- | --- | --- | --- | --- | --- |
+| Access process | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Initiate an item | ✓ | Optional | Optional | ✓ | ✓ |
+| Manage process settings | ✓ | X | X | ✓ | X |
+| Add or remove members | ✓ | X | X | X | X |
+| Edit process | ✓ | X | X | ✓ | X |
+| Perform bulk actions | ✓ | ✓ | X | X | X |
+| View audit log | ✓ | X | X | X | X |
+| Archive and delete process | ✓ | X | X | X | X |
+| Duplicate a process | ✓ | X | X | X | X |
+| Create reports | ✓ | ✓ | ✓ | Optional | Optional |
+| Share reports | ✓ | Own reports only | ✓ | Own reports only | Own reports only |
+| Delete reports | ✓ | Own reports only | Own reports only | Own reports only | — |
+| View all reports | ✓ | ✓ | ✓ | X | X |
+| View Metrics report | ✓ | ✓ | ✓ | X | X |
+| View process administration table | ✓ | ✓ | X | X | X |
+| Modify item | ✓ | ✓ | X | X | X |
+| Delete item | ✓ | ✓ | X | X | X |
+| Go live (publish a process) | ✓ | X | X | Optional | X |
 
-**Process Admin**
+## Add a member to a process
 
-**Data Admin**
+You can share a process with any flow member or group in your organization.
 
-**Report Admin**
+![Share settings screen for adding members to a process](/migration-assets/managing-process-members-and-permissions/1.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-**Developer**
+1. Navigate to the process you want to add members to.
+2. Click **Manage** > **Share**.
+3. Click **+ Add members**.
+4. Type the name or email address of the user or group under **Select users and groups**.
 
-**Initiator/ Member**
+   ![Adding users and groups in the Share settings screen](/migration-assets/managing-process-members-and-permissions/2.png)
+   {/* TODO: verify screenshot matches current product UI */}
 
-Access process
+5. Select a role from the **Role** dropdown.
 
-✓
+   <Callout type="info">
+     Data Admin and Report Admin are available on the **Enterprise** plan only. Reach out to Kissflow support to upgrade your plan and enable these roles.
+   </Callout>
 
-✓
+6. Click **Add**.
 
-✓
+<Callout type="info">
+  Only account Super Admins can invite an external user who isn't part of your organization directly from the Share settings screen — a Process Admin without Super Admin access won't see this option. If you have access, type the external user's email address, then click the **Invite** link that appears below it to send the invite.
 
-✓
+  ![Invite link shown for an external user's email address](/migration-assets/managing-process-members-and-permissions/4.png)
+  {/* TODO: verify screenshot matches current product UI */}
+</Callout>
 
-✓
+## Change a member's role
 
-Initiate an item
+A member loses their current privileges when downgraded to a role with fewer of them. They may still be able to access reports they created or were given access to before the change — you can choose to revoke that access as part of the role change.
 
-✓
+1. Navigate to the process, then click **Manage** > **Share**.
+2. Click the **More options** button ( ![More options icon](/migration-assets/managing-process-members-and-permissions/3.svg) ) beside the member's name and select **Change role**.
 
-Optional
+   ![Change role option in a member's More options menu](/migration-assets/managing-process-members-and-permissions/5.png)
+   {/* TODO: verify screenshot matches current product UI */}
 
-Optional
+3. Select the new role from the list.
+4. Read the alert and confirm your action.
 
-✓
+   ![Alert message shown when changing a member's role](/migration-assets/managing-process-members-and-permissions/6.png)
+   {/* TODO: verify screenshot matches current product UI */}
 
-✓
+5. Click **Change role** to apply the new role while keeping the member's existing report access, or **Revoke report access & Change** to also remove access to reports they created or accessed under their previous role.
 
-Manage process settings
+<Callout type="info">
+  This choice only appears when the new role would reduce the member's report access. If it wouldn't, confirming the role change applies it directly.
+</Callout>
 
-✓
+## Grant additional permissions to a member
 
-X
+Use this to give a member a permission outside their role's normal scope — for example, letting a Member create reports, or letting a Developer publish the process.
 
-X
+1. Navigate to the process, then click **Manage** > **Share**.
+2. Click the **More options** button ( ![More options icon](/migration-assets/managing-process-members-and-permissions/3.svg) ) beside the member's name.
 
-✓
+   ![More options menu open for a member, showing the More permissions section](/migration-assets/managing-process-members-and-permissions/7.png)
+   {/* TODO: verify screenshot matches current product UI */}
 
-X
+3. Under **More permissions**, select the checkbox for each permission you want to grant. Clear a checkbox to remove a permission you'd previously granted.
 
-Add or remove members
+## Remove a member from a process
 
-✓
+A removed member keeps access to reports they created or accessed while part of the process, unless you revoke that access as part of the removal.
 
-X
+1. Navigate to the process, then click **Manage** > **Share**.
+2. Click the **More options** button ( ![More options icon](/migration-assets/managing-process-members-and-permissions/3.svg) ) beside the member you want to remove.
+3. Click **Remove member**.
+4. Read the alert and confirm your action.
 
-X
+   ![Alert message shown when removing a member from a process](/migration-assets/managing-process-members-and-permissions/8.png)
+   {/* TODO: verify screenshot matches current product UI */}
 
-X
+5. Click **Remove member** to remove them while keeping their report access, or **Revoke report access & Remove** to also remove access to reports they created or accessed.
 
-X
+## What's next
 
-Edit process
-
-✓
-
-X
-
-X
-
-✓
-
-X
-
-Perform bulk actions
-
-✓
-
-✓
-
-X
-
-X
-
-X
-
-View audit log
-
-✓
-
-X
-
-X
-
-X
-
-X
-
-Archive and delete process
-
-✓
-
-X
-
-X
-
-X
-
-X
-
-Duplicate a process
-
-✓
-
-X
-
-X
-
-X
-
-X
-
-Create reports
-
-✓
-
-✓
-
-✓
-
-Optional
-
-Optional
-
-Share reports
-
-✓
-
-✓ (Applicable to only the reports they own)
-
-✓
-
-✓ (Applicable to only the reports they own)
-
-✓ (Applicable to only the reports they own)
-
-Delete reports
-
-✓
-
-✓ (Applicable to only the reports they own)
-
-✓ (Applicable to only the reports they own)
-
-✓ (Applicable to only the reports they own)
-
-View all reports
-
-✓
-
-✓
-
-✓
-
-X
-
-X
-
-View Metrics report
-
-✓
-
-✓
-
-✓
-
-X
-
-X
-
-View process administration table
-
-✓
-
-✓
-
-X
-
-X
-
-X
-
-Modify item
-
-✓
-
-✓
-
-X
-
-X
-
-X
-
-Delete item
-
-✓
-
-✓
-
-X
-
-X
-
-X
-
-Go live
-
-✓
-
-X
-
-X
-
-✓
-
-X
-
-## Adding members and groups to a process
-
-Whoever creates a process becomes the **Admin** of the process by default. They can perform any operation related to a process, ranging from adding or removing members to modifying or deleting process data. You can share the process with any flow member or group within your organization and also invite external users to be a part of your process as necessary.
-
-![](/migration-assets/managing-process-members-and-permissions/1.png)
-
-1.  Navigate to the process for which you would like to add members.
-2.  Click the **Manage** button > **Share.**
-3.  Click **\+ Add members.**
-4.  Type the name or email address of the user or group in the text area present under **Select users and groups**.  
-     ![](/migration-assets/managing-process-members-and-permissions/2.png)
-    1.  You can also invite an external user who isn't a part of your organization to your process as part of the **Share** settings.
-        1.  Type the email address of the external user like the following and you'll see an **Invite** link below.
-        2.  Click the link to send an invite to the external user.![](/migration-assets/managing-process-members-and-permissions/4.png)
-5.  Select a relevant role from the **Role** dropdown after adding the users. If you are not sure about which role to choose, learn about the [different roles and permissions](/t/p8h9qtp/managing-process-members-and-permissions#roles-and-permissions-in-a-process-workflow) that Kissflow Workflow offers.
-    1.  We support the **Report Admin** and **Data Admin** roles in our **Enterprise** plan only. Reach out to our support team to upgrade your plan and enable these roles in your account.
-6.  Click **Add**.
-
-#### Changing a member's role
-
-A member will lose their current set of privileges when they are downgraded to a role with fewer privileges. However, they might continue to have access to the reports they had created and accessed in the past after their role change. However, you can choose to revoke their access to their reports before changing their role as necessary.
-
-1.  Navigate to the process page > click the **Manage** button   > **Share**.
-2.  Click the **More options** button (![](/migration-assets/managing-process-members-and-permissions/3.svg)) beside a member's name and click **Change role**.![](/migration-assets/managing-process-members-and-permissions/5.png)        
-3.  Click your preferred role from the list that shows up.
-4.  Read the alert message and confirm your action.![](/migration-assets/managing-process-members-and-permissions/6.png)    
-5.  Click **Change role** to modify the member's role and retain their report access as is or click **Revoke report access & Change** to restrict them from accessing their old reports after they move to the new role.
-
-#### Granting additional permissions to a member
-
-1.  Navigate to the process page > the **Manage** button > **Share**.
-2.  Click  the **More options** button (![](/migration-assets/managing-process-members-and-permissions/3.svg)) beside a member's name.![](/migration-assets/managing-process-members-and-permissions/7.png)      
-3.  Under **More permissions**, select the checkbox against the relevant permission to let the flow member acquire additional permission outside their actual scope**.** Similarly, you can deselect additional permissions to restrict the flow member from using their additional permission as necessary.
-
-#### Removing a member from a process
-
-Before removing a member from a process, you must be aware that the member will continue to have access to the reports they had created and accessed in the past after they are removed. However, you can choose to revoke their access to their reports and then remove them as necessary.
-
-1.  Navigate to the process page > click the **Manage** button > **Share**.
-2.  Click the **More options** button (![](/migration-assets/managing-process-members-and-permissions/3.svg)) beside a member's name that you would like to remove.
-3.  Click **Remove member.**
-4.  Read the alert message and confirm your action.![](/migration-assets/managing-process-members-and-permissions/8.png)    
-5.  Click **Remove member** to remove the member and retain their report access, or click **Revoke report access & Remove** to restrict them from accessing their old reports after they exit the process.
+- [Process settings](/docs/admin/processes/process-settings)
+- [Security settings for flows](/docs/admin/processes/security-settings-for-flows)
+- [Admin actions in a process](/docs/admin/processes/admin-actions-in-a-process)
+- [Process audit log](/docs/admin/processes/process-audit-log)

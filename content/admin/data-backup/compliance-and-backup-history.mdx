@@ -1,61 +1,71 @@
 ---
 title: "Compliance and backup history"
-description: "DRAFT (unverified) — migrated from /t/35y3mfj/compliance-and-backup-history"
+description: "Edit your backup configuration, cancel a queued backup, and use progress tracking and backup history to monitor account backups for compliance."
 contentType: guide
 persona: admin
 section: admin
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - data-backup
+  - audit-log
+  - compliance
 ---
 
-Kissflow plans:
+# Compliance and backup history
 
-✕ Basic ✓ Enterprise
+<PlanBadge plans={["enterprise"]} />
 
-> **Note:** This service is available on request. Please contact our support team to enable it on your account.
+<Callout type="info">
+  Data backup is available on request. Contact Kissflow support to enable it for your account.
+</Callout>
 
-As a [Super Admin](/t/35h4ak0/user-roles-and-permissions#super-admin), you can manage your account's data backup. You can also cancel the backup if needed if a backup is in the queue. However, if the backup is initiated, cancellation is not allowed.
+As a [Super Admin](/docs/admin/users/user-roles-and-permissions#super-admin), you manage your account's data backup — you can edit its configuration, cancel a backup that's still in the queue, and review its history.
 
-Once the backup is in progress, you can only view the configuration. You can edit the previous backup configuration once your backup is completed. Follow the steps below to edit your backup configuration.
+## Cancel a queued backup
 
--   Sign in to Kissflow.
--   Click the profile picture on the top right corner of your page.
--   Click **Account administration** from the drop-down menu> **Data backup**. Click the **More options** button (![](/migration-assets/compliance-and-backup-history/1.png)) beside the **Backup now** button > **Edit configuration**.
+You can cancel a backup only while it's still in the queue, before processing starts. Once a backup is in progress, cancellation is no longer available.
 
-![](/migration-assets/compliance-and-backup-history/4.png)
+## Edit your backup configuration
 
-> **Note:**  
-> You must save your previous passphrase to access your previous backup files. Once the configuration is edited, you cannot use the previous passphrase.
+While a backup is queued or in progress, its configuration is read-only — you can view it, but not change it. Once the backup completes, the configuration becomes editable again.
 
-## Backup progress and completion status
+1. Sign in to Kissflow.
+2. Click your profile picture at the top right of the page, then click **Account administration** > **Data backup**.
+3. Click the **More options** button (![More options icon](/migration-assets/compliance-and-backup-history/1.png)) beside **Backup now**, then click **Edit configuration**.
 
-Super admins can easily interpret the progress and completion status of backups:
+![Data backup page with the More options menu open, showing Edit configuration, Backup history, and Delete configuration](/migration-assets/compliance-and-backup-history/4.png)
+{/* TODO: verify screenshot matches current product UI */}
 
--   **Progress indicators:** The system provides real-time status and updates for ongoing backups.
-    
-    ![](/migration-assets/compliance-and-backup-history/2.png)
--   **Completion details:** Once completed, detailed logs, including the backup file location, backup time, and storage details, are recorded in the account-level audit log.
-    
+<Callout type="warn">
+  Editing your configuration resets your encryption passphrase. Save your previous passphrase somewhere safe before you edit — you'll still need it to open backup files created before the change, and it won't work on any backup you run afterward.
+</Callout>
 
-## Role of audit logs
+## Track backup progress
 
-Audit logs are crucial to maintaining transparency and accountability in data backup.
+While a backup is running, the **Data backup** page shows its real-time status — including stages like validating your configuration, backup in progress, and finalizing the backup — so you always know where an ongoing backup stands.
 
-Each backup process is meticulously logged, including:
+![Data backup page showing real-time progress through validating configuration, backup in progress, and finalizing data backup](/migration-assets/compliance-and-backup-history/2.png)
+{/* TODO: verify screenshot matches current product UI */}
 
--   **User actions:** Records actions taken by users, especially super admins, during the backup process.
-    
--   **System actions**: Logs system-generated events such as the start and completion of backups, errors, and warnings.
-    
--   **Data details:** Captures category-wise details of the backed-up data.
-    
+Once a backup completes, its details — including storage mode, backup time, and status — are recorded in the [account-level audit log](/docs/admin/audit-log/audit-log), alongside the user and system actions logged throughout the backup process.
 
-### Backup history
+## View backup history
 
-Super admins can access and interpret backup logs to monitor backup activities and ensure compliance. After your backup is completed, you can access the backup history for each data backup. To do so,
+After a backup finishes, you can review its history — the requester, storage mode, data categories included, status, and the date and time of the backup.
 
--   Sign in to Kissflow.
--   Click the profile picture on the top right corner of your page.
--   Click **Account administration** from the drop-down menu> **Data backup**. Click the **More options** button (![](/migration-assets/compliance-and-backup-history/1.png)) beside the **Backup now** button > **Backup history**.
+1. Sign in to Kissflow.
+2. Click your profile picture at the top right of the page, then click **Account administration** > **Data backup**.
+3. Click the **More options** button (![More options icon](/migration-assets/compliance-and-backup-history/1.png)) beside **Backup now**, then click **Backup history**.
 
-The backup history details the record of all backup activities, including the requester's name, storage mode, backup status, and the date and time of the backup.
+![Backup history table listing requester, storage mode, data categories, status, and date and time for completed backups](/migration-assets/compliance-and-backup-history/3.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-![](/migration-assets/compliance-and-backup-history/3.png)
+## What's next
+
+- [Data backup overview](/docs/admin/data-backup/data-backup-overview)
+- [Understanding your backup output](/docs/admin/data-backup/understanding-your-backup-output)
+- [Audit log](/docs/admin/audit-log/audit-log)
+- [User roles and permissions](/docs/admin/users/user-roles-and-permissions)

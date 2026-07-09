@@ -1,61 +1,91 @@
 ---
 title: "Associated flows for processes"
-description: "DRAFT (unverified) — migrated from /t/h7yf9xm/associated-flows-for-processes"
+description: "See which flows look up data from a process or trigger automation with it, so you understand its dependencies before making changes."
 contentType: guide
 persona: admin
 section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - processes
+  - lookup-field
+  - connected-processes
+  - dependencies
 ---
 
-Kissflow plans:
+# Associated flows for processes
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
 
-   
-The **Associated flows** section helps you understand how your process interacts with other flows. They offer a visual map of dependencies, making it easier to manage changes.
+The **Associated flows** section shows how a process depends on, and is depended on by, other flows in your account — giving you a map of relationships to check before you rename fields, change permissions, or archive the process.
 
-Click the **Manage** button at the top right and click the **Associated flows** button.
+## View a process's associated flows
 
-![](/migration-assets/associated-flows-for-processes/1.png)
+1. Open the process and click the **Manage** button at the top right.
+2. Click **Associated flows**.
 
-   
-There are two types of associations: **Looked up flows** and **Connected flows**.
+   <Callout type="info">
+     **Associated flows** is available only to process admins and editors, and only while the process is **Live**.
+   </Callout>
 
-## 1\. Looked up flows
+![Process Manage panel with the Associated flows tile](/migration-assets/associated-flows-for-processes/1.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-[Lookup fields](/t/g9h4azr/lookup-field) allow a process to pull and display data from other flows.
+There are two types of associations, shown as tabs on this page: **Looked up flows** and **Connected flows**.
 
-![](/migration-assets/associated-flows-for-processes/2.png)
+## Looked up flows
 
-Under **Looked up flows**, you can view these relationships:
+[Lookup fields](/docs/build/forms/field-types/lookup-field) let a process pull and display data from other flows. The **Looked up flows** tab shows both directions of that relationship.
 
-### a. Flows looked up to
+![Looked up flows tab showing the Flows looked up to and Flows looked up from lists](/migration-assets/associated-flows-for-processes/2.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-This section shows which flows are looking up this process to fetch and display information.
+### Flows looked up to
 
-**Example**: If another process needs to reference details like **Purchase Order IDs** or **Vendor Names** from the current process, it would appear under **Flows looked up to**.
+Shows which flows are looking up this process to fetch and display information.
 
-### b. Flows looked up from
+**Example**: If another process references details like **Purchase Order IDs** or **Vendor Names** from the current process, that process appears under **Flows looked up to**.
 
-This section displays the flows that the current process is looking up.
+Click **Configure** next to a flow in this list to open this process's [security settings](/docs/admin/processes/security-settings-for-flows), where lookup permissions are managed.
 
-**Example**: If your **Purchase Request** process is pulling **Asset Types** or **Budget Codes** from a master list, the master list flow will appear under **Flows looked up from**.
+<Callout type="info">
+  The **Configure** action is available only under **Flows looked up to**. To manage what the current process looks up from other flows, open the security settings of that other flow instead.
+</Callout>
 
-You can [configure lookup](/t/83ymdnx/security-settings-for-flows) settings directly from this page if you need to update or remove associations.
+### Flows looked up from
 
-## 2\. Connected flows
+Shows the flows that the current process is looking up.
 
-[Connected flows](/t/g9ytv27/connected-processes-overview) represent deeper workflow automations where actions in one flow trigger activities in another.
+**Example**: If your **Purchase Request** process pulls **Asset Types** or **Budget Codes** from a master dataset, that dataset appears under **Flows looked up from**.
 
-![](/migration-assets/associated-flows-for-processes/3.png)
+## Connected flows
 
-### a. Dependent flows
+<Callout type="info">
+  Connected flows require the Enterprise plan.
+</Callout>
 
-Shows the connected processes that can automatically initiate new items based on the items created or updated in this process.
+[Connected processes](/docs/admin/processes/connected-processes-overview) let actions in one process automatically create or update an item in another process. The **Connected flows** tab shows both directions of that relationship.
 
-**Example**: When a **Purchase Request** process completes, it could automatically trigger a purchase order in a connected **Purchase order** process.
+![Connected flows tab showing the Dependent flows and Source flows lists](/migration-assets/associated-flows-for-processes/3.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-### b. Source flows
+### Dependent flows
 
-Lists the connected flows (both processes and boards) that can initiate new items inside this process.
+Shows the connected processes that can automatically initiate new items based on items created or updated in this process.
 
-**Example**: A **Service Request** process could trigger a **Purchase Request** process to create a hardware request.
+**Example**: When a **Purchase Request** item is approved, it can automatically create an item in a connected **Purchase Order** process.
+
+### Source flows
+
+Shows the connected processes that can initiate new items inside this process.
+
+**Example**: A **Service Request** process can trigger this process to create a hardware request.
+
+## What's next
+
+- [Connected processes overview](/docs/admin/processes/connected-processes-overview)
+- [Connecting processes](/docs/admin/processes/connecting-processes) — set up a connected step, map fields, and configure conditions
+- [Lookup field](/docs/build/forms/field-types/lookup-field)
+- [Security settings for flows](/docs/admin/processes/security-settings-for-flows)

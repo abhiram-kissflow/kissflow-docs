@@ -1,36 +1,63 @@
 ---
 title: "Geolocation settings"
-description: "DRAFT (unverified) — migrated from /t/p8y8zv6/geolocation-settings"
+description: "Add or update the Google Maps API key that powers the Geolocation field in Kissflow forms, so users can capture and view locations."
 contentType: guide
 persona: admin
 section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - account-settings
+  - geolocation
+  - google-maps
+  - api-key
 ---
 
-Kissflow plans:
+# Geolocation settings
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
 
-Account Admins can enable geolocation feature for users to utilize within forms, enhancing data collection capabilities.
+The [Geolocation field](/docs/build/forms/field-types/geolocation-field) lets users capture and view locations on a form using Google Maps. Before anyone can use it, an Account Admin needs to add a Google Maps API key in **Geolocation settings** — without a valid key, the field can't load Google Maps.
 
-![](/migration-assets/geolocation-settings/2.png)
+![Geolocation settings page with the API key input box](/migration-assets/geolocation-settings/2.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-## Accessing Geolocation settings
+## Access geolocation settings
 
-After you sign in to Kissflow, click your profile picture in the upper-right corner of the home page. Then, click **Account administration > Account settings > Geolocation settings.**
+1. Sign in to Kissflow.
+2. Click your profile picture in the upper-right corner of the page.
+3. Click **Account administration > Account settings > Geolocation settings**.
 
-## Enabling geolocation settings with google maps API key
+## Add or update the Google Maps API key
 
--   A google maps API key is required for the geolocation field to function properly. Without a valid API key, users will not be able to use the Geolocation field in forms.
-    
--   To add or update the google maps API key, enter the key in the designated input box provided.
-    
--   Admins can use an existing API key or create a new one. Click **Google Maps API key** link for instructions on how to create a new API key. This link directs you to the google developers documentation page.
-    
+1. On the **Geolocation settings** page, enter your Google Maps API key in the input box.
 
-## Geolocation field in forms
+   <Callout type="info">
+     You can use an existing Google Maps API key or create a new one. Click the **Google Maps API key** link on the page for instructions on Google's developer documentation site.
+   </Callout>
 
-If the geolocation field in forms cannot load google maps, users will be prompted to contact the Super Admin to add the google maps API key in admin settings to enable geolocation within forms.
+2. Save your changes.
 
-![](/migration-assets/geolocation-settings/1.png)
+<Callout type="warn">
+  After you add or update the API key, notify your users to reload Kissflow so the change takes effect.
+</Callout>
 
-> **Note:** After adding or updating the google maps API key, it's important to notify users to reload the page in order to apply the changes. This ensures that the geolocation field functions properly with the new settings.
+## When the API key is missing or invalid
+
+If Kissflow can't load Google Maps for the Geolocation field, the message shown depends on where the form is being filled out:
+
+- On the **Kissflow mobile app**, users see a message asking them to contact their Super Admin to add the Google Maps API key.
+- On **web**, users see a general connection error instead, without a direct mention of the API key.
+
+![Geolocation field on a form showing a Google Maps loading error](/migration-assets/geolocation-settings/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+In either case, an Account Admin needs to add or fix the key in **Geolocation settings** to resolve it.
+
+## What's next
+
+- [Using the Geolocation field in forms](/docs/build/forms/field-types/geolocation-field)
+- [Computing with data extracted from the Geolocation field](/docs/build/expressions/computing-with-data-extracted-from-the-geolocation-field)
+- [Understanding user roles and permissions](/docs/admin/users/user-roles-and-permissions)

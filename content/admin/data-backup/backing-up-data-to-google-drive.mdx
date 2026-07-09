@@ -1,85 +1,97 @@
 ---
 title: "Backing up data to Google Drive"
-description: "DRAFT (unverified) — migrated from /t/y4y3tn4/backing-up-data-to-google-drive"
+description: "Authenticate your Google Drive account, configure file size and encryption preferences, and choose which data categories to include in your Kissflow backup."
 contentType: guide
 persona: admin
 section: admin
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - data-backup
+  - google-drive
+  - security
 ---
 
-Kissflow plans:
+# Backing up data to Google Drive
 
-✕ Basic ✓ Enterprise
+<PlanBadge plans={["enterprise"]} />
 
-> **Note:** This service is available on request. Please contact our support team to enable it on your account.
+Google Drive is one of the storage destinations you can configure for Kissflow's data backup feature, alongside Amazon S3, Google Cloud Storage, and email delivery. Once configured, Kissflow exports your account data as JSON files, packages them into ZIP files, and uploads them directly to the Google Drive folder you specify.
 
-## Configuring data backup
+<Callout type="info">
+  Data backup is available on request. Contact Kissflow support to enable it for your account.
+</Callout>
 
-As a [Super Admin](/t/35h4ak0/user-roles-and-permissions#super-admin), you can configure your backup preferences according to your organization's needs. Here’s how you can backup your Kissflow data to Google Drive:
+To configure backup preferences, you need admin access to the **Data backup** section of your account — see [User roles and permissions](/docs/admin/users/user-roles-and-permissions) for how backup access is granted.
 
-1.  Sign in to Kissflow.
-    
-2.  Click your profile picture on the top right corner of your page, then click **Account administration** > **Data backup**.
-    
-3.  Click **Start configuration** on the Data backup page to set up your data backup preferences.
-    
-4.  Data backup configuration involves three separate steps.
-    
-    1.  Authentication of storage modes.
-        
-    2.  Data backup management.
-        
-    3.  Selection of data categories.
-        
+## Start a backup configuration
 
-## Authenticating a Google Drive account
+1. Sign in to Kissflow.
+2. Click your profile picture at the top right of the page, then click **Account administration** > **Data backup**.
+3. Click **Start configuration** on the **Data backup** page.
 
-Follow the steps below to authenticate your GCS account:
+   {/* TODO: verify screenshot matches current product UI */}
 
-1.  Select **Google Drive** as the storage mode from the drop-down.
-    
-    ![](/migration-assets/backing-up-data-to-google-drive/1.png)
-2.  Sign in with your Google account.
-    
-3.  Click Next.
-    
+Setting up a backup involves three steps: authenticating your storage destination, managing backup preferences, and selecting the data categories to include.
 
-## Managing backup
+## Authenticate your Google Drive account
 
-Follow the steps below to manage backup settings:
+1. Select **Google Drive** as the storage mode from the dropdown.
 
-1. **File location**. Paste or browse the Google Drive folder path where you want your files to be stored.
-    
-2. **Select ZIP file size**. You can select any of the following  ZIP file sizes: **4 GB, 8 GB, 16 GB, or 24 GB**. Files you upload are automatically zipped and split according to your chosen size limit.  
-      
-    For instance, selecting a 24 GB limit for a 100 GB file results in four 24 GB files and one 4 GB file. Files 24 GB or smaller upload unchanged in this case.
-    
-3. **Encrypt backup file**. Encrypting backed-up files is an optional feature. You can switch the toggle button to add a passphrase to encrypt your backed-up file. It offers additional security to the backed-up data.  
-      
-    Your passphrase must follow the conditions below:
-    
-    -   Contain at least eight characters.
-        
-    -   Contain upper and lower case characters.
-        
-    -   Contain at least one numeric character or symbol.
-        
+   ![Storage mode authentication step with Google Drive selected](/migration-assets/backing-up-data-to-google-drive/1.png)
+   {/* TODO: verify screenshot matches current product UI */}
 
-> Note: After you’ve encrypted your file, save your passphrase to access your backed-up files later.
+2. Sign in with your Google account.
+3. Click **Next**.
 
--   Click **Save.**![](/migration-assets/backing-up-data-to-google-drive/2.png)
+## Manage backup preferences
 
-## Selecting data modules for backup
+1. **Set the file location.** Paste or browse to the Google Drive folder where you want your backup files stored.
+2. **Choose a ZIP file size.** Select **4 GB**, **8 GB**, **16 GB**, or **24 GB**. Kissflow automatically zips and splits your backup according to the limit you choose — for example, a 24 GB limit applied to a 100 GB backup produces four 24 GB files and one 4 GB file. Files 24 GB or smaller upload unchanged.
+3. **Encrypt the backup file (optional).** Turn on the switch to add a passphrase that encrypts your backup for additional security. Your passphrase must:
+   - Contain at least eight characters.
+   - Contain both upper and lower case letters.
+   - Contain at least one numeric character or symbol.
 
-Kissflow allows for modular data selection for backup, catering to specific organizational requirements. You can choose to backup:
+   <Callout type="warn">
+     Save your passphrase securely. You'll need it to access your backup file later, and Kissflow can't recover it for you.
+   </Callout>
 
--   **User and group data**: Includes all account user and group data.
-    
--   **Transactional data**: Encompasses all flow item details such as status, comments, and assignees.
-    
--   **Audit log data**: Contains last year's audit logs at both flow and account levels.
-    
--   **Attachments**: Covers all attachments within flows like processes, boards, datasets, and apps
-    
-    ![](/migration-assets/backing-up-data-to-google-cloud-service-gcs/2.png)Select one or more data categories by clicking the checkboxes and clicking **Next**. A backup confirmation popup will appear. Verify the configuration details and click **Start backup**.
+4. Click **Next**.
 
-However, if you save the configuration and exit the window, you can restart the backup process again. You can also edit the configuration, delete it, or view the backup history from this page.
+   ![Backup preferences step showing file location, ZIP size, and encryption options](/migration-assets/backing-up-data-to-google-drive/2.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+## Select data categories to back up
+
+Choose one or more categories to include in your backup:
+
+- **User and group data** — all account user and group data.
+- **Transactional data** — flow item details such as status, comments, and members involved.
+- **Audit log data** — the last year of audit logs at both the flow and account levels.
+- **Attachments** — attachments in flows such as processes, boards, and more.
+
+![Data category selection step with checkboxes for user and group data, transactional data, audit logs, and attachments](/migration-assets/backing-up-data-to-google-cloud-service-gcs/2.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Review and start the backup
+
+1. Select your data categories and click **Next**. A backup confirmation popup opens, summarizing your storage mode, file location, uploaded file size, and selected data categories.
+2. Verify the details and click **Start backup**.
+
+<Callout type="warn">
+  You can only back up your data once every six months, and a backup can't be canceled once it starts. Review your configuration carefully before clicking **Start backup**.
+</Callout>
+
+If you save your configuration and exit without starting the backup, you can resume it later from the same page. From there, you can also edit or delete a configuration, or view your backup history.
+
+## What's next
+
+- [Data backup overview](/docs/admin/data-backup/data-backup-overview)
+- [Understanding your backup output](/docs/admin/data-backup/understanding-your-backup-output)
+- [Compliance and backup history](/docs/admin/data-backup/compliance-and-backup-history)
+- [Backing up data to Amazon S3](/docs/admin/data-backup/backing-up-data-to-amazon-s3)
+- [Backing up data to Google Cloud Storage (GCS)](/docs/admin/data-backup/backing-up-data-to-google-cloud-service-gcs)
+- [Backing up data to Kissflow](/docs/admin/data-backup/backing-up-data-to-kissflow)

@@ -1,94 +1,131 @@
 ---
 title: "Process settings"
-description: "DRAFT (unverified) — migrated from /t/m1h9qt5/process-settings"
+description: "Configure form titles, submission locking, notifications, public forms, sequence numbers, and multilingual support for a process."
 contentType: guide
 persona: admin
 section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - processes
+  - settings
+  - sequence-numbers
+  - admin
 ---
 
-Kissflow plans:
+# Process settings
 
-✓ Basic ✓ Enterprise
+<PlanBadge plans={["basic", "enterprise"]} />
 
-When you create a process, you become the Process Admin. Here's more about what a Process Admin can do in a process.
+When you create a process, you become its Process Admin. Process settings let you control how the process behaves — from the form title and submission locking to notifications, public forms, sequence numbers, and multilingual support.
 
-To configure or change the process settings, click the **Manage** button > **Settings.**
+To open process settings, click the **Manage** button on the process, then **Settings**.
 
 ## General settings
 
-On the **General** tab, you can configure form titles, lock submission, and share quick links.
+The **General** tab covers the form title, submission locking, and the process's quick link.
 
-### Configuring form titles
+### Configure the form title
 
-The form title is the unique name given to each item as it goes through the process workflow. To configure form titles, click the **Add button (+)** and arrange default system fields or form fields in the order that you want, and then click **Save**. Based on this format, titles are auto generated and are displayed on top of each process form.
+The form title is the name given to each item as it moves through the process workflow.
+
+1. On the **General** tab, click the **Add** button (**+**).
+2. Choose the system fields or form fields you want, and arrange them in the order you want the title to read.
+3. Click **Save**.
+
+Based on this format, titles are generated automatically and shown at the top of each process form.
 
 ![](/migration-assets/process-settings/1.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-### Lock submission
+### Lock submissions
 
-When you are working on the process or making significant changes, you may want to stop members of the process from starting new items. To lock submissions, select the **Do not allow new submission**s checkbox, and click **Save**.
+When you're making significant changes to a process, you may want to stop members from starting new items while you work.
 
-After enabling this, members will not be able to initiate new items and nothing will show in the feed. However, items in progress will continue to follow the workflow. Items in draft cannot be submitted until this option is removed.
+1. On the **General** tab, check the **Lock submissions** checkbox.
+2. Click **Save**.
+
+<Callout type="info">
+  Locking submissions restricts members from creating and submitting new items. Items already in progress continue through the workflow as normal.
+</Callout>
 
 ![](/migration-assets/process-settings/2.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-### Quick Link
+### Share the quick link
 
-Share this link with members of your process so they can immediately start a new item if they are logged in. If they are not logged in, they will be directed to the login page first.
+Share the process's quick link with members so they can start a new item directly. Logged-in members go straight to the form; anyone not logged in is directed to the login page first.
 
 ![](/migration-assets/process-settings/3.png)
+{/* TODO: verify screenshot matches current product UI */}
 
 ## Notification settings
 
-On the **Notification settings** tab, you can enable and disable, preview, and customize the templates of long and short notifications sent to users for the different events triggered in your process.
+On the **Notification settings** tab, enable or disable notifications, preview them, and customize the templates for the long and short notifications sent to users for the different events in your process.
 
-Learn more about [customizing email and notification templates](/t/g9y68h6/process-notifications).
+Learn more about [process notifications](/docs/build/processes/process-notifications).
 
 ## Public form settings
 
-On the **Public form settings** tab, you can [enable and disable public form](/t/35h9qtk/public-forms) for a process.
+On the **Public form settings** tab, you can enable or disable the public form for a process.
 
-To enable, turn on the **Public form URL**. Then, copy the URL and share it with anyone outside the organization.
-
-To disable, turn off the **Public form URL,** and it will be disabled. Once the public form is disabled, the external users will not be able to initiate new items. However, items in progress will continue to follow the workflow.
-
-Learn more about [configuring a public form](/t/35h9qtk/public-forms).
+- To enable it, turn on **Public form URL**, then copy the URL and share it with anyone outside your organization.
+- To disable it, turn off **Public form URL**. External users will no longer be able to start new items from the public form, though items already in progress continue through the workflow.
 
 ![](/migration-assets/process-settings/4.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Learn more about [configuring a public form](/docs/build/processes/public-forms).
 
 ## Sequence numbers
 
-On the **Sequence numbers** tab, you’ll see all the configured sequence numbers for this process. 
+The **Sequence numbers** tab lists every configured sequence number prefix for this process.
 
--   **Total sequence number** displays the active prefixes for your sequence number field.
--   The **Prefix** shows the prefix you configured in the form. If you use a dynamic field such as Department, it will show you the different numbers generated for different departments. 
--   **Current number** displays the number of current requests for each prefix. 
+- **Total sequence number** — the count of active prefixes for your sequence number field.
+- **Prefix** — the prefix configured in the form. A dynamic field, such as Department, produces a different sequence for each value it generates.
+- **Current number** — the current value for each prefix.
 
 ![](/migration-assets/process-settings/5.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-To reset a prefix, click **Reset** on that particular prefix row. Then enter the number and click **Reset**. When a new request is raised in that department, the sequence number will start from that number.
+Each prefix row has two actions, and there are two more that apply to all prefixes at once:
 
-### Reset a particular sequence number
-
-To delete a prefix, click **Reset** on that particular prefix row. This will erase the ongoing sequence number. When a new item is initiated in that department, by default the sequence number will start from 1.
-
-### Reset all sequence numbers
-
-You can also choose to reset and delete all the active prefixes by clicking on **Reset all**. You’ll be asked for the number to reset with. When a new item is initiated, the sequence number will start with the entered number.
+- **Reset** — enter a number for that prefix. The prefix's current value is set to the number you enter, so the *next* item raised for that prefix gets that number **plus one**.
+- **Remove** — deletes that prefix entirely. The next item raised for it starts a fresh sequence from 1.
+- **Reset all** — enter a number to apply to every active prefix at once, the same way **Reset** does for a single prefix. This does not delete any prefixes.
+- **Remove all** — deletes every active prefix for the field. The next item for each one starts a fresh sequence from 1.
 
 ![](/migration-assets/process-settings/6.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="warn">
+  Reset and Remove are separate actions. Reset only changes the current value of an existing prefix — use Remove (or Remove all) if you want to delete a prefix so it starts over from 1.
+</Callout>
 
 ## Multilingual settings
 
-Multilingual settings allow [Kissflow Process admins/developers](/t/p8h9qtp/managing-process-members-and-permissions) and [Board admins](/t/m1h9qls/managing-members-and-roles-boards) to customize and present their workflow forms in various languages by incorporating manually translated form labels.For instance, if you've designed a form in English but wish to cater to Chinese speakers, follow the steps below. Once set up, the form will adjust to Chinese for users who've chosen Chinese in their profile settings, ensuring a seamless experience for both English and Chinese speakers.
+Multilingual settings let process and board admins present workflow forms in multiple languages by translating form labels, either manually or with AI translation.
 
-1.  Select the language.
-2.  Download the form labels.
-3.  Manually translate the labels.
-4.  Import the labels back into the form.
+For example, if you've built a form in English but want to support Chinese speakers:
 
-> **Note:**
-> 
-> This feature is available for the standalone Kissflow Processes and Boards. Only [languages available at the platform level](/t/60h9qzy/languages-supported-by-kissflow) will be supported within forms.
+1. Select the language.
+2. Download the form labels.
+3. Manually translate the labels, or use AI translation.
+4. Import the translated labels back into the form.
 
-Learn about [adding multiple languages](/t/83hvnzt/multilingual-settings) in detail.
+Once set up, the form automatically switches to Chinese for users who've selected Chinese in their profile settings, while English speakers continue to see the English version.
+
+<Callout type="info">
+  Multilingual settings are also available for Boards and for apps built on the Kissflow Apps builder, not only standalone Processes. Only [languages supported at the platform level](/docs/whats-new/important-notices/languages-supported-by-kissflow) can be used within forms.
+</Callout>
+
+Learn more about [multilingual settings in forms](/docs/build/forms/multilingual-settings-in-forms).
+
+## What's next
+
+- [Admin actions in a process](/docs/admin/processes/admin-actions-in-a-process)
+- [Managing process members and permissions](/docs/admin/processes/managing-process-members-and-permissions)
+- [Configuring a public form](/docs/build/processes/public-forms)
+- [Multilingual settings in forms](/docs/build/forms/multilingual-settings-in-forms)
