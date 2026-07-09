@@ -1,54 +1,103 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AIChat from '@/components/ai-chat';
 import { MessageCircle, X } from 'lucide-react';
 
 function AskAIBadge() {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-2 text-[#111722] shadow-[0_10px_25px_rgba(0,0,0,0.28)]">
-      <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-[0.8rem] bg-[#121826] text-white">
+    <span className="inline-flex items-center gap-2 rounded-full border border-fd-border bg-fd-background/95 px-3 py-2 text-fd-foreground shadow-[0_10px_25px_rgba(0,0,0,0.22)] backdrop-blur">
+      <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-[0.8rem] bg-[#121826] text-white shadow-[0_8px_18px_rgba(0,0,0,0.35)]">
         <MessageCircle className="h-4 w-4" />
         <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-[#ff7a86] animate-pulse" />
       </span>
-      <span className="text-sm font-semibold tracking-tight text-[#111722]">Ask AI ✨</span>
+      <span className="text-sm font-semibold tracking-tight">Ask AI ✨</span>
     </span>
   );
 }
 
 export default function AIChatLauncher() {
   const [open, setOpen] = useState(false);
+  const [showNudge, setShowNudge] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const dismissed = window.localStorage.getItem('kissflow-ask-ai-nudge-dismissed');
+    if (!dismissed) setShowNudge(true);
+  }, []);
+
+  function dismissNudge() {
+    setShowNudge(false);
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem('kissflow-ask-ai-nudge-dismissed', '1');
+    }
+  }
+
+  function openAssistant() {
+    setOpen(true);
+    dismissNudge();
+  }
 
   return (
     <>
       {open ? (
-        <div className="fixed bottom-36 right-4 z-50 h-[76vh] w-[min(440px,calc(100vw-1.5rem))] max-h-[820px] rounded-[2rem] border border-white/10 bg-gradient-to-b from-[#111722] via-[#0e1420] to-[#0b111a] p-3 shadow-[0_28px_80px_rgba(0,0,0,0.65)]">
-          <div className="mb-2 flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.02] px-3 py-2">
-            <div>
-              <h2 className="text-base font-semibold text-white">Kissflow AI Assistant</h2>
-              <div className="text-xs text-fd-muted-foreground">The team can also help</div>
+        <div className="fixed bottom-24 left-3 right-3 z-50 h-[min(78vh,820px)] overflow-hidden rounded-[2rem] border border-fd-border bg-fd-background/95 shadow-[0_28px_80px_rgba(0,0,0,0.35)] backdrop-blur sm:bottom-24 sm:left-auto sm:right-5 sm:w-[440px]">
+          <div className="flex h-full min-h-0 flex-col p-3">
+            <div className="mb-2 flex items-center justify-between rounded-2xl border border-fd-border bg-fd-card px-3 py-2">
+              <div>
+                <h2 className="text-base font-semibold text-fd-foreground">Kissflow AI Assistant</h2>
+              </div>
+              <button
+                type="button"
+                aria-label="Close assistant"
+                onClick={() => setOpen(false)}
+                className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-fd-border text-fd-muted-foreground transition-colors hover:bg-fd-muted hover:text-fd-foreground"
+              >
+                <X className="h-4 w-4" />
+              </button>
             </div>
-            <button
-              type="button"
-              aria-label="Close assistant"
-              onClick={() => setOpen(false)}
-              className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/15 text-white/80"
-            >
-              <X className="h-4 w-4" />
-            </button>
+            <div className="min-h-0 flex-1">
+              <AIChat />
+            </div>
           </div>
-          <AIChat />
         </div>
       ) : null}
 
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        className="fixed bottom-20 right-5 z-40 transition-transform hover:-translate-y-0.5"
-        aria-label="Open Ask AI assistant"
-      >
-        <AskAIBadge />
-      </button>
+      {!open ? (
+        <div className="fixed bottom-5 right-4 z-40 flex flex-col items-end gap-2 sm:bottom-6 sm:right-5">
+          {showNudge ? (
+            <div className="relative w-[min(88vw,360px)] rounded-2xl border border-fd-border bg-fd-card/95 p-3 pr-10 text-fd-foreground shadow-[0_18px_45px_rgba(0,0,0,0.25)] backdrop-blur">
+              <button
+                type="button"
+                aria-label="Dismiss Ask AI tip"
+                onClick={dismissNudge}
+                className="absolute right-2 top-2 inline-flex h-7 w-7 items-center justify-center rounded-full text-fd-muted-foreground transition-colors hover:bg-fd-muted hover:text-fd-foreground"
+              >
+                <X className="h-4 w-4" />
+              </button>
+              <button
+                type="button"
+                onClick={openAssistant}
+                className="text-left"
+              >
+                <p className="text-sm font-semibold">Need help finding the right doc?</p>
+                <p className="mt-1 text-sm text-fd-muted-foreground">
+                  Ask AI for feature guides, APIs, and frontend/backend route context.
+                </p>
+              </button>
+            </div>
+          ) : null}
+
+          <button
+            type="button"
+            onClick={openAssistant}
+            className="transition-transform hover:-translate-y-0.5"
+            aria-label="Open Ask AI assistant"
+          >
+            <AskAIBadge />
+          </button>
+        </div>
+      ) : null}
     </>
   );
 }

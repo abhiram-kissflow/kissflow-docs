@@ -12,6 +12,7 @@ import {
 import {
   Command,
   ImagePlus,
+  Loader2,
   Mic,
   Paperclip,
   SendHorizontal,
@@ -24,10 +25,10 @@ import { Suggestion, Suggestions } from '@/components/ai-elements/suggestion';
 import { cn } from '@/lib/cn';
 
 const STARTER_SUGGESTIONS = [
-  'How do decision tables connect app and process routes?',
-  'Show watchlist-related frontend and backend routes.',
-  'Find process submit/create API routes.',
-  'Which backend routes are related to app components?',
+  'Show how decision tables map to app and process routes.',
+  'Find watchlist-related frontend and backend routes.',
+  'List backend APIs for process submit/create actions.',
+  'Map app components to the related backend routes.',
 ];
 
 const EMOJI_SET = ['🙂', '✅', '🚀', '🎯', '🛠️', '📎'];
@@ -243,9 +244,12 @@ export default function AIChat() {
 
   return (
     <div className="flex h-full min-h-0 flex-col text-fd-foreground">
-      <div className="mb-2 flex items-center justify-between">
-        <div className="text-xs text-fd-muted-foreground">Grounded in docs + frontend graph + backend graph.</div>
-        {busy ? (
+      {busy ? (
+        <div className="mb-2 flex items-center justify-between gap-2">
+          <div className="inline-flex items-center gap-1.5 text-xs text-fd-muted-foreground">
+            <Loader2 className="h-3.5 w-3.5 animate-spin text-[#CF2C91]" />
+            Thinking through docs and graph context...
+          </div>
           <button
             type="button"
             onClick={() => stop()}
@@ -254,24 +258,23 @@ export default function AIChat() {
             <Square className="h-3 w-3" />
             Stop
           </button>
-        ) : null}
-      </div>
+        </div>
+      ) : null}
 
-      <div className="min-h-0 flex-1 overflow-y-auto rounded-[1.5rem] border border-fd-border bg-gradient-to-b from-[#0f1219] via-[#0d1017] to-[#0a0d14]">
+      <div className="min-h-0 flex-1 overflow-y-auto rounded-[1.5rem] border border-fd-border bg-fd-card">
         <Conversation className="h-full">
           <ConversationContent className="gap-3 p-4">
             {messages.length === 0 ? (
               <Message from="assistant">
                 <MessageContent
                   from="assistant"
-                  className="max-w-[94%] rounded-3xl border border-white/5 bg-white/10 px-4 py-3"
+                  className="max-w-[94%] rounded-3xl border border-fd-border bg-fd-muted px-4 py-3"
                 >
                   <MessageResponse className="space-y-2">
                     <div className="text-xl font-semibold leading-none">Hi there</div>
-                    <div className="text-base text-white/90">
-                      You are now speaking with Kissflow AI Assistant. How can I help?
+                    <div className="text-base text-fd-foreground">
+                      Ask me about Kissflow docs, frontend graph, or backend graph, and I will guide you step by step.
                     </div>
-                    <div className="text-xs text-fd-muted-foreground">AI Agent • grounded just now</div>
                   </MessageResponse>
                 </MessageContent>
               </Message>
@@ -288,8 +291,8 @@ export default function AIChat() {
                     className={cn(
                       'rounded-3xl border px-3 py-2',
                       message.role === 'user'
-                        ? 'border-[#CF2C91]/30 bg-[#CF2C91]/12'
-                        : 'border-white/10 bg-white/10',
+                        ? 'border-[#CF2C91]/30 bg-[#CF2C91]/10'
+                        : 'border-fd-border bg-fd-muted',
                     )}
                   >
                     <MessageResponse className="space-y-2">
@@ -304,7 +307,7 @@ export default function AIChat() {
                                 href={file.url}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="rounded-xl border border-white/10 bg-black/20 p-2 text-xs hover:bg-black/30"
+                                className="rounded-xl border border-fd-border bg-fd-background p-2 text-xs hover:bg-fd-muted"
                               >
                                 {isImage ? (
                                   <img
@@ -335,10 +338,24 @@ export default function AIChat() {
                     onClick={(text) => {
                       void submitMessage(text);
                     }}
-                    className="rounded-full border border-white/10 bg-white/5 text-white/90 hover:bg-white/10"
+                    className="rounded-full border border-fd-border bg-fd-background text-fd-foreground hover:bg-fd-muted"
                   />
                 ))}
               </Suggestions>
+            ) : null}
+
+            {busy ? (
+              <Message from="assistant">
+                <MessageContent
+                  from="assistant"
+                  className="rounded-3xl border border-fd-border bg-fd-muted px-3 py-2"
+                >
+                  <MessageResponse className="inline-flex items-center gap-2 text-sm text-fd-muted-foreground">
+                    <Loader2 className="h-4 w-4 animate-spin text-[#CF2C91]" />
+                    Generating a grounded response...
+                  </MessageResponse>
+                </MessageContent>
+              </Message>
             ) : null}
           </ConversationContent>
         </Conversation>
@@ -414,7 +431,7 @@ export default function AIChat() {
       ) : null}
 
       <form
-        className="mt-3 rounded-[1.6rem] border border-white/25 bg-[#0a0e16] p-3"
+        className="mt-3 rounded-[1.6rem] border border-fd-border bg-fd-card p-3"
         onSubmit={async (event) => {
           event.preventDefault();
           await submitMessage();
@@ -424,7 +441,7 @@ export default function AIChat() {
           value={input}
           onChange={(event) => setInput(event.target.value)}
           placeholder="Ask a question..."
-          className="min-h-[68px] w-full resize-none bg-transparent px-1 text-base outline-none placeholder:text-white/50"
+          className="min-h-[68px] w-full resize-none bg-transparent px-1 text-base outline-none placeholder:text-fd-muted-foreground"
           rows={2}
           disabled={busy}
         />
@@ -434,7 +451,7 @@ export default function AIChat() {
             <button
               type="button"
               onClick={() => fileInputRef.current?.click()}
-              className="rounded-full p-2 text-white/70 hover:bg-white/10 hover:text-white"
+              className="rounded-full p-2 text-fd-muted-foreground hover:bg-fd-muted hover:text-fd-foreground"
               aria-label="Attach file"
             >
               <Paperclip className="h-4 w-4" />
@@ -455,7 +472,7 @@ export default function AIChat() {
             <button
               type="button"
               onClick={() => setShowEmojiMenu((value) => !value)}
-              className="rounded-full p-2 text-white/70 hover:bg-white/10 hover:text-white"
+              className="rounded-full p-2 text-fd-muted-foreground hover:bg-fd-muted hover:text-fd-foreground"
               aria-label="Insert emoji"
             >
               <Smile className="h-4 w-4" />
@@ -464,7 +481,7 @@ export default function AIChat() {
             <button
               type="button"
               onClick={() => setInput('/')}
-              className="rounded-full p-2 text-white/70 hover:bg-white/10 hover:text-white"
+              className="rounded-full p-2 text-fd-muted-foreground hover:bg-fd-muted hover:text-fd-foreground"
               aria-label="Slash commands"
             >
               <Command className="h-4 w-4" />
@@ -473,7 +490,7 @@ export default function AIChat() {
             <button
               type="button"
               onClick={() => setShowGifInput((value) => !value)}
-              className="rounded-full p-2 text-white/70 hover:bg-white/10 hover:text-white"
+              className="rounded-full p-2 text-fd-muted-foreground hover:bg-fd-muted hover:text-fd-foreground"
               aria-label="Add GIF"
             >
               <ImagePlus className="h-4 w-4" />
@@ -484,7 +501,7 @@ export default function AIChat() {
               onClick={toggleVoice}
               disabled={!voiceSupported || busy}
               className={cn(
-                'rounded-full p-2 text-white/70 hover:bg-white/10 hover:text-white disabled:opacity-50',
+                'rounded-full p-2 text-fd-muted-foreground hover:bg-fd-muted hover:text-fd-foreground disabled:opacity-50',
                 listening ? 'bg-[#CF2C91]/20 text-[#CF2C91]' : '',
               )}
               aria-label="Voice input"
@@ -514,10 +531,10 @@ export default function AIChat() {
           <button
             type="submit"
             disabled={busy || (input.trim().length === 0 && pendingFiles.length === 0 && linkedFiles.length === 0)}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-white/25 disabled:opacity-50"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#CF2C91] text-white transition hover:bg-[#b92682] disabled:bg-fd-muted disabled:text-fd-muted-foreground"
             aria-label="Send message"
           >
-            <SendHorizontal className="h-5 w-5" />
+            {busy ? <Loader2 className="h-5 w-5 animate-spin" /> : <SendHorizontal className="h-5 w-5" />}
           </button>
         </div>
       </form>
