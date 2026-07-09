@@ -1,42 +1,61 @@
 ---
-title: "Ensuring smooth access to Kissflow [Troubleshooting tip]"
-description: "DRAFT (unverified) — migrated from /t/m1h9qz3/ensuring-smooth-access-to-kissflow-troubleshooting-tip"
+title: "Ensuring smooth access to Kissflow"
+description: "Fix blocked or intermittent access to Kissflow by whitelisting the required domains in your firewall and ruling out ISP-level blocks."
 contentType: troubleshooting
 persona: shared
 section: reference
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - access
+  - firewall
+  - networking
 ---
 
-If you are unable to access Kissflow, you might want to ensure that you have whitelisted the Kissflow domains and that your Internet Service Provider (ISP) isn't blocking the Amazon or Google servers.
+# Ensuring smooth access to Kissflow
 
-## Whitelisting domains
+If you can't reach Kissflow, or parts of the product fail to load, the most common causes are a corporate firewall blocking required domains, or an ISP blocking the underlying Amazon or Google infrastructure Kissflow runs on.
 
-Whitelist the following domains in your organization’s firewall:
+## Symptom: Kissflow won't load, or loads partially
 
--   [https://\*.kissflow.com](https://helpdocs.kissflow.com/faqs/troubleshooting-access-to-kissflow)
-    -   The asterisk symbol(\*) lets you whitelist any subdomain that belongs to your primary domain. However, if you haven't whitelisted Kissflow in the above-mentioned format, you have to specify the exact domain name along with its subdomain like "https://stark-corporation.kissflow.com/"
-    -   Likewise, remember to whitelist [https://static-cdn1.kissflow.com](https://helpdocs.kissflow.com/faqs/troubleshooting-access-to-kissflow), [https://static-cdn2.kissflow.com](https://static-cdn2.kissflow.com)(US users) and [https://static-cdn1.kissflow.eu](https://helpdocs.kissflow.com/faqs/troubleshooting-access-to-kissflow) (EU users)
--   [https://o300529.ingest.sentry.io](https://o300529.ingest.sentry.io)
--   [https://fonts.gstatic.com](https://fonts.gstatic.com)
--   [https://fonts.googleapis.com](https://fonts.googleapis.com)
--   [https://maps.googleapis.com](https://maps.googleapis.com)
--   [https://www.googleapis.com](https://www.googleapis.com/)
--   [https://app.posthog.com](https://app.posthog.com)
--   [https://cdn.louassist.com](https://cdn.louassist.com)
--   [https://viewer.louassist.com](https://viewer.louassist.com)
--   [https://widget.intercom.io](https://widget.intercom.io)
--   [https://run.louassist.com](https://run.louassist.com)
--   [https://api.louassist.com](https://api.louassist.com)
--   [https://js.intercomcdn.com](https://js.intercomcdn.com)
--   [https://api-iam.intercom.io](https://api-iam.intercom.io)
--   wss://nexus-websocket-a.intercom.io
--   wss://\*.firebaseio.com
--   [https://unpkg.com](https://unpkg.com/)
--   [https://www.recaptcha.net](https://www.recaptcha.net/)
--   https://\*.storage.googleapis.com
--   [https://appstore.us.kissflow.store](https://appstore.us.kissflow.store)
--   [https://resource.us.kissflow.store](https://resource.us.kissflow.store)
--   [https://www.gstatic.com](https://www.gstatic.com)
+Pages fail to load, styling or icons are missing, or features like chat support, file picker, or maps don't work — while other websites work fine.
 
-## Checking ISP
+**Cause:** Your organization's firewall is blocking one or more domains that Kissflow depends on.
 
-Verify that your Internet Service Provider (ISP) is not blocking Amazon or Google servers. If Amazon or Google servers are blocked, then you need to access Kissflow through a Virtual Private Network (VPN).
+**Fix:** Ask your IT team to whitelist the following domains.
+
+### Core application
+
+- `https://*.kissflow.com` — the asterisk (`*`) whitelists any subdomain of `kissflow.com`, which covers your account's own subdomain (for example, `https://yourcompany.kissflow.com`). If your firewall doesn't support wildcard entries, whitelist your exact account subdomain instead.
+- `https://static-cdn1.kissflow.com` — static assets.
+
+<Callout type="info">
+  Some accounts are served additional static-asset domains depending on your data region (for example, a second CDN host for US accounts, or a `kissflow.eu` variant for EU accounts). If assets still fail to load after whitelisting the domains above, check with your Kissflow contact for the exact CDN domain for your account's region.
+</Callout>
+
+### Supporting services
+
+| Domain | Used for |
+| --- | --- |
+| `https://o300529.ingest.sentry.io` | Error reporting |
+| `https://widget.intercom.io` | In-app chat support |
+| `https://js.intercomcdn.com`, `https://api-iam.intercom.io`, `wss://nexus-websocket-a.intercom.io` | In-app chat support (Intercom-hosted resources) |
+| `wss://*.firebaseio.com` | Real-time updates |
+| `https://fonts.gstatic.com`, `https://fonts.googleapis.com` | Fonts |
+| `https://maps.googleapis.com` | Map fields |
+| `https://www.googleapis.com` | Google Drive file picker |
+| `https://unpkg.com` | Custom low-code components |
+| `https://www.recaptcha.net` | Bot protection on forms |
+| `https://*.storage.googleapis.com` | File and image storage |
+| `https://us.i.posthog.com` | Product analytics |
+
+<Callout type="info">
+  If you previously whitelisted `https://app.posthog.com` for product analytics, update it to `https://us.i.posthog.com` — Kissflow now sends this traffic through PostHog's regional ingestion host.
+</Callout>
+
+If your account uses the Kissflow App Store, also check with your IT team whether `appstore.us.kissflow.store` and `resource.us.kissflow.store` need to be whitelisted separately, since these can be served from a different environment than your main account domain.
+
+## Symptom: Kissflow is unreachable even with domains whitelisted
+
+**Cause:** Your ISP may be blocking the underlying Amazon or Google cloud infrastructure that Kissflow's servers run on, rather than blocking Kissflow's domains directly.
+
+**Fix:** Try accessing Kissflow over a VPN. If Kissflow loads normally through the VPN, ask your ISP to unblock Amazon and Google server ranges, or continue using a VPN as a workaround.

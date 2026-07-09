@@ -1,154 +1,30 @@
 ---
 title: "Enhancing stability with static IP reservations"
-description: "DRAFT (unverified) — migrated from /t/h7yynvd/enhancing-stability-with-static-ip-reservations"
+description: "On January 7, 2024, Kissflow moved outbound integration traffic from dynamic to reserved static IPs, so safelisted firewall rules no longer need to change over time."
 contentType: reference
 persona: shared
 section: whats-new
+tags:
+  - network
+  - integrations
+  - security
+  - notice
 ---
 
-## Introduction
+Kissflow sends outbound calls — including integration calls to external applications — through [Google Cloud NAT](https://cloud.google.com/nat/docs/overview). Before January 7, 2024, these calls used dynamic public IPs that could change over time, which meant customers who safelisted Kissflow IPs in their firewalls occasionally had to update their rules.
 
-[Google Cloud NAT](https://cloud.google.com/nat/docs/overview) (Network Address Translation) is a service provided by Google Cloud Platform (GCP) that enables specific resources to establish outbound connections to the internet or other Virtual Private Cloud (VPC) networks.  
-  
-Currently, Kissflow uses dynamic public IPs managed by Google Cloud NAT for all outbound calls, including integration calls to connect external applications. To enhance stability and streamline operations, we are transitioning to static public IPs.
+## What changed
 
-### What is changing
+On **January 7, 2024**, Kissflow switched Cloud NAT to manual IP allocation, giving outbound traffic a fixed set of reserved static IPs. Firewall rules that safelist these IPs no longer need to be updated as Kissflow's underlying infrastructure changes.
 
-After **07 January 2024**, Kissflow will use manual IP allocation strategy in Google Cloud NAT service, allowing users to use reserved static IPs that remain constant over time. This will eliminate the need for frequent updates to firewall rules with new Kissflow public IPs. 
+## Who was affected
 
-### Who will it affect
+This change only affected customers who had safelisted Kissflow IPs in their firewall to allow Kissflow's integration calls into their network. Customers without that configuration were not affected.
 
-This change will affect users who have **configured their firewalls by safelisting Kissflow IPs** to allow Kissflow’s integration calls to applications in their network. Users who haven’t implemented this configuration will not be affected. 
+Affected customers needed to safelist the new static IPs alongside the existing ones before the cutover, then remove the old IPs afterward. The current, authoritative list of IPs to safelist is maintained in [Safelisting IPs for external data connections](/docs/build/external-data/safelisting-ips-for-external-data-connections) — use that page for your region's IPs rather than any list from this notice.
 
-### What you need to do for uninterrupted services
+## Change window
 
-1.  Safelist the new Kissflow public IPs (see below) along with the current public IPs **before 07 January 2024**.
-    
-2.  After **07 January 2024**, remove the old IPs (see below) from your safelisted IP list, as they will not be associated with Kissflow's public IP.
-    
+The Cloud NAT migration was implemented on Sunday, January 7, 2024, during a period of minimal traffic. Integrations that were actively triggering during the cutover could have seen a disruption of less than one minute.
 
-Kissflow’s outbound integration calls to applications in your network will be allowed only if you safelist the new IPs listed below. Failure to do so will result in the **disruption of those integration calls**.
-
-### Old and new IPs
-
-**Old IPs**
-
-**New IPs**
-
-35.226.147.36
-
-35.222.151.216
-
-34.70.211.170
-
-35.184.11.171
-
-34.136.109.156
-
-34.41.86.150
-
-104.155.136.67
-
-34.30.199.65
-
-35.232.194.10
-
-34.41.69.169
-
-34.42.147.216
-
-35.232.190.255
-
-35.202.16.203
-
-34.123.136.177
-
-34.107.16.48
-
-34.66.21.198
-
-35.246.189.18
-
-34.159.62.126
-
- 
-
-34.159.85.137
-
- 
-
-35.198.112.83
-
- 
-
-35.246.174.111
-
- 
-
-34.141.48.133
-
- 
-
-35.246.245.12
-
- 
-
-35.242.234.6
-
- 
-
-35.242.252.3
-
- 
-
-34.93.209.125
-
- 
-
-34.93.214.206
-
- 
-
-34.100.221.217
-
- 
-
-34.100.189.219
-
- 
-
-34.93.240.230
-
- 
-
-35.200.224.207
-
- 
-
-34.100.167.208
-
- 
-
-35.244.33.104
-
- 
-
-34.40.158.113
-
- 
-
-35.189.11.118
-
- 
-
-34.40.145.67
-
- 
-
-34.40.169.170
-
-### Effects during change implementation
-
-We’ll implement these Cloud NAT changes on **07 January 2024 (Sunday)** during a period of minimal traffic to minimize any potential disruption. During the implementation, there may be a brief impact lasting less than one minute while triggering integrations.
-
-We appreciate your understanding and support during this transition. If you have any questions or concerns, please reach out to us in the comments or our support team.
+If you still see integration failures you believe are related to IP safelisting, contact Kissflow support.

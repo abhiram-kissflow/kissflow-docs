@@ -1,55 +1,84 @@
 ---
-title: "Managing boards in PWA"
-description: "DRAFT (unverified) — migrated from /t/g9h9qz4/managing-boards-in-pwa"
-contentType: tutorial
-persona: shared
+title: "Managing boards in the PWA"
+description: "Create, browse, and act on board items from the My tasks and My items dashboard widgets in the Kissflow PWA."
+contentType: guide
+persona: end-user
 section: get-started
+lastVerifiedAgainst: "kf-xg-frontend@92fd3889d43"
+tags:
+  - boards
+  - mobile
+  - pwa
+  - tasks
 ---
 
-Manage your [boards](/t/q6h9ql3x1h4gb/board-overview) from anywhere using the [mobile version](/category/guides) of Kissflow. The dashboard of the mobile app contains the following widgets:
+# Managing boards in the PWA
 
--   **My tasks** - lists all tasks that are assigned to you
--   **My items** - lists all items or tasks that are created by you
+Manage your [boards](/docs/build/boards/boards-overview) from anywhere using the Kissflow Progressive Web App (PWA). The **Home** dashboard has two widgets for working with board items:
 
-![](/migration-assets/managing-boards-in-pwa/1.png)
+- **My tasks** — lists items assigned to you.
+- **My items** — lists items you created.
 
-## Creating new task
+![Home dashboard with the My tasks and My items widgets](/migration-assets/managing-boards-in-pwa/1.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-In the dashboard, tap on the **New item** (![](/migration-assets/managing-boards-in-pwa/2.png))  button next to a board to quickly create a new task. In the board form, specify details such as the assignee, due by date, status, priority, and any other information. Tap **Submit** when you are done entering the details.
+## Create an item
 
-![](/migration-assets/managing-boards-in-pwa/5.gif)
+1. On the dashboard, tap the **New item** (![New item icon](/migration-assets/managing-boards-in-pwa/2.png)) button next to a board.
+2. In the form that opens, fill in the details — assignee, due date, status, priority, and any other fields your board captures.
+3. Tap **Submit**.
 
- Alternatively, you can tap **Explore** and tap on the **New item** (![](/migration-assets/managing-boards-in-pwa/2.png))  button beside a board.
+<Callout type="info">
+  You can also get to a board's new-item form by tapping **Explore**, opening the board, and tapping the **New item** button there.
+</Callout>
 
-## Managing your tasks
+![Creating a new item from the dashboard](/migration-assets/managing-boards-in-pwa/5.gif)
+{/* TODO: verify screenshot matches current product UI */}
 
-Tap **Explore** > Tap on a board to review all the tasks in a board. Inside a board, tap on the tabs below to easily switch between the most frequently used cases:
+## Browse items in a board
 
--   **All** - The default tab where all your board tasks are displayed.
--   **Assigned to me** - All the tasks that are assigned to you for action.
+1. Tap **Explore**.
+2. Tap a board to see its items.
+3. Switch between tabs to filter the view:
+   - **All** — every item in the board. This is the default tab.
+   - **Assigned to me** — items assigned to you for action.
 
-> **Note:**  
-> If you are an [initiator](/t/m1h9qlsx1h4gb/managing-members-and-roles-boards) in the board, only the **Initiated by me** tab is displayed.
+<Callout type="info">
+  If you're an [initiator](/docs/build/boards/managing-board-roles-and-permissions) in the board, you also get an **Initiated by me** tab alongside **All**, pinned by default.
+</Callout>
 
-Tap the **Sort** button (![](/migration-assets/managing-boards-in-pwa/3.png)) to sort the tasks that are displayed in a tab.
+4. Tap the **Sort** button (![Sort icon](/migration-assets/managing-boards-in-pwa/3.png)) to sort the items shown in a tab.
 
-![](/migration-assets/managing-boards-in-pwa/6.gif)
+![Sorting items in a board tab](/migration-assets/managing-boards-in-pwa/6.gif)
+{/* TODO: verify screenshot matches current product UI */}
 
-In the task form, tap on the **More** **options** button (![](/migration-assets/managing-boards-in-pwa/4.png)), and then tap on one of the options: 
+## Manage an item
 
--   **Copy link** lets you copy the direct URL for the task, which you can easily share with others.
--   [Watch](/t/h7h9qlk/watching-an-item-in-a-board) a task that is not assigned to you and keep track of its progress.
--   Clone a task
--   Delete a task
+1. Open an item from the board.
+2. Tap the **More options** button (![More options icon](/migration-assets/managing-boards-in-pwa/4.png)).
+3. Choose an action:
+   - **Copy link** — copies a direct URL for the item that you can share with others.
+   - **Watch** — [watch](/docs/use/items/collaborating) an item that isn't assigned to you to keep track of its progress.
+   - **Clone** — creates a duplicate of the item.
+   - **Delete** — removes the item.
 
-![](/migration-assets/managing-boards-in-pwa/8.gif)
+![More options menu on an item showing Copy link, Watch, Clone, and Delete](/migration-assets/managing-boards-in-pwa/8.gif)
+{/* TODO: verify screenshot matches current product UI */}
 
-### My tasks and My items
+## Track items from My tasks and My items
 
-On the home screen, tap on the **My tasks** widget to view the list of tasks that are assigned to you. Tap on any task to open the board task. Any changes that you make to the fields are auto-saved.
+1. On the dashboard, tap the **My tasks** widget to see items assigned to you, or the **My items** widget to review the progress of items you created.
+2. Tap an item to open it. Any changes you make to its fields are auto-saved.
 
-You can also add [notes](/t/35h9qll/notes-status-logs-and-activity-logs-in-boards#notes) to others who are collaborating on tasks. Notes support @mentions, emojis, attachments, and various formatting options.
+You can also add [notes](/docs/use/boards/notes-status-logs-and-activity-logs-in-boards) to collaborate with others on the item. Notes support @mentions, emojis, attachments, and other formatting options.
 
-![](/migration-assets/managing-boards-in-pwa/7.gif)
+![Opening an item from My tasks and adding a note](/migration-assets/managing-boards-in-pwa/7.gif)
+{/* TODO: verify screenshot matches current product UI */}
 
-Use the **My items** widget to view the list of tasks that you have created. **My items** let you quickly review the progress of your tasks.
+## What's next
+
+- [Creating and managing items](/docs/use/items/creating-items)
+- [Watching an item in a board](/docs/use/items/collaborating)
+- [Managing processes in the PWA](/docs/use/mobile/managing-processes-in-pwa)
+- [Android devices](/docs/use/mobile/android-devices)
+- [iOS devices](/docs/use/mobile/ios-devices)

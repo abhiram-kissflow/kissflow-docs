@@ -1,100 +1,139 @@
 ---
 title: "My items"
-description: "DRAFT (unverified) — migrated from /t/x2h9qzv/my-items"
-contentType: tutorial
+description: "Find every item assigned to you or created by you across processes, boards, and apps in one place, and handle admin actions like reassignments and approvals."
+contentType: guide
 persona: shared
 section: get-started
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - my-items
+  - admin-actions
+  - approvals
+  - items
 ---
 
-The **My items** page allows you to conveniently access all items you have created or been assigned to you for approval. This page will enable you to handle all of your items in one place without browsing the relevant process, board, app, etc.
+# My items
 
-Items are usually classified as **Assigned to me** and **Created by me**. You can find a list of all the items assigned to you across all processes, boards, and apps under the **Assigned to me** **tab**. Similarly, under the **Created by me tab**, you can find all of the items you've created across all processes, boards, and apps. Assume you are an [Account Admin](/t/35h4ak036h4gg/user-roles-permissions) or a flow approver. In that case, a new tab named **Admin actions** will appear, under which you will see specific admin actions such as **Item reassignment**, **Flow approvals**, **Admin assignment**, and **Join requests** that require your attention.
+**My items** brings together every item you've created or that's waiting on you for approval, across all your processes, boards, and apps — so you don't have to open each flow individually to check on your work.
 
-## Finding items assigned to me  
- 
+Items are grouped under two tabs:
 
-You can find items assigned to you from multiple processes, boards, and apps using the navigation panel on this page. Items are sorted and listed based on how recently they were assigned to you. The most recently assigned items appear at the top. Click any item to open the associated process or board form. After making any changes, you can close the item to return to the **Assigned to me** page. You can also dive into specific items by applying filters based on the due date.
+- **Assigned to me** — items from any process, board, or app that need your attention.
+- **Created by me** — items you've submitted or created, wherever they live.
 
-![](/migration-assets/my-items/1.png)
+If you're an [Account Admin](/docs/admin/users/user-roles-and-permissions) or a flow approver, you'll also see an **Admin actions** tab with pending **Item reassignment**, **Flow approvals**, **Admin assignment**, and **Join request** actions that need your attention.
 
-To list items based on their due dates, use one of the following criteria in the **Due by** field:
+## Finding items assigned to me
 
--   **All** - It lists all of the items assigned to you at any time.
--   **Today** - It lists all of the assigned items due that day.
--   **Tomorrow** - It lists all of the assigned items that are due the following day.
--   **This week** - It lists all of the assigned items that are due that week.
--   **Overdue** - It lists all of the assigned items that have passed their due dates.
+The **Assigned to me** tab lists items from every process, board, and app you have pending work on. Use the navigation panel to move between flows, or apply the **Due by** filter to narrow the list.
+
+![My items page showing items assigned to the user](/migration-assets/my-items/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Click any item to open its process or board form. Closing the item returns you to the **Assigned to me** list.
+
+Filter the list using the **Due by** field:
+
+- **All** — every item assigned to you, regardless of due date.
+- **Today** — items due today.
+- **Tomorrow** — items due the following day.
+- **This week** — items due sometime this week.
+- **Overdue** — items whose due date has passed.
 
 ## Finding items created by me
 
-All process, board, and app titles are listed in the left navigation panel of this page. The items are sorted and listed based on how recently you edited them. The most recently created items are displayed at the top. You can open the related process or board form by clicking on any specific item. 
+The **Created by me** tab lists every item you've created, across processes, boards, and apps, in the left navigation panel. Click an item to open its process or board form.
 
-You can also filter the items created by you based on the following statuses:
+![My items page showing items created by the user](/migration-assets/my-items/2.png)
+{/* TODO: verify screenshot matches current product UI */}
 
-**In progress** - Items created by you in the In progress status will be listed here for all processes and boards.
+Filter created items by status:
 
-**Not started** - Items created by you in the Draft status across processes, as well as all items in the Not started and Reopened statuses across various boards, will be listed here.
+- **In progress** — items in the **In progress** status, for both processes and boards.
+- **Not started** — items in the **Draft** status on processes, and items in the **Not started** or **Reopened** status on boards.
+- **Completed** — items in the **Completed**, **Withdrawn**, or **Rejected** status on processes, and items in the **Done** or **Closed** status on boards, from the last 90 days.
 
-**Completed** - Items created by you in the Completed, Withdrawn, and Rejected statuses across processes, as well as all items in the Done and Closed statuses across different boards, will be listed here for the last 90 days.
+<Callout type="info">
+  Only items completed in the last 90 days appear when you filter by **Completed**.
+</Callout>
 
-![](/migration-assets/my-items/2.png)
+Depending on the status filter you choose, you can further narrow the list using the **Created** or **Completed** date field:
 
-Based on the status of your items, you will additionally have custom filters to choose from. Use one of the filters in the **Created** or **Completed** field to list items based on when they were created or completed:
-
--   **All** - It lists all of the items you create at any time.
--   **Today** - It lists all of the items you created or completed on the same day
--   **Yesterday** - It lists all the items you created or completed on the previous day.
--   **This week** - It lists all of the items you created or completed during the current week.
--   **Past 7 days** - It lists all of the items you created or completed during the past seven days.
--   **Past 14 days** - It lists all of the items you created or completed during the past 14 days.
--   **Past 30 days** - It lists all of the items you created or completed during the past 30 days.
--   **This month** - It lists all of the items you created or completed during the current month.
--   **Custom date range** - Select custom date range to see the items you created or completed inside a given date range.
-
-> **Note:**  Only items completed within the last 90 days will be listed in the completed field.
+- **All** — items created or completed at any time.
+- **Today** — items created or completed today.
+- **Yesterday** — items created or completed the previous day.
+- **Past week** — items created or completed in the last 7 days.
+- **Past 14 days** — items created or completed in the last 14 days.
+- **This month** — items created or completed during the current calendar month.
+- **Past 30 days** — items created or completed in the last 30 days.
+- **Custom date range** — items created or completed within a date range you specify.
 
 ## Admin actions
 
-**Admin actions** are only visible when actions require the attention of Account Admins or flow approvers. If your account has several Account Admins or flow approvers, they will all see the same actions listed under their respective **Admin actions** page. When an Account Admin completes a specific action, it is automatically removed from the action list of other Account Admins.
+The **Admin actions** tab appears only when there's something pending that needs an Account Admin's or flow approver's attention. If your account has several Account Admins or flow approvers, they all see the same pending actions — once one admin completes an action, it disappears from everyone else's list.
 
-![](/migration-assets/my-items/3.png)
+![My items page showing the Admin actions tab](/migration-assets/my-items/3.png)
+{/* TODO: verify screenshot matches current product UI */}
 
- When you open **Admin actions**, you will find **Item reassignment**, **Flow approvals**, **Admin assignment**, and **Join requests** listed as navigation menus on this page.
+Under **Admin actions**, you'll find four sections: **Item reassignment**, **Flow approvals**, **Admin assignment**, and **Join requests**.
 
-## Item reassignment
+### Item reassignment
 
-Items that were previously assigned to deactivated or deleted users usually remain incomplete, with no one to act on them. These items are listed under the **Item reassignment** tab. Account Admins or Flow admins can reassign these pending items to active users in the account to complete them. The Flow Admin can assign individual items to specific users one at a time. The items belonging to the user that were recently deactivated or deleted are ranked first. 
+Items assigned to a user who's since been deactivated or deleted are left with no one to act on them. These items show up under **Item reassignment**, where an Account Admin or Flow Admin can hand them off to an active user.
 
-### To reassign items,
+To reassign an item:
 
-1.  Click **My items** > **Admin actions** > **Item reassignment**.
-    
-2.  Select the process from the item reassignment list and click **Reassign**. A popup window opens up where the respective process and the item’s current step are shown. Select an active user from your Kissflow account and add notes before you click the **Reassign** button. The item is now assigned to the new user and moved out of the Item reassignment list.  
-     
-    
-    ![](/migration-assets/my-items/6.gif)
-    
+1. Click **My items** > **Admin actions** > **Item reassignment**.
+2. Select an item from the list and click **Reassign**.
+3. In the dialog that opens, review the item's process and current step, select an active user to reassign it to, add a note if needed, and click **Reassign**.
 
-## Flow approvals
+   ![Reassigning an item from the Item reassignment tab](/migration-assets/my-items/6.gif)
+   {/* TODO: verify screenshot matches current product UI */}
 
-All users in Kissflow can create processes, boards, and datasets by default. However, if you’ve selected **Anyone after the approval of** as your approval criterion under [Flow settings](/t/h7h4akl36h4gg/flow-settings), you’ll need to specify flow approvers. When new flow requests show up in your account, they’re listed here for all the specified Flow admins. Approvers can either **Approve** or **Deny** flow creation requests.   
- 
+The item moves to the new user and drops off the **Item reassignment** list. Reassignment happens one item at a time.
 
-![](/migration-assets/my-items/4.gif)
+### Flow approvals
 
-## Admin assignment
+By default, anyone in your account can create processes, boards, and datasets. If your account's [flow settings](/docs/admin/account-settings/flow-settings) require approval before a new flow can be created, requests from users land under **Flow approvals** for the specified approvers.
 
-Every process and board inside Kissflow must have at least one admin. If a certain admin gets deactivated or deleted from the account, that process or board loses its admin. You can then assign one or more admins to such processes and boards. 
+![Flow approvals tab showing a pending flow creation request](/migration-assets/my-items/4.gif)
+{/* TODO: verify screenshot matches current product UI */}
 
-### To assign an admin: 
+Approvers can **Approve** or **Deny** each request from here.
 
-1.  Click **My items** > **Admin actions** > **Admin assignment**.
-    
-2.  Select the process or board to which you want to assign an admin and then click Assign admin. Select a user from your Kissflow account and click **Assign** to make that user the admin.    
-     ![](/migration-assets/my-items/7.gif) 
+### Admin assignment
 
-## Join requests
+Every process and board needs at least one admin. If a flow's only admin is deactivated or deleted, the flow is left without one — **Admin assignment** lists these flows so you can assign a replacement.
 
-If you [allow new signups](/t/83h4akg36h4gg/account-security#manage-how-users-sign-up) under sign up preferences, users outside your Kissflow account can request to join your account using the unique join URL link. Once a new join request is received, Account Admins will be able to view this under **Global My items** > **Admin actions** > **Join requests**. You can either approve or deny these join requests from here. If the Account Admin approves an external user's join request, the user is added to and is made active in the Kissflow account. If no user licenses are available in your account, an error will be thrown when you try to activate that user, and they will still remain in a requested state. 
+To assign an admin:
 
-![](/migration-assets/my-items/5.png)
+1. Click **My items** > **Admin actions** > **Admin assignment**.
+2. Select the process or board that needs an admin and click **Assign admin**.
+3. Select a user and click **Assign** to make them the admin.
+
+   ![Assigning an admin to a process from the Admin assignment tab](/migration-assets/my-items/7.gif)
+   {/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="info">
+  If a flow needs more than one admin, repeat this action for each additional admin — the dialog assigns one user at a time.
+</Callout>
+
+### Join requests
+
+If your account [allows new signups](/docs/admin/security/account-security#manage-sign-up-preferences), people outside your account can request to join using your account's unique join URL. These requests show up under **Join requests** for Account Admins to **Approve** or **Deny**.
+
+![Join requests tab showing a pending signup request](/migration-assets/my-items/5.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Approving a request activates the user in your account.
+
+<Callout type="warn">
+  If your account has no user licenses available, activating the user fails and they stay in a requested state until a license frees up.
+</Callout>
+
+## What's next
+
+- [User roles and permissions](/docs/admin/users/user-roles-and-permissions)
+- [Flow settings](/docs/admin/account-settings/flow-settings)
+- [Account security](/docs/admin/security/account-security)
+- [Watching a process item](/docs/use/tasks/watching-a-process-item)

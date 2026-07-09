@@ -1,57 +1,62 @@
 ---
 title: "Boards FAQs"
-description: "DRAFT (unverified) — migrated from /t/y4h9qlh/boards-faqs"
+description: "Answers to common questions about using Kissflow Boards — statuses, forms, views, priority, and item history."
 contentType: reference
 persona: shared
 section: reference
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - boards
+  - faq
+  - items
 ---
 
 ![](/migration-assets/boards-faqs/1.svg)
 
-**Can I handle multiple use cases, such as issue tracking, help desk, and service requests using Kissflow Board?**
+### Can I handle multiple use cases, such as issue tracking, help desk, and service requests, using Kissflow Board?
 
-Absolutely. Kissflow Board helps you build workflows to manage use cases such as project management, issue tracking, bug tracking, help desks, service requests, ticketing systems, and more - all on a single platform.
+Yes. Kissflow Board is built to support a wide range of workflows on a single platform — project management, issue tracking, bug tracking, help desks, service requests, ticketing systems, and more.
 
-**There are a few boards that I frequently use. How can I quickly access them without having to go to the Explore page?**
+### There are a few boards I use frequently. How can I access them quickly without going to the Explore page?
 
-You can pin these boards to the left navigation. On the board, click the icon next to the board's name. After pinning a board, you can quickly access them from the left navigation.
+Pin them to the left navigation. On the board, click the icon next to the board's name to pin it. Pinned boards then appear in the left navigation for quick access.
 
-**I’d like to add custom statuses to my board. Is that possible?** 
+### I'd like to add custom statuses to my board. Is that possible?
 
-Of course! Add any number of [custom statuses](/t/60h9ql7/configuring-board-settings#configuring-statuses) that are relevant to your workflow in **Settings**.
+Yes. You can add any number of [custom statuses](/docs/build/boards/configuring-statuses) relevant to your workflow from **Settings**.
 
-**What happens when I rename a custom status?**
+### What happens when I rename a custom status?
 
-When you rename a custom status, the new name is applied across the board. Items that are currently assigned to this status will show the new name.
+The new name is applied across the board immediately. Items currently assigned to that status show the new name — there's nothing to update on the items themselves.
 
-**I no longer need one of the statuses in my workflow. Can I delete it?** 
+### I no longer need one of the statuses in my workflow. Can I delete it?
 
-You can delete custom statuses you created from inside the **Edit workflow** menu. You can also delete all the items under that status or move them to other statuses before deleting them.
+Yes. Delete custom statuses you created from inside the **Edit workflow** menu. If items are still assigned to a status you delete, you're prompted to confirm deleting those items along with the status — there's no option to move them to another status first, so reassign any items you want to keep before deleting the status.
 
-**Can I customize the board form? If so, how?**
+### Can I customize the board form? If so, how?
 
-Sure. You can [customize the form](/t/h7h9qlx/configuring-a-board-form) so that it captures information that is relevant to your workflow. The form editor is very easy to use. Drag and drop fields or add new sections and tables according to your workflow’s requirements.
+Yes. [Customize the form](/docs/build/boards/configuring-a-board-form) to capture information relevant to your workflow. Drag and drop fields, or add new sections and tables, using the form editor.
 
-**I no longer want priority for the items in my board, as this field is not applicable to my use case. What do I do?** 
+### I no longer want priority for the items in my board, since this field doesn't apply to my use case. What do I do?
 
-If you don’t want to use priority for your board, you can always [turn it off](/t/60h9ql7/configuring-board-settings#priority) in settings. You can do this even if priority was used earlier to create items or other features such as filters and views.
+[Turn off priority](/docs/build/boards/configuring-your-board-settings) in settings. You can do this even if priority was already used to create items or set up other features such as filters and views.
 
-**Can I create custom filters to track certain items frequently?**
+### Can I create custom filters to track certain items frequently?
 
-Sure. Use **Views** inside the board to create all kinds of customized views of your data. All views can be saved for future reuse. They will appear in the **Views** dropdown and can also be pinned as tabs.
+Yes — use [Views](/docs/build/boards/creating-and-using-board-views) inside the board to create customized views of your data. Saved views appear in the **Views** dropdown, and you can also pin them as tabs for quick access.
 
-**I can see that items can be retrieved using different options such as ‘created by me’ and ‘requested by me'. Aren’t these the same?**
+### I see items can be retrieved using different options such as "Created by me" and "Requested by me." Aren't these the same?
 
-Not quite. The view **Created by me** lists all the items you have created in the board. Whereas the view **Requested** **by me**, lists items that you have requested but may not have necessarily created. For example, if you are using a board as a help desk, you would often ‘create’ requests that were ‘requested’ by a customer. 
+No, they show different data. **Created by me** lists items you created in the board. **Requested by me** lists items you created on someone else's behalf — for example, if you use a board as a help desk, you often "create" requests that a customer "requested."
 
-**I want to find out the time spent on each status in an item. How can I do that?** 
+### I want to find out the time spent on each status for an item. How can I do that?
 
-We’ve introduced a tab named Transitions inside the board form. All the status changes for an item are captured here. More importantly, you can view the amount of time an item has spent in a status.
+Open the item, click the **Item log** tab in the right navigation strip, and select the **Status log** subtab. It captures every status change for the item along with the time spent in each status. See [Collaborating on items](/docs/use/items/collaborating) for more.
 
-**Where can I find a history of actions performed on an item?**
+### Where can I find a history of actions performed on an item?
 
-The [Activity](/t/35h9qll/note-transitions-and-activity-boards#activity) tab inside the board form. Open this tab to view a history of all important actions performed for it, such as changes made to values in system fields.
+Open the item, click the **Item log** tab in the right navigation strip, and select the **Activity log** subtab. It lists key actions performed on the item — such as changes to system fields, with the value before and after each change — plus when the item was created, closed, or cloned. See [Collaborating on items](/docs/use/items/collaborating) for the full list of what's tracked.
 
-**How do I determine the resolution time of a item?** 
+### How do I determine the resolution time of an item?
 
-This is possible for any item that is in the **Resolved** or **Closed** status. Open any resolved or closed item, and you can view the resolution time under the **Requester** field on the right panel.
+Resolution time is tracked as a system field for items in the **Resolved** or **Closed** status, and is available as a column in views and reports on the board.
