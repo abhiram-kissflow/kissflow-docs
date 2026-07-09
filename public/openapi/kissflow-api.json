@@ -7,18 +7,17 @@
   },
   "servers": [
     {
-      "url": "http://{{baseurl}}"
-    },
-    {
-      "url": "https://subdomain.kissflow.com"
+      "url": "https://{subdomain}.kissflow.com",
+      "variables": {
+        "subdomain": {
+          "default": "subdomain",
+          "description": "Your Kissflow account subdomain."
+        }
+      }
     }
   ],
   "components": {
     "securitySchemes": {
-      "noauthAuth": {
-        "type": "http",
-        "scheme": "noauth"
-      },
       "accessKeyId": {
         "type": "apiKey",
         "in": "header",
