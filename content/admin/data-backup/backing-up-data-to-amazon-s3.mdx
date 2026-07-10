@@ -69,7 +69,7 @@ Setting up a backup involves three steps: authenticating your storage destinatio
 
 ## Manage backup preferences
 
-1. **Set the file location.** Paste the S3 bucket URI where you want your backup files stored.
+1. **Set the file location.** Paste the S3 bucket URI where you want your backup files stored, in the form `s3://your-bucket-name`. You can copy this from the bucket's details page in the AWS console.
 2. **Choose a ZIP file size.** Select **4 GB**, **8 GB**, **16 GB**, or **24 GB**. Kissflow automatically zips and splits your backup according to the limit you choose — for example, a 24 GB limit applied to a 100 GB backup produces four 24 GB files and one 4 GB file. Files 24 GB or smaller upload unchanged.
 3. **Encrypt the backup file (optional).** Turn on the switch to add a passphrase that encrypts your backup for additional security. Your passphrase must:
    - Contain at least eight characters.

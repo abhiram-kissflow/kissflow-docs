@@ -31,7 +31,7 @@ Flow Admins can control how their process, board, dataset, or dataform shares da
 
 ## Global permissions
 
-Global permissions are the default access rule that applies to every flow in your account. Today, **Lookup** is the only artifact with a true global toggle — an **All flows** setting that's turned on by default, so any flow in your account can look up this flow's data unless you turn it off or override it for a specific flow.
+Global permissions are the default access rule that applies to every flow in your account. Today, **Lookup** is the only permission with a true global toggle — an **All flows** setting that's turned on by default, so any flow in your account can look up this flow's data unless you turn it off or override it for a specific flow.
 
 <Callout type="info">
   Integration access doesn't have a global setting. It must be granted to each flow individually — see [Customized permissions](#customized-permissions) below.
@@ -54,8 +54,10 @@ Customized permissions let you grant or restrict access for one specific flow, o
 
 ### Set up a customized permission
 
-1. On the **Security** page, add the flow you want to configure under **Customized permissions**.
-2. Choose the permissions to grant — for **Lookup**, select **All fields** to expose every field, or **Select fields** to expose only specific ones.
+1. On the **Security** page, under **Customized permissions**, click **Add flow** and select the flow you want to configure.
+2. Choose the permissions to grant:
+   - **Lookup** — select **All fields** to expose every field, or **Select fields** to expose only specific ones.
+   - **Integration access** — turn this on to let the flow be used as a data source or trigger in another flow's integration steps. This is the only place to grant Integration access, since there's no global setting for it.
 3. Save your changes.
 
 When you add a flow this way, it starts out carrying over the current global settings, which you can then override.

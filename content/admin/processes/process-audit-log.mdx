@@ -29,11 +29,12 @@ The audit log stores the history of all activity related to a process, and lets 
 
 1. Open the process and click the **Manage** button.
 2. Click **Audit log**.
+3. Go to **Flow-level logs** to see changes to the process itself (settings, publishing, permissions), or **Item-level logs** to see changes to individual items within it.
 
 ![Process manage menu with the Audit log option](/migration-assets/process-audit-log/1.png)
 {/* TODO: verify screenshot matches current product UI */}
 
-Each entry in the log shows the following columns:
+The sorting, filtering, and export instructions below apply to both views. Each entry shows the following columns:
 
 - **Audit ID** — a unique ID the system generates automatically for every recorded event.
 - **Time** — when the action happened.
@@ -71,7 +72,7 @@ You can filter audit log events on the following fields:
 - **Audit period** — choose **Last 7 days**, **Last 30 days**, **Last 90 days**, or a **Custom date range**.
 
   <Callout type="info">
-    **Last 30 days** may not be available on every account — it depends on whether extended log retention is enabled.
+    **Last 30 days** may not be available on every account. If you don't see it, [contact Kissflow support](/docs/whats-new/important-notices/slas-and-support-models#how-to-reach-support) to check whether extended log retention can be enabled for your account.
   </Callout>
 
 - **Object** — select one or more objects from the suggestions, or enter the exact object name.
@@ -94,7 +95,7 @@ Each applied filter shows a control to clear it, and you can click **Clear all**
 You can export up to 90 days of the audit log at a time.
 
 1. Open the process and click **Manage** > **Audit log**.
-2. Go to **Flow-level logs** or **Item-level logs**, depending on which log you want to export.
+2. Go to **Flow-level logs** or **Item-level logs**, depending on which log you want to export — see [Open the audit log](#open-the-audit-log) above for what each view covers.
 3. Click the **Export** button and confirm the export.
 
 <Callout type="info">

@@ -28,19 +28,23 @@ As a [Super Admin](/docs/admin/users/user-roles-and-permissions#super-admin), yo
 
 You can cancel a backup only while it's still in the queue, before processing starts. Once a backup is in progress, cancellation is no longer available.
 
+1. Sign in to Kissflow.
+2. Click your profile picture at the top right of the page, then click **Account administration** > **Data backup**.
+3. While the backup shows as queued, click **Cancel** next to it.
+
 ## Edit your backup configuration
 
 While a backup is queued or in progress, its configuration is read-only — you can view it, but not change it. Once the backup completes, the configuration becomes editable again.
 
 1. Sign in to Kissflow.
 2. Click your profile picture at the top right of the page, then click **Account administration** > **Data backup**.
-3. Click the **More options** button (![More options icon](/migration-assets/compliance-and-backup-history/1.png)) beside **Backup now**, then click **Edit configuration**.
+3. Click the **More options** button (![More options icon](/migration-assets/compliance-and-backup-history/1.png)) beside **Backup now**, then click **Edit configuration** to change your backup settings, or **Delete configuration** to remove them entirely and stop future backups until you set up a new configuration.
 
 ![Data backup page with the More options menu open, showing Edit configuration, Backup history, and Delete configuration](/migration-assets/compliance-and-backup-history/4.png)
 {/* TODO: verify screenshot matches current product UI */}
 
 <Callout type="warn">
-  Editing your configuration resets your encryption passphrase. Save your previous passphrase somewhere safe before you edit — you'll still need it to open backup files created before the change, and it won't work on any backup you run afterward.
+  Editing your configuration resets your encryption passphrase — the one you [set when you first configured your backup destination](/docs/admin/data-backup/backing-up-data-to-kissflow#manage-backup-settings). Save your previous passphrase somewhere safe before you edit — you'll still need it to open backup files created before the change, and it won't work on any backup you run afterward.
 </Callout>
 
 ## Track backup progress

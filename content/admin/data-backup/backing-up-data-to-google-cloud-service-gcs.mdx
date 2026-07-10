@@ -45,10 +45,10 @@ You'll also need a [service account key](https://cloud.google.com/iam/docs/keys-
 2. Click your profile picture at the top right of the page, then click **Account administration** > **Data backup**.
 3. Click **Start configuration** on the **Data backup** page.
 
-   ![Data backup page with the Start configuration button](/migration-assets/backing-up-data-to-amazon-s3/1.png)
+   ![Data backup page with the Start configuration button](/migration-assets/backing-up-data-to-google-cloud-service-gcs/3.png)
    {/* TODO: verify screenshot matches current product UI */}
 
-Configuration involves three steps: authenticating a storage mode, managing backup settings, and selecting data categories.
+Configuration involves four steps: authenticating a storage mode, managing backup settings, selecting data categories, and reviewing your configuration before you start the backup.
 
 ## Authenticate your GCS account
 
@@ -65,7 +65,7 @@ Configuration involves three steps: authenticating a storage mode, managing back
 
 ## Manage backup settings
 
-1. **Bucket URI.** Paste the GCS bucket URI where your backup files should be stored.
+1. **Bucket URI.** Paste the GCS bucket URI where your backup files should be stored, in the form `gs://your-bucket-name`. You can copy this from the bucket's details page in Google Cloud Console.
 2. **Select ZIP file size.** Choose **4 GB**, **8 GB**, **16 GB**, or **24 GB**. Files in your account are automatically zipped and split according to your chosen limit.
 
    For example, a 24 GB limit applied to a 100 GB export produces four 24 GB files and one 4 GB file. Files 24 GB or smaller upload unchanged.
@@ -79,7 +79,7 @@ Configuration involves three steps: authenticating a storage mode, managing back
      Save your passphrase somewhere secure. You'll need it to decrypt and access your backed-up files later, and it can't be recovered if lost.
    </Callout>
 
-4. Click **Save**.
+4. Click **Save** to continue to the next step, where you select your data categories.
 
    ![Backup preferences with bucket URI, ZIP file size, and encryption options](/migration-assets/backing-up-data-to-google-cloud-service-gcs/4.png)
    {/* TODO: verify screenshot matches current product UI */}
