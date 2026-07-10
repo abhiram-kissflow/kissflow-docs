@@ -22,6 +22,7 @@ import {
 import { Conversation, ConversationContent } from '@/components/ai-elements/conversation';
 import { Message, MessageContent, MessageResponse } from '@/components/ai-elements/message';
 import { Suggestion, Suggestions } from '@/components/ai-elements/suggestion';
+import ReactMarkdown from 'react-markdown';
 import { cn } from '@/lib/cn';
 
 const STARTER_SUGGESTIONS = [
@@ -91,6 +92,22 @@ function isValidHttpUrl(value: string): boolean {
   } catch {
     return false;
   }
+}
+
+function MarkdownMessage({ text }: { text: string }) {
+  // react-markdown v9+ removed the `className` prop, so the styling lives on a
+  // wrapping div; the descendant selectors ([&_a], [&_p], …) apply the same.
+  return (
+    <div className="break-words text-fd-foreground [&_a]:font-medium [&_a]:text-[#CF2C91] [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#b92682] [&_code]:rounded [&_code]:bg-fd-background [&_code]:px-1 [&_code]:py-0.5 [&_ol]:mb-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_p]:mb-2 [&_p:last-child]:mb-0 [&_ul]:mb-2 [&_ul]:list-disc [&_ul]:pl-5">
+      <ReactMarkdown
+        components={{
+          a: (props) => <a {...props} target="_blank" rel="noreferrer" />,
+        }}
+      >
+        {text}
+      </ReactMarkdown>
+    </div>
+  );
 }
 
 export default function AIChat() {
@@ -296,7 +313,13 @@ export default function AIChat() {
                     )}
                   >
                     <MessageResponse className="space-y-2">
-                      {text ? <div className="whitespace-pre-wrap">{text}</div> : null}
+                      {text ? (
+                        message.role === 'assistant' ? (
+                          <MarkdownMessage text={text} />
+                        ) : (
+                          <div className="whitespace-pre-wrap">{text}</div>
+                        )
+                      ) : null}
                       {files.length > 0 ? (
                         <div className="grid gap-2">
                           {files.map((file) => {
