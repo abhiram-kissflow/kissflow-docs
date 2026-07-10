@@ -1,0 +1,15 @@
+{
+  "model": "PLACEHOLDER-synthetic-dim3",
+  "dim": 3,
+  "_note": "PLACEHOLDER synthetic vectors, NOT real embeddings. Regenerate with `npx tsx scripts/build-fixture-embeddings.ts` once OPENAI_API_KEY is available; that produces text-embedding-3-small vectors at dim 1536.",
+  "vectors": {
+    "get-started-welcome": [0.95, 0.1, 0.05],
+    "get-started-signing-in": [0.8, 0.3, 0.1],
+    "get-started-homepage-overview": [0.6, 0.5, 0.2],
+    "get-started-for-users": [0.4, 0.85, 0.1],
+    "get-started-for-builders": [0.3, 0.7, 0.4],
+    "get-started-for-admins": [0.2, 0.4, 0.8],
+    "get-started-for-developers": [0.1, 0.2, 0.95],
+    "develop-api-and-sdk-documentation": [0.05, 0.1, 0.9]
+  }
+}

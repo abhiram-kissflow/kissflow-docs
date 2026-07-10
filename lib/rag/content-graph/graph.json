@@ -1,0 +1,70 @@
+{
+  "nodes": [
+    {
+      "id": "get-started-welcome",
+      "label": "What is Kissflow",
+      "url": "/docs/get-started/welcome",
+      "snippet": "Kissflow is a work platform that lets you build apps, automate workflows, and manage work without writing code. It spans Apps, Processes, Boards, Integrations, an AI Builder, and Analytics.",
+      "community": 0
+    },
+    {
+      "id": "get-started-signing-in",
+      "label": "Signing in to Kissflow",
+      "url": "/docs/get-started/signing-in",
+      "snippet": "How to sign in to your Kissflow account using email, SSO, or the mobile app. You need a Kissflow account (your admin sends an invitation email) and a supported browser.",
+      "community": 0
+    },
+    {
+      "id": "get-started-homepage-overview",
+      "label": "Homepage overview",
+      "url": "/docs/get-started/homepage-overview",
+      "snippet": "Your homepage is the first thing you see after signing in — search, notifications, the Ask AI agent, and a widget dashboard you can make your own.",
+      "community": 0
+    },
+    {
+      "id": "get-started-for-users",
+      "label": "Quickstart for end users",
+      "url": "/docs/get-started/for-users",
+      "snippet": "Learn to submit forms, track items, and approve tasks in Kissflow. You'll navigate to your apps, submit a form, track your items, and approve a task.",
+      "community": 0
+    },
+    {
+      "id": "get-started-for-builders",
+      "label": "Quickstart for builders",
+      "url": "/docs/get-started/for-builders",
+      "snippet": "Build your first app with Kissflow's no-code tools and AI. You'll create a new app, design a page with drag-and-drop, build a form, set up a workflow, and deploy your app.",
+      "community": 0
+    },
+    {
+      "id": "get-started-for-admins",
+      "label": "Quickstart for admins",
+      "url": "/docs/get-started/for-admins",
+      "snippet": "Set up your Kissflow account — add users, configure security, and manage governance. You'll review account settings, add users and groups, configure SSO, set up governance policies, and manage environments.",
+      "community": 0
+    },
+    {
+      "id": "get-started-for-developers",
+      "label": "Quickstart for developers",
+      "url": "/docs/get-started/for-developers",
+      "snippet": "Make your first API call and build a custom component with the Kissflow SDK. You'll generate an API key, make your first REST API call, install the SDK, and build a custom component.",
+      "community": 1
+    },
+    {
+      "id": "develop-api-and-sdk-documentation",
+      "label": "API and SDK documentation",
+      "url": "/docs/develop/overview/api-and-sdk-documentation",
+      "snippet": "Kissflow's API reference and SDK documentation are maintained on the Kissflow developer portal. Use the REST APIs for apps, boards, and processes, and the SDK to build custom components in JavaScript.",
+      "community": 1
+    }
+  ],
+  "edges": [
+    { "source": "get-started-signing-in", "target": "get-started-welcome", "relation": "related" },
+    { "source": "get-started-signing-in", "target": "get-started-homepage-overview", "relation": "related" },
+    { "source": "get-started-homepage-overview", "target": "get-started-for-users", "relation": "related" },
+    { "source": "get-started-welcome", "target": "get-started-for-users", "relation": "related" },
+    { "source": "get-started-welcome", "target": "get-started-for-builders", "relation": "related" },
+    { "source": "get-started-welcome", "target": "get-started-for-admins", "relation": "related" },
+    { "source": "get-started-welcome", "target": "get-started-for-developers", "relation": "related" },
+    { "source": "get-started-for-developers", "target": "develop-api-and-sdk-documentation", "relation": "related" }
+  ]
+}
