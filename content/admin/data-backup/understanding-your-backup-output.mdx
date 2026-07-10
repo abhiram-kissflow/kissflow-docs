@@ -44,7 +44,7 @@ At a glance, here's what each part is for:
 
 A few things to know up front:
 
-- Everything is stored as **JSON files** (plain text), except attachments, which are kept as their **original files** (PNG, PDF, XLSX, and so on).
+- Your records are stored as **JSON files** (plain text), except attachments, which are kept as their **original files** (PNG, PDF, XLSX, and so on). The package also includes a couple of supporting files in other formats: a CSV flow index and a `Readme.txt` — both covered below.
 - Most JSON files are a single **array** of records. The audit logs are the one exception: they use **JSON Lines** (one object per line). We flag this again in the audit section, because it changes how you open those files.
 - The `-0000` suffix is a batch number. Large accounts split their transactional data into several batch folders (`TransactionalData-0000`, `TransactionalData-0001`, and so on). Most flows sit entirely in one batch, but a very large flow's data can spread across more than one. Use the [flow index](#finding-a-flow-the-flow-index) to find a flow's main location; if a flow is large, also check the other batch folders for the same `Flow ID`. User and group data is always a single file with no batch suffix.
 - The backup is a **data export**, not a restorable database. It's meant for reading, archiving, and analysis, not for importing back into Kissflow.
@@ -62,7 +62,7 @@ Because everything is open JSON, you can work with it in whatever tool you prefe
 
 These short walkthroughs show how the IDs tie the files together.
 
-**Who deleted a group?** You spot a group marked deleted in `UserAndGroup.json` (for example, `_id: "Gr5f_Tu24tkp"`, the _Operations Department_ group). Look at the `_modified_by` block on that same entry. It names the actor, for example `_id: "Us4YeHqN_4jb"`. Look that ID up elsewhere in `UserAndGroup.json` to confirm it's _Steve Rogers_, the admin who removed it.
+**Who deleted a group?** You spot a group with `_is_deleted: true` in `UserAndGroup.json` (for example, `_id: "Gr5f_Tu24tkp"`, the _Operations Department_ group). Look at the `_modified_by` block on that same entry. It names the actor, for example `_id: "Us4YeHqN_4jb"`. Look that ID up elsewhere in `UserAndGroup.json` to confirm it's _Steve Rogers_, the admin who removed it.
 
 **Who's behind an audit log entry?** An audit line's `Object` field is formatted `id -- name` (for example, `Us7OHZJLfP2E -- Jane Doe`). Take the ID before the `--`, look it up in `UserAndGroup.json`, and you get the full profile: their status, department, and type.
 
@@ -71,7 +71,7 @@ These short walkthroughs show how the IDs tie the files together.
 ## Things to keep in mind
 
 - This export is for **reading and archiving**, not for importing back into Kissflow.
-- Backup files delivered by email link should be **downloaded within seven days**.
+- If you chose **Email** as your storage mode, your backup arrives as a downloadable link — download it within **seven days**, since the link expires after that and you'd need to run a new backup to get another copy.
 - Field keys may not match app labels, and there is no schema file. When a key is unclear, check the live app.
 - Audit logs cover roughly the **last year** only.
 
@@ -87,7 +87,7 @@ If you have any questions about your backup data, reach out to the support team.
   If you didn't set a passphrase when configuring your backup, your files arrive as plain ZIPs — you can skip this section.
 </Callout>
 
-If you set a passphrase, your files arrive as encrypted ZIP files (`.aes256cbc`), one per module, named like `UsersAndGroups-0000.aes256cbc`. Decrypt each one before you can read it.
+If you set a passphrase, your files arrive as encrypted ZIP files (`.aes256cbc`), one per module, named like `TransactionalData-0000.aes256cbc`. Decrypt each one before you can read it.
 
 1. Install [OpenSSL](https://github.com/openssl/openssl#build-and-install) on your machine, if you don't already have it.
 2. For each encrypted file, run:
@@ -99,7 +99,7 @@ If you set a passphrase, your files arrive as encrypted ZIP files (`.aes256cbc`)
    For example:
 
    ```
-   openssl enc -aes-256-cbc -d -salt -iter 10 -in "UsersAndGroups-0000.aes256cbc" -out "UsersAndGroups-0000.zip" -k "SamplePhrase"
+   openssl enc -aes-256-cbc -d -salt -iter 10 -in "TransactionalData-0000.aes256cbc" -out "TransactionalData-0000.zip" -k "SamplePhrase"
    ```
 
 3. Unzip the resulting `.zip` files to get the folders and JSON described in the rest of this article.
@@ -137,7 +137,7 @@ A single JSON array listing every identity in your account: human users, externa
 | `UserDepartment` | The user's department, where set (for example, `HR`, `Marketing`). |
 | `_created_at` / `_created_by` | When and by whom the record was created. |
 | `_modified_at` / `_modified_by` | Last change details. |
-| `_is_deleted` | `true` if the entry has been removed. Deleted entries are still included for completeness. |
+| `_is_deleted` | `true` if the entry has been removed. Deleted entries are still included for completeness — check this field rather than `Status`, which can carry other values unrelated to deletion. |
 | `Descendants` / `_descendants` | For groups, the members and nested groups. |
 
 <Callout type="idea">

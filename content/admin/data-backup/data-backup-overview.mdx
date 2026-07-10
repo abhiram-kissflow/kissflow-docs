@@ -42,7 +42,7 @@ Configuring a backup involves authenticating your chosen storage destination, se
 - **User and group data** — all account user and group records.
 - **Transactional data** — flow item details such as status, comments, and assignees, across Processes, Boards, Datasets, Forms, and Projects.
 - **Audit log data** — roughly the last year of account- and flow-level audit activity.
-- **Attachments** — files attached to items in processes, boards, datasets, and other apps.
+- **Attachments** — files attached to items in processes, boards, datasets, and other apps. Attachments are packaged alongside their records inside the transactional data folder, not as a separate output — deselecting this category excludes attachment files from that folder while still including the records themselves.
 
 ![Data backup configuration page showing selectable data categories](/migration-assets/data-backup-overview/2.png)
 {/* TODO: verify screenshot matches current product UI */}
