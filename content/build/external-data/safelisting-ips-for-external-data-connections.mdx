@@ -1,79 +1,67 @@
 ---
 title: "Safelisting IPs for external data connections"
-description: "DRAFT (unverified) — migrated from /t/x2yys41/safelisting-ips-for-external-data-connections"
+description: "The current list of Kissflow's outbound static IPs, organized by domain region, for platforms that require IP safelisting before they'll accept a connection."
 contentType: guide
 persona: citizen-developer
 section: build
+planAvailability:
+  basic: false
+  enterprise: true
+tags:
+  - network
+  - security
+  - integrations
+  - ip-safelisting
 ---
 
-Kissflow plans:
+# Safelisting IPs for external data connections
 
-✕ Basic ✓ Enterprise
+<PlanBadge plans={["enterprise"]} />
 
-Safelisting Kissflow IP addresses in your external platforms is a crucial security measure that designates Kissflow systems as trusted entities. At present, Kissflow uses dynamic public IPs managed by Google Cloud NAT for all outbound calls.
+Some external platforms only accept connections from IP addresses you've explicitly trusted. Safelisting Kissflow's outbound IPs in those platforms tells them to treat Kissflow as a trusted source.
 
-[Google Cloud NAT](https://cloud.google.com/nat/docs/overview) (Network Address Translation) is a service provided by Google Cloud Platform (GCP) that enables specific resources to establish outbound connections to the internet or other Virtual Private Cloud (VPC) networks. 
+Kissflow sends outbound calls — including calls to external platforms from your integrations — through [Google Cloud NAT](https://cloud.google.com/nat/docs/overview), using a fixed set of reserved static IPs.
 
-> **Note:**
-> 
-> While not all platforms require safelisting, in cases where it is mandatory, failing to safelist IPs will prevent you from establishing a connection. 
+<Callout type="info">
+  Not every platform requires safelisting. Check the external platform's own documentation first — if it doesn't require it, you can skip this page.
+</Callout>
 
-Begin by verifying whether your platform requires safelisting and add the below IPs based on your region.
+Find your account's domain below and safelist the matching IPs.
 
-### For [kissflow.com](http://kissflow.com) domain customers
+## For kissflow.com domain customers
 
-IPs
+- `35.222.151.216`
+- `35.184.11.171`
+- `34.41.86.150`
+- `34.30.199.65`
+- `34.41.69.169`
+- `35.232.190.255`
+- `34.123.136.177`
+- `34.66.21.198`
+- `34.93.209.125`
+- `34.93.214.206`
+- `34.100.221.217`
+- `34.100.189.219`
+- `34.93.240.230`
+- `35.200.224.207`
+- `34.100.167.208`
+- `35.244.33.104`
 
-35.222.151.216
+## For kissflow.eu domain customers
 
-35.184.11.171
+- `34.159.62.126`
+- `34.159.85.137`
+- `35.198.112.83`
+- `35.246.174.111`
+- `34.141.48.133`
+- `35.246.245.12`
+- `35.242.234.6`
+- `35.242.252.3`
 
-34.41.86.150
+<Callout type="warn">
+  If you've safelisted every IP above and still see connection failures, you may be missing an IP from a since-superseded list — Kissflow's outbound IP set has changed at least once before (see [Enhancing stability with static IP reservations](/docs/whats-new/important-notices/enhancing-stability-with-static-ip-reservations)). [Contact Kissflow support](/docs/whats-new/important-notices/slas-and-support-models#how-to-reach-support) with your account domain to confirm the exact IPs currently in use.
+</Callout>
 
-34.30.199.65
+## What's next
 
-34.41.69.169
-
-35.232.190.255
-
-34.123.136.177
-
-34.66.21.198
-
-34.93.209.125
-
-34.93.214.206
-
-34.100.221.217
-
-34.100.189.219
-
-34.93.240.230
-
-35.200.224.207
-
-34.100.167.208
-
-35.244.33.104
-
-### For [kissflow.eu](http://kissflow.eu) domain customers
-
-IPs
-
-34.159.62.126
-
-34.159.85.137
-
-35.198.112.83
-
-35.246.174.111
-
-34.141.48.133
-
-35.246.245.12
-
-35.242.234.6
-
-35.242.252.3
-
-For [kissflow.eu](http://kissflow.eu) domain customers
+- [Enhancing stability with static IP reservations](/docs/whats-new/important-notices/enhancing-stability-with-static-ip-reservations)
