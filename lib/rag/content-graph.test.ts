@@ -46,3 +46,9 @@ test('constrainSubgraph counts distinct source articles by url', () => {
   const result = constrainSubgraph(['n1'], { maxNodes: 10, maxHops: 2 }, graph);
   assert.equal(result.stats.distinctSourceArticles, 3);
 });
+
+test('constrainSubgraph does not return edges to nodes dropped by maxNodes', () => {
+  const result = constrainSubgraph(['n1'], { maxNodes: 2, maxHops: 5 }, graph);
+  const ids = new Set(result.nodes.map((n) => n.id));
+  assert.ok(result.edges.every((e) => ids.has(e.source) && ids.has(e.target)));
+});

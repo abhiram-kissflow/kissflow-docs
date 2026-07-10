@@ -140,10 +140,15 @@ export function constrainSubgraph(
     }
   }
 
+  const collectedIds = new Set(collectedNodes.map((n) => n.id));
+  const prunedEdges = collectedEdges.filter(
+    (e) => collectedIds.has(e.source) && collectedIds.has(e.target),
+  );
+
   const distinctSourceArticles = new Set(collectedNodes.map((n) => n.url)).size;
   return {
     nodes: collectedNodes,
-    edges: collectedEdges,
+    edges: prunedEdges,
     stats: { maxSeedHopDistance: maxHop, distinctSourceArticles },
   };
 }
