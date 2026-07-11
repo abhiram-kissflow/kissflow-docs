@@ -107,6 +107,11 @@ html > body[data-scroll-locked] {
   --removed-body-scroll-bar-size: 0px !important;
 }
 
+#nd-docs-layout {
+  background-color: var(--color-fd-background);
+  color: var(--color-fd-foreground);
+}
+
 @theme inline {
   --font-heading: var(--font-sans);
   --font-sans: var(--font-sans);
