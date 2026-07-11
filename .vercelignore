@@ -2,10 +2,10 @@
 .codebase-memory
 node_modules
 .next
-out
-coverage
-build
-tests
+/out
+/coverage
+/build
+/tests
 .env.local
 .env*.local
 npm-debug.log*
