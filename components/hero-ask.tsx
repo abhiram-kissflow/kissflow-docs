@@ -164,7 +164,7 @@ export default function HeroAsk() {
           <div>
           <div className="mb-6 text-center">
             <h1 className="text-3xl font-semibold tracking-tight text-fd-foreground sm:text-4xl">
-              Ask the Kissflow docs
+              Ask the Kissflow Documentation
             </h1>
             <p className="mt-2 text-fd-muted-foreground">
               Get a grounded, step-by-step answer with sources — or browse by role below.
