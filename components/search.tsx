@@ -11,22 +11,14 @@ import {
   type SharedProps,
 } from 'fumadocs-ui/components/dialog/search';
 import { useDocsSearch } from 'fumadocs-core/search/client';
-import { create } from '@orama/orama';
 import { useI18n } from 'fumadocs-ui/contexts/i18n';
-
-function initOrama() {
-  return create({
-    schema: { _: 'string' },
-    // https://docs.orama.com/docs/orama-js/supported-languages
-    language: 'english',
-  });
-}
 
 export default function DefaultSearchDialog(props: SharedProps) {
   const { locale } = useI18n(); // (optional) for i18n
+  // 'fetch' matches the dynamic /api/search route (createFromSource).
+  // ponytail: server-query mode; switch to 'static' only if the site goes static-export.
   const { search, setSearch, query } = useDocsSearch({
-    type: 'static',
-    initOrama,
+    type: 'fetch',
     locale,
   });
 
