@@ -21,7 +21,7 @@ const tabs: DocsTab[] = [
 
 export function PersistentDocsTabMenu() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const selected = tabs.find((tab) => !tab.external && pathname.startsWith(tab.href)) ?? tabs[0];
   const SelectedIcon = selected.icon;
 
@@ -37,7 +37,7 @@ export function PersistentDocsTabMenu() {
       </button>
       {open ? (
         <div className="mt-1 flex flex-col gap-1 border-t pt-1">
-          {tabs.map((tab) => {
+          {tabs.filter((tab) => tab.href !== selected.href).map((tab) => {
             const Icon = tab.icon;
             const active = tab.href === selected.href;
             const className = 'flex items-start gap-2 rounded-md p-1.5 transition-colors hover:bg-fd-accent hover:text-fd-accent-foreground';
