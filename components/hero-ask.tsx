@@ -164,14 +164,14 @@ export default function HeroAsk() {
         e.preventDefault();
         void ask(input);
       }}
-      className="flex items-center gap-2 rounded-2xl border border-fd-border bg-fd-card px-4 py-3 shadow-sm focus-within:border-[#CF2C91]/50"
+      className="flex items-center gap-3 rounded-2xl border border-fd-border bg-fd-card px-5 py-5 shadow-sm focus-within:border-[#CF2C91]/50"
     >
       <Sparkle className="h-5 w-5 shrink-0 text-[#CF2C91]" />
       <input
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder={started ? 'Ask a follow-up…' : 'Ask anything about Kissflow…'}
-        className="min-w-0 flex-1 bg-transparent text-base outline-none placeholder:text-fd-muted-foreground"
+        className="min-w-0 flex-1 bg-transparent text-lg outline-none placeholder:text-fd-muted-foreground"
         disabled={loading}
         autoFocus
       />
@@ -197,7 +197,8 @@ export default function HeroAsk() {
               Everything Kissflow, answered
             </h1>
             <p className="mt-2 text-fd-muted-foreground">
-              Ask across every guide, API, and SDK — grounded, with sources. Or browse below.
+              Ask across every guide, API, and SDK — grounded, with sources. Or browse articles
+              in the folders below.
             </p>
           </div>
           {inputBar}
