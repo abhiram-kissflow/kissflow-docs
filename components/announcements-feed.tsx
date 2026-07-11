@@ -47,7 +47,11 @@ const PROSE =
   'announcement-body text-[15px] leading-relaxed text-fd-muted-foreground [&_a]:font-medium [&_a]:text-[#CF2C91] [&_a]:underline [&_h2]:mb-2 [&_h2]:mt-6 [&_h2]:text-base [&_h2]:font-semibold [&_h2]:text-fd-foreground [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-[15px] [&_h3]:font-semibold [&_h3]:text-fd-foreground [&_img]:my-4 [&_img]:h-auto [&_img]:max-w-full [&_img]:rounded-xl [&_img]:border [&_img]:border-fd-border [&_li]:mb-1.5 [&_ol]:mb-4 [&_ol]:list-decimal [&_ol]:pl-5 [&_p]:mb-4 [&_strong]:text-fd-foreground [&_table]:my-4 [&_table]:block [&_table]:w-full [&_table]:overflow-x-auto [&_td]:border [&_td]:border-fd-border [&_td]:px-2.5 [&_td]:py-1.5 [&_th]:border [&_th]:border-fd-border [&_th]:bg-fd-muted [&_th]:px-2.5 [&_th]:py-1.5 [&_ul]:mb-4 [&_ul]:list-disc [&_ul]:pl-5';
 
 function hideBrokenImage(e: React.SyntheticEvent<HTMLImageElement>) {
-  e.currentTarget.style.display = 'none';
+  // Hide the whole framed container, not just the <img>, so a dead source never
+  // leaves an empty bordered box.
+  const frame = e.currentTarget.closest<HTMLElement>('[data-hero]');
+  if (frame) frame.style.display = 'none';
+  else e.currentTarget.style.display = 'none';
 }
 
 function Entry({
@@ -123,6 +127,7 @@ function Entry({
 
           {item.hero && (
             <div
+              data-hero
               className={`relative hidden shrink-0 overflow-hidden rounded-xl border border-fd-border bg-fd-muted sm:block ${
                 featured ? 'w-56 lg:w-72' : 'w-40 lg:w-48'
               }`}
