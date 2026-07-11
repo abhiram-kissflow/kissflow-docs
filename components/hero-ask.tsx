@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { parsePartialJson } from 'ai';
 import { ArrowUp, FileText, Loader2, Sparkle } from 'lucide-react';
 import { PersonaNav } from '@/components/persona-nav';
@@ -30,8 +31,11 @@ const EXAMPLES = [
 
 function Markdown({ text }: { text: string }) {
   return (
-    <div className="prose prose-sm max-w-none text-fd-foreground [&_a]:font-medium [&_a]:text-[#CF2C91] [&_a]:underline [&_code]:rounded [&_code]:bg-fd-muted [&_code]:px-1 [&_ol]:list-decimal [&_ol]:pl-5 [&_p]:mb-3 [&_ul]:list-disc [&_ul]:pl-5">
-      <ReactMarkdown components={{ a: (p) => <a {...p} target="_blank" rel="noreferrer" /> }}>
+    <div className="prose prose-sm max-w-none text-fd-foreground [&_a]:font-medium [&_a]:text-[#CF2C91] [&_a]:underline [&_code]:rounded [&_code]:bg-fd-muted [&_code]:px-1 [&_ol]:list-decimal [&_ol]:pl-5 [&_p]:mb-3 [&_ul]:list-disc [&_ul]:pl-5 [&_table]:my-3 [&_table]:block [&_table]:w-full [&_table]:overflow-x-auto [&_table]:border-collapse [&_table]:text-sm [&_th]:border [&_th]:border-fd-border [&_th]:bg-fd-muted [&_th]:px-2 [&_th]:py-1 [&_th]:text-left [&_th]:font-semibold [&_td]:border [&_td]:border-fd-border [&_td]:px-2 [&_td]:py-1 [&_td]:align-top">
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        components={{ a: (p) => <a {...p} target="_blank" rel="noreferrer" /> }}
+      >
         {text}
       </ReactMarkdown>
     </div>

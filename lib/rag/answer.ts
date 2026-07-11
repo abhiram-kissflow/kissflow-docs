@@ -33,7 +33,9 @@ Style (how to write a grounded answer):
 - For everything else: be punchy and concise — a direct sentence or two.
 - Write plainly and actively (omit needless words; no filler, no preamble like
   "Based on the context"). Use markdown: numbered lists for steps, **bold** for
-  UI labels, inline links to source urls where a "read more" genuinely helps.
+  UI labels, inline links to source urls where a "read more" genuinely helps, and
+  GitHub-flavored markdown tables when the user asks for tabular data or when
+  comparing options side by side.
 - When earlier turns are provided, treat the new question as a follow-up in the
   same conversation.`;
 

@@ -23,6 +23,7 @@ import { Conversation, ConversationContent } from '@/components/ai-elements/conv
 import { Message, MessageContent, MessageResponse } from '@/components/ai-elements/message';
 import { Suggestion, Suggestions } from '@/components/ai-elements/suggestion';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { cn } from '@/lib/cn';
 
 const STARTER_SUGGESTIONS = [
@@ -98,8 +99,9 @@ function MarkdownMessage({ text }: { text: string }) {
   // react-markdown v9+ removed the `className` prop, so the styling lives on a
   // wrapping div; the descendant selectors ([&_a], [&_p], …) apply the same.
   return (
-    <div className="break-words text-fd-foreground [&_a]:font-medium [&_a]:text-[#CF2C91] [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#b92682] [&_code]:rounded [&_code]:bg-fd-background [&_code]:px-1 [&_code]:py-0.5 [&_ol]:mb-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_p]:mb-2 [&_p:last-child]:mb-0 [&_ul]:mb-2 [&_ul]:list-disc [&_ul]:pl-5">
+    <div className="break-words text-fd-foreground [&_a]:font-medium [&_a]:text-[#CF2C91] [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#b92682] [&_code]:rounded [&_code]:bg-fd-background [&_code]:px-1 [&_code]:py-0.5 [&_ol]:mb-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_p]:mb-2 [&_p:last-child]:mb-0 [&_ul]:mb-2 [&_ul]:list-disc [&_ul]:pl-5 [&_table]:mb-2 [&_table]:block [&_table]:w-full [&_table]:overflow-x-auto [&_table]:border-collapse [&_table]:text-xs [&_th]:border [&_th]:border-fd-border [&_th]:bg-fd-background [&_th]:px-2 [&_th]:py-1 [&_th]:text-left [&_th]:font-semibold [&_td]:border [&_td]:border-fd-border [&_td]:px-2 [&_td]:py-1 [&_td]:align-top">
       <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
         components={{
           a: (props) => <a {...props} target="_blank" rel="noreferrer" />,
         }}
