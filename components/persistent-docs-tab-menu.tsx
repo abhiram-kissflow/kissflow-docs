@@ -40,7 +40,7 @@ export function PersistentDocsTabMenu() {
 
   return (
     <div className="relative rounded-lg border bg-fd-secondary/50 p-1 text-fd-secondary-foreground">
-      {helpOpen ? <div className="absolute bottom-full right-0 z-10 mb-2 w-64 rounded-lg border bg-fd-background p-3 text-sm shadow-lg"><p className="font-medium">Looking for developer docs?</p><p className="mt-1 text-fd-muted-foreground">Open this menu to switch to API Reference or SDK Guide.</p><button type="button" onClick={dismissHelp} className="mt-2 text-sm font-medium text-fd-primary hover:underline">Got it</button></div> : null}
+      {helpOpen ? <div className="absolute top-full right-0 z-10 mt-2 w-64 rounded-lg border bg-fd-background p-3 text-sm shadow-lg"><p className="font-medium">Looking for developer docs?</p><p className="mt-1 text-fd-muted-foreground">Open this menu to switch to API Reference or SDK Guide.</p><button type="button" onClick={dismissHelp} className="mt-2 text-sm font-medium text-fd-primary hover:underline">Got it</button></div> : null}
       <div className="flex items-center gap-1">
       <button type="button" aria-expanded={open} onClick={toggleMenu} className="flex min-w-0 flex-1 items-center gap-2 rounded-md p-1 text-start transition-colors hover:bg-fd-accent">
         <SelectedIcon className="size-5 shrink-0" />
