@@ -7,6 +7,7 @@ import remarkGfm from 'remark-gfm';
 import { parsePartialJson } from 'ai';
 import { ArrowUp, FileText, Loader2, Sparkle } from 'lucide-react';
 import { PersonaNav } from '@/components/persona-nav';
+import { WingField } from '@/components/wing-field';
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 
@@ -157,8 +158,10 @@ export default function HeroAsk() {
   // Empty state — centered hero + persona cards.
   if (!started) {
     return (
-      <div className="mx-auto flex w-full max-w-3xl flex-col gap-10 px-4 py-16">
-        <div>
+      <div className="relative isolate">
+        <WingField />
+        <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col gap-10 px-4 py-16">
+          <div>
           <div className="mb-6 text-center">
             <h1 className="text-3xl font-semibold tracking-tight text-fd-foreground sm:text-4xl">
               Ask the Kissflow docs
@@ -180,13 +183,14 @@ export default function HeroAsk() {
               </button>
             ))}
           </div>
+          </div>
+          <section>
+            <h2 className="mb-4 text-center text-sm font-semibold uppercase tracking-wide text-fd-muted-foreground">
+              Or browse by role
+            </h2>
+            <PersonaNav />
+          </section>
         </div>
-        <section>
-          <h2 className="mb-4 text-center text-sm font-semibold uppercase tracking-wide text-fd-muted-foreground">
-            Or browse by role
-          </h2>
-          <PersonaNav />
-        </section>
       </div>
     );
   }
