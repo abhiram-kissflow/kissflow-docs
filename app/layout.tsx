@@ -1,7 +1,10 @@
 import { Provider } from '@/components/provider';
 import { TooltipProvider } from '@/components/ui/tooltip';
+import { siteMetadata } from '@/lib/site-metadata';
 import Script from 'next/script';
 import './global.css';
+
+export const metadata = siteMetadata;
 
 export default function Layout({ children }: LayoutProps<'/'>) {
   return (
