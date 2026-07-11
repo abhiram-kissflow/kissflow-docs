@@ -25,7 +25,8 @@ export function baseOptions(): BaseLayoutProps {
           </span>
         </span>
       ),
-      url: '/docs/get-started',
+      // Logo returns to the answer-first hero from anywhere in the docs.
+      url: '/',
     },
   };
 }

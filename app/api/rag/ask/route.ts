@@ -32,7 +32,12 @@ export async function POST(request: Request): Promise<Response> {
     .slice(-6);
 
   const { graph, index } = loadContentGraph();
-  const { embedding } = await embed({ model: EMBEDDING_MODEL, value: query });
+  // Retrieve on the last user question + the current one, so referential
+  // follow-ups ("how do I create one?") retrieve the right docs. Cheap
+  // conversational retrieval — no LLM query rewrite.
+  const lastUserTurn = [...history].reverse().find((t) => t.role === 'user')?.content ?? '';
+  const retrievalText = lastUserTurn ? `${lastUserTurn}\n${query}` : query;
+  const { embedding } = await embed({ model: EMBEDDING_MODEL, value: retrievalText });
   const seeds = seedSearch(embedding, SEED_K, graph, index.vectors);
 
   // Honest short-circuit: nothing relevant retrieved → abstain without a model call.
