@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { type CSSProperties, useEffect, useMemo, useRef } from 'react';
 import gsap from 'gsap';
 
 // The four Kissflow signature colors (kissflow.com/brand), as RGB triples.
@@ -11,213 +11,179 @@ const COLORS: [number, number, number][] = [
   [74, 161, 71], // #4AA147 green
 ];
 
-const PARTICLE_COUNT = 2400;
+const TILE_COUNT = 40;
 
-interface Particle {
-  // Butterfly target (model space, roughly [-1,1] with depth z).
-  bx: number;
-  by: number;
-  bz: number;
-  // Flow "home" (screen fractions) + individual drift phase/speed.
-  hx: number;
-  hy: number;
-  phase: number;
-  speed: number;
-  amp: number;
-  rgb: [number, number, number];
-  size: number;
+// Deterministic PRNG so server and client render identical tiles — no hydration
+// mismatch from Math.random().
+function mulberry32(seed: number) {
+  return () => {
+    seed |= 0;
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
 }
 
-// Fay's parametric butterfly curve, area-filled and colored by wing region.
-function makeButterfly(count: number): Particle[] {
-  const out: Particle[] = [];
+interface Tile {
+  id: number;
+  leftPct: number;
+  topPct: number;
+  rgb: [number, number, number];
+  size: number; // px
+  depth: number; // 0 far … 1 near
+  rot: number; // initial z rotation
+  driftX: number;
+  driftY: number;
+  driftDur: number;
+  swing: number; // tumble amplitude (deg)
+  swingDur: number;
+}
+
+function makeTiles(count: number): Tile[] {
+  const rand = mulberry32(0x91a5);
+  const tiles: Tile[] = [];
   for (let i = 0; i < count; i++) {
-    const t = Math.random() * Math.PI * 2;
-    const r =
-      Math.exp(Math.sin(t)) -
-      2 * Math.cos(4 * t) +
-      Math.pow(Math.sin((2 * t - Math.PI) / 24), 5);
-    const fill = Math.sqrt(Math.random()); // uniform area fill
-    // Curve is drawn "lying down"; swap axes so the butterfly stands upright.
-    const bx = Math.cos(t) * r * fill;
-    const by = -Math.sin(t) * r * fill;
-    // Colour by wing: left/right split, upper/lower split → 4 brand colours.
-    const ci = (bx < 0 ? 0 : 1) + (by < 0 ? 0 : 2);
-    out.push({
-      bx,
-      by,
-      bz: (Math.random() - 0.5) * 1.2, // thickness → real 3D on rotation
-      hx: Math.random(),
-      hy: Math.random(),
-      phase: Math.random() * Math.PI * 2,
-      speed: 0.15 + Math.random() * 0.5,
-      amp: 0.02 + Math.random() * 0.05,
-      rgb: COLORS[ci],
-      size: 1.4 + Math.random() * 1.4,
+    const depth = rand(); // 0..1
+    tiles.push({
+      id: i,
+      leftPct: rand() * 100,
+      topPct: rand() * 100,
+      rgb: COLORS[i % COLORS.length],
+      size: 22 + depth * 74, // small, near ones a bit bigger
+      depth,
+      rot: (rand() - 0.5) * 40,
+      driftX: (rand() - 0.5) * 80 * (0.4 + depth),
+      driftY: (rand() - 0.5) * 80 * (0.4 + depth),
+      driftDur: 8 + rand() * 9,
+      swing: 12 + rand() * 20,
+      swingDur: 7 + rand() * 8,
     });
   }
-  return out;
+  return tiles;
 }
 
 /**
- * "Butterfly Flow-Field" — an immersive current of brand-colored particles that
- * periodically coalesces into a slowly-rotating Kissflow butterfly, then breathes
- * back into flow. Canvas 2D + GSAP-driven scalars (morph, rotation, cursor tilt);
- * no Three.js. Reads on light and dark equally (particles ARE saturated brand
- * colors; a per-theme alpha keeps them even on black and white). A soft central
- * clearing protects the headline + ask box. Honors prefers-reduced-motion.
+ * "Frosted Glass Drift" — a shallow 3D depth field of small frosted-glass tiles
+ * (a nod to Kissflow boards/cards) floating behind the hero. Each tile is a
+ * translucent, backdrop-blurred pane with a brand-tinted rim and a luminous top
+ * edge; they drift and gently tumble in 3D, and the whole field parallax-tilts to
+ * the cursor. Reads as glass on light AND dark via per-theme frost/rim/edge vars.
+ * A soft central clearing keeps the headline + ask box crisp. GSAP-core only;
+ * respects prefers-reduced-motion.
  */
 export function WingField() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
+  const tiles = useMemo(() => makeTiles(TILE_COUNT), []);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    const root = rootRef.current;
+    const stage = stageRef.current;
+    if (!root || !stage) return;
 
-    const particles = makeButterfly(PARTICLE_COUNT);
-    // GSAP animates these scalars; the render loop reads them each frame.
-    const state = { morph: 0, rot: 0, tiltX: 0, tiltY: 0 };
+    const mm = gsap.matchMedia();
+    mm.add(
+      {
+        animate: '(prefers-reduced-motion: no-preference)',
+        reduce: '(prefers-reduced-motion: reduce)',
+      },
+      (ctx) => {
+        if (ctx.conditions?.reduce) return; // static arrangement, no motion
 
-    let W = 0;
-    let H = 0;
-    let dpr = 1;
-    const resize = () => {
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      W = canvas.clientWidth;
-      H = canvas.clientHeight;
-      canvas.width = Math.floor(W * dpr);
-      canvas.height = Math.floor(H * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    };
-    resize();
-    window.addEventListener('resize', resize);
+        const els = gsap.utils.toArray<HTMLElement>('.glass-tile', stage);
 
-    // Theme parity: brand colors need a touch more alpha on black than on white.
-    let alphaBoost = 1;
-    const readTheme = () => {
-      alphaBoost = document.documentElement.classList.contains('dark') ? 1.5 : 1;
-    };
-    readTheme();
-    const themeObs = new MutationObserver(readTheme);
-    themeObs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+        els.forEach((el) => {
+          const t = tiles[Number(el.dataset.i)];
+          // Slow drift.
+          gsap.to(el, {
+            x: t.driftX,
+            y: t.driftY,
+            duration: t.driftDur,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut',
+            delay: (-t.driftDur * (t.id % 5)) / 5,
+          });
+          // Gentle 3D tumble — panes catching light, not spinning.
+          gsap.to(el, {
+            rotationY: t.swing,
+            rotationX: -t.swing * 0.7,
+            duration: t.swingDur,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut',
+          });
+        });
 
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        // Cursor-reactive 3D tilt of the whole field (immersive parallax).
+        const rotY = gsap.quickTo(stage, 'rotationY', { duration: 0.9, ease: 'power3' });
+        const rotX = gsap.quickTo(stage, 'rotationX', { duration: 0.9, ease: 'power3' });
+        const onMove = (e: PointerEvent) => {
+          const r = root.getBoundingClientRect();
+          if (!r.width) return;
+          rotY(((e.clientX - r.left) / r.width - 0.5) * 12);
+          rotX(((e.clientY - r.top) / r.height - 0.5) * -12);
+        };
+        window.addEventListener('pointermove', onMove);
 
-    const draw = () => {
-      ctx.clearRect(0, 0, W, H);
-      const cx = W / 2;
-      const cy = H * 0.46;
-      const scale = Math.min(W, H) * 0.32; // butterfly size
-      const clearR = Math.min(W, H) * 0.26; // central clearing radius
-      const time = performance.now() * 0.001;
-      const cosY = Math.cos(state.rot + state.tiltY);
-      const sinY = Math.sin(state.rot + state.tiltY);
-      const cosX = Math.cos(state.tiltX);
-      const sinX = Math.sin(state.tiltX);
+        // Touch (no fine pointer) → gentle auto-sway.
+        const sway = gsap.to(stage, {
+          rotationY: 5,
+          rotationX: -3,
+          duration: 10,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+          paused: true,
+        });
+        if (!window.matchMedia('(pointer: fine)').matches) sway.play();
 
-      for (const p of particles) {
-        // Butterfly position: rotate model point in 3D, project to screen.
-        const x1 = p.bx * cosY + p.bz * sinY;
-        const z1 = -p.bx * sinY + p.bz * cosY;
-        const y1 = p.by * cosX - z1 * sinX;
-        const z2 = p.by * sinX + z1 * cosX;
-        const persp = 1 / (1 + z2 * 0.28);
-        const bxS = cx + x1 * scale * persp;
-        const byS = cy + y1 * scale * persp;
+        return () => window.removeEventListener('pointermove', onMove);
+      },
+      root,
+    );
 
-        // Flow position: a streaming current across the viewport.
-        const fx = ((p.hx + time * 0.012 * p.speed) % 1.15) * W - W * 0.075;
-        const fy = (p.hy * H + Math.sin(time * p.speed + p.phase) * p.amp * H + H) % H;
-
-        const m = state.morph;
-        const sx = fx + (bxS - fx) * m;
-        const sy = fy + (byS - fy) * m;
-
-        // Soft central clearing so the headline + ask box stay crisp.
-        const dx = sx - cx;
-        const dy = sy - cy;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        let clear = 1;
-        if (dist < clearR) clear = 0.12 + 0.88 * (dist / clearR);
-
-        const depthAlpha = 0.35 + 0.4 * persp; // near brighter
-        const a = Math.min(0.9, depthAlpha * clear * alphaBoost);
-        if (a < 0.02) continue;
-        const sz = p.size * (0.7 + 0.6 * persp);
-        ctx.globalAlpha = a;
-        ctx.fillStyle = `rgb(${p.rgb[0]},${p.rgb[1]},${p.rgb[2]})`;
-        ctx.fillRect(sx - sz / 2, sy - sz / 2, sz, sz);
-      }
-      ctx.globalAlpha = 1;
-    };
-
-    let rafId = 0;
-    let extraCleanup = () => {};
-    let tl: gsap.core.Timeline | null = null;
-    let rotTween: gsap.core.Tween | null = null;
-
-    if (reduce) {
-      // Calm, static: a formed butterfly, no motion.
-      state.morph = 1;
-      draw();
-    } else {
-      const loop = () => {
-        draw();
-        rafId = requestAnimationFrame(loop);
-      };
-      rafId = requestAnimationFrame(loop);
-
-      // Continuous slow rotation (the butterfly turns; the flow shears).
-      rotTween = gsap.to(state, { rot: Math.PI * 2, duration: 46, repeat: -1, ease: 'none' });
-
-      // The breath: flow → form → hold → disperse → flow.
-      tl = gsap.timeline({ repeat: -1 });
-      tl.to(state, { morph: 1, duration: 3, ease: 'power2.inOut' })
-        .to(state, { morph: 1, duration: 3.2 }) // hold formed
-        .to(state, { morph: 0, duration: 3.4, ease: 'power2.inOut' })
-        .to(state, { morph: 0, duration: 4 }); // hold flow
-
-      // Cursor steers the cloud (immersive parallax).
-      const tiltYTo = gsap.quickTo(state, 'tiltY', { duration: 1, ease: 'power3' });
-      const tiltXTo = gsap.quickTo(state, 'tiltX', { duration: 1, ease: 'power3' });
-      const onMove = (e: PointerEvent) => {
-        const r = canvas.getBoundingClientRect();
-        if (!r.width) return;
-        tiltYTo(((e.clientX - r.left) / r.width - 0.5) * 0.6);
-        tiltXTo(((e.clientY - r.top) / r.height - 0.5) * -0.4);
-      };
-      window.addEventListener('pointermove', onMove);
-
-      // Pause the loop when the tab is hidden (perf; rAF already throttles).
-      const onVis = () => {
-        cancelAnimationFrame(rafId);
-        if (!document.hidden) rafId = requestAnimationFrame(loop);
-      };
-      document.addEventListener('visibilitychange', onVis);
-
-      extraCleanup = () => {
-        window.removeEventListener('pointermove', onMove);
-        document.removeEventListener('visibilitychange', onVis);
-      };
-    }
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      rotTween?.kill();
-      tl?.kill();
-      themeObs.disconnect();
-      window.removeEventListener('resize', resize);
-      extraCleanup();
-    };
-  }, []);
+    return () => mm.revert();
+  }, [tiles]);
 
   return (
-    <canvas
-      ref={canvasRef}
+    <div
+      ref={rootRef}
       aria-hidden
-      className="pointer-events-none absolute inset-0 z-0 h-full w-full"
-    />
+      // Per-theme glass vars: frost = pane fill, rim = border, edge = top highlight.
+      className="pointer-events-none absolute inset-0 z-0 overflow-hidden [perspective:1200px] [--frost:0.5] [--rim:0.5] [--edge:0.65] dark:[--frost:0.14] dark:[--rim:0.62] dark:[--edge:0.28]"
+    >
+      <div ref={stageRef} className="absolute inset-0 [transform-style:preserve-3d]">
+        {tiles.map((t) => {
+          const [r, g, b] = t.rgb;
+          const blur = (1 - t.depth) * 3; // far = softer (depth of field)
+          const opacity = 0.5 + t.depth * 0.45; // near = more present
+          return (
+            <div
+              key={t.id}
+              data-i={t.id}
+              className="glass-tile absolute rounded-[32%] border will-change-transform [backdrop-filter:blur(6px)] [-webkit-backdrop-filter:blur(6px)]"
+              style={
+                {
+                  left: `${t.leftPct}%`,
+                  top: `${t.topPct}%`,
+                  width: t.size,
+                  height: t.size,
+                  marginLeft: -t.size / 2,
+                  marginTop: -t.size / 2,
+                  transform: `rotate(${t.rot}deg)`,
+                  opacity,
+                  filter: blur ? `blur(${blur}px)` : undefined,
+                  background: `linear-gradient(135deg, rgba(255,255,255,var(--frost)) 0%, rgba(${r},${g},${b},0.14) 100%)`,
+                  borderColor: `rgba(${r},${g},${b},var(--rim))`,
+                  boxShadow: `inset 0 1px 0 rgba(255,255,255,var(--edge)), 0 8px 24px rgba(${r},${g},${b},0.10)`,
+                } as CSSProperties
+              }
+            />
+          );
+        })}
+      </div>
+    </div>
   );
 }
