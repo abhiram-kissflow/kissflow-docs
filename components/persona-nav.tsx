@@ -58,8 +58,8 @@ const personaCards = [
   },
   {
     title: 'Announcements',
-    description: 'Latest updates, discontinued services, and important notices.',
-    href: '/docs/whats-new',
+    description: 'Every new feature and improvement as it ships, newest first.',
+    href: '/announcements',
     icon: Megaphone,
   },
 ] as const;
