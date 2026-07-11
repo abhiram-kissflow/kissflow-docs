@@ -4101,6 +4101,741 @@
       "url": "/docs/whats-new",
       "snippet": "# What's New\n\nLatest updates, discontinued services, and important notices.",
       "community": 7
+    },
+    {
+      "id": "api:get:/user/2/{account_id}/{user_id}",
+      "label": "GET /user/2/{account_id}/{user_id} — Get user details",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Users and groups > Users\nGET /user/2/{account_id}/{user_id}\nGet user details\nRetrieves the user details of a specific Kissflow user.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; user_id (path) — (Required) The unique ID of a Kissflow user. Get this value from the '_id' field returned by the 'Get user list' API. This is a mandatory parameter.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/user/2/{account_id}/batch",
+      "label": "POST /user/2/{account_id}/batch — Bulk user actions",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Users and groups > Users\nPOST /user/2/{account_id}/batch\nBulk user actions\nPerforms bulk user actions like name change, email change, user role change, user deletions etc.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.\nRequest body: Fields: _id, Roles\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/user/2/{account_id}/",
+      "label": "POST /user/2/{account_id}/ — Create a new user",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Users and groups > Users\nPOST /user/2/{account_id}/\nCreate a new user\nCreates a new user in a Kissflow account.\nParameters: Content-Type (header); Accept (header); skip_email (query) — Allows you to send an Email invite to the new user. This is an optional parameter.; account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.\nRequest body: Fields: Email, Designation, LastName, Groups, AboutMe, Manager, NickName, FirstName, Phone, UserType\nResponses: 201, 400, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/user/2/{account_id}/",
+      "label": "GET /user/2/{account_id}/ — Get user list",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Users and groups > Users\nGET /user/2/{account_id}/\nGet user list\nRetrieves all the active and invited users in your Kissflow account.\nParameters: Accept (header); page_number (query) — This is the specific page number of an item list and is an optional parameter. The page number can be specified as 1, 2, 3, etc.; page_size (query) — This is the number of items that can be listed in a page and is an optional parameter. It can be 10, 25, 50, 100, etc.; q (query) — This is the search string and is an optional parameter.; user_type (query) — Filter results based on user roles in Kissflow.; invited_user (query) — Specify if you want to get the invited user list in your account.; account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/group/2/{account_id}/",
+      "label": "POST /group/2/{account_id}/ — Create a new group",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Users and groups > Groups\nPOST /group/2/{account_id}/\nCreate a new group\nCreates a new group in a Kissflow account.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.\nRequest body: Fields: Name, Description, Users, Groups, Roles, Email, _id\nResponses: 201, 400, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/group/2/{account_id}/list",
+      "label": "GET /group/2/{account_id}/list — Get list of groups",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Users and groups > Groups\nGET /group/2/{account_id}/list\nGet list of groups\nRetrieves the list of groups based on the specified filter.\nParameters: Accept (header); page_number (query) — This is the specific page number of an item list and is an optional parameter. The page number can be specified as 1, 2, 3, etc.; page_size (query) — This is the number of items that can be listed in a page and is an optional parameter. It can be 10, 25, 50, 100, etc.; q (query) — This is the search string and is an optional parameter.; account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/group/2/{account_id}/{group_id}",
+      "label": "GET /group/2/{account_id}/{group_id} — Get group details",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Users and groups > Groups\nGET /group/2/{account_id}/{group_id}\nGet group details\nRetrieves group details of a specific group.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; group_id (path) — (Required) The unique ID of a Kissflow group. Get this value from the '_id' field returned by the 'Get list of groups' API. This is a mandatory parameter.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/group/2/{account_id}/{group_id}",
+      "label": "POST /group/2/{account_id}/{group_id} — Update a group",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Users and groups > Groups\nPOST /group/2/{account_id}/{group_id}\nUpdate a group\nAdd or remove users, groups and roles from a specific group.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; group_id (path) — (Required) The unique ID of a Kissflow group. Get this value from the '_id' field returned by the 'Get list of groups' API. This is a mandatory parameter.\nRequest body: Fields: Name, Description, Email, Users, Groups, Roles, _id\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:delete:/group/2/{account_id}/{group_id}",
+      "label": "DELETE /group/2/{account_id}/{group_id} — Delete a group",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Users and groups > Groups\nDELETE /group/2/{account_id}/{group_id}\nDelete a group\nDeletes a specific group.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; group_id (path) — (Required) The unique ID of a Kissflow group. Get this value from the '_id' field returned by the 'Get list of groups' API. This is a mandatory parameter.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/group/2/{account_id}/{group_id}/members",
+      "label": "GET /group/2/{account_id}/{group_id}/members — Get user details of a group",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Users and groups > Groups\nGET /group/2/{account_id}/{group_id}/members\nGet user details of a group\nRetrieves the user details of all users belonging to a specific group.\nParameters: Accept (header); page_number (query) — This is the specific page number of an item list and is an optional parameter. The page number can be specified as 1, 2, 3, etc.; page_size (query) — This is the number of items that can be listed in a page and is an optional parameter. It can be 10, 25, 50, 100, etc.; fields (query) — Specify the fields that you require in the API response. You can specify multiple fields as comma separated values.; account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; group_id (path) — (Required) The unique ID of a Kissflow group. Get this value from the '_id' field returned by the 'Get list of groups' API. This is a mandatory parameter.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/portal/2/{account_id}/{portal_id}",
+      "label": "GET /portal/2/{account_id}/{portal_id} — Get portal settings",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Portals\nGET /portal/2/{account_id}/{portal_id}\nGet portal settings\nRetrieves a specific portal's settings. Other Portals user endpoints require the portal's `model_id`, which is the value of this response's `IdentityType` field.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; portal_id (path) — (Required) Unique ID of the portal. You can find the portal ID from the portal web URL. For instance, in the URL, https://thestarkcorporation.kissflow.net/view/portal/administration/Customer_portal_A00, 'Customer_portal_A00' will be the portal ID. Contact customer support if you need further assistance.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/user/2/{account_id}/portal/{portal_id}/{model_id}/{user_id}",
+      "label": "GET /user/2/{account_id}/portal/{portal_id}/{model_id}/{user_id} — Get portal user details",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Portals\nGET /user/2/{account_id}/portal/{portal_id}/{model_id}/{user_id}\nGet portal user details\nRetrieves details of a specific portal user.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; portal_id (path) — (Required) Unique ID of the portal. You can find the portal ID from the portal web URL. For instance, in the URL, https://thestarkcorporation.kissflow.net/view/portal/administration/Customer_portal_A00, 'Customer_portal_A00' will be the portal ID. Contact customer support if you need further assistance.; model_id (path) — (Required) To retrieve the unique Model ID, call the 'Get portal settings' endpoint. Use the value in the response parameter called 'IdentityType' as your model ID.; user_id (path) — (Required) The unique User ID of a Kissflow Portal user. To retrieve the user ID, call the 'Get list of portal users' endpoint.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:put:/user/2/{account_id}/portal/{portal_id}/{model_id}/{user_id}",
+      "label": "PUT /user/2/{account_id}/portal/{portal_id}/{model_id}/{user_id} — Update portal user details",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Portals\nPUT /user/2/{account_id}/portal/{portal_id}/{model_id}/{user_id}\nUpdate portal user details\nUpdates details of a specific portal user.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; portal_id (path) — (Required) Unique ID of the portal. You can find the portal ID from the portal web URL. For instance, in the URL, https://thestarkcorporation.kissflow.net/view/portal/administration/Customer_portal_A00, 'Customer_portal_A00' will be the portal ID. Contact customer support if you need further assistance.; model_id (path) — (Required) To retrieve the unique Model ID, call the 'Get portal settings' endpoint. Use the value in the response parameter called 'IdentityType' as your model ID.; user_id (path) — (Required) The unique User ID of a Kissflow Portal user. To retrieve the user ID, call the 'Get list of portal users' endpoint.\nRequest body:\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/user/2/{account_id}/portal/{portal_id}/{model_id}/list",
+      "label": "GET /user/2/{account_id}/portal/{portal_id}/{model_id}/list — Get list of portal users by IDs",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Portals\nGET /user/2/{account_id}/portal/{portal_id}/{model_id}/list\nGet list of portal users by IDs\nRetrieves the portal's users. Use the optional page_number, page_size, and q query parameters for simple pagination and search, or supply a request body with Sort, Columns, and Filter to run an advanced query, for example to retrieve users matching specific IDs or other field conditions.\nParameters: Content-Type (header); Accept (header); page_number (query) — Specify a page number to view all the requested users/groups listed on that page. The page number can be specified as 1, 2, 3, etc. This is an optional parameter.; page_size (query) — Specify page size to view a certain number of requested users/groups in that page. Page size can be defined as 10, 25, 50, 100, etc. This is an optional parameter.; q (query) — Specify a search filter string you want to apply over other parameters. This is an optional parameter.; account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; portal_id (path) — (Required) Unique ID of the portal. You can find the portal ID from the portal web URL. For instance, in the URL, https://thestarkcorporation.kissflow.net/view/portal/administration/Customer_portal_A00, 'Customer_portal_A00' will be the portal ID. Contact customer support if you need further assistance.; model_id (path) — (Required) To retrieve the unique Mo",
+      "community": 8
+    },
+    {
+      "id": "api:get:/user/2/{account_id}/portal/{portal_id}/{model_id}/count",
+      "label": "GET /user/2/{account_id}/portal/{portal_id}/{model_id}/count — Get portal user count",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Portals\nGET /user/2/{account_id}/portal/{portal_id}/{model_id}/count\nGet portal user count\nRetrieves the number of users in a portal.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; portal_id (path) — (Required) Unique ID of the portal. You can find the portal ID from the portal web URL. For instance, in the URL, https://thestarkcorporation.kissflow.net/view/portal/administration/Customer_portal_A00, 'Customer_portal_A00' will be the portal ID. Contact customer support if you need further assistance.; model_id (path) — (Required) To retrieve the unique Model ID, call the 'Get portal settings' endpoint. Use the value in the response parameter called 'IdentityType' as your model ID.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/user/2/{account_id}/portal/{portal_id}/{model_id}/status/count",
+      "label": "GET /user/2/{account_id}/portal/{portal_id}/{model_id}/status/count — Get portal user count by status",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Portals\nGET /user/2/{account_id}/portal/{portal_id}/{model_id}/status/count\nGet portal user count by status\nRetrieves the number of portal users based on their user status.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; portal_id (path) — (Required) Unique ID of the portal. You can find the portal ID from the portal web URL. For instance, in the URL, https://thestarkcorporation.kissflow.net/view/portal/administration/Customer_portal_A00, 'Customer_portal_A00' will be the portal ID. Contact customer support if you need further assistance.; model_id (path) — (Required) To retrieve the unique Model ID, call the 'Get portal settings' endpoint. Use the value in the response parameter called 'IdentityType' as your model ID.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/user/2/{account_id}/portal/{portal_id}/{model_id}/",
+      "label": "POST /user/2/{account_id}/portal/{portal_id}/{model_id}/ — Create portal user",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Portals\nPOST /user/2/{account_id}/portal/{portal_id}/{model_id}/\nCreate portal user\nCreates a user and adds them to a portal.\nParameters: Content-Type (header); Accept (header); skip_email (query) — Flag to skip sending email to the new user. This is an optional parameter.; account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; portal_id (path) — (Required) Unique ID of the portal. You can find the portal ID from the portal web URL. For instance, in the URL, https://thestarkcorporation.kissflow.net/view/portal/administration/Customer_portal_A00, 'Customer_portal_A00' will be the portal ID. Contact customer support if you need further assistance.; model_id (path) — (Required) To retrieve the unique Model ID, call the 'Get portal settings' endpoint. Use the value in the response parameter called 'IdentityType' as your model ID.\nRequest body: Fields: Email, LastName, NickName, FirstName\nResponses: 201, 400, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/user/2/{account_id}/portal/{portal_id}/{model_id}/fields",
+      "label": "GET /user/2/{account_id}/portal/{portal_id}/{model_id}/fields — Get list of portal user fields",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Portals\nGET /user/2/{account_id}/portal/{portal_id}/{model_id}/fields\nGet list of portal user fields\nRetrieves the complete list of user fields in a portal.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; portal_id (path) — (Required) Unique ID of the portal. You can find the portal ID from the portal web URL. For instance, in the URL, https://thestarkcorporation.kissflow.net/view/portal/administration/Customer_portal_A00, 'Customer_portal_A00' will be the portal ID. Contact customer support if you need further assistance.; model_id (path) — (Required) To retrieve the unique Model ID, call the 'Get portal settings' endpoint. Use the value in the response parameter called 'IdentityType' as your model ID.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/user/2/{account_id}/portal/{portal_id}/{model_id}/password/forcereset",
+      "label": "POST /user/2/{account_id}/portal/{portal_id}/{model_id}/password/forcereset — Bulk password reset",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Portals\nPOST /user/2/{account_id}/portal/{portal_id}/{model_id}/password/forcereset\nBulk password reset\nResets passwords of many portal users in bulk.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; portal_id (path) — (Required) Unique ID of the portal. You can find the portal ID from the portal web URL. For instance, in the URL, https://thestarkcorporation.kissflow.net/view/portal/administration/Customer_portal_A00, 'Customer_portal_A00' will be the portal ID. Contact customer support if you need further assistance.; model_id (path) — (Required) To retrieve the unique Model ID, call the 'Get portal settings' endpoint. Use the value in the response parameter called 'IdentityType' as your model ID.\nRequest body:\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/user/2/{account_id}/portal/{portal_id}/{model_id}/activate",
+      "label": "POST /user/2/{account_id}/portal/{portal_id}/{model_id}/activate — Bulk activation of portal users",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Portals\nPOST /user/2/{account_id}/portal/{portal_id}/{model_id}/activate\nBulk activation of portal users\nActivates one or many portal users in bulk.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; portal_id (path) — (Required) Unique ID of the portal. You can find the portal ID from the portal web URL. For instance, in the URL, https://thestarkcorporation.kissflow.net/view/portal/administration/Customer_portal_A00, 'Customer_portal_A00' will be the portal ID. Contact customer support if you need further assistance.; model_id (path) — (Required) To retrieve the unique Model ID, call the 'Get portal settings' endpoint. Use the value in the response parameter called 'IdentityType' as your model ID.\nRequest body:\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/user/2/{account_id}/portal/{portal_id}/{model_id}/deactivate",
+      "label": "POST /user/2/{account_id}/portal/{portal_id}/{model_id}/deactivate — Bulk deactivation of portal users",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Portals\nPOST /user/2/{account_id}/portal/{portal_id}/{model_id}/deactivate\nBulk deactivation of portal users\nDeactivates one or many portal users in bulk.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; portal_id (path) — (Required) Unique ID of the portal. You can find the portal ID from the portal web URL. For instance, in the URL, https://thestarkcorporation.kissflow.net/view/portal/administration/Customer_portal_A00, 'Customer_portal_A00' will be the portal ID. Contact customer support if you need further assistance.; model_id (path) — (Required) To retrieve the unique Model ID, call the 'Get portal settings' endpoint. Use the value in the response parameter called 'IdentityType' as your model ID.\nRequest body:\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/process/2/{account_id}/{process_id}",
+      "label": "POST /process/2/{account_id}/{process_id} — Create a new item",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nPOST /process/2/{account_id}/{process_id}\nCreate a new item\nCreates a new item request in your process.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/myitems/Draft`, `Purchase_reimbursement` will be the process ID. Contact customer support if you need further assistance.\nRequest body:\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/submit",
+      "label": "POST /process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/submit — Submit an item",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nPOST /process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/submit\nSubmit an item\nSubmits an item in a workflow step of your process.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/myitems/Draft`, `Purchase_reimbursement` will be the process ID. Contact customer support if you need further assistance.; instance_id (path) — (Required) The unique identifier for each process item. You can find the instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9QVo5L` will be the instance ID of the specific process item. Contact customer support if you need further assistance.; activity_instance_id (path) — (Required) The unique identifier for each process step. You can find the activity instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9RNK_A` will be the activity instance ID of the specific process step. Contact customer support i",
+      "community": 8
+    },
+    {
+      "id": "api:post:/process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/reject",
+      "label": "POST /process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/reject — Reject an item",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nPOST /process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/reject\nReject an item\nRejects a specific item in a workflow step of your process.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/myitems/Draft`, `Purchase_reimbursement` will be the process ID. Contact customer support if you need further assistance.; instance_id (path) — (Required) The unique identifier for each process item. You can find the instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9QVo5L` will be the instance ID of the specific process item. Contact customer support if you need further assistance.; activity_instance_id (path) — (Required) The unique identifier for each process step. You can find the activity instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9RNK_A` will be the activity instance ID of the specific process s",
+      "community": 8
+    },
+    {
+      "id": "api:get:/process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}",
+      "label": "GET /process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id} — Get item details from a process step",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nGET /process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}\nGet item details from a process step\nRetrieves the details of an item from a specific process step.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/myitems/Draft`, `Purchase_reimbursement` will be the process ID. Contact customer support if you need further assistance.; instance_id (path) — (Required) The unique identifier for each process item. You can find the instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9QVo5L` will be the instance ID of the specific process item. Contact customer support if you need further assistance.; activity_instance_id (path) — (Required) The unique identifier for each process step. You can find the activity instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9RNK_A` will be the activity instance ID of the specific process step. C",
+      "community": 8
+    },
+    {
+      "id": "api:get:/process/2/{account_id}/{process_id}/{instance_id}/progress",
+      "label": "GET /process/2/{account_id}/{process_id}/{instance_id}/progress — Get progress details",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nGET /process/2/{account_id}/{process_id}/{instance_id}/progress\nGet progress details\nRetrieves the progress of a specific item in your process.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/myitems/Draft`, `Purchase_reimbursement` will be the process ID. Contact customer support if you need further assistance.; instance_id (path) — (Required) The unique identifier for each process item. You can find the instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9QVo5L` will be the instance ID of the specific process item. Contact customer support if you need further assistance.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/{field_id}/attachment",
+      "label": "POST /process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/{field_id}/attachment — Add attachment to a form field",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nPOST /process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/{field_id}/attachment\nAdd attachment to a form field\nUploads an attachment to a form field of your process. You can add an attachment in the following file formats - .jpg, .jpeg, .png, .bmp, .gif, .tif, .doc, .docx, .pdf, .ppt, .pptx, .xls, .xlsx, .csv, .txt, .eml, .zip, and .mp4. Please note that, for encoding images, only blob data type is currently supported and not Base64.\nParameters: Content-Type (header) — Do not pass this header when used inside Postman. Use the default header set by Postman, instead.; Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/myitems/Draft`, `Purchase_reimbursement` will be the process ID. Contact customer support if you need further assistance.; instance_id (path) — (Required) The unique identifier for each process item. You can find the instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9QVo5L` will be the instance ID of the specific process item. Contact cust",
+      "community": 8
+    },
+    {
+      "id": "api:get:/process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/{field_id}/attachment/{attachment_id}",
+      "label": "GET /process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/{field_id}/attachment/{attachment_id} — Download attachment from a form field",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nGET /process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/{field_id}/attachment/{attachment_id}\nDownload attachment from a form field\nDownloads a specific attachment from a form field of your process.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`, `Leave_request` will be the process ID. Contact customer support if you need further assistance.; instance_id (path) — (Required) The unique identifier for each process item. You can find the instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9QVo5L` will be the instance ID of the specific process item. Contact customer support if you need further assistance.; activity_instance_id (path) — (Required) The unique identifier for each process step. You can find the activity instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9RNK_A` will be the activity instance ID of the specific process ",
+      "community": 8
+    },
+    {
+      "id": "api:post:/process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/{table_id}/{row_id}/{field_id}/attachment",
+      "label": "POST /process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/{table_id}/{row_id}/{field_id}/attachment — Add attachment to a table field",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nPOST /process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/{table_id}/{row_id}/{field_id}/attachment\nAdd attachment to a table field\nUploads an attachment to a table in your process form. You can add an attachment in the following file formats - .jpg, .jpeg, .png, .bmp, .gif, .tif, .doc, .docx, .pdf, .ppt, .pptx, .xls, .xlsx, .csv, .txt, .eml, .zip, and .mp4. Please note that, for encoding images, only blob data type is currently supported and not Base64.\nParameters: Content-Type (header) — Do not pass this header when used inside Postman. Use the default header set by Postman, instead.; Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/myitems/Draft`, `Purchase_reimbursement` will be the process ID. Contact customer support if you need further assistance.; instance_id (path) — (Required) The unique identifier for each process item. You can find the instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9QVo5L` will be the instance ID of the specific proce",
+      "community": 8
+    },
+    {
+      "id": "api:get:/process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/{table_id}/{row_id}/{field_id}/attachment/{attachment_id}",
+      "label": "GET /process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/{table_id}/{row_id}/{field_id}/attachment/{attachment_id} — Download attachment from a table field",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nGET /process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/{table_id}/{row_id}/{field_id}/attachment/{attachment_id}\nDownload attachment from a table field\nDownloads a specific attachment from a table within your process form.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`, `Leave_request` will be the process ID. Contact customer support if you need further assistance.; instance_id (path) — (Required) The unique identifier for each process item. You can find the instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9QVo5L` will be the instance ID of the specific process item. Contact customer support if you need further assistance.; activity_instance_id (path) — (Required) The unique identifier for each process step. You can find the activity instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9RNK_A` will be the activity instance ID",
+      "community": 8
+    },
+    {
+      "id": "api:post:/process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/{field_id}/image",
+      "label": "POST /process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/{field_id}/image — Add image to a form field",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nPOST /process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/{field_id}/image\nAdd image to a form field\nUploads an image to a form field of your process. You can add an image in the following file formats - .jpg, .jpeg, .png, .bmp, .gif, and .tif. Only Process Admins can invoke this API. Please note that, for encoding images, only blob data type is currently supported and not Base64.\nParameters: Content-Type (header) — Do not pass this header when used inside Postman. Use the default header set by Postman, instead.; Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`, `Leave_request` will be the process ID. Contact customer support if you need further assistance.; instance_id (path) — (Required) The unique identifier for each process item. You can find the instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9QVo5L` will be the instance ID of the specific process item. Contact customer support if you need further assistance.; activity_instance_id (path) — (Requ",
+      "community": 8
+    },
+    {
+      "id": "api:get:/process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/{field_id}/image",
+      "label": "GET /process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/{field_id}/image — Download image from a form field",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nGET /process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/{field_id}/image\nDownload image from a form field\nDownloads an image from a form field of your process.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`, `Leave_request` will be the process ID. Contact customer support if you need further assistance.; instance_id (path) — (Required) The unique identifier for each process item. You can find the instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9QVo5L` will be the instance ID of the specific process item. Contact customer support if you need further assistance.; activity_instance_id (path) — (Required) The unique identifier for each process step. You can find the activity instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9RNK_A` will be the activity instance ID of the specific process step. Contact customer support if you n",
+      "community": 8
+    },
+    {
+      "id": "api:post:/process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/{table_id}/{row_id}/{field_id}/image",
+      "label": "POST /process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/{table_id}/{row_id}/{field_id}/image — Add image to a table field",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nPOST /process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/{table_id}/{row_id}/{field_id}/image\nAdd image to a table field\nUploads an image to a table within your process form. You can add an image in the following file formats - .jpg, .jpeg, .png, .bmp, .gif, and .tif. Please note that, for encoding images, only blob data type is currently supported and not Base64.\nParameters: Content-Type (header) — Do not pass this header when used inside Postman. Use the default header set by Postman, instead.; Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`, `Leave_request` will be the process ID. Contact customer support if you need further assistance.; instance_id (path) — (Required) The unique identifier for each process item. You can find the instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9QVo5L` will be the instance ID of the specific process item. Contact customer support if you need further assistance.; activity_instance_id (path) — (Required) The unique",
+      "community": 8
+    },
+    {
+      "id": "api:get:/process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/{table_id}/{row_id}/{field_id}/image",
+      "label": "GET /process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/{table_id}/{row_id}/{field_id}/image — Download image from a table field",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nGET /process/2/{account_id}/{process_id}/{instance_id}/{activity_instance_id}/{table_id}/{row_id}/{field_id}/image\nDownload image from a table field\nDownloads an image from a table within your process form.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`, `Leave_request` will be the process ID. Contact customer support if you need further assistance.; instance_id (path) — (Required) The unique identifier for each process item. You can find the instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9QVo5L` will be the instance ID of the specific process item. Contact customer support if you need further assistance.; activity_instance_id (path) — (Required) The unique identifier for each process step. You can find the activity instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9RNK_A` will be the activity instance ID of the specific process step. Contact ",
+      "community": 8
+    },
+    {
+      "id": "api:get:/process/2/{account_id}/pwa/{process_id}/myitems",
+      "label": "GET /process/2/{account_id}/pwa/{process_id}/myitems — Get list of my items",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nGET /process/2/{account_id}/pwa/{process_id}/myitems\nGet list of my items\nRetrieves all the items that you have initiated and participated in within your process.\nParameters: Accept (header); page_number (query) — The specific page number of an item list. It can be specified as 1, 2, 3, etc.; page_size (query) — The number of items that can be listed in a page. It can be assigned any integer.; account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`, `Leave_request` will be the process ID. Contact customer support if you need further assistance.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/process/2/{account_id}/pwa/{process_id}/pending",
+      "label": "GET /process/2/{account_id}/pwa/{process_id}/pending — Get list of my tasks",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nGET /process/2/{account_id}/pwa/{process_id}/pending\nGet list of my tasks\nRetrieves all the items that are awaiting your approval at any specific step in a process.\nParameters: Accept (header); page_number (query) — The specific page number of an item list. It can be specified as 1, 2, 3, etc.; page_size (query) — The number of items that can be listed in a page. It can be assigned any integer.; account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`, `Leave_request` will be the process ID. Contact customer support if you need further assistance.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/process/2/{account_id}/admin/{process_id}/item",
+      "label": "GET /process/2/{account_id}/admin/{process_id}/item — Get all items (Admin)",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nGET /process/2/{account_id}/admin/{process_id}/item\nGet all items (Admin)\nRetrieves the list of all items from a  process. Only Process Admins can call this endpoint.\nParameters: Accept (header); page_number (query) — The specific page number of an item list. It can be specified as 1, 2, 3, etc.; page_size (query) — The number of items that can be listed in a page. It can be assigned any integer.; apply_preference (query) — The applied preferences like filters, show/hide fields, and number of rows per page.; account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/myitems/Draft`, `Purchase_reimbursement` will be the process ID. Contact customer support if you need further assistance.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:put:/process/2/{account_id}/admin/{process_id}/{instance_id}",
+      "label": "PUT /process/2/{account_id}/admin/{process_id}/{instance_id} — Update item details (Admin)",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nPUT /process/2/{account_id}/admin/{process_id}/{instance_id}\nUpdate item details (Admin)\nUpdates the records of a specific item in your process. Only Process Admins can call this endpoint.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`, `Leave_request` will be the process ID. Contact customer support if you need further assistance.; instance_id (path) — (Required) The unique identifier for each process item. You can find the instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9QVo5L` will be the instance ID of the specific process item. Contact customer support if you need further assistance.\nRequest body: Fields: Name, _id, TotalPrice, PONumber, RequestedBy\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/process/2/{account_id}/admin/{process_id}/{instance_id}",
+      "label": "GET /process/2/{account_id}/admin/{process_id}/{instance_id} — Get item details (Admin)",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nGET /process/2/{account_id}/admin/{process_id}/{instance_id}\nGet item details (Admin)\nRetrieves the details of a specific item from your  process. Only Process Admins can call this endpoint.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`, `Leave_request` will be the process ID. Contact customer support if you need further assistance.; instance_id (path) — (Required) The unique identifier for each process item. You can find the instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9QVo5L` will be the instance ID of the specific process item. Contact customer support if you need further assistance.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:delete:/process/2/{account_id}/admin/{process_id}/{instance_id}",
+      "label": "DELETE /process/2/{account_id}/admin/{process_id}/{instance_id} — Delete an item (Admin)",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nDELETE /process/2/{account_id}/admin/{process_id}/{instance_id}\nDelete an item (Admin)\nDeletes a specific item from your process. Only Process Admins can call this endpoint.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`, `Leave_request` will be the process ID. Contact customer support if you need further assistance.; instance_id (path) — (Required) The unique identifier for each process item. You can find the instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9QVo5L` will be the instance ID of the specific process item. Contact customer support if you need further assistance.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/process/2/{account_id}/admin/{process_id}/{instance_id}/{field_id}/attachment",
+      "label": "POST /process/2/{account_id}/admin/{process_id}/{instance_id}/{field_id}/attachment — Add attachment to a form field (Admin)",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nPOST /process/2/{account_id}/admin/{process_id}/{instance_id}/{field_id}/attachment\nAdd attachment to a form field (Admin)\nUploads an attachment to a form field of your process. You can add an attachment in the following file formats - .jpg, .jpeg, .png, .bmp, .gif, .tif, .doc, .docx, .pdf, .ppt, .pptx, .xls, .xlsx, .csv, .txt, .eml, .zip, and .mp4. Only the Process Admin can invoke this API. Please note that, for encoding images, only blob data type is currently supported and not Base64.\nParameters: Content-Type (header) — Do not pass this header when used inside Postman. Use the default header set by Postman, instead.; Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`, `Leave_request` will be the process ID. Contact customer support if you need further assistance.; instance_id (path) — (Required) The unique identifier for each process item. You can find the instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9QVo5L` will be the instance ID of the specific process item. Cont",
+      "community": 8
+    },
+    {
+      "id": "api:get:/process/2/{account_id}/admin/{process_id}/{instance_id}/{field_id}/attachment/{attachment_id}",
+      "label": "GET /process/2/{account_id}/admin/{process_id}/{instance_id}/{field_id}/attachment/{attachment_id} — Download attachment from a form field (Admin)",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nGET /process/2/{account_id}/admin/{process_id}/{instance_id}/{field_id}/attachment/{attachment_id}\nDownload attachment from a form field (Admin)\nDownloads a specific attachment from a form field of your process. Only the Process Admin can invoke this API.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`, `Leave_request` will be the process ID. Contact customer support if you need further assistance.; instance_id (path) — (Required) The unique identifier for each process item. You can find the instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9QVo5L` will be the instance ID of the specific process item. Contact customer support if you need further assistance.; field_id (path) — (Required) The unique identifier assigned to each field in your process form.; attachment_id (path) — (Required) The unique identifier assigned to each attached file in your process form.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/process/2/{account_id}/admin/{process_id}/{instance_id}/{table_id}/{row_id}/{field_id}/attachment",
+      "label": "POST /process/2/{account_id}/admin/{process_id}/{instance_id}/{table_id}/{row_id}/{field_id}/attachment — Add attachment to a table field (Admin)",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nPOST /process/2/{account_id}/admin/{process_id}/{instance_id}/{table_id}/{row_id}/{field_id}/attachment\nAdd attachment to a table field (Admin)\nUploads an attachment to a table in your process form. You can add an attachment in the following file formats - .jpg, .jpeg, .png, .bmp, .gif, .tif, .doc, .docx, .pdf, .ppt, .pptx, .xls, .xlsx, .csv, .txt, .eml, .zip, and .mp4.Only Process Admins can invoke this API. Please note that, for encoding images, only blob data type is currently supported and not Base64.\nParameters: Content-Type (header) — Do not pass this header when used inside Postman. Use the default header set by Postman, instead.; Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`, `Leave_request` will be the process ID. Contact customer support if you need further assistance.; instance_id (path) — (Required) The unique identifier for each process item. You can find the instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9QVo5L` will be the instance ID of the specific p",
+      "community": 8
+    },
+    {
+      "id": "api:get:/process/2/{account_id}/admin/{process_id}/{instance_id}/{table_id}/{row_id}/{field_id}/attachment/{attachment_id}",
+      "label": "GET /process/2/{account_id}/admin/{process_id}/{instance_id}/{table_id}/{row_id}/{field_id}/attachment/{attachment_id} — Download attachment from a table field (Admin)",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nGET /process/2/{account_id}/admin/{process_id}/{instance_id}/{table_id}/{row_id}/{field_id}/attachment/{attachment_id}\nDownload attachment from a table field (Admin)\nDownloads a specific attachment from a table within your process form. Only Process Admins can invoke this API.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`, `Leave_request` will be the process ID. Contact customer support if you need further assistance.; instance_id (path) — (Required) The unique identifier for each process item. You can find the instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9QVo5L` will be the instance ID of the specific process item. Contact customer support if you need further assistance.; table_id (path) — (Required) The unique identifier assigned to each table in your process form.; row_id (path) — (Required) The unique identifier assigned to each row of a table in your process form.; field_id (path) — (Required) The unique identifier assigned to each column (field) i",
+      "community": 8
+    },
+    {
+      "id": "api:post:/process/2/{account_id}/admin/{process_id}/{instance_id}/{field_id}/image",
+      "label": "POST /process/2/{account_id}/admin/{process_id}/{instance_id}/{field_id}/image — Add image to a form field (Admin)",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nPOST /process/2/{account_id}/admin/{process_id}/{instance_id}/{field_id}/image\nAdd image to a form field (Admin)\nUploads an image to a form field of your process. You can add an image in the following file formats - .jpg, .jpeg, .png, .bmp, .gif, and .tif. Only the Process Admin can invoke this API. Please note that, for encoding images, only blob data type is currently supported and not Base64.\nParameters: Content-Type (header) — Do not pass this header when used inside Postman. Use the default header set by Postman, instead.; Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`, `Leave_request` will be the process ID. Contact customer support if you need further assistance.; instance_id (path) — (Required) The unique identifier for each process item. You can find the instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9QVo5L` will be the instance ID of the specific process item. Contact customer support if you need further assistance.; field_id (path) — (Required) The unique i",
+      "community": 8
+    },
+    {
+      "id": "api:get:/process/2/{account_id}/admin/{process_id}/{instance_id}/{field_id}/image",
+      "label": "GET /process/2/{account_id}/admin/{process_id}/{instance_id}/{field_id}/image — Download image from a form field (Admin)",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nGET /process/2/{account_id}/admin/{process_id}/{instance_id}/{field_id}/image\nDownload image from a form field (Admin)\nDownloads an image from a form field of your process. Only the Process Admin can invoke this API.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`, `Leave_request` will be the process ID. Contact customer support if you need further assistance.; instance_id (path) — (Required) The unique identifier for each process item. You can find the instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9QVo5L` will be the instance ID of the specific process item. Contact customer support if you need further assistance.; field_id (path) — (Required) The unique identifier assigned to each field in your process form.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/process/2/{account_id}/admin/{process_id}/{instance_id}/{table_id}/{row_id}/{field_id}/image",
+      "label": "POST /process/2/{account_id}/admin/{process_id}/{instance_id}/{table_id}/{row_id}/{field_id}/image — Add image to a table field (Admin)",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nPOST /process/2/{account_id}/admin/{process_id}/{instance_id}/{table_id}/{row_id}/{field_id}/image\nAdd image to a table field (Admin)\nUploads an image to a table within your process form. You can add an image in the following file formats - .jpg, .jpeg, .png, .bmp, .gif, and .tif. Only Process Admins can invoke this API. Please note that, for encoding images, only blob data type is currently supported and not Base64.\nParameters: Content-Type (header) — Do not pass this header when used inside Postman. Use the default header set by Postman, instead.; Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`, `Leave_request` will be the process ID. Contact customer support if you need further assistance.; instance_id (path) — (Required) The unique identifier for each process item. You can find the instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9QVo5L` will be the instance ID of the specific process item. Contact customer support if you need further assistance.; table_id (path) — (",
+      "community": 8
+    },
+    {
+      "id": "api:get:/process/2/{account_id}/admin/{process_id}/{instance_id}/{table_id}/{row_id}/{field_id}/image",
+      "label": "GET /process/2/{account_id}/admin/{process_id}/{instance_id}/{table_id}/{row_id}/{field_id}/image — Download image from a table field (Admin)",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nGET /process/2/{account_id}/admin/{process_id}/{instance_id}/{table_id}/{row_id}/{field_id}/image\nDownload image from a table field (Admin)\nDownloads an image from a table within your process form. Only Process Admins can invoke this API.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`, `Leave_request` will be the process ID. Contact customer support if you need further assistance.; instance_id (path) — (Required) The unique identifier for each process item. You can find the instance ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`, `Pk9ALV9QVo5L` will be the instance ID of the specific process item. Contact customer support if you need further assistance.; table_id (path) — (Required) The unique identifier assigned to each table in your process form.; row_id (path) — (Required) The unique identifier assigned to each row of a table in your process form.; field_id (path) — (Required) The unique identifier assigned to each column (field) in your process form’s table.\nResponses:",
+      "community": 8
+    },
+    {
+      "id": "api:get:/process-report/2/{account_id}/{process_id}/{report_id}/count",
+      "label": "GET /process-report/2/{account_id}/{process_id}/{report_id}/count — Get count of items in reports",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nGET /process-report/2/{account_id}/{process_id}/{report_id}/count\nGet count of items in reports\nRetrieves the count of items within the report.\nParameters: Accept (header); q (query) — This is the search filter string, and is an optional parameter.; account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, if the process URL is `https://thestarkcorp.kissflow.com/view/process/Purchase_Request/form/Pk8gkqOWMGnc/Pk8gkqOWoc94`,`Purchase_Request` will be the process_id. If you require additional assistance, please contact customer support.; report_id (path) — (Required) The unique identifier for each report. You can find the report ID from the web URL. For instance, if the report URL is `https://thestarkcorp.kissflow.com/view/analytics/ds_Virtual_pro/analyticstable/report/Finish_charrtt`,`Finish_charrtt` will be the report_id. If you require additional assistance, please contact customer support.\nResponses: 200, 400, 401, 403, 404, 500, 503",
+      "community": 8
+    },
+    {
+      "id": "api:get:/process-report/2/{account_id}/{process_id}/{report_id}/fields",
+      "label": "GET /process-report/2/{account_id}/{process_id}/{report_id}/fields — Get report fields",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nGET /process-report/2/{account_id}/{process_id}/{report_id}/fields\nGet report fields\nRetrieves the fields used in a process report.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, if the process URL is `https://thestarkcorp.kissflow.com/view/process/Purchase_Request/form/Pk8gkqOWMGnc/Pk8gkqOWoc94`,`Purchase_Request` will be the process_id. If you require additional assistance, please contact customer support.; report_id (path) — (Required) The unique identifier for each report. You can find the report ID from the web URL. For instance, if the report URL is `https://thestarkcorp.kissflow.com/view/analytics/ds_Virtual_pro/analyticstable/report/Finish_charrtt`,`Finish_charrtt` will be the report_id. If you require additional assistance, please contact customer support.\nResponses: 200, 400, 401, 403, 404, 500, 503",
+      "community": 8
+    },
+    {
+      "id": "api:get:/process-report/2/{account_id}/{process_id}/{report_id}/{instance_id}",
+      "label": "GET /process-report/2/{account_id}/{process_id}/{report_id}/{instance_id} — Get item details",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Processes\nGET /process-report/2/{account_id}/{process_id}/{report_id}/{instance_id}\nGet item details\nRetrieves the field values of a specific item from a process's tabular report.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; process_id (path) — (Required) The unique identifier for each process. You can find the process ID from the web URL. For instance, if the process URL is `https://thestarkcorp.kissflow.com/view/process/Purchase_Request/form/Pk8gkqOWMGnc/Pk8gkqOWoc94`,`Purchase_Request` will be the process_id. If you require additional assistance, please contact customer support.; report_id (path) — (Required) The unique identifier for each report. You can find the report ID from the web URL. For instance, if the report URL is `https://thestarkcorp.kissflow.com/view/analytics/ds_Virtual_pro/analyticstable/report/Finish_charrtt`,`Finish_charrtt` will be the report_id. If you require additional assistance, please contact customer support.; instance_id (path) — (Required) The unique identifier for each item in a process. You can find the instance ID from the web URL. For instance, if the process URL is `https://thestarkcorp.kissflow.com/view/process/Purchase_Request/form/Pk8gkqOWMGnc/Pk8gkqOWoc94`,`Pk8gkqOWMGnc` will be the instance_id. If you require additional assistance, please contact customer suppo",
+      "community": 8
+    },
+    {
+      "id": "api:post:/case/2/{account_id}/{case_id}",
+      "label": "POST /case/2/{account_id}/{case_id} — Create a new item",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nPOST /case/2/{account_id}/{case_id}\nCreate a new item\nCreates a new item in the board.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.\nRequest body: Fields: AssignedTo, DueDate, _priority_id, Requester, _status_id\nResponses: 200, 400, 401, 403, 404, 500",
+      "community": 8
+    },
+    {
+      "id": "api:post:/case/2/{account_id}/{case_id}/{item_id}/{status_id}/move",
+      "label": "POST /case/2/{account_id}/{case_id}/{item_id}/{status_id}/move — Update the status of an item",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nPOST /case/2/{account_id}/{case_id}/{item_id}/{status_id}/move\nUpdate the status of an item\nChanges the status of a specific item in the board.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board.; status_id (path) — (Required) The unique identifier for a status in the board.\nRequest body: Fields: _status_id\nResponses: 200, 400, 401, 403, 404, 500",
+      "community": 8
+    },
+    {
+      "id": "api:post:/case/2/{account_id}/{case_id}/{item_id}/{status_id}/reassign",
+      "label": "POST /case/2/{account_id}/{case_id}/{item_id}/{status_id}/reassign — Update the assignee for an item",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nPOST /case/2/{account_id}/{case_id}/{item_id}/{status_id}/reassign\nUpdate the assignee for an item\nChanges the assignee of a specific item in the board.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board.; status_id (path) — (Required) The unique identifier for a status in the board.\nRequest body: Fields: AssignedTo\nResponses: 200, 400, 401, 403, 404, 500",
+      "community": 8
+    },
+    {
+      "id": "api:put:/case/2/{account_id}/{case_id}/{item_id}/{status_id}/DueDate",
+      "label": "PUT /case/2/{account_id}/{case_id}/{item_id}/{status_id}/DueDate — Update the due date and time for an item",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nPUT /case/2/{account_id}/{case_id}/{item_id}/{status_id}/DueDate\nUpdate the due date and time for an item\nUpdates the due date and time for a specific item in the board.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board.; status_id (path) — (Required) The unique identifier for a status in the board.\nRequest body: Fields: DueDate\nResponses: 200, 400, 401, 403, 404, 500",
+      "community": 8
+    },
+    {
+      "id": "api:put:/case/2/{account_id}/{case_id}/{item_id}/{status_id}/_priority_id",
+      "label": "PUT /case/2/{account_id}/{case_id}/{item_id}/{status_id}/_priority_id — Update the priority for an item",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nPUT /case/2/{account_id}/{case_id}/{item_id}/{status_id}/_priority_id\nUpdate the priority for an item\nUpdates the priority for a specific item in the board.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board.; status_id (path) — (Required) The unique identifier for a status in the board.\nRequest body: Fields: _priority_id\nResponses: 200, 400, 401, 403, 404, 500",
+      "community": 8
+    },
+    {
+      "id": "api:put:/case/2/{account_id}/{case_id}/{item_id}/{status_id}/Requester",
+      "label": "PUT /case/2/{account_id}/{case_id}/{item_id}/{status_id}/Requester — Update the requester for an item",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nPUT /case/2/{account_id}/{case_id}/{item_id}/{status_id}/Requester\nUpdate the requester for an item\nUpdates the requester for a specific item in the board.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board.; status_id (path) — (Required) The unique identifier for a status in the board.\nRequest body: Fields: Requester\nResponses: 200, 400, 401, 403, 404, 500",
+      "community": 8
+    },
+    {
+      "id": "api:post:/case/2/{account_id}/{case_id}/{item_id}/{status_id}",
+      "label": "POST /case/2/{account_id}/{case_id}/{item_id}/{status_id} — Update custom form fields",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nPOST /case/2/{account_id}/{case_id}/{item_id}/{status_id}\nUpdate custom form fields\nUpdates the custom form fields in a board for a specific item.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board.; status_id (path) — (Required) The unique identifier for a status in the board.\nRequest body: Fields: Summary\nResponses: 200, 400, 401, 403, 404, 500",
+      "community": 8
+    },
+    {
+      "id": "api:delete:/case/2/{account_id}/{case_id}/{item_id}",
+      "label": "DELETE /case/2/{account_id}/{case_id}/{item_id} — Delete an item",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nDELETE /case/2/{account_id}/{case_id}/{item_id}\nDelete an item\nDeletes a specific item from the board.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/case/2/{account_id}/{case_id}/{item_id}",
+      "label": "GET /case/2/{account_id}/{case_id}/{item_id} — Get all items' details",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nGET /case/2/{account_id}/{case_id}/{item_id}\nGet all items' details\nRetrieves all the details of a specific item\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/case/2/{account_id}/{case_id}/batch/delete",
+      "label": "POST /case/2/{account_id}/{case_id}/batch/delete — Bulk delete items",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nPOST /case/2/{account_id}/{case_id}/batch/delete\nBulk delete items\nDeletes multiple items from the board in bulk.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.\nRequest body: Fields: items\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/case/2/{account_id}/{case_id}/batch/_priority_id",
+      "label": "POST /case/2/{account_id}/{case_id}/batch/_priority_id — Bulk update item priorities",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nPOST /case/2/{account_id}/{case_id}/batch/_priority_id\nBulk update item priorities\nPerforms bulk updates of priorities for multiple items.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.\nRequest body: Fields: _priority_id, item\nResponses: 200, 400, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/case/2/{account_id}/{case_id}/batch/move",
+      "label": "POST /case/2/{account_id}/{case_id}/batch/move — Bulk update item statuses",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nPOST /case/2/{account_id}/{case_id}/batch/move\nBulk update item statuses\nPerforms bulk updates of statuses for multiple items.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.\nRequest body: Fields: _status_id, item\nResponses: 200, 400, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/case/2/{account_id}/{case_id}/batch/reassign",
+      "label": "POST /case/2/{account_id}/{case_id}/batch/reassign — Bulk update item assignees",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nPOST /case/2/{account_id}/{case_id}/batch/reassign\nBulk update item assignees\nPerforms bulk updates of assignees for multiple items.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.\nRequest body: Fields: item, AssignedTo\nResponses: 200, 400, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/case/2/{account_id}/{case_id}/{item_id}/add/watchers",
+      "label": "POST /case/2/{account_id}/{case_id}/{item_id}/add/watchers — Add watchers to a board",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nPOST /case/2/{account_id}/{case_id}/{item_id}/add/watchers\nAdd watchers to a board\nAdds one or more watchers to a specific board.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board.\nRequest body: Fields: _watchers\nResponses: 200, 400, 401, 403, 404, 406",
+      "community": 8
+    },
+    {
+      "id": "api:post:/case/2/{account_id}/{case_id}/{item_id}/remove/watchers",
+      "label": "POST /case/2/{account_id}/{case_id}/{item_id}/remove/watchers — Remove watchers from a board",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nPOST /case/2/{account_id}/{case_id}/{item_id}/remove/watchers\nRemove watchers from a board\nRemoves one or more watchers from a specific board.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board.\nRequest body: Fields: _watchers\nResponses: 200, 400, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/case/2/{account_id}/{case_id}/fields",
+      "label": "GET /case/2/{account_id}/{case_id}/fields — Get all board fields",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nGET /case/2/{account_id}/{case_id}/fields\nGet all board fields\nRetrieves all fields in a specific board.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/case/2/{account_id}/{case_id}/{item_id}/activity",
+      "label": "GET /case/2/{account_id}/{case_id}/{item_id}/activity — Get item activities",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nGET /case/2/{account_id}/{case_id}/{item_id}/activity\nGet item activities\nRetrieves activities of a specific item in the board.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account\n ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id)\n from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board. \nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/case/2/{account_id}/{case_id}/{item_id}/transition",
+      "label": "GET /case/2/{account_id}/{case_id}/{item_id}/transition — Get item status transitions",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nGET /case/2/{account_id}/{case_id}/{item_id}/transition\nGet item status transitions\nRetrieves the status transitions of a specific item in the board.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/case/2/{account_id}/{case_id}/lookup/fields",
+      "label": "GET /case/2/{account_id}/{case_id}/lookup/fields — Get all fields configured for display in a lookup",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nGET /case/2/{account_id}/{case_id}/lookup/fields\nGet all fields configured for display in a lookup\nRetrieves all fields of a selected flow configured to be displayed for a specified lookup field. This endpoint applies only when the form is being edited.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/case/2/{account_id}/{case_id}/{item_id}/{field_id}/rlookup",
+      "label": "GET /case/2/{account_id}/{case_id}/{item_id}/{field_id}/rlookup — Get a list of records from a remote lookup field",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nGET /case/2/{account_id}/{case_id}/{item_id}/{field_id}/rlookup\nGet a list of records from a remote lookup field\nRetrieves a list of records from an external source in a remote lookup field on a board.\nParameters: Accept (header); q (query) — This is the search string and is an optional parameter.; account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board.; field_id (path) — (Required) The unique identifier assigned to each field in the board. \nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/case/2/{account_id}/{case_id}/{item_id}/{field_id}/lookup",
+      "label": "GET /case/2/{account_id}/{case_id}/{item_id}/{field_id}/lookup — Get a list of records from a lookup field",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nGET /case/2/{account_id}/{case_id}/{item_id}/{field_id}/lookup\nGet a list of records from a lookup field\nRetrieves a list of records from an internal datasource in a lookup field on a board.\nParameters: Accept (header); page_number (query) — This is the specific page number of an item list and is an optional parameter. The page number can be specified as 1, 2, 3, etc. Default value is 1.; page_size (query) — The number of items that can be listed in a page result and is an optional parameter. Default value is 10.; q (query) — This is the search string and is an optional parameter.; account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board.; field_id (path) — (Required) The unique identifier assigned to each field in the board.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/case/2/{account_id}/{case_id}/{item_id}/watchers",
+      "label": "GET /case/2/{account_id}/{case_id}/{item_id}/watchers — Get list of watchers for a board",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nGET /case/2/{account_id}/{case_id}/{item_id}/watchers\nGet list of watchers for a board\nRetrieves the list of watchers for a specific board.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board.\nResponses: 200, 400, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/case/2/{account_id}/{case_id}/count",
+      "label": "POST /case/2/{account_id}/{case_id}/count — Get the number of items in a view",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nPOST /case/2/{account_id}/{case_id}/count\nGet the number of items in a view\nRetrieves the number of items in a view based on specified filters.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.\nRequest body: Fields: AppId, Name, ViewId, ConfigJson, ViewType\nResponses: 200, 400, 401, 403, 404, 500",
+      "community": 8
+    },
+    {
+      "id": "api:get:/case/2/{account_id}/{case_id}/table/{table_id}/fields",
+      "label": "GET /case/2/{account_id}/{case_id}/table/{table_id}/fields — Get all fields from a table using a lookup field",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nGET /case/2/{account_id}/{case_id}/table/{table_id}/fields\nGet all fields from a table using a lookup field\nRetrieves all fields from a table in another flow using a lookup field.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; table_id (path) — (Required) The unique identifier assigned to each table in the board.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/case/2/{account_id}/{case_id}/{view_type}/items",
+      "label": "POST /case/2/{account_id}/{case_id}/{view_type}/items — Get the list of items in a view",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nPOST /case/2/{account_id}/{case_id}/{view_type}/items\nGet the list of items in a view\nRetrieves a list of items in a view based on specified filters.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; view_type (path) — (Required) The type of view in the board.\nRequest body: Fields: AppId, Name, ViewId, ConfigJson, ViewType\nResponses: 200, 400, 401, 403, 404, 500",
+      "community": 8
+    },
+    {
+      "id": "api:get:/case/2/{account_id}/{case_id}/{item_id}/{table_id}/{table_instance_id}/{field_id}/lookup",
+      "label": "GET /case/2/{account_id}/{case_id}/{item_id}/{table_id}/{table_instance_id}/{field_id}/lookup — Get a list of records from a lookup field in a table",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nGET /case/2/{account_id}/{case_id}/{item_id}/{table_id}/{table_instance_id}/{field_id}/lookup\nGet a list of records from a lookup field in a table\nRetrieves a list of records from an internal data source in a lookup field of a board table.\nParameters: Accept (header); page_number (query) — This is the specific page number of an item list and is an optional parameter. The page number can be specified as 1, 2, 3, etc. Default value is 1.; page_size (query) — The number of items that can be listed in a page result and is an optional parameter. Default value is 10.; q (query) — This is the search string and is an optional parameter.; account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board.; table_id (path) — (Required) The unique identifier assigned to each table in the board.; table_instance_id (path) — (Required) The unique identifier of the row in a table that contains the lookup ",
+      "community": 8
+    },
+    {
+      "id": "api:get:/case/2/{account_id}/{case_id}/{item_id}/{table_id}/{table_instance_id}/{field_id}/rlookup",
+      "label": "GET /case/2/{account_id}/{case_id}/{item_id}/{table_id}/{table_instance_id}/{field_id}/rlookup — Get a list of records from a remote lookup field in a table",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nGET /case/2/{account_id}/{case_id}/{item_id}/{table_id}/{table_instance_id}/{field_id}/rlookup\nGet a list of records from a remote lookup field in a table\nRetrieves a list of records from an external data source in a remote lookup field of a board table.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board.; table_id (path) — (Required) The unique identifier assigned to each table in the board.; table_instance_id (path) — (Required) The unique identifier of the row in a table that contains the lookup field.; field_id (path) — (Required) The unique identifier assigned to each field in the board. \nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/case/2/{account_id}/{case_id}/{item_id}/{field_id}/attachment/{attachment_id}",
+      "label": "GET /case/2/{account_id}/{case_id}/{item_id}/{field_id}/attachment/{attachment_id} — Download an attachment from an attachment field",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nGET /case/2/{account_id}/{case_id}/{item_id}/{field_id}/attachment/{attachment_id}\nDownload an attachment from an attachment field\nDownloads an attachment from a specific attachment field in the board form.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board. ; field_id (path) — (Required) The unique identifier assigned to each field in the board. ; attachment_id (path) — (Required) The unique identifier of your attached file.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/case/2/{account_id}/{case_id}/{item_id}/{table_id}/{row_id}/{field_id}/attachment/{attachment_id}",
+      "label": "GET /case/2/{account_id}/{case_id}/{item_id}/{table_id}/{row_id}/{field_id}/attachment/{attachment_id} — Download an attachment from an attachment field in a table",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nGET /case/2/{account_id}/{case_id}/{item_id}/{table_id}/{row_id}/{field_id}/attachment/{attachment_id}\nDownload an attachment from an attachment field in a table\nDownloads an attachment from a specific attachment field in a table within the board.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board. ; table_id (path) — (Required) The unique identifier assigned to each table in the board. ; row_id (path) — (Required) The unique identifier assigned to each row of a table in the board. ; field_id (path) — (Required) The unique identifier assigned to each field in the board. ; attachment_id (path) — (Required) The unique identifier of your attached file.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/case/2/{account_id}/{case_id}/{item_id}/{field_id}/image",
+      "label": "GET /case/2/{account_id}/{case_id}/{item_id}/{field_id}/image — Download an image file from an image field",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nGET /case/2/{account_id}/{case_id}/{item_id}/{field_id}/image\nDownload an image file from an image field\nDownloads an image file from a specific image field in the board form.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board. ; field_id (path) — (Required) The unique identifier assigned to each field in the board. \nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/case/2/{account_id}/{case_id}/{item_id}/{field_id}/image",
+      "label": "POST /case/2/{account_id}/{case_id}/{item_id}/{field_id}/image — Upload an image file to an image field",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nPOST /case/2/{account_id}/{case_id}/{item_id}/{field_id}/image\nUpload an image file to an image field\nUploads an image file to a specific image field in the board form. The following file formats are supported - .jpg, .jpeg, .jpe, .png, or .gif.\nParameters: Content-Type (header) — Do not pass this in the header when used inside Postman. Use the default header set by Postman, instead.; Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board. ; field_id (path) — (Required) The unique identifier assigned to each field in the board. \nRequest body:\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/case/2/{account_id}/{case_id}/{item_id}/{table_id}/{row_id}/{field_id}/image",
+      "label": "GET /case/2/{account_id}/{case_id}/{item_id}/{table_id}/{row_id}/{field_id}/image — Download an image from an image file in a table",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nGET /case/2/{account_id}/{case_id}/{item_id}/{table_id}/{row_id}/{field_id}/image\nDownload an image from an image file in a table\nDownloads an image file from a specific image field in a table within the board form.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board. ; table_id (path) — (Required) The unique identifier assigned to each table in the board. ; row_id (path) — (Required) The unique identifier assigned to each row of a table in the board. ; field_id (path) — (Required) The unique identifier assigned to each field in the board. \nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/case/2/{account_id}/{case_id}/{item_id}/{table_id}/{row_id}/{field_id}/image",
+      "label": "POST /case/2/{account_id}/{case_id}/{item_id}/{table_id}/{row_id}/{field_id}/image — Upload an image to a table field",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nPOST /case/2/{account_id}/{case_id}/{item_id}/{table_id}/{row_id}/{field_id}/image\nUpload an image to a table field\nUploads an image file to a specific image field in a table within the board form. The following image file formats are supported - .jpg, .jpeg, .jpe, .png, or .gif.\nParameters: Content-Type (header) — Do not pass this in the header when used inside Postman. Use the default header set by Postman, instead.; Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board. ; table_id (path) — (Required) The unique identifier assigned to each table in the board. ; row_id (path) — (Required) The unique identifier assigned to each row of a table in the board. ; field_id (path) — (Required) The unique identifier assigned to each field in the board. \nRequest body:\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/case/2/{account_id}/{case_id}/{item_id}/{field_id}/attachment",
+      "label": "POST /case/2/{account_id}/{case_id}/{item_id}/{field_id}/attachment — Upload an attachment to an attachment field",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nPOST /case/2/{account_id}/{case_id}/{item_id}/{field_id}/attachment\nUpload an attachment to an attachment field\nAdds an attachment to a specific attachment field in the board form. The following file formats are supported - pdf, .doc, .ppt, .xls, .jpg, .jpeg, .jpe, .png, .gif, or .mp4.\nParameters: Content-Type (header) — Do not pass this in the header when used inside Postman. Use the default header set by Postman, instead.; Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board. ; field_id (path) — (Required) The unique identifier assigned to each field in the board. \nRequest body:\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/case/2/{account_id}/{case_id}/{item_id}/{table_id}/{row_id}/{field_id}/attachment",
+      "label": "POST /case/2/{account_id}/{case_id}/{item_id}/{table_id}/{row_id}/{field_id}/attachment — Upload an attachment to an attachment field in a table",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Boards\nPOST /case/2/{account_id}/{case_id}/{item_id}/{table_id}/{row_id}/{field_id}/attachment\nUpload an attachment to an attachment field in a table\nUploads an attachment to a specific attachment field in a table within the board form. The following file formats are supported - pdf, .doc, .ppt, .xls, .jpg, .jpeg, .jpe, .png, .gif, or .mp4.\nParameters: Content-Type (header) — Do not pass this in the header when used inside Postman. Use the default header set by Postman, instead.; Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; case_id (path) — (Required) The unique identifier for each board. You can find the case ID from the web URL. For instance, if the board URL is https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all, Customer_feedback_requests will be the case_id. If you require additional assistance, please contact customer support.; item_id (path) — (Required) The unique identifier for an individual item in the board. ; table_id (path) — (Required) The unique identifier assigned to each table in the board. ; row_id (path) — (Required) The unique identifier assigned to each row of a table in the board. ; field_id (path) — (Required) The unique identifier assigned to each field in the board. \nRequest body:\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/form/2/{account_id}/{form_id}/create/submit",
+      "label": "POST /form/2/{account_id}/{form_id}/create/submit — Create a new dataform record",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Dataforms and dataform views > Dataforms\nPOST /form/2/{account_id}/{form_id}/create/submit\nCreate a new dataform record\nCreates and submits a new dataform record.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; form_id (path) — (Required) The unique identifier for each dataform. You can find the dataform ID from the web URL. For instance, if the dataform URL is `https://development-thestarkcorporation.kissflow.com/appbuilder/PACMS_A00/form/Testimonial_Form_A00`, `Testimonial_Form_A00` will be the `form_ID`. If you require additional assistance, please contact customer support.\nRequest body: Fields: Name_1, Employee_ID, Department, Emergency_contact, Address, DOB\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/form/2/{account_id}/{form_id}/{instance_id}",
+      "label": "POST /form/2/{account_id}/{form_id}/{instance_id} — Update dataform record",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Dataforms and dataform views > Dataforms\nPOST /form/2/{account_id}/{form_id}/{instance_id}\nUpdate dataform record\nUpdates values of a specific dataform record.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; form_id (path) — (Required) The unique identifier for each dataform. You can find the dataform ID from the web URL. For instance, if the dataform URL is `https://development-thestarkcorporation.kissflow.com/appbuilder/PACMS_A00/form/Testimonial_Form_A00`, `Testimonial_Form_A00` will be the `form_ID`. If you require additional assistance, please contact customer support.; instance_id (path) — (Required) This is the unique identifier for each dataform record. You can fetch this from the network tab of your browser.\nRequest body: Fields: Emergency_contact, Address\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/form/2/{account_id}/{form_id}/{instance_id}",
+      "label": "GET /form/2/{account_id}/{form_id}/{instance_id} — Get details of a dataform record",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Dataforms and dataform views > Dataforms\nGET /form/2/{account_id}/{form_id}/{instance_id}\nGet details of a dataform record\nRetrieves all the details of a specific dataform record.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; form_id (path) — (Required) The unique identifier for each dataform. You can find the dataform ID from the web URL. For instance, if the dataform URL is `https://development-thestarkcorporation.kissflow.com/appbuilder/PACMS_A00/form/Testimonial_Form_A00`, `Testimonial_Form_A00` will be the `form_ID`. If you require additional assistance, please contact customer support.; instance_id (path) — (Required) This is the unique identifier for each dataform record. You can fetch this from the network tab of your browser.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:delete:/form/2/{account_id}/{form_id}/{instance_id}",
+      "label": "DELETE /form/2/{account_id}/{form_id}/{instance_id} — Delete a dataform record",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Dataforms and dataform views > Dataforms\nDELETE /form/2/{account_id}/{form_id}/{instance_id}\nDelete a dataform record\nDeletes all the values associated with a specific dataform record.\nParameters: Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; form_id (path) — (Required) The unique identifier for each dataform. You can find the dataform ID from the web URL. For instance, if the dataform URL is `https://development-thestarkcorporation.kissflow.com/appbuilder/PACMS_A00/form/Testimonial_Form_A00`, `Testimonial_Form_A00` will be the `form_ID`. If you require additional assistance, please contact customer support.; instance_id (path) — (Required) This is the unique identifier for each dataform record. You can fetch this from the network tab of your browser.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/form/2/{account_id}/{form_id}/batch/delete",
+      "label": "POST /form/2/{account_id}/{form_id}/batch/delete — Bulk delete dataform records",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Dataforms and dataform views > Dataforms\nPOST /form/2/{account_id}/{form_id}/batch/delete\nBulk delete dataform records\nDeletes multiple records from a dataform in bulk.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; form_id (path) — (Required) The unique identifier for each dataform. You can find the dataform ID from the web URL. For instance, if the dataform URL is `https://development-thestarkcorporation.kissflow.com/appbuilder/PACMS_A00/form/Testimonial_Form_A00`, `Testimonial_Form_A00` will be the `form_ID`. If you require additional assistance, please contact customer support.\nRequest body: Fields: _id\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/form/2/{account_id}/{form_id}/batch",
+      "label": "POST /form/2/{account_id}/{form_id}/batch — Bulk update dataform records",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Dataforms and dataform views > Dataforms\nPOST /form/2/{account_id}/{form_id}/batch\nBulk update dataform records\nThis endpoint performs bulk operations (creation and/or updates) on multiple records within a dataform. You can create/update up to **500 records** at a time.\n\nTo use it, send a JSON array in the **request body**. Each object in the array represents a single record operation (create or update). Structure each object based on the intended action:\n\n**1\\. To update an existing record:**\n\n- Identify the record using its unique `_id` (string).\n    \n- Make sure there is no mention of the `_is_created` field and its `boolean` value here.\n    \n- `JSON example:`  \n    `{ \"_id\": \"existing-record-123\", \"fieldName\": \"new value\", \"anotherField\": \"updated data\" }`\n    \n\n**2\\. To create a new record:**\n\n- Provide all fields required by the dataform, along with their initial values. Optional fields can also be included.\n    \n- Make sure to add the following field `_is_created` with the value `true` (boolean) to create a new record.\n    \n- `JSON example:`  \n    `{ \"_is_created\": true, \"requiredFieldA\": \"value A\", \"requiredFieldB\": 123, \"optionalFieldC\": \"some data\" }`\n    \n\n**Key points:**\n\n- You can mix objects for creation and updating within the same request array.\n    \n- Ensure your request's field names and data types match the dataform's schema.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to r",
+      "community": 8
+    },
+    {
+      "id": "api:get:/form/2/{account_id}/{form_id}/list",
+      "label": "GET /form/2/{account_id}/{form_id}/list — Get all dataform records",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Dataforms and dataform views > Dataforms\nGET /form/2/{account_id}/{form_id}/list\nGet all dataform records\nRetrieves details of all records in a dataform.\nParameters: Accept (header); visited (query) — This is the search filter string based on visited status, and it is an optional parameter.; page_number (query) — This is the specific page number of an item list and is an optional parameter. The page number can be specified as 1, 2, 3, etc. Default value is 1.; page_size (query) — The number of items that can be listed in a page result and is an optional parameter. Default value is 10.; q (query) — This is the search string and is an optional parameter.; search_field (query) — This is the search filter string based on a specific field and is an optional parameter.; account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; form_id (path) — (Required) The unique identifier for each dataform. You can find the dataform ID from the web URL. For instance, if the dataform URL is `https://development-thestarkcorporation.kissflow.com/appbuilder/PACMS_A00/form/Testimonial_Form_A00`, `Testimonial_Form_A00` will be the `form_ID`. If you require additional assistance, please contact customer support.\nResponses: 200, 401, 403",
+      "community": 8
+    },
+    {
+      "id": "api:get:/form/2/{account_id}/{form_id}/view/{view_id}/list",
+      "label": "GET /form/2/{account_id}/{form_id}/view/{view_id}/list — Get all records of a dataform view",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Dataforms and dataform views > Dataform views\nGET /form/2/{account_id}/{form_id}/view/{view_id}/list\nGet all records of a dataform view\nRetrieves all records of a dataform view.\nParameters: Accept (header); page_number (query) — This is the specific page number of an item list and is an optional parameter. The page number can be specified as 1, 2, 3, etc. Default value is 1.; page_size (query) — The number of items that can be listed in a page result and is an optional parameter. Default value is 10.; q (query) — This is the search filter string, and is an optional parameter.; search_field (query) — This is the search filter string based on specific field and is an optional parameter.; account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; form_id (path) — (Required) The unique identifier for each dataform. You can find the dataform ID from the web URL. For instance, if the dataform URL is `https://development-thestarkcorporation.kissflow.com/appbuilder/PACMS_A00/form/Testimonial_Form_A00`, `Testimonial_Form_A00` will be the `form_ID`. If you require additional assistance, please contact customer support.; view_id (path) — (Required) The unique identifier for each dataform view. You can fetch it from the network tab of your browser. This is a mandatory parameter.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:put:/dataset/2/{account_id}/{dataset_id}",
+      "label": "PUT /dataset/2/{account_id}/{dataset_id} — Update dataset records",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Dataset and dataset views\nPUT /dataset/2/{account_id}/{dataset_id}\nUpdate dataset records\nUpdates an existing dataset in Kissflow.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; dataset_id (path) — (Required) The unique identifier for each dataset. You can find the dataset ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset`, `Bank_Dataset` will be the dataset ID. Contact customer support if you need further assistance.\nRequest body: Fields: Name, Field1\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/dataset/2/{account_id}/{dataset_id}",
+      "label": "POST /dataset/2/{account_id}/{dataset_id} — Create a dataset",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Dataset and dataset views\nPOST /dataset/2/{account_id}/{dataset_id}\nCreate a dataset\nCreates a new dataset record in Kissflow.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; dataset_id (path) — (Required) The unique identifier for each dataset. You can find the dataset ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset`, `Bank_Dataset` will be the dataset ID. Contact customer support if you need further assistance.\nRequest body: Fields: Name, Field1\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/dataset/2/{account_id}/{dataset_id}",
+      "label": "GET /dataset/2/{account_id}/{dataset_id} — Get dataset record",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Dataset and dataset views\nGET /dataset/2/{account_id}/{dataset_id}\nGet dataset record\nRetrieves all details about a specific dataset record based on key value.\nParameters: Accept (header); Name (query) — (Required) The `Key` column value of the dataset. It is a unique string that identifies the record you are trying to fetch from the dataset. It is a mandatory parameter.<br />; account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; dataset_id (path) — (Required) The unique identifier for each dataset. You can find the dataset ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset`, `Bank_Dataset` will be the dataset ID. Contact customer support if you need further assistance.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:delete:/dataset/2/{account_id}/{dataset_id}",
+      "label": "DELETE /dataset/2/{account_id}/{dataset_id} — Delete a dataset",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Dataset and dataset views\nDELETE /dataset/2/{account_id}/{dataset_id}\nDelete a dataset\nDeletes a specific dataset in Kissflow.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; dataset_id (path) — (Required) The unique identifier for each dataset. You can find the dataset ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset`, `Bank_Dataset` will be the dataset ID. Contact customer support if you need further assistance.\nRequest body: Fields: Name\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/dataset/2/{account_id}/{dataset_id}/view/{view_id}/list",
+      "label": "GET /dataset/2/{account_id}/{dataset_id}/view/{view_id}/list — Get records of a dataset view",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Dataset and dataset views\nGET /dataset/2/{account_id}/{dataset_id}/view/{view_id}/list\nGet records of a dataset view\nRetrieves all the records of a specific dataset view.\nParameters: Accept (header); q (query) — This is the search filter string.; page_number (query) — This is the specific page number of an item list and is an optional parameter. The page number can be specified as 1, 2, 3, etc. Default value is 1.; page_size (query) — The number of items that can be listed in a page result and is an optional parameter. Default value is 10.; search_field (query) — This is the search filter string based on specific field and is an optional parameter.; account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; dataset_id (path) — (Required) The unique identifier for each dataset. You can find the dataset ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset`, `Bank_Dataset` will be the dataset ID. Contact customer support if you need further assistance.; view_id (path) — (Required) The unique identifier for each dataset view. You can find the dataset view ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset/view/Bank_statements`, `Bank_statements` will be the dataset view ID. Contact customer support if you need further assist",
+      "community": 8
+    },
+    {
+      "id": "api:get:/dataset/2/{account_id}/{dataset_id}/aggregation",
+      "label": "GET /dataset/2/{account_id}/{dataset_id}/aggregation — Get aggregated details of dataset's fields",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Dataset and dataset views\nGET /dataset/2/{account_id}/{dataset_id}/aggregation\nGet aggregated details of dataset's fields\nRetrieves aggregated details of a dataset's fields.\nParameters: Accept (header); q (query) — This is the search filter string, and is an optional parameter.; page_number (query) — This is the specific page number of an item list and is an optional parameter. The page number can be specified as 1, 2, 3, etc. Default value is 1.; page_size (query) — The number of items that can be listed in a page result and is an optional parameter. Default value is 10.; field_ids (query) — List of field IDs under the current dataset whose aggregation details are to be fetched specifically. It is an optional parameter and when not specified, aggregation for all the dataset fields is returned by default. The field IDs must be comma-separated, hence the query param should be properly URL encoded.; account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; dataset_id (path) — (Required) The unique identifier for each dataset. You can find the dataset ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset`, `Bank_Dataset` will be the dataset ID. Contact customer support if you need further assistance.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:get:/dataset/2/{account_id}/{dataset_id}/list",
+      "label": "GET /dataset/2/{account_id}/{dataset_id}/list — Get all dataset records",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Dataset and dataset views\nGET /dataset/2/{account_id}/{dataset_id}/list\nGet all dataset records\nRetrieves all records of a specific dataset, including dataset fields and their corresponding values.\nParameters: Accept (header); q (query) — This is the search filter string, and is an optional parameter.; page_number (query) — This is the specific page number of an item list and is an optional parameter. The page number can be specified as 1, 2, 3, etc. Default value is 1.; page_size (query) — The number of items that can be listed in a page result and is an optional parameter. Default value is 10.; search_field (query) — This is the search filter string based on specific field and is an optional parameter.; account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; dataset_id (path) — (Required) The unique identifier for each dataset. You can find the dataset ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset`, `Bank_Dataset` will be the dataset ID. Contact customer support if you need further assistance.\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/dataset/2/{account_id}/{dataset_id}/batch",
+      "label": "POST /dataset/2/{account_id}/{dataset_id}/batch — Bulk update dataset records",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Dataset and dataset views\nPOST /dataset/2/{account_id}/{dataset_id}/batch\nBulk update dataset records\nThis endpoint allows you to create or update up to 500 dataset records per request. It uses the `_id` field to determine the action: providing an existing `_id` updates the current record, while providing a new `_id` creates a new one.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; dataset_id (path) — (Required) The unique identifier for each dataset. You can find the dataset ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset`, `Bank_Dataset` will be the dataset ID. Contact customer support if you need further assistance.\nRequest body:\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/dataset/2/{account_id}/{dataset_id}/view/{view_id}/batch",
+      "label": "POST /dataset/2/{account_id}/{dataset_id}/view/{view_id}/batch — Bulk update records of a dataset view",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Dataset and dataset views\nPOST /dataset/2/{account_id}/{dataset_id}/view/{view_id}/batch\nBulk update records of a dataset view\nThis endpoint lets you bulk create/update up to **500 fields and values** of a specified dataset view.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; dataset_id (path) — (Required) The unique identifier for each dataset. You can find the dataset ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset`, `Bank_Dataset` will be the dataset ID. Contact customer support if you need further assistance.; view_id (path) — (Required) The unique identifier for each dataset view. You can find the dataset view ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset/view/Bank_statements`, `Bank_statements` will be the dataset view ID. Contact customer support if you need further assistance.\nRequest body:\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/dataset/2/{account_id}/{dataset_id}/{row_id}/{field_id}/attachment",
+      "label": "POST /dataset/2/{account_id}/{dataset_id}/{row_id}/{field_id}/attachment — Add an attachment",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Dataset and dataset views\nPOST /dataset/2/{account_id}/{dataset_id}/{row_id}/{field_id}/attachment\nAdd an attachment\nUploads a file to a specific field of a dataset row.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; dataset_id (path) — (Required) The unique identifier for each dataset. You can find the dataset ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset`, `Bank_Dataset` will be the dataset ID. Contact customer support if you need further assistance.; row_id (path) — (Required) The unique identifier for each row in a dataset.; field_id (path) — (Required) The Field ID is a unique identifier for each field, and is a mandatory parameter.\nRequest body:\nResponses: 200, 401, 403, 404",
+      "community": 8
+    },
+    {
+      "id": "api:post:/dataset/2/{account_id}/{dataset_id}/{row_id}/{field_id}/image",
+      "label": "POST /dataset/2/{account_id}/{dataset_id}/{row_id}/{field_id}/image — Add image file",
+      "url": "/api-reference",
+      "snippet": "Kissflow API — Dataset and dataset views\nPOST /dataset/2/{account_id}/{dataset_id}/{row_id}/{field_id}/image\nAdd image file\nUploads an image file to a specific field of a dataset row.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; dataset_id (path) — (Required) The unique identifier for each dataset. You can find the dataset ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset`, `Bank_Dataset` will be the dataset ID. Contact customer support if you need further assistance.; row_id (path) — (Required) The row ID is a unique identifier for each row, and is a mandatory parameter.; field_id (path) — (Required) The field ID is a unique identifier for each field, and is a mandatory parameter.\nRequest body:\nResponses: 200, 401, 403, 404",
+      "community": 8
     }
   ],
   "edges": [
