@@ -5,6 +5,7 @@
 .source
 .tmp/
 .superpowers/
+.worktrees/
 
 # test & build
 /coverage
