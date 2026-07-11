@@ -18,7 +18,7 @@
     "openapi:lint": "npx redocly lint public/openapi/kissflow-api.json"
   },
   "dependencies": {
-    "@ai-sdk/openai": "^3.0.82",
+    "@ai-sdk/openai": "^3.0.84",
     "@ai-sdk/react": "^3.0.223",
     "@base-ui/react": "^1.6.0",
     "@chat-adapter/state-memory": "^4.33.0",
