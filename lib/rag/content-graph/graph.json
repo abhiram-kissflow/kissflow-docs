@@ -4836,6 +4836,209 @@
       "url": "/api-reference",
       "snippet": "Kissflow API — Dataset and dataset views\nPOST /dataset/2/{account_id}/{dataset_id}/{row_id}/{field_id}/image\nAdd image file\nUploads an image file to a specific field of a dataset row.\nParameters: Content-Type (header); Accept (header); account_id (path) — (Required) Kissflow Account ID. Learn how to retrieve an [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) from Kissflow.; dataset_id (path) — (Required) The unique identifier for each dataset. You can find the dataset ID from the web URL. For instance, in the URL, `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset`, `Bank_Dataset` will be the dataset ID. Contact customer support if you need further assistance.; row_id (path) — (Required) The row ID is a unique identifier for each row, and is a mandatory parameter.; field_id (path) — (Required) The field ID is a unique identifier for each field, and is a mandatory parameter.\nRequest body:\nResponses: 200, 401, 403, 404",
       "community": 8
+    },
+    {
+      "id": "sdk:app-board",
+      "label": "Board (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/app/board/",
+      "snippet": "Kissflow JavaScript SDK — Board\n# Board\n\nWith Kissflow Board, you can create highly adaptable workflows that let you keep track of information and manage work efficiently.\n\nGet board instance using `getBoard` method from app’s interface.\n\n##### Parameters\n\n| Parameters | Type |\n| --- | --- |\n| caseId | String |\n\n##### Syntax\n\n```\nconst boardInstance = kf.app.getBoard(\"case_id\");\n```\n\n### Import CSV\n\nLaunches the import CSV modal, where you can upload a CSV file and map its\ncolumns to the corresponding fields.\n\n##### Parameters\n\n| Parameters | Type | Description |\n| --- | --- | --- |\n| defaultValues | Object | An object with keys as field Id and its values in respective data types. |\n\n##### Syntax\n\n```\nlet defaultValues = { fieldId: \"value\" };\n\nboardInstance.importCSV(defaultValues);\n```\n\n###### Example scenario\n\nConsider a scenario where certain fields are not visible to the user (hidden in\nform visibility). In that case, default values can be used to populate data in\nthese hidden fields.\n\n```\n// Get the board with the board's flow_id\n\nconst boardInstance = kf.app.getBoard(\"Asset_Tracking_A00\"); // Asset_Tracking_A00 is the flow_id\n\n// Set field values for specific fields of the board\n\nlet boardInstance = { location: \"India\" }; // Location is the the field_id of a field inside the board\n\n// Pass the field config into the import sdk method\n\nboardInstance.importCSV(defaultValues); // All records imported through this importer would have Location field set as India\n```\n\n> Note\n>",
+      "community": 9
+    },
+    {
+      "id": "sdk:app-dataform",
+      "label": "Dataform (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/app/dataform/",
+      "snippet": "Kissflow JavaScript SDK — Dataform\n# Dataform\n\nIn Kissflow apps, dataforms gather and store data, enabling users to submit data into an app.\n\nTo begin with, get dataform instance using `getDataform` method from app’s interface.\n\n##### Parameters\n\n| Parameter | Type |\n| --- | --- |\n| dataformId | String |\n\n##### Syntax\n\n```\nlet dataformInstance = kf.app.getDataform(dataformId);\n```\n\n### Import CSV\n\nLaunches the import CSV popup, where you can upload CSV file and map its columns to\nthe corresponding fields.\n\n##### Parameters\n\n| Parameters | Type | Description |\n| --- | --- | --- |\n| defaultValues | Object | An object with keys as field Id and its values in respective data types. |\n\n##### Syntax\n\n```\nlet defaultValues = { fieldId: \"value\" };\n\ndataformInstance.importCSV(defaultValues);\n```\n\n##### Example\n\nConsider a scenario where certain fields are not visible to the user (hidden in form visibility). In that case, default values can be used to populate data in these hidden fields.\n\n```\n// Get the dataform with the dataform's flow_id\n\nconst dfInstance = kf.app.getDataform(\"Product_Dataform_A00\"); // Product_Dataform_A00 is the flow_id.\n\n// Set field values for specific fields of the dataform\n\nlet defaultValues = { location: \"India\" }; // Location is the the field_id of a field inside the dataform.\n\n// Pass the field config into the import sdk method\n\ndfInstance.importCSV(defaultValues); // All records imported through this importer would have the Location field set as India.\n```\n",
+      "community": 9
+    },
+    {
+      "id": "sdk:app-decisiontable",
+      "label": "Decision table (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/app/decisiontable/",
+      "snippet": "Kissflow JavaScript SDK — Decision table\n# Decision table\n\nA decision table is a systematic and structured representation of complex\nbusiness logic or decision-making processes.\n\nGet a decision table instance using `getDecisionTable` from app’s interface.\n\n##### Parameters\n\n| Parameter | type |\n| --- | --- |\n| decisionTableId | String |\n\n##### Syntax\n\n```\nlet decisionTableInstance = kf.app.getDecisionTable(decisionTableId);\n```\n\n### Evaluate\n\nFrom the instance you can able to evaluate the decision table using `evaluate`\nmethod.\n\n##### Parameters\n\n| Parameter | type | Description |\n| --- | --- | --- |\n| payload | Object | An object with keys as condition field id and its respective values. |\n\n##### Syntax\n\n```\nlet decisionTableInstance = kf.app.getDecisionTable(decisionTableId);\n\nlet payload = { conditionField1: \"value\", conditionField2: \"value\" };\n\nawait decisionTableInstance.evaluate(payload);\n```\n\n##### Return\n\nReturns a decision table output.\n\n##### Example\n\nTo evaluate if a loan request can be approved or not using a decision table (ID:\nLoan\\_decision\\_table), specify the relevant condition IDs (conditionField1,\nconditionField2, etc.) along with their corresponding input values\n(Age\\_conditionID, 18).\n\n```\nlet decisionTableInstance = kf.app.getDecisionTable(\"Loan_decision_table\");\n\nlet decisionOutput = await decisionTableInstance.evaluate({\n\n  Age_conditionID: 18,\n\n});\n```",
+      "community": 9
+    },
+    {
+      "id": "sdk:app-getvariable",
+      "label": "Get Variable (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/app/getvariable/",
+      "snippet": "Kissflow JavaScript SDK — Get Variable\n# Get Variable\n\nThis command lets you retrieve the value of a global variable used in the app.\n\nGlobal variables are similar to variables in any programming language. Users can set variable values in pages, forms, or custom components, and retrieve it from other pages, forms, or custom components within the same app. Once declared, a global variable stays in the app throughout the duration the app is running.\n\n### Parameters\n\n| Parameters | Type |\n| --- | --- |\n| variableId | String |\n\n### Syntax\n\n```\nconst appVariable1 = await kf.app.getVariable(\"variableId\");\n```\n\n### Returns\n\nThe above syntax will return the value of the variable, with data type corresponding to the variable type.\n\n| Variable type | Data type |\n| --- | --- |\n| Text | String |\n| Number | Integer |\n| DateTime | String |\n| Boolean | Boolean |\n\n### Example\n\nThis command can be used to retrieve the number of work hours an employee has logged in a particular week.",
+      "community": 9
+    },
+    {
+      "id": "sdk:app-page-component",
+      "label": "Component (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/app/page/component/",
+      "snippet": "Kissflow JavaScript SDK — Component\n# Component\n\n## Get component instance\n\nThis command lets you retrieve a component instance.\n\n###### Syntax\n\n```\nlet componentInstance = await kf.app.page.getComponent(componentId);\n```\n\n###### Parameters\n\n| Parameter | Type | Description |\n| --- | --- | --- |\n| componentId | String | Unique ID of the Component. |\n\nReturns a component instance with following methods:\n\n### Refresh\n\nThis command refreshes a given component.\n\n###### Syntax\n\n```\ncomponentInstance.refresh();\n```\n\n### Hide\n\nThis command hides a component from a page.\n\n###### Syntax\n\n```\ncomponentInstance.hide();\n```\n\n### Show\n\nThis command renders a component that has been hidden previously in a page.\n\n###### Syntax\n\n```\ncomponentInstance.show();\n```\n\n## Component Specific methods\n\n### OnMount\n\nA lifecycle event for a component which will be called when component is mounted or re-mounted on page.\n\n###### Syntax\n\n```\ncomponentInstance.onMount(listenerFunction);\n```\n\n##### Example\n\n```\n// Consider setting second tab as active when tab component is mounted.\n\ncomponentInstance.onMount(() => {\n\n  // function logic goes here...\n\n  componentInstance.setActiveTab(2);\n\n});\n```\n\n### 1\\. Tab\n\n##### setActiveTab\n\nThis command sets a specific tab index as active.\n\n###### Parameters\n\n| Parameter | Type | Description |\n| --- | --- | --- |\n| tabIndex | Number | Index of tab starting from 1 |\n\n###### Syntax\n\n```\ncomponentInstance.setActiveTab(tabIndex);\n```\n\n###### Example\n\n```\n// To set second t",
+      "community": 9
+    },
+    {
+      "id": "sdk:app-page-inputparameters",
+      "label": "Page Parameters (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/app/page/inputparameters/",
+      "snippet": "Kissflow JavaScript SDK — Page Parameters\n# Page Parameters\n\n## getAllParameters()\n\nThis command retrieves all parameters on the page along with their values.\n\n### Syntax\n\n```\nlet allParameters = await kf.app.page.getAllParameters();\n```\n\n### Return\n\nReturns an object.\n\n#### Example output\n\n```\n{\n\n  \"parameterName\": \"Sample value\",\n\n  \"parameterName2\": \"Sample value 2\"\n\n}\n```\n\n### Example\n\nWhen an employee submits a request, you can pass the employee ID and leave details as the input parameters in an approval page. The approval page would then display the specific employee’s information and leave request details for review.\n\n## getParameter()\n\nThis command retrieves one of the page parameter values.\n\n### Parameters\n\n| Parameters | Type |\n| --- | --- |\n| parameterId | String |\n\n### Syntax\n\n```\nlet value = await kf.app.page.getParameter(\"parameterId\");\n```\n\n### Return\n\nValue of single page’s input parameter based on the parameter ID that was passed.\n\n### Example\n\nIn a page that contains the information of all employees in an organization, pass a single person’s employee ID as the parameter ID to obtain information about that particular employee.",
+      "community": 9
+    },
+    {
+      "id": "sdk:app-page-popup",
+      "label": "Popup (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/app/page/popup/",
+      "snippet": "Kissflow JavaScript SDK — Popup\n# Popup\n\n- The property `kf.app.page.popup` returns the active popup instance opened inside the page.\n- The property `kf.app.page.popup._id` lets you the get ID of the popup.\n- The method `kf.app.page.openPopup(id)` returns this popup class instance.\n\nFollowing methods are available for a popup instance:\n\n## Open popup\n\nThis command lets you open a popup in a page.\n\n### Parameters\n\n| Parameter | Type | Description |\n| --- | --- | --- |\n| popupId | String | Unique ID of the popup. |\n| popupParameters (optional) | Object | Specify popup parameters as objects. |\n\n### Syntax\n\n```\nkf.app.page.openPopup(popupId, popupParameters);\n```\n\n#### Example\n\n```\nlet popupParameters = {\n\n  instanceId: \"acdnd\",\n\n  activityInstanceId: \"mnop\",\n\n};\n\nkf.app.page.openPopup(\"popup1\", popupParameters);\n```\n\n### Returns\n\nReturns an instance of [Popup](https://developers.kissflow.com/app/page/popup/).\n\n## Popup parameters\n\n### getAllParameters()\n\nThis command retrieves all parameters and their pop up values.\n\n###### Syntax\n\n```\nlet allParameters = await kf.app.page.popup.getAllParameters();\n```\n\n###### Returns\n\nReturns an object.\n\nExample\n\n```\n{\n\n  \"parameterName\": \"Sample value\",\n\n  \"parameterName2\": \"Sample value 2\"\n\n}\n```\n\nConsider you are clicking on an edit button next to an employee’s name in the employee list. This opens a pop-up window to edit the employee’s details.\nYou can control the visibility of certain elements within the pop-up based on the employee’s role",
+      "community": 9
+    },
+    {
+      "id": "sdk:app-page-setvariable",
+      "label": "Set Local Variable (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/app/page/setvariable/",
+      "snippet": "Kissflow JavaScript SDK — Set Local Variable\n# Set Local Variable\n\nThis command lets you update a new value to local variables.\n\n### Parameters\n\n| Parameter | Type | Description |\n| --- | --- | --- |\n| variableId | String | Unique Id of the variable. |\n| value | String or Number or Boolean | New value to the variable. |\n| payload | Object | Object with keys as variableId and its values in respective data type. |\n\n### Syntax\n\nFollow the syntax to update a single variable:\n\n```\nkf.app.page.setVariable(variableId, value);\n```\n\nFollow the syntax to update multiple variables:\n\n```\nkf.app.page.setVariable({\n\n  variableId: \"new value\",\n\n  variableId2: 1,\n\n});\n```\n\n### Example\n\nConsider you are an HR representative who wants to save a new email address for an employee. Before saving, the app needs to perform a validation check to see if the email already exists in the system.\nIn this scenario, a local variable can be set to store the new email address entered by the user during the time the validation process happens. Once the validation is complete and the employee’s new information is saved, the local variable can be released.",
+      "community": 9
+    },
+    {
+      "id": "sdk:app-page",
+      "label": "About (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/app/page/",
+      "snippet": "Kissflow JavaScript SDK — About\n# About\n\nThe command `kf.app.page` represents the active page that is currently open inside an app.\n\nTo retrieve the ID of a Page , use the command `kf.app.page._id`.",
+      "community": 9
+    },
+    {
+      "id": "sdk:app-setvariable",
+      "label": "Set Variable (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/app/setvariable/",
+      "snippet": "Kissflow JavaScript SDK — Set Variable\n# Set Variable\n\nThis command lets you update the value of a global variable used in the app.\n\n### Parameters\n\n| Parameter | Type | Description |\n| --- | --- | --- |\n| variableId | String | Unique Id of the variable. |\n| value | String or Number or Boolean | New value to variable. |\n| payload | Object | Object with keys as variableId and its values in respective data type. |\n\n### Syntax\n\nFollow the below syntax to update a **single** global variable:\n\n```\nkf.app.setVariable(variableId, value);\n```\n\nFollow the below syntax to update **_multiple_** variables:\n\n```\nkf.app.setVariable({\n\n  variableId: \"new value\",\n\n  variableId2: 1,\n\n});\n```\n\n### Example\n\nThis command can be used to update an employee’s personal information such as their dependants, contact number, and address that could be of varied variable types.",
+      "community": 9
+    },
+    {
+      "id": "sdk:components-formfield",
+      "label": "Form field component (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/components/formfield/",
+      "snippet": "Kissflow JavaScript SDK — Form field component\n# Form field component\n\nKissflow lets you build your own custom form fields as custom components to use across all forms in your app. A custom form field must be written using JavaScript and built using the React framework. Follow the installation and building instructions provided below.\n\n##### Prerequisites\n\n- Node.js\n- A version manager for Node.js\n\nTo create a custom form field project,\n\n```\nnpx create-kf-component@latest\n```\n\nEnter the project’s name and choose `form field`.\n\nChange directory to your project and open it using your preferred code editor,\n\n```\ncd <your-project-name>\n\ncode . # To open the project using VS Code.\n```\n\nTo install dependencies,\n\n```\nnpm install\n```\n\nTo run a dev build,\n\n```\nnpm run dev\n```\n\nThe project will contain the following files, `FormField.jsx`, `DataTable.jsx`, `Sheet.jsx`, and `Card.jsx` for the web layout.\n\nAnd for the mobile/PWA layout, `FormField.jsx` and `DataTable.jsx` files.\nAmong these, it is mandatory that you write code for the web’s `FormField.jsx` file. You can choose to skip coding for the other views. However, [this will affect](https://community.kissflow.com/t/35yfjp0/custom-form-field-components#what-happens-if-the-custom-form-field-does-not-have-ui-configuration) how your form field appears in the UI.\n\nOnce development is done, you can use the `npm run zip` command to generate a .zip file of your form field. You can then import this .zip file directly into Kissflow as a cus",
+      "community": 9
+    },
+    {
+      "id": "sdk:components-page",
+      "label": "Page component (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/components/page/",
+      "snippet": "Kissflow JavaScript SDK — Page component\n# Page component\n\nKissflow lets you build page UI components and import them as reusable page components in your app. You can use plain HTML or frontend frameworks like React to build your custom component.\n\n## 1\\. Creating a new custom component\n\nIf you’re starting a project from scratch, you can create a Kissflow custom component package using npm\n\n```\nnpx create-kf-component@latest\n```\n\nYou will be prompted to provide a name for your component and choose between **HTML** or **React**. Once installed, run the following commands:\n\n```\ncd componentname\n\nnpm install\n\nnpm run dev\n```\n\nOnce development is done, you can use the **`npm run zip`** command to build and compress the project into a zip file. You can then import this zip file directly into Kissflow as a custom component.\n\n> This package is exclusively designed for the client side of your projects. Therefore, we only support ECMAScript modules (es modules) and Universal Module Definition (UMD) formats of JavaScript.\n\n## 2\\. As `npm` module\n\nIf you have an existing project based on a framework like React that you wish to convert to a Kissflow custom component, you can install and import the Kissflow SDK as an `npm` module.\n\n```\nnpm install @kissflow/lowcode-client-sdk\n```\n\n> Prerequisite: Node version 16 and above.\n\n> Note: This is an alternative method that you can use if you are working with Non-React/Vite frameworks. However, we recommend using the first method.\n\n### Usage:\n\nOn",
+      "community": 9
+    },
+    {
+      "id": "sdk:context",
+      "label": "Context (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/context/",
+      "snippet": "Kissflow JavaScript SDK — Context\n# Context\n\nThe `kf.context` method lets you access specific method based on the entity\nwhere you’re using it.\n\nContext methods are polymorphic, it has different classes pre-initialized based\non execution context.\n\nFor example, if you’re calling `kf.context` inside, you’ll be able to access\nmethods such as `getFields`, `updateFields`, `getTable`, etc.\n\nBelow are the places where you can use `kf.context`\n\n### Custom components\n\nWhen `kf.context` is used inside a custom component code, `watchParams` method\ncan be used to subscribe for the changes happen through mapped params\n\nPlease refer more about [`watchParams` here](https://developers.kissflow.com/component#watch-params)\n\n### Form\n\nWhen `kf.context` is used inside a form events, it refers to the Form instance\nfrom which we can get and update fields and retrieve table etc.\n\n```\nlet fieldId = \"Purchase_request_number\";\n\nlet requestNumber = await kf.context.getField(fieldId);\n```\n\nPlease refer more about [Forms and its methods](https://developers.kissflow.com/form/about/)\n\n### Child table’s Row\n\nWhen `kf.context` is used inside a row’s field event, it considers the entire\nrow as project.\n\n```\nlet columnId = \"Quantity_of_Product\";\n\nlet quantity = await kf.context.getField(columnId);\n```\n\nPlease refer more about [Rows and its methods](https://developers.kissflow.com/form/table/row/)\n\n### Page (onLoad, unLoad)\n\nWhen `kf.context` is used inside a page on load and unload event, the methods\nsuch as g",
+      "community": 9
+    },
+    {
+      "id": "sdk:form-about",
+      "label": "About (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/form/about/",
+      "snippet": "Kissflow JavaScript SDK — About\n# About\n\nA form is an entity that you can use to collect input from the people who participate in your workflows. Forms are predominantly used in flows like processes, boards, and dataforms in Kissflow. A form has three primary components - section, field, and table.\n\nSDKs for forms are available in both apps and in the individual flows in the Kissflow. The available methods are:\n\n1. getField()\n2. updateField()\n3. getTable()\n4. toJSON()\n\n> Note: Form’s SDKs exclusively support read and update methods, with no provision for create and delete operations.",
+      "community": 9
+    },
+    {
+      "id": "sdk:form-getfield",
+      "label": "Get field (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/form/getfield/",
+      "snippet": "Kissflow JavaScript SDK — Get field\n# Get field\n\nTo retrieve the current value of a form field.\n\n### Parameter\n\n| Parameters | Type | Description |\n| --- | --- | --- |\n| fieldId | String | Unique Id of the field. |\n\n### Syntax\n\n```\nkf.context.getField(fieldId).then((res) => {...})\n```\n\nor\n\n```\nlet value = await kf.context.getField(fieldId);\n```\n\n### Returns\n\nReturns the value of the field, and the data type varies based on the field type.\n\n### Example\n\nTo obtain the value of the rating field from your employee data form, use the field ID of the ratings field, ratingField, and retrieve the value.\n\nIn this example, the data type of the returned value would be integer.\n\n```\nlet value = await kf.context.getField(“ratingField”);\n```\n\n#### Output\n\n```\n3;\n```",
+      "community": 9
+    },
+    {
+      "id": "sdk:form-gettable",
+      "label": "Get table (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/form/gettable/",
+      "snippet": "Kissflow JavaScript SDK — Get table\n# Get table\n\nReturns an instance of the Table class, providing access to methods such as addRow(), addRows(), deleteRow(), deleteRows(), getRow(), getRows(), and toJSON().\n\n### Parameter\n\n| Parameters | Type | Description |\n| --- | --- | --- |\n| tableId | String | Unique Id of the table. |\n\n### Syntax\n\n```\nconst tableInstance = kf.context.getTable(fieldId);\n```\n\n### Example\n\nTo retrieve the instance of the employee work experience table from your data form, mention the table ID, work\\_table1.\n\n```\nconst worktableInstance = kf.context.getTable(“work_table1”);\n```\n\nOnce you have obtained the table’s instance, you can execute various table operations like add row, get row, delete row, and so on.",
+      "community": 9
+    },
+    {
+      "id": "sdk:form-table-about",
+      "label": "About (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/form/table/about/",
+      "snippet": "Kissflow JavaScript SDK — About\n# About\n\nA table acts as a separate section in forms and lets you collect and manage data in a tabular format.\n\nA table’s class instance offers the following methods:\n\n1. addRow()\n2. addRows()\n3. deleteRow()\n4. deleteRows()\n5. getRow()\n6. getRows()\n7. toJSON()",
+      "community": 9
+    },
+    {
+      "id": "sdk:form-table-addrows",
+      "label": "Add rows (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/form/table/addrows/",
+      "snippet": "Kissflow JavaScript SDK — Add rows\n# Add rows\n\nAdds multiple rows to the [table instance](https://developers.kissflow.com/form/gettable/).\n\n### Parameter\n\n| Parameters | Type | Description |\n| --- | --- | --- |\n| Payload | Array | Array of objects where keys represent the columnId(string) and its values correspond to the respective field types (like number for rating/slider, string for text/textarea etc.). |\n\n### Syntax\n\n```\ntableInstance.addRows([\\\n\\\n  { columnId1: value, columnId2: value }, // row 1\\\n\\\n  { columnId1: value, columnId2: value }, // row 2\\\n\\\n]);\n```\n\n##### Example\n\nAssume `employeeData` variable is fetched via an api call.\n\n```\nconst worktableInstance = kf.context.getTable(tableId);\n\nlet accumulator = [];\n\nemployeeData.forEach(function(data) {\n\n    accumulator.push({\n\n        table_field1: data[“Company”],\n\n        table_field2: data[“YOE”]\n\n    });\n\n});\n\nawait worktableInstance.addRows(accumulator);\n```",
+      "community": 9
+    },
+    {
+      "id": "sdk:form-table-deleterow",
+      "label": "Delete row (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/form/table/deleterow/",
+      "snippet": "Kissflow JavaScript SDK — Delete row\n# Delete row\n\nDeletes a single row from the specified\n[table instance](https://developers.kissflow.com/form/gettable/).\n\n### Parameter\n\n| Parameters | Type |\n| --- | --- |\n| rowId | String |\n\n### Syntax\n\n```\ntableInstance.deleteRow(rowId);\n```\n\n### Example\n\nTo remove an entry from the employee work experience table, work\\_table1, specify the row ID, table\\_row\\_Id, in the payload and the entry will be deleted from your table.\n\n```\nworktableInstance.deleteRow(“table_row_Id”);\n```",
+      "community": 9
+    },
+    {
+      "id": "sdk:form-table-deleterows",
+      "label": "Delete rows (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/form/table/deleterows/",
+      "snippet": "Kissflow JavaScript SDK — Delete rows\n# Delete rows\n\nDeletes multiple rows from the specified [table instance](https://developers.kissflow.com/form/gettable/).\n\n### Parameter\n\n| Parameters | Type |\n| --- | --- |\n| rows | Array of Strings |\n\n### Syntax\n\n```\nlet rows = [\"rowId1\", \"rowId2\"];\n\ntableInstance.deleteRow(rows);\n```",
+      "community": 9
+    },
+    {
+      "id": "sdk:form-table-getrow",
+      "label": "Get row (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/form/table/getrow/",
+      "snippet": "Kissflow JavaScript SDK — Get row\n# Get row\n\nReturns a [row instance](https://developers.kissflow.com/form/table/row/) of `rowId` from the specified\n[table instance](https://developers.kissflow.com/form/gettable/).\n\nFrom the row instance, you can access methods such as updateField(), getField(), and so on.\n\n### Parameter\n\n| Parameters | Type |\n| --- | --- |\n| rowId | String |\n\n### Syntax\n\n```\nlet rowInstance = tableInstance.getRow(rowId);\n```\n\n### Example\n\nA simple use case for updating the years of experience in the employee dataform.\n\n```\nlet tableInstance = kf.context.getTable(\"work_table1\");\n\nlet rowInstance = tableInstance.getRow(\"table_row_Id\");\n\nlet yoe = await rowInstance.getField(\"table_field2\");\n\nrowInstance.updateField({ table_field2: yoe + 1 });\n```",
+      "community": 9
+    },
+    {
+      "id": "sdk:form-table-row-getfield",
+      "label": "Get field (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/form/table/row/getfield/",
+      "snippet": "Kissflow JavaScript SDK — Get field\n# Get field\n\nTo retrieve the current value of a column in a row.\n\n### Parameter\n\n| Parameters | Type | Description |\n| --- | --- | --- |\n| columnId | String | Unique Id of the column |\n\n### Syntax\n\n```\nrowInstance.getField(columnId).then((res) => {...})\n```\n\nor\n\n```\nlet value = await rowInstance.getField(columnId);\n```\n\n### Returns\n\nReturns the value of the field, and the data type of the value varies based on the field type.\n\n### Example\n\nTo retrieve the names of the companies an employee has worked for from the work experience table, specify the corresponding column ID, table\\_col1, and retrieve the values.\n\n```\nlet value = await rowInstance.getField(“table_col1”);\n```\n\nIn this example, the returned data type will be `text`.",
+      "community": 9
+    },
+    {
+      "id": "sdk:form-table-row-tojson",
+      "label": "to JSON (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/form/table/row/tojson/",
+      "snippet": "Kissflow JavaScript SDK — to JSON\n# to JSON\n\nTo retrieve the data of the current row in JSON format.\n\n### Syntax\n\n```\nconst json = await rowInstance.toJSON();\n```\n\n##### Example output\n\nIf your row has two columns, one denoting the candidate’s company name and other, the duration of their employment there, the JSON output will be as follows:\n\n```\n {\n\n    \"table_field1\": \"Kissflow\",\n\n    \"table_field2\": “2 years”,\n\n    \"_id\": \"Row_Pk4_T1WGWuMe\"\n\n  }\n```",
+      "community": 9
+    },
+    {
+      "id": "sdk:form-tojson",
+      "label": "to JSON (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/form/tojson/",
+      "snippet": "Kissflow JavaScript SDK — to JSON\n# to JSON\n\nTo retrieve the data of the current form in JSON format.\n\n### Syntax\n\n```\nkf.context.toJSON().then((formValues) => {...})\n```\n\nor\n\n```\nlet formValues = await kf.context.toJSON();\n```\n\n### Returns\n\nAll the values in the data form in JSON format.\n\n### Example\n\nTo view all the values in the employee data form, use this toJSON method and obtain the complete set of field values in JSON format.\n\nExample output for the above scenario:\n\n```\n {\n\n    \"ratingField\": 4,\n\n    \"sliderFieldId\": 9,\n\n    \"Comments\": \"Exceeds expectations\",\n\n    \"_flow_name\": \"form events\",\n\n    \"_id\": \"Pk4_T1WGWuMe\"\n\n  }\n```",
+      "community": 9
+    },
+    {
+      "id": "sdk:form-updatefield",
+      "label": "Update field (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/form/updatefield/",
+      "snippet": "Kissflow JavaScript SDK — Update field\n# Update field\n\nUpdates the values of all the fields mentioned in the payload object.\n\n### Parameter\n\n| Parameters | Type | Description |\n| --- | --- | --- |\n| payload | Object | An object where the key represents fieldId (string) and the values correspond to their respective field type (like number for rating/slider, string for text/textarea, etc.). |\n\n### Syntax\n\n```\nlet payload = {\n\n    \"ratingField\": 4,\n\n    \"sliderFieldId\": 9,\n\n    \"textField\": \"new value\",\n\n};\n\nkf.context.updateField(payload).then((res) => {...})\n```\n\nor\n\n```\nlet value = await kf.context.updateField(payload);\n```\n\n### Returns\n\nReturns the updated value of the field, with the datatype of the value determined by the specific field type.\n\n### Example\n\nTo update the value of the ratings field in your employee data form, mention the field ID, ratingField, and the desired value, 4, in the payload. The form will be updated with the new value.\n\n```\nlet payload = {\n\n    \"ratingField\": 4,\n\n};\n\nkf.context.updateField(payload).then((res) => {...})\n```\n\nYou can also update any number of fields in one payload.\n\n```\nlet payload = {\n\n    \"ratingField\": 4,\n\n    \"sliderFieldId\": 9,\n\n    \"Comments\": \"Exceeds expectations\",\n\n};\n\nkf.context.updateField(payload).then((res) => {...})\n```",
+      "community": 9
+    },
+    {
+      "id": "sdk:gettingstarted",
+      "label": "Getting started with Kissflow SDK (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/gettingstarted/",
+      "snippet": "Kissflow JavaScript SDK — Getting started with Kissflow SDK\n# Getting started with Kissflow SDK\n\nKissflow provides a robust set of SDK methods to help you build efficient low-code apps with ease. This document outlines the various SDK methods available for use in forms, apps, and integrations using JavaScript. These methods allow you to retrieve information about variables and components within your app, enabling seamless customization and enhanced functionality.\n\nIn addition to method details, this document provides step-by-step instructions on installing packages to create two types of custom components: Page and field component.\n\nKissflow empowers you to design and import custom UI components using plain HTML or frontend frameworks like React, making them reusable within your app.\n\nTo enable interaction between your custom components and your Kissflow app, you can install the Kissflow SDK in your project. [Learn more](https://developers.kissflow.com/components/page/) about installing the package and building components.",
+      "community": 9
+    },
+    {
+      "id": "sdk:home",
+      "label": "Kissflow (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/",
+      "snippet": "Kissflow JavaScript SDK — Kissflow\n# Kissflow Developer Documentation\n\nEnhance your apps with Kissflow's APIs and SDK. Integrate workflows, build custom UI components, and ensure data security with our user-friendly tools.\n\n[API docs](https://api.kissflow.com/) [SDK resources](https://developers.kissflow.com/gettingstarted/)\n\n- **User-friendly endpoints.**\n- **Robust security measures.**\n- **Supports multiple programming languages.**\n\n[Learn more about our APIs](https://api.kissflow.com/)\n\n- **Simplify your app-building experience.**\n- **Flexible development toolkit.**\n- **Seamless interaction between components and your app.**\n\n[Explore our SDK resources](https://developers.kissflow.com/gettingstarted)",
+      "community": 9
+    },
+    {
+      "id": "sdk:integration",
+      "label": "Integration (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/integration/",
+      "snippet": "Kissflow JavaScript SDK — Integration\n# Integration\n\nKissflow lets you extend your integrations and run server side functions using the **Run Script** connector. You can use the Kissflow SDK inside the connector to get application and account details and make API calls.\n\n### 1\\. Get context\n\nThis function retrieves your account and application’s context information, such\nas the **account ID** and **application ID**.\n\n```\nkf.getContext().then((ctx) => {...})\n\n// or\n\nlet ctx = kf.getContext()\n\n/*\n\nFetches contextual information, such as:\n\nctx = {\n\n  app: {_id },\n\n  account: { _id }\n\n}\n\n*/\n```\n\n* * *\n\n### 2\\. Get API via Kissflow low-code SDK\n\nThis function lets you retrieve any external or Kissflow APIs. To access an\ninternal Kissflow API, use an absolute URL, **(i.e.,**\n**https://{your\\_sub\\_domain}.kissflow.com/user/2/{account\\_id})**. The access key\nsecret must be passed in the header. Refer\n**[Access keys](https://helpdocs.kissflow.com/user-settings/api-keys#access_keys)**\nto know how to locate your Kissflow API key and secret. Refer the developer\nguide to know more about our **[APIs](https://api.kissflow.com/)**.\n\n> Note: The API call timeout for this method is 10 seconds.\n\n```\nkf.api(url, config).then((res) => {...})\n\n// or\n\nlet resp = await kf.api(url, config)\n```\n\n* * *\n\n### 3) Formatter functions\n\n##### Convert to Kissflow date format\n\nThis function lets you transform your date into Kissflow’s date format. This\nconversion is based on the date format specified in your K",
+      "community": 9
+    },
+    {
+      "id": "sdk:utils",
+      "label": "Utilities (Kissflow SDK)",
+      "url": "https://developers.kissflow.com/utils/",
+      "snippet": "Kissflow JavaScript SDK — Utilities\n# Utilities\n\nWhile integrating SDKs, the initial step involves defining the account and user details.\n\nUse the below functions to invoke the respective details.\n\n### Account details\n\n- You can obtain the account ID using\n\n```\nkf.account._id;\n```\n\n### User details\n\n- You can access the authenticated user details using\nName, Email, \\_id will return current user’s name, email and user id.\n\n```\nconst { Name, Email, _id } = kf.user;\n```\n\n### Role details\n\n- Retrieve assigned App roles\nThis property lists all of the roles assigned to the current user in an app.\n\n##### Syntax\n\n```\nkf.user.AppRoles;\n```\n\n##### Example\n\n```\nconsole.log(kf.user.AppRoles);\n```\n\n##### Returns\n\nThis property returns an array of roles assigned to the current user. Each role will have an ID and a name.\n\n##### Example\n\n```\n[\\\n\\\n  {\\\n\\\n  \"_id\": \"Ro9mhLyuEFn4\",\\\n\\\n  \"Name\": \"Admin\"\\\n\\\n  },\\\n\\\n  \"_id\": \"Ro9mhI8Yy1_O\",\\\n\\\n  \"Name\": \"Employee\"\\\n\\\n  },\\\n\\\n  {\\\n\\\n  \"_id\": \"Ro9mhI8Y89df\",\\\n\\\n  \"Name\": \"Test user\"\\\n\\\n  }\\\n\\\n]\n```\n\n##### Note\n\nUse this property to return the first role in the list of roles assigned to a user\nconsole.log(kf.user.AppRoles\\[0\\])\n\n##### Example\n\n```\n  {\n\n  \"_id\": \"Ro9mhLyuEFn4\",\n\n  \"Name\": \"Admin\"\n\n  }\n```\n\n### APIs in SDK\n\nIn Kissflow SDKs, you can initiate both internal and external API calls.\n\nFor internal APIs, refer to the [Kissflow API documentation](https://api.kissflow.com/).\n\n- You can use the `kf.api` method to fetch internal APIs.\n- `kf.api` ",
+      "community": 9
     }
   ],
   "edges": [
