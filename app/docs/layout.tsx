@@ -23,6 +23,10 @@ export default function Layout({ children }: LayoutProps<'/docs'>) {
             title: 'API Reference',
             description: 'REST API endpoints, requests, and responses',
             icon: <Braces className="size-4" />,
+            props: {
+              target: '_blank',
+              rel: 'noopener noreferrer',
+            },
           },
           {
             title: 'SDK Guide',
