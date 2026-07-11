@@ -7,7 +7,10 @@ test('documentation sections use a persistent sidebar dropdown', async () => {
   const menu = await readFile(new URL('../components/persistent-docs-tab-menu.tsx', import.meta.url), 'utf8');
 
   assert.match(source, /tabs=\{false\}/);
+  assert.match(source, /className="bg-fd-background text-fd-foreground"/);
   assert.match(source, /sidebar=\{\{ banner: <PersistentDocsTabMenu \/> \}\}/);
   assert.match(menu, /useState\(true\)/);
   assert.doesNotMatch(menu, /setOpen\(false\)/);
+  assert.match(menu, /title: 'API Reference'[\s\S]*external: true/);
+  assert.match(menu, /target="_blank" rel="noopener noreferrer"/);
 });

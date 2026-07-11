@@ -27,7 +27,7 @@ export function baseOptions(variant: BrandVariant = 'default'): BaseLayoutProps 
             className={`hidden ${logoClassName} dark:block`}
           />
           <span
-            className={`text-fd-muted-foreground font-medium ${compact ? 'text-sm' : 'text-base'}`}
+            className={`relative translate-y-px leading-none text-fd-muted-foreground font-medium ${compact ? 'text-sm' : 'text-base'}`}
           >
             {label}
           </span>

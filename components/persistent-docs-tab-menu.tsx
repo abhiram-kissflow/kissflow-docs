@@ -15,7 +15,7 @@ type DocsTab = {
 
 const tabs: DocsTab[] = [
   { title: 'Docs', description: 'Guides, admin settings, and how-to articles', href: '/docs/get-started', icon: BookOpen },
-  { title: 'API Reference', description: 'REST API endpoints, requests, and responses', href: '/api-reference', icon: Braces },
+  { title: 'API Reference', description: 'REST API endpoints, requests, and responses', href: '/api-reference', icon: Braces, external: true },
   { title: 'SDK Guide', description: 'Build custom components with the Kissflow JavaScript SDK.', href: 'https://developers.kissflow.com/gettingstarted/', icon: Code2, external: true },
 ];
 

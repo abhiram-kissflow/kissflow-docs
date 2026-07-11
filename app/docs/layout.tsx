@@ -11,6 +11,7 @@ export default function Layout({ children }: LayoutProps<'/docs'>) {
     <>
       <DocsLayout
         tree={tree}
+        className="bg-fd-background text-fd-foreground"
         tabs={false}
         sidebar={{ banner: <PersistentDocsTabMenu /> }}
         {...baseOptions('docs')}
