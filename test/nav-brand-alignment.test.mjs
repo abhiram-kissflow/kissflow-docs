@@ -9,6 +9,6 @@ test('brand variants use centered logo and a compact Docs label in documentation
   assert.match(source, /className="flex items-center gap-2"/);
   assert.doesNotMatch(source, /items-baseline/);
   assert.match(source, /compact \? 'Docs' : 'Documentation'/);
-  assert.match(source, /compact \? 'h-4 w-auto' : 'h-5 w-auto'/);
+  assert.match(source, /compact \? 'h-4 w-auto' : 'h-4 w-auto'/);
   assert.match(docsLayout, /\.\.\.baseOptions\('docs'\)/);
 });

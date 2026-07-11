@@ -10,7 +10,7 @@ type BrandVariant = 'default' | 'docs';
 export function baseOptions(variant: BrandVariant = 'default'): BaseLayoutProps {
   const compact = variant === 'docs';
   const label = compact ? 'Docs' : 'Documentation';
-  const logoClassName = compact ? 'h-4 w-auto' : 'h-5 w-auto';
+  const logoClassName = compact ? 'h-4 w-auto' : 'h-4 w-auto';
 
   return {
     nav: {
