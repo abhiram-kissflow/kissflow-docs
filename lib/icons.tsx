@@ -8,6 +8,8 @@ import {
   BookOpen,
   Sparkle,
   Storefront,
+  MapTrifold,
+  Flask,
 } from '@phosphor-icons/react/dist/ssr';
 
 /**
@@ -30,5 +32,7 @@ export const sectionIcons: Record<string, ReactNode> = {
   develop: <Code {...iconProps} />,
   reference: <BookOpen {...iconProps} />,
   'whats-new': <Sparkle {...iconProps} />,
+  roadmap: <MapTrifold {...iconProps} />,
+  'pre-release-notes': <Flask {...iconProps} />,
   'app-store': <Storefront {...iconProps} />,
 };

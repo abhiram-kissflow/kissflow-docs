@@ -189,15 +189,15 @@ export default function HeroAsk() {
   // Empty state — the whole hero fits in the first fold (no scroll).
   if (!started) {
     return (
-      <div className="relative isolate flex min-h-[calc(100svh-3.5rem)] items-center overflow-hidden">
+      <div className="relative isolate flex min-h-[calc(100svh-3.5rem)] items-start overflow-hidden">
         <WingField />
-        <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-8">
+        <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 pb-8 pt-10 sm:pt-14">
           <div className="text-center">
             <h1 className="text-3xl font-semibold tracking-tight text-fd-foreground sm:text-4xl">
               Everything Kissflow, answered
             </h1>
             <p className="mt-2 text-fd-muted-foreground">
-              Ask across every guide, API, and SDK — grounded, with sources. Or jump to your role.
+              Ask across every guide, API, and SDK — grounded, with sources. Or browse below.
             </p>
           </div>
           {inputBar}
@@ -213,7 +213,12 @@ export default function HeroAsk() {
               </button>
             ))}
           </div>
-          <PersonaNav />
+          <div className="flex flex-col gap-3">
+            <div className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-fd-muted-foreground">
+              Browse folders
+            </div>
+            <PersonaNav />
+          </div>
         </div>
       </div>
     );

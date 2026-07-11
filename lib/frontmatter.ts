@@ -25,6 +25,8 @@ export const sections = [
   'develop',
   'reference',
   'whats-new',
+  'roadmap',
+  'pre-release-notes',
   'app-store',
 ] as const;
 
