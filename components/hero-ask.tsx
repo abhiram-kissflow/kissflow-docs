@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -24,11 +24,35 @@ interface Turn {
   errored?: boolean;
 }
 
-const EXAMPLES = [
+// Curated pool spanning the whole corpus (guides, admin, API, SDK). Three are
+// picked at random per load so the starter questions vary across users.
+const QUESTION_POOL = [
   'How do I set up API authentication?',
   'How do decision tables work?',
   'How do I back up my account data?',
+  'How do I create an approval workflow?',
+  'How do I build a form with field validations?',
+  'How do I set up SSO for my account?',
+  'How do I manage user roles and permissions?',
+  'How do I connect an external data source?',
+  'How do I publish and version an app?',
+  'How do I call the Kissflow REST API?',
+  'How do I paginate list API responses?',
+  'What can I build with the Kissflow SDK?',
+  'How do I create a custom component?',
+  'How do webhooks work in Kissflow?',
+  'How do I safelist IPs for data connections?',
+  'How do I use boards to track work?',
 ];
+
+function pickQuestions(count: number): string[] {
+  const pool = [...QUESTION_POOL];
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  return pool.slice(0, count);
+}
 
 function Markdown({ text }: { text: string }) {
   return (
@@ -47,7 +71,14 @@ export default function HeroAsk() {
   const [turns, setTurns] = useState<Turn[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  // Stable initial slice for SSR/first paint; reshuffled on mount so each visit
+  // (and each user) sees a different set without a hydration mismatch.
+  const [examples, setExamples] = useState<string[]>(() => QUESTION_POOL.slice(0, 3));
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setExamples(pickQuestions(3));
+  }, []);
 
   const started = turns.length > 0;
   const lastAssistant = [...turns].reverse().find((t) => t.role === 'assistant');
@@ -155,41 +186,34 @@ export default function HeroAsk() {
     </form>
   );
 
-  // Empty state — centered hero + persona cards.
+  // Empty state — the whole hero fits in the first fold (no scroll).
   if (!started) {
     return (
-      <div className="relative isolate">
+      <div className="relative isolate flex min-h-[calc(100svh-3.5rem)] items-center overflow-hidden">
         <WingField />
-        <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col gap-10 px-4 py-16">
-          <div>
-          <div className="mb-6 text-center">
+        <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-8">
+          <div className="text-center">
             <h1 className="text-3xl font-semibold tracking-tight text-fd-foreground sm:text-4xl">
               Everything Kissflow, answered
             </h1>
             <p className="mt-2 text-fd-muted-foreground">
-              Ask across every guide, API, and SDK — grounded, with sources. Or browse by role below.
+              Ask across every guide, API, and SDK — grounded, with sources. Or jump to your role.
             </p>
           </div>
           {inputBar}
-          <div className="mt-3 flex flex-wrap justify-center gap-2">
-            {EXAMPLES.map((ex) => (
+          <div className="flex flex-wrap justify-center gap-2">
+            {examples.map((ex) => (
               <button
                 key={ex}
                 type="button"
                 onClick={() => void ask(ex)}
-                className="rounded-full border border-fd-border bg-fd-background px-3 py-1.5 text-sm text-fd-muted-foreground hover:border-[#CF2C91]/40 hover:text-fd-foreground"
+                className="rounded-full border border-fd-border bg-fd-background/70 px-3 py-1.5 text-sm text-fd-muted-foreground backdrop-blur-sm transition-colors hover:border-[#CF2C91]/40 hover:text-fd-foreground"
               >
                 {ex}
               </button>
             ))}
           </div>
-          </div>
-          <section>
-            <h2 className="mb-4 text-center text-sm font-semibold uppercase tracking-wide text-fd-muted-foreground">
-              Or browse by role
-            </h2>
-            <PersonaNav />
-          </section>
+          <PersonaNav />
         </div>
       </div>
     );

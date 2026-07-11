@@ -36,26 +36,22 @@ const personaCards = [
 
 export function PersonaNav(): ReactNode {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 not-prose">
+    <div className="flex flex-wrap justify-center gap-2 not-prose">
       {personaCards.map((card) => {
         const Icon = card.icon;
         return (
           <Link
             key={card.href}
             href={card.href}
-            className="group block p-5 rounded-xl border border-fd-border bg-fd-card hover:border-fd-foreground/20 hover:shadow-sm transition-all"
+            title={card.description}
+            className="group inline-flex items-center gap-2 rounded-full border border-fd-border bg-fd-card/70 px-4 py-2 text-sm font-medium text-fd-foreground backdrop-blur-sm transition-colors hover:border-[#CF2C91]/40 hover:bg-fd-card"
           >
             <Icon
-              size={28}
+              size={18}
               weight="duotone"
-              className="mb-3 text-fd-foreground group-hover:opacity-80 transition-opacity"
+              className="text-fd-muted-foreground transition-colors group-hover:text-[#CF2C91]"
             />
-            <h3 className="text-base font-semibold text-fd-foreground">
-              {card.title}
-            </h3>
-            <p className="mt-1 text-sm text-fd-muted-foreground">
-              {card.description}
-            </p>
+            {card.title}
           </Link>
         );
       })}
