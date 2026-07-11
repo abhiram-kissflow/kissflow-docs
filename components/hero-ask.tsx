@@ -37,7 +37,7 @@ const QUESTION_POOL = [
   'How do I connect an external data source?',
   'How do I publish and version an app?',
   'How do I call the Kissflow REST API?',
-  'How do I paginate list API responses?',
+  'How do I troubleshoot API integration issues?',
   'What can I build with the Kissflow SDK?',
   'How do I create a custom component?',
   'How do webhooks work in Kissflow?',
@@ -75,9 +75,25 @@ export default function HeroAsk() {
   // (and each user) sees a different set without a hydration mismatch.
   const [examples, setExamples] = useState<string[]>(() => QUESTION_POOL.slice(0, 3));
   const scrollRef = useRef<HTMLDivElement>(null);
+  // Sources of the in-flight ask, for the read-more fallback link.
+  const lastSourcesRef = useRef<Source[]>([]);
 
   useEffect(() => {
     setExamples(pickQuestions(3));
+  }, []);
+
+  // The nav logo links to '/', but on the home page that's a same-route
+  // navigation Next ignores — so clicking it must reset the conversation here.
+  useEffect(() => {
+    function onClick(e: MouseEvent) {
+      const anchor = (e.target as HTMLElement).closest?.('a');
+      if (anchor && anchor.closest('header') && anchor.querySelector('img')) {
+        setTurns([]);
+        setInput('');
+      }
+    }
+    document.addEventListener('click', onClick);
+    return () => document.removeEventListener('click', onClick);
   }, []);
 
   const started = turns.length > 0;
@@ -123,9 +139,12 @@ export default function HeroAsk() {
       if (!res.ok) throw new Error(String(res.status));
 
       const rawSources = res.headers.get('x-rag-sources');
+      lastSourcesRef.current = [];
       if (rawSources) {
         try {
-          updateLastAssistant({ sources: JSON.parse(decodeURIComponent(rawSources)) as Source[] });
+          const parsed = JSON.parse(decodeURIComponent(rawSources)) as Source[];
+          lastSourcesRef.current = parsed;
+          updateLastAssistant({ sources: parsed });
         } catch {
           /* ignore malformed header */
         }
@@ -146,10 +165,17 @@ export default function HeroAsk() {
       }
       const { value: final } = await parsePartialJson(buf);
       const obj = (final ?? {}) as { answer?: string; insufficientEvidence?: boolean };
+      let content = obj.answer ?? '';
+      // Every answer must carry a read-more link; if the model omitted it,
+      // fall back to the top retrieved article.
+      const firstSource = lastSourcesRef.current[0];
+      if (content.trim() && !/\]\(/.test(content) && firstSource) {
+        content += `\n\nRead more: [${firstSource.title}](${firstSource.url})`;
+      }
       updateLastAssistant({
-        content: obj.answer ?? '',
+        content,
         streaming: false,
-        abstained: Boolean(obj.insufficientEvidence) || !obj.answer?.trim(),
+        abstained: Boolean(obj.insufficientEvidence) || !content.trim(),
       });
     } catch {
       updateLastAssistant({ streaming: false, errored: true });
