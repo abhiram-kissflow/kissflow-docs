@@ -89,9 +89,12 @@ async function worker() {
 }
 await Promise.all([worker(), worker()]);
 
-results.sort((a, b) => (b.epoch ?? 0) - (a.epoch ?? 0));
+// Roadmap posts live in /docs/roadmap, not pre-release notes.
+const EXCLUDE = new Set(['q6ypgaa']);
+const kept = results.filter((r) => !EXCLUDE.has(r.id));
+kept.sort((a, b) => (b.epoch ?? 0) - (a.epoch ?? 0));
 const byYear = new Map();
-for (const r of results) {
+for (const r of kept) {
   const y = r.epoch ? String(new Date(r.epoch).getUTCFullYear()) : 'undated';
   if (!byYear.has(y)) byYear.set(y, []);
   byYear.get(y).push(r);
