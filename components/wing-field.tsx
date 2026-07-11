@@ -1,86 +1,68 @@
 'use client';
 
-import { type CSSProperties, useEffect, useMemo, useRef } from 'react';
+import { type CSSProperties, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
-// The four Kissflow signature colors (kissflow.com/brand), as RGB triples.
-const COLORS: [number, number, number][] = [
-  [207, 44, 145], // #CF2C91 magenta
-  [31, 128, 255], // #1F80FF blue
-  [245, 130, 32], // #F58220 orange
-  [74, 161, 71], // #4AA147 green
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
+// Size tiers → responsive clamp widths.
+const SIZE: Record<string, string> = {
+  sm: 'clamp(2.5rem, 5vw, 4rem)',
+  md: 'clamp(4.5rem, 9vw, 7.5rem)',
+  lg: 'clamp(6.5rem, 13vw, 11rem)',
+  xl: 'clamp(20rem, 48vw, 40rem)',
+};
+
+type Layer = 'far' | 'mid' | 'near';
+
+interface GlassObject {
+  img: string;
+  layer: Layer;
+  pos: { left?: string; right?: string; top: string };
+  size: keyof typeof SIZE;
+  rot: number;
+  op: number;
+  blur: number;
+}
+
+// Art-directed placement: everything lives in the side gutters / corners so the
+// centered headline + ask box stay clear.
+const OBJECTS: GlassObject[] = [
+  // Near — big, out-of-focus foreground; strongest parallax (depth of field).
+  { img: 'foreground', layer: 'near', pos: { left: '-8%', top: '44%' }, size: 'xl', rot: -6, op: 0.5, blur: 22 },
+  { img: 'foreground', layer: 'near', pos: { right: '-12%', top: '-20%' }, size: 'xl', rot: 152, op: 0.42, blur: 28 },
+  // Mid — the sharp hero objects.
+  { img: 'pebble', layer: 'mid', pos: { left: '5%', top: '30%' }, size: 'lg', rot: -8, op: 0.95, blur: 0 },
+  { img: 'cluster', layer: 'mid', pos: { left: '4%', top: '67%' }, size: 'md', rot: 4, op: 0.95, blur: 0 },
+  { img: 'drop', layer: 'mid', pos: { left: '15%', top: '50%' }, size: 'md', rot: 0, op: 0.9, blur: 0 },
+  { img: 'shard', layer: 'mid', pos: { right: '4%', top: '18%' }, size: 'lg', rot: 8, op: 0.95, blur: 0 },
+  { img: 'lens', layer: 'mid', pos: { right: '5%', top: '58%' }, size: 'lg', rot: -6, op: 0.9, blur: 0 },
+  { img: 'ribbon', layer: 'mid', pos: { right: '11%', top: '80%' }, size: 'lg', rot: 0, op: 0.9, blur: 0 },
+  // Far — small, faint, softened; weakest parallax.
+  { img: 'pebble', layer: 'far', pos: { left: '21%', top: '11%' }, size: 'sm', rot: 12, op: 0.5, blur: 2 },
+  { img: 'shard', layer: 'far', pos: { right: '7%', top: '44%' }, size: 'sm', rot: -10, op: 0.5, blur: 2 },
+  { img: 'drop', layer: 'far', pos: { left: '9%', top: '86%' }, size: 'sm', rot: 0, op: 0.5, blur: 2 },
+  { img: 'lens', layer: 'far', pos: { left: '55%', top: '5%' }, size: 'sm', rot: 0, op: 0.45, blur: 2 },
+  { img: 'cluster', layer: 'far', pos: { right: '19%', top: '87%' }, size: 'sm', rot: 0, op: 0.5, blur: 2 },
 ];
 
-const TILE_COUNT = 40;
-
-// Deterministic PRNG so server and client render identical tiles — no hydration
-// mismatch from Math.random().
-function mulberry32(seed: number) {
-  return () => {
-    seed |= 0;
-    seed = (seed + 0x6d2b79f5) | 0;
-    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
-interface Tile {
-  id: number;
-  leftPct: number;
-  topPct: number;
-  rgb: [number, number, number];
-  size: number; // px
-  depth: number; // 0 far … 1 near
-  rot: number; // initial z rotation
-  driftX: number;
-  driftY: number;
-  driftDur: number;
-  swing: number; // tumble amplitude (deg)
-  swingDur: number;
-}
-
-function makeTiles(count: number): Tile[] {
-  const rand = mulberry32(0x91a5);
-  const tiles: Tile[] = [];
-  for (let i = 0; i < count; i++) {
-    const depth = rand(); // 0..1
-    tiles.push({
-      id: i,
-      leftPct: rand() * 100,
-      topPct: rand() * 100,
-      rgb: COLORS[i % COLORS.length],
-      size: 22 + depth * 74, // small, near ones a bit bigger
-      depth,
-      rot: (rand() - 0.5) * 40,
-      driftX: (rand() - 0.5) * 80 * (0.4 + depth),
-      driftY: (rand() - 0.5) * 80 * (0.4 + depth),
-      driftDur: 8 + rand() * 9,
-      swing: 12 + rand() * 20,
-      swingDur: 7 + rand() * 8,
-    });
-  }
-  return tiles;
-}
+const PARALLAX: Record<Layer, number> = { far: 8, mid: 18, near: 36 };
 
 /**
- * "Frosted Glass Drift" — a shallow 3D depth field of small frosted-glass tiles
- * (a nod to Kissflow boards/cards) floating behind the hero. Each tile is a
- * translucent, backdrop-blurred pane with a brand-tinted rim and a luminous top
- * edge; they drift and gently tumble in 3D, and the whole field parallax-tilts to
- * the cursor. Reads as glass on light AND dark via per-theme frost/rim/edge vars.
- * A soft central clearing keeps the headline + ask box crisp. GSAP-core only;
- * respects prefers-reduced-motion.
+ * "Glass Depth Field" — a cinematic depth-of-field of photoreal frosted/liquid
+ * glass objects (brand-colored, transparent PNGs) floating behind the hero: a
+ * sharp mid layer, big out-of-focus foreground, and a soft far layer, each
+ * parallaxing to the cursor by depth so you feel inside the material. Objects
+ * drift and gently tumble (GSAP). Works on light and dark because each asset is a
+ * self-lit transparent cutout; the side-gutter layout keeps the headline + ask
+ * box clear. aria-hidden, pointer-events-none, static under prefers-reduced-motion.
  */
 export function WingField() {
   const rootRef = useRef<HTMLDivElement>(null);
-  const stageRef = useRef<HTMLDivElement>(null);
-  const tiles = useMemo(() => makeTiles(TILE_COUNT), []);
 
   useEffect(() => {
     const root = rootRef.current;
-    const stage = stageRef.current;
-    if (!root || !stage) return;
+    if (!root) return;
 
     const mm = gsap.matchMedia();
     mm.add(
@@ -89,101 +71,84 @@ export function WingField() {
         reduce: '(prefers-reduced-motion: reduce)',
       },
       (ctx) => {
-        if (ctx.conditions?.reduce) return; // static arrangement, no motion
+        if (ctx.conditions?.reduce) return; // static composition, no motion
 
-        const els = gsap.utils.toArray<HTMLElement>('.glass-tile', stage);
-
-        els.forEach((el) => {
-          const t = tiles[Number(el.dataset.i)];
-          // Slow drift.
+        // Per-object drift + gentle tumble (on the wrapper; base rotate is on the img).
+        const objs = gsap.utils.toArray<HTMLElement>('.gf-obj', root);
+        objs.forEach((el, i) => {
           gsap.to(el, {
-            x: t.driftX,
-            y: t.driftY,
-            duration: t.driftDur,
+            y: (i % 2 ? 1 : -1) * (10 + (i % 4) * 5),
+            x: (i % 3 ? 1 : -1) * (6 + (i % 3) * 4),
+            rotation: (i % 2 ? 1 : -1) * (3 + (i % 3) * 2),
+            duration: 7 + (i % 5),
             repeat: -1,
             yoyo: true,
             ease: 'sine.inOut',
-            delay: (-t.driftDur * (t.id % 5)) / 5,
-          });
-          // Gentle 3D tumble — panes catching light, not spinning.
-          gsap.to(el, {
-            rotationY: t.swing,
-            rotationX: -t.swing * 0.7,
-            duration: t.swingDur,
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut',
+            delay: -(i % 6),
           });
         });
 
-        // Cursor-reactive 3D tilt of the whole field (immersive parallax).
-        const rotY = gsap.quickTo(stage, 'rotationY', { duration: 0.9, ease: 'power3' });
-        const rotX = gsap.quickTo(stage, 'rotationX', { duration: 0.9, ease: 'power3' });
+        // Cursor parallax: each depth layer shifts by its own strength.
+        const layers = gsap.utils.toArray<HTMLElement>('.gf-layer', root);
+        const setters = layers.map((el) => ({
+          el,
+          f: Number(el.dataset.parallax),
+          xTo: gsap.quickTo(el, 'x', { duration: 1, ease: 'power3' }),
+          yTo: gsap.quickTo(el, 'y', { duration: 1, ease: 'power3' }),
+        }));
         const onMove = (e: PointerEvent) => {
           const r = root.getBoundingClientRect();
           if (!r.width) return;
-          rotY(((e.clientX - r.left) / r.width - 0.5) * 12);
-          rotX(((e.clientY - r.top) / r.height - 0.5) * -12);
+          const px = (e.clientX - r.left) / r.width - 0.5;
+          const py = (e.clientY - r.top) / r.height - 0.5;
+          setters.forEach((s) => {
+            s.xTo(-px * s.f);
+            s.yTo(-py * s.f);
+          });
         };
         window.addEventListener('pointermove', onMove);
-
-        // Touch (no fine pointer) → gentle auto-sway.
-        const sway = gsap.to(stage, {
-          rotationY: 5,
-          rotationX: -3,
-          duration: 10,
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut',
-          paused: true,
-        });
-        if (!window.matchMedia('(pointer: fine)').matches) sway.play();
-
         return () => window.removeEventListener('pointermove', onMove);
       },
       root,
     );
 
     return () => mm.revert();
-  }, [tiles]);
+  }, []);
+
+  const layers: Layer[] = ['far', 'mid', 'near'];
 
   return (
-    <div
-      ref={rootRef}
-      aria-hidden
-      // Per-theme glass vars: frost = pane fill, rim = border, edge = top highlight.
-      className="pointer-events-none absolute inset-0 z-0 overflow-hidden [perspective:1200px] [--frost:0.5] [--rim:0.5] [--edge:0.65] dark:[--frost:0.14] dark:[--rim:0.62] dark:[--edge:0.28]"
-    >
-      <div ref={stageRef} className="absolute inset-0 [transform-style:preserve-3d]">
-        {tiles.map((t) => {
-          const [r, g, b] = t.rgb;
-          const blur = (1 - t.depth) * 3; // far = softer (depth of field)
-          const opacity = 0.5 + t.depth * 0.45; // near = more present
-          return (
+    <div ref={rootRef} aria-hidden className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+      {layers.map((layer) => (
+        <div
+          key={layer}
+          data-parallax={PARALLAX[layer]}
+          className={`gf-layer absolute inset-0 ${layer !== 'mid' ? 'hidden sm:block' : ''}`}
+        >
+          {OBJECTS.filter((o) => o.layer === layer).map((o, i) => (
             <div
-              key={t.id}
-              data-i={t.id}
-              className="glass-tile absolute rounded-[32%] border will-change-transform [backdrop-filter:blur(6px)] [-webkit-backdrop-filter:blur(6px)]"
-              style={
-                {
-                  left: `${t.leftPct}%`,
-                  top: `${t.topPct}%`,
-                  width: t.size,
-                  height: t.size,
-                  marginLeft: -t.size / 2,
-                  marginTop: -t.size / 2,
-                  transform: `rotate(${t.rot}deg)`,
-                  opacity,
-                  filter: blur ? `blur(${blur}px)` : undefined,
-                  background: `linear-gradient(135deg, rgba(255,255,255,var(--frost)) 0%, rgba(${r},${g},${b},0.14) 100%)`,
-                  borderColor: `rgba(${r},${g},${b},var(--rim))`,
-                  boxShadow: `inset 0 1px 0 rgba(255,255,255,var(--edge)), 0 8px 24px rgba(${r},${g},${b},0.10)`,
-                } as CSSProperties
-              }
-            />
-          );
-        })}
-      </div>
+              key={`${o.img}-${layer}-${i}`}
+              className="gf-obj absolute will-change-transform"
+              style={{ left: o.pos.left, right: o.pos.right, top: o.pos.top }}
+            >
+              <img
+                src={`${basePath}/hero-glass/${o.img}.webp`}
+                alt=""
+                loading="lazy"
+                draggable={false}
+                style={
+                  {
+                    width: SIZE[o.size],
+                    transform: `rotate(${o.rot}deg)`,
+                    opacity: o.op,
+                    filter: o.blur ? `blur(${o.blur}px)` : undefined,
+                  } as CSSProperties
+                }
+              />
+            </div>
+          ))}
+        </div>
+      ))}
     </div>
   );
 }
