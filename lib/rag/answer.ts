@@ -1,4 +1,4 @@
-import { streamObject } from 'ai';
+import { generateObject } from 'ai';
 import { citationAnswerSchema } from './citation-schema';
 import { resolveAnswerModel } from './model-router';
 
@@ -33,21 +33,27 @@ function renderContext(nodes: ContextNode[]): string {
 
 /**
  * Runs the grounded, citation-enforced answer over a constrained context.
- * Returns the streamObject result so callers can stream the partial object.
+ * Resolves to the validated citation object.
+ *
+ * ponytail: generateObject, not streamObject — the installed @ai-sdk/openai
+ * (3.0.82, pre-GPT-5.6) hangs on gpt-5.6 structured-output *streaming*, while
+ * non-streaming structured output works. No live consumer needs token streaming
+ * yet; switch back to streamObject when the SDK supports 5.6 streaming.
  */
-export function answerFromContext(input: {
+export async function answerFromContext(input: {
   query: string;
   contextNodes: ContextNode[];
   tier: 'luna' | 'terra';
 }) {
-  return streamObject({
+  const { object } = await generateObject({
     model: resolveAnswerModel(input.tier),
     schema: citationAnswerSchema,
     temperature: 0,
+    system: SYSTEM,
     messages: [
-      { role: 'system', content: SYSTEM },
       { role: 'system', content: renderContext(input.contextNodes) },
       { role: 'user', content: input.query },
     ],
   });
+  return object;
 }

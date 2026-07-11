@@ -49,6 +49,6 @@ export async function POST(request: Request): Promise<Response> {
     snippet: n.snippet,
   }));
 
-  const result = answerFromContext({ query, contextNodes, tier });
-  return result.toTextStreamResponse();
+  const answer = await answerFromContext({ query, contextNodes, tier });
+  return Response.json(answer);
 }
