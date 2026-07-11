@@ -40,7 +40,7 @@ export default function Layout({ children }: LayoutProps<'/docs'>) {
             },
           },
         ]}
-        {...baseOptions()}
+        {...baseOptions('docs')}
       >
         {children}
       </DocsLayout>

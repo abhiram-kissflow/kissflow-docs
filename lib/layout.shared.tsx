@@ -5,7 +5,13 @@ import { appName } from './shared';
 // for the GitHub Pages deployment (served under /kissflow-docs).
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 
-export function baseOptions(): BaseLayoutProps {
+type BrandVariant = 'default' | 'docs';
+
+export function baseOptions(variant: BrandVariant = 'default'): BaseLayoutProps {
+  const compact = variant === 'docs';
+  const label = compact ? 'Docs' : 'Documentation';
+  const logoClassName = compact ? 'h-4 w-auto' : 'h-5 w-auto';
+
   return {
     nav: {
       title: (
@@ -13,15 +19,17 @@ export function baseOptions(): BaseLayoutProps {
           <img
             src={`${basePath}/kissflow-logo.png`}
             alt={appName}
-            className="h-5 w-auto dark:hidden"
+            className={`${logoClassName} dark:hidden`}
           />
           <img
             src={`${basePath}/kissflow-logo-white.png`}
             alt={appName}
-            className="hidden h-5 w-auto dark:block"
+            className={`hidden ${logoClassName} dark:block`}
           />
-          <span className="text-fd-muted-foreground text-base font-medium">
-            Documentation
+          <span
+            className={`text-fd-muted-foreground font-medium ${compact ? 'text-sm' : 'text-base'}`}
+          >
+            {label}
           </span>
         </span>
       ),
