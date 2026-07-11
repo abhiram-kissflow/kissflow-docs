@@ -102,6 +102,5 @@ export async function POST(request: Request): Promise<Response> {
     subgraph: { maxSeedHopDistance: 1, distinctSourceArticles: contextNodes.length },
   });
 
-  const answer = await answerFromContext({ query, contextNodes, tier });
-  return Response.json(answer);
+  return answerFromContext({ query, contextNodes, tier }).toTextStreamResponse();
 }

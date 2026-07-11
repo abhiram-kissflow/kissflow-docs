@@ -1,4 +1,4 @@
-import { generateObject } from 'ai';
+import { streamObject, type ModelMessage } from 'ai';
 import { citationAnswerSchema } from './citation-schema';
 import { resolveAnswerModel } from './model-router';
 
@@ -9,19 +9,33 @@ export interface ContextNode {
   snippet: string;
 }
 
-const SYSTEM = `You are Kissflow's grounded answering engine.
+export interface HistoryTurn {
+  role: 'user' | 'assistant';
+  content: string;
+}
+
+const SYSTEM = `You are Kissflow's docs answering engine. You help users of the
+Kissflow platform by answering from the provided documentation.
 
 You are given a constrained set of knowledge-graph nodes as CONTEXT. Each node
 has an id, a source url, and a snippet.
 
-Rules, in priority order:
+Grounding (never break these):
 1. Answer ONLY from the provided CONTEXT. Never use outside knowledge.
-2. Every claim in your answer must be supported by a node you cite by its id,
-   with the exact snippet you relied on.
-3. If the CONTEXT does not contain enough information to answer confidently,
-   set insufficientEvidence to true, leave answer empty and citations empty,
-   and do not guess.
-4. Keep answers concise and directly responsive to the question.`;
+2. Support claims with the node ids you relied on (in the citations field), each
+   with the exact snippet used.
+3. If the CONTEXT cannot support a confident answer, set insufficientEvidence to
+   true, leave answer and citations empty, and do not guess.
+
+Style (how to write a grounded answer):
+- For "how do I…" / setup / step questions: open with one short sentence naming
+  the goal, then give clear numbered steps the user can follow. Be complete.
+- For everything else: be punchy and concise — a direct sentence or two.
+- Write plainly and actively (omit needless words; no filler, no preamble like
+  "Based on the context"). Use markdown: numbered lists for steps, **bold** for
+  UI labels, inline links to source urls where a "read more" genuinely helps.
+- When earlier turns are provided, treat the new question as a follow-up in the
+  same conversation.`;
 
 function renderContext(nodes: ContextNode[]): string {
   if (!nodes.length) return 'CONTEXT: (empty)';
@@ -32,28 +46,30 @@ function renderContext(nodes: ContextNode[]): string {
 }
 
 /**
- * Runs the grounded, citation-enforced answer over a constrained context.
- * Resolves to the validated citation object.
- *
- * ponytail: generateObject, not streamObject — the installed @ai-sdk/openai
- * (3.0.82, pre-GPT-5.6) hangs on gpt-5.6 structured-output *streaming*, while
- * non-streaming structured output works. No live consumer needs token streaming
- * yet; switch back to streamObject when the SDK supports 5.6 streaming.
+ * Streams a grounded, citation-enforced answer over a constrained context.
+ * Returns the streamObject result so callers can stream the partial object.
+ * (streamObject works with gpt-5.6 on @ai-sdk/openai >= 3.0.84.)
  */
-export async function answerFromContext(input: {
+export function answerFromContext(input: {
   query: string;
   contextNodes: ContextNode[];
   tier: 'luna' | 'terra';
+  history?: HistoryTurn[];
 }) {
-  const { object } = await generateObject({
+  const priorTurns: ModelMessage[] = (input.history ?? []).map((t) => ({
+    role: t.role,
+    content: t.content,
+  }));
+
+  return streamObject({
     model: resolveAnswerModel(input.tier),
     schema: citationAnswerSchema,
-    temperature: 0,
+    // no temperature: gpt-5.6 reasoning models ignore it and warn.
     system: SYSTEM,
     messages: [
       { role: 'system', content: renderContext(input.contextNodes) },
+      ...priorTurns,
       { role: 'user', content: input.query },
     ],
   });
-  return object;
 }
