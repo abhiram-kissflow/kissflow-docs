@@ -1,207 +1,223 @@
 'use client';
 
-import { type CSSProperties, useEffect, useMemo, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
-// The four Kissflow signature colors (kissflow.com/brand) — the butterfly's wings.
-const COLORS = ['#CF2C91', '#1F80FF', '#F58220', '#4AA147'];
+// The four Kissflow signature colors (kissflow.com/brand), as RGB triples.
+const COLORS: [number, number, number][] = [
+  [207, 44, 145], // #CF2C91 magenta
+  [31, 128, 255], // #1F80FF blue
+  [245, 130, 32], // #F58220 orange
+  [74, 161, 71], // #4AA147 green
+];
 
-// Deterministic PRNG so the server and client render identical petals — no
-// hydration mismatch from Math.random().
-function mulberry32(seed: number) {
-  return () => {
-    seed |= 0;
-    seed = (seed + 0x6d2b79f5) | 0;
-    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
+const PARTICLE_COUNT = 2400;
+
+interface Particle {
+  // Butterfly target (model space, roughly [-1,1] with depth z).
+  bx: number;
+  by: number;
+  bz: number;
+  // Flow "home" (screen fractions) + individual drift phase/speed.
+  hx: number;
+  hy: number;
+  phase: number;
+  speed: number;
+  amp: number;
+  rgb: [number, number, number];
+  size: number;
 }
 
-interface Petal {
-  id: number;
-  leftPct: number;
-  topPct: number;
-  color: string;
-  size: number; // px
-  depth: number; // 0 far … 1 near
-  driftX: number;
-  driftY: number;
-  driftDur: number;
-  spinDur: number;
-  spinDir: number;
-}
-
-function makePetals(count: number): Petal[] {
-  const rand = mulberry32(0x5eed);
-  const petals: Petal[] = [];
+// Fay's parametric butterfly curve, area-filled and colored by wing region.
+function makeButterfly(count: number): Particle[] {
+  const out: Particle[] = [];
   for (let i = 0; i < count; i++) {
-    const depth = rand(); // 0..1
-    petals.push({
-      id: i,
-      leftPct: rand() * 100,
-      topPct: rand() * 100,
-      color: COLORS[i % COLORS.length],
-      size: 26 + depth * 74, // far small, near big
-      depth,
-      driftX: (rand() - 0.5) * 70 * (0.4 + depth),
-      driftY: (rand() - 0.5) * 70 * (0.4 + depth),
-      driftDur: 6 + rand() * 8,
-      spinDur: 12 + rand() * 16,
-      spinDir: rand() > 0.5 ? 1 : -1,
+    const t = Math.random() * Math.PI * 2;
+    const r =
+      Math.exp(Math.sin(t)) -
+      2 * Math.cos(4 * t) +
+      Math.pow(Math.sin((2 * t - Math.PI) / 24), 5);
+    const fill = Math.sqrt(Math.random()); // uniform area fill
+    // Curve is drawn "lying down"; swap axes so the butterfly stands upright.
+    const bx = Math.cos(t) * r * fill;
+    const by = -Math.sin(t) * r * fill;
+    // Colour by wing: left/right split, upper/lower split → 4 brand colours.
+    const ci = (bx < 0 ? 0 : 1) + (by < 0 ? 0 : 2);
+    out.push({
+      bx,
+      by,
+      bz: (Math.random() - 0.5) * 1.2, // thickness → real 3D on rotation
+      hx: Math.random(),
+      hy: Math.random(),
+      phase: Math.random() * Math.PI * 2,
+      speed: 0.15 + Math.random() * 0.5,
+      amp: 0.02 + Math.random() * 0.05,
+      rgb: COLORS[ci],
+      size: 1.4 + Math.random() * 1.4,
     });
   }
-  return petals;
+  return out;
 }
 
 /**
- * "Living Wing-Field" — a shallow 3D diorama of brand-colored petals drifting in
- * layered depth behind the hero. Cursor-reactive tilt, a synchronized wingbeat
- * every ~8s, and per-petal 3D tumble. Reads on light and dark equally because the
- * petals ARE saturated brand colors (depth from blur + scale + motion, never glow
- * or shadow). GSAP-core only; respects prefers-reduced-motion.
+ * "Butterfly Flow-Field" — an immersive current of brand-colored particles that
+ * periodically coalesces into a slowly-rotating Kissflow butterfly, then breathes
+ * back into flow. Canvas 2D + GSAP-driven scalars (morph, rotation, cursor tilt);
+ * no Three.js. Reads on light and dark equally (particles ARE saturated brand
+ * colors; a per-theme alpha keeps them even on black and white). A soft central
+ * clearing protects the headline + ask box. Honors prefers-reduced-motion.
  */
 export function WingField() {
-  const rootRef = useRef<HTMLDivElement>(null);
-  const stageRef = useRef<HTMLDivElement>(null);
-  const petals = useMemo(() => makePetals(22), []);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const root = rootRef.current;
-    const stage = stageRef.current;
-    if (!root || !stage) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
 
-    const mm = gsap.matchMedia();
-    mm.add(
-      {
-        animate: '(prefers-reduced-motion: no-preference)',
-        reduce: '(prefers-reduced-motion: reduce)',
-      },
-      (ctx) => {
-        // Reduced motion → leave the static arrangement, no animation.
-        if (ctx.conditions?.reduce) return;
+    const particles = makeButterfly(PARTICLE_COUNT);
+    // GSAP animates these scalars; the render loop reads them each frame.
+    const state = { morph: 0, rot: 0, tiltX: 0, tiltY: 0 };
 
-        const els = gsap.utils.toArray<HTMLElement>('.wf-petal', stage);
+    let W = 0;
+    let H = 0;
+    let dpr = 1;
+    const resize = () => {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = canvas.clientWidth;
+      H = canvas.clientHeight;
+      canvas.width = Math.floor(W * dpr);
+      canvas.height = Math.floor(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+    resize();
+    window.addEventListener('resize', resize);
 
-        // Per-petal drift + slow 3D tumble.
-        els.forEach((el) => {
-          const p = petals[Number(el.dataset.i)];
-          gsap.to(el, {
-            x: p.driftX,
-            y: p.driftY,
-            duration: p.driftDur,
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut',
-            delay: (-p.driftDur * (p.id % 5)) / 5, // desync start phases
-          });
-          gsap.to(el, {
-            rotationY: 360 * p.spinDir,
-            rotationX: 180 * p.spinDir,
-            duration: p.spinDur,
-            repeat: -1,
-            ease: 'none',
-          });
-        });
+    // Theme parity: brand colors need a touch more alpha on black than on white.
+    let alphaBoost = 1;
+    const readTheme = () => {
+      alphaBoost = document.documentElement.classList.contains('dark') ? 1.5 : 1;
+    };
+    readTheme();
+    const themeObs = new MutationObserver(readTheme);
+    themeObs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 
-        // Synchronized wingbeat — every ~8s all petals beat outward from center.
-        const beat = gsap.timeline({ repeat: -1, repeatDelay: 6.5 });
-        beat
-          .to(els, {
-            scale: 1.14,
-            duration: 0.5,
-            ease: 'power2.out',
-            stagger: { each: 0.015, from: 'center' },
-          })
-          .to(
-            els,
-            {
-              scale: 1,
-              duration: 0.9,
-              ease: 'power2.inOut',
-              stagger: { each: 0.015, from: 'center' },
-            },
-            '>-0.1',
-          );
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        // Cursor-reactive 3D tilt of the whole stage.
-        const rotY = gsap.quickTo(stage, 'rotationY', { duration: 0.8, ease: 'power3' });
-        const rotX = gsap.quickTo(stage, 'rotationX', { duration: 0.8, ease: 'power3' });
-        const onMove = (e: PointerEvent) => {
-          const r = root.getBoundingClientRect();
-          if (!r.width || !r.height) return;
-          const px = (e.clientX - r.left) / r.width - 0.5;
-          const py = (e.clientY - r.top) / r.height - 0.5;
-          rotY(px * 14);
-          rotX(-py * 14);
-        };
-        window.addEventListener('pointermove', onMove);
+    const draw = () => {
+      ctx.clearRect(0, 0, W, H);
+      const cx = W / 2;
+      const cy = H * 0.46;
+      const scale = Math.min(W, H) * 0.32; // butterfly size
+      const clearR = Math.min(W, H) * 0.26; // central clearing radius
+      const time = performance.now() * 0.001;
+      const cosY = Math.cos(state.rot + state.tiltY);
+      const sinY = Math.sin(state.rot + state.tiltY);
+      const cosX = Math.cos(state.tiltX);
+      const sinX = Math.sin(state.tiltX);
 
-        // No fine pointer (touch) → gentle auto-sway instead.
-        const sway = gsap.to(stage, {
-          rotationY: 6,
-          rotationX: -4,
-          duration: 9,
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut',
-          paused: true,
-        });
-        if (!window.matchMedia('(pointer: fine)').matches) sway.play();
+      for (const p of particles) {
+        // Butterfly position: rotate model point in 3D, project to screen.
+        const x1 = p.bx * cosY + p.bz * sinY;
+        const z1 = -p.bx * sinY + p.bz * cosY;
+        const y1 = p.by * cosX - z1 * sinX;
+        const z2 = p.by * sinX + z1 * cosX;
+        const persp = 1 / (1 + z2 * 0.28);
+        const bxS = cx + x1 * scale * persp;
+        const byS = cy + y1 * scale * persp;
 
-        return () => window.removeEventListener('pointermove', onMove);
-      },
-      root,
-    );
+        // Flow position: a streaming current across the viewport.
+        const fx = ((p.hx + time * 0.012 * p.speed) % 1.15) * W - W * 0.075;
+        const fy = (p.hy * H + Math.sin(time * p.speed + p.phase) * p.amp * H + H) % H;
 
-    return () => mm.revert();
-  }, [petals]);
+        const m = state.morph;
+        const sx = fx + (bxS - fx) * m;
+        const sy = fy + (byS - fy) * m;
+
+        // Soft central clearing so the headline + ask box stay crisp.
+        const dx = sx - cx;
+        const dy = sy - cy;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        let clear = 1;
+        if (dist < clearR) clear = 0.12 + 0.88 * (dist / clearR);
+
+        const depthAlpha = 0.35 + 0.4 * persp; // near brighter
+        const a = Math.min(0.9, depthAlpha * clear * alphaBoost);
+        if (a < 0.02) continue;
+        const sz = p.size * (0.7 + 0.6 * persp);
+        ctx.globalAlpha = a;
+        ctx.fillStyle = `rgb(${p.rgb[0]},${p.rgb[1]},${p.rgb[2]})`;
+        ctx.fillRect(sx - sz / 2, sy - sz / 2, sz, sz);
+      }
+      ctx.globalAlpha = 1;
+    };
+
+    let rafId = 0;
+    let extraCleanup = () => {};
+    let tl: gsap.core.Timeline | null = null;
+    let rotTween: gsap.core.Tween | null = null;
+
+    if (reduce) {
+      // Calm, static: a formed butterfly, no motion.
+      state.morph = 1;
+      draw();
+    } else {
+      const loop = () => {
+        draw();
+        rafId = requestAnimationFrame(loop);
+      };
+      rafId = requestAnimationFrame(loop);
+
+      // Continuous slow rotation (the butterfly turns; the flow shears).
+      rotTween = gsap.to(state, { rot: Math.PI * 2, duration: 46, repeat: -1, ease: 'none' });
+
+      // The breath: flow → form → hold → disperse → flow.
+      tl = gsap.timeline({ repeat: -1 });
+      tl.to(state, { morph: 1, duration: 3, ease: 'power2.inOut' })
+        .to(state, { morph: 1, duration: 3.2 }) // hold formed
+        .to(state, { morph: 0, duration: 3.4, ease: 'power2.inOut' })
+        .to(state, { morph: 0, duration: 4 }); // hold flow
+
+      // Cursor steers the cloud (immersive parallax).
+      const tiltYTo = gsap.quickTo(state, 'tiltY', { duration: 1, ease: 'power3' });
+      const tiltXTo = gsap.quickTo(state, 'tiltX', { duration: 1, ease: 'power3' });
+      const onMove = (e: PointerEvent) => {
+        const r = canvas.getBoundingClientRect();
+        if (!r.width) return;
+        tiltYTo(((e.clientX - r.left) / r.width - 0.5) * 0.6);
+        tiltXTo(((e.clientY - r.top) / r.height - 0.5) * -0.4);
+      };
+      window.addEventListener('pointermove', onMove);
+
+      // Pause the loop when the tab is hidden (perf; rAF already throttles).
+      const onVis = () => {
+        cancelAnimationFrame(rafId);
+        if (!document.hidden) rafId = requestAnimationFrame(loop);
+      };
+      document.addEventListener('visibilitychange', onVis);
+
+      extraCleanup = () => {
+        window.removeEventListener('pointermove', onMove);
+        document.removeEventListener('visibilitychange', onVis);
+      };
+    }
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      rotTween?.kill();
+      tl?.kill();
+      themeObs.disconnect();
+      window.removeEventListener('resize', resize);
+      extraCleanup();
+    };
+  }, []);
 
   return (
-    <div
-      ref={rootRef}
+    <canvas
+      ref={canvasRef}
       aria-hidden
-      // Petals are translucent brand colors: on black they need a lift to match
-      // their pop on white. --wf-boost multiplies each petal's opacity per theme.
-      className="pointer-events-none absolute inset-0 z-0 overflow-hidden [perspective:1100px] [--wf-boost:1] dark:[--wf-boost:1.6]"
-    >
-      <div ref={stageRef} className="absolute inset-0 [transform-style:preserve-3d]">
-        {petals.map((p) => {
-          const gid = `wf-grad-${p.id}`;
-          const blur = (1 - p.depth) * 5; // far = blurred
-          const opacity = 0.32 + p.depth * 0.3; // near = more opaque
-          return (
-            <div
-              key={p.id}
-              data-i={p.id}
-              className="wf-petal absolute will-change-transform"
-              style={
-                {
-                  left: `${p.leftPct}%`,
-                  top: `${p.topPct}%`,
-                  width: p.size,
-                  height: p.size,
-                  marginLeft: -p.size / 2,
-                  marginTop: -p.size / 2,
-                  filter: blur ? `blur(${blur}px)` : undefined,
-                  '--wf-op': opacity,
-                  opacity: 'min(1, calc(var(--wf-op) * var(--wf-boost, 1)))',
-                } as CSSProperties
-              }
-            >
-              <svg viewBox="0 0 32 32" width="100%" height="100%" fill="none">
-                <defs>
-                  <linearGradient id={gid} x1="16" y1="1" x2="16" y2="31" gradientUnits="userSpaceOnUse">
-                    <stop offset="0" stopColor={p.color} stopOpacity="0.95" />
-                    <stop offset="1" stopColor={p.color} stopOpacity="0.55" />
-                  </linearGradient>
-                </defs>
-                <path d="M16 1C24 9 24 23 16 31C8 23 8 9 16 1Z" fill={`url(#${gid})`} />
-              </svg>
-            </div>
-          );
-        })}
-      </div>
-    </div>
+      className="pointer-events-none absolute inset-0 z-0 h-full w-full"
+    />
   );
 }
