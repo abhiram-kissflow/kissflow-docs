@@ -1,4 +1,5 @@
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
+import { ThemeSwitch } from '@/components/theme-switch';
 import { appName } from './shared';
 
 // Plain <img> srcs don't get the Next.js basePath prefix, so add it
@@ -13,6 +14,9 @@ export function baseOptions(variant: BrandVariant = 'default'): BaseLayoutProps 
   const logoClassName = compact ? 'h-4 w-auto' : 'h-4 w-auto';
 
   return {
+    slots: {
+      themeSwitch: ThemeSwitch,
+    },
     nav: {
       title: (
         <span className="flex items-center gap-2">

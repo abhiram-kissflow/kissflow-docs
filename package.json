@@ -6,6 +6,7 @@
     "build": "next build --webpack",
     "dev": "next dev --webpack",
     "start": "serve out",
+    "test": "tsx --test lib/theme.test.ts lib/rag/**/*.test.ts",
     "types:check": "fumadocs-mdx && next typegen && tsc --noEmit",
     "validate": "npx tsx scripts/validate-frontmatter.ts",
     "migrate": "npx tsx scripts/migrate-html-to-mdx.ts",
