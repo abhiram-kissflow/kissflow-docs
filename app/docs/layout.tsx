@@ -10,6 +10,7 @@ export default function Layout({ children }: LayoutProps<'/docs'>) {
   return (
     <>
       <DocsLayout
+        tabMode="top"
         tree={source.getPageTree()}
         tabs={[
           {
