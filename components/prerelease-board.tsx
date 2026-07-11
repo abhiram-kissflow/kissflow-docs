@@ -98,9 +98,15 @@ export function PreReleaseBoard({ years }: { years: string[] }) {
       ) : (
         groups.map((group) => (
           <section key={group.label} className="mb-10">
-            <p className="mb-5 inline-block border-l-4 border-indigo-500 pl-3 text-base font-semibold uppercase tracking-wide leading-tight text-fd-foreground">
-              {group.label}
-            </p>
+            <div className="mb-5 flex items-baseline gap-3">
+              <h2 className="text-lg font-semibold leading-tight text-fd-foreground">
+                {group.label}
+              </h2>
+              <span aria-hidden className="h-px flex-1 bg-fd-border" />
+              <span className="text-xs text-fd-muted-foreground">
+                {group.notes.length} {group.notes.length === 1 ? 'note' : 'notes'}
+              </span>
+            </div>
             <div className="flex flex-col gap-5">
               {group.notes.map((note) => (
                 <article

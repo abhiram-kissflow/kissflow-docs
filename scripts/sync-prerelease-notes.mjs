@@ -90,7 +90,7 @@ async function worker() {
 await Promise.all([worker(), worker()]);
 
 // Roadmap posts live in /docs/roadmap, not pre-release notes.
-const EXCLUDE = new Set(['q6ypgaa']);
+const EXCLUDE = new Set(['q6ypgaa', 'x2ypwrf']);
 const kept = results.filter((r) => !EXCLUDE.has(r.id));
 kept.sort((a, b) => (b.epoch ?? 0) - (a.epoch ?? 0));
 const byYear = new Map();

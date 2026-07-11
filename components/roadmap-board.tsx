@@ -21,26 +21,26 @@ interface YearData {
   quarters: Quarter[];
 }
 
-const STATUS_STYLES: Record<Status, { label: string; className: string }> = {
+const STATUS_STYLES: Record<Status, { label: string; dot: string; text: string }> = {
   shipped: {
     label: 'Shipped',
-    className:
-      'border-green-200 bg-green-50 text-green-800 dark:border-green-900 dark:bg-green-950 dark:text-green-300',
+    dot: 'bg-green-600 dark:bg-green-400',
+    text: 'text-green-800 dark:text-green-300',
+  },
+  'in-progress': {
+    label: 'In progress',
+    dot: 'bg-blue-600 dark:bg-blue-400',
+    text: 'text-blue-800 dark:text-blue-300',
   },
   planned: {
     label: 'Planned',
-    className:
-      'border-zinc-200 bg-zinc-100 text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300',
-  },
-  'in-progress': {
-    label: 'In progress (delayed)',
-    className:
-      'border-blue-200 bg-blue-50 text-blue-800 dark:border-blue-900 dark:bg-blue-950 dark:text-blue-300',
+    dot: 'bg-zinc-400 dark:bg-zinc-500',
+    text: 'text-zinc-700 dark:text-zinc-300',
   },
   deferred: {
     label: 'Deferred',
-    className:
-      'border-amber-200 bg-amber-50 text-amber-800 dark:border-amber-900 dark:bg-amber-950 dark:text-amber-300',
+    dot: 'bg-amber-500 dark:bg-amber-400',
+    text: 'text-amber-800 dark:text-amber-300',
   },
 };
 
@@ -133,31 +133,47 @@ const ROADMAP: YearData[] = [
   },
 ];
 
-function Card({ item }: { item: RoadmapItem }) {
-  const status = STATUS_STYLES[item.status];
+function StatusChip({ status }: { status: Status }) {
+  const s = STATUS_STYLES[status];
   return (
-    <div className="rounded-xl border border-fd-border bg-fd-card p-6 shadow-sm">
-      <div className="mb-4 flex items-center justify-between gap-2">
-        <div className="flex flex-wrap gap-1.5">
-          {item.tags.map((tag) => (
-            <span
-              key={tag}
-              className={`rounded px-2 py-1 text-[11px] font-bold uppercase leading-none ${TAG_STYLES[tag] ?? 'bg-fd-muted text-fd-muted-foreground'}`}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-        <span
-          className={`shrink-0 rounded border px-2 py-1 text-[10px] font-bold uppercase leading-none ${status.className}`}
-        >
-          {status.label}
-        </span>
-      </div>
-      <strong className="mb-2 block text-lg font-bold text-fd-foreground">{item.title}</strong>
-      <p className="m-0 text-[15px] leading-relaxed text-fd-muted-foreground">{item.description}</p>
-    </div>
+    <span className={`inline-flex shrink-0 items-center gap-1.5 text-xs font-medium ${s.text}`}>
+      <span aria-hidden className={`size-1.5 rounded-full ${s.dot}`} />
+      {s.label}
+    </span>
   );
+}
+
+function Card({ item }: { item: RoadmapItem }) {
+  return (
+    <article className="flex flex-col gap-2 rounded-xl border border-fd-border bg-fd-card p-5 shadow-sm">
+      <div className="flex items-baseline justify-between gap-3">
+        <strong className="text-base font-semibold text-fd-foreground">{item.title}</strong>
+        <StatusChip status={item.status} />
+      </div>
+      <p className="m-0 flex-1 text-sm leading-relaxed text-fd-muted-foreground">
+        {item.description}
+      </p>
+      <div className="mt-1 flex flex-wrap gap-1.5">
+        {item.tags.map((tag) => (
+          <span
+            key={tag}
+            className={`rounded-full px-2 py-0.5 text-xs font-medium leading-relaxed ${TAG_STYLES[tag] ?? 'bg-fd-muted text-fd-muted-foreground'}`}
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+    </article>
+  );
+}
+
+function quarterSummary(items: RoadmapItem[]): string {
+  const counts = new Map<Status, number>();
+  for (const item of items) counts.set(item.status, (counts.get(item.status) ?? 0) + 1);
+  return (['shipped', 'in-progress', 'planned', 'deferred'] as const)
+    .filter((s) => counts.has(s))
+    .map((s) => `${counts.get(s)} ${STATUS_STYLES[s].label.toLowerCase()}`)
+    .join(' · ');
 }
 
 export function RoadmapBoard() {
@@ -167,10 +183,6 @@ export function RoadmapBoard() {
 
   return (
     <div className="not-prose">
-      <div className="mb-4 inline-flex items-center rounded-full border-[3px] border-green-200 bg-green-50 px-3 py-1 text-[13px] font-semibold tracking-wide text-green-800 dark:border-green-900 dark:bg-green-950 dark:text-green-300">
-        First published on 09 Feb 2026
-      </div>
-
       <p className="mb-2 max-w-3xl text-[15px] leading-relaxed text-fd-muted-foreground">
         This roadmap offers a look at the future of Kissflow. Our goal is to keep you informed so
         you can plan effectively and provide the feedback that shapes our product.
@@ -180,7 +192,7 @@ export function RoadmapBoard() {
         timelines.
       </p>
 
-      <div className="mb-8 flex items-center gap-2" role="tablist" aria-label="Roadmap year">
+      <div className="mb-10 flex items-center gap-2" role="tablist" aria-label="Roadmap year">
         {years.map((y) => (
           <button
             key={y}
@@ -200,11 +212,17 @@ export function RoadmapBoard() {
       </div>
 
       {active.quarters.map((quarter) => (
-        <section key={quarter.label} className="mb-10">
-          <p className="mb-5 inline-block border-l-4 border-indigo-500 pl-3 text-base font-semibold uppercase tracking-wide leading-tight text-fd-foreground">
-            {quarter.label}
-          </p>
-          <div className="grid gap-5 sm:grid-cols-2">
+        <section key={quarter.label} className="mb-12">
+          <div className="mb-5 flex items-baseline gap-3">
+            <h2 className="text-lg font-semibold leading-tight text-fd-foreground">
+              {quarter.label}
+            </h2>
+            <span aria-hidden className="h-px flex-1 bg-fd-border" />
+            <span className="text-xs text-fd-muted-foreground">
+              {quarterSummary(quarter.items)}
+            </span>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
             {quarter.items.map((item) => (
               <Card key={item.title} item={item} />
             ))}
