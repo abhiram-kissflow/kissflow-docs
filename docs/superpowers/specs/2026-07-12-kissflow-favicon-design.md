@@ -7,7 +7,8 @@ Give the documentation site a recognizable Kissflow favicon in browser tabs and 
 ## Design
 
 - Add a standalone SVG favicon at `app/icon.svg`, using a compact Kissflow-red butterfly/K mark that remains legible at small sizes.
-- Let Next.js App Router discover the conventional `app/icon.svg` asset automatically; no metadata or runtime component changes are needed.
+- Let Next.js App Router discover the conventional `app/icon.svg` asset automatically.
+- Set the root layout metadata title to `Kissflow Documentation`, so browser tabs show that text beside the favicon.
 - Include a solid white field and simple geometric paths to preserve contrast in both light and dark browser chrome.
 
 ## Verification
