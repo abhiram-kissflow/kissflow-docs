@@ -1,0 +1,36 @@
+---
+title: "Creación y administración de claves de acceso"
+description: "BORRADOR (sin verificar) — migrado desde /t/q6h4akr/creating-and-managing-access-keys"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Las claves de acceso son una parte fundamental del funcionamiento de una cuenta de servicio. Puedes crear hasta 50 claves de acceso por cuenta de servicio. 
+
+## Creación de una clave de acceso
+
+1.  Ve a tu cuenta de servicio y haz clic en **Crear clave de acceso**.
+2.  Introduce el nombre de la clave de acceso.
+3.  Establece un período de vencimiento adecuado para la clave. 
+4.  Haz clic para copiar el ID y el secreto de la clave de acceso, y guárdalos de forma segura en tu computadora; también puedes hacer clic en Descargar credenciales para conservarlos como archivo.
+5.  Haz clic en **Listo** después de descargar las credenciales de la clave de acceso.
+6.  Haz clic en **Continuar** para confirmar la acción después de leer el mensaje de alerta. 
+
+![](/migration-assets/creating-and-managing-access-keys/1.gif)
+
+## Administración de claves de acceso
+
+Puedes ver las claves de acceso creadas para tu cuenta de servicio, su vencimiento, estado actual, último acceso y número de días activos. Los [superadministradores](/t/35h4ak036h4gg/user-roles-permissions), [administradores de IAM](/t/35h4ak0/user-roles-permissions#iam-admin) y los administradores de cuentas de servicio con acceso a esta cuenta de servicio pueden ver esta página. Pueden eliminar, cambiar el nombre o activar/desactivar el estado de una clave de acceso. Las integraciones o llamadas de API asociadas con una clave de acceso fallarán si esta se desactiva. 
+
+## Prácticas recomendadas para usar claves de acceso
+
+El uso de claves de acceso para cuentas de servicio conlleva riesgos específicos si se utilizan de forma incorrecta. Estas son algunas formas de administrar tus claves de acceso:
+
+-   Limita el número de veces que se utiliza una clave de acceso. Usa claves de acceso específicas para un propósito particular y no las utilices ampliamente en otras aplicaciones. 
+-   Crea claves de acceso con un vencimiento más corto y rótalas con frecuencia para mitigar el riesgo de que se vean comprometidas. Aunque permitimos crear claves de acceso con un vencimiento prolongado, te recomendamos limitar el vencimiento de una clave de acceso a 90 días. 
+-   Usa el registro de auditoría para supervisar la actividad de las claves de acceso y detectar comportamientos sospechosos. Si ves que una clave de acceso se utiliza para un propósito diferente, desactívala y elimínala de la cuenta de servicio.

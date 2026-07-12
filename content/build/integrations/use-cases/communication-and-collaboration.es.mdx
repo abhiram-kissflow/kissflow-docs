@@ -1,0 +1,131 @@
+---
+title: "Comunicación y colaboración"
+description: "BORRADOR (sin verificar) — migrado desde /t/h7yk4r5/communication-and-collaboration"
+contentType: use-case
+persona: citizen-developer
+section: build
+---
+
+La comunicación y la colaboración eficaces son fundamentales para cualquier organización moderna. Esta área se centra en las herramientas que conectan a equipos, clientes y sistemas en tiempo real. Las integraciones son esenciales para eliminar los silos y garantizar que las notificaciones, alertas y conversaciones ocurran en el contexto adecuado y en el momento oportuno. Al conectar las plataformas de comunicación con las aplicaciones empresariales principales, las empresas pueden automatizar alertas críticas, agilizar el inicio de proyectos y crear canales fluidos para la atención y la interacción con los clientes, lo que en última instancia permite tener una organización más receptiva y alineada.
+
+## Conectores de esta área
+
+**Aplicación**
+
+**Descripción**
+
+**[Twilio](/t/y4h4af3/twilio-connector)**
+
+Una plataforma de interacción con clientes que permite integrar directamente en los flujos de trabajo empresariales comunicaciones personalizadas y en tiempo real, como mensajes SMS y de WhatsApp.
+
+**[Microsoft Teams](/t/60h4alv/microsoft-teams-connector)**
+
+Una plataforma de colaboración unificada que combina chat laboral, reuniones por video, almacenamiento de archivos e integración de aplicaciones para facilitar el trabajo en equipo.
+
+**[Outlook](/t/60h4afd/microsoft-outlook-connector)**
+
+Un administrador de información personal ampliamente utilizado de Microsoft que proporciona servicios de correo electrónico, calendario y gestión de contactos fundamentales para la comunicación empresarial.
+
+**[HTTP](/t/p8h4aky/http-connector)**
+
+Además de las acciones prediseñadas disponibles en Kissflow Integrations para la comunicación y la colaboración, puede haber situaciones en las que necesites realizar una acción personalizada. En esos casos, puedes usar el conector HTTP para configurar llamadas API desde cero e interactuar con cualquier servicio que exponga una API REST.
+
+## Casos de uso de integración con Kissflow
+
+Estos son ejemplos prácticos y basados en situaciones de cómo Kissflow puede activar acciones en Twilio, Microsoft Teams y Outlook para resolver problemas empresariales comunes.
+
+### Twilio 
+
+**Objetivo empresarial**
+
+**Desencadenador (en Kissflow)**
+
+**Acción (en Twilio)**
+
+**Situación detallada**
+
+**Beneficio clave**
+
+Actualizaciones proactivas sobre las entregas
+
+Un repartidor marca un pedido como _En reparto_ en una aplicación logística.
+
+Enviar un SMS.
+
+Se envía un SMS al cliente: _¡Tu paquete está en camino! Rastrea el envío aquí: &lt;link>._
+
+Mejora la experiencia del cliente y reduce las consultas al equipo de soporte sobre el estado del pedido.
+
+Mejorar la experiencia de bienvenida de los huéspedes
+
+Un huésped del hotel finaliza el registro móvil mediante un formulario.
+
+Enviar un mensaje de WhatsApp.
+
+Se envía un mensaje de WhatsApp: _¡Te damos la bienvenida a Seaside Resort! Tu habitación está lista (n.º 512). Responde «SÍ» cuando estés en las instalaciones._
+
+Proporciona un canal de comunicación moderno y práctico, además de una experiencia personalizada para el huésped.
+
+### Microsoft Teams
+
+**Objetivo empresarial**
+
+**Desencadenador (en Kissflow)**
+
+**Acción (en Microsoft Teams)**
+
+**Situación detallada**
+
+**Beneficio clave**
+
+Automatizar la configuración del espacio de trabajo de un proyecto
+
+Se aprueba un nuevo proyecto de cliente en un flujo de trabajo de inicio de proyectos.
+
+Crear un canal.
+
+Kissflow crea al instante un canal llamado _Proj-Acme-2025_ dentro del equipo _Client Projects_ y preconfigura a los propietarios.
+
+Garantiza que los equipos del proyecto dispongan de inmediato de un espacio de colaboración específico y estandariza la configuración del proyecto.
+
+Escalar retrasos críticos
+
+Una solicitud de compras supera su fecha límite.
+
+Enviar un mensaje en un canal.
+
+El flujo publica un mensaje en el _canal #supply-chain: la orden de compra n.º 7843 tiene un retraso de 5 días. Haz clic para ver los detalles._
+
+Proporciona visibilidad en tiempo real de los problemas críticos al equipo correspondiente, lo que permite actuar con mayor rapidez.
+
+Comunicar decisiones confidenciales de RR. HH.
+
+La solicitud de vacaciones de un empleado es rechazada en un proceso de RR. HH.
+
+Enviar un mensaje de chat.
+
+Kissflow envía un chat privado al solicitante: _Tu PTO del 3 al 5 de junio fue rechazado por tu responsable. Revisa los comentarios_.
+
+Proporciona notificaciones privadas y oportunas sobre información confidencial directamente al empleado.
+
+### Outlook 
+
+**Objetivo empresarial**
+
+**Desencadenador (en Outlook)**
+
+**Acción (en Kissflow)**
+
+**Situación detallada**
+
+**Beneficio clave**
+
+Optimizar la gestión de tickets de soporte de TI
+
+Se recibe un correo electrónico en _[itsupport@yourcompany.com](mailto:itsupport@yourcompany.com)_.
+
+Crear un nuevo elemento.
+
+Un correo electrónico enviado al soporte de TI crea automáticamente un nuevo ticket de soporte en un tablero de Kissflow y asigna el asunto, el cuerpo y el remitente.
+
+Reduce las dificultades para que los empleados envíen solicitudes y centraliza todos los tickets en un solo sistema.

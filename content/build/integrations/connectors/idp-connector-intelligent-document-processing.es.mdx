@@ -1,0 +1,79 @@
+---
+title: "Conector de IDP (procesamiento inteligente de documentos)"
+description: "BORRADOR (no verificado) — migrado desde /t/83yfqlv/idp-connector-intelligent-document-processing"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Básico ✓ Enterprise
+
+## Conexión a IDP
+
+Puedes usar el conector de IDP para extraer datos de documentos, como archivos adjuntos de correo electrónico o documentos de otros flujos de trabajo, y realizar acciones específicas, como completar y enviar formularios automáticamente en un proceso, tablero o dataform, y rellenar automáticamente los registros de un conjunto de datos.
+
+Además, los datos extraídos se pueden asignar a un esquema JSON personalizado, lo que te permite usar los datos según tus requisitos.
+
+Por ejemplo, puedes usar **Microsoft** **Outlook** como desencadenador y extraer datos del documento de factura adjunto al correo. Con el conector de IDP, puedes automatizar la extracción de datos de estas facturas para completar y enviar automáticamente los campos de un formulario o crear registros de un conjunto de datos con los detalles de la factura, agilizando tus flujos de trabajo y reduciendo la entrada manual de datos.
+
+## Acciones del conector de IDP
+
+**Acción**
+
+**Descripción**
+
+**Completar automáticamente un formulario de proceso**
+
+Analiza un documento, completa automáticamente los campos del formulario del proceso y lo envía.
+
+**Completar automáticamente un formulario del tablero**
+
+Analiza un documento, completa automáticamente los campos del formulario del tablero y crea un elemento.
+
+**Crear registros de un conjunto de datos**
+
+Analiza un documento y crea registros de un conjunto de datos.
+
+**Completar automáticamente un dataform**
+
+Analiza un documento, completa automáticamente los campos del dataform y lo envía.
+
+**Asignar datos a un esquema JSON personalizado**
+
+Analiza un documento y asigna los datos extraídos a un esquema JSON personalizado.
+
+## Usar el conector de IDP como acción
+
+1.  Crea una nueva [integración](/t/60h4akx/creating-an-integration) y configura un desencadenador que contenga el documento que se analizará.
+    
+2.  En la acción, selecciona el **conector de IDP** y elige un paso de acción entre las opciones disponibles, como se muestra en la imagen a continuación.  
+      
+    
+    ![](/migration-assets/idp-connector-intelligent-document-processing/1.png)
+    
+3.  Crea una conexión nueva o usa una conexión existente en tu cuenta. Puedes conectarte a otra cuenta de Kissflow o usar tu propia cuenta de Kissflow. La conexión se autentica mediante tus claves de acceso y tokens secretos. Después de autenticar la conexión, haz clic en **Siguiente**.
+    
+4.  Comienza a configurar la acción seleccionando el documento que se analizará.
+    
+5.  Luego, selecciona el proceso, tablero o dataform que quieres completar y enviar automáticamente. Si elegiste la acción **Crear registros de un conjunto de datos**, selecciona el conjunto de datos.
+    
+6.  Selecciona los campos del formulario o las filas del conjunto de datos que quieres rellenar automáticamente. Si quieres extraer los datos a un esquema JSON, debe seguir la sintaxis que se muestra en este ejemplo:
+    
+    ![](/migration-assets/idp-connector-intelligent-document-processing/2.png)
+7.  Selecciona el campo de archivos adjuntos donde se debe cargar el documento. Si trabajas con un conjunto de datos, especifica la información o los datos del documento que deben usarse para completar el campo de clave principal. También puedes usar el menú desplegable para elegir un campo que deba utilizarse como campo de clave principal de tu conjunto de datos.
+    
+    ![](/migration-assets/idp-connector-intelligent-document-processing/3.gif)
+    
+    > **Nota:**  
+    > El campo de clave principal debe ser un campo de texto.
+    
+8.  Comprueba si el paso de acción está configurado correctamente haciendo clic en el botón **Probar acción**. El conector extraerá los datos de los campos de tu formulario, tablero o conjunto de datos y los mostrará en formato JSON. Si ocurre algún error, recibirás una notificación de inmediato. Corrige los errores y vuelve a probar la acción.
+    
+9.  Una vez que la acción esté configurada correctamente, ve a la esquina superior derecha del editor y activa la integración para activarla.
+    
+
+## Prácticas recomendadas
+
+Para asegurarte de que tus integraciones estén configuradas y optimizadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

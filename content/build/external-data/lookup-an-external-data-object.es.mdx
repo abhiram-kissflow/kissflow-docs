@@ -1,0 +1,35 @@
+---
+title: "Consultar un objeto de datos externo"
+description: "BORRADOR (sin verificar): migrado desde /t/x2y3myx/lookup-an-external-data-object"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Esta sincronización en tiempo real obtiene datos actualizados de tus plataformas externas mediante el objeto externo configurado. Puedes elegir con flexibilidad los campos que quieres mostrar en una consulta específica y aplicar filtros para mostrar selectivamente los datos que necesitas.
+
+Una vez que hayas establecido una [conexión con tu plataforma externa](/t/x2y3mhr/setting-up-an-external-data-connection) a nivel de cuenta y hayas [configurado](/t/h7y3mhw/configuring-an-external-data-object) el objeto de datos externo correspondiente de tu aplicación, los datos estarán disponibles para varios módulos de la capa de datos de tu aplicación, incluidos Process, Boards y Forms.
+
+Consultar un objeto de datos externo funciona de la misma manera que consultar tus flujos existentes de Process y Boards, mediante el [campo de consulta](/t/g9h4azr/lookup-field) del panel de campos del lado izquierdo.
+
+Por ejemplo, en un proceso de gestión de permisos, quieres simplificar el envío de solicitudes permitiendo que los usuarios seleccionen su departamento en una lista desplegable. Puedes configurar un campo de consulta específico para acceder a la tabla de departamentos de tu base de datos de RR. HH.
+
+Sigue estos pasos para implementar este escenario:
+
+1.  Arrastra y suelta el campo **Consulta** del panel de campos del lado izquierdo directamente en tu formulario.
+    
+2.  En el panel de propiedades del lado derecho, configura el campo de consulta proporcionando detalles básicos como su nombre, ID del campo, etc.
+    
+3.  En el menú **Elige un flujo para consultar**, selecciona el nombre del objeto de datos externo que contiene la tabla de departamentos de los empleados. Este paso establece la conexión entre el campo de consulta y la tabla de datos específica.
+    
+4.  En el siguiente paso, elige los campos de la tabla de datos que usarás en este proceso de gestión de permisos.
+    
+5. **Guarda** el formulario.
+    
+    ![](/migration-assets/lookup-an-external-data-object/1.gif)
+
+Cuando un usuario redacta una nueva solicitud en el proceso de gestión de permisos, la lista de departamentos de su organización se completa automáticamente en el campo de consulta, por lo que está disponible para seleccionarla.

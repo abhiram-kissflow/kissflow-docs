@@ -1,0 +1,83 @@
+---
+title: "Configuración de flujos"
+description: "Controla quién puede crear nuevos flujos, activa o desactiva tipos de flujo y administra los permisos de las acciones de impresión, descarga y correo electrónico en toda la cuenta."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - flows
+  - permissions
+  - security
+---
+
+# Configuración de flujos
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+[Los superadministradores y administradores de IAM](/docs/admin/users/user-roles-and-permissions) pueden controlar quién tiene permitido crear nuevos flujos en tu cuenta, activar o desactivar tipos de flujo y establecer permisos para las acciones de impresión, descarga y correo electrónico en toda la cuenta.
+
+## Acceder a la configuración de flujos
+
+1. Haz clic en tu foto de perfil en la esquina superior derecha.
+2. Selecciona **Administración de la cuenta** > **Configuración de flujos**.
+
+Todos los tipos de flujo —proceso, tablero, conjunto de datos e integración— están activados de forma predeterminada.
+
+## Activar o desactivar un tipo de flujo
+
+1. En la página **Configuración de flujos**, haz clic en el tipo de flujo que quieres configurar.
+2. Activa o desactiva el tipo de flujo.
+
+<Callout type="warn">
+  Si desactivas un tipo de flujo, sus datos existentes dejarán de estar disponibles temporalmente y nadie podrá crear un nuevo flujo de ese tipo hasta que lo vuelvas a activar.
+</Callout>
+
+## Controlar quién puede crear un nuevo flujo
+
+1. En la página **Configuración de flujos**, haz clic en el tipo de flujo que quieres configurar.
+2. En **¿Quién puede crear un nuevo flujo?**, elige una de estas tres opciones:
+   - **Cualquiera** — todos los usuarios de la organización pueden crear un nuevo flujo de este tipo sin aprobación.
+   - **Superadministradores** — solo el propietario de la cuenta y los superadministradores pueden crear un nuevo flujo.
+   - **Cualquiera, después de la aprobación de** — cualquier usuario puede solicitar un nuevo flujo, pero este se crea solo después de que los aprobadores que especifiques aprueben la solicitud. Usa el menú desplegable para agregar o quitar aprobadores.
+
+![Página de configuración de flujos que muestra las opciones de quién puede crear un flujo](/migration-assets/flow-settings/1.png)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+<Callout type="info">
+  Cambiar esta configuración solo afecta a las nuevas solicitudes de flujo en adelante; no cambia el acceso a los flujos que ya existen.
+</Callout>
+
+## Permisos de impresión y descarga
+
+Para los flujos de proceso, tablero y conjunto de datos, puedes controlar si los usuarios pueden imprimir formularios o descargar archivos adjuntos.
+
+1. En la página **Configuración de flujos**, haz clic en el tipo de flujo que quieres configurar.
+2. En **Impresión** y **Descarga**, alterna entre:
+   - **Cualquiera** — cualquier usuario puede imprimir o descargar.
+   - **Administradores del flujo** — solo los administradores del flujo pueden imprimir o descargar.
+
+![Página de configuración de flujos que muestra el interruptor de impresión y descarga para un tipo de flujo](/migration-assets/flow-settings/2.png)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+<Callout type="info">
+  Esta es una configuración de nivel de Administración de la cuenta. Cuando se establece en **Administradores del flujo**, tiene prioridad sobre cualquier permiso de impresión o descarga configurado en la [configuración de seguridad](/docs/admin/processes/security-settings-for-flows#print-and-download-permissions) del flujo individual.
+</Callout>
+
+## Acciones de correo electrónico
+
+En los flujos de proceso, **Acciones de correo electrónico** permite que los asignados aprueben o rechacen elementos directamente desde su bandeja de entrada de correo electrónico, sin iniciar sesión en Kissflow.
+
+1. En la página **Configuración de flujos**, haz clic en **Proceso**.
+2. Activa **Acciones de correo electrónico**.
+
+Obtén más información en [Acciones de correo electrónico](/docs/build/processes/workflow-design/email-actions).
+
+## Qué sigue
+
+- [Configuración de seguridad para flujos](/docs/admin/processes/security-settings-for-flows)
+- [Roles y permisos de usuario](/docs/admin/users/user-roles-and-permissions)
+- [Acciones de correo electrónico](/docs/build/processes/workflow-design/email-actions)

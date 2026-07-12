@@ -1,0 +1,65 @@
+---
+title: "Configuración de acciones para los pasos del proceso"
+description: "BORRADOR (sin verificar) — migrado desde /t/g9h9qt6/configuring-actions-for-process-steps"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Puedes determinar qué acción pueden realizar el asignado y el iniciador de un elemento en cada paso.Ve a la pestaña **Permissions** en el editor del proceso. Selecciona cualquier paso y desplázate hasta la parte inferior del formulario. Haz clic en **Configure** **actions** y pasa el cursor sobre las acciones.
+
+![](/migration-assets/configuring-actions-for-process-steps/5.png)
+
+## Acciones para elementos nuevos
+
+Cuando un miembro de un proceso inicia un elemento nuevo, tiene dos acciones en la parte inferior. De forma predeterminada, estas son **Submit** y **Discard**. 
+
+![](/migration-assets/configuring-actions-for-process-steps/1.png)Para configurar esto, haz clic en el paso llamado **Start** y desplázate hasta la parte inferior. Puedes elegir **Hide** o **Show the Discard action** para el iniciador de forma predeterminada. El botón **Submit** no se puede ocultar porque es la acción que mueve el elemento al siguiente paso y debe mostrarse.Si quieres cambiar los títulos de los botones, pasa el cursor sobre **Discard** o **Submit** y haz clic en **Advanced**. Puedes cambiar el nombre a otra opción o hacer clic en **Custom** para introducir un nombre nuevo.![](/migration-assets/configuring-actions-for-process-steps/2.png)En **Advanced settings**, también puedes añadir una validación basada en los datos de cualquier campo. Las [validaciones de campos](/t/m1h4az4/field-validations) que configuraste en el formulario también estarán vigentes, pero esta es una buena opción si esos valores son dinámicos a lo largo del flujo de trabajo o si quieres usar un [campo del sistema](/t/83h4alt/system-fields).
+
+## Acciones del asignado para elementos en curso
+
+En cada paso puedes configurar qué acciones puede realizar el asignado. ![](/migration-assets/configuring-actions-for-process-steps/3.png)Elige cualquier paso en el menú de la izquierda. Desplázate hasta la parte inferior del formulario y haz clic en **Configure actions**.   
+
+-   **Submit** es la acción que hace avanzar el flujo de trabajo al siguiente paso.
+-   **Reassign** permite al asignado actual asignar el elemento a otro usuario de tu cuenta. También puedes restringir la reasignación a usuarios específicos o a [usuarios que formen parte de grupos específicos](/). Activa **Restrict reassignment** y selecciona un usuario o grupo en el menú desplegable.  
+     ![](/migration-assets/configuring-actions-for-process-steps/6.png)
+    
+    > **Nota:**
+    > 
+    > En el entorno de ejecución, solo puedes reasignar un elemento a un usuario individual a la vez.
+    > 
+    > ![](/migration-assets/configuring-actions-for-process-steps/4.png)
+    > 
+    > La reasignación masiva de elementos no estará disponible cuando la reasignación esté restringida. Esto se debe a que el sistema tendría que comprobar la elegibilidad del asignado para cada elemento individualmente, lo que podría provocar inconsistencias.
+    
+-   **Send** **back** permite al asignado devolver un elemento en curso (con notas) a un paso anterior del flujo de trabajo.  
+     
+-   **Reject** devuelve un elemento en curso (con notas) al iniciador y cancela el flujo de trabajo. Los elementos rechazados se pueden reiniciar, pero reciben un nuevo [número de solicitud](/t/83h4alt/system-fields).   
+      
+    Las notas del rechazo se mostrarán en el formulario del elemento cuando abras el elemento desde las pestañas **Created by me** y **Participated items**.
+
+Al pasar el cursor sobre las opciones, puedes mostrar, ocultar o personalizar estos botones y también añadir validaciones.
+
+## Acciones del iniciador para elementos en curso
+
+Una vez que los iniciadores envían un elemento, pueden hacerle seguimiento en el flujo de trabajo mediante **My items**. Cuando abren el elemento, verán los campos configurados en el paso **Start**. En la parte inferior habrá un conjunto de acciones que pueden realizar. Puedes configurar estas opciones en **Configure actions** y, luego, seleccionar **Configure initiator actions**.![](/migration-assets/configuring-actions-for-process-steps/7.png)
+
+-   **Reassign** permite al iniciador asignar la tarea a otro asignado. 
+-   **Withdraw** permite al iniciador retirar el elemento del flujo de trabajo. 
+-   **Restart** reinicia los elementos rechazados y retirados.El botón **Restart** aparece solo cuando una solicitud se retira o se rechaza. Siempre está disponible de forma predeterminada y no se puede desactivar.
+
+Actualizar camposPara saber cómo configurar la actualización de campos en el formulario en determinados pasos del flujo de trabajo, haz clic [aquí](https://helpdocs.kissflow.com/permission-and-actions/refreshing-lookup-and-aggregation-field-values).
+
+## Restringir la opción de devolver elementos
+
+Puedes decidir limitar el número de pasos anteriores de tu flujo de trabajo a los que se puede devolver un elemento desde un paso determinado del proceso. Esta opción permite un control adicional sobre el flujo de trabajo. Para activarla, activa el botón de alternancia y selecciona los pasos en el menú desplegable; la funcionalidad de devolución del paso actual quedará limitada a esos pasos.
+
+> **Nota:**
+> 
+> Cuando desactivas esta opción, los elementos se pueden enviar a todos los pasos anteriores.
+
+![](/migration-assets/configuring-actions-for-process-form-steps/8.png)

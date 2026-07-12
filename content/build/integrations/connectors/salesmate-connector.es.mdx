@@ -1,0 +1,108 @@
+---
+title: "Conector de Salesmate"
+description: "BORRADOR (sin verificar) — migrado desde /t/35h4af1/salesmate-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es Salesmate?
+
+Salesmate es un software todo en uno de ventas y gestión de relaciones con clientes que utilizan equipos de ventas de todos los tamaños.
+
+## Acerca de la integración de Salesmate con Kissflow
+
+El conector de Salesmate de Kissflow Integration te permite conectar Salesmate al instante con las aplicaciones de Kissflow y otras aplicaciones populares de terceros. Te permite compartir datos de forma segura desde Salesmate para crear flujos de trabajo eficaces. Para integrarte con Salesmate, debes tener una cuenta válida de Salesmate y ser cliente de pago de Kissflow.
+
+Puedes usar el conector de Salesmate para recibir datos de otras aplicaciones y realizar acciones específicas y acciones de búsqueda en Salesmate.
+
+### Acciones en Salesmate
+
+**Eventos de acción**
+
+**Descripción**
+
+Crear un contacto
+
+Esta acción crea un nuevo contacto en tu cuenta de Salesmate.
+
+Actualizar un contacto
+
+Esta acción actualiza un contacto existente en tu cuenta de Salesmate.
+
+Crear una empresa
+
+Esta acción crea una nueva empresa en tu cuenta de Salesmate.
+
+Actualizar una empresa
+
+Esta acción actualiza una empresa existente en tu cuenta de Salesmate.
+
+Crear un trato
+
+Esta acción crea un nuevo trato en tu cuenta de Salesmate.
+
+Actualizar un trato
+
+Esta acción actualiza un trato existente en tu cuenta de Salesmate.
+
+Crear una actividad
+
+Esta acción crea una nueva actividad en tu cuenta de Salesmate.
+
+Actualizar una actividad
+
+Esta acción actualiza una actividad existente en tu cuenta de Salesmate.
+
+### Acciones de búsqueda en Salesmate
+
+**Acciones de búsqueda**
+
+**Descripción**
+
+Buscar un contacto
+
+Esta acción de búsqueda encuentra un contacto por nombre, ID o dirección de correo electrónico.
+
+Buscar un trato
+
+Esta acción de búsqueda encuentra un trato por título o ID.
+
+Buscar una empresa
+
+Esta acción de búsqueda encuentra una empresa por nombre, ID o sitio web.
+
+Buscar una actividad
+
+Esta acción de búsqueda encuentra una actividad por título, ID o tipo.
+
+### Requisitos previos
+
+Después de iniciar sesión en Salesmate, debes copiar y guardar el dominio de tu cuenta de Salesmate y las siguientes claves de Salesmate para conectarte correctamente con Kissflow.
+
+-   Clave de acceso
+-   Clave secreta/ clave privada de la aplicación
+-   Clave de sesión/ token de sesión![](/migration-assets/salesmate-connector/3.png) 
+    
+    Para obtener estas claves, sigue los pasos indicados [aquí](https://support.salesmate.io/hc/en-us/articles/213808369-How-to-find-your-API-keys-).
+    
+
+## Configuración del conector de Salesmate
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Escribe un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Dentro del **Editor**, configura un paso de activación. Por ejemplo, configura un activador de proceso.
+    
+3.  Después de configurar el paso de activación anterior, haz clic en el botón Añadir (![](/migration-assets/salesmate-connector/1.png) ) para configurar el paso de acción o de acción de búsqueda. Busca el conector de **Salesmate** y selecciona un evento de acción entre las acciones disponibles.![](/migration-assets/salesmate-connector/2.png)  
+4.  Autentica el activador proporcionando el **dominio de la cuenta de Salesmate**, la **clave de acceso**, la **clave secreta** y la **clave de sesión** correctos.![](/migration-assets/salesmate-connector/4.png) 
+Después de autenticar tu cuenta de Salesmate, añade los valores correspondientes a los campos del formulario de Salesmate. Puedes hacer clic en **Actualizar campos** para ver todos los campos actualizados del formulario de Salesmate seleccionado. También puedes asignar campos de Salesmate desde el activador o desde pasos de acción anteriores. Estos valores se añadirán automáticamente a los campos del elemento después de ejecutar la acción.6.  Después de una configuración correcta, haz clic en el botón **Probar** para comprobar si el paso de acción de Salesmate está configurado correctamente. El conector extraerá los datos de los campos de tu cuenta de Salesmate seleccionada y los mostrará como una salida JSON. Al igual que con el paso de activación, recibirás una notificación inmediata de los errores. Corrígelos antes de volver a probar el paso de acción.
+
+### Configuración de un conector de Salesmate
+
+Después de crear un flujo de trabajo personalizado con los pasos de activación y acción de tu conector de Salesmate, activa el botón de alternancia para activar la ejecución de la integración.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

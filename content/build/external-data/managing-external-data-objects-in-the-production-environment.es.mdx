@@ -1,0 +1,94 @@
+---
+title: "Administrar objetos de datos externos en el entorno de producción"
+description: "BORRADOR (sin verificar) — migrado desde /t/p8y3myz/managing-external-data-objects-in-the-production-environment"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Básico ✓ Enterprise
+
+Después de implementar una aplicación con objetos de datos externos utilizados en sus campos de búsqueda y en la integración, tendrás que conectar o volver a conectar la conexión en producción para asegurarte de que funcione correctamente.
+
+Antes de iniciar la conexión o reconexión, asegúrate de tener permisos de administrador para acceder a la página Administrar objetos de datos externos de tu aplicación. Si no los tienes, contacta a tu superadministrador para que te otorgue los permisos necesarios. 
+
+Los superadministradores pueden seguir los pasos indicados [aquí](/t/x2y3mhr/setting-up-an-external-data-connection#sharing-external-connection) para otorgar acceso de administrador a los usuarios. 
+
+> **Nota:**
+> 
+> Si has utilizado una conexión de datos externos para crear varios objetos de datos externos en la misma aplicación o en aplicaciones diferentes y ya has implementado la conexión en producción, omite este paso.
+
+## Conectarse a una conexión de datos externos
+
+Para la primera implementación, sigue estos pasos:
+
+### Para administradores
+
+1.  Ve a la página de inicio de tu cuenta y abre la aplicación. 
+    
+2.  Haz clic en **Más opciones** ![](/migration-assets/editing-an-external-data-object/1.png) y selecciona **Administrar objetos de datos externos**. En esta página, encontrarás una lista de conexiones de datos externos vinculadas con esa aplicación específica.
+    
+    ![](/migration-assets/managing-external-data-objects-in-the-production-environment/1.gif)
+    
+3.  Haz clic en **Conectar** y configura la conexión. Se te redirigirá a la página **Conectar conexiones**.  
+      
+    Para las conexiones existentes, tendrás la opción de **Volver a conectar**.  
+     
+    
+4.  Proporciona los detalles generales y las credenciales de autenticación necesarios.
+    
+5. **Guarda** la conexión.  
+     
+    
+    ![](/migration-assets/managing-external-data-objects-in-the-production-environment/2.png)
+
+> **Nota:**
+> 
+> Después de la configuración, no es posible cambiar el conector ni modificar los detalles generales del conector existente. 
+
+Ahora todo está listo y el objeto de datos externos utilizado en la aplicación funcionará según lo previsto. 
+
+### Para superadministradores
+
+Puedes acceder directamente a las conexiones de datos externos de tu cuenta haciendo clic en,
+
+**Perfil** > **Conexiones de datos externos**
+
+![](/migration-assets/managing-external-data-objects-in-the-production-environment/4.gif)
+
+En esta página, selecciona la conexión vinculada con la aplicación implementada y haz clic en,
+
+**Más opciones** ![](/migration-assets/editing-an-external-data-object/1.png) > **Conectar** 
+
+## Volver a conectarse a una conexión de datos externos
+
+Al volver a conectar, solo puedes proporcionar las credenciales de autenticación. En este momento, no es posible cambiar los detalles generales del conector. 
+
+Si ya has establecido la conexión y quieres volver a conectarte, sigue estos pasos.
+
+### Para administradores
+
+1.  Ve a la página de inicio de tu cuenta y abre la aplicación. 
+    
+2.  Haz clic en **Más opciones** ![](/migration-assets/editing-an-external-data-object/1.png)y selecciona **Administrar objetos de datos externos**. En esta página, encontrarás una lista de conexiones de datos externos vinculadas con esa aplicación específica.
+    
+3.  Haz clic en **Volver a conectar** e introduce las credenciales de autenticación.
+    
+    ![](/migration-assets/managing-external-data-objects-in-the-production-environment/3.gif)
+
+### Para superadministradores
+
+1.  Accede a las conexiones de datos externos de tu cuenta haciendo clic en **Perfil** > **Conexiones de datos externos**.
+    
+2.  Busca la conexión necesaria y haz clic en **Volver a conectar**.
+    
+3.  Proporciona las credenciales de autenticación para volver a conectarte.  
+     
+    
+    ![](/migration-assets/managing-external-data-objects-in-the-production-environment/5.gif)
+
+> **Nota:**
+> 
+> Modificar una conexión afectará a todas las aplicaciones asociadas a ella, ya que las conexiones se comparten entre aplicaciones y cualquier cambio en una se aplica a varias instancias.

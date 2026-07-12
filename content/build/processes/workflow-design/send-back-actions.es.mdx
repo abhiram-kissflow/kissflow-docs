@@ -1,0 +1,36 @@
+---
+title: "Acciones de devolución"
+description: "BORRADOR (sin verificar) — migrado desde /t/h7ylt39/send-back-actions"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Puedes seleccionar a quién se debe asignar un elemento cuando se devuelve a un paso de un flujo de trabajo de proceso.  
+ 
+
+![](/migration-assets/send-back-actions/1.png)
+
+## Asignar a los aprobadores
+
+Cuando se devuelve un elemento a un paso, se asignará únicamente al usuario que lo aprobó anteriormente en ese paso. Esto garantiza que la misma persona que aprobó el elemento anteriormente sea responsable de volver a evaluarlo.
+
+## Asignar a los asignatarios originales
+
+Cuando se devuelve un elemento a un paso, se asignará a todos los usuarios y grupos establecidos originalmente como asignatarios del paso. 
+
+![](/migration-assets/send-back-actions/2.png)
+
+-   Supongamos que **User A**, **User B** y **Group C** son asignatarios de un paso. Cuando se devuelve un elemento a este paso, se asignará a los tres. Esto garantiza que la tarea vuelva a introducirse en el grupo más amplio de asignatarios para su reconsideración.  
+     
+-   Supongamos que se añade un usuario nuevo (User D) a un [grupo](/t/y4h4akj/group-management) (Group C) establecido como asignatario de un paso. Cuando se devuelve un elemento a este paso, **User D** también se asignará junto con los demás miembros del grupo en **Group C**.  
+     
+-   Supongamos que **User A** reasigna un elemento a User E (que no es un asignatario original del paso) y **User E** aprueba el elemento. Más adelante, cuando el elemento se devuelva a este paso, se asignará **User A**, **User B** y **Group C** (no User E).  
+      
+    Independientemente de cuántas veces se devuelva el elemento al paso, solo se asignará a los asignatarios originales (User A, User B y Group C).  
+     
+-   Supongamos que se selecciona **Round Robin** o **Least Load** como preferencia de asignación y **User A** recibe la asignación durante el tiempo de ejecución. Ahora, cuando se devuelva un elemento a este paso, solo se asignará a **User A**, aunque el grupo de asignatarios esté compuesto por **User A**, **User B** y **Group C**.

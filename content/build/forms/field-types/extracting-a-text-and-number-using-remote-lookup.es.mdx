@@ -1,0 +1,36 @@
+---
+title: "Extraer un texto y un número mediante una búsqueda remota"
+description: "BORRADOR (sin verificar) — migrado desde /t/h7h4azs/extracting-a-text-and-number-using-remote-lookup"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Puedes usar un campo de búsqueda remota para extraer datos de una API externa. Por ejemplo, es posible que quieras mostrar el pronóstico meteorológico general y la temperatura de una ciudad determinada.
+
+1.  Crea un nuevo campo de texto llamado **City**.
+2.  Crea un campo de búsqueda remota llamado **Weather**.
+3.  En el campo de URL, añade el enlace de la API, como el de [OpenWeather](https://openweathermap.org/api).
+4.  En este enlace, hemos introducido el ID del campo del primer campo que creamos.
+5.  Elige **GET** como tipo de solicitud.
+6.  El nombre del encabezado y el nombre del cuerpo no son necesarios para este ejemplo.
+7.  En el campo **¿Con qué tipo de datos estás trabajando?**, elige **JSON**.
+8.  En la **ruta J**SON del valor en el resultado**, introduce `$`.
+9.  En el campo **¿Con qué tipo de datos estás trabajando ?**, elige **Texto**.
+10.  En el campo **¿Cómo se debe elegir el resultado?**, elige **Autocompletar un valor** y haz clic en **Listo**.
+11.  Para extraer el pronóstico como texto, crea un nuevo campo de texto llamado **Forecast**. Introduce la fórmula `Weather.extractText("$.weather[*].main").get(1).`
+12.  Para extraer la temperatura como número, crea un nuevo campo numérico llamado Temperature. Introduce la fórmula `Weather.extractNumber("$.main.temp", 1)`
+
+Al extraer datos de un JSON, usa este patrón:
+
+`Remotelookup_Fieldname.extractNumber(path, index)`
+
+`Remotelookup_Fieldname.extractText(path, index)`
+
+Hemos dejado de admitir la expresión `Remotelookup_Fieldname.extractJson(path, index)`. Sin embargo, seguiremos admitiendo los campos que ya tienen esta expresión. No podrás usar esta expresión en un campo nuevo.
+
+En el formulario activo, cuando introduzcas la ciudad y hagas clic en **Obtener datos**, se mostrarán la temperatura y el pronóstico.

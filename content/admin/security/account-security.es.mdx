@@ -1,0 +1,131 @@
+---
+title: "Seguridad de la cuenta"
+description: "Configura las opciones de inicio de sesión, la política de contraseñas, el SSO basado en SAML, el tiempo de espera de la sesión, las preferencias de registro y la caducidad de las claves de acceso para tu cuenta de Kissflow."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - security
+  - authentication
+  - sso
+  - account-settings
+---
+
+# Seguridad de la cuenta
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+[Los superadministradores y administradores de IAM](/docs/admin/users/user-roles-and-permissions) gestionan el inicio de sesión, el registro, las contraseñas y la seguridad de las sesiones de tu cuenta desde **Administración de la cuenta** > **Seguridad de la cuenta**.
+
+## Gestionar las preferencias de inicio de sesión
+
+Tu cuenta tiene una URL única desde la que los usuarios inician sesión. Ve a **Seguridad de la cuenta** > **Preferencias de inicio de sesión** para ver las opciones de inicio de sesión disponibles para tus usuarios y restringir cuáles pueden usar.
+
+![Página de preferencias de inicio de sesión con la lista de opciones disponibles](/migration-assets/account-security/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+### Iniciar sesión con Kissflow
+
+**Correo electrónico y contraseña** es el método convencional: los usuarios introducen la dirección de correo electrónico y la contraseña que establecieron durante el registro o después de [restablecer la contraseña](/docs/admin/users/adding-and-managing-users).
+
+#### Configurar una política de contraseñas
+
+Puedes aplicar una política de contraseñas a todos los usuarios de tu cuenta para reducir el riesgo de contraseñas débiles.
+
+1. Ve a **Seguridad de la cuenta** > **Preferencias de inicio de sesión** > **Política de contraseñas** > **Configurar**.
+2. Define tus requisitos:
+   - **Número mínimo de caracteres** — la longitud mínima de la contraseña que Kissflow aceptará.
+   - **Complejidad de la contraseña** — exige una combinación de letras mayúsculas y minúsculas, números y caracteres especiales.
+   - **Historial de contraseñas que se deben recordar** — impide que los usuarios reutilicen sus contraseñas recientes.
+   - **Caducidad de la contraseña** — con qué frecuencia los usuarios deben actualizar su contraseña.
+3. Haz clic en **Actualizar** para guardar tus requisitos.
+
+<Callout type="info">
+  Haz clic en **Restablecer a los valores predeterminados** en cualquier momento para volver a los requisitos de contraseña predeterminados de Kissflow.
+</Callout>
+
+![Panel de configuración de la política de contraseñas con opciones de complejidad, historial y caducidad](/migration-assets/account-security/6.gif)
+{/* TODO: verify screenshot matches current product UI */}
+
+### Iniciar sesión con Google y Microsoft
+
+Kissflow admite el inicio de sesión basado en OAuth con cuentas de **Google** y **Microsoft**. En la página **Preferencias de inicio de sesión**, activa **Google** o **Microsoft** para permitir que los usuarios inicien sesión con esa cuenta.
+
+<Callout type="info">
+  Ponte en contacto con el soporte de Kissflow si quieres configurar otro proveedor de OAuth para tu cuenta.
+</Callout>
+
+### Iniciar sesión con SAML
+
+Las organizaciones que utilizan un proveedor de SSO basado en SAML (por ejemplo, Okta u OneLogin) pueden configurarlo para su cuenta de Kissflow.
+
+Haz clic en **Configurar SAML**, junto a **Iniciar sesión con SAML**, e introduce los siguientes datos:
+
+- **URL del proveedor de identidad (IdP)** — la URL de inicio de sesión de tu proveedor de SAML. Los usuarios son redirigidos aquí cuando hacen clic en el botón de SSO en la página de inicio de sesión.
+- **URL de cierre de sesión** (opcional) — dónde enviar a los usuarios después de que cierren sesión en el proveedor de SAML y en Kissflow.
+- **Clave de seguridad** — la huella digital SHA2 del certificado del token firmado por SAML de tu servidor SAML, que se utiliza para descifrar los datos de tu proveedor de SAML.
+- **URL de aserción del consumidor** — la URL que proporcionas a tu proveedor de SAML. Es única para tu cuenta.
+- **Campo de usuario donde se almacena el identificador de SAML** — la columna de User Management donde Kissflow almacena el identificador único de SAML de cada usuario.
+- **Crear usuarios cuando existan en el IdP** — añade usuarios automáticamente después de que verifiquen su identidad con tu IdP.
+
+Haz clic en **Guardar** para activar el SSO mediante SAML.
+
+![Formulario de configuración de SAML con campos para la URL del IdP, la URL de cierre de sesión y la clave de seguridad](/migration-assets/account-security/4.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="info">
+  Consulta [Configurar el inicio de sesión único basado en SAML para Microsoft Entra ID](/docs/admin/security/setting-up-saml-based-single-sign-on-for-microsoft-azure-id) para ver una guía paso a paso con un IdP específico.
+</Callout>
+
+## Tiempo de espera de la sesión inactiva
+
+La configuración del tiempo de espera de la sesión inactiva cierra automáticamente la sesión de los usuarios después de un periodo de inactividad, lo que reduce el riesgo de que se haga un uso indebido de una sesión desatendida.
+
+Kissflow configura esta opción por separado **para la web** y **para dispositivos móviles**:
+
+- **Web** — elige un intervalo de 1 hora a 24 horas.
+- **Dispositivos móviles** — elige un intervalo de 1 día a 1 mes.
+
+El temporizador solo funciona mientras el usuario está inactivo y se reinicia en cuanto se reanuda la actividad. Cuando se alcanza el límite seleccionado, la sesión del usuario se cierra automáticamente.
+
+![Configuración del tiempo de espera de la sesión inactiva con opciones independientes para la web y los dispositivos móviles](/migration-assets/account-security/2.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Gestionar las preferencias de registro
+
+En lugar de invitar a los usuarios uno por uno, puedes abrir el proceso de registro de Kissflow a cualquier persona que tenga el enlace.
+
+1. Ve a **Seguridad de la cuenta** > **Preferencias de registro**.
+2. Activa **Permitir nuevos registros**.
+
+![Página de preferencias de registro con el interruptor Permitir nuevos registros y una URL para compartir](/migration-assets/account-security/3.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Cualquier persona que visite la URL de registro deberá introducir su nombre y dirección de correo electrónico. Según la configuración de aprobación de tu cuenta — configurada en la misma página de **Preferencias de registro** — es posible que un superadministrador o administrador de IAM deba revisar y activar los nuevos registros desde **User Management** antes de que obtengan una licencia activa.
+
+Para dejar de aceptar nuevos registros mediante esta URL, desactiva **Permitir nuevos registros** y haz clic en **Guardar**.
+
+## Configuración de las claves de acceso
+
+Limita cuánto tiempo puede permanecer válida una clave de acceso cuando se crea para una cuenta de servicio en tu cuenta de Kissflow.
+
+1. Ve a **Administración de la cuenta** > **Seguridad de la cuenta** > **Configuración de las claves de acceso**.
+2. Elige un límite de caducidad: **6 meses**, **1 año** o **2 años**. La opción predeterminada, **Sin límite**, no establece un límite de caducidad.
+
+![Menú desplegable de configuración de las claves de acceso con opciones de límite de caducidad](/migration-assets/account-security/5.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="warn">
+  Este límite solo se aplica a las claves de acceso creadas después de cambiarlo. Las claves que ya existen conservan su caducidad original.
+</Callout>
+
+## Qué sigue
+
+- [Configurar el inicio de sesión único basado en SAML para Microsoft Entra ID](/docs/admin/security/setting-up-saml-based-single-sign-on-for-microsoft-azure-id)
+- [Añadir y gestionar usuarios](/docs/admin/users/adding-and-managing-users)
+- [Roles y permisos de usuario](/docs/admin/users/user-roles-and-permissions)
+- [Crear y gestionar claves de acceso](/docs/admin/service-accounts/creating-and-managing-access-keys)

@@ -1,0 +1,111 @@
+---
+title: "Campo de agregación"
+description: "BORRADOR (no verificado) — migrado desde /t/83h4azk/aggregation-field"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Básico ✓ Enterprise
+
+Los campos de agregación reúnen datos de varias entradas y muestran resultados relevantes, como la suma, el promedio o el texto combinado (concatenado).
+
+Puedes usar los datos de una tabla fuera de ella, en otras secciones del formulario. Esto te permite realizar cálculos o combinar información de las entradas de la tabla y mostrarla como resumen en otras partes del formulario.
+
+## Configuración de campos de agregación
+
+Después de configurar los ajustes básicos del campo, como Nombre, ID del campo y Texto de ayuda,
+
+### Agregación de datos de tablas
+
+Los campos de agregación pueden mostrar relaciones entre varias entradas de una tabla. Para conectar un campo de agregación a una tabla, sigue estos pasos:
+
+1.  Haz clic en la casilla que indica _Agregar datos de tabla en el contexto de un solo elemento del proceso._
+2.  En _Elegir un flujo para buscar_, selecciona la tabla del formulario entre las opciones disponibles.
+3.  Selecciona el campo que quieres agregar.
+4.  Selecciona una función para aplicar al campo. Ten en cuenta que algunas funciones pueden funcionar solo con determinados tipos de campos.
+
+**Nombre de la función**
+
+**Descripción**
+
+**Tipos de campos permitidos**
+
+SUM
+
+Muestra la suma de todos los valores.
+
+Número, Moneda, Deslizador.
+
+COUNT
+
+Muestra el número de valores.
+
+Cualquier tipo.
+
+AVERAGE
+
+Muestra el promedio de todos los valores.
+
+Número, Moneda, Calificación, Deslizador.
+
+CONCATENATE
+
+Combina dos o más valores.
+
+Texto, Área de texto, Menú desplegable.
+
+MIN
+
+Muestra el valor mínimo.
+
+Número, Moneda, Fecha, Fecha y hora, Calificación, Deslizador.
+
+MAX
+
+Muestra el valor máximo.
+
+Número, Moneda, Fecha, Fecha y hora, Calificación, Deslizador.
+
+### Tipos de campos de agregación
+
+A los campos de agregación se les asigna automáticamente un tipo de campo según los datos de evaluación.
+
+-   SUM y AVERAGE son de tipo Número o Moneda.
+-   COUNT es de tipo Número.
+-   CONCATENATE es de tipo Texto.
+-   MIN y MAX coinciden con el tipo de campo que evalúan. Los campos de calificación y deslizador se convierten en números.
+
+### Cómo agregar decimales
+
+Puedes agregar decimales al campo de agregación siguiendo estos pasos:
+
+1.  Ve al formulario y selecciona un campo de agregación.
+2.  En **Propiedades del campo >** **Configuración**.
+3.  Configura el campo de agregación según tus requisitos.
+4.  En el **campo Número de decimales**, introduce el número de decimales que quieres que muestre el campo.
+5.  Publica el formulario.
+
+![](/migration-assets/aggregation-field/3.gif)
+
+Una vez que publiques el formulario, los usuarios finales podrán crear nuevos elementos y el campo de agregación mostrará los valores según el número de decimales introducido. Por ejemplo, si has calculado el promedio del importe asignado en tu presupuesto con el número de decimales establecido en dos, el resultado se muestra como en el GIF siguiente.
+
+![](/migration-assets/aggregation-field/2.png)
+
+## Agregación de datos de otros flujos
+
+Si desmarcas la casilla que indica **Agregar datos de tabla en el contexto de un solo elemento del proceso**, puedes seleccionar cualquier flujo de tu cuenta de Kissflow. Puedes elegir otro proceso, tablero o conjunto de datos. Elige el campo y, después, el tipo de agregación.
+
+### Filtros
+
+Puedes aplicar filtros para restringir los valores utilizados en la agregación.
+
+![](/migration-assets/aggregation-field/1.png)
+
+## Formularios dinámicos
+
+Los campos de agregación de los campos de tabla se actualizan automáticamente cuando se introducen o editan datos en el formulario.
+
+Es importante tener en cuenta que, si usas un campo de agregación para extraer datos de otros conjuntos de datos, procesos o tableros, el valor que se muestra en el campo permanecerá estático después de recopilarse inicialmente.

@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import AIChat from '@/components/ai-chat';
 import { MessageCircle, X } from 'lucide-react';
+import { useUIStrings } from '@/lib/ui-strings';
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 
@@ -39,18 +40,20 @@ function KissflowAnimatedLogo() {
 }
 
 function AskAIBadge() {
+  const strings = useUIStrings().launcher;
   return (
     <span className="inline-flex items-center gap-2 rounded-full border border-fd-border bg-fd-background/95 px-3 py-2 text-fd-foreground shadow-[0_10px_25px_rgba(0,0,0,0.22)] backdrop-blur">
       <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-[0.8rem] bg-[#121826] text-white shadow-[0_8px_18px_rgba(0,0,0,0.35)]">
         <MessageCircle className="h-4 w-4" />
         <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-[#ff7a86] animate-pulse" />
       </span>
-      <span className="text-sm font-semibold tracking-tight">Ask AI ✨</span>
+      <span className="text-sm font-semibold tracking-tight">{strings.badge}</span>
     </span>
   );
 }
 
 export default function AIChatLauncher() {
+  const strings = useUIStrings().launcher;
   const [open, setOpen] = useState(false);
   const [showNudge, setShowNudge] = useState(false);
 
@@ -81,11 +84,11 @@ export default function AIChatLauncher() {
             <div className="mb-2 flex items-center justify-between rounded-2xl border border-fd-border bg-fd-card px-3 py-2">
               <div className="flex items-center gap-2">
                 <KissflowAnimatedLogo />
-                <h2 className="text-base font-semibold text-fd-foreground">Kissflow AI Assistant</h2>
+                <h2 className="text-base font-semibold text-fd-foreground">{strings.assistantTitle}</h2>
               </div>
               <button
                 type="button"
-                aria-label="Close assistant"
+                aria-label={strings.closeAria}
                 onClick={() => setOpen(false)}
                 className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-fd-border text-fd-muted-foreground transition-colors hover:bg-fd-muted hover:text-fd-foreground"
               >
@@ -105,7 +108,7 @@ export default function AIChatLauncher() {
             <div className="relative w-[min(88vw,360px)] rounded-2xl border border-fd-border bg-fd-card/95 p-3 pr-10 text-fd-foreground shadow-[0_18px_45px_rgba(0,0,0,0.25)] backdrop-blur">
               <button
                 type="button"
-                aria-label="Dismiss Ask AI tip"
+                aria-label={strings.nudgeDismissAria}
                 onClick={dismissNudge}
                 className="absolute right-2 top-2 inline-flex h-7 w-7 items-center justify-center rounded-full text-fd-muted-foreground transition-colors hover:bg-fd-muted hover:text-fd-foreground"
               >
@@ -116,10 +119,8 @@ export default function AIChatLauncher() {
                 onClick={openAssistant}
                 className="text-left"
               >
-                <p className="text-sm font-semibold">Need help finding the right doc?</p>
-                <p className="mt-1 text-sm text-fd-muted-foreground">
-                  Ask AI for feature guides, setup steps, and API documentation.
-                </p>
+                <p className="text-sm font-semibold">{strings.nudgeTitle}</p>
+                <p className="mt-1 text-sm text-fd-muted-foreground">{strings.nudgeBody}</p>
               </button>
             </div>
           ) : null}
@@ -128,7 +129,7 @@ export default function AIChatLauncher() {
             type="button"
             onClick={openAssistant}
             className="transition-transform hover:-translate-y-0.5"
-            aria-label="Open Ask AI assistant"
+            aria-label={strings.openAria}
           >
             <AskAIBadge />
           </button>

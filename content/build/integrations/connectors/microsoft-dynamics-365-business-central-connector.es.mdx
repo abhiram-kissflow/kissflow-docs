@@ -1,0 +1,128 @@
+---
+title: "Conector de Microsoft Dynamics 365 Business Central"
+description: "BORRADOR (sin verificar) — migrado desde /t/h7y65kq/microsoft-dynamics-365-business-central-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+## ¿Qué es Microsoft Dynamics 365 Business Central?
+
+Microsoft Dynamics 365 Business Central es una solución integral de gestión empresarial que ayuda a las organizaciones a optimizar procesos, tomar decisiones fundamentadas e impulsar el crecimiento mediante funcionalidades financieras, operativas, de ventas y de servicio al cliente.
+
+## Acerca de la integración de Microsoft Dynamics 365 Business Central con Kissflow
+
+El conector de Microsoft Dynamics 365 Business Central de Kissflow Integration facilita la conexión y sincronización fluidas de los módulos de Microsoft Dynamics 365 Business Central con diversas aplicaciones de terceros y aplicaciones de Kissflow. Para integrarse con Microsoft Dynamics 365 Business Central, los usuarios deben tener una cuenta válida de Microsoft Dynamics 365 Business Central y ser clientes de pago de Kissflow.  
+  
+Un empleado puede enviar una solicitud de compra en un Kissflow Process, proporcionando detalles como la descripción del artículo, la cantidad, el proveedor preferido y notas adicionales. La solicitud pasa por varias etapas de aprobación en las que los gerentes pueden aprobarla o rechazarla. Una vez aprobada, el conector de Kissflow Process activa automáticamente la creación de una orden de compra en Microsoft Dynamics 365 Business Central mediante la acción Crear una orden de compra. La orden de compra incluye toda la información relevante de la solicitud original, como la descripción del artículo, la cantidad, la información del proveedor y las notas especificadas. 
+
+### Activadores del conector de Microsoft Dynamics 365 Business Central
+
+**Activador** 
+
+**Descripción**
+
+Cuando se agrega un cliente
+
+Se activa cuando se agrega un nuevo cliente a tu cuenta de Microsoft Dynamics 365.
+
+Cuando se agrega un proveedor
+
+Se activa cuando se agrega un nuevo proveedor a tu cuenta de Microsoft Dynamics 365.
+
+Cuando se crea una factura de ventas
+
+Se activa cuando se crea una nueva factura de ventas en tu cuenta de Microsoft Dynamics 365.
+
+Cuando se crea una factura de compra
+
+Se activa cuando se crea una nueva factura de compra en tu cuenta de Microsoft Dynamics 365.
+
+Cuando se crea una orden de compra
+
+Se activa cuando se crea una nueva orden de compra en tu cuenta de Microsoft Dynamics 365.
+
+Cuando se crea una orden de ventas
+
+Se activa cuando se crea una nueva orden de ventas en tu cuenta de Microsoft Dynamics 365.
+
+### Acciones del conector de Microsoft Dynamics 365 Business Central
+
+**Acción** 
+
+**Descripción**
+
+Buscar un cliente
+
+Esta acción busca y recupera los detalles de un cliente de tu cuenta de Microsoft Dynamics 365.
+
+Buscar un proveedor
+
+Esta acción busca y recupera los detalles de un proveedor de tu cuenta de Microsoft Dynamics 365.
+
+Obtener todos los clientes
+
+Esta acción obtiene los detalles de todos los clientes de tu cuenta de Microsoft Dynamics 365.
+
+Obtener todos los proveedores
+
+Esta acción obtiene los detalles de todos los proveedores de tu cuenta de Microsoft Dynamics 365.
+
+Obtener todos los artículos
+
+Esta acción obtiene los detalles de todos los artículos de tu cuenta de Microsoft Dynamics 365. 
+
+Crear un artículo
+
+Esta acción crea un nuevo artículo en tu cuenta de Microsoft Dynamics 365.
+
+Crear una factura de ventas
+
+Esta acción crea una nueva factura de ventas en tu cuenta de Microsoft Dynamics 365.
+
+Crear una factura de compra
+
+Esta acción crea una nueva factura de compra en tu cuenta de Microsoft Dynamics 365.
+
+Crear una orden de compra
+
+Esta acción crea una nueva orden de compra en tu cuenta de Microsoft Dynamics 365.
+
+Crear una orden de ventas
+
+Esta acción crea una nueva orden de ventas en tu cuenta de Microsoft Dynamics 365.
+
+Crear un cliente
+
+Esta acción crea un nuevo cliente en tu cuenta de Microsoft Dynamics 365.
+
+Crear un proveedor
+
+Esta acción crea un nuevo proveedor en tu cuenta de Microsoft Dynamics 365.
+
+## Configuración del conector de Microsoft Dynamics 365 Business Central
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Create** del panel de navegación izquierdo y selecciona **Integration** en la lista. Escribe un nombre y una descripción únicos para tu integración y haz clic en **[Create](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Una vez dentro del editor, configura un paso de activador, por ejemplo, un evento activador de Kissflow Process: **When an item completes its workflow**.
+    
+3.  Después de configurar el paso de activador anterior, haz clic en el botón **Add** ( ![](/migration-assets/microsoft-dynamics-365-business-central-connector/1.png) ) para configurar el paso de acción. Busca Microsoft Dynamics 365 Business Central y selecciona un evento de acción entre las opciones disponibles.
+    
+    ![](/migration-assets/microsoft-dynamics-365-business-central-connector/2.png)
+4.  Después de elegir el evento de acción, autentica el conector. Haz clic en **+Add an account**. Kissflow utiliza el OAuth de Microsoft Dynamics 365 Business Central para la autenticación.
+    
+    ![](/migration-assets/microsoft-dynamics-365-business-central-connector/3.png)
+5.  Después de autenticarte con tu cuenta de Microsoft Dynamics 365 Business Central, agrega los valores correspondientes a los campos del formulario de Microsoft Dynamics 365 Business Central. Puedes hacer clic en **Refresh fields** para ver todos los campos actualizados del formulario seleccionado. También puedes asignar campos de tu paso de activador o campos de tus pasos de acción anteriores. Estos valores se agregarán automáticamente a los campos del elemento después de ejecutar la acción.
+    
+6.  Después de realizar una configuración correcta, comprueba si el paso de acción de Microsoft Dynamics 365 Business Central está configurado correctamente haciendo clic en el botón **Test**. El conector extraerá los datos de los campos de tu cuenta seleccionada de Microsoft Dynamics 365 Business Central y los mostrará como una salida JSON. Al igual que con el paso de activador, recibirás una notificación inmediata de los errores. Corrígelos antes de volver a probar el paso de acción.
+    
+
+### Configuración de un conector de Microsoft Dynamics 365 Business Central
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción de tu conector de Microsoft Dynamics 365 Business Central, activa el botón de alternancia para activar la ejecución de la integración. Una vez que ocurre un evento activador, se ejecuta la acción de Microsoft Dynamics 365 Business Central.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

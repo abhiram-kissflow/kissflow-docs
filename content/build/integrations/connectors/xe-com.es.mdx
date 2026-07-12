@@ -1,0 +1,51 @@
+---
+title: "Conector de XE.com"
+description: "BORRADOR (no verificado): migrado desde /t/83h4aff/xe-com"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es [XE.com](http://XE.com)?
+
+[XE.com](http://XE.com) es una aplicación de cambio de divisas en línea que ofrece información sobre tipos de cambio, transferencias internacionales de dinero y otros servicios relacionados con divisas a través de su sitio web, aplicaciones móviles y otros canales en línea.
+
+## Acerca de la integración de [XE.com](http://XE.com) con Kissflow
+
+El conector de [XE.com](http://XE.com) de Kissflow te permite utilizar los servicios instantáneos de conversión de tipos de cambio de XE.com con servicios populares de Kissflow y otras aplicaciones en la nube. Para integrar [XE.com](http://XE.com), debes tener una cuenta válida de [XE.com](http://XE.com), además de ser un cliente de pago de Kissflow.
+
+Supón que tienes un flujo de trabajo de proceso de Kissflow para administrar tu sistema de órdenes de compra y que los precios del catálogo de proveedores están en EUR. Como tu proveedor está en EE. UU., quieres convertir el valor de la moneda de EUR a USD antes de crear una orden de compra. Para que esto ocurra, la conversión de moneda debe basarse en tipos de cambio en tiempo real. El conector de [XE.com](http://XE.com) permite realizar esta conversión. Puedes configurar activadores y acciones para que, cuando se envíe un nuevo elemento en tu orden de compra, se extraiga el precio real de los productos del catálogo del proveedor y se convierta el valor del producto a la moneda que elijas.
+
+### Acción en [XE.com](http://XE.com)
+
+**Acciones**
+
+**Descripción**
+
+Convertir moneda
+
+Esta acción comprueba los tipos de cambio en tiempo real y convierte el valor de una moneda a otra
+
+### Configuración del conector de [XE.com](http://XE.com)
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**.
+    
+2.  Configura los pasos del activador y la acción; por ejemplo, puedes utilizarlo para crear un sistema sencillo de adquisición de productos que conecte la solicitud de compra, el catálogo de proveedores y la orden de compra.
+    
+3.  Después de configurar los pasos del activador y la acción anteriores, haz clic en el botón Añadir (![](/migration-assets/xe-com/1.png)) junto a la opción para configurar el paso de acción de [XE.com](http://XE.com). Busca **[XE.com](http://XE.com)** y selecciona el evento de acción Convertir moneda. ![](/migration-assets/xe-com/2.png)
+4.  Después de elegir el evento de acción, el siguiente paso es autenticar el conector. Haz clic en **+Añadir una cuenta** e inicia sesión en tu cuenta de [XE.com](http://XE.com). Después de iniciar sesión, copia tu **Account API ID** y tu **Account API key** únicos y pégalos en los campos correspondientes de la ventana emergente de autenticación del conector. ![](/migration-assets/xe-com/3.png)
+
+> **Nota**: Si todavía no tienes una cuenta, ve al [sitio web de XE.com](https://www.xe.com/), haz clic en **Business & API** > **Xe Currency Data API** para iniciar sesión en tu cuenta.
+
+1.  Después de autenticarte con las credenciales de tu cuenta de [XE.com](http://XE.com), añade los valores correspondientes a los campos del formulario de [XE.com](http://XE.com) y haz clic en **Actualizar campos** para ver todos los campos actualizados del formulario de [XE.com](http://XE.com) seleccionado. También puedes asignar los campos de [XE.com](http://XE.com) a los campos del paso del activador o de la acción anterior. Estos valores se añadirán automáticamente a los campos del elemento después de ejecutar la acción.
+2.  Después de realizar correctamente la configuración, comprueba si el paso de acción de [XE.com](http://XE.com) está configurado correctamente haciendo clic en el botón **P****rueba**. El conector extraerá los datos de los campos de tu cuenta de [XE.com](http://XE.com) seleccionada y los mostrará como una salida JSON. Al igual que en el paso del activador, recibirás una notificación inmediata de los errores. Corrígelos antes de volver a probar el paso de acción.
+
+### Configuración de un conector de [XE.com](http://XE.com)
+
+Después de crear un flujo de trabajo personalizado con el paso de acción de tu conector de [XE.com](http://XE.com), activa el botón de alternancia para activar la ejecución de la integración. Cuando ocurra un evento del activador, el conector de [XE.com](http://XE.com) comenzará a convertir el valor de la moneda según los tipos de cambio en tiempo real.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

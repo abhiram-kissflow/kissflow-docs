@@ -1,0 +1,80 @@
+---
+title: "Campo de número, control deslizante y valoración"
+description: "BORRADOR (no verificado) — migrado desde /t/60h4az2/number-field"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Kissflow plans:
+
+✓ Basic ✓ Enterprise
+
+Hay tres campos que almacenan datos como números.  
+
+## Campo de número
+
+Puedes almacenar un número entero o decimal en un campo de **Número**. Para permitir que el usuario del formulario introduzca decimales, establece el número de posiciones decimales en el campo **Número de posiciones decimales**.
+
+![](/migration-assets/number-field/1.gif)
+
+### Expresiones o fórmulas
+
+Hay muchas [expresiones y fórmulas que puedes usar con números](/t/g9h4alx/number-and-currency-expressions).
+
+### Validaciones
+
+Hay seis tipos de validaciones que puedes usar con un campo de número:
+
+-   Igual a
+-   No igual a
+-   Mayor que
+-   Mayor o igual que
+-   Menor que 
+-   Menor o igual que
+
+## Campo de control deslizante
+
+El campo de control deslizante permite a los usuarios seleccionar un número dentro de un rango definido y almacena el valor como un número. 
+
+### Configuración
+
+Estos son los campos adicionales que puedes usar al configurar un campo de control deslizante:
+
+-   El valor mínimo es el valor más bajo posible.
+-   El valor máximo es el valor más alto posible.
+-   El tamaño del intervalo es la distancia entre los valores aceptados. En el ejemplo siguiente, los usuarios solo pueden seleccionar 1, 2, 3, etc.
+
+![](/migration-assets/number-field/3.gif)
+
+Puedes establecer un valor predeterminado para que el control deslizante lo muestre cuando el formulario se cargue por primera vez.  
+
+Los valores que se muestran en el control deslizante del formulario activo se generan automáticamente y no se pueden editar. 
+
+![](/migration-assets/number-field/5.gif)
+
+Los valores almacenados se pueden usar en cualquier [expresión](/t/q6h4alh/introduction-to-expressions-and-formulas) numérica.
+
+## Campo de valoración
+
+El campo de valoración permite a los usuarios enviar valoraciones con estrellas. Se usa habitualmente para recopilar comentarios. El valor se almacena como un número (de cero a cinco). 
+
+En el formulario activo, cuando se selecciona una estrella, todas las estrellas situadas a la izquierda de la selección se rellenan automáticamente. Los usuarios pueden hacer doble clic en las estrellas para restablecerlas a cero. 
+
+![](/migration-assets/number-field/2.png)
+
+### Valoración con medias estrellas
+
+Con la opción de valoración con medias estrellas, los usuarios pueden valorar sus comentarios en incrementos de 0,5, como 1,5, 2,5, etc.
+
+Durante la configuración, activa el interruptor **Activar valoraciones con medias estrellas** en el panel derecho de **Propiedades del campo**. 
+
+Una vez hecho esto, los usuarios solo tienen que deslizar el cursor sobre el campo de valoración en el formulario activo para enviar sus comentarios.
+
+![](/migration-assets/number-field/4.gif)
+
+### Configuración
+
+Si estableces un valor predeterminado, esas estrellas aparecerán preseleccionadas cuando se cargue el formulario. De lo contrario, no se seleccionará ninguna estrella cuando se cargue el campo. 
+
+Los valores almacenados se pueden usar en cualquier [expresión](/t/q6h4alh/introduction-to-expressions-and-formulas) numérica.

@@ -1,0 +1,21 @@
+---
+title: "Variables de entorno"
+description: "BORRADOR (sin verificar) — migrado desde /t/35ygdmp/environment-variables"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Cuando se ejecuta un conector, puede usar variables de entorno que funcionan de forma similar a las definidas en una línea de comandos. Estas variables son útiles para almacenar información confidencial, como un ID y un secreto de cliente de OAuth, que no deberían guardarse en el control de código fuente. Además, los desarrolladores pueden usar variables de entorno para cambiar fácilmente entre un entorno de staging y uno de producción durante el desarrollo del conector.
+
+Las variables de entorno se definen por separado para cada versión. Cuando creas una versión nueva, las variables de entorno de la versión anterior no se copian automáticamente y debes agregarlas manualmente. Ten en cuenta que los cambios realizados en las variables de entorno de una versión no afectarán a ninguna otra versión.
+
+## Definir variables de entorno 
+
+Para agregar una variable de entorno, ve a la página de inicio del conector correspondiente y haz clic en **Variables de entorno**. Define las variables como pares clave-valor encerrados entre llaves. Por último, haz clic en **Guardar** para guardar las variables de entorno.
+
+![](/migration-assets/environment-variables/1.png)

@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import {
@@ -10,65 +12,42 @@ import {
   Flask,
   Megaphone,
 } from '@phosphor-icons/react/dist/ssr';
+import { useUIStrings, type UIStrings } from '@/lib/ui-strings';
+import { useI18n } from 'fumadocs-ui/contexts/i18n';
+import { i18n } from '@/lib/i18n';
 
-const personaCards = [
+const personaCards: {
+  key: keyof UIStrings['persona'];
+  href: string;
+  icon: typeof User;
+  external?: boolean;
+}[] = [
+  { key: 'end-users', href: '/docs/use', icon: User },
+  { key: 'builders', href: '/docs/build', icon: GridFour },
+  { key: 'admins', href: '/docs/admin', icon: ShieldCheck },
+  { key: 'api-docs', href: '/api-reference', icon: BracketsCurly, external: true },
   {
-    title: 'End Users',
-    description: 'Submit forms, track items, approve tasks, use boards.',
-    href: '/docs/use',
-    icon: User,
-  },
-  {
-    title: 'Workflow & App Builders',
-    description: 'Design pages, build workflows, create apps with no-code and AI.',
-    href: '/docs/build',
-    icon: GridFour,
-  },
-  {
-    title: 'Admins',
-    description: 'Manage users, security, SSO, governance, and environments.',
-    href: '/docs/admin',
-    icon: ShieldCheck,
-  },
-  {
-    title: 'API Docs',
-    description: 'REST API reference — endpoints, requests, and responses.',
-    href: '/api-reference',
-    icon: BracketsCurly,
-    external: true,
-  },
-  {
-    title: 'SDK Docs',
-    description: 'Build custom components with the Kissflow JavaScript SDK.',
+    key: 'sdk-docs',
     href: 'https://developers.kissflow.com/gettingstarted/',
     icon: Code,
     external: true,
   },
-  {
-    title: 'Roadmap',
-    description: 'What we are building next across Kissflow.',
-    href: '/docs/roadmap',
-    icon: MapTrifold,
-  },
-  {
-    title: 'Pre-release Notes',
-    description: 'Upcoming features and changes before they ship.',
-    href: '/docs/pre-release-notes',
-    icon: Flask,
-  },
-  {
-    title: 'Announcements',
-    description: 'Every new feature and improvement as it ships, newest first.',
-    href: '/announcements',
-    icon: Megaphone,
-  },
-] as const;
+  { key: 'roadmap', href: '/docs/roadmap', icon: MapTrifold },
+  { key: 'prerelease', href: '/docs/pre-release-notes', icon: Flask },
+  { key: 'announcements', href: '/announcements', icon: Megaphone },
+];
 
 export function PersonaNav(): ReactNode {
+  const strings = useUIStrings();
+  const { locale } = useI18n();
+  // Internal links keep the reader in their locale (default locale stays prefix-free).
+  const prefix = locale && locale !== i18n.defaultLanguage ? `/${locale}` : '';
+
   return (
     <div className="flex flex-wrap justify-center gap-2 not-prose">
       {personaCards.map((card) => {
         const Icon = card.icon;
+        const { title, description } = strings.persona[card.key];
         const className =
           'group inline-flex items-center gap-2 rounded-full border border-fd-border bg-fd-card/70 px-4 py-2 text-sm font-medium text-fd-foreground backdrop-blur-sm transition-colors hover:border-[#CF2C91]/40 hover:bg-fd-card';
         const content = (
@@ -78,14 +57,14 @@ export function PersonaNav(): ReactNode {
               weight="duotone"
               className="text-fd-muted-foreground transition-colors group-hover:text-[#CF2C91]"
             />
-            {card.title}
+            {title}
           </>
         );
-        return 'external' in card && card.external ? (
+        return card.external ? (
           <a
             key={card.href}
             href={card.href}
-            title={card.description}
+            title={description}
             target="_blank"
             rel="noopener noreferrer"
             className={className}
@@ -93,7 +72,7 @@ export function PersonaNav(): ReactNode {
             {content}
           </a>
         ) : (
-          <Link key={card.href} href={card.href} title={card.description} className={className}>
+          <Link key={card.href} href={`${prefix}${card.href}`} title={description} className={className}>
             {content}
           </Link>
         );

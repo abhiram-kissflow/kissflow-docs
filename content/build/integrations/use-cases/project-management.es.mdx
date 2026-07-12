@@ -1,0 +1,235 @@
+---
+title: "Gestión de proyectos"
+description: "BORRADOR (sin verificar) — migrado desde /t/x2yk4c0/project-management"
+contentType: use-case
+persona: citizen-developer
+section: build
+---
+
+Las plataformas de gestión de proyectos son el centro de control del trabajo en equipo moderno, ya que garantizan que los proyectos se entreguen a tiempo, dentro del presupuesto y con el nivel de calidad requerido. El desafío principal consiste en mantener la visibilidad, la alineación y el impulso entre los equipos. Las integraciones son clave para crear un ecosistema de proyectos conectado. Al vincular las herramientas de gestión de proyectos con otros procesos empresariales, las organizaciones pueden automatizar la creación de tareas, sincronizar las actualizaciones de estado y garantizar que las partes interesadas tengan una vista en tiempo real del progreso, convirtiendo los flujos de trabajo fragmentados en una operación cohesiva.
+
+## Conectores en este sector
+
+**Aplicación**
+
+**Descripción**
+
+**[Monday.com](/t/35yf7bx/monday-com-connector)**
+
+Un Work OS flexible donde los equipos pueden crear aplicaciones de flujo de trabajo personalizadas para planificar, ejecutar y hacer seguimiento de sus procesos, proyectos y tareas cotidianas.
+
+**[Basecamp](/t/m1h4al7/basecamp-connector)**
+
+Una herramienta de gestión de proyectos y comunicación entre equipos que ayuda a los equipos a mantenerse organizados al conservar todas las tareas, archivos, conversaciones y programaciones relacionadas con los proyectos en un solo lugar.
+
+**Plataforma de Kissflow**
+
+Incluye capacidades nativas como [Boards](/t/83h4af4/kissflow-board-connector), [Processes](/t/h7h4akh/kissflow-process-connector) y activadores personalizados que permiten una automatización interna eficaz y patrones de integración personalizados.
+
+**[HTTP](/t/p8h4aky/http-connector)**
+
+Además de las acciones prediseñadas disponibles en Kissflow Integrations para la gestión de proyectos, puede haber situaciones en las que necesites realizar una acción personalizada. En esos casos, puedes usar el conector HTTP para configurar llamadas a la API desde cero e interactuar con cualquier servicio que exponga una API REST.
+
+## Casos de uso de integración con Kissflow
+
+Estos son ejemplos prácticos basados en situaciones de cómo Kissflow puede activar acciones en [Monday.com](http://Monday.com) y Basecamp, además de aprovechar sus propias capacidades de plataforma para resolver problemas empresariales comunes.
+
+### [Monday.com](http://Monday.com)
+
+**Objetivo empresarial**
+
+**Activador (en Kissflow)**
+
+**Acción (en Monday.com)**
+
+**Situación detallada**
+
+**Beneficio clave**
+
+Automatizar la configuración de proyectos
+
+Se inicia un proyecto nuevo.
+
+Crear un tablero.
+
+Cuando se aprueba un proyecto nuevo en Kissflow, se crea un tablero nuevo titulado Proyecto: \[Nombre del proyecto\], preconfigurado con las columnas esenciales.
+
+Estandariza la configuración de proyectos y garantiza la coherencia en todas las iniciativas nuevas.
+
+Adaptarse a las necesidades cambiantes
+
+Un equipo decide hacer seguimiento de una métrica nueva durante la planificación del sprint.
+
+Crear una columna.
+
+La integración añade una columna nueva de _Puntos de historia_ a un tablero existente para capturar la nueva métrica sin configuración manual.
+
+Permite que los tableros de proyectos se adapten rápidamente a los requisitos cambiantes del equipo.
+
+Organizar las fases del proyecto
+
+Se lanza una campaña de marketing nueva.
+
+Crear un grupo.
+
+La integración crea un grupo llamado _Fase de campaña 1_ dentro del tablero para organizar lógicamente todas las tareas relacionadas.
+
+Mejora la claridad y la organización del proyecto al estructurar las tareas en fases.
+
+Agilizar la creación de tareas
+
+Se aprueba una tarea nueva, _Diseñar el banner de la página de inicio_.
+
+Crear un elemento.
+
+Se crea un elemento con la persona asignada y la fecha de vencimiento correctas dentro del grupo _Fase de campaña 1_.
+
+Garantiza que las tareas aprobadas sean visibles y puedan ejecutarse de inmediato en el plan del proyecto.
+
+Mantener los tableros organizados
+
+Una fase del proyecto se completa y debe archivarse.
+
+Eliminar un grupo.
+
+La integración elimina el grupo _Fase de campaña 1_ para mantener el tablero limpio y centrado en el trabajo activo.
+
+Evita el desorden y ayuda a los equipos a centrarse en las tareas actuales y futuras.
+
+Replicar flujos de trabajo exitosos
+
+Un equipo quiere iniciar una fase nueva basada en una fase anterior exitosa.
+
+Duplicar un grupo.
+
+La integración duplica el grupo _Fase de campaña 1_, conservando todas las tareas y los plazos de la fase nueva.
+
+Ahorra tiempo y esfuerzo al reutilizar estructuras y plantillas de proyectos comprobadas.
+
+Desglosar tareas complejas
+
+Una tarea, _Escribir una publicación de blog_, requiere varios pasos.
+
+Crear un subelemento.
+
+La integración crea un subelemento titulado _Investigar el tema_ bajo la tarea principal para dividir el trabajo en pasos manejables.
+
+Mejora la claridad de las tareas y ayuda a hacer seguimiento del progreso con un nivel de detalle mayor.
+
+Proporcionar el estado en tiempo real
+
+El estado de una tarea cambia a _En curso_.
+
+Actualizar un elemento.
+
+La integración actualiza inmediatamente el elemento correspondiente en [Monday.com](http://Monday.com) para reflejar el cambio de estado.
+
+Garantiza que todo el equipo tenga una vista precisa y en tiempo real del progreso de las tareas.
+
+Hacer seguimiento del progreso de las subtareas
+
+Se completa el subelemento _Investigar el tema_.
+
+Actualizar un subelemento.
+
+La integración actualiza el estado del subelemento a _Completado_ en [Monday.com](http://Monday.com).
+
+Proporciona una visibilidad clara de la finalización de los pasos más pequeños dentro de una tarea mayor.
+
+Mantener la coherencia en los nombres
+
+Una tarea cambia de nombre, de _Diseñar el banner de la página de inicio_ a _Diseñar el banner del sitio web_.
+
+Actualizar el nombre de un elemento.
+
+La integración actualiza el nombre del elemento en [Monday.com](http://Monday.com) para que coincida con el cambio en Kissflow.
+
+Evita confusiones al garantizar que los nombres de las tareas sean coherentes en todos los sistemas.
+
+Comunicar la finalización de tareas
+
+Se completa la tarea _Diseñar el banner de la página de inicio_.
+
+Crear una actualización.
+
+Se publica una actualización en [Monday.com](http://Monday.com) que indica: _Diseño del banner completado y listo para revisión_.
+
+Automatiza la comunicación del progreso y mantiene informadas a las partes interesadas sin esfuerzo manual.
+
+Eliminar tareas rechazadas
+
+La tarea _Escribir una publicación de blog_ se rechaza durante la aprobación.
+
+Eliminar un elemento.
+
+La integración elimina el elemento correspondiente de [Monday.com](http://Monday.com) y lo quita del tablero.
+
+Mantiene el tablero del proyecto limpio y centrado únicamente en el trabajo aprobado y relevante.
+
+### Basecamp
+
+**Objetivo empresarial**
+
+**Activador (en Kissflow)**
+
+**Acción (en Basecamp)**
+
+**Situación detallada**
+
+**Beneficio clave**
+
+Generar paneles para la dirección
+
+Un flujo de trabajo programado se ejecuta todos los lunes por la mañana.
+
+Buscar todos los proyectos.
+
+Un flujo de trabajo recupera la lista completa de proyectos activos de Basecamp para crear un tablero nuevo de resumen de estados en Kissflow para la dirección.
+
+Proporciona visibilidad automatizada y periódica de toda la cartera de proyectos para la revisión ejecutiva.
+
+Proporcionar contexto rápidamente
+
+Un agente del servicio de asistencia selecciona un proyecto en un formulario de solicitud.
+
+Buscar un proyecto.
+
+El flujo busca el proyecto específico en Basecamp y obtiene su ID y sus tareas actuales para integrarlos en el ticket de Kissflow.
+
+Proporciona a los agentes de soporte el contexto inmediato del proyecto para resolver los problemas más rápido.
+
+### Activador personalizado
+
+Un activador personalizado permite usar una sola integración para gestionar varios eventos relacionados. Por ejemplo, en lugar de usar integraciones independientes para la incorporación y la salida de empleados, un activador personalizado puede detectar cambios en un conjunto de datos de _registro maestro de empleado_s. Cuando se añade un empleado nuevo o cambia el estado de uno existente a _Dado de baja_, la misma integración puede activar el flujo de trabajo de incorporación o salida correspondiente en Kissflow, lo que simplifica la gestión y el mantenimiento.
+
+### Kissflow Board
+
+**Patrón**
+
+**Situación**
+
+**Beneficio clave**
+
+Creación automatizada de subtareas
+
+En un tablero de _Soporte al cliente_, un ticket principal suele requerir acciones de varios departamentos. Cuando se crea un ticket, el sistema puede crear automáticamente un subelemento para cada equipo relevante, como TI, facturación o soporte técnico.
+
+Garantiza que los problemas complejos se distribuyan correctamente a todos los equipos necesarios sin intervención manual.
+
+Actualizaciones de estado sincronizadas
+
+Si el estado de un ticket principal cambia a _Cancelado_, el flujo de trabajo puede actualizar automáticamente un subelemento, recorriendo todos los subtickets relacionados y estableciendo también su estado en _Cancelado_.
+
+Mantiene la integridad de los datos y evita que los equipos trabajen en tareas relacionadas con una solicitud cancelada.
+
+Limpieza automática de datos
+
+En un tablero de CRM de ventas, quieres eliminar los clientes potenciales no válidos. Cuando se añade un cliente potencial nuevo, una condición puede comprobar si el correo electrónico está en una lista de bloqueados o si el número de teléfono está vacío. Si se cumple la condición, el sistema eliminará un elemento.
+
+Mantiene limpio el embudo de ventas y garantiza que los representantes solo trabajen con clientes potenciales válidos y accionables.
+
+### Kissflow Process
+
+#### Crear y enviar elementos en bloque
+
+En muchas organizaciones, los equipos necesitan iniciar varios elementos de proceso a la vez, como enviar docenas de solicitudes de compra desde una sola hoja de cálculo. En lugar de introducir los datos manualmente, la acción de Kissflow para crear y enviar elementos en bloque puede automatizar este proceso. Se puede programar una integración para que se ejecute diariamente, lea todas las filas de un conjunto de datos (como un archivo de Excel con solicitudes de compra) y cree y envíe automáticamente un elemento en el proceso de _Solicitud de compra_ por cada fila, asignando las columnas de la hoja de cálculo a los campos del formulario. Esto ahorra horas de trabajo repetitivo y elimina los errores de introducción de datos.

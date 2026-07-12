@@ -1,0 +1,103 @@
+---
+title: "Conector de detalles de usuario de Kissflow"
+description: "BORRADOR (no verificado) — migrado desde /t/g9h4ak3/kissflow-user-details-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## Conector de detalles de usuario
+
+Detalles de usuario de Kissflow te permite obtener atributos específicos de los usuarios de tu cuenta de Kissflow. Los detalles pueden corresponder a cualquier usuario de la cuenta o a usuarios específicos mencionados en el paso de activación o en cualquiera de los pasos de acción anteriores. Los datos de salida se pueden usar como entrada para activar acciones específicas en otras aplicaciones de Kissflow o en aplicaciones de terceros.
+
+Por ejemplo, puedes usar este conector para recopilar las direcciones de correo electrónico y los números de teléfono de los usuarios que participaron en los pasos anteriores de la integración. Luego, estos detalles se pueden utilizar para activar acciones específicas, como una respuesta automatizada de un chatbot a los usuarios.
+
+> Consulta nuestro [tutorial de la academia](https://academy.kissflow.com/courses/take/integrations/lessons/29017866-automate-email-workflows-using-kissflow-integration) sobre cómo usar el **conector de correo electrónico** de Kissflow junto con el conector de **detalles de usuario**.
+
+### Activadores del conector de detalles de usuario
+
+**Activador**
+
+**Descripción**
+
+Cuando se agrega un usuario nuevo
+
+Se activa cuando se agrega un usuario nuevo a la cuenta.
+
+Cuando se actualizan los detalles de un usuario
+
+Se activa cuando se actualizan los detalles de un usuario.
+
+Cuando se activa un usuario
+
+Se activa cuando se activa un usuario.
+
+Cuando se desactiva un usuario
+
+Se activa cuando se desactiva un usuario.
+
+Cuando se elimina un usuario
+
+Se activa cuando se elimina un usuario.
+
+Cuando se agrega un usuario a un grupo
+
+Se activa cuando se agrega un usuario a un grupo.
+
+### Acciones del conector de detalles de usuario
+
+**Acción**
+
+**Descripción**
+
+Obtener datos de usuario
+
+Esta acción obtiene los datos del usuario según sus ID de usuario.
+
+Crear un usuario nuevo
+
+Esta acción crea y agrega un usuario nuevo a tu cuenta.
+
+Desactivar usuarios
+
+Esta acción desactiva usuarios en tu cuenta.
+
+Crear un grupo
+
+Esta acción crea un grupo nuevo en tu cuenta y agrega usuarios al grupo recién creado.
+
+Agregar usuarios a un grupo
+
+Esta acción agrega usuarios a un grupo existente en tu cuenta.
+
+Activar usuarios
+
+Esta acción activa usuarios en tu cuenta.
+
+Eliminar usuarios de un grupo
+
+Esta acción elimina usuarios de un grupo en tu cuenta.
+
+Obtener detalles del grupo de usuarios
+
+Esta acción obtiene la lista de usuarios que forman parte de un grupo de usuarios.
+
+## Configurar el conector
+
+1.  En tu cuenta de Kissflow, haz clic en tu foto de perfil en la esquina superior derecha de la pantalla y haz clic en **Integraciones**. Haz clic en el botón **Nueva integración** para proporcionar un nombre y una descripción para tu [integración](/t/60h4akx/creating-an-integration).
+    
+2.  En el editor, selecciona un paso de activación. También puedes usar la búsqueda para encontrar un activador directamente. Por ejemplo, usa un webhook de una aplicación de terceros o un activador de uno de los flujos de Kissflow.
+    
+3.  Haz clic en el **botón Agregar** (![](/migration-assets/kissflow-dataset-connector/2.png)) para agregar una acción. Busca el conector de **detalles de usuario** y selecciona **Obtener datos de usuario** como acción.
+Crea una conexión nueva o usa una conexión existente en tu cuenta. Puedes conectarte a otra cuenta de Kissflow o usar tu propia cuenta de Kissflow. La conexión se autentica mediante tus claves y tokens secretos de API. Después de autenticar la conexión, haz clic en **Siguiente**.5.  Ingresa manualmente los ID de usuario si ya los conoces. De lo contrario, selecciona el campo **_\_id_** del activador o de los pasos de acción anteriores. Selecciona los campos de usuario relevantes cuyos datos quieras obtener.![](/migration-assets/kissflow-user-details-connector/1.png) 
+6.  Después de configurar correctamente la acción, comprueba si está configurada de forma adecuada. El conector obtendrá los datos de los usuarios específicos de la tabla de gestión de usuarios y los mostrará como una salida JSON. Recibirás una notificación inmediata de los errores. Corrígelos antes de completar el paso de acción.  
+
+## Usar el conector
+
+Después de configurar el conector, activa el botón de alternancia en la esquina superior derecha del editor para activar la acción. Cuando se activa la acción configurada, los detalles de usuario obtenidos se envían como entrada a los pasos posteriores de la integración.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

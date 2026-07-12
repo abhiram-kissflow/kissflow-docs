@@ -1,0 +1,68 @@
+---
+title: "Configuración de los ajustes de tu tablero"
+description: "BORRADOR (no verificado) — migrado desde /t/60h9ql7/configuring-your-board-settings"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Si eres administrador de un tablero, puedes configurar cómo se comporta tu tablero modificando ciertos ajustes.Para configurar o cambiar los ajustes de un tablero, haz clic en el botón **Manage** en la esquina superior derecha > **Settings.**
+
+## Ajustes generales
+
+En la pestaña **General**, puedes configurar algunos de los parámetros principales de tu tablero. Puedes cambiar el tipo de elemento y el prefijo del ID, así como configurar cómo aparecen los títulos en los elementos:
+
+-   **Item type** - El tipo de elementos que se gestionan en el tablero. Aquí puedes cambiar el nombre del tipo de elemento.
+-   **ID prefix** - El prefijo que se añade a los ID de los elementos.
+-   **Configure form title** - Especifica un formato que se utiliza para generar automáticamente títulos para cada elemento.
+
+### Configuración de los títulos de los formularios
+
+Para configurar los títulos de los formularios, haz clic en el botón **Add** (+), organiza los campos predeterminados del sistema o los campos del formulario en el orden que quieras y, a continuación, haz clic en **Save**. Según este formato, los títulos se generan automáticamente y se muestran en la parte superior de cada elemento.![](/migration-assets/configuring-your-board-settings/2.png)
+
+## Ajustes de las notificaciones
+
+Puedes crear y personalizar notificaciones para mantenerte informado sobre las actualizaciones importantes o garantizar una comunicación oportuna dentro de tu equipo. Obtén más información sobre las [notificaciones del tablero](/t/60y68hm/board-notifications).
+
+## Ajustes opcionales
+
+### Prioridad
+
+La prioridad indica la urgencia de resolver un elemento. Establecer una prioridad te permite gestionar y hacer un seguimiento eficaz de tus elementos.Por ejemplo, si hay elementos con una prioridad más alta, puedes establecer su prioridad en **High** o **Critical**. Los elementos críticos se identifican fácilmente y, por lo tanto, es más sencillo hacerles seguimiento.En la pestaña **Optional** **settings**, dentro de **Settings**, puedes activar o desactivar el campo de prioridad para todo el tablero.Cuando desactivas la prioridad, el campo **Priority** se ocultará en todo el tablero en:
+
+-   Vistas
+-   Formularios
+-   Filtros
+-   Ordenar
+-   Integraciones
+
+El campo se oculta incluso si se utilizó para configurar alguna de las funciones mencionadas anteriormente.Por ejemplo, si creaste una vista que utilizaba **priority**, el filtro ya no tendrá en cuenta **priority** para filtrar elementos cuando la desactives.Además, si has utilizado la prioridad para definir validaciones o crear expresiones en un campo del formulario, no podrás desactivar la prioridad. Primero tendrás que eliminar estas dependencias.
+
+### Seguidores
+
+Un administrador del tablero siempre puede activar o desactivar el ajuste **Watchers** desde la sección **Optional settings** de un tablero.
+
+1.  En el tablero, haz clic en el botón **Manage** > **Settings** > **Optional**
+2.  Activa o desactiva el ajuste **Watchers** según tus necesidades y haz clic en **Save**.
+    1.  Activar este ajuste permite que los demás administradores y miembros del tablero sigan elementos y gestionen una lista de seguimiento de sus elementos, respectivamente. Los seguidores de los elementos reciben notificaciones cada vez que hay una actualización en los elementos que siguen.
+    2.  Desactivar este ajuste impide que todos los usuarios del tablero utilicen la función **Watchers**.  
+         ![](/migration-assets/configuring-your-board-settings/1.png)
+
+## [Ajustes multilingües](/t/m1h9qt5/process-settings#multilingual-settings)
+
+Los ajustes multilingües permiten a los [administradores/desarrolladores de Kissflow Process](/t/p8h9qtp/managing-process-members-and-permissions) y a los [administradores de tableros](/t/m1h9qls/managing-members-and-roles-boards) personalizar y presentar los formularios de sus flujos de trabajo en varios idiomas incorporando etiquetas de formulario traducidas manualmente.Por ejemplo, si has diseñado un formulario en inglés, pero quieres adaptarlo a hablantes de chino, sigue los pasos que se indican a continuación. Una vez configurado, el formulario cambiará al chino para los usuarios que hayan elegido este idioma en los ajustes de su perfil, lo que garantiza una experiencia fluida tanto para los hablantes de inglés como para los de chino.
+
+1.  Selecciona el idioma.
+2.  Descarga las etiquetas del formulario.
+3.  Traduce manualmente las etiquetas.
+4.  Vuelve a importar las etiquetas en el formulario.
+
+> **Nota:**
+> 
+> Esta función está disponible para Kissflow Processes y Boards independientes. Solo se admitirán en los formularios los [idiomas disponibles en el nivel de la plataforma](/t/60h9qzy/languages-supported-by-kissflow).
+
+Obtén más información sobre cómo [añadir varios idiomas](/t/83hvnzt/multilingual-settings).

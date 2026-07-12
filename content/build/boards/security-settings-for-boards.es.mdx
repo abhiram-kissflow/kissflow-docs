@@ -1,0 +1,80 @@
+---
+title: "Configuración de seguridad para tableros"
+description: "BORRADOR (no verificado) — migrado desde /t/83yklr1/security-settings-for-boards"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## Introducción
+
+Los administradores de tableros pueden gestionar el uso compartido de los datos de sus flujos con otros flujos dentro de la plataforma Kissflow mediante la página de configuración de seguridad. Esto proporciona un enfoque más sólido, flexible y granular para controlar el acceso a los tableros.
+
+La página de configuración de seguridad te permite gestionar los permisos de los campos de búsqueda:
+
+## Acceder a la configuración de seguridad
+
+Para gestionar la configuración de seguridad de un flujo específico, sigue estos pasos:
+
+1.  Ve al tablero que quieres gestionar.
+    
+2.  Haz clic en el botón **Manage** > **Security.**
+    
+    ![](/migration-assets/security-settings-for-boards/1.png)
+
+### Permisos globales
+
+Los permisos globales son las reglas generales de acceso que se aplican a todos los flujos de tu cuenta. Funcionan como la configuración de acceso predeterminada para todos los flujos de tu cuenta de Kissflow. 
+
+### Configurar permisos globales
+
+En la página **Security**, busca la sección **Global permissions**. Activa o desactiva la casilla de verificación para establecer los permisos globales de ese artefacto. Para ajustar estos permisos, simplemente marca o desmarca los artefactos deseados. Por ejemplo, si desmarcas el artefacto **Lookup** para **All flows**, ningún flujo de la plataforma podrá realizar búsquedas en este flujo.
+
+> **Nota:**
+> 
+> Desactivar un artefacto aquí restringirá su uso en todos los flujos, a menos que se anule mediante permisos personalizados.
+
+### Permisos personalizados
+
+Los permisos personalizados permiten controlar de forma detallada el acceso a nivel de cada flujo, anulando los permisos globales cuando se configuran. Puedes establecer esta configuración para flujos específicos, lo que proporciona un mayor control sobre los artefactos y campos a los que se puede acceder.
+
+### Configurar permisos personalizados
+
+Los permisos personalizados permiten a los administradores de flujos conceder permisos exclusivos para flujos específicos. Estos permisos se pueden configurar para anular los permisos globales. Para configurar permisos personalizados, ve a la página de configuración de seguridad del flujo deseado y selecciona los permisos específicos necesarios. Puedes conceder permisos para todos los campos o seleccionar campos específicos para el artefacto **Lookup**. Al añadir un flujo nuevo en los permisos personalizados, la configuración global se transfiere y se puede anular. Si se eliminan los permisos personalizados, los permisos globales se aplicarán automáticamente.
+
+> **Nota:**
+> 
+> Si no se establece ningún permiso personalizado para un flujo, este seguirá la configuración de permisos globales.
+
+### Eliminar permisos personalizados
+
+Si eliminas los permisos personalizados de un flujo específico, este volverá a utilizar la configuración de permisos globales. Este cambio se aplica de inmediato. Para eliminar los permisos personalizados de un flujo específico, haz clic en el botón **Remove customized permission** situado a la derecha del flujo. A continuación, comprueba si existen dependencias de búsqueda u otros impactos derivados de eliminar este permiso. Por último, haz clic en **Remove** para confirmar y eliminar los permisos personalizados.
+
+### Selección de campos de búsqueda
+
+Al configurar los permisos de Lookup, puedes seleccionar **All fields** para conceder acceso a todos los campos de la búsqueda. También puedes elegir **Select fields** para especificar qué campos estarán disponibles. Si optas por seleccionar campos específicos, se mostrará una lista de los campos disponibles para que elijas.
+
+### Dentro de las aplicaciones
+
+Para las aplicaciones dentro de Kissflow:
+
+-   Los administradores de aplicaciones pueden vincular aplicaciones entre sí.
+    
+-   Al vincularlas, los administradores pueden especificar qué campos del flujo de origen dentro de una aplicación estarán disponibles para la aplicación de destino.
+    
+
+## [Controles de acceso](/t/m1h9qt5/process-settings#access-controls)
+
+Los [administradores de tableros](/t/m1h9qls/managing-members-and-roles-in-a-board#admin) pueden permitir o restringir permisos a los usuarios, lo que afecta a su capacidad para imprimir formularios, descargar archivos adjuntos o suplantar identidades en los tableros.
+
+### [Permisos de impresión y descarga](/t/m1h9qt5/process-settings#print-and-download-permissions)
+
+Puedes alternar entre dos opciones: **Anyone** y **Only admins** para cada tipo de flujo de forma individual. Estos cambios se realizan a nivel del flujo y, en algunos casos, pueden anularse mediante los [permisos establecidos en el nivel de Administración de la cuenta](/t/h7h4akl/flow-settings).Establecer el permiso en **Anyone** permitiría a cualquier usuario descargar archivos adjuntos o imprimir formularios. Elegir **Only admins** restringiría los permisos de descarga e impresión únicamente a los administradores del tablero.
+
+### [Suplantación de identidad](/t/m1h9qt5/process-settings#impersonation)
+
+Mediante la suplantación de identidad, puedes actuar en nombre de un usuario o un elemento dentro de tu cuenta de Kissflow. [Obtén más información sobre cómo suplantar a un usuario.](/t/p8h4akb/impersonation-in-service-accounts)![](/migration-assets/security-settings-for-boards/2.png)

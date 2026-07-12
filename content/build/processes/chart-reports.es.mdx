@@ -1,0 +1,189 @@
+---
+title: "Informes de gráficos"
+description: "BORRADOR (sin verificar) — migrado desde /t/q6y3tql/chart-reports"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Puedes generar tus informes de procesos como gráficos. Hay 14 tipos de gráficos entre los que puedes elegir.
+
+-   Gráfico automático
+-   Gráfico de áreas
+-   Gráfico de áreas apiladas
+-   Gráfico de barras horizontales
+-   Gráfico de barras verticales
+-   Gráfico de barras horizontales apiladas
+-   Gráfico de barras verticales apiladas
+-   Gráfico de barras horizontales apiladas al 100 %
+-   Gráfico de barras verticales apiladas al 100 %
+-   Gráfico de líneas
+-   Gráfico combinado
+-   Gráfico de dispersión
+-   Gráfico circular
+-   Gráfico de anillo
+
+## Crear un gráfico
+
+1.  Para crear un gráfico, haz clic en el botón **Informes** situado en la esquina superior derecha. 
+    
+2.  Haz clic en **\+ Crear informe.**
+    
+3.  Proporciona un nombre para el gráfico, selecciona **Gráfico** como tipo de informe**,** y haz clic en **Crear**.
+    
+    ![](/migration-assets/chart-reports/25.gif)
+    
+4.  Elige el tipo de gráfico que quieres crear. Selecciona **Automático** si no estás seguro de qué tipo de gráfico elegir y Kissflow creará el más adecuado para ti.
+    
+    ![](/migration-assets/chart-reports/26.png)
+
+## Tipos de gráficos
+
+-   Los **gráficos de áreas** funcionan de forma similar a los gráficos de líneas, pero las áreas situadas debajo de las líneas aparecen rellenas. Puedes usar este gráfico para mostrar cómo evolucionan los valores con el tiempo.
+    
+-   El **gráfico de áreas apiladas** es un gráfico de áreas que incluye una pila de varias áreas. Se puede usar en lugar de un gráfico de líneas con varios gráficos para comparar el desarrollo o la tendencia a lo largo del tiempo.  
+      
+    ![](/migration-assets/chart-reports/29.png) ![](/migration-assets/chart-reports/27.gif)  
+      
+    
+-   Los **gráficos de barras horizontales** evitan la saturación cuando un punto de datos es más largo que los demás o si tienes más de diez elementos que comparar. Puedes usar gráficos de barras para mostrar números negativos.  
+      
+    ![](/migration-assets/chart-reports/31.png) ![](/migration-assets/chart-reports/28.gif)  
+      
+    
+-   Los **gráficos de barras verticales** se usan para mostrar una comparación entre diferentes elementos, o pueden mostrar una comparación de elementos a lo largo del tiempo.
+    
+-   Los **gráficos de líneas** usan líneas para representar cambios en los datos durante un período de tiempo. El eje Y muestra el valor y el eje X muestra la variable.
+    
+-   Los **gráficos combinados** son una combinación de gráficos, como gráficos de barras y de líneas.
+    
+-   Los **gráficos de anillo** están pensados para expresar una relación entre una parte y el total, donde todas las partes juntas representan el 100 %.  
+      
+    ![](/migration-assets/chart-reports/32.png) ![](/migration-assets/chart-reports/30.gif)  
+     
+    
+-   Los **gráficos circulares** son similares a los gráficos de anillo, pero el área central está rellena.  
+      
+    ![](/migration-assets/chart-reports/34.png) ![](/migration-assets/chart-reports/33.gif)  
+     
+    
+-   Los **gráficos apilados** constan del total dividido en partes (que aparecen en la leyenda) para cada categoría. Ayudan a mostrar y comparar eficazmente la proporción de diferentes series de datos dentro de cada categoría. Puedes crear un **gráfico de barras horizontales apiladas** y un **gráfico de barras verticales apiladas** según tus preferencias.  
+      
+    ![](/migration-assets/chart-reports/35.png) ![](/migration-assets/chart-reports/36.gif)
+    
+-   Los **gráficos apilados al 100 %** muestran el porcentaje de varios datos en columnas apiladas, donde el total de las columnas apiladas siempre equivale al 100 %. Puedes crear dos tipos de gráficos apilados al 100 %: **gráfico de barras verticales apiladas al 100 %** y **gráfico de barras horizontales apiladas al 100 %**.  
+      
+    ![](/migration-assets/chart-reports/37.png) ![](/migration-assets/chart-reports/40.gif)
+    
+
+## Configurar un gráfico
+
+### Elegir campos
+
+Para configurar el informe, empieza por elegir los campos que quieres mostrar en el panel derecho. Hay dos tipos de campos entre los que puedes elegir.
+
+-   **Campos personalizados**: son los campos que creaste en el formulario de tu proceso y son exclusivos de este.
+    
+-   **Campos del sistema**: son los campos generados por el sistema que se crean de forma predeterminada para un proceso.
+    
+    -   Nombre
+        
+    -   Creado por
+        
+    -   Modificado por
+        
+    -   Creado el
+        
+    -   Modificado el
+        
+    -   Nombre del flujo
+        
+    -   DocVersion
+        
+    -   Paso actual
+        
+    -   Estado
+        
+
+![](/migration-assets/chart-reports/38.gif)
+
+Puedes elegir un número ilimitado de campos para tu informe. Verás un conjunto de muestra de 10 elementos en una vista previa a la izquierda.
+
+### Configuración  
+
+-   **Dimensión** es el campo principal que quieres usar para comparar datos. En los gráficos, corresponde al eje X.
+    
+-   **Medida** es el campo o los campos adicionales que quieres usar para comparar datos. En los gráficos, corresponde al eje Y. Puedes mostrar varias medidas en el mismo gráfico.
+    
+-   **Leyenda** hace referencia al área del gráfico que describe cada una de sus partes y solo estará visible en los gráficos automáticos, horizontales y verticales.
+    
+
+### Tipo de escala
+
+Hay dos tipos de escala:
+
+-   Las escalas **Lineales** son el tipo de escala predeterminado y muestran la escala en incrementos iguales.
+    
+-   Las escalas **Logarítmicas** muestran el incremento en múltiplos del anterior, como el doble o diez veces su tamaño.
+    
+
+### Etiquetas
+
+Puedes elegir qué etiquetas quieres mostrar en tu gráfico.
+
+-   El **eje X** es horizontal en la mayoría de los gráficos, excepto en los gráficos de barras horizontales, donde el eje X es vertical.
+    
+-   El **eje Y** es vertical en los gráficos, excepto en los gráficos de barras horizontales, donde el eje Y es horizontal.
+    
+-   Las **etiquetas de datos** muestran la información del elemento de línea o de la barra. Pasa el cursor sobre el gráfico para ver la etiqueta.
+    
+-   Las **leyendas** explican los símbolos utilizados en el gráfico. Se encuentran en la parte superior izquierda del gráfico.
+    
+
+### Añadir filtros
+
+Para limitar los datos específicos de tu informe, puedes añadir filtros. Haz clic en el botón **Filtro avanzado** en la sección **Filtro de datos** para añadir un filtro. Elige los campos que quieres filtrar y, a continuación, introduce las condiciones. 
+
+Haz clic en el botón **Añadir nuevo filtro** para añadir más filtros y condiciones al mismo campo. La nueva condición puede ser **Y** (deben cumplirse todas las condiciones) u **O** (debe cumplirse cualquiera de ellas).
+
+### [Activar el desglose en los gráficos](/t/g9y3tyw/pivot-tables-in-processes#enabling-drilldown-in-pivot-reports) 
+
+La función de [desglose](/t/y4h9qkr/reports#enabling-drilldown-in-chart-and-pivot-reports) te permite profundizar en los datos de tu informe mostrando una vista tabular de las filas subyacentes asociadas a puntos de datos específicos en los [gráficos](/t/h7h9qzr/chart-reports#enabling-drilldown-in-charts). El desglose está activado de forma predeterminada al crear un informe. Puedes activarlo o desactivarlo en la configuración del informe.Para activar el desglose,
+
+1.  Ve a la pestaña **Configuración**.
+    
+2.  En **Desglose**, selecciona al menos dos campos.
+    
+3.  Haz clic en **Aplicar**.
+    
+
+![](/migration-assets/chart-reports/41.gif)
+
+> **Nota:** Los campos seleccionados del informe se eligen automáticamente como campos de desglose predeterminados. Asegúrate de seleccionar al menos dos campos para el desglose.
+
+Después de configurar el gráfico, pasa el cursor sobre él y haz clic para desglosar los datos. Al hacer clic en el gráfico, aparecerá una vista previa tabular con los datos subyacentes. Puedes buscar campos, mostrar u ocultar columnas y [exportar](/t/q6h9qz5/pivot-reports#exporting-drilldown-data) datos en tiempo de ejecución. Haz clic en el menú desplegable de cada encabezado de columna para ordenar los datos en orden ascendente o descendente.
+
+## Aplicar estilos a los gráficos
+
+En la pestaña **Estilo**, puedes elegir entre 10 variantes de color para aplicarlas a tus gráficos.
+
+![](/migration-assets/chart-reports/39.png)
+
+## [Exportar informes de gráficos](/t/h7h9qzr#exporting-chart-reports)
+
+Puedes exportar informes de gráficos y descargarlos en tu dispositivo para compartirlos, usarlos en presentaciones o consultarlos sin conexión.Para exportar,
+
+1.  Haz clic en el botón **Exportar** situado en la esquina superior derecha.
+    
+2.  Selecciona el formato necesario: PNG o PDF
+    
+3.  Haz clic en **Exportar**.
+    
+
+![](/migration-assets/charts-in-boards/7.png)
+
+El informe se exportará en el formato seleccionado y se descargará en tu dispositivo.

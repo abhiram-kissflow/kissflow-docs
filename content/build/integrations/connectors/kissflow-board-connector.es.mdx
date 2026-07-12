@@ -1,0 +1,158 @@
+---
+title: "Conector de Kissflow Board"
+description: "BORRADOR (no verificado) — migrado desde /t/83h4af4/kissflow-board-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## Conexión a un board
+
+Los miembros de la integración que tienen permiso para acceder a un [board](/t/q6h9ql3/board-overview) pueden usar conectores para enviar datos desde un board a otros flujos en Kissflow o a aplicaciones de terceros. Del mismo modo, los conectores se pueden usar para recibir datos y realizar acciones específicas en tu board.
+
+Por ejemplo, tienes un board para gestionar un servicio de asistencia y quieres que ciertos tickets complejos que llegan se registren por separado en otro board para hacer seguimiento de errores. Para que esto ocurra, ambos boards deben comunicarse entre sí. Los conectores hacen posible esta comunicación. Con conectores predefinidos, puedes configurar activadores y acciones para que, cuando se cree un nuevo ticket en tu servicio de asistencia, se registre un error correspondiente en tu sistema de seguimiento de errores.
+
+## Activadores para boards
+
+**Activador**
+
+**Descripción**
+
+Cuando se crea un elemento
+
+Este activador se activa en cuanto alguien envía un nuevo elemento.
+
+Cuando comienza un elemento
+
+Este activador se activa cuando la fecha de inicio de un elemento coincide con la fecha actual.
+
+Cuando se elimina un elemento
+
+Este activador se activa en cuanto alguien elimina un elemento del board.
+
+Cuando se actualiza el estado de un elemento
+
+Este activador se activa cuando cambia el estado de un elemento.
+
+Cuando se actualiza el asignado de un elemento
+
+Este activador se activa cuando cambia el asignado de un elemento
+
+Cuando se actualiza la fecha de vencimiento de un elemento
+
+Este activador se activa cuando cambia la fecha de vencimiento de un elemento.
+
+Cuando se actualiza la prioridad de un elemento
+
+Este activador se activa cuando cambia la prioridad de un elemento.
+
+Cuando un elemento pasa a estar vencido
+
+Este activador se activa cuando se supera la fecha de vencimiento de un elemento.
+
+Cuando se añade una nota a un elemento
+
+Este activador se activa cuando se añade una nota a un elemento.
+
+Cuando se actualiza el estado de un subelemento
+
+Este activador se activa cuando cambia el estado de un subelemento.
+
+  
+ 
+
+Cuando se actualiza el asignado de un subelemento
+
+Este activador se activa cuando cambia el asignado de un subelemento.
+
+Cuando se actualiza la fecha de vencimiento de un subelemento
+
+Este activador se activa cuando cambia la fecha de vencimiento de un subelemento.
+
+Cuando se actualiza la fecha de inicio de un subelemento
+
+Este activador se activa cuando cambia la fecha de inicio de un subelemento.
+
+Cuando se añade una nota a un subelemento
+
+Este activador se activa cuando se añade una nota a cualquier subelemento del board.
+
+Cuando un subelemento pasa a estar vencido
+
+Este activador se activa cuando un subelemento supera su fecha de vencimiento.
+
+Cuando comienza un subelemento
+
+Este activador se activa cuando la fecha de inicio de un subelemento coincide con la fecha actual.
+
+Cuando se crea un subelemento
+
+Este activador se activa cuando se crea un subelemento.
+
+## Acciones para boards
+
+**Acción**
+
+**Descripción**
+
+Recuperar datos de un board
+
+Esta acción recupera datos de elementos de un board según parámetros como el ID del elemento, la prioridad y el asignado.
+
+> **Nota:**
+> 
+> Con esta acción se pueden buscar y recuperar hasta 100 elementos. 
+
+Crear un elemento
+
+Esta acción crea un nuevo elemento en el board.
+
+Actualizar un elemento
+
+Esta acción actualiza los campos de un elemento.
+
+Eliminar un elemento 
+
+Esta acción elimina un elemento de un board.
+
+Añadir observadores
+
+Esta acción añade observadores a un elemento dentro de un Kissflow Board.
+
+Crear un subelemento
+
+Esta acción crea un nuevo subelemento en un elemento.
+
+Actualizar un subelemento
+
+Esta acción actualiza los campos de un subelemento.
+
+## Usar conectores como activadores
+
+1.  Crea una nueva [integración](https://helpdocs.kissflow.com/integration/creating-an-integration).
+2.  Selecciona el conector de Kissflow Board y, a continuación, elige un activador. También puedes usar la búsqueda para encontrar directamente un activador.
+3.  Crea una conexión nueva o usa una conexión existente en tu cuenta. Puedes conectarte a otra cuenta de Kissflow o usar tu propia cuenta de Kissflow. Después de autenticar la conexión, haz clic en **Siguiente**.
+4.  Selecciona el board con el que quieres trabajar. Haz clic en **Siguiente**.
+5.  Comprueba que el activador esté configurado correctamente haciendo clic en el botón **Probar activador**. El conector recuperará los datos del board seleccionado y los mostrará en formato JSON. Si hay un error en la configuración, recibirás un mensaje al respecto. Vuelve a probar el activador después de realizar los cambios necesarios.
+
+> **Nota:**
+> 
+> En los campos vacíos del board se muestran datos de ejemplo para que puedas diferenciar los tipos de campo. Los campos de las tablas siempre se muestran con datos de ejemplo.
+
+![](/migration-assets/kissflow-board-connector/1.png)
+
+##     
+Usar conectores como acciones
+
+1.  Haz clic en el conector de Board y selecciona un paso de acción entre las opciones disponibles.
+2.  Configura una conexión con la cuenta necesaria, de forma similar a como configurarías un activador.
+3.  Después de elegir un board, añade los valores correspondientes a los campos del formulario. Puedes actualizar los campos para ver todos los campos actualizados del formulario. También puedes asignar campos del formulario desde el paso del activador o campos de tus pasos de acción anteriores. Estos valores se añadirán automáticamente a los campos después de ejecutar la acción.
+4.  Comprueba que el paso de acción esté configurado correctamente. Haz clic en **Usar datos de ejemplo** para utilizar datos de ejemplo y validar la acción. El conector validará los datos de ejemplo comparándolos con los campos del board y mostrará los resultados en formato JSON. Si hay errores, se te notificará de inmediato. Corrígelos antes de volver a probar la acción.
+
+Después de configurar los activadores y las acciones necesarios, activa la integración para ponerla en funcionamiento.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

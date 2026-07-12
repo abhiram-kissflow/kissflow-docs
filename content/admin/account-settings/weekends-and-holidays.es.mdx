@@ -1,0 +1,54 @@
+---
+title: "Fines de semana y festivos"
+description: "Configura los días no laborables y festivos de tu organización para excluirlos de los plazos de los flujos de trabajo y los cálculos de SLA."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - holidays
+  - weekends
+  - deadlines
+  - sla
+---
+
+# Fines de semana y festivos
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+Como [Superadministrador](/docs/admin/users/user-roles-and-permissions), puedes configurar la semana laboral y los festivos de tu organización para que se tengan en cuenta al calcular los [plazos](/docs/build/processes/workflow-design/configuring-deadline) y los SLA de las actividades del flujo de trabajo.
+
+## Configura el fin de semana de tu organización
+
+1. Haz clic en tu foto de perfil, en la esquina superior derecha, y ve a **Administración de la cuenta** > **Configuración de la cuenta** > **Fines de semana y festivos**.
+2. En **Fines de semana**, haz clic en cada día en el que tu organización no trabaja para seleccionarlo.
+
+<Callout type="info">
+  De forma predeterminada, no se selecciona ningún día del fin de semana. Configura aquí el fin de semana antes de que sea necesario para calcular plazos o SLA.
+</Callout>
+
+## Añade los festivos de la oficina
+
+1. Haz clic en **Añadir festivo**.
+2. Selecciona la fecha.
+3. Asigna un nombre al festivo.
+
+![Página de configuración de fines de semana y festivos que muestra los días laborables semanales y la lista de festivos](/migration-assets/weekends-and-holidays/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="warn">
+  Los festivos no se repiten automáticamente. Tu lista de festivos corresponde a un solo año, por lo que tendrás que añadir manualmente los festivos del año siguiente cuando llegue el momento.
+</Callout>
+
+## Cómo afecta esto a los plazos y los SLA
+
+Los fines de semana y festivos que hayas configurado aquí se excluyen de los cálculos de [plazos](/docs/build/processes/workflow-design/configuring-deadline) y SLA de las actividades del flujo de trabajo. Si parte del tiempo asignado a una tarea coincide con un día no laborable, ese día no se contabiliza; el plazo se amplía para que el responsable tenga todo el tiempo laborable que hayas previsto.
+
+## Qué sigue
+
+- [Configurar el plazo](/docs/build/processes/workflow-design/configuring-deadline)
+- [Configuración de formato](/docs/admin/account-settings/format-settings)
+- [Roles y permisos de usuario](/docs/admin/users/user-roles-and-permissions)

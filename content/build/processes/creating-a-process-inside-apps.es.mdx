@@ -1,0 +1,214 @@
+---
+title: "Crear un proceso dentro de las aplicaciones"
+description: "BORRADOR (sin verificar) — migrado desde /t/60yzjcw/creating-a-process-inside-apps"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+## Crear un proceso nuevo
+
+Para crear un proceso dentro del creador de aplicaciones,
+
+Haz clic en **Proceso** debajo del menú **Creación rápida** a la izquierda. Tienes tres opciones: crear desde cero, crear con AI o usar una plantilla.
+
+![](/migration-assets/creating-a-process-inside-apps/1.png)
+
+### Crear desde cero
+
+1.  Introduce el nombre del proceso. También puedes añadir una descripción y una categoría para ayudarte a organizar y encontrar el proceso más adelante.
+2.  Haz clic en **Crear**.  ![](/migration-assets/creating-a-process-inside-apps/2.png) 
+
+### Crear con AI
+
+Aquí también puedes adjuntar un documento para crear el proceso o introducir un prompt.
+
+#### Adjuntar un documento
+
+1.  Sube un documento compatible desde tu sistema. Los formatos incluyen PNG, JPEG, JPG, PDF o CSV.  
+     
+    
+    A continuación se explica cómo el documento de entrada determina la estructura de la salida:
+    
+    **Formato del documento de entrada**
+    
+    **Salida y comportamiento esperados**
+    
+    **CSV**
+    
+    • **Asignación de campos**: todos los encabezados de columna se asignarán automáticamente a tipos de campo específicos; el formulario puede admitir hasta 1000 campos.
+    
+    • **Organización**: los campos se agruparán por secciones para garantizar un flujo lógico.
+    
+    • **Generación de tablas**: si corresponde, las tablas se crearán automáticamente.
+    
+    • **Flujo de trabajo**: se creará una estructura de flujo de trabajo básica.
+    
+    **Imágenes o archivos PDF**
+    
+     
+    
+    (PDF, PNG, JPEG, JPG)
+    
+    • **Replicación exacta**: AI replicará exactamente el diseño del formulario tal como aparece en el archivo cargado. Sin embargo, si proporcionas instrucciones específicas en el prompt, AI modificará la salida para adaptarla a esas solicitudes.
+    
+    • **Detección de tablas**: si la imagen o el PDF contiene una tabla visible, se convertirá automáticamente en un campo de tabla.
+    
+    • **Flujo de trabajo**: se creará un flujo de trabajo básico según la lógica interpretada del documento.
+    
+2.  Añade un prompt en el espacio de abajo para ajustar cómo AI crea el flujo de trabajo de tu proceso. Este paso es opcional.
+    
+3.  Haz clic en **Comenzar a crear**.
+    
+    ![](/migration-assets/creating-a-process-inside-apps/3.png)
+4.  Una vez completada la configuración, aparecerá la ventana emergente **Añadir los toques finales**. Incluye detalles del proceso rellenados previamente. Revísalos y edítalos si es necesario.
+    
+5.  Haz clic en **Vista previa del formulario** para ver el formulario que se utilizará en tu proceso. Si todo se ve bien, selecciona **Ir al proceso**.
+    
+6.  Realiza los ajustes finales en el flujo de trabajo y haz clic en **Guardar**.
+    
+
+#### Proporcionar un prompt
+
+Simplemente describe cómo quieres que funcione tu proceso en el espacio **O proporciona un prompt** y haz clic en **Comenzar a crear**. Deja que AI lo cree automáticamente por ti.
+
+En la ventana emergente **Añadir los toques finales**, revisa los detalles del proceso y previsualiza el formulario. Si todo se ve bien, haz clic en **Ir al proceso** para personalizar el formulario y los pasos del flujo de trabajo antes de publicarlo.
+
+### Plantillas
+
+Instala una plantilla desde la **Galería de plantillas**. Después puedes personalizarla según tus necesidades.
+
+![](/migration-assets/creating-a-process-inside-apps/4.png)
+
+## Crear un proceso
+
+Después de crear un proceso, llegarás a la pantalla del **editor de procesos**. El formulario básico, los flujos de trabajo, los permisos, los informes, los roles y la configuración se gestionan en el lado izquierdo del editor. El formulario aparece en el centro, y los campos **básicos** y **avanzados** se muestran en el lado derecho del editor. Puedes hacer clic dentro del formulario o arrastrar y soltar los campos directamente en él. Una vez configurado el formulario, haz clic en **Guardar** para que esté disponible dentro de la aplicación.  
+ 
+
+![](/migration-assets/creating-a-process-inside-apps/5.png)
+
+### Cambiar el nombre, duplicar y archivar un proceso
+
+Para cambiar el nombre del proceso, haz clic en el botón **Más opciones** (![](/migration-assets/creating-and-managing-dataforms/7.png)) del proceso. Haz clic en **Cambiar nombre**. Cambia el nombre y la descripción del proceso. Del mismo modo, haz clic en los botones **Duplicar** y **Archivar** para duplicar y archivar un proceso.  
+ 
+
+![](/migration-assets/creating-a-process-inside-apps/6.png)
+
+También puedes ir al panel de navegación izquierdo > **Datos** \> **Procesos** \> botón **Más opciones** situado junto a un proceso y realizar las acciones anteriores.
+
+![](/migration-assets/creating-a-process-inside-apps/7.png)
+
+### Personalizar un proceso
+
+Cada proceso tiene un **formulario**, un **flujo de trabajo** y **permisos**. Como desarrollador de aplicaciones, abre el proceso y haz clic en las pestañas con estos nombres en la barra de navegación izquierda para acceder a estas propiedades.
+
+### Buscar un proceso
+
+La pestaña **Datos** de la navegación izquierda contiene todos los procesos creados en tu aplicación. Usa la barra de búsqueda para encontrar rápidamente un proceso específico.
+
+![](/migration-assets/creating-a-process-inside-apps/8.png)
+
+Los procesos te permiten definir los datos necesarios para mover un elemento por tu flujo. Los formularios se utilizan para flujos de trabajo como procesos y tableros. Están compuestos por secciones, campos y tablas.
+
+### Secciones
+
+Las secciones son grupos de campos. Son útiles para facilitar a los usuarios la cumplimentación del formulario. Además, puedes controlar todos los permisos de los campos como un grupo, en lugar de hacerlo individualmente.
+
+La primera sección de un formulario nuevo se llama **Sección sin título**. Para cambiarle el nombre, solo tienes que hacer clic en él. También puedes añadir una descripción para ayudar a los usuarios. Haz clic en el botón de formato de texto para añadir texto enriquecido, incluidas imágenes y videos.
+
+Para añadir una sección nueva, haz clic en **Añadir** **sección**.
+
+![](/migration-assets/creating-a-process-inside-apps/9.png)
+
+Haz clic en el botón **Configuración**(![](/migration-assets/creating-a-process-inside-apps/10.png)) para cambiar la configuración de visibilidad. La sección siempre estará visible de forma predeterminada, pero puedes cambiarla a oculta. Puedes hacer que la sección sea visible de forma condicional haciendo clic en **+Añadir una regla de visibilidad**. Para añadir una condición, elige un **Campo**, un **Operador** o un **Tipo**, y asígnalo a un valor o a un campo según el tipo. Puedes añadir varias condiciones.
+
+Para duplicar una sección, haz clic en el botón **Duplicar** (![](/migration-assets/creating-a-process-inside-apps/11.png)). Se creará una copia de la sección debajo.
+
+Haz clic en la flecha **Arriba** (![](/migration-assets/creating-a-process-inside-apps/12.png)) o **Abajo** (![](/migration-assets/creating-a-process-inside-apps/13.png)) para reorganizar las secciones.
+
+Haz clic en el botón **Eliminar** (![](/migration-assets/creating-a-process-inside-apps/14.png)) para eliminar toda la sección.
+
+### Campos
+
+Los campos son los componentes básicos de tu formulario. Son las piezas individuales de datos que quieres recopilar. Los formularios de Kissflow tienen 22 tipos de campos diferentes para capturar varios tipos de datos. 
+
+Haz clic en cualquier tipo de campo para añadirlo al final de la sección actual en la que estás trabajando. También puedes arrastrar y soltar cualquier campo en el lugar exacto del formulario donde quieras colocarlo. Asimismo, puedes hacer clic en el lugar del formulario donde quieras añadir un campo y aparecerá uno nuevo.
+
+El formulario se verá exactamente como lo crees aquí para el usuario. Para reorganizar los campos, arrástralos y suéltalos donde quieras colocarlos. Puedes mover campos individuales o una fila completa de campos. Los campos se pueden redimensionar según las dimensiones que necesites. Arrastra para cambiar el ancho del campo. Las filas pueden tener hasta seis campos.
+
+### Tablas  
+
+Una tabla funciona como una sección independiente y te permite recopilar una cantidad ilimitada de datos similares. Para añadir una tabla, haz clic en **Añadir tabla**. Haz clic en el **botón Añadir** para añadir un campo nuevo. Puedes añadir tantos campos como quieras a una tabla.
+
+Las tablas tienen las mismas opciones que las secciones. Además, en la configuración de la tabla puedes establecer validaciones para controlar el número mínimo y máximo de filas que deben completarse.  
+ 
+
+![](/migration-assets/creating-a-process-inside-apps/15.png)
+
+### [Importar CSV en tablas dentro de un formulario](/t/q6yzjaj/importing-data-from-csv-file#importing-csv-into-tables-within-a-form)
+
+Además de importar datos al formulario principal, puedes importar datos directamente a las tablas dentro del formulario. Una tabla anidada dentro de un formulario se denomina child table. Es útil para recopilar listas detalladas de información, como las partidas de una factura. Sin embargo, introducir manualmente grandes cantidades de datos en estas tablas puede ser un proceso tedioso. Puedes agilizarlo utilizando la función **Importar CSV** para cargar datos en bloque.Para habilitar la importación de CSV en tablas de un dataform:
+
+1.  Haz clic en el icono **Configuración de la sección**.
+2.  Haz clic en el interruptor **Habilitar importación de tablas**.
+
+![](/migration-assets/creating-a-process-inside-apps/17.gif)
+
+Ahora, en tiempo de ejecución, verás una opción **Importar CSV** para esta tabla.
+
+![](/migration-assets/creating-a-process-inside-apps/16.png)
+
+> **Notas:**
+> 
+> -   Puedes importar hasta 1.000 filas de datos por tabla en un formulario.
+> -   Los permisos de los campos siempre tienen prioridad sobre otros permisos y, por lo tanto, pueden anular la configuración de Importar CSV. Si una child table está marcada como Solo lectura, el sistema impedirá que asignes campos y completes la importación, incluso si la función de importación está habilitada.
+
+## Preguntas frecuentes
+
+**1\. ¿Cuáles son los distintos límites flexibles en Kissflow Processes dentro de las aplicaciones?**
+
+Para mejorar el rendimiento y garantizar un uso eficiente de los recursos, Kissflow ha establecido las siguientes restricciones para cada formulario de proceso:
+
+-   Un máximo de 1000 campos por formulario de proceso.
+    
+-   Un límite flexible predeterminado de 10 child tables en cada formulario de proceso.
+    
+-   Un límite flexible predeterminado de 100 columnas por child table.
+    
+-   Un límite máximo de 5000 filas por child table.
+    
+-   Un límite máximo de 30 eventos por formulario (sin incluir los campos de botón).
+    
+
+**2\. ¿Puedo cambiar los tipos de datos de los campos en un proceso con más de 5000 elementos?**
+
+No puedes cambiar los tipos de datos de los campos en un formulario de proceso cuando hay más de 5000 registros. Esta restricción existe para evitar posibles problemas de control de versiones al modificar tipos de datos en formularios grandes. Cambiar los tipos de datos de muchos valores puede provocar incoherencias y problemas de rendimiento.
+
+**3\. ¿Hay tipos de campo en Kissflow Processes que no tengan límites flexibles?**
+
+Sí, ciertos tipos de campo en Kissflow Processes no están sujetos a límites flexibles:
+
+-   Campos de texto enriquecido.
+    
+-   Campos de cuadrícula.
+    
+-   Campos de botón (tienen un límite flexible independiente de 100 botones por formulario de proceso, además del límite predeterminado del formulario).
+    
+
+Los campos de texto enriquecido y de cuadrícula están exentos de estas restricciones porque no contienen metadatos.
+
+**4\. ¿Qué ocurre si duplico una sección con límites aumentados?**
+
+Si duplicas un proceso con límites aumentados, el nuevo proceso heredará los mismos límites incrementados.
+
+**5\. ¿Recibiré algún aviso cuando me acerque a estos límites?**
+
+Sí, aparecerán avisos cuando estés cerca de alcanzar los límites. Por ejemplo, cuando tengas 990 campos y 90 columnas, recibirás avisos que indicarán que te estás acercando al límite y sugerirán que solicites una ampliación si es necesario.
+
+> **Nota importante sobre la edición simultánea de un proceso:**Para garantizar la integridad de los datos y evitar conflictos, nuestro sistema gestiona la edición simultánea mediante una regla de «el primero en guardar». Esto significa que, si dos o más usuarios editan el mismo proceso al mismo tiempo, los cambios de la persona que haga clic primero en **Guardar** se registrarán correctamente.Si otro usuario guarda el proceso antes que tú, tu versión quedará obsoleta. Cuando intentes guardar tus ediciones, se te pedirá que actualices la pestaña para cargar las últimas actualizaciones.**Ten en cuenta que al actualizar la pestaña se descartará todo el trabajo que no hayas guardado en la pestaña actual.** Esta regla se aplica al formulario del proceso, al flujo de trabajo, a los permisos y a los informes de una aplicación.  
+>   
+> Para evitar perder el progreso, recomendamos encarecidamente coordinarte con tu equipo para garantizar que solo una persona edite activamente un proceso compartido a la vez.

@@ -1,0 +1,184 @@
+---
+title: "Informes de gráficos"
+description: "BORRADOR (sin verificar) — migrado desde /t/h7h9qzr/chart-reports"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Los gráficos ofrecen una representación visual de los datos en los informes. Los siguientes son los seis tipos principales de gráficos: **área**, **barras**, **anillo**, **líneas, circular** y **dispersión**.
+
+Además, hay diez opciones de gráficos diferentes disponibles para tus necesidades específicas.
+
+-   Gráfico de área
+-   Gráfico de área apilada
+-   Gráficos de barras horizontales y verticales
+-   Gráficos de barras horizontales apiladas y verticales apiladas
+-   Gráficos de barras horizontales y verticales apiladas al 100 por ciento
+-   Gráfico de líneas
+-   Gráfico combinado
+-   Gráfico de dispersión
+-   Gráfico circular
+-   Gráfico de anillo
+
+## Crear informes de gráficos
+
+![](/migration-assets/chart-reports/3.gif)
+
+1.  Para crear un gráfico, ve a la pestaña **Informes** en la página de Analytics. 
+2.  Haz clic en el botón **Crear informe**.
+3.  Selecciona el **origen de datos**. 
+4.  Proporciona un nombre y selecciona **Gráfico** como tipo de informe.
+5.  Haz clic en **Crear**.
+
+Selecciona **Automático** si no estás seguro de qué tipo de gráfico elegir y Kissflow elegirá el más adecuado para ti.
+
+## Configurar informes de gráficos
+
+En la sección **Configurar informe**, selecciona el tipo de gráfico, haz clic en **\+ Añadir campos** y selecciona los campos necesarios para la dimensión, la medida y la leyenda. Puedes eliminar un campo haciendo clic en el botón **Eliminar** (![](/migration-assets/chart-reports/1.png)). Añadir un filtro es similar a hacerlo en los [informes tabulares](/t/g9h9qzb/tabular-reports). Selecciona el tipo de escala y las etiquetas necesarias. Haz clic en **Guardar** para configurar el informe.  
+ 
+
+### Configuración
+
+Para configurar el informe, elige los campos que quieres mostrar en el panel derecho. 
+
+-   **Dimensión** es el campo principal que quieres usar para comparar datos. En los gráficos, será el eje X.
+-   **Medida e**s el resto de los campos que quieres usar para comparar datos de forma conjunta. Este es el eje Y en los gráficos. Puedes mostrar varias medidas en el mismo gráfico.
+-   Una **leyenda** es el área del gráfico que describe cada parte del gráfico y solo estará visible en los gráficos automáticos, horizontales y verticales.  
+      
+    ![](/migration-assets/chart-reports/2.png)
+
+### Tipo de escala
+
+Hay dos tipos de escala:
+
+1. **Las escalas lineales** son el tipo de escala predeterminado y muestran la escala en incrementos iguales.
+2. **Las escalas logarítmicas** muestran el incremento en múltiplos del anterior, como el doble o diez veces su tamaño.  
+      
+    ![](/migration-assets/chart-reports/4.png)
+
+### Etiquetas
+
+Puedes elegir qué etiquetas quieres mostrar en el gráfico.
+
+-   El **eje X** es horizontal en la mayoría de los gráficos, excepto en los gráficos de barras horizontales, donde el eje X es vertical.
+-   El **eje Y** es vertical en los gráficos, excepto en los gráficos de barras horizontales, donde el eje Y es horizontal.
+-   Las **etiquetas de datos** muestran la información de la línea o barra. Pasa el cursor sobre el gráfico para ver la etiqueta que se mostrará.
+-   Las **leyendas** son explicaciones de los símbolos utilizados en el gráfico. Se encuentran en la parte superior izquierda del gráfico.
+
+### ![](/migration-assets/chart-reports/8.png)  
+Añadir filtros
+
+Para limitar los datos específicos de tu informe, puedes añadir filtros. Haz clic en el botón **Añadir filtro avanzado** para añadir un filtro. Elige los campos que quieres utilizar para el filtro e introduce las condiciones. 
+
+Haz clic en el botón **\+ Añadir un filtro** para añadir más filtros y condiciones al mismo campo. La nueva condición puede ser **Y** (deben cumplirse todas las condiciones) o **O** (debe cumplirse cualquiera de las condiciones).
+
+{/* TODO: screenshot — source image expired (Google CDN); recapture from product UI */}
+
+### Activar el desglose en los gráficos
+
+La [función de desglose](/t/y4h9qkr/reports#enabling-drilldown-in-chart-and-pivot-reports) te permite profundizar en los datos del informe mostrando una vista tabular de las filas subyacentes asociadas con puntos de datos específicos de los gráficos. El desglose está activado de forma predeterminada al crear un informe. Puedes activarlo o desactivarlo en la configuración del informe.
+
+Para activar el desglose:
+
+1.  Ve a la pestaña de configuración.
+    
+2.  En Desglose, selecciona al menos dos campos.
+    
+3.  Haz clic en **Aplicar**.
+    
+
+![](/migration-assets/chart-reports/24.gif)
+
+> **Nota:** Los campos seleccionados del informe se eligen automáticamente como campos de desglose predeterminados. Asegúrate de seleccionar al menos dos campos para el desglose.
+
+#### Previsualizar los datos del desglose
+
+Después de configurar el gráfico, pasa el cursor sobre él y haz clic para desglosar los datos. 
+
+Al hacer clic en el gráfico, aparecerá una vista previa tabular con los datos subyacentes. Puedes buscar campos, mostrar u ocultar columnas y exportar datos en tiempo de ejecución. Haz clic en el menú desplegable de cada encabezado de columna para ordenar los datos en orden ascendente o descendente.  
+ 
+
+![](/migration-assets/chart-reports/14.png)
+
+#### Exportar los datos del desglose
+
+Puedes exportar los datos del desglose desde la vista previa del desglose. 
+
+1.  Haz clic en el icono **Exportar**.
+    
+2.  Selecciona **CSV**, **JSON** o **CSV (varios archivos)**.
+    
+3.  Comprueba la configuración de zona horaria para activar la zona horaria en el informe.
+    
+4.  Haz clic en **Exportar**. Los datos exportados del desglose se enviarán a tu correo electrónico. 
+    
+
+> **Nota:** Al exportar datos, activa la configuración de zona horaria para convertir todos los campos de fecha y hora del informe a la zona horaria establecida en Mis ajustes. Si no has establecido una zona horaria personal, se utilizará la zona horaria de tu cuenta. Si la opción no está seleccionada, los campos de fecha y hora seguirán las zonas horarias presentes en el informe.
+
+### Ordenar datos en informes de gráficos
+
+Puedes organizar los datos del gráfico en el orden en que quieres que aparezcan en el informe. Para ordenar un informe de gráficos, ve a **Ordenar** en la página **Configurar informe** > elige el campo necesario en el que quieres aplicar **Ordenar** > selecciona si quieres un orden ascendente o descendente > haz clic en **Guardar**.
+
+![](/migration-assets/chart-reports/5.png)
+
+ Para ordenar un gráfico después de crear un informe de gráficos, sigue estos pasos:
+
+1.  Haz clic en el botón **Ordenar** (![](/migration-assets/chart-reports/6.png)).
+2.  Elige el campo necesario en el que quieres aplicar **Ordenar**.
+3.  Selecciona si quieres que el orden sea ascendente o descendente.
+
+Para establecer el orden predeterminado del gráfico, haz clic en la opción **Ninguno**. Una vez hecho esto, el gráfico se organizará según el orden predeterminado del origen de datos.
+
+![](/migration-assets/chart-reports/7.png)
+
+## Aplicar estilos a los gráficos
+
+En la pestaña **Estilo**, puedes elegir entre 10 variantes de color diferentes para personalizar tus gráficos.
+
+{/* TODO: screenshot — source image expired (Google CDN); recapture from product UI */}
+
+## Acciones en los gráficos
+
+Una vez que hayas configurado y guardado el gráfico, puedes realizar las siguientes acciones:
+
+-   **Editar** el gráfico para modificar la configuración actual.
+-   **Compartir** gráficos con otras personas de tu cuenta.
+-   Usar la **leyenda** para controlar su apariencia. Haz clic en la leyenda para añadir o eliminar la serie.
+
+![](/migration-assets/chart-reports/15.gif)
+
+## Tipos de gráficos
+
+-   El **gráfico de líneas** utiliza líneas para representar los cambios en los datos durante un período de tiempo. El eje Y muestra el valor, que es la medida, y el eje X indica la variable, que es la dimensión.![](/migration-assets/chart-reports/9.png)
+-   El **gráfico de área** funciona de forma similar a un gráfico de líneas, pero con las áreas debajo de las líneas rellenas. Por ejemplo, aquí muestra qué departamento ha gastado el importe más alto en solicitudes de compra. Puedes usar este gráfico para mostrar cómo evolucionan los valores con el tiempo.![](/migration-assets/chart-reports/10.png)   
+-   El **gráfico de área apilada** es un gráfico de área que incluye una pila de varias áreas. Se puede utilizar para comparar la evolución o la tendencia a lo largo del tiempo.![](/migration-assets/chart-reports/11.png)   
+-   El **gráfico de barras horizontales** muestra una comparación entre distintos elementos.![](/migration-assets/chart-reports/12.png) 
+-   El **gráfico de barras verticales**, al igual que el gráfico de barras horizontales, también muestra una comparación entre distintos elementos.![](/migration-assets/chart-reports/13.png)
+-   El **gráfico apilado** consta del total dividido en partes (que aparecen en la leyenda) para cada categoría. Ayuda a mostrar y comparar eficazmente la proporción de distintas series de datos dentro de cada categoría. Puedes crear un gráfico de barras horizontales apiladas y un gráfico de barras verticales apiladas según tus preferencias.![](/migration-assets/chart-reports/16.png) 
+-   El **gráfico apilado al 100 por ciento** muestra el porcentaje de varios datos en columnas apiladas, donde el total de las columnas apiladas siempre equivale al 100 por ciento. Puedes crear dos tipos de gráficos apilados al 100 por ciento: gráfico de barras verticales apiladas al 100 por ciento y gráfico de barras horizontales apiladas al 100 por ciento.![](/migration-assets/chart-reports/17.png)    
+-   El **gráfico combinado** te permite comparar dos medidas: una se muestra como una barra vertical y la otra como una línea.![](/migration-assets/chart-reports/18.png)    
+-   El **gráfico de dispersión** muestra la relación entre las variables (medidas) de un gráfico. En el ejemplo siguiente, el gráfico muestra cuántas unidades de inventario se vendieron o estaban disponibles para cada elemento.![](/migration-assets/chart-reports/19.png)    
+-   El **gráfico de anillo** expresa una relación entre una parte y el total, donde todas las partes representan el 100 por ciento.  ![](/migration-assets/chart-reports/21.png)   
+-   El **gráfico circular** es similar a los gráficos de anillo, pero con el área central rellena.![](/migration-assets/chart-reports/22.png)
+
+## Exportar informes de gráficos
+
+Puedes exportar informes de gráficos y descargarlos en tu dispositivo para compartirlos, utilizarlos en presentaciones o consultarlos sin conexión.
+
+Para exportar:
+
+1.  Haz clic en el botón **Más opciones** ( ![](/migration-assets/chart-reports/20.svg) ) en la parte superior derecha > **Exportar**.
+    
+2.  Selecciona el formato necesario: PNG o PDF
+    
+3.  Haz clic en **Exportar**.
+    
+
+![](/migration-assets/chart-reports/23.png)
+
+El informe se exportará en el formato seleccionado y se descargará en tu dispositivo.

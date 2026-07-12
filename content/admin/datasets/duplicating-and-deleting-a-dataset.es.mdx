@@ -1,0 +1,33 @@
+---
+title: "Duplicar y eliminar un conjunto de datos"
+description: "BORRADOR (sin verificar) — migrado desde /t/60h4alp/duplicating-and-deleting-a-dataset"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Puedes duplicar fácilmente conjuntos de datos para volver a usarlos o eliminarlos cuando ya no los necesites. Aquí te explicamos cómo gestionar ambas acciones:
+
+## Duplicar un conjunto de datos
+
+Si tus requisitos empresariales no te permiten usar un conjunto de datos existente tal como está, pero necesitas una versión ligeramente modificada, puedes optar por crear una réplica. Al duplicar un conjunto de datos, se crea una copia que puedes modificar sin afectar a la versión original.
+
+1.  Haz clic en el botón **Más opciones** (![](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/6.png)) y, a continuación, haz clic en **Duplicar**
+2.  El nombre predeterminado del nuevo conjunto de datos es **Copia de &lt;nombre del conjunto de datos original>**. Sin embargo, puedes modificarlo como quieras.
+3.  Marca la casilla si quieres conservar los mismos valores y vistas para el nuevo conjunto de datos.
+4.  Haz clic en **Duplicar**.
+
+![](/migration-assets/duplicating-and-deleting-a-dataset/1.png)
+
+## Eliminar un conjunto de datos
+
+1.  Haz clic en el botón **Más opciones** (![](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/6.png)) y, a continuación, haz clic en **Eliminar.** Kissflow comprueba si algún flujo está utilizando el conjunto de datos que intentas eliminar. Sus dependencias, si las hay, aparecerán en tu pantalla. Solo puedes eliminar el conjunto de datos después de quitar las dependencias.![](/migration-assets/duplicating-and-deleting-a-dataset/2.png)  
+    Al eliminar un conjunto de datos con acceso a la aplicación otorgado, solo se mostrarán las dependencias del entorno de producción. Las dependencias del entorno de desarrollo se ignorarán y los flujos de aplicaciones que dependan de los campos del conjunto de datos no funcionarán como se espera después de que se elimine el conjunto de datos.  
+     
+2.  Haz clic en **Eliminar** si estás seguro de que no hay dependencias o si ya las has eliminado todas.
+
+Al eliminar un conjunto de datos, se eliminarán permanentemente tanto el conjunto de datos como todos sus datos. Esta acción es irreversible.

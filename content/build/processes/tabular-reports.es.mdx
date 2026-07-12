@@ -1,0 +1,148 @@
+---
+title: "Informes tabulares"
+description: "BORRADOR (sin verificar) — migrado desde /t/g9h9qt7/tabular-reports"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Los informes tabulares se pueden utilizar para mostrar tus datos en filas y columnas, formando una cuadrícula similar a una hoja de cálculo.
+
+## Crear un informe tabular
+
+1.  Para crear un informe tabular, haz clic en el botón **Informes** en la parte superior derecha. 
+    
+2.  Haz clic en **\+ Crear informe.**
+    
+3.  Proporciona un nombre, selecciona **Tabla** como tipo de informe**,** y haz clic en **Crear**.
+    
+
+![](/migration-assets/tabular-reports/6.png)
+
+## Configurar el informe
+
+Puedes configurar tu informe eligiendo los campos que se mostrarán, aplicando filtros y ordenando los valores de los campos según corresponda. 
+
+![](/migration-assets/tabular-reports/11.gif)
+
+En **Columnas**, puedes elegir los campos que se mostrarán en el informe. En este menú desplegable hay tres tipos de campos entre los que puedes elegir:
+
+-   Campos de proceso: los nuevos campos creados exclusivamente para tu proceso mediante el creador de formularios
+-   Campos del sistema: los campos predefinidos que son comunes y están disponibles en todos los procesos de Kissflow
+    -   Nombre: el nombre del elemento
+    -   Creado por: el usuario que creó el elemento
+    -   Modificado por: el usuario que modificó el elemento recientemente
+    -   Creado el: la fecha y hora en que se creó el elemento
+    -   Modificado el: la fecha y hora en que se modificó el formulario por última vez
+    -   Nombre del flujo: el nombre del flujo
+    -   Versión del documento
+    -   Paso actual: el paso en el que se encuentra actualmente el elemento
+    -   Asignado actualmente a: el usuario asignado actualmente al paso; este campo estará vacío si el flujo de trabajo se ha completado
+    -   Estado: el estado del elemento
+-   Campos de tabla: los campos de las tablas de tu proceso.
+-   Campos del flujo de trabajo: estos son los pasos que creaste en tu flujo de trabajo. El campo mostrará cuándo se completó un paso, quién lo completó, el estado actual y si se superó la fecha límite. 
+
+> **Nota:**
+> 
+> Puedes elegir cualquier cantidad de campos en la sección **Columnas** para tu informe. Verás un conjunto de muestra de 10 elementos en la vista previa del informe.
+
+### Ancho y orden de las columnas
+
+Cambia el tamaño del ancho de la columna colocando el cursor en el borde de la columna y arrastrándolo hasta la longitud que quieras. También puedes arrastrar y soltar los campos para reordenarlos.
+
+![](/migration-assets/tabular-reports/12.gif)
+
+### Aplicar filtros
+
+Puedes agregar filtros basados en una condición en tu informe.
+
+1.  Haz clic en el botón **Agregar filtro avanzado** debajo del menú desplegable **FILTRO DE DATOS**.
+2.  Haz clic en el botón **Agregar un filtro**.
+3.  Selecciona el campo por el que quieres filtrar en el menú desplegable **Seleccionar campo**
+4.  Elige un operador relevante que coincida con tu condición y con el campo seleccionado en el menú desplegable **Operador**![](/migration-assets/tabular-reports/9.png)    
+5.  Selecciona un valor o campo relevante con el que comparar el campo de informe elegido.
+6.  Haz clic en **+** **Agregar una condición** para crear tantas condiciones como quieras.
+    1.  El operador **Y** comprueba si se cumplen todas las condiciones indicadas.
+    2.  El operador **O** comprueba si se cumple al menos una condición.
+7.  Haz clic en **Agregar nuevo filtro** para agregar condiciones para otro campo. Repite los pasos que acabas de seguir para establecer los criterios de filtro del campo del informe anterior.
+8.  Haz clic en **Aplicar** para ver los resultados de los filtros que creaste.
+
+Los resultados deben coincidir con todos los filtros que creaste. Haz clic en el icono **Cerrar** para eliminar un filtro y en el símbolo **Menos** para eliminar una condición específica del filtro.
+
+### Ordenar
+
+Puedes establecer el orden predeterminado de tu informe. 
+
+1.  Selecciona un campo según el cual se deben ordenar los datos del informe
+2.  Selecciona **Orden ascendente** u **Orden** **descendente** según tus preferencias
+3.  Haz clic en **Guardar**
+
+![](/migration-assets/tabular-reports/7.png)
+
+## Aplicar estilos a los informes tabulares
+
+Para una personalización más avanzada, puedes aplicar los siguientes estilos a tus informes tabulares:  
+  
+**Estado normal**
+
+Encabezado
+
+Color de fondo
+
+Tamaño de fuente
+
+Color de fuente
+
+Peso de fuente
+
+Color del icono
+
+Fila
+
+Tamaño de fuente
+
+Color de fuente
+
+Peso de fuente
+
+Altura de línea
+
+Espaciado entre letras
+
+Color del borde
+
+Ancho del borde inferior
+
+Celda
+
+Relleno
+
+**Estado al pasar el cursor**
+
+**Encabezado**
+
+Color de fondo
+
+**Fila**
+
+Color de fondo
+
+![](/migration-assets/tabular-reports/10.png)
+
+## Acciones en los informes tabulares
+
+Una vez que hayas configurado y guardado tu informe, puedes realizar las siguientes acciones:
+
+-   **Buscar** \- Introduce cualquier palabra en el cuadro de búsqueda para encontrar elementos relevantes en el informe.
+-   **Filtrar** \- Agrega filtros temporales para resaltar diferentes elementos según los parámetros que elijas.
+-   Exportar
+-   **Mostrar u ocultar campos** \- Selecciona los campos que quieres mostrar en el diseño actual.
+-   Editar informe
+
+![](/migration-assets/tabular-reports/8.png)
+
+Si compartes un informe con alguien, esa persona puede realizar todas estas acciones excepto editarlo.

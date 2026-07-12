@@ -1,0 +1,97 @@
+---
+title: "Importar datos desde un archivo CSV"
+description: "BORRADOR (sin verificar) — migrado desde /t/q6yzjaj/importing-data-from-csv-file"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Básico ✓ Enterprise
+
+La función Importar CSV te permite importar datos desde un archivo CSV al dataform. Introducir manualmente grandes cantidades de datos en el dataform puede ser bastante tedioso. Importar datos es muy sencillo con la función de importación de CSV dentro de la tabla de datos. Puedes importar hasta 5.000 filas de datos a la vez mediante la función Importar CSV.
+
+> **Nota:**
+> 
+> El número máximo de filas que se pueden importar es 500 si la tabla de datos contiene campos como [desplegable](/t/35h4azp/dropdown-checkbox-checklist), [agregado](/t/83h4azk/aggregation-field) y [búsqueda](/t/g9h4azr/lookup-field).
+
+## Activar el botón de importación de CSV en la tabla de datos
+
+Puedes controlar la función de importación de CSV dentro de una tabla de datos siguiendo los pasos que se indican a continuación:
+
+1.  Asegúrate de haber creado un dataform en el creador de aplicaciones.
+2.  A continuación, accede a [Páginas](/t/60yzj91/app-pages-overview) y crea una página. Arrastra y suelta el componente **Formulario** en **Vistas**. En el panel lateral derecho, selecciona Dataform como tipo de flujo, el nombre de tu dataform como flujo y Todos los elementos en **Seleccionar vista**
+
+> **Nota:**
+> 
+> Actualmente, la importación de CSV solo está disponible en el componente **Todos los elementos** del dataform.
+
+![](/migration-assets/importing-data-from-csv-file/1.png)3\. En el panel **Configurar** de la derecha, en **Configuración**, encontrarás el botón de alternancia **Importar**.
+
+4\. Actívalo o desactívalo para mostrar u ocultar el botón **Importar CSV** como parte de la tabla de datos.
+
+## Importar datos desde un archivo CSV
+
+Una vez que la tabla de datos esté integrada en tu aplicación y el botón Importar CSV esté **ACTIVADO**, los usuarios de tu aplicación podrán comenzar a importar datos desde cualquier archivo CSV a la tabla de datos.
+
+> **Nota:**
+> 
+> El botón Importar CSV solo está disponible para quienes tienen [permiso](/t/35h9qkc/managing-data-form-roles) de administración en el dataform.
+
+Para comenzar a importar datos CSV, sigue estos pasos:
+
+1.  Haz clic en el botón **Importar CSV**.
+2.  Selecciona el archivo CSV que quieres importar.
+3.  Se verifica el archivo y se validan los datos.
+4.  Asocia las columnas del archivo con los campos de la tabla de datos.
+5.  Para gestionar las entradas duplicadas, puedes crear una copia nueva del elemento, omitirlo o reemplazar el elemento existente.
+6.  Haz clic en **Finalizar**.
+
+> **Nota:**
+> 
+> Los nombres de columnas similares se asocian automáticamente con los campos disponibles de la tabla de datos. Los nombres de las columnas del archivo CSV no deben contener caracteres especiales como $, ., saltos de línea, etc.
+
+El GIF a continuación muestra cómo puedes importar a un dataform un archivo CSV de un catálogo de productos que contiene detalles de pedidos de productos.
+
+![](/migration-assets/importing-data-from-csv-file/5.gif)
+
+> **Nota:**
+> 
+> Para que la carga se realice correctamente, asegúrate de lo siguiente antes de cargar tu CSV.
+> 
+> -   Tu archivo CSV debe guardarse con codificación UTF-8.
+>     
+> -   Verifica que tus datos (por ejemplo, fechas y números) coincidan con el formato requerido por los campos de tu aplicación. Después de cargar el archivo, deberás asignar los encabezados de tu CSV a los campos correspondientes de tu formulario.
+>     
+> -   Los encabezados de las columnas deben contener únicamente caracteres alfanuméricos en inglés (letras y números, como `CustomerName` u `OrderID`).
+>     
+> -   No se admiten encabezados con caracteres especiales ni scripts no latinos (por ejemplo, caracteres chinos). Si tu archivo tiene encabezados que no están en inglés, reemplázalos por equivalentes alfanuméricos en inglés antes de cargarlo.
+>     
+
+### Importar CSV en tablas dentro de un formulario
+
+Además de importar datos al formulario principal, puedes importar datos directamente a las tablas dentro del formulario.
+
+Una tabla anidada dentro de un formulario se denomina child table. Es útil para recopilar listas detalladas de información, como las partidas de una factura. Sin embargo, introducir manualmente grandes cantidades de datos en estas tablas puede ser un proceso tedioso. Puedes agilizarlo utilizando la función **Importar CSV** para cargar datos en bloque.
+
+Para activar la importación de CSV en las tablas de un dataform:
+
+1.  Haz clic en el icono **Configuración de la sección**.
+2.  Activa el botón de alternancia **Activar importación de tablas**.
+
+![](/migration-assets/importing-data-from-csv-file/3.gif)
+
+Ahora, en tiempo de ejecución, verás una opción **Importar CSV** para esta tabla.
+
+![](/migration-assets/importing-data-from-csv-file/2.png)
+
+> **Nota:** 
+> 
+> -   Puedes importar hasta 1.000 filas de datos por tabla en un formulario.
+> -   Una vez activada, la opción **Importar CSV** está disponible en todas las vistas de Dataform, incluidas las vistas **Tabla de datos**, **Hoja** y **Galería**.
+> -   Los permisos de los campos siempre tienen prioridad sobre otros permisos y, por lo tanto, pueden anular la configuración de Importar CSV. Si una child table está marcada como Solo lectura, el sistema impedirá que asignes campos y completes la importación, incluso si la función de importación está activada.
+> 
+> ![](/migration-assets/importing-data-from-csv-file/4.gif)
+> 
+> ![](/migration-assets/importing-data-from-csv-file/6.gif)

@@ -1,0 +1,52 @@
+---
+title: "Configurar estados"
+description: "BORRADOR (no verificado) — migrado desde /t/g9ykvzn/configuring-statuses"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Los estados indican el progreso de un elemento en un tablero. Para configurar o cambiar los estados de un tablero, haz clic en el botón **Administrar** > **Editar flujo de trabajo.** En la pestaña **Configuración del flujo de trabajo**, puedes ver todos los estados predeterminados en uso. Los estados se agrupan en categorías que corresponden a fases habituales de un flujo de trabajo.Hay cinco categorías predeterminadas para los estados. Puedes crear estados personalizados en cada una de estas categorías, excepto Reabierto.
+
+**Categoría**
+
+**Descripción**
+
+**No iniciado**
+
+Los estados de esta categoría se asignan a todos los elementos nuevos que aún no han progresado. 
+
+> **Nota:**Cuando creas un elemento nuevo, se asigna de forma predeterminada al primer estado de esta categoría.
+
+**En progreso**
+
+Los estados de esta categoría normalmente se asignan a todos los elementos que están en progreso.
+
+**Completado**
+
+Esta es una categoría opcional. Puedes usarla en casos de uso en los que necesites apartar temporalmente elementos resueltos que deben validarse antes del cierre.
+
+**Cerrado**
+
+Los estados de esta categoría se asignan a elementos que no necesitan ninguna otra acción.
+
+**Reabierto**
+
+Esta es una categoría opcional. Se utiliza para categorizar los elementos que se vuelven a abrir después del cierre. No puedes crear nuevos estados personalizados en esta categoría.
+
+### [Crear un estado personalizado](/t/60h9ql7/configuring-your-board-settings#creating-a-custom-status)
+
+Además de los estados predeterminados de una categoría, puedes crear estados personalizados según tu flujo de trabajo. Los estados personalizados permiten realizar un seguimiento detallado de los elementos.Para crear un nuevo estado personalizado, haz clic en el botón **+** **Agregar estado** debajo de una categoría e introduce un nombre para el estado. Puedes crear varios estados personalizados y reordenarlos según tu flujo de trabajo. También puedes personalizar aún más los estados asignándoles diferentes colores, formas y emojis. Después de realizar los cambios, haz clic en **Guardar**.  
+ ![](/migration-assets/configuring-statuses/1.gif)Para eliminar un estado personalizado que ya no necesites, haz clic en el botón **Eliminar** junto a un estado. Al eliminar un estado, también se eliminan todos los elementos que contiene. Sin embargo, después de hacer clic en **Eliminar**, aparecerá un cuadro de diálogo de confirmación que te preguntará si quieres eliminar todos los elementos asociados al estado. Si quieres conservar los elementos, tendrás que moverlos a otros estados antes de eliminar este estado.
+
+### [Categoría Completado](/t/60h9ql7/configuring-your-board-settings#done-category)
+
+Esta es una categoría opcional que puedes usar en tu flujo de trabajo cuando los elementos deben revisarse antes del cierre. Por ejemplo, en los centros de asistencia, los agentes primero resuelven los tickets y los mueven a Completado. Más tarde, los mueven a Cerrado cuando los clientes verifican los tickets resueltos. Si no necesitas esta categoría, siempre puedes desactivarla en la pestaña Opcional. Cuando desactivas esta categoría, podrás mover directamente a Cerrado los elementos que están en progreso. Sin embargo, si ya has utilizado un estado de esta categoría para algunos elementos, debes reasignarlos a un estado diferente. Las mismas condiciones se aplican a funciones como los filtros y las integraciones. Los estados de esta categoría dejarán de estar disponibles en las vistas o integraciones que hayas configurado.
+
+### [Categoría Reabierto](/t/60h9ql7/configuring-your-board-settings#reopened-category)
+
+Esta también es una categoría opcional que puedes usar cuando necesites volver a revisar elementos cerrados. Sin embargo, si ya has utilizado un estado de esta categoría para algunos elementos, debes reasignarlos a un estado diferente. Las mismas condiciones se aplican a funciones como las vistas y las integraciones. Los estados de esta categoría dejarán de estar disponibles en las vistas o integraciones que hayas configurado.

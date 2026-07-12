@@ -1,0 +1,99 @@
+---
+title: "Conector HTTP"
+description: "BORRADOR (no verificado) — migrado desde /t/p8h4aky/http-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## Conceptos básicos de los webhook
+
+Los webhook son mensajes automatizados que se envían entre aplicaciones como solicitudes HTTP. Son un tipo de notificación que contiene información detallada sobre nuevos eventos en una aplicación. También puedes activar webhook en función de eventos externos. Puedes reducir el número total de llamadas a la API mediante el uso de webhook, lo que garantiza que tus aplicaciones sean más eficientes y se actualicen con mayor rapidez.
+
+## Enviar datos con el conector HTTP
+
+Kissflow puede integrarse con aplicaciones de terceros mediante llamadas HTTP definidas por el usuario. Cuando se produce el desencadenador, el webhook enviará datos a una URL especificada en forma de solicitud HTTP. Para configurar un webhook, necesitas tener una URL a la que el webhook pueda enviar los datos. Por ejemplo, puedes configurar una integración para que cada vez que se complete una tarea en tu Kissflow Board, se añada una nueva entrada a tu aplicación Typeform mediante webhook.
+
+### Acciones del conector HTTP
+
+**Acciones**
+
+**Descripción**
+
+Realizar una llamada HTTP (POST)
+
+Esta acción activa una llamada HTTP POST con los parámetros especificados.
+
+Realizar una llamada HTTP (GET)
+
+Esta acción activa una llamada HTTP GET con la cadena de consulta especificada.
+
+Realizar una llamada HTTP (PUT)
+
+Esta acción activa una llamada HTTP PUT con los parámetros especificados.
+
+Realizar una llamada HTTP (personalizada)
+
+Esta acción activa una llamada HTTP de tipo personalizado con los parámetros especificados.
+
+Descargar un archivo
+
+Descarga un archivo desde la configuración HTTP.
+
+## Configurar el conector HTTP
+
+1.  En tu cuenta de Kissflow, haz clic en tu foto de perfil en la esquina superior derecha de la pantalla y haz clic en **Integrations**. Haz clic en el botón **New integration** para proporcionar un nombre y una descripción para tu [integración](/t/60h4akx/creating-an-integration).
+2.  Dentro del editor, configura un conector de desencadenador, como **Kissflow Board**, y selecciona un evento de desencadenador relevante.
+3.  Una vez configurado el desencadenador, busca el conector de acción **HTTP**.
+4.  El conector HTTP de Kissflow proporciona métodos HTTP GET, POST, PUT y personalizados con análisis automático de datos, lo que te permite enviar datos a tus webhook desde Kissflow. Elige una de las acciones según tus necesidades.![](/migration-assets/http-connector/1.png) 
+5.  Puedes autenticar tu conector HTTP mediante cuatro tipos de autenticación:
+    1.  **Sin autenticación**: no requiere autenticación.
+    2.  **Autenticación básica**: requiere que introduzcas un nombre de usuario y una contraseña.
+    3.  **Autenticación mediante clave de API**: requiere que proporciones una clave de API específica (y, opcionalmente, un nombre de clave o la ubicación del parámetro de encabezado o consulta) para autorizar la conexión. Para configurarla:
+        1.  Selecciona **Autenticación mediante clave de API** en el menú desplegable del tipo de autenticación HTTP.
+        2.  En **Credenciales**, haz clic en **Añadir campos** para asignar los detalles específicos de tu clave de API (como el valor de la clave y dónde debe enviarse, por ejemplo, en el encabezado de la solicitud o en los parámetros de consulta), según lo requiera la API a la que te estás conectando.
+    4.  **Autenticación OAuth**: requiere que proporciones detalles como:
+        -   **Token de acceso**: se utiliza para autorizar y autenticar el acceso a los recursos de la aplicación del proveedor de OAuth.
+        -   **URL de devolución de llamada**: la URL de Kissflow a la que se redirige después de una autorización correcta. Se rellenará automáticamente y el usuario no puede modificarla.
+        -   **URL de autorización**: el punto de conexión de autorización de la API del proveedor de OAuth.
+        -   **URL del token de acceso**: el punto de conexión del servidor de autorización. Se utiliza para intercambiar el código de autorización por el token de acceso.
+        -   **ID de cliente**: la cadena alfanumérica única que recibiste del proveedor de OAuth al registrar Kissflow como cliente.
+        -   **Secreto de cliente**: la cadena secreta que Kissflow obtuvo durante el proceso de registro del cliente.
+        -   **Ámbito**: el ámbito de OAuth que Kissflow podría necesitar solicitar para acceder a la aplicación de OAuth.
+        -   **Estado**: un valor opcional que se utiliza para evitar la falsificación de solicitudes entre sitios.![](/migration-assets/http-connector/3.png)
+6.  A continuación, ve a tu aplicación externa y copia la URL de hook única proporcionada por la aplicación.
+7.  Las solicitudes HTTP de un webhook incluyen cuatro elementos:
+
+![](/migration-assets/http-connector/2.png)
+
+-   **URL**: es la ruta exacta a la que quieres enviar los datos. Pega aquí la URL de hook copiada de tu aplicación externa.
+-   **Parámetros del cuerpo**: la información que quieres enviar a otra aplicación. Se envía como un par clave-valor.
+-   **Encabezados HTTP**: especifican cómo se da formato a la información del cuerpo. Se envían como un par clave-valor.
+-   **Parámetros de consulta**: son los pares clave-valor opcionales que aparecen en la URL después del signo de interrogación. Son extensiones de URL que se utilizan para ayudar a determinar contenido o acciones específicas según los datos que se entregan.
+-   Si has seleccionado una llamada HTTP personalizada, tendrás la opción de seleccionar el **método** HTTP y el **tipo de cuerpo**. El tipo de cuerpo puede ser **datos sin procesar** o **datos codificados en URL**.
+
+1.  Los valores nulos se comparten de forma predeterminada cuando los campos asignados se dejan vacíos. Activa la casilla de verificación para dejar de enviar valores nulos.
+2.  Cuando la aplicación de terceros recibe la solicitud HTTP del webhook, enviará una respuesta para informar a tu conector de acción si la solicitud se realizó correctamente o no.
+3. **Prueba** la acción para completar la configuración.
+
+### Enviar archivos mediante el conector HTTP
+
+También puedes enviar archivos o adjuntos mediante el conector HTTP. Solo funciona con la acción personalizada. Puedes hacerlo de la siguiente manera: 
+
+1.  Después de configurar el desencadenador, elige **Realizar una llamada HTTP (personalizada)** como acción e introduce la **URL** a la que el webhook debe enviar los datos. 
+2.  Elige **POST** como método y añade los campos correspondientes en los encabezados HTTP y los parámetros de consulta, si es necesario. 
+3.  Elige **Datos de formulario** como tipo de cuerpo. Añade el nombre de la clave y asigna el campo correspondiente como su valor. Puedes añadir varios pares clave-valor a los datos de formulario.
+
+![](/migration-assets/http-connector/4.png)
+
+Si una clave específica tiene varios adjuntos, añade corchetes al final para enviar todos los adjuntos a la URL correspondiente. Por ejemplo, Attachments\[\]
+
+#### Activar el conector de webhook
+
+Después de configurar el flujo de trabajo de tu integración, activa el botón de alternancia **ON** en la esquina superior derecha del editor para activar la integración.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

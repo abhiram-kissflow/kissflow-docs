@@ -1,0 +1,85 @@
+---
+title: "Conector de Zendesk"
+description: "BORRADOR (no verificado) — migrado desde /t/60y6mk4/zendesk-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+## ¿Qué es Zendesk?
+
+Zendesk es una solución de gestión de mesas de ayuda basada en la nube que ofrece herramientas personalizables para crear portales de atención al cliente, bases de conocimientos y comunidades en línea.
+
+## Acerca de la integración de Zendesk con Kissflow
+
+El conector de Zendesk de Kissflow Integration facilita la conexión y sincronización fluidas de los módulos de Zendesk con varias aplicaciones de terceros y de Kissflow. Para integrarse con Zendesk, debes tener una cuenta válida de Zendesk y ser cliente de pago de Kissflow.
+
+Imagina que gestionas las operaciones de una empresa manufacturera B2B. Cada vez que se recibe una solicitud POST mediante un webhook de Kissflow que contiene los detalles de un _Problema de calidad_, se crea automáticamente un ticket de Zendesk correspondiente con campos predefinidos, como la prioridad y el asunto. Esta configuración optimizada elimina la intervención manual, permite hacer un seguimiento de los problemas en tiempo real y agiliza su resolución mediante la transferencia fluida de datos desde el activador de webhook de Kissflow hasta una acción de Zendesk correspondiente. 
+
+Actualmente, el conector de Zendesk no admite ningún evento activador. 
+
+## Acciones del conector de Zendesk
+
+**Acción** 
+
+**Descripción**
+
+Crear un ticket
+
+Esta acción crea un nuevo ticket en tu cuenta de Zendesk.
+
+Actualizar un ticket
+
+Esta acción actualiza un ticket existente en tu cuenta de Zendesk.
+
+Crear un usuario
+
+Esta acción crea un nuevo usuario en tu cuenta de Zendesk.
+
+Añadir un comentario
+
+Esta acción añade un comentario a un ticket existente.
+
+ 
+
+Buscar un ticket
+
+ 
+
+Esta acción recupera un ticket de tu cuenta de Zendesk según los criterios de búsqueda. 
+
+ 
+
+Buscar un usuario
+
+ 
+
+Esta acción recupera los datos de un usuario de tu cuenta de Zendesk según los criterios de búsqueda. 
+
+## Configurar el conector de Zendesk
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Una vez dentro del editor, configura un paso de activador, por ejemplo, un evento activador de Kissflow Board, **Cuando se crea un elemento**.
+    
+3.  Después de configurar el paso de activador anterior, haz clic en el **botón Añadir** ( ![](/migration-assets/zendesk-connector/1.png) ) para configurar el paso de acción. Busca **Zendesk** y selecciona un evento de acción entre las opciones disponibles. 
+    
+    ![](/migration-assets/zendesk-connector/2.png)
+4.  Después de elegir el evento de acción, autentica el conector. Haz clic en **+Añadir una cuenta** e introduce el subdominio de tu cuenta de Zendesk. Por ejemplo, si el subdominio es **[test.zendesk.com](http://test.zendesk.com)**, introduce «**test**» en Subdominio. Se te redirigirá a Zendesk para confirmar tu cuenta y, después de verificarla correctamente, volverás a **Kissflow**. Kissflow utiliza el OAuth de Zendesk para la autenticación.
+    
+5.  Después de autenticarte con tu cuenta de Zendesk, añade los valores correspondientes a los campos del formulario de Zendesk. Puedes hacer clic en **Actualizar campos** para ver todos los campos actualizados del formulario de Zendesk seleccionado. También puedes asignar campos de Zendesk desde el paso de activador o campos de los pasos de acción anteriores. Estos valores se añadirán automáticamente a los campos del elemento después de ejecutar la acción.
+    
+    ![](/migration-assets/zendesk-connector/3.png)
+    
+6.  Después de configurar todo correctamente, comprueba si el paso de acción de Zendesk está configurado correctamente haciendo clic en el botón **Probar**. El conector extraerá los datos de los campos de la cuenta de Zendesk seleccionada y los mostrará como una salida JSON. Al igual que con el paso de activador, se te notificará de inmediato si se producen errores. Corrígelos antes de volver a probar el paso de acción.
+    
+
+#### Configurar un conector de Zendesk
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción del conector de Zendesk, activa el botón de alternancia para activar la ejecución de la integración. Cuando se produce un evento activador, se activa la acción de Zendesk.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

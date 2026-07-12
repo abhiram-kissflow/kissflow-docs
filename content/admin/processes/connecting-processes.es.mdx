@@ -1,0 +1,84 @@
+---
+title: "Conectar procesos"
+description: "Conecta dos procesos para que completar un paso en uno cree y vincule automáticamente elementos dependientes en otro, con asignación de campos y condiciones."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - processes
+  - workflow
+  - automation
+---
+
+# Conectar procesos
+
+<PlanBadge plans={["enterprise"]} />
+
+Conectar procesos permite que un paso de un proceso (el origen) cree y vincule automáticamente un elemento en otro proceso (el proceso conectado); por ejemplo, crear automáticamente un elemento de orden de compra cuando se aprueba una solicitud de compra. En este artículo se explica cómo agregar la conexión, asignar campos entre los dos procesos y ver los elementos conectados.
+
+<Callout type="info">
+  Para obtener una explicación de por qué y cuándo conectar procesos, consulta [Procesos conectados: descripción general](/docs/admin/processes/connected-processes-overview).
+</Callout>
+
+## Conectar un proceso
+
+1. Haz clic en **Administrar**, en la parte superior derecha de la página de inicio de tu proceso, y luego haz clic en **Editar proceso**.
+2. En la pestaña **Flujo de trabajo**, haz clic en el botón **Agregar** ( ![Icono de agregar paso](/migration-assets/connecting-processes/1.png) ) en el punto del flujo de trabajo donde quieras establecer la conexión y selecciona **Ejecutar un proceso**.
+
+   ![Agregar un paso Ejecutar un proceso a un flujo de trabajo](/migration-assets/connecting-processes/6.gif)
+   {/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+3. En el panel que se abre a la derecha:
+   - Introduce un nombre y, opcionalmente, una descripción para el paso.
+   - Selecciona el proceso al que quieres conectarte. Los elementos se inician en este proceso cada vez que el elemento de origen llega a este paso.
+   - **Asignar campos**: asigna campos entre los procesos conectados para que los valores de los campos del elemento de origen se hereden en los elementos dependientes. También puedes aplicar funciones o expresiones al asignar un campo.
+
+     ![Panel de asignación de campos para un paso de proceso conectado](/migration-assets/connecting-processes/3.png)
+     {/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+     Para asignar campos entre una tabla del proceso de origen y una tabla del proceso conectado, haz clic en **Agregar una tabla**, selecciona la tabla y agrega los campos que quieras asignar.
+
+     ![Asignar campos entre tablas de los procesos de origen y conectado](/migration-assets/connecting-processes/5.gif)
+     {/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+     <Callout type="info">
+       Estos tipos de campo no se pueden asignar: Adjunto, Adjunto inteligente, Imagen, Firma, Agregación, Búsqueda remota, Búsqueda, JSON, Objeto, Lista de objetos y Lista de cadenas.
+     </Callout>
+   - Establece condiciones (opcional) para crear elementos dependientes en el proceso conectado. Solo los elementos que coincidan con las condiciones entrarán en el paso conectado.
+4. Haz clic en **Publicar** para publicar los cambios.
+
+## Ver elementos conectados
+
+En la [sección Administración](/docs/admin/processes/admin-actions-in-a-process) del proceso, los administradores del proceso pueden encontrar los elementos de origen y dependientes de cualquier elemento en la pestaña **Elemento(s) conectado(s)**.
+
+## Iniciar varios elementos dependientes desde una tabla
+
+En lugar de crear un único elemento dependiente, puedes iniciar un elemento dependiente por cada fila de una tabla del elemento de origen; por ejemplo, un elemento dependiente por cada fila de una tabla de elementos de línea.
+
+1. En el panel de configuración del paso conectado, activa **Iniciar elementos desde las entradas de la tabla**.
+2. Selecciona la tabla cuyas filas deben iniciar cada una un elemento dependiente.
+
+   ![Activar Iniciar elementos desde las entradas de la tabla y seleccionar una tabla](/migration-assets/connecting-processes/2.png)
+   {/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+   <Callout type="info">
+     Solo puedes seleccionar una tabla para iniciar varios elementos dependientes.
+   </Callout>
+
+3. Opcionalmente, haz clic en **Agregar un filtro** para establecer condiciones; solo las filas que coincidan con el filtro iniciarán un elemento dependiente.
+
+   ![Agregar un filtro a una tabla utilizada para iniciar elementos dependientes](/migration-assets/connecting-processes/4.png)
+   {/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+Una vez activada esta opción, los campos de la tabla seleccionada también estarán disponibles para la asignación de campos.
+
+## Qué sigue
+
+- [Procesos conectados: descripción general](/docs/admin/processes/connected-processes-overview)
+- [Preguntas frecuentes sobre procesos conectados](/docs/admin/processes/faq-connected-processes)
+- [Flujos asociados a procesos](/docs/admin/processes/associated-flows-for-processes)
+- [Acciones de administración en un proceso](/docs/admin/processes/admin-actions-in-a-process)

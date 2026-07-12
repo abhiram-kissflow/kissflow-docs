@@ -1,0 +1,270 @@
+---
+title: "Importar y exportar datos de un dataset"
+description: "BORRADOR (no verificado) — migrado desde /t/x2h4alj/importing-and-exporting-data-from-a-dataset"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+La función de **importación de CSV** de tu dataset te ayudará a transferir datos desde un archivo CSV o una hoja de cálculo con la extensión **.csv** a tu dataset de Kissflow. Una vez importadas, las filas del CSV aparecerán como filas en tu dataset y cada columna contendrá metadatos sobre tus datos.
+
+## Organizar los datos en tu archivo CSV
+
+La función de importación de CSV te permite importar datos de forma masiva a Kissflow. Estas son algunas pautas que debes seguir al preparar un archivo CSV para importarlo:
+
+-   **Campos obligatorios**: Si existen campos obligatorios en el formulario de tu dataset, debes asignar **al menos una columna** de tu archivo CSV a los campos requeridos.
+-   **Datos**: En el archivo CSV, solo puedes asignar los siguientes tipos de campo a tu dataset: **Texto, Área de texto, Número, Calificación, Fecha, Fecha y hora, Moneda, Sí/no, Usuario, Lista desplegable de selección única, Lista desplegable de selección múltiple, Control deslizante y Casilla de verificación**.
+    -   No puedes importar datos desde un archivo CSV para los siguientes tipos de campo: Adjunto, lista de comprobación, firma e imagen.
+    -   Para los campos **Sí/No**, puedes usar cualquier valor binario: True/False, 1/0, Yes/No.
+-   **Delimitador**: Solo debes usar la coma (**,**) como delimitador dentro del archivo CSV.
+-   **Filas**: El archivo CSV puede tener hasta **50 000 filas**, sin incluir el encabezado.
+-   **Columnas**: Tu archivo CSV puede tener hasta 100 columnas. Los nombres de las columnas del CSV pueden ser alfanuméricos, pero solo deben contener los siguientes caracteres: espacio, guion (-) y guion bajo (\_).
+-   Codificación: El archivo CSV debe tener la extensión .csv y admitir la codificación UTF-8.
+
+> **Nota:** Para garantizar un rendimiento constante, los datasets tienen límites predeterminados de filas y columnas. Si necesitas aumentarlos, ponte en contacto con nuestro equipo de soporte e incluye información detallada sobre tu caso de uso. Todas las solicitudes para ampliar los límites se evalúan individualmente y las ampliaciones se aprueban a discreción de nuestro equipo.
+
+### Formatos de fecha y hora compatibles
+
+**Formato de datos**
+
+**Ejemplo**
+
+DD-MMM-YY
+
+02-DEC-20
+
+DD-MMM-YYYY
+
+02-DEC-2020
+
+DD/MM/YY
+
+02/12/20
+
+DD/MM/YYYY
+
+02/12/2020
+
+MM/DD/YY
+
+12/02/20
+
+MM/DD/YYYY
+
+12/01/2020
+
+DD.MM.YY
+
+02.12.20
+
+DD.MM.YYYY
+
+02.12.2020
+
+DD-MM-YYYY
+
+02-12-2020
+
+YYYY-MM-DD
+
+2020-12-02
+
+-   Los formatos de fecha y hora compatibles
+
+
+**Formato de fecha y hora**
+
+**Ejemplo**
+
+DD-MMM-YYTHH:mmZ
+
+01-Jan-20T12:00Z
+
+DD-MMM-YY hh:mm A
+
+01-Jan-20 05:00 AM
+
+DD-MMM-YY HH:mm
+
+01-Jan-20 05:00
+
+DD-MMM-YYYY HH:mm
+
+01-Jan-2020 05:00
+
+DD-MMM-YYYY hh:mm A
+
+01-Jan-2020 05:00 AM
+
+DD-MMM-YYYYTHH:mmZ
+
+01-Jan-2020T05:00Z
+
+DD/MM/YY HH:mm
+
+01/12/20 05:00
+
+DD/MM/YYTHH:mmZ
+
+01/12/20T12:00Z
+
+DD/MM/YY hh:mm A
+
+01/12/20 12:00 AM
+
+MM/DD/YY HH:mm
+
+12/01/20 12:00
+
+MM/DD/YYTHH:mm
+
+12/01/20T12:00
+
+MM/DD/YY hh:mm A
+
+12/01/20 12:00 AM
+
+MM/DD/YYYY HH:mm
+
+12/01/2020 12:00
+
+MM/DD/YYYYTHH:mmZ
+
+12/01/2020T12:00Z
+
+MM/DD/YYYY hh:mm A
+
+12/01/2020 12:00 AM
+
+DD.MM.YY HH:mm
+
+01.12.20 12:00
+
+DD.MM.YYTHH:mmZ
+
+01.12.20T12:00Z
+
+DD.MM.YY hh:mm A
+
+01.12.20 12:00 PM
+
+DD.MM.YYYY HH:mm
+
+01.12.2020 12:00
+
+DD.MM.YYYYTHH:mmZ
+
+01.12.2020T12:00+05:30
+
+DD.MM.YYYY hh:mm A
+
+01.12.2020 12:00 PM
+
+-   Formatos de marca de tiempo
+
+**Marca de tiempo**
+
+**Ejemplo**
+
+D - Fecha
+
+DD - 01, 24
+
+M - Mes
+
+MM - 01, 02, 12
+
+MMM - Jan, Feb
+
+Y - Año
+
+YY - 99, 00, 01
+
+YYYY - 1999, 2001
+
+T - Carácter constante (según ISO)
+
+T
+
+H - Formato de 24 horas
+
+HH - 05, 17
+
+h - Formato de 12 horas
+
+hh - 03, 05
+
+m - Minuto
+
+mm - 00, 15, 59
+
+A - Meridiano
+
+A - AM, PM
+
+Z - Zona horaria
+
+Z - Z, +05:30
+
+Una vez que hayas confirmado que tu archivo CSV cumple los requisitos anteriores, sigue estos pasos para importar los datos del CSV a tu dataset de Kissflow:
+
+1.  Inicia sesión en tu cuenta de Kissflow. Si aún no lo has hecho, crea un dataset nuevo.
+2.  En la sección superior derecha de la página, haz clic en **Importar CSV**, junto al botón Compartir.
+3.  Cuando se abra el selector de archivos, haz clic en **Elegir tus archivos**, busca tus documentos y selecciona el archivo que quieras con la extensión **.csv**.
+4.  Después de importar el archivo CSV, el sistema lo comprueba para detectar daños en el archivo y errores de delimitador. Si encuentras algún problema, corrígelo en el archivo CSV antes de volver a cargarlo.
+5.  Haz clic en **Siguiente** para continuar. A continuación, elige las columnas de tu archivo CSV que quieres que aparezcan en el dataset. Debes asignar las columnas de tu archivo CSV a los campos de tu dataset. Por ejemplo, puedes asignar las direcciones de correo electrónico de tu documento CSV al campo Correo electrónico de tu dataset.
+
+> **Nota:**
+> 
+> -   Los nombres de los encabezados del CSV y los campos de datos deben ser del mismo tipo de datos.
+> -   Actualmente, la herramienta de importación solo admite encabezados de columna alfanuméricos en los archivos CSV. Para evitar errores, asegúrate de que los encabezados de tu CSV estén en inglés y no contengan caracteres especiales. Una vez aceptado el archivo, podrás asignar estos encabezados alfanuméricos a tus campos específicos del sistema durante el paso de configuración de la importación.
+
+![](/migration-assets/importing-and-exporting-data-from-a-dataset/2.gif)
+
+Después de asignar los valores del dataset, podrás elegir cómo gestionar los datos de tu dataset:
+
+1.  Puedes añadir filas nuevas y actualizar las existentes, o añadir solo filas nuevas al importar los datos.
+2.  Puedes eliminar o conservar las filas del dataset que no estén en el archivo CSV.
+3.  Puedes omitir filas específicas o cancelar la importación en caso de errores.
+
+Después de seleccionar tus opciones, haz clic en **Siguiente**. Tus datos comenzarán a importarse.
+
+Puedes cerrar la ventana y continuar trabajando mientras esperas a que todos tus datos se importen a tu dataset. Cuando se complete la importación, recibirás una notificación por correo electrónico y notificaciones push.
+
+Hay 3 escenarios posibles.
+
+-   Todos los datos importados se cargaron correctamente en el dataset.
+    
+-   Algunos datos se importaron correctamente, pero algunas filas fallaron. Puedes descargar las filas fallidas, trabajar en ellas y volver a cargar el archivo.
+    
+-   La importación se canceló. Consulta los registros de errores para saber qué ocurrió.
+
+
+## Exportar datos de un dataset
+
+Para exportar datos de un dataset, sigue estos pasos:
+
+1.  Haz clic en el botón **Exportar**, en la parte superior derecha de la pantalla, junto al botón **Filtrar**.
+2.  Puedes exportar los datos en dos tipos de archivo: archivo **CSV** y archivo **TXT**.
+3.  Elige el archivo que prefieras y haz clic en **Exportar**.
+4.  Después de exportarlos, recibirás por correo electrónico un enlace al archivo exportado.
+
+> **Nota:**
+> 
+> Las exportaciones CSV están limitadas a 100 000 filas por archivo. Si tu dataset supera este límite, la exportación se dividirá en varios archivos CSV y se incluirá en una carpeta ZIP. Esto garantiza descargas más ágiles y una mejor compatibilidad con herramientas como Excel.
+
+![](/migration-assets/importing-and-exporting-data-from-a-dataset/1.gif)
+
+> **Nota:**
+> 
+> Al exportar datasets que incluyen campos de usuario, ahora recibirás una columna adicional con el ID de correo electrónico del usuario, junto con el ID de usuario y el nombre de usuario existentes.
+
+## **Preguntas frecuentes**
+
+**P) ¿Puedo usar la opción Importar CSV en el dataset cuando la búsqueda automática está activada en el campo de búsqueda de mi dataset?**  
+  
+R) Cuando la búsqueda automática está activada, no puedes usar la opción Importar CSV para una columna de búsqueda en el dataset. La búsqueda automática está diseñada para completar automáticamente la columna de búsqueda según las relaciones de datos existentes, lo que entra en conflicto con la importación manual de datos para esa columna.

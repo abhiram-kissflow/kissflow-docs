@@ -1,0 +1,72 @@
+---
+title: "Creación de acciones"
+description: "BORRADOR (sin verificar) — migrado desde /t/83ygdm9/creating-actions"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Al usar un conector de Kissflow, las acciones se utilizan para introducir o enviar datos nuevos al conector. Esto se hace mediante llamadas a la API que pasan datos desde campos de entrada personalizados creados por el usuario. Los pasos de acción pueden crear elementos nuevos o actualizar los existentes mediante una acción de creación. Además, las acciones de búsqueda se pueden utilizar para encontrar elementos existentes en el conector. Si la búsqueda no devuelve ningún resultado, se puede combinar con una acción de creación para añadir un elemento nuevo. Una vez completada una acción, devuelve campos de salida que detallan lo que se creó o encontró. Esto permite utilizar los datos en pasos posteriores para crear flujos de trabajo más detallados.
+
+## Creación de acciones
+
+Haz clic en el botón **Nueva acció**n dentro de la página **Acciones** para crear una acción nueva.
+
+-   **ID de acción**: un identificador único para esta acción.
+-   **Nombre**: esta acción debe tener un nombre en texto sin formato, con un verbo como **Añadir** o **Crear**, seguido del nombre del elemento que creará en tu aplicación correspondiente. El nombre de esta acción se mostrará dentro del conector de Kissflow y en las páginas de marketing de integraciones de Kissflow.
+-   **Descripción**: una frase que describa cómo tu acción ayuda a los usuarios a comprender sus beneficios. Se mostrará dentro del conector de Kissflow y en las páginas de marketing de integraciones de Kissflow.
+
+![](/migration-assets/creating-actions/1.png)
+
+## Diseñador de entradas en la acción 
+
+El conector de Kissflow debe recopilar datos relevantes para crear o encontrar elementos en tu aplicación mediante un formulario de entrada. Utiliza el [Diseñador de entradas](/t/h7ygdmg/input-designer) para crear este formulario para la acción correspondiente. Añade al menos un campo de entrada antes de pasar a la pestaña final de Configuración de API.
+
+![](/migration-assets/creating-actions/2.png)
+
+Antes de crear el formulario de entrada para tu acción, es importante identificar toda la información necesaria que requiere la aplicación para generar un elemento nuevo. Por ejemplo, si estás creando una acción para crear una tarea nueva en tu cuenta de Asana, debes incluir campos para la organización, el proyecto, la sección del proyecto, el nombre de la tarea, la descripción y la fecha de vencimiento. Tu acción puede tener campos obligatorios y opcionales, como los de etiquetas u otros datos adicionales.
+
+Para facilitar que los usuarios de tu aplicación creen o encuentren elementos, debes incluir campos de acción para cada dato necesario. Lo mejor es añadir estos campos en el mismo orden en que aparecen en tu aplicación para facilitar una integración fluida.
+
+## Configuración de API
+
+El último paso para crear una acción de conector es indicarle cómo transmitir datos a tu API.
+
+El conector de Kissflow utiliza una llamada POST como método predeterminado para crear acciones. Envía un solo elemento a tu endpoint de API y espera una respuesta. La respuesta debe contener un objeto con un solo elemento que se pueda evaluar y analizar en campos independientes para utilizarlos en pasos posteriores de la integración.
+
+El conector de Kissflow utiliza de forma predeterminada una llamada GET para las acciones de búsqueda y envía los datos del formulario de entrada al endpoint de API.
+
+Si tu llamada a la API requiere datos de entrada en la URL principal, puedes hacer referencia a la clave de cualquier campo de entrada mediante la siguiente sintaxis, reemplazando "key" por la clave real de tu campo: $&#123;inputData.key&#125;.
+
+Para la mayoría de las llamadas básicas a la API, la configuración predeterminada es suficiente. Sin embargo, si necesitas configuraciones adicionales, puedes hacer clic en Mostrar opciones para añadir parámetros de URL y encabezados HTTP, configurar tu acción para omitir parámetros vacíos o personalizar el cuerpo de la solicitud. También puedes cambiar al modo de código y escribir código JavaScript personalizado para tu acción.
+
+El formulario de configuración de API predeterminado es la mejor opción para la mayoría de las acciones. Si tu acción necesita llamadas personalizadas a la API, scripts para manipular los datos de los campos de entrada u otras funciones específicas, puedes añadir código JavaScript personalizado para tu solicitud de API.
+
+Para utilizar código personalizado, haz clic en el botón **Cambiar al modo de código**. Sin embargo, si vuelves al modo de formulario, la configuración de código no se transferirá al formulario.  
+ 
+
+```
+const options = {url: `https://app.asana.com/api/1.0/tags`,method: 'POST',headers: {'Accept': 'application/json','Authorization': `Bearer ${authData.access_token}`,'Content-Type': 'application/json' },  body: {}};var requestBody = {};requestBody.workspace = inputData.workspace;if (inputData.name) requestBody.name = inputData.name;if (inputData.notes) requestBody.notes = inputData.notes;if (inputData.followers) requestBody.followers = inputData.followers;if (inputData.color) requestBody.color = inputData.color;options.body = {  data: requestBody};return request(options).then(res => res.json()).then(res => {   let result = res.data;   return result;}).catch(err => {   let error = err.response_body;   if ([400, 500].includes(err.status_code)) {throw new KissflowException(error?.errors?.[0].message \|\| error);}    return err;})
+```
+
+![](/migration-assets/creating-actions/3.png)
+
+### Probar acción
+
+Después de añadir la llamada a la API, es importante probarla con datos adecuados. Si aún no te has autenticado con tu aplicación, hazlo ahora. Luego, completa cada campo de entrada de la sección **Configurar datos de prueba** con datos compatibles con tu aplicación. Para ver cómo funciona la acción en una integración, haz clic en **Probar autenticación** y consulta los resultados en la pestaña de respuesta.
+
+![](/migration-assets/creating-actions/4.png)
+
+Si se produce un error, asegúrate de verificar lo siguiente:
+
+**Autenticación**: ¿Has probado el proceso de autenticación después de conectar la cuenta de tu aplicación al conector? Solo puedes probar una integración una vez que esté conectada a una aplicación. 
+
+**Datos de prueba**: ¿Has comprobado que los datos de prueba incluyan la información esperada, como direcciones de correo electrónico completas en los campos de correo electrónico y fechas reales en los campos de fecha?
+
+**Claves de los campos de entrada**: ¿Has comprobado que las claves de tus campos de entrada coincidan con los requisitos de tu API en el Diseñador de entradas?
+
+**Personalización de la llamada a la API**: Si las opciones que necesitas no están disponibles, es posible que tengas que utilizar código personalizado para tu llamada a la API.

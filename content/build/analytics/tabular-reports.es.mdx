@@ -1,0 +1,91 @@
+---
+title: "Informes tabulares"
+description: "BORRADOR (sin verificar) — migrado desde /t/g9h9qzb/tabular-reports"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Los **informes tabulares** muestran información en columnas y filas, formando una cuadrícula similar a una hoja de cálculo. 
+
+## Crear un informe tabular
+
+1.  Haz clic en el botón **Crear informe** en la página Analytics
+    
+2.  Selecciona la **fuente de datos**. 
+    
+3.  Proporciona un nombre y selecciona **Tabla** como tipo de informe.
+    
+4.  Haz clic en **Crear**.  
+     
+    
+    ![](/migration-assets/tabular-reports/5.gif)
+    
+
+## Configuración de los ajustes
+
+Puedes configurar un informe para personalizar la forma en que se presentan los datos. Puedes determinar qué campos se muestran. Además, añadir filtros y ordenar los datos te permite reducir el conjunto de datos, lo que facilita su análisis y la obtención de insights.
+
+### Seleccionar campos
+
+En la selección de campos, puedes hacer lo siguiente:
+
+-   Haz clic en el botón (**+**) para añadir los campos necesarios como columnas desde la fuente de datos.
+-   Para seleccionar todos los campos, haz clic en **Seleccionar todo**.
+-   Para eliminar todos los campos, haz clic en **Borrar todo**.
+-   Para eliminar un campo, haz clic en el botón **Eliminar** resaltado en la imagen a continuación.![](/migration-assets/tabular-reports/1.png) 
+-   Haz clic en el icono de **arrastrar y soltar** para arrastrar y soltar columnas.![](/migration-assets/tabular-reports/2.png)
+
+### Filtrar datos
+
+Para limitar los datos específicos de tu informe, puedes añadir filtros.
+
+1.  Haz clic en el botón **Añadir filtro avanzado**.
+2.  Elige los campos que quieras utilizar según tu filtro e introduce las condiciones.
+3.  Haz clic en el botón **\+ Añadir un filtro** para añadir más filtros y condiciones al informe.
+4.  La nueva condición puede ser AND (se deben cumplir todas las condiciones) u OR (se debe cumplir cualquiera de las condiciones). Haz clic en (-) para eliminar una condición o en (x), junto a un filtro, para eliminarlo.
+5.  Puedes guardar los cambios haciendo clic en **Aplicar**.
+6.  Para restablecer todos los filtros añadidos, haz clic en **Borrar**.
+7.  Haz clic en el botón **Cerrar** (X) de la esquina superior para descartar los cambios.
+
+### Ordenar datos
+
+Puedes organizar los datos aplicando **Ordenar** a tu informe.
+
+1.  Elige el campo por el que quieras ordenar el informe.
+2.  Selecciona el tipo de orden como **Ascendente** o **Descendente**. Para ordenar el informe en el orden predeterminado, haz clic en la opción **Ninguno**. Una vez hecho esto, el informe se organizará según el orden de la fuente de datos original. Verás un conjunto de muestra de 10 filas en la vista previa del informe a la izquierda.
+3.  Haz clic en **Guardar** para aplicar los cambios que hayas realizado en la pestaña **Ajustes**.![](/migration-assets/tabular-reports/3.png)
+    
+
+Aplicar estilos a los informes tabulares
+
+Da formato al encabezado de las columnas, las filas y las celdas de tu informe según tus preferencias. Elige el **Estado normal** para la apariencia predeterminada y el **Estado al pasar el cursor** para previsualizar los estilos al pasar el cursor.
+
+1. **Sección del encabezado:** Personaliza el color de fondo, el tamaño de fuente, el color de fuente, el grosor de fuente y el color de los iconos del encabezado de las columnas. El menú desplegable del grosor de fuente ofrece opciones como Regular, Medium y Semi-bold.
+    
+2. **Ajustes de las filas:** Ajusta el tamaño de fuente, el color de fuente, el grosor de fuente, la altura de línea, el espaciado entre letras, el color del borde y el ancho del borde inferior de las filas de tu informe tabular.
+    
+3. **Personalización de las celdas:** En la sección de celdas, ajusta con precisión el relleno de las celdas de tu informe. Utiliza las opciones de relleno para controlar el relleno general y los tamaños de relleno individuales de cada lado de la celda.  
+     
+    
+    ![](/migration-assets/tabular-reports/4.png)
+    
+
+## Otras acciones
+
+Una vez que hayas configurado y guardado tu informe, puedes realizar las siguientes acciones en el tiempo de ejecución:
+
+-   **Ordenar:** Para ordenar los datos según los campos de tu informe. Para ordenar el informe en el orden predeterminado, haz clic en la opción **Ninguno**.
+-   **Filtrar**: Para añadir los filtros necesarios y destacar elementos según los parámetros que hayas elegido.
+-   **Mostrar/ocultar campos**: Para seleccionar qué campos quieres mostrar en el diseño actual.
+-   **Exportar**: Para exportar tu informe en formato CSV o JSON.
+
+## Caso de uso
+
+Supongamos que quieres crear una vista simplificada de la fuente de datos llamada Catálogo de compras. En este caso, puedes crear un informe tabular, ya que muestra los datos en filas y columnas en una tabla sencilla. Un ejemplo de este caso de uso es hacer un seguimiento de los datos de ventas. La información, como el número de productos vendidos, los ingresos totales por ventas y las ventas por categoría de producto, se puede utilizar para identificar tendencias en las ventas.
+
+Sin embargo, si quieres crear un informe específico que resuma y analice los datos de diversas formas, incluidos los valores, puedes elegir [Informe de tabla dinámica](/t/q6h9qz5/pivot-reports).

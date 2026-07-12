@@ -1,0 +1,237 @@
+---
+title: "Descripción general del campo de búsqueda remota"
+description: "BORRADOR (sin verificar) — migrado desde /t/p8yx2qt/remote-lookup-field-overview"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+El campo de búsqueda remota te permite obtener datos de sistemas externos y mostrarlos dentro de tu formulario. Al configurar URL, tipos de solicitud y encabezados, puedes crear campos que interactúen con API de terceros para recuperar datos en tiempo real.
+
+## Configuración del campo
+
+Para configurar un campo de búsqueda remota, arrastra el campo a tu formulario y configura sus propiedades.
+
+### Configuración de la conexión
+
+Configura los detalles del endpoint para establecer una conexión con el servicio externo.
+
+-   **URL**: Introduce la URL del endpoint para recibir o enviar datos.
+    
+    -   **Valores dinámicos**: Haz clic en el botón + dentro del campo de entrada para insertar dinámicamente valores de otros campos de tu formulario (por ejemplo, pasar un ID de proceso como parámetro de consulta).
+        
+-   **Tipo de solicitud**: Selecciona el método HTTP.
+    
+    -   **GET**: Para recuperar datos de la URL especificada.
+        
+    -   **POST**: Para enviar datos a la URL especificada.
+        
+-   **Encabezados**: Añade los encabezados de solicitud necesarios (pares clave-valor) para la autenticación o la definición del tipo de contenido.  
+      
+    **Por ejemplo**:  
+    Nombre: X-Access-Key  
+    Valor: \*\*\*\*\*\*\*\*\*  
+      
+    Nombre: X-Access-Secret  
+    Valor: \*\*\*\*\*\*\*\*\*
+    
+-   **Cuerpo**: Para las solicitudes POST, define los pares clave-valor adicionales que requiere el servicio externo.
+    
+
+![](/migration-assets/remote-lookup-field-overview/1.png)
+
+### Validar API 
+
+Una vez que hayas configurado la URL y los encabezados, debes validar la conexión para asegurarte de que funciona correctamente. Puedes hacerlo mediante una prueba de API.
+
+#### Pruebas de API
+
+Haz clic en el botón **Probar API** para enviar una solicitud real a tu endpoint.
+
+-   **Éxito**: Si la conexión funciona, verás un código de estado **Success** (200). Puedes hacer clic en **Ver respuesta** para inspeccionar los datos sin procesar devueltos por el sistema externo.
+    
+    ![](/migration-assets/remote-lookup-field-overview/5.gif)
+-   **Error**: Si la conexión falla, aparecerá un estado de error. Haz clic en **Ver detalles del error** para solucionar el problema. Realiza los cambios necesarios y haz clic en **Volver a probar la API**.
+    
+    ![](/migration-assets/remote-lookup-field-overview/2.png)
+
+#### Respuesta de ejemplo manual
+
+Si no puedes realizar una prueba en vivo debido a restricciones de seguridad o firewalls, o para evitar crear entradas ficticias en tu base de datos externa, puedes introducir manualmente los datos esperados como ejemplo. Esta respuesta de ejemplo se utiliza para establecer tu ruta JSON/XML.
+
+1.  Haz clic en el icono de **Más opciones** junto al botón Probar API.
+    
+2.  Selecciona **Proporcionar respuesta de ejemplo**.
+    
+3.  Elige el formato de datos: JSON, XML o Texto.
+    
+4.  Pega la respuesta de ejemplo en el editor y haz clic en **Guardar**.
+    
+
+![](/migration-assets/remote-lookup-field-overview/9.gif)
+
+#### Administración de cambios de configuración
+
+Si modificas la URL, los encabezados o el cuerpo después de una prueba exitosa, el estado cambiará a Solicitud modificada.
+
+-   **Volver a probar**: Debes hacer clic nuevamente en **Probar API** para validar que la nueva configuración funciona.
+    
+-   **Comparar**: Puedes hacer clic en **Ver respuesta de la última prueba** para consultar los datos recibidos durante la conexión exitosa anterior a los cambios.
+    
+
+![](/migration-assets/remote-lookup-field-overview/3.png)
+
+> **Nota:**
+> 
+> La respuesta de la prueba no se almacena permanentemente. Si haces clic en **Guardar y cerrar** en el formulario, la respuesta almacenada en caché se borrará. Debes volver a ejecutar la prueba para ver la respuesta cuando regreses a la configuración.
+
+### Buscador de rutas JSON
+
+Una vez validada correctamente la conexión de API, debes especificar exactamente qué dato extraer de la respuesta. Haz clic en **Establecer ruta al valor** para abrir el Buscador de rutas JSON.
+
+Esta herramienta ofrece tres métodos para ayudarte a encontrar la ruta correcta dentro de las respuestas JSON o XML:
+
+#### Buscador de rutas con IA
+
+Simplemente escribe una instrucción en lenguaje natural en la barra de búsqueda (por ejemplo, _Dame nombres de ciudades_ o _Obtén los correos electrónicos de los usuarios_). El sistema interpretará tu solicitud y generará automáticamente la ruta JSON correcta (por ejemplo, $\[\*\].address.city).
+
+![](/migration-assets/remote-lookup-field-overview/10.gif)
+
+#### Selección visual del árbol
+
+Explora el árbol de respuestas que se muestra en la ventana principal. Haz clic en cualquier nodo o valor específico para capturar automáticamente su ruta.
+
+![](/migration-assets/remote-lookup-field-overview/4.gif)
+
+#### Entrada manual
+
+Si estás familiarizado con la sintaxis JSON, puedes escribir manualmente la ruta en el campo de entrada mientras consultas el árbol de respuestas que aparece debajo.
+
+![](/migration-assets/remote-lookup-field-overview/7.gif)
+
+### Vista previa de los resultados 
+
+Una vez establecida la ruta mediante cualquiera de los métodos anteriores, el panel de resultados de la ruta JSON, situado a la derecha del buscador de rutas, mostrará inmediatamente los valores específicos extraídos de la respuesta, lo que te permitirá verificar su exactitud.
+
+#### Uso de valores dinámicos en las rutas
+
+Puedes hacer que tu ruta JSON sea dinámica insertando valores de otros campos de tu formulario.
+
+1.  Haz clic en el botón + dentro del campo de entrada de la ruta JSON.
+    
+2.  Selecciona el campo del formulario que quieres insertar en la ruta.
+    
+3.  Como la ruta ahora depende de una entrada variable, el sistema requiere un valor de prueba para verificar el resultado. Se te pedirá que introduzcas un valor de ejemplo para el campo dinámico.
+    
+4.  Haz clic en **Simular** para ver el resultado de la ruta JSON/XML con los datos de prueba.
+    
+
+![](/migration-assets/remote-lookup-field-overview/6.gif)
+
+#### Configuración del formato del resultado
+
+Una vez definida la ruta, elige cómo debe presentarse el resultado al usuario:
+
+-   **Rellenar automáticamente un valor**: Utiliza esta opción si la ruta devuelve un único valor específico. El campo se rellenará automáticamente con los datos obtenidos.
+    
+-   **Seleccionar un valor del menú desplegable**: Utiliza esta opción si la ruta devuelve una lista (matriz). El usuario verá un menú desplegable con las opciones.
+    
+
+![](/migration-assets/remote-lookup-field-overview/8.png)
+
+> **Nota:**
+> 
+> **Respuesta de texto**: Si la respuesta de API se identificó anteriormente como texto, estas opciones se omiten y la respuesta completa se utiliza en el resultado.
+
+## Restricciones y dependencias de edición
+
+Al editar un campo de búsqueda remota existente, el comportamiento cambia según si otros campos dependen de él.
+
+### Edición de un campo con dependencias
+
+Si otro campo depende de este campo de búsqueda remota, no puedes realizar cambios que podrían interrumpir esa conexión. Debes eliminar las dependencias antes de editar la configuración. 
+
+-   **Probar API bloqueado**: No puedes ejecutar **Probar API**. Al hacer clic, aparecerá una alerta de dependencia que te pedirá eliminar primero la dependencia.
+    
+-   **Ruta JSON bloqueada**: No puedes abrir el Buscador de rutas JSON.
+    
+-   **Configuración visible**: Todos los ajustes existentes (URL, encabezados, ruta) permanecen visibles, pero no se pueden modificar hasta que se elimine la dependencia.
+    
+
+#### Cómo eliminar las dependencias
+
+Para desbloquear el campo y editarlo, debes identificar y eliminar las dependencias en conflicto. Cuando intentes editar la configuración, aparecerá el mensaje de dependencia.
+
+1. **Ver conexiones**: En la ventana emergente, haz clic en **Mostrar dependencias**. Aparecerá una lista que muestra exactamente qué campos dependen de él y la naturaleza de la dependencia.
+    
+2. **Eliminar dependencias**: Elimina la referencia al campo de búsqueda remota actual del campo dependiente.
+    
+3. **Editar campo**: Una vez eliminadas todas las dependencias, vuelve a la configuración del campo de búsqueda remota. El campo se podrá editar por completo.
+    
+
+![](/migration-assets/remote-lookup-field-overview/11.gif)
+
+### Edición de un campo sin dependencias
+
+Si no existen dependencias, el campo funciona normalmente:
+
+-   **Probar API**: Puedes ejecutar la prueba. Cuando se complete correctamente, se cargará la vista previa de la respuesta y las secciones inferiores (Ruta JSON, Formato del resultado) se podrán editar.
+    
+-   **Ruta JSON/XML**: Este botón permanece desactivado hasta que ejecutes correctamente **Probar API** o proporciones una respuesta de ejemplo.
+    
+
+## Uso de datos de búsqueda remota en fórmulas
+
+Los datos obtenidos por el campo de búsqueda remota se pueden extraer y utilizar en otras partes de tu formulario mediante fórmulas.
+
+**Sintaxis**
+
+-   Para campos de **Número**: Remotelookup\_Fieldname.extractNumber(path, index)
+    
+-   Para campos de **Texto**: Remotelookup\_Fieldname.extractText(path, index)
+    
+
+**Parámetros**
+
+-   **Ruta**: La cadena de ruta JSON que apunta al valor específico de la respuesta.
+    
+-   **Índice**: La posición del elemento en la matriz.
+    
+
+### Ejemplo
+
+**Respuesta de API**:
+
+JSON
+
+```
+{
+"weather":
+[{"main": "Clear", "temp": 25},
+ {"main": "Rainy", "temp": 18}]
+}
+```
+
+**Fórmula**
+
+Weather\_Lookup.extractText("$\[\*\].main", 1). 
+
+**Parámetros**
+
+ **Ruta:**
+
+"$\[\*\].main"
+
+Recupera el valor del atributo **main** de cada objeto de la matriz **weather**.
+
+**Índice:** 1
+
+El índice es la posición dentro de una matriz. 
+
+**Resultado**
+
+"Clear"

@@ -1,0 +1,142 @@
+---
+title: "Configuración de un objeto de datos externo"
+description: "BORRADOR (sin verificar) — migrado desde /t/h7y3mhw/configuring-an-external-data-object"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+El objeto de datos externo hace referencia al artefacto de Kissflow que permite a los usuarios consumir datos de plataformas externas mediante conexiones de datos externas. 
+
+## Crear un objeto de datos externo
+
+Para consumir datos de plataformas externas, abre cualquier aplicación y sigue los pasos que se indican a continuación.
+
+1.  Haz clic en **Datos** (![](/migration-assets/configuring-an-external-data-object/1.png)) en la barra de navegación izquierda y selecciona **Objetos de datos externos**.
+    
+2. Se abrirá la ventana **Crear un objeto de datos externo**. Introduce el nombre y la descripción, y selecciona la conexión externa en el menú desplegable. 
+    
+3.  Haz clic en **Crear**.  
+     
+    
+    ![](/migration-assets/configuring-an-external-data-object/3.gif)
+
+Si no tienes ninguna conexión existente en la lista, puedes hacer clic en **\+ Nueva conexión** en la esquina superior derecha del menú desplegable. Se te dirigirá a la página **Crear conexión**.  
+ 
+
+![](/migration-assets/configuring-an-external-data-object/2.png)
+
+Sigue los pasos descritos en [Configurar una conexión de datos externa](/t/x2y3mhr/setting-up-an-external-data-connection) para establecer la conexión.
+
+### Configurar un objeto de datos externo
+
+Después de crear un objeto de datos externo, debes configurarlo para consumir los datos. Este proceso consta de tres pasos.
+
+#### Seleccionar tabla
+
+Esta sección mostrará una lista de todas las tablas disponibles en tu conexión de datos externa. Puedes seleccionar de esta lista la tabla específica que quieres consumir como objeto de datos externo.
+
+> **Nota:**  
+> Para seleccionar una tabla de la base de datos, se deben cumplir las siguientes condiciones:
+> 
+> 1.  La tabla debe tener una sola columna principal.
+>     
+> 2.  Las columnas obligatorias (de restricción) deben tener tipos de datos compatibles.
+>     
+
+![](/migration-assets/configuring-an-external-data-object/4.png)
+
+> **Nota:**
+> 
+> Si no encuentras la tabla que buscas, haz clic en **Actualizar** para recuperar la lista más reciente de tablas del sistema externo.
+
+#### Seleccionar columna
+
+Todas las columnas presentes en la tabla seleccionada se mostrarán en **Columnas disponibles**. Aquí puedes elegir las columnas específicas que quieres que incluya tu objeto de datos externo.
+
+![](/migration-assets/configuring-an-external-data-object/5.png)
+
+> **Nota:**
+> 
+> En Kissflow se admiten todas las columnas con tipos de datos básicos. Sin embargo, cualquier columna con un tipo de datos complejo, aunque aparezca en Columnas disponibles, se mostrará atenuada y no se admitirá para el consumo dentro de Kissflow; es decir, no puedes seleccionar estas columnas incompatibles. 
+
+Entre las columnas, la clave principal, que es un identificador único para cada registro de la tabla, y cualquier columna con la restricción Not null son obligatorias y se incluyen automáticamente en la lista de columnas seleccionadas.
+
+#### Configurar columnas
+
+Antes de configurar las columnas de la tabla, ten en cuenta los dos requisitos previos mencionados en el encabezado.
+
+-   **Modo de conexión**: En la lista desplegable, selecciona si quieres que el objeto de datos externo sea de solo lectura o de escritura. Si eliges solo lectura, no podrás realizar cambios en la tabla de la base de datos externa desde Kissflow. De forma predeterminada, se selecciona el modo de escritura.
+-   **Establecer la clave principal como**: Elige cómo gestionar las claves principales para las operaciones de escritura en bases de datos externas. Selecciona **Obligatoria** si se requiere un valor de clave principal para las nuevas entradas. Selecciona **No obligatoria** para permitir claves generadas automáticamente o en blanco según la configuración de la base de datos.
+-   **Zona horaria**: Puedes seleccionar una de las zonas horarias de la lista proporcionada. Para obtener más información, consulta Zonas horarias en objetos de datos externos. De forma predeterminada, la zona horaria se establece en UTC.![](/migration-assets/configuring-an-external-data-object/8.gif)
+
+#### Asignación de campos en Kissflow 
+
+Ahora, al configurar las columnas, se mostrará la lista de columnas seleccionadas con su nombre de columna, tipo de datos y restricción.
+
+Los campos equivalentes de Kissflow —Nombre del campo, ID del campo y tipo de datos de Kissflow— se completarán automáticamente. Según los tipos de datos de tu plataforma externa, aquí se asignarán las mismas alternativas o las más compatibles. Las asignaciones de tipos de datos son las siguientes:
+
+**MySQL**
+
+**MSSQL**
+
+**Kissflow**
+
+Char, varcha, long varchar, text, longtext, mediumtext, tinytext
+
+Text, ntext, char, nchar, varchar, nvarchar
+
+Text
+
+Integer, integer unsigned, int, int unsigned, bigint, bigint unsigned, mediumint, mediumint unsigned, smallint, smallint unsigned, tinyint unsigned, real, numeric, float, double, double precision, decimal
+
+Int, bigint, smallint, numeric, decimal, float, real
+
+Number
+
+Tinyint
+
+Tinyint
+
+Number, boolean
+
+Date
+
+Date
+
+Date
+
+Datetime
+
+Datetime, Datetime2
+
+Datetime
+
+Bool, bit
+
+Bit
+
+Boolean
+
+![](/migration-assets/configuring-an-external-data-object/6.png)
+
+Junto a los campos completados de Kissflow, tendrás dos opciones:
+
+1. **Obligatoria**: Puedes activar o desactivar la opción de obligatoriedad para cada campo. De forma predeterminada, la columna de la clave principal (no editable y considerada un elemento de referencia dentro de Kissflow) y cualquier columna Not null de la tabla son obligatorias, y no puedes deshacer esta configuración. 
+    
+2. **Eliminar**: Puedes eliminar las columnas seleccionadas anteriormente haciendo clic en el icono de eliminación. Sin embargo, esta opción está desactivada para los campos obligatorios del sistema: Primary y Not null.  
+      
+    
+    ![](/migration-assets/configuring-an-external-data-object/7.gif)
+
+Cuando termines de configurar los campos, haz clic en **Guardar**. 
+
+La configuración se establecerá correctamente y estará lista para su consumo en campos de búsqueda e integraciones.
+
+> **Nota:**
+> 
+> Aunque el objeto de datos externo esté configurado y operativo en el entorno de desarrollo, para garantizar su funcionalidad en producción, sigue los pasos descritos en [Gestionar conexiones de datos externas](/t/p8y3myz/managing-external-data-objects-in-production).

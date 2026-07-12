@@ -1,0 +1,61 @@
+---
+title: "Asignar pasos"
+description: "BORRADOR (no verificado) — migrado desde /t/q6h9qt3/assigning-steps"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Asignar un paso permite que el asignado se haga cargo de la acción. El flujo de trabajo se detiene si no realiza la acción según lo esperado. Puedes asignar pasos directamente a un usuario, grupo o campo de usuario específicos, o dejar que el sistema elija automáticamente al asignado en función de algunas condiciones u otras fuentes, según sea necesario. Veamos cómo hacer estas asignaciones una por una.
+
+## Asignar directamente un paso a un usuario, grupo o campo de usuario
+
+La asignación directa o estática te permite especificar exactamente a quién quieres asignar el elemento. El asignado puede ser un usuario, un grupo de usuarios o un valor derivado de un campo de usuario. Haz clic en **Añadir usuarios, grupos y campos de usuario** en **Asignado(s)** para añadir directamente un usuario, grupo o campo de usuario específico.![](/migration-assets/assigning-steps/7.gif)
+
+### Asignar un paso a uno o más usuarios
+
+Escribe el nombre del usuario, grupo o campo de usuario específico que quieres añadir y selecciónalo en esta lista desplegable. También puedes seleccionar varios usuarios como asignados para realizar este paso; sin embargo, debes asegurarte de cómo gestionarán esta aprobación en la sección [Preferencia de asignación](/t/p8h9qt8/step-assignment-preference).
+
+### Asignar un paso a un grupo
+
+Escribe el nombre del grupo en el campo **Asignado(s)**. Los grupos creados por el administrador de tu cuenta aparecen aquí, y puedes elegir el grupo que quieras de inmediato.
+
+### Asignar un paso a un campo de usuario
+
+La ventaja de usar un campo de usuario en lugar de un usuario como opción de asignación es la flexibilidad que ofrece para asignar elementos de forma dinámica. Por ejemplo, si asignas un paso a un campo de usuario llamado **Aprobador**, quien sea el aprobador cuando se ejecute el paso podrá hacerse cargo de él y completarlo. ![](/migration-assets/assigning-steps/1.png)También puedes usar un [campo del sistema](/t/83h4alt36h4g7/system-fields) como parte de esta asignación. Por ejemplo, puedes asignar un paso específico al usuario que creó el elemento seleccionando el campo del sistema **Creado por** en la lista desplegable.
+
+## Usar las demás opciones de asignación
+
+Haz clic en las opciones de **Más opciones de asignación** debajo de **Añadir usuarios, grupos y campos de usuario**, en la sección _Asignado(s)_, para elegir asignados de otras fuentes, como filtros de usuarios, conjuntos de datos, tablas de formulario o con la ayuda de una fórmula.![](/migration-assets/assigning-steps/2.png)
+
+### Asignar usuarios a un paso con filtros de usuarios
+
+Haz clic en **Filtros de usuarios**, en **Más opciones de asignación**, para seleccionar los asignados de la tabla de [Gestión de usuarios](/t/m1h4akn/user-management-overview) a nivel de cuenta.![](/migration-assets/assigning-steps/3.png)Elige un **Campo**, **Operador** y **Tipo**, y asigna un valor o un campo según el tipo. También puedes añadir condiciones para limitar los valores que se muestran.
+
+### Asignar usuarios a un paso desde un conjunto de datos
+
+Haz clic en **Conjunto de datos**, en **Más opciones de asignación**, para seleccionar los asignados de un conjunto de datos específico.![](/migration-assets/assigning-steps/4.png)
+
+### Asignar usuarios a un paso mediante una fórmula
+
+Puedes usar campos y funciones del sistema para escribir [una fórmula](/t/q6h4alh/introduction-to-expressions-and-formulas). Si quieres asignar el paso al responsable del iniciador, puedes usar una fórmula como esta: `__created_by.Manager_`![](/migration-assets/assigning-steps/5.png)
+
+### Asignar usuarios a un paso desde una tabla de formulario específica
+
+Haz clic en **Tabla**, en **Más opciones de asignación**, para seleccionar los asignados desde una columna de usuarios específica utilizada en una de las tablas de formularios de tu proceso.![](/migration-assets/assigning-steps/6.png)
+
+## Asignar pasos a usuarios externos
+
+En algunos casos, es posible que quieras que personas ajenas a tu proceso revisen un paso específico o realicen alguna acción en él. En esos casos, puedes asignar un paso del proceso a usuarios externos, aunque no sean miembros del proceso.
+
+Cuando se asigna un paso a un usuario externo:
+
+-   Recibirá una notificación por correo electrónico para acceder al elemento asignado.
+    
+-   Podrá ver únicamente los elementos y comentarios que se le hayan asignado.
+    
+-   También podrá ver los elementos en los que haya participado anteriormente.

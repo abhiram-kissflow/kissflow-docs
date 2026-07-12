@@ -1,0 +1,97 @@
+---
+title: "Crear integraciones usando AI"
+description: "DRAFT (unverified) — migrated from /t/h7yh4cy/creating-integrations-using-ai"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+## Crear nuevas integraciones usando AI
+
+Puedes crear nuevas integraciones fácilmente usando AI. AI genera la vista previa de integración necesaria según la descripción que proporciones como entrada. Si el resultado generado no es satisfactorio, puedes perfeccionar la descripción y volver a generar un resultado mejor.
+
+> **Nota:**
+> 
+> Esta función basada en AI solo está disponible para crear nuevas integraciones. No puedes editar integraciones existentes usando AI.
+
+## Guía paso a paso
+
+1.  Crea una nueva integración:
+    
+    -   Ve a la sección de integraciones dentro de tu cuenta de Kissflow y haz clic en **\+ Nueva integración**.
+        
+2.  Describe tu caso de uso:
+    
+    -   Proporciona una descripción detallada de tus necesidades de integración en el campo de entrada proporcionado.
+        
+    -   Por ejemplo: cuando se cree un elemento en Kissflow Process, envía un correo electrónico usando Gmail, luego envía un mensaje de Slack y actualiza Google Sheets.
+        
+3.  Genera una vista previa:
+    
+    -   Haz clic en el botón **Generar**. AI procesará tu descripción y creará una vista previa de tu integración.
+        
+        ![](/migration-assets/creating-integrations-using-ai/1.gif)
+        
+4.  Revisa y vuelve a generar:
+    
+    -   Revisa la vista previa generada.
+        
+    -   Si cumple tus requisitos, puedes continuar usándola.
+        
+    -   Si no es así, edita el prompt en el campo de entrada para proporcionar más detalles o corregir cualquier error y haz clic en **Volver a generar**. Haz clic en **Guardar y continuar** para continuar con la vista previa regenerada.
+        
+        ![](/migration-assets/creating-integrations-using-ai/2.png)
+
+Aquí tienes algunos ejemplos para ayudarte a empezar:
+
+-   Al enviar un formulario en Kissflow, actualiza una fila en Google Sheets y notifica al equipo en Slack.
+    
+-   Cuando se actualice el estado de un proyecto en Kissflow, envía un informe detallado mediante Gmail y actualiza la misma información en Jira.
+    
+
+### Solución de problemas
+
+Si la configuración generada no es clara, intenta proporcionar más detalles o dividir las acciones en pasos más sencillos. Si hay un error, asegúrate de que el prompt sea gramaticalmente correcto y no contenga errores tipográficos.
+
+## Asignación inteligente de campos
+
+La asignación de campos es un proceso que te ayuda a conectar campos de datos de un activador o una acción con otra acción. La asignación inteligente de campos, impulsada por AI (inteligencia artificial), sugiere la asignación de campos más adecuada para la acción de tu integración. Las sugerencias se generan analizando los nombres de los campos de tus activadores o acciones anteriores que son más relevantes para tu acción actual. Esto es especialmente útil cuando debes asignar muchos campos simultáneamente.
+
+> **Nota:**
+> 
+> La asignación inteligente de campos no está disponible actualmente para todos los conectores de Kissflow. Tampoco admite campos de texto enriquecido, archivos adjuntos ni objetos.
+
+Consideremos un escenario en el que tenemos dos procesos distintos: **Orden de compra** y **Solicitud de compra**. Una vez que el proceso de Solicitud de compra se complete correctamente, debemos crear un nuevo elemento en el proceso de Orden de compra. Para lograrlo, podemos utilizar el activador y la acción de los [conectores de Kissflow Process](/t/h7h4akh/process-connector). Esto nos permite crear o actualizar un elemento en un proceso nuevo cuando un elemento completa su flujo de trabajo en otro proceso. Podemos usar la asignación inteligente de campos para que la configuración de la integración sea aún más eficiente.
+
+1.  Elige **Kissflow Process** como conector y **Cuando un elemento complete su flujo de trabajo** como activador. Completa los pasos necesarios para añadir el activador a tu integración.
+    
+2.  Elige **Crear o enviar un nuevo elemento** como acción del conector de Kissflow Process. En la sección de configuración, haz clic en el botón **Asignar campos** para encontrar los campos más adecuados para esta acción.
+    
+3.  Verás una lista de nombres de campos con sus asignaciones sugeridas. Puedes usar las casillas de verificación para seleccionar o deseleccionar los campos con la asignación correcta. Puedes usar la casilla **Seleccionar todo** si todos los campos tienen la asignación correcta.
+    
+4.  Haz clic en **Listo** para guardar la asignación o en **Cancelar** si las sugerencias no se ajustan a tu caso de uso.
+    
+
+![](/migration-assets/creating-integrations-using-ai/3.gif)
+
+### Preguntas frecuentes
+
+**1\. ¿Por qué el campo sugerido a veces es irrelevante o no coincide el tipo de datos?**
+
+La asignación inteligente de campos devuelve la coincidencia más adecuada para un nombre de campo a partir del resultado anterior. Sin embargo, actualmente no puede identificar el tipo de datos del campo.
+
+**2\. ¿Por qué las sugerencias tardan tanto en cargarse?**
+
+El tiempo de respuesta depende de factores externos que recibimos de AI.
+
+**3\. ¿AI recibe datos o información confidenciales o sensibles para generar recomendaciones?**
+
+Solo se envían los nombres de los campos a AI y no se incluyen los valores de salida.
+
+**4\. ¿Puedo deshacer la asignación de campos sugerida?**
+
+No. Una vez que haces clic en **Listo**, la asignación queda establecida. Sin embargo, puedes deshacer asignaciones individuales o cancelar la sugerencia durante la asignación.
+
+**5\. ¿Por qué no veo sugerencias a partir de los valores de las tablas?**
+
+La asignación inteligente de campos solo está habilitada para campos con tipos de datos primitivos.

@@ -1,0 +1,71 @@
+---
+title: "Migrar un conector a su última versión"
+description: "DRAFT (unverified) — migrated from /t/y4ytk49/migrating-a-connector-to-its-latest-version"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Kissflow intenta actualizar automáticamente a la última versión de un conector mediante la migración cuando hay una nueva versión disponible. Sin embargo, en ciertos casos en los que la migración no es posible, la versión anterior del conector se marcará para su obsolescencia. Esta guía te ayudará a identificar cuándo hay una nueva versión del conector disponible y cómo actualizarla.
+
+## Identificar una nueva versión del conector
+
+Hay tres formas diferentes de identificar los conectores programados para su obsolescencia. 
+
+1.  Prestar atención a las notificaciones de obsolescencia en tu cuenta de Kissflow. 
+    
+2.  Buscar la pestaña **Obsoleto** en la página de inicio de integraciones. 
+    
+    ![](/migration-assets/migrating-a-connector-to-its-latest-version/1.png)
+3.  Consultar la [Comunidad de Kissflow](//community.kissflow.com/) para ver anuncios sobre nuevos lanzamientos de versiones de conectores.
+    
+
+## Frecuencia de las notificaciones sobre la obsolescencia de conectores
+
+Para asegurarnos de que tengas tiempo suficiente para actualizar tus integraciones, aplicaciones o portales, enviamos notificaciones sobre la obsolescencia de conectores en intervalos clave:
+
+1. **Aviso inicial de obsolescencia**: recibirás la primera notificación en cuanto un conector se programe para su obsolescencia. Esto te dará el máximo tiempo posible para planificar e implementar las actualizaciones necesarias.
+    
+2. **Recordatorio una semana antes**: se enviará una segunda notificación una semana antes de la fecha programada de obsolescencia. Esto sirve como recordatorio para finalizar cualquier actualización pendiente.
+    
+3. **Día de la obsolescencia**: el día de la obsolescencia se enviará una notificación final. Esta te avisará de que el conector ya no es compatible y de que las integraciones que lo utilicen podrían dejar de funcionar correctamente.
+    
+
+## Migrar a la última versión
+
+1.  En la página de inicio de integraciones, haz clic en la pestaña "**Obsoleto**".
+    
+2.  Accede al creador de integraciones haciendo clic en la integración que quieras migrar. 
+    
+3.  Consulta el texto de ayuda que explica el estado de obsolescencia de la acción.
+    
+4.  Haz clic en la acción y consulta la sección de configuración en el panel deslizante derecho.
+    
+5.  Desactiva la integración para volver a configurarla.
+    
+6.  Haz clic en la opción **Cambiar acción** y elige la nueva acción correspondiente.
+    
+7.  Al seleccionar la nueva acción, se abrirá una ventana modal con dos secciones: 
+    
+    1.  La sección izquierda es de solo lectura y contiene los detalles de conexión, configuración y salida de la versión obsoleta. 
+        
+    2.  La sección derecha contiene los detalles de la versión seleccionada. Allí debes empezar por crear una conexión, continuar con la configuración y las pruebas de la acción, y terminar con la salida.
+        
+8.  Si sales de la ventana modal mientras configuras la acción, tu configuración se guardará. Puedes volver a abrir la ventana modal haciendo clic en la tarjeta de la acción.
+    
+9.  Una vez probada la salida, pasarás de la ventana modal al panel derecho habitual.
+    
+10.  Ahora puedes **ACTIVAR** la integración con el conector actualizado. 
+     
+
+Los pasos anteriores son similares para cambiar un activador, pero no tendrás que volver a configurarlo ni verás la ventana de comparación utilizada para configurar los campos de una acción.
+
+Si sigues estos pasos, podrás identificar fácilmente cuándo hay una nueva versión de un conector disponible y actualizar tus integraciones para usar la última versión, lo que garantizará un rendimiento óptimo y evitará problemas con las versiones obsoletas.
+
+> **Nota:**
+> 
+> Si utilizas activadores de un conector obsoleto, desactivaremos la integración para evitar el uso del activador obsoleto. Ten en cuenta que los datos de cualquier activador generados después de que la integración se DESACTIVE no se almacenarán y no podrán recuperarse más adelante.

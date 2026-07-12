@@ -1,0 +1,71 @@
+---
+title: "Conector de Microsoft Outlook"
+description: "BORRADOR (sin verificar) — migrado desde /t/y4h4afd/microsoft-outlook-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es Microsoft Outlook?
+
+Microsoft Outlook es un sistema de software de gestión de información personal incluido en la suite de Microsoft Office. Outlook es principalmente un cliente de correo electrónico, pero también incluye funciones de calendario, gestión de tareas, gestión de contactos, toma de notas, registro de diarios y navegación web.
+
+## Acerca de la integración de Microsoft Outlook con Kissflow
+
+El conector de Microsoft Outlook de Kissflow Integration te permite conectar Microsoft Outlook al instante con otras aplicaciones de Kissflow y aplicaciones populares de terceros para automatizar tu trabajo. Para integrar Microsoft Outlook, debes tener una cuenta válida de Microsoft y ser cliente de pago de Kissflow. El conector de Microsoft Outlook te permite recibir datos de otros flujos o aplicaciones y ejecutar acciones específicas y acciones de búsqueda en Microsoft Outlook. Por ahora, el conector de Microsoft Outlook no admite eventos de activación.
+
+### Activadores en el conector de Microsoft Outlook
+
+**Evento de activación**
+
+**Descripción**
+
+Cuando se recibe un correo electrónico nuevo
+
+Se activa cuando se recibe un correo electrónico nuevo en tu cuenta de Microsoft Outlook.
+
+### Acciones en el conector de Microsoft Outlook
+
+**Evento de acción**
+
+**Descripción**
+
+Enviar un correo electrónico
+
+Esta acción envía un correo electrónico a través de tu cuenta de Microsoft Outlook.
+
+> **Nota:**   
+>   
+> Los archivos adjuntos están limitados a un tamaño máximo de 25 MB. 
+
+Crear un contacto
+
+Esta acción crea un contacto nuevo en tu cuenta de Microsoft Outlook.
+
+Crear un evento
+
+Esta acción crea un evento en el calendario de Microsoft Outlook que elijas.
+
+## Conector de Microsoft Outlook como paso de acción
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Escribe un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Una vez dentro del editor, configura un paso de activación, por ejemplo, un evento de activación de Kissflow Process, **Cuando un elemento completa su flujo de trabajo.** 
+3.  Después de configurar el paso de activación anterior, haz clic en el botón Agregar (![](/migration-assets/xero-connector/1.png)) para configurar el paso de acción. Busca Microsoft Outlook y selecciona el paso de acción que prefieras. Puedes elegir cualquiera de las acciones indicadas anteriormente.![](/migration-assets/microsoft-outlook-connector/1.png) 
+4.  Después de elegir el evento de acción, autentica el conector. Haz clic en **+Agregar una cuenta** e inicia sesión con tu cuenta de Microsoft. Kissflow utiliza OAuth de Microsoft para la autenticación.
+5.  Después de autenticar tu cuenta de Microsoft Outlook, agrega los valores correspondientes a los campos del formulario de Microsoft Outlook. Puedes hacer clic en Actualizar campos para ver todos los campos actualizados del formulario de Microsoft Outlook seleccionado. También puedes asignar campos de Microsoft Outlook desde el paso de activación de tu integración o campos de los pasos de acción anteriores. Estos valores se agregarán automáticamente a los campos del elemento una vez ejecutada la acción.
+6.  Después de realizar una configuración correcta, prueba si el paso de acción de Microsoft Outlook está configurado correctamente haciendo clic en el botón **P****rueba**. El conector extraerá los datos de los campos de tu cuenta de Microsoft Outlook seleccionada y los mostrará como una salida JSON
+
+### Configuración de un conector de Microsoft Outlook
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción de tu conector de Microsoft Outlook, activa el botón de alternancia para activar la ejecución de la integración de Microsoft Outlook.
+
+> **Nota:**  
+>   
+> Si la renovación de la suscripción de la integración falla, simplemente puedes desactivar y volver a activar la integración de Microsoft Outlook correspondiente para que el activador y las acciones sigan funcionando.  
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

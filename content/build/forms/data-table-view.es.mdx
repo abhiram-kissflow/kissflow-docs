@@ -1,0 +1,75 @@
+---
+title: "Vista de tabla de datos"
+description: "BORRADOR (sin verificar) — migrado desde /t/g9yzja2/data-table-view"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Básico ✓ Enterprise
+
+Una vista de tabla de datos muestra los datos de tu formulario como una tabla, con los campos del dataform como encabezados de columna y los datos recopilados por cada campo como filas.
+
+> **Consejo:**
+> 
+> Supón que estás desarrollando una aplicación para recopilar y gestionar datos de empleados. Puedes recopilar datos mediante un dataform y luego analizarlos usando una vista de tabla de datos. Después, puedes gestionar y usar esta vista dentro de una página.
+
+## Crear una vista de tabla de datos
+
+1.  Ve al dataform y haz clic en **Vistas**. 
+2.  Haz clic en **\+ Nueva vista.**
+3.  En la ventana emergente **Crear vista**, haz clic en **Tabla de datos** y en **Crear**.![](/migration-assets/data-table-view/1.png)   
+
+## Configurar la tabla de datos
+
+Puedes configurar la vista de tabla de datos usando las siguientes opciones:
+
+### Configuración general
+
+En **Nombre**, introduce el nombre que quieras para la tabla. De forma predeterminada, el nombre de la tabla será el nombre introducido al crear la tabla de datos.
+
+### Configuración de la tabla
+
+-   Haz clic en **Añadir** **columnas** para añadir columnas a la vista de tabla de datos. Puedes elegir las columnas de los campos del formulario o de los campos del sistema. Haz clic en **Seleccionar todo** para añadir todos los campos como columnas de la tabla.
+
+Por ejemplo, supongamos que tu dataform consta de campos como ID del empleado, Nombre, Puesto, Responsable, Grupo sanguíneo, CTC, Fecha de incorporación, Aficiones, etc. Si quieres ocultar CTC y Aficiones en la vista, puedes hacer clic en **Seleccionar t****odo** los campos y luego eliminar específicamente estos campos para mostrar solo los demás datos. Esto resulta útil cuando tienes grandes cantidades de datos que mostrar. Como alternativa, si quieres mostrar solo algunos campos, como ID del empleado, Nombre y Puesto, selecciona los campos específicos.
+
+-   En **Gestionar columnas**, puedes reorganizar las columnas arrastrándolas y soltándolas, y eliminarlas si no las necesitas.
+
+![](/migration-assets/data-table-view/7.gif)
+
+### Filtro de datos
+
+En **Filtro de datos**, mediante **F****iltros avanzados**, puedes determinar las condiciones para mostrar determinados datos. En un filtro avanzado, puedes seleccionar un campo, elegir un operador como Igual a, No igual a, Parte de, etc., indicar si se trata de un valor o un campo y compararlo con un valor o campo específico. También puedes añadir condiciones como **AND/OR** a los filtros.
+
+Aquí hemos filtrado los datos según los días de las citas que no son sábado ni domingo.
+
+![](/migration-assets/data-table-view/2.png)
+
+### Filtro rápido
+
+Un **Filtro rápido** te ayuda a ver los datos filtrados en una pestaña independiente. Los filtros añadidos se pueden reorganizar arrastrándolos y soltándolos. Los filtros rápidos también se pueden configurar dentro de una página en la que se use la vista de tabla de datos. Se pueden activar o desactivar dentro de la página.
+
+Por ejemplo, aquí hemos añadido un filtro rápido para filtrar a todos los empleados de un departamento específico y lo hemos visto en una página.
+
+![](/migration-assets/data-table-view/3.png)
+
+### Acción masiva
+
+Mediante **Acción masiva**, puedes añadir código JavaScript a tu tabla de datos. Puedes seleccionar todas las filas o seleccionar filas específicas para realizar estas acciones. Puedes añadir una o varias acciones masivas y reordenarlas según sea necesario.
+
+![](/migration-assets/data-table-view/4.png)
+
+Aquí hemos creado una acción masiva para mostrar la composición de los grupos sanguíneos de los empleados usando [informes](/t/x2yzj9g/reports).
+
+![](/migration-assets/data-table-view/6.gif)
+
+### Ordenar
+
+Puedes ordenar los datos seleccionando la columna a la que quieres aplicar el orden. Los datos se pueden ordenar de forma ascendente o descendente. También puedes ordenar haciendo clic en el botón de **flecha hacia abajo**(![](/migration-assets/data-table-view/5.svg)) de la columna específica.
+
+### Importar
+
+Mediante **Importar CSV**, puedes importar grandes cantidades de datos a tu tabla de datos. [Haz clic aquí](/t/q6yzjaj/importing-data-from-csv-file) para obtener más información sobre esta función.

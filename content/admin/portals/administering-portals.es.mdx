@@ -1,0 +1,139 @@
+---
+title: "Administrar portales"
+description: "BORRADOR (sin verificar) — migrado desde /t/p8h4atv/administering-portals"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Los administradores del portal tienen acceso a la pestaña Configuración del portal en la pantalla de administración del portal. Desde la página de tu portal, haz clic en **Administrar > Administración del portal** > **Configuración del portal**. Aquí puedes ver y personalizar el nombre de dominio del portal, cambiar el logotipo del portal, aplicar configuraciones de formato al portal y administrar la seguridad del portal.
+
+## Configuración del portal
+
+### Detalles del portal
+
+Al configurar el portal, debiste proporcionar un nombre para el portal y una URL de dominio única. Puedes cambiar el nombre y el dominio del portal en cualquier momento, pero si otro portal que forma parte de tu cuenta de Kissflow utiliza una URL de dominio determinada, no puedes usar esa URL. 
+
+Si cambias la dirección del dominio, Kissflow redirigirá automáticamente el dominio anterior al nuevo y todos los usuarios del portal perderán el acceso y recibirán una notificación. Sin embargo, tu dominio anterior quedará disponible para que otra organización lo registre. Si alguien más lo reclama, tu dominio anterior dejará de redirigir.
+
+![](/migration-assets/administering-portals/4.png)
+
+### Personalización del portal
+
+#### Logotipo del portal y marca para dispositivos móviles
+
+El logotipo de tu organización es el logotipo predeterminado del portal. Aparecerá en la pantalla de inicio de sesión y en determinados correos electrónicos del producto. También puedes cambiarlo por un logotipo personalizado. 
+
+Te recomendamos usar un logotipo rectangular de 240 X 36 píxeles. El archivo del logotipo debe tener un tamaño inferior a 250 KB y estar en formato JPG, PNG o SVG.  
+  
+Además, para el portal en teléfonos móviles, proporciona el nombre y el ícono de la aplicación en la sección de marca para dispositivos móviles. El nombre de la aplicación siempre será el nombre de tu portal. El ícono de la aplicación debe tener una resolución de 512\*512 píxeles, un tamaño inferior a 500 KB y estar en formato PNG.   
+ 
+
+![](/migration-assets/administering-portals/1.png)
+
+### Configuración de formato 
+
+Como administrador del portal, puedes controlar la configuración predeterminada del portal que afecta a la forma en que se formatean y muestran los datos.
+
+**Zona horaria del portal:** La zona horaria de tu portal se tiene en cuenta al configurar una acción programada en las integraciones o incluir una [fecha límite](/t/60h9qm980h4g2/configuring-deadline) en un flujo de trabajo. Todos los datos se ajustarán a la zona horaria de tu portal. Puedes seleccionar una zona horaria usando el mapa o directamente desde el menú desplegable. Puedes acercar y alejar el mapa para ver todas las zonas horarias disponibles en todo el mundo.
+
+**Idioma:** Elige el idioma principal de tu cuenta del portal. Kissflow está disponible actualmente en inglés, chino simplificado, italiano, coreano, japonés, español, portugués brasileño, francés, alemán, ruso, vietnamita, tailandés y árabe.
+
+**Formato de fecha:** Puedes elegir el formato de fecha que prefieras. Esto ajustará el formato de los campos de número, fecha y fecha y hora de tu portal. Estas son las opciones de formato de datos que ofrece Kissflow:
+
+-   Local (según la configuración de tu navegador)
+-   Estados Unidos (D/MM/AAAA)
+-   Europeo (MM/D/AAAA)
+-   ISO (AAAA-MM-DD)
+
+**Formato de número y moneda:** Las convenciones locales de números y monedas se detectan automáticamente a partir de la configuración del navegador. De forma predeterminada, los números siempre se formatean automáticamente según las convenciones locales del usuario.
+
+Las preferencias de cada usuario pueden anular la zona horaria, el formato de fecha y hora y el idioma del portal.
+
+Haz clic en **Guardar** cuando hayas terminado.  
+ 
+
+![](/migration-assets/administering-portals/2.png)
+
+### Seguridad del portal
+
+#### Administrar cómo inician sesión los usuarios
+
+Tu portal tiene asignada una URL única que se puede usar para iniciar sesión. En la página de inicio de sesión, los usuarios del portal pueden introducir la dirección de correo electrónico y la contraseña que configuraron durante el registro inicial o después de restablecer la contraseña. Kissflow también admite el inicio de sesión basado en OAuth para cuentas de Google y Microsoft.
+
+![](/migration-assets/administering-portals/5.png)
+
+#### Administrar cómo se registran los usuarios
+
+En lugar de invitar individualmente a nuevos usuarios, puedes hacer que el proceso de registro del portal sea accesible globalmente compartiendo la URL de registro personalizada. Puedes acceder a **Preferencias de registro** en Administración del portal y activar la opción **Permitir nuevos registros**. 
+
+El límite de caducidad de la URL se puede establecer entre 1 y 7 días en la sección **Establecer caducidad del enlace de invitación**. Cualquier persona que visite esta URL deberá añadir su nombre y dirección de correo electrónico. A continuación, los administradores del portal recibirán una notificación para aprobar el registro del usuario. Al elegir **No se necesita aprobación**, los usuarios del portal podrán registrarse directamente sin la aprobación del administrador del portal. Como administrador del portal, puedes seleccionar manualmente al usuario del portal en la pestaña Usuarios del portal y hacer clic en el botón **Activar** para proporcionarle una licencia activa.
+
+Si quieres desactivar los registros futuros mediante esta URL para nuevos usuarios, desactiva **Permitir nuevos registros** y haz clic en **Guardar**.
+
+![](/migration-assets/administering-portals/3.png)
+
+### Configuración de la organización
+
+Como administrador del portal, puedes definir tus organizaciones de confianza y darles acceso para ver y asignar tareas a todos los usuarios del portal de distintas organizaciones. Esta personalización te permite satisfacer las necesidades operativas de tu portal.  
+  
+Elige las organizaciones que consideres que deben tener visibilidad y autoridad para asignar tareas a todos los usuarios del portal. Puedes seleccionar y añadir varias organizaciones desde el menú desplegable y hacer clic en **Guardar**.  
+  
+Esto garantiza que las entidades adecuadas dentro de tu portal puedan administrar y coordinar tareas de manera eficaz.
+
+![](/migration-assets/administering-portals/7.png)
+
+Los nombres de las organizaciones que aparecen en el menú desplegable de la configuración de la organización proceden de la columna de nombre de la organización en **Administración del portal > Usuarios del portal**.
+
+#### Administrar el nombre de la organización en los usuarios del portal
+
+El nombre de la organización es un campo importante en los [usuarios del portal](/t/q6yq2wc), ya que ayuda a categorizar y administrar a los usuarios según sus respectivas organizaciones. Este campo se detecta automáticamente, pero se puede editar manualmente si es necesario.
+
+![](/migration-assets/administering-portals/6.gif)
+
+#### Activar el acceso de usuarios entre organizaciones
+
+Este interruptor permite que todos los usuarios del portal vean y asignen tareas a los demás usuarios del portal de distintas organizaciones.
+
+![](/migration-assets/administering-portals/8.gif)
+
+> **Nota:**  
+> Antes de activar esta opción, asegúrate de que el acceso de usuarios entre organizaciones cumpla con las políticas de tu organización y las normativas pertinentes. Si no quieres proporcionar este acceso universal, define cuidadosamente tus organizaciones de confianza en la sección de configuración de la organización.
+
+#### Preguntas frecuentes
+
+**1\. ¿Puedo añadir una nueva organización directamente en el menú desplegable?**
+
+No, los nombres de nuevas organizaciones deben añadirse actualizando el campo de nombre de la organización de un usuario en los usuarios del portal.  
+  
+**2\. ¿Qué ocurre si elimino el nombre de una organización de un usuario en los usuarios del portal?**
+
+El nombre de la organización se eliminará para ese usuario específico, pero si ese nombre de organización está asignado al menos a otro usuario, seguirá apareciendo en el menú desplegable de la configuración de la organización.  
+  
+Sin embargo, si ningún otro usuario tiene ese nombre de organización, dejará de aparecer en el menú desplegable de la configuración de la organización.  
+  
+**3\. ¿Cuál es la configuración predeterminada para la configuración organizativa y el acceso de usuarios entre organizaciones?**
+
+De forma predeterminada, la configuración organizativa no está configurada y el acceso de usuarios entre organizaciones está desactivado. Esto significa que los usuarios del portal solo pueden ver y asignar tareas a otros usuarios del portal dentro de su propia organización.
+
+**4\. ¿Qué ocurre si un usuario utiliza un dominio público?**
+
+Si un usuario utiliza un dominio público, el nombre de la organización estará vacío en los usuarios del portal. Sin embargo, el administrador puede editar este campo para añadir una organización para el usuario.
+
+## Usuarios del portal
+
+Los [administradores del portal](/t/35h4ak0/user-roles-permissions) pueden activar, desactivar y eliminar usuarios del portal aquí. También pueden reenviar correos electrónicos de verificación a usuarios no verificados y enviar correos electrónicos para restablecer la contraseña cuando sea necesario. La tabla de **[Usuarios del portal](/t/q6yq2wc/managing-portal-users)** permite modificar simultáneamente los detalles de varios usuarios del portal.
+
+## Registro de auditoría
+
+La sección **[Registro de auditoría](/t/y4ymrjg)** almacena el historial de todas las actividades relacionadas con el portal. Permite al administrador del portal buscar y encontrar los cambios realizados por los usuarios a nivel del portal y de los elementos en un portal.
+
+## Historial de implementación
+
+El historial de implementación permite realizar un seguimiento de los diferentes cambios de versión implementados mientras se crea la aplicación del portal. Si varios usuarios están creando la misma aplicación, se mostrarán los detalles de quién implementó una versión determinada y cuándo se implementó. Puedes obtener más información [aquí](/t/m1h9qkg/app-versioning#tracking-version-changes).
+
+![](/migration-assets/administering-portals/9.png)

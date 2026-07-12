@@ -1,0 +1,95 @@
+---
+title: "Descripción general de la copia de seguridad de datos"
+description: "La copia de seguridad de datos de Kissflow permite a los superadministradores exportar los datos de la cuenta —usuarios, registros transaccionales, registros de auditoría y archivos adjuntos— a un almacenamiento en la nube o mediante un enlace descargable, para garantizar el cumplimiento y la continuidad del negocio."
+contentType: overview
+persona: admin
+section: admin
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - data-backup
+  - admin
+  - compliance
+---
+
+# Descripción general de la copia de seguridad de datos
+
+<PlanBadge plans={["enterprise"]} />
+
+<Callout type="info">
+  La copia de seguridad de datos está disponible previa solicitud. Ponte en contacto con el soporte de Kissflow para habilitarla en tu cuenta.
+</Callout>
+
+La copia de seguridad de datos en Kissflow protege los datos de tu organización frente a pérdidas e incidentes de seguridad, y ayuda a cumplir los requisitos de auditoría y cumplimiento. Los [superadministradores](/docs/admin/users/user-roles-and-permissions) pueden exportar los datos de la cuenta a un destino de almacenamiento en la nube o a un enlace descargable, para mantenerlos accesibles para su lectura, archivado y análisis fuera de Kissflow.
+
+<iframe src="https://player.vimeo.com/video/904329490?h=49833021f2&app_id=122963" title="Introducing Data Backup in Kissflow" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+## Destinos de almacenamiento
+
+Cuando configuras una copia de seguridad, eliges dónde se guardan los archivos exportados:
+
+- [Google Drive](/docs/admin/data-backup/backing-up-data-to-google-drive)
+- [Amazon Simple Storage Service (S3)](/docs/admin/data-backup/backing-up-data-to-amazon-s3)
+- [Google Cloud Storage (GCS)](/docs/admin/data-backup/backing-up-data-to-google-cloud-service-gcs)
+- [Copia de seguridad de Kissflow](/docs/admin/data-backup/backing-up-data-to-kissflow) — no se necesita una cuenta externa; Kissflow te envía por correo electrónico un enlace descargable cuando finaliza la copia de seguridad.
+
+## Qué se incluye en la copia de seguridad
+
+Configurar una copia de seguridad implica autenticar el destino de almacenamiento elegido, establecer las preferencias de los archivos de copia de seguridad (como el tamaño de división del ZIP y el cifrado opcional) y seleccionar las categorías de datos que se incluirán:
+
+- **Datos de usuarios y grupos** — todos los registros de usuarios y grupos de la cuenta.
+- **Datos transaccionales** — detalles de los elementos de los flujos, como el estado, los comentarios y los responsables, en Processes, Boards, Datasets, Forms y Projects.
+- **Datos del registro de auditoría** — aproximadamente el último año de actividad de auditoría de la cuenta y de los flujos.
+- **Archivos adjuntos** — archivos adjuntos a elementos de procesos, tableros, conjuntos de datos y otras aplicaciones. Los archivos adjuntos se empaquetan junto con sus registros dentro de la carpeta de datos transaccionales, no como un resultado independiente; al anular la selección de esta categoría, se excluyen los archivos adjuntos de esa carpeta, pero se siguen incluyendo los registros.
+
+![Página de configuración de la copia de seguridad de datos con categorías de datos seleccionables](/migration-assets/data-backup-overview/2.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Qué recibirás
+
+Cuando finalice la copia de seguridad, recibirás tus datos como archivos JSON, empaquetados en archivos ZIP (divididos y cifrados opcionalmente según tu configuración). El paquete refleja las categorías que seleccionaste, con hasta tres elementos de nivel superior:
+
+- **Datos de usuarios y grupos**: un único archivo _UserAndGroup.json_ que contiene todos los usuarios y grupos.
+- **Datos transaccionales**: una carpeta organizada por tipo de módulo (Process, Board, Dataset, Form, Project) y, después, por aplicación. Cada carpeta de aplicación contiene sus registros, los usuarios que tenían acceso, los comentarios y los archivos adjuntos en sus formatos originales.
+- **Datos del registro de auditoría**: un conjunto de archivos numerados que cubren aproximadamente el último año de actividad de la cuenta y los flujos.
+
+<Callout type="info">
+  Tus datos se exportan para su lectura, archivado y análisis. No se trata de una base de datos restaurable, por lo que no se pueden volver a importar a Kissflow.
+</Callout>
+
+Para consultar un desglose completo de la estructura de carpetas, el formato de cada registro, cómo asociar de nuevo los archivos adjuntos y los usuarios con los registros, y cómo leer los valores de tus campos, consulta [Cómo interpretar el resultado de tu copia de seguridad](/docs/admin/data-backup/understanding-your-backup-output).
+
+## Quién puede realizar copias de seguridad y con qué frecuencia
+
+Solo los superadministradores pueden solicitar, configurar y gestionar copias de seguridad. Solo puedes realizar una copia de seguridad de tus datos una vez cada seis meses.
+
+<Callout type="warn">
+  Una vez que una copia de seguridad comienza a ejecutarse, no se puede interrumpir. Solo puedes cancelar una copia de seguridad mientras permanece en cola.
+</Callout>
+
+## Estado y notificaciones
+
+Kissflow ofrece supervisión en tiempo real de las copias de seguridad en curso. Una copia de seguridad pasa por los siguientes estados: en cola, en progreso, completada, fallida o cancelada.
+
+Los superadministradores reciben notificaciones por correo electrónico y en la aplicación a medida que avanza una copia de seguridad: cuando está en cola, cuando comienza a ejecutarse y cuando finaliza (correcta o incorrectamente). También puedes consultar un registro completo de las copias de seguridad anteriores en el [Historial de copias de seguridad](/docs/admin/data-backup/compliance-and-backup-history).
+
+## Solución de problemas comunes
+
+- **Los retrasos en las copias de seguridad** pueden producirse con grandes volúmenes de datos o una carga elevada del sistema.
+- **Los errores de autenticación del almacenamiento** se producen cuando tu cuenta de almacenamiento en la nube no está autenticada correctamente. Verifica las credenciales de acceso y los permisos de ese destino de almacenamiento.
+- **Los errores de ubicación y carga de archivos** se producen cuando no se encuentra la ubicación configurada para los archivos o no se pueden exportar los datos.
+
+<Callout type="info">
+  Si encuentras un problema que no se aborda aquí, ponte en contacto con el equipo de soporte.
+</Callout>
+
+## Qué sigue
+
+- [Copia de seguridad de datos en Google Drive](/docs/admin/data-backup/backing-up-data-to-google-drive)
+- [Copia de seguridad de datos en Amazon S3](/docs/admin/data-backup/backing-up-data-to-amazon-s3)
+- [Copia de seguridad de datos en Google Cloud Storage](/docs/admin/data-backup/backing-up-data-to-google-cloud-service-gcs)
+- [Copia de seguridad de datos en Kissflow](/docs/admin/data-backup/backing-up-data-to-kissflow)
+- [Cumplimiento e historial de copias de seguridad](/docs/admin/data-backup/compliance-and-backup-history)
+- [Cómo interpretar el resultado de tu copia de seguridad](/docs/admin/data-backup/understanding-your-backup-output)

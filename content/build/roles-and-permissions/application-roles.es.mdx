@@ -1,0 +1,105 @@
+---
+title: "Roles de la aplicación"
+description: "BORRADOR (no verificado) — migrado desde /t/h7yzj46/application-roles"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+## [Creación de roles funcionales para acceder a una aplicación](/t/83h9q19/application-roles#creating-functional-roles-for-accessing-an-application)
+
+Las personas o los grupos de usuarios a nivel de la aplicación, ya sean internos (dentro de la misma aplicación) o externos (aplicaciones de portal), que representan unidades de negocio, departamentos o divisiones que interactuarán con la aplicación activa se conocen como roles. A cada rol se le pueden asignar [permisos](/t/83yzj9j/role-permissions) de acceso a procesos, tableros y dataform que se aplican a todos sus usuarios.
+
+## [Añadir un rol a una aplicación](/t/83h9q19/application-roles#adding-a-role-to-an-application)
+
+Dentro del creador de aplicaciones, haz clic en la opción **Roles** de la barra de navegación izquierda. Puedes crear un rol interno o vincular un rol desde una aplicación externa.  
+En la página **Roles**, encontrarás los roles internos y vinculados a la izquierda, y los flujos de trabajo de tu aplicación a la derecha. Desde aquí, puedes compartir flujos de trabajo con los roles y revisar los permisos que se han concedido.  
+Puedes gestionar los permisos de los dataform y sus vistas e informes correspondientes, los tableros y sus vistas e informes correspondientes, los procesos y sus informes, los informes de Analytics, las tablas de decisión y los objetos de datos externos.
+
+![](/migration-assets/application-roles/1.gif)
+
+### Crear un rol interno
+
+En una aplicación nueva, tendrás dos roles internos de forma predeterminada: **Admin** y **User**. Sin embargo, puedes crear cualquier cantidad de roles nuevos según tus necesidades.
+
+1.  Haz clic en **\+ Nuevo rol**.
+    
+2.  Proporciona un nombre y una descripción para el rol. Configura la página de inicio y la barra de navegación que verán los usuarios con estos roles cuando se publique la aplicación.
+    
+    ![](/migration-assets/application-roles/9.gif)
+    
+       
+    La página de inicio y la navegación siempre están configuradas de forma predeterminada. Puedes cambiarlas por una página o una navegación que hayas creado. Para hacerlo, haz clic en el ícono **Editar** junto al nombre del rol.
+    
+    ![](/migration-assets/application-roles/2.gif)
+3.  Haz clic en **Crear** para guardar el rol. Para añadir usuarios y grupos a los roles, ve a **Gestionar > Roles** y haz clic en **Gestionar miembros** para añadir miembros al rol que quieras.
+    
+    ![](/migration-assets/application-roles/3.gif)
+
+## Vincular un rol desde una aplicación externa
+
+Puedes vincular un rol de otra aplicación de tu cuenta de Kissflow a la aplicación actual. Esto te permite asignar tareas específicas del flujo de trabajo a los usuarios de ese rol sin concederles acceso completo a los datos de tu aplicación.
+
+Por ejemplo, imagina que una aplicación gestionada por ejecutivos de la alta dirección de tu organización contiene un flujo de trabajo que necesita información de un gerente de Ingeniería.
+
+-   **El problema:** No puedes añadir al gerente a la aplicación de la alta dirección, ya que contiene datos confidenciales.
+    
+-   **La solución:** Sabes que el gerente tiene el rol de «Manager» en la «Engineering App». Puedes vincular ese rol de «Manager» de la Engineering App directamente a la tarea específica de tu flujo de trabajo de la aplicación de la alta dirección.
+    
+
+De esta forma, al gerente de Ingeniería se le asigna únicamente el dataform que necesita completar, mientras el resto de la aplicación de la alta dirección permanece protegido.
+
+1.  Haz clic en **\+ Nuevo rol > Rol vinculado**
+    
+2.  Selecciona la aplicación externa y los roles en los menús desplegables.
+    
+3.  Vincula los roles.  
+    Ahora puedes ver los roles en la pestaña **Vinculados** del panel izquierdo.
+    
+    ![](/migration-assets/application-roles/7.gif)
+
+## [Editar roles y permisos](/t/83h9q19/application-roles#editing-roles-and-permissions)
+
+Puedes gestionar los permisos tanto de los roles internos como de los vinculados desde esta pestaña. A la derecha, encontrarás todos los flujos de trabajo de tu aplicación y sus child flows correspondientes, como vistas e informes. Mediante botones de opción, puedes compartir los flujos de trabajo principales, como dataform, tableros y procesos, así como sus vistas e informes, directamente desde esta página.
+
+### Roles internos
+
+1.  Los nuevos roles que crees y los existentes se mostrarán aquí a la izquierda. Haz clic en un rol de la izquierda para seleccionarlo y podrás ver a la derecha los permisos asignados al rol seleccionado.
+    
+2.  Haz clic en los botones de opción para gestionar los permisos para trabajar con procesos, tableros, conjuntos de datos y listas.
+    
+3.  Cuando hagas clic en un permiso, se guardará automáticamente y el flujo de trabajo se compartirá de inmediato con el rol seleccionado.
+    
+4.  Si anteriormente compartiste un flujo de trabajo mediante su botón específico para compartir, esos permisos se reflejarán aquí. Cualquier cambio que hagas aquí anulará el permiso asignado anteriormente. Por ejemplo, si has concedido el permiso **Solo lectura** al rol **User** mediante el ícono para compartir del dataform, puedes cambiarlo desde la pestaña **Roles**, lo que anulará el permiso **Solo lectura** concedido anteriormente.
+    
+    ![](/migration-assets/application-roles/8.gif)
+
+> **Nota:** Los permisos se heredan cuando se comparte un flujo de trabajo (dataform, tablero o proceso) con un rol. [Obtén más información](/t/83yzj9j) sobre cómo funciona la herencia.
+
+### Roles de aplicaciones externas
+
+No puedes modificar directamente el rol de una aplicación externa desde la aplicación de origen. En su lugar, debes editar los roles en la página de roles internos de la aplicación externa.
+
+Para ver y conceder permisos, selecciona un rol vinculado en el panel izquierdo y un flujo de trabajo a la derecha. Aquí se mostrarán los permisos concedidos para todos los datos compartidos entre los distintos módulos de datos de la aplicación.
+
+![](/migration-assets/application-roles/4.png)
+
+####  Limitaciones al compartir flujos de trabajo con roles vinculados
+
+A continuación se indican las limitaciones para compartir flujos de trabajo con roles vinculados desde aplicaciones externas:
+
+Dataform: no se puede conceder ningún tipo de permiso para acceder a un dataform. Sin embargo, las vistas de dataform (todas excepto la vista de hoja) y los informes se pueden compartir con roles vinculados.
+
+Tableros y procesos: se pueden compartir con el permiso **Iniciar**, pero no se permite conceder el permiso **Gestionar** para elementos de tableros y procesos.
+
+Los objetos de datos externos y las tablas de decisión no se pueden compartir con roles vinculados.
+
+## [Eliminar roles](/t/83h9q19/application-roles#deleting-roles)
+
+Puedes usar la barra de búsqueda para encontrar un rol específico si tienes varios roles en tu aplicación. 
+
+Para los roles internos, puedes hacer clic en el botón **Eliminar** (![](/migration-assets/application-roles/5.png)), mientras que para las aplicaciones externas puedes usar el botón **Desvincular** (![](/migration-assets/application-roles/6.png)).

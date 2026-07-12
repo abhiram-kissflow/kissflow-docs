@@ -1,0 +1,89 @@
+---
+title: "Conector de HubSpot"
+description: "BORRADOR (sin verificar) — migrado desde /t/p8h4afs/hubspot-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es HubSpot?
+
+La herramienta Marketing Hub Professional de HubSpot ofrece una plataforma de automatización, orquestación y generación de informes omnicanal para equipos modernos. Puedes crear campañas altamente personalizadas y automatizarlas a gran escala en los canales que son importantes para tus clientes.
+
+## Acerca de la integración de HubSpot con Kissflow
+
+El conector de HubSpot de Integración de Kissflow te permite conectar al instante la herramienta Marketing Hub Pro de HubSpot con las apps de Kissflow y otras aplicaciones populares de terceros. Te permite compartir datos de forma segura desde HubSpot para crear flujos de trabajo potentes. Para integrarte con HubSpot Marketing Hub, debes tener una cuenta válida de HubSpot Marketing Hub Pro y ser cliente de pago de Kissflow. Puedes usar el conector de HubSpot para recibir datos de otros flujos o apps con el fin de realizar acciones específicas de HubSpot y acciones de búsqueda. Por el momento, el conector de HubSpot no admite eventos de activación.
+
+## Acciones compatibles con el conector de HubSpot
+
+**Eventos de acción**
+
+**Descripción**
+
+Crear un contacto
+
+Esta acción crea un contacto en HubSpot.
+
+Crear un negocio
+
+Esta acción crea un negocio en HubSpot.
+
+Crear un producto
+
+Esta acción crea un producto en HubSpot.
+
+Crear una empresa
+
+Esta acción crea una nueva empresa en HubSpot.
+
+Crear un ticket
+
+Esta acción crea un ticket en HubSpot.
+
+Actualizar un negocio
+
+Esta acción actualiza un negocio existente en HubSpot.
+
+Actualizar un ticket
+
+Esta acción actualiza un ticket existente en HubSpot.
+
+Actualizar un contacto
+
+Esta acción actualiza el contacto seleccionado en HubSpot.
+
+Buscar un contacto
+
+Esta acción de búsqueda encuentra un contacto mediante una búsqueda en HubSpot.
+
+Buscar un negocio
+
+Esta acción de búsqueda encuentra un negocio mediante una búsqueda en HubSpot.
+
+Buscar un ticket
+
+Esta acción de búsqueda encuentra un ticket mediante una búsqueda en HubSpot.
+
+Buscar un producto
+
+Esta acción de búsqueda encuentra un producto mediante una búsqueda en HubSpot.
+
+## Configurar el conector de HubSpot
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**.
+    
+2.  Una vez dentro del editor, configura un paso de activación, por ejemplo, un evento de activación de Kissflow Process, **Cuando un elemento completa un flujo de trabajo.**
+3.  Después de configurar el paso de activación anterior, haz clic en el botón Agregar (![](/migration-assets/hubspot-connector/2.png) ) para configurar el paso de acción. Busca **HubSpot** y selecciona un evento de acción entre las opciones disponibles (como se indica en la tabla anterior).  ![](/migration-assets/hubspot-connector/1.png)
+4.  Después de elegir el evento de acción, autentica el conector. Haz clic en **+Agregar una cuenta** e inicia sesión con tu cuenta de HubSpot. Kissflow utiliza OAuth de HubSpot para la autenticación.
+5.  Después de autenticarte con tu cuenta de HubSpot, añade los valores correspondientes en los campos del formulario de HubSpot. Puedes hacer clic en **Actualizar campos** para ver todos los campos actualizados del formulario de HubSpot seleccionado. También puedes asignar campos de HubSpot desde tu paso de activación o campos de tus pasos de acción anteriores. Estos valores se añadirán automáticamente a los campos del elemento después de ejecutar la acción.
+6.  Después de una configuración correcta, prueba si el paso de acción de HubSpot está configurado correctamente haciendo clic en el botón **P****robar**. El conector extraerá los datos de los campos de tu cuenta de HubSpot seleccionada y los mostrará como una salida JSON. Al igual que con el paso de activación, los errores se te notificarán de inmediato. Corrígelos antes de volver a probar el paso de acción.
+
+### Configurar un conector de HubSpot
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción del conector de HubSpot, activa el botón de alternancia para activar la ejecución de la integración. Cuando ocurre un evento de activación, se activa la acción de HubSpot.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

@@ -1,0 +1,72 @@
+---
+title: "Diseñador de entradas"
+description: "BORRADOR (sin verificar) — migrado desde /t/h7ygdmg/input-designer"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Para crear un conector de Kissflow:
+
+1.  Indica a tu conector cómo conectarse a tu API.
+2.  Crea formularios que los usuarios puedan utilizar para introducir datos que se envían a tu API.
+
+El diseñador de entradas es la segunda instancia, en la que necesitas formularios con los que los usuarios puedan interactuar. Tanto los activadores como las acciones pueden tener un formulario de entrada, pero suelen utilizarse en las acciones, ya que necesitas una forma para que los usuarios envíen datos a tu aplicación con el fin de buscar, actualizar o crear algo nuevo. Para comenzar, puedes crear dos tipos diferentes de campos:
+
+## Configurar un campo
+
+Hay 11 tipos de campos diferentes que puedes elegir para permitir que los usuarios introduzcan texto sin formato. También puedes utilizar este campo para asignar variables de activadores o acciones anteriores a un campo específico. Cuando añades un campo nuevo al diseñador de entradas, debes completar ciertos detalles.
+
+![](/migration-assets/input-designer/1.png)
+
+-   **Clave del campo**: Actúa como un identificador único para el campo. Lo ideal es que tenga la misma clave que tu API, como first\_name. 
+-   **Nombre del campo**: Un nombre sencillo para el campo, como First Name. Será visible para el usuario. 
+-   **Texto de ayuda**: Una descripción breve del campo. Es opcional.
+-   **Tipo de entrada**: Puedes elegir uno de los 11 tipos de campos disponibles. El campo String será el predeterminado. 
+-   **Valor predeterminado**:  Un campo opcional que, si se introduce, se considerará el valor predeterminado para ese campo específico. 
+-   **¿Este campo es obligatorio?** Al hacer clic en **Sí**, este se convertirá en un campo obligatorio con el que el usuario deberá interactuar. 
+-   **Admitir selección múltiple** Al marcar Sí, los usuarios podrán introducir varios valores en este campo. Por ejemplo, el conector de Gmail permite a los usuarios añadir varias etiquetas a un correo electrónico.
+-   **Activar campos personalizados** Puedes marcar Sí si quieres añadir varios campos dentro de este campo.  
+-   **¿Activar la actualización automática?** Si los valores del menú desplegable deben obtenerse dinámicamente mediante una llamada a una API y esta requiere que se envíe otra entrada junto con ella, haz clic en Sí.
+-   **Menú desplegable**: El campo de menú desplegable puede utilizarse cuando el usuario necesita elegir varios valores de un menú desplegable. No dropdown, static dropdown y dynamic dropdown son las tres opciones disponibles. 
+-   **No dropdown**: Cuadro de entrada simple sin menú desplegable.![](/migration-assets/input-designer/2.png) 
+-   **Static dropdown**: Si quieres mostrar diferentes valores para el campo, puedes utilizar la opción static dropdown y crear un par clave-valor que incluya el valor que se enviará a tu aplicación. Añade el valor de muestra que se mostrará a los usuarios junto con una etiqueta sencilla.  
+      
+    Para hacerlo, añádelos dentro de llaves, con un valor de muestra y una etiqueta separados por una coma. El elemento que aparece primero se mostrará primero. El conjunto completo debe estar entre corchetes. Puedes acceder al FieldId mediante inputdata.keyname, reemplazando keyname con la clave del campo de entrada especificado. Por ejemplo:
+    
+    ```
+    [{ "FieldId": "documentname", "FieldName": "document_name"}]
+    ```
+    
+-   **Dynamic dropdown**: Si los usuarios necesitan seleccionar datos de su cuenta en tu aplicación, como un proyecto, una carpeta, un miembro del equipo u otro detalle específico del usuario, puedes utilizar un dynamic dropdown. Para los dynamic dropdowns, Kissflow primero obtiene los datos de tu API y después los muestra en un menú. 
+
+## Configurar una solicitud de dynamic dropdown
+
+### **Modo de formulario**
+
+1.  Selecciona el método como una solicitud GET y elige el modo de formulario. 
+    
+2.  Si la solicitud GET requiere enviar el token de acceso junto con ella, expande el texto 
+    
+    1.  **Mostrar opciones** e introduce la clave como **Authorization** y el valor como **Bearer &lt;space>** y haz clic para ver los datos de autenticación, los datos de contexto y los datos de entrada. 
+        
+3.  Una vez que hagas clic en access\_token en el cuadro de diálogo, el valor se añadirá al cuadro de entrada. Para eliminar el valor, pulsa la tecla de retroceso o Supr. 
+    
+
+**¿Admite la paginación?** Indica si un usuario puede utilizar enlaces como "siguiente", "anterior" o números de página para navegar entre páginas que muestran una página de resultados cada vez.
+
+**ID del campo**: Selecciona, en Field Id, el campo que contiene los datos que tu API necesita para esta acción.
+
+**Nombre del campo**:  selecciona, en Field name, el campo con un nombre sencillo para los datos. 
+
+![](/migration-assets/input-designer/4.png)
+
+### **Campo dinámico**
+
+Puedes añadir el campo dinámico si quieres realizar llamadas a la API de tu aplicación y mostrar después los datos devueltos en un menú desplegable para que los usuarios seleccionen el elemento que necesitan. Este tipo de campo se utiliza cuando necesitas elegir datos de carpetas, proyectos y responsables desde tu conector. La configuración de este campo solo puede realizarse en el modo de código. La lista de campos de la entrada se generará dinámicamente una vez que se añada el código correspondiente al campo dinámico. 
+
+![](/migration-assets/input-designer/3.png)

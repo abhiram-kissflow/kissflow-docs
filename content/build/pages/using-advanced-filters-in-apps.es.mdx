@@ -1,0 +1,66 @@
+---
+title: "Uso de filtros avanzados en las apps"
+description: "BORRADOR (sin verificar) — migrado desde /t/h7yzj0v/using-advanced-filters-in-apps"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+La función de [filtro avanzado](/t/g9h4al1k9h4ga/managing-filters) permite a los desarrolladores de apps de Kissflow controlar los datos que se muestran a usuarios específicos cuando consultan un componente en una página. Elimina la necesidad de crear varias vistas e informes con distintos filtros para mostrar datos relevantes a diferentes usuarios de la app. Esto no solo ahorra tiempo, sino que también facilita el mantenimiento de los informes y las vistas dentro de la aplicación.
+
+#### Creación de filtros avanzados en vistas e informes
+
+Se puede acceder a los [filtros avanzados](/t/g9h4al1k9h4ga/managing-filters) y configurarlos en los informes de procesos, tableros y dataform, así como en las vistas de tableros y dataform. Por ejemplo, considera la posibilidad de crear un filtro avanzado en una vista de dataform. Es importante tener en cuenta que los mismos pasos se aplican también a otras vistas e informes.
+
+1.  Inicia sesión en Kissflow para crear una app.
+2.  Dentro del creador de aplicaciones, [crea un dataform](/t/35yzjag/creating-and-managing-dataforms) > Nueva vista.
+3.  En la vista de dataform, ve a **Filtro de datos** > haz clic en el botón **Añadir** (![](/migration-assets/using-advanced-filters-in-apps/2.png)) > **Añadir un filtro**.![](/migration-assets/using-advanced-filters-in-apps/1.png)  
+4.  En **Filtro avanzado**, selecciona en el menú desplegable los criterios por los que quieres filtrar. Puedes elegir entre las opciones predefinidas.
+5.  A continuación, selecciona el operador condicional y el valor de filtro deseado. Puedes seleccionar un valor, un campo o un parámetro.
+6.  Especifica el valor correspondiente y haz clic en **Aplicar**.
+    
+    Si has seleccionado el tipo de valor **parámetro**, puedes especificar un _$value_ para él. Con este valor de parámetro, puedes llamar a vistas e informes personalizados según el rol del usuario.
+    
+7.  Para borrar todos los filtros, haz clic en el botón **Borrar**.
+8.  Una vez guardado el filtro, aparece en la sección **filtro de datos** como una condición. Guarda la vista de dataform.
+
+Puedes aplicar varios filtros a la vez para limitar aún más los datos.
+
+Si has elegido un valor de parámetro:
+
+-   usa minúsculas y separa las palabras con un guion bajo (\_).
+-   comienza el valor con el símbolo $.
+-   la longitud máxima debe ser de 32 caracteres.
+-   escribe únicamente en inglés.
+
+**La función de filtro avanzado permite a los desarrolladores de aplicaciones:**
+
+1.  Añadir condiciones usando distintos campos dentro de la misma app.
+2.  Aplicar operadores AND/OR entre grupos de filtros.
+
+El filtro avanzado lo utilizan principalmente los desarrolladores de apps que crean informes y vistas y los añaden como componentes de una página en una app. La función está pensada para usarse en apps como _Gestión de empleados_, en las que los usuarios se mantienen mediante un dataform y la función _Current\_user()_ en la configuración del informe no funciona.
+
+Al usar el valor de parámetro en el **Filtro avanzado**, los administradores de la app podrán especificar un _$parameter value_ para un parámetro determinado en las vistas de dataform y de tablero, o en los informes de tablero, proceso y dataform.
+
+#### Asignación de parámetros de filtro a componentes de página
+
+Cuando un desarrollador añade una vista o un informe específicos como componente de una página, todos los parámetros asociados con esa vista o informe aparecen en la sección Parámetros de filtro del creador de páginas.
+
+Como desarrollador, puedes asignar valores a $params. Estos valores pueden ser variables globales/locales o parámetros de entrada definidos por ti. Cualquier campo de parámetro de filtro que se deje sin valor se ignorará, lo que significa que la condición del filtro no se aplicará al renderizar el informe o la vista.
+
+Por ejemplo, con los campos de agregado o moneda, el desarrollador puede proporcionar un valor de moneda dinámico y, para un campo DateTime, puede proporcionar un valor como "27-02-1989 - 19-03-2019".
+
+##### Consulta simultánea de varios parámetros
+
+Si has configurado los siguientes operadores en los filtros avanzados: Part Of, Not Part Of, Contains, Not Contains e In, puedes asignar o escribir hasta 10 valores de parámetro para explorar en detalle tu vista o informe.
+
+> **Nota**  
+> Todos los valores deben estar separados por comas, independientemente de sus propiedades de anidamiento.
+
+Lee [esto](/t/m1h4az4/field-validations) para obtener más información sobre los distintos operadores.
+
+![](/migration-assets/using-advanced-filters-in-apps/3.gif)

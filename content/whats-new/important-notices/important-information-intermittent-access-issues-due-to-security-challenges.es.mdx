@@ -1,0 +1,37 @@
+---
+title: "Información importante: problemas intermitentes de acceso debido a desafíos de seguridad"
+description: "La capa de seguridad a nivel de red de Kissflow bloquea ocasionalmente las solicitudes antes de que lleguen a la aplicación, lo que provoca que las páginas no se carguen o que las acciones fallen. Aquí te explicamos por qué ocurre y qué puedes hacer al respecto."
+contentType: reference
+persona: shared
+section: whats-new
+tags:
+  - access
+  - network
+  - security
+  - troubleshooting
+---
+
+Es posible que ocasionalmente tengas problemas para acceder a Kissflow debido a comprobaciones de seguridad a nivel de red en determinados dominios.
+
+## Qué ocurre
+
+Kissflow utiliza una capa de seguridad a nivel de red para protegerse contra el tráfico malicioso y los ataques automatizados. Como parte de este proceso, las solicitudes entrantes pueden someterse a mecanismos de desafío, como la validación del navegador o la inspección del tráfico.
+
+Cuando un desafío falla, la solicitud se bloquea antes de llegar a Kissflow. Esto puede provocar que la aplicación no se cargue o que una acción falle sin mostrar un mensaje de error claro.
+
+## Qué significa para ti
+
+- Es posible que las páginas no se carguen o parezcan no responder.
+- Es posible que ciertas acciones no se completen correctamente.
+- Estos problemas pueden ocurrir de forma intermitente, según las condiciones de la red, la reputación de la IP o las políticas de seguridad.
+
+## Qué puedes hacer
+
+<Callout type="info">
+  Prueba estos pasos en orden.
+</Callout>
+
+1. Actualiza la página para volver a intentar la solicitud.
+2. Desactiva cualquier VPN o proxy que pueda estar afectando al enrutamiento de las solicitudes.
+3. Pide a tu equipo de TI que revise la configuración de tu red o firewall.
+4. Si el problema persiste, contacta con el [soporte de Kissflow](/docs/whats-new/important-notices/slas-and-support-models#how-to-reach-support).

@@ -1,0 +1,29 @@
+{
+  "title": "Expresiones",
+  "pages": [
+    "introduction-to-expressions",
+    "formula-builder",
+    "ai-formula-builder",
+    "text-expressions",
+    "number-currency-expressions",
+    "date-expressions",
+    "logical-expressions",
+    "user-expressions",
+    "list-expressions",
+    "workflow-step-expressions",
+    "reserved-keywords",
+    "introduction-to-expressions-and-formulas",
+    "computing-fields-using-formula-builder",
+    "system-fields",
+    "number-and-currency-expressions",
+    "if-function",
+    "list-expression",
+    "datediff-function",
+    "calendardays-function",
+    "how-to-display-the-names-of-multiple-users-from-a-lookup-field-in-a-text-field",
+    "extracting-text-from-parentheses",
+    "computing-with-data-extracted-from-the-geolocation-field",
+    "referencing-section-fields-in-a-table-using-the-parent-function",
+    "handling-input-behavior-for-various-fields-in-ai-evaluation"
+  ]
+}

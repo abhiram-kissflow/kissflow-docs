@@ -1,0 +1,81 @@
+---
+title: "Configurar permisos de campos para los pasos del proceso"
+description: "BORRADOR (sin verificar) — migrado desde /t/60h9qtm/configuring-field-permissions-for-process-steps"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Puedes personalizar el formulario para mostrar diferentes secciones y campos según el paso actual del elemento. 
+
+## Ver el formulario por pasos
+
+Puedes configurar los permisos de visualización del formulario en la tercera pestaña del editor.
+
+![](/migration-assets/configuring-field-permissions-for-process-steps/1.png)
+
+A la izquierda, verás una lista de todos los pasos que creaste como pestañas. El formulario del paso **Inicio** es el formulario inicial que se muestra cuando alguien crea un elemento nuevo. Debajo, verás la lista secuencial de todos los pasos del flujo de trabajo. 
+
+![](/migration-assets/configuring-field-permissions-for-process-steps/6.png)
+
+## Configurar permisos para campos y secciones
+
+Cuando haces clic en una pestaña, el lado derecho de la pantalla muestra cómo se verá el formulario en ese paso. Puedes establecer los niveles de permiso para campos individuales o para toda la sección. 
+
+Los permisos de las secciones se configuran en la esquina superior derecha de la sección. Los permisos de los campos se configuran al pasar el cursor sobre el campo.  
+
+![](/migration-assets/configuring-field-permissions-for-process-steps/2.png)
+
+Hay tres configuraciones de permisos:
+
+-   **Editable**: el usuario puede agregar o editar valores en un campo
+-   **Solo**\-**lectura**: los valores del campo son visibles, pero no se pueden cambiar
+-   **Oculto**: los campos no se muestran
+
+Si una tabla está configurada como de solo lectura, no puedes agregarle filas ni valores.
+
+### Pasos iniciales y completados
+
+De forma predeterminada, el iniciador puede editar todos los campos del paso inicial del flujo de trabajo, y los campos de todas las demás secciones son de solo lectura. Puedes cambiar la configuración de permisos de cualquier campo.
+
+En el paso completado, todos los campos serán de solo lectura u ocultos. 
+
+### Jerarquía de secciones y campos
+
+Los permisos de las secciones tienen prioridad sobre los permisos de los campos. Si marcas como oculta una sección completa, pero marcas como editable un campo dentro de la sección, este no se mostrará al usuario. En su lugar, debes marcar la sección como editable y configurar todos los demás campos como ocultos. 
+
+### Campos calculados
+
+Los campos calculados son de solo lectura u ocultos.
+
+### Permisos globales para secciones y campos
+
+Si quieres establecer los permisos de un campo o una sección en todos los pasos, puedes hacer clic en **Permisos globales**. Se abrirá una ventana emergente que te permitirá asignar rápidamente el permiso del campo en cada paso. Esto suele ser muy útil cuando agregas un campo a un proceso y quieres asignar permisos rápidamente sin hacer clic en cada pestaña de la izquierda. 
+
+![](/migration-assets/configuring-field-permissions-for-process-steps/3.png)
+
+### Apariencia de los campos
+
+Pasa el cursor sobre el campo cuya apariencia quieres modificar y haz clic en **Estilo**.
+
+![](/migration-assets/configuring-field-permissions-for-process-steps/4.png)
+
+Selecciona el color que prefieras de la paleta de colores. 
+
+![](/migration-assets/configuring-field-permissions-for-process-steps/5.png)
+
+También puedes [cambiar la apariencia de un campo en todos los pasos](/t/60h4azc/field-appearance) o según los datos del formulario.
+
+### Visibilidad condicional
+
+Puedes establecer la visibilidad condicional de campos o secciones según otros datos del formulario. Puedes pasar el cursor sobre un campo y acceder a la configuración de visibilidad del campo, o acceder directamente desde la ventana **Propiedades del campo**, que se muestra a la derecha cuando estás en el editor de formularios.
+
+![](/migration-assets/configuring-field-permissions-for-process-steps/7.gif)
+
+## Acciones
+
+Aprende a [configurar acciones para un paso del proceso](/t/g9h9qt6/configuring-actions-for-process-steps).

@@ -1,0 +1,136 @@
+---
+title: "Crea una acción personalizada mediante Smart Link"
+description: "BORRADOR (sin verificar) — migrado desde /t/g9ypd3a/create-a-custom-action-via-smart-link"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Cuando no hay un conector nativo disponible para tu aplicación preferida, Smart Link cubre esa necesidad. Gracias a la IA, Smart Link traduce descripciones en lenguaje natural en acciones personalizadas completamente funcionales, lo que garantiza que tus flujos de trabajo no se interrumpan.
+
+## Crear una acción mediante Smart Link
+
+### Iniciar Smart Link
+
+1.  Haz clic en el icono (**+**) del generador de integraciones para añadir un paso nuevo.
+    
+2.  Busca el nombre de la aplicación (por ejemplo, _Discord_).
+    
+3.  Si no aparece ningún conector, haz clic en **\+ Smart Link** en la parte inferior de la ventana emergente.
+    
+
+![](/migration-assets/create-a-custom-action-via-smart-link/1.png)
+
+> **Nota**
+> 
+> También puedes encontrar **Smart Link** en **conector HTTP**, dentro de la lista de conectores.
+> 
+> ![](/migration-assets/create-a-custom-action-via-smart-link/2.png)
+
+### Describir y generar la acción
+
+1. **Define la acción**: en el cuadro de entrada, describe tu objetivo en lenguaje natural. Por ejemplo, _Publicar un mensaje en un canal de Discord_.
+    
+2. **Usa las sugerencias**: también puedes seleccionar una acción recomendada de las que se muestran a continuación.
+    
+3.  Haz clic en **Generar acción**.
+    
+
+![](/migration-assets/create-a-custom-action-via-smart-link/3.png)
+
+### Revisar la configuración técnica
+
+La IA completará automáticamente los detalles técnicos necesarios:
+
+-   **Método**: por ejemplo, POST, GET, PUT.
+    
+-   **URL del endpoint**: el destino específico de la API.
+    
+-   **Payload**: la estructura de datos que se enviará.
+    
+
+![](/migration-assets/create-a-custom-action-via-smart-link/4.png)
+
+Puedes seleccionar **Mostrar detalles de la solicitud** para revisar encabezados o parámetros avanzados. Haz clic en **Listo** para añadirla como un paso de acción HTTP.
+
+### Autenticar la conexión
+
+Para permitir que Kissflow se comunique con la aplicación externa, elige uno de estos cuatro métodos de autenticación:
+
+1. **Sin autenticación**: no requiere autenticación.
+    
+2. **Autenticación básica**: requiere que introduzcas un nombre de usuario y una contraseña.
+    
+3. **Autenticación mediante API key**: requiere una clave única y larga, formada por caracteres, que la aplicación externa proporciona para identificar las solicitudes.
+    
+4. **Autenticación OAuth2**: requiere que proporciones detalles como los siguientes:
+    
+    -   **Token de acceso**: se utiliza para autorizar y autenticar el acceso a los recursos de la aplicación proveedora de OAuth.
+        
+    -   **URL de callback**: la URL de Kissflow a la que se redirige al usuario después de una autorización correcta. Se completará automáticamente y no se puede modificar.
+        
+    -   **URL de autorización**: el endpoint de autorización de la API del proveedor de OAuth.
+        
+    -   **URL del token de acceso**: el endpoint del servidor de autorización. Se utiliza para intercambiar el código de autorización por un token de acceso.
+        
+    -   **ID de cliente**: la cadena alfanumérica única que recibiste del proveedor de OAuth al registrar Kissflow como cliente.
+        
+    -   **Secreto de cliente**: la cadena secreta que Kissflow obtuvo durante el proceso de registro del cliente.
+        
+    -   **Ámbito**: el ámbito de OAuth que Kissflow podría necesitar solicitar para acceder a la aplicación de OAuth.
+        
+    -   **Estado**: un valor opcional que se utiliza para evitar la falsificación de solicitudes entre sitios.
+        
+
+![](/migration-assets/create-a-custom-action-via-smart-link/5.png)
+
+### Revisar la configuración de una acción
+
+Una vez autenticado, puedes revisar y editar los detalles de la solicitud de tu integración en la pestaña **Configuración**. 
+
+1.  Revisa el campo de URL y asegúrate de que incluya el endpoint correcto que requiere tu aplicación externa.
+    
+2. **Añadir parámetros**: si tu solicitud requiere metadatos específicos, haz clic en añadir campos debajo de **Encabezados HTTP** o **Parámetros de consulta** para incluirlos.
+    
+3.  Revisa el **Método**, el **Tipo de cuerpo** y el **Tipo de contenido**. Comprueba el área **Contenido** para verificar el payload JSON.
+    
+
+> **Nota**
+> 
+> Haz clic en la insignia **Descripción del payload**, junto a **Contenido**, para consultar una guía de referencia. Esta guía incluye los nombres de los campos, los tipos de datos (como string, integer y boolean) y los ejemplos necesarios para dar el formato correcto a tu solicitud.
+> 
+> ![](/migration-assets/create-a-custom-action-via-smart-link/8.gif)
+
+### Finalizar y probar
+
+Haz clic en **Probar acción** para verificar la conexión y asegurarte de que la aplicación de terceros reciba los datos correctamente.
+
+## Cambiar el nombre de una acción
+
+Puedes cambiar el nombre de la acción generada por la IA para adaptarlo mejor a las convenciones de nomenclatura de tu flujo de trabajo:
+
+1.  Haz clic en el icono **Lápiz** (
+    
+    ![](/migration-assets/create-a-custom-action-via-smart-link/6.png)
+    
+     ) situado junto al título de la acción.
+    
+2.  Introduce el nombre que prefieras.
+    
+3.  Haz clic en cualquier lugar fuera del cuadro de texto para guardar el cambio automáticamente.
+    
+
+![](/migration-assets/create-a-custom-action-via-smart-link/9.gif)
+
+## Perfeccionar o cambiar una acción
+
+Si el resultado generado por la IA no es exactamente lo que necesitas o cambian los requisitos de tu integración, puedes hacer lo siguiente:
+
+1.  Haz clic en **Cambiar acción**, en la esquina superior derecha, para volver a la pantalla de instrucciones.
+    
+    ![](/migration-assets/create-a-custom-action-via-smart-link/7.png)
+2.  Puedes volver a introducir la descripción anterior con detalles adicionales para perfeccionar el resultado, o introducir una instrucción completamente diferente para cambiar por completo la aplicación, el contexto de la integración y la funcionalidad.

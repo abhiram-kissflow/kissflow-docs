@@ -1,0 +1,172 @@
+---
+title: "Tablas dinámicas en tableros"
+description: "BORRADOR (sin verificar) — migrado desde /t/35h9ql2/pivot-tables-in-boards"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Puedes generar tablas dinámicas para resumir, organizar y comparar una gran cantidad de datos relacionados con tu tablero. Las tablas dinámicas te permiten intercambiar fácilmente campos, filas y columnas. La representación de los datos en una tabla dinámica se reorienta según los cambios que realices.
+
+## Crear una tabla dinámica
+
+1.  Para crear una tabla dinámica, haz clic en la pestaña **Reports** de la página de tu tablero.
+    
+2.  Haz clic en **\+ Create report**.
+    
+3.  Proporciona un nombre, selecciona **Pivot** como tipo de informe**,** y haz clic en **Create**.
+    
+
+![](/migration-assets/pivot-tables-in-boards/1.png)
+
+## Configurar una tabla dinámica
+
+Para configurar la tabla dinámica, comienza seleccionando los campos que quieres mostrar en el panel derecho. En la selección de campos, haz clic en el botón **\+ Add fields** para añadir los campos necesarios.
+
+Seleccionar campos
+
+Hay dos tipos de campos entre los que puedes elegir.
+
+1. **Campos personalizados** - Son campos que creaste en el formulario de tu tablero y son únicos para tu tablero.
+    
+2. **Campos del sistema** - Son campos generados por el sistema que se crean de forma predeterminada para un tablero, como Title, Created by, Modified by, Created at, Modified at, Flow name, DocVersion, Item ID, Assignee, Status, Priority, Start date, Due date, Requester, Estimated time, Watchers y Resolution time.
+    
+
+> **Nota:**
+> 
+> El tiempo de resolución de los tableros se mostrará en segundos.
+
+#### Columnas
+
+Añade campos como columnas desde el formulario de tu tablero. El orden de tu selección crea la jerarquía de columnas.
+
+Puedes incluir hasta 10 campos como columnas y las columnas de subtotal se generan automáticamente para los niveles consecutivos, con **Total general** añadido al nombre de la columna.
+
+#### Valores
+
+En **Values**, selecciona un campo para aplicar agregaciones como Suma, Promedio, Recuento, Mínimo, Máximo y Desv. estándar. Solo puedes seleccionar un tipo de agregación para los siguientes tipos de campo:
+
+-   Número
+-   Moneda
+-   Control deslizante
+-   Calificación
+
+Recuento es el único tipo de agregación que se muestra para los demás tipos de campo.
+
+#### Filas
+
+Añade campos como filas desde el formulario de tu tablero. El orden de selección define la jerarquía de filas. Las filas sucesivas siguen a la fila inicial según el orden de los campos. 
+
+Puedes añadir hasta 10 campos como filas. 
+
+> **Consejo:** Si pasas el cursor sobre el valor de una celda, puedes ver a qué fila y columna pertenece, junto con el valor.
+
+### Filtrar datos
+
+Para delimitar datos específicos en tu tabla dinámica, puedes añadir filtros. Haz clic en **Add advanced filter** para añadir un filtro a tu informe durante la configuración. Selecciona los campos que quieres filtrar e introduce las condiciones. Haz clic en Save para configurar el informe. 
+
+Haz clic en el botón **\+ Add filter** para añadir más filtros y condiciones al mismo campo. La nueva condición puede ser AND (se deben cumplir todas las condiciones) u OR (se debe cumplir cualquier condición). 
+
+### [Habilitar el desglose en informes dinámicos](/t/g9y3tyw/pivot-tables-in-processes#enabling-drilldown-in-pivot-reports)
+
+La función de [desglose](/t/y4h9qkr/reports#enabling-drilldown-in-chart-and-pivot-reports) te permite profundizar en los datos de tu informe al mostrar una vista tabular de las filas subyacentes asociadas con puntos de datos específicos en [informes dinámicos](/t/q6h9qz5/pivot-reports#enabling-drilldown-in-pivot-reports). El desglose está habilitado de forma predeterminada al crear un informe. Puedes activar o desactivar el desglose en la configuración del informe.Para habilitar el desglose,
+
+1.  Ve a la pestaña **Settings**.
+    
+2.  En la sección **Drilldown**, habilita el desglose.
+    
+3.  Selecciona al menos dos campos.
+    
+4.  Haz clic en **Apply**.
+    
+
+![](/migration-assets/pivot-tables-in-boards/4.png)
+
+> **Nota:** 
+> 
+> Los campos seleccionados del informe se eligen automáticamente como campos de desglose predeterminados. Asegúrate de seleccionar un mínimo de dos campos para el desglose.
+
+Después de configurar el informe dinámico, pasa el cursor sobre él y haz clic para desglosar los datos. Al hacer clic en el informe dinámico, aparecerá una vista previa tabular con los datos subyacentes. Puedes buscar campos, mostrar u ocultar columnas y [exportar](/t/q6h9qz5/pivot-reports#exporting-drilldown-data) datos en tiempo de ejecución. Haz clic en el menú desplegable de cada encabezado de columna para ordenar los datos en orden ascendente o descendente.
+
+### Totales generales
+
+En **Grand totals**, elige cómo quieres mostrar los totales generales en el menú desplegable:
+
+-   **Mostrar totales generales** - muestra los totales generales de todas las filas y columnas.
+-   **Mostrar totales generales solo para las columnas** - muestra los totales generales de cada columna.
+-   **Mostrar totales generales solo para las filas** - muestra los totales generales de cada fila.
+-   **No mostrar totales generales** - oculta los totales generales de todas las filas y columnas.
+
+### Cálculos de valores
+
+En **Value calculations**, elige cómo quieres calcular los valores en el menú desplegable:
+
+-   **Mantener tal cual** - no cambia los valores
+-   **% del total general** - los valores de la tabla se mostrarán como porcentaje en lugar de como suma.
+-   **% de la fila** - el total de la fila se mostrará como porcentaje en lugar de como suma.
+-   **% de las columnas** - el total de la columna se mostrará como porcentaje en lugar de como suma.
+
+> **Nota:**
+> 
+> El tiempo de resolución de los tableros se mostrará en el formato DÍAS+HR+MIN+SEG (por ejemplo: 1 DÍA 3HR 2MIN 5SEG).
+
+### Formato condicional
+
+El formato condicional te permite mejorar visualmente las celdas de datos de una tabla dinámica mediante varios estilos, según las condiciones especificadas. Esta funcionalidad permite asignar colores y categorizar los datos para simplificar el análisis. 
+
+Durante la configuración del informe, puedes personalizar la apariencia de las celdas de datos, incluidos el valor y el color de fondo, mediante la definición de condiciones. Estas condiciones pueden basarse en valores de celda, como igual a, diferente de, mayor que, menor que, mayor o igual que, menor o igual que, entre y no entre.
+
+Sigue estos pasos para aplicar el formato condicional.
+
+1.  En Formato condicional, haz clic en **Add condition** > **\+ Add condition**.
+    
+2.  Selecciona la condición que quieres aplicar a la celda.
+    
+3.  Introduce el valor.
+    
+4.  Aplica formato al color de fondo y al color de fuente de la celda.
+    
+5.  Haz clic en **Apply.**
+    
+
+Puedes reorganizar fácilmente las condiciones mediante la función de arrastrar y soltar durante el proceso de adición. Si hay dos condiciones con el mismo rango de valores, tendrá prioridad la última condición aplicada mediante arrastrar y soltar. Después puedes editarlas según tus necesidades.
+
+Puedes añadir cualquier cantidad de condiciones. Las condiciones especificadas se evalúan de arriba abajo y las opciones de formato asociadas con la primera condición coincidente se aplican a la celda de datos correspondiente. Para eliminar una condición, haz clic en el icono Remove condition (). 
+
+> **Nota:**
+> 
+> El formato condicional no se aplicará a los totales de columnas y filas (totales basados en columnas y totales basados en filas) ni a los totales generales. 
+
+## Aplicar estilos a los informes dinámicos
+
+Da formato al encabezado de columna, las celdas y los totales generales de tu informe según tus preferencias. Elige el estado Normal para la apariencia predeterminada y el estado Hover para previsualizar los estilos al pasar el cursor.
+
+-   **Sección de encabezado:** Personaliza el color de fondo, el tamaño de fuente, el color de fuente, el grosor de fuente y el color de los iconos del encabezado de columna. El menú desplegable del grosor de fuente ofrece opciones como Regular, Medium y Semi-bold.
+    
+-   **Configuración de celdas:** Ajusta el tamaño de fuente, el color de fuente, el grosor de fuente, la altura de línea y el espaciado entre letras de las celdas de tu informe dinámico.
+    
+-   **Personalización del total general:** En la sección de totales generales, puedes ajustar el color de fondo, el color de fuente y el grosor de fuente de la sección de totales generales de tu informe. 
+    
+
+![](/migration-assets/pivot-tables-in-boards/5.png)
+
+## Acciones adicionales
+
+Puedes realizar otras acciones en tu informe: reorganizar filas y columnas, aplicar filtros, personalizar la vista expandiendo o contrayendo los niveles dinámicos y dar formato a los campos de moneda.
+
+-   **Ordenar**: Organiza las filas y columnas en orden ascendente o descendente mediante el botón **Sort** (![](/migration-assets/pivot-tables-in-boards/2.png)). Las filas y columnas se ordenan en orden ascendente de forma predeterminada.
+    
+-   **Filtrar**: Para filtrar por filas o columnas específicas, haz clic en el botón **Filter** (![](/migration-assets/pivot-tables-in-boards/3.png)) junto a la fila o columna > usa el cuadro de búsqueda para identificar fácilmente los campos o selecciona las casillas junto a los elementos que quieres mostrar > haz clic en **Apply**. Usa **Select all** y **Clear all** para filtrar fácilmente los elementos
+    
+-   **Expandir/contraer**: Usa **Expand** para ver los detalles de una sección o **Collapse** para ocultarlos. El estado elegido (expandir/contraer) se guarda incluso si abandonas la página.
+    
+-   **Widgets**: Al seleccionar un campo de tipo moneda en **Values**, el formato de moneda se aplicará a los campos. Los campos de usuario en filas y columnas se presentarán en un formato de widget de usuario similar al de los formularios.
+    
+
+> **Nota:**
+> 
+> Si el valor de un campo de moneda tiene varios formatos de tipo de moneda, se mostrarán como números sin ningún formato de moneda.

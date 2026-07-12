@@ -1,0 +1,73 @@
+---
+title: "Utilidades y general"
+description: "BORRADOR (no verificado) — migrado desde /t/35yk44g/utility-and-general"
+contentType: use-case
+persona: citizen-developer
+section: build
+---
+
+El sector de utilidades y general no está vinculado a una función empresarial específica, como ventas o marketing; proporciona herramientas fundamentales y versátiles que mejoran los flujos de trabajo automatizados. Estos conectores son los componentes esenciales para crear integraciones más inteligentes, personalizadas y sólidas. Gestionan tareas universales, como controlar los tiempos, convertir datos y crear conexiones personalizadas, lo que permite a las organizaciones resolver desafíos únicos y ajustar sus procesos con precisión en cualquier departamento.
+
+## Conectores de este sector
+
+**Aplicación**
+
+**Descripción**
+
+**[Retraso](/t/83ytfv5/delay-connector)**
+
+Una herramienta de control del flujo de trabajo que pausa una integración durante un período especificado o hasta una fecha y hora determinadas, lo que permite automatizaciones basadas en el tiempo.
+
+**[XE.com](/t/83h4aff/xe-com)**
+
+Una utilidad de datos que proporciona información en tiempo real sobre los tipos de cambio, lo que permite realizar conversiones de divisas precisas en cualquier flujo de trabajo de transacciones financieras.
+
+**[Acción personalizada](/t/p8h4aky/http-connector)**
+
+Además de las acciones prediseñadas disponibles en Kissflow Integrations para diversos fines, puede haber situaciones en las que necesites realizar una acción personalizada. En esos casos, puedes usar el conector HTTP para configurar llamadas a API desde cero e interactuar con cualquier servicio que exponga una API REST.
+
+## Casos de uso de integración con Kissflow
+
+Estos son ejemplos prácticos y basados en situaciones sobre cómo Kissflow puede aprovechar los conectores de utilidades para resolver problemas empresariales comunes.
+
+### Utilidad
+
+**Objetivo empresarial**
+
+**Desencadenador (en Kissflow)**
+
+**Acción (conector)**
+
+**Situación detallada**
+
+**Beneficio clave**
+
+Automatizar las comunicaciones oportunas
+
+Se envía un elemento en borrador durante el proceso de salida del hotel.
+
+Retrasar una acción.
+
+Un hotel registra la hora de salida de un huésped. El flujo de trabajo se pausa hasta ese momento exacto y luego envía un correo electrónico de agradecimiento. Una fórmula garantiza que la fecha o la hora tenga el formato correcto para el retraso.
+
+Mejora la experiencia del cliente mediante una comunicación perfectamente sincronizada y reduce el seguimiento manual del personal.
+
+Garantizar precios precisos
+
+Se envía un elemento nuevo mediante un sistema de órdenes de compra.
+
+Convertir divisas ([XE.com](http://XE.com))
+
+Al crear una orden de compra para un proveedor cuyo catálogo está en EUR, la integración usa [XE.com](http://XE.com) para convertir el valor a USD en tiempo real antes de emitir la orden de compra.
+
+Mitiga el riesgo financiero derivado de las fluctuaciones monetarias y garantiza que las órdenes de compra tengan valores precisos y actualizados.
+
+Simplificar la gestión de integraciones
+
+Un desencadenador personalizado detecta cambios en un conjunto de datos de _empleados maestros_.
+
+Desencadenar un proceso de Kissflow (acción personalizada)
+
+En lugar de usar dos integraciones, un desencadenador personalizado supervisa un conjunto de datos central de empleados. El flujo de trabajo correcto de incorporación o desvinculación se inicia cuando se agrega o se da de baja a un usuario.
+
+Reduce el número de integraciones que deben gestionarse, simplifica el mantenimiento y crea un proceso de ciclo de vida de los empleados más sólido y centralizado.

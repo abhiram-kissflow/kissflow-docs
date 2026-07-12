@@ -1,0 +1,19 @@
+{
+  "title": "Primeros pasos",
+  "description": "Configura tu cuenta y familiarízate con la plataforma.",
+  "pages": [
+    "welcome",
+    "for-users",
+    "for-builders",
+    "for-admins",
+    "for-developers",
+    "signing-in",
+    "signing-in-to-kissflow",
+    "my-items",
+    "contextual-global-search",
+    "managing-boards-in-pwa",
+    "kissflow-extension-for-gmail",
+    "homepage-overview"
+  ],
+  "icon": "get-started"
+}

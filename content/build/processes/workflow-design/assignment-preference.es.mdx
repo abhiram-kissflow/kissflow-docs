@@ -1,0 +1,57 @@
+---
+title: "Preferencia de asignación"
+description: "BORRADOR (no verificado) — migrado desde /t/p8h9qt8/assignment-preference"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Las opciones de preferencia de asignación te ayudan a determinar cuántas personas deben aprobar un elemento cuando se asigna a varios usuarios. 
+
+![](/migration-assets/assignment-preference/1.png)
+
+## Asignar a todos
+
+Este método asigna el elemento a todos los usuarios asignados seleccionados.
+
+-   **Un solo usuario asignado**: después de que un usuario asignado envíe el elemento, este pasará al siguiente paso.
+-   **Todos los usuarios asignados**: todos los usuarios asignados deben enviar el elemento antes de que pase al siguiente paso.
+-   **Al menos**: elige el número o porcentaje de usuarios asignados que deben enviar el elemento antes de que avance.
+
+Obtén más información sobre [cuándo usar las preferencias de asignación en lugar de las ramas paralelas](/t/x2h9qtq/best-practices-for-simultaneous-tasks).
+
+### Selección de elementos
+
+Cuando activas el interruptor **Permitir que los usuarios asignados seleccionen elementos**, los usuarios asignados pueden seleccionar elementos para sí mismos y retirarlos de las colas de otros usuarios asignados. Después de que un usuario asignado selecciona un elemento, ningún otro usuario asignado podrá verlo ni realizar acciones en él. Esto reduce los esfuerzos redundantes de los usuarios asignados y mejora la eficiencia.
+
+### Funcionalidad «Al menos»
+
+Por ejemplo, si tienes 10 usuarios asignados, pero solo necesitas que 7 actúen en un elemento, selecciona **Al menos** e introduce 7.
+
+-   La tarea se enviará a los 10 usuarios asignados al mismo tiempo.
+-   El elemento pasará al siguiente paso en cuanto 7 usuarios asignados lo aprueben.
+-   El elemento se rechazará en cuanto 4 usuarios asignados lo rechacen.
+
+Si tienes muchos usuarios asignados o un número variable de usuarios asignados, puedes usar un porcentaje. Supongamos que quieres que el 60 % de los usuarios asignados apruebe un elemento.
+
+-   La tarea se enviará a todos los usuarios asignados.
+-   El elemento pasará al siguiente paso en cuanto se alcance el umbral positivo del 60 %.
+-   El elemento se rechazará en cuanto más del 40 % de los usuarios asignados lo rechace.
+
+Los porcentajes se redondean hacia arriba. Si introduces 50 % y hay 9 usuarios asignados, debes obtener 5 aprobaciones antes de que el elemento avance.
+
+Si introduces en la sección **Al menos** un número mayor que el número de usuarios asignados, se ajustará automáticamente y el elemento avanzará después de que todos los usuarios asignados lo hayan aprobado.
+
+Si el administrador del proceso reasigna el elemento a otra persona mientras los usuarios asignados esperan para actuar, se interrumpirá el caso multiusuario y continuará como un paso normal.
+
+## Rotación
+
+Con este método, el elemento se asigna a un solo usuario, pero va rotando entre todos los usuarios seleccionados.
+
+## Menor carga
+
+Con este método, el sistema asigna el elemento al usuario que tiene el menor número de tareas actuales.

@@ -1,0 +1,88 @@
+---
+title: "Conector de Xero"
+description: "BORRADOR (sin verificar) — migrado desde /t/g9yqvbc/xero-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es Xero?
+
+Xero proporciona un software completo de contabilidad en la nube para pequeñas y medianas empresas que incluye servicios de contabilidad, como facturación y nómina, así como la posibilidad de conectar la aplicación a un feed bancario en tiempo real. Puedes crear pagos, gestionar tus contactos, hacer seguimiento del flujo de caja, reclamar gastos y mucho más, desde cualquier lugar y en cualquier momento mediante Xero.
+
+## Acerca de la integración de Xero con Kissflow
+
+El conector de Xero de Kissflow te permite conectar Xero al instante con las aplicaciones de Kissflow y otras aplicaciones populares de terceros. Te permite compartir datos de forma segura desde Xero para crear flujos de trabajo eficaces. Para integrarte con Xero, debes tener una cuenta válida de Xero, además de ser cliente de pago de Kissflow. Puedes utilizar el conector de Xero para recibir datos de otros flujos o aplicaciones con el fin de realizar acciones específicas de Xero y acciones de búsqueda. Por el momento, el conector de Xero no admite eventos de activación.
+
+### Acciones en Xero
+
+**Acciones**
+
+**Descripción**
+
+Crear o actualizar un contacto
+
+Esta acción crea un contacto nuevo o actualiza un contacto existente en Xero.
+
+Crear un pago
+
+Esta acción aplica un pago a una factura.
+
+Crear una factura
+
+Esta acción crea una factura nueva en Xero.
+
+Crear una factura de proveedor 
+
+Esta acción crea una factura de proveedor nueva en Xero.
+
+Crear un artículo
+
+Esta acción crea un artículo nuevo y recupera el código del artículo en Xero.
+
+### Acciones de búsqueda en Xero
+
+**Acciones de búsqueda**
+
+**Descripción**
+
+Buscar un contacto
+
+Esta acción de búsqueda encuentra un contacto en Xero por nombre o número de cuenta.
+
+Buscar o crear un contacto
+
+Esta acción de búsqueda encuentra o crea un contacto específico en Xero.
+
+Buscar u obtener todos los artículos
+
+Esta acción de búsqueda encuentra un artículo o todos los artículos en Xero.
+
+Obtener categorías de seguimiento
+
+Esta acción recupera las categorías de seguimiento en Xero.
+
+Obtener todas las cuentas
+
+La acción te permite recuperar el plan contable completo.
+
+### Configurar el conector de Xero
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**. 
+    
+    Una vez dentro del editor, configura un paso de activación, por ejemplo, un evento de activación de Kissflow Process: **Cuando un elemento completa un flujo de trabajo.**![](/migration-assets/xero-connector/2.png)
+2.  Después de configurar el paso de activación anterior, haz clic en el botón Añadir (![](/migration-assets/xero-connector/1.png)) situado al lado para configurar el paso de acción. Busca **Xero** y selecciona un evento de acción entre las opciones disponibles (como se indica en la tabla anterior).
+3.  Después de seleccionar el evento de acción, autentica el conector. Haz clic en **+Añadir una cuenta** e inicia sesión con tu cuenta de Xero. Kissflow utiliza OAuth de Xero para la autenticación.![](/migration-assets/xero-connector/3.png)
+4.  Después de autenticarte con tu cuenta de Xero, añade los valores correspondientes a los campos del formulario de Xero. Puedes hacer clic en **Actualizar campos** para ver todos los campos actualizados del formulario de Xero seleccionado. ![](/migration-assets/xero-connector/5.png)
+5.  También puedes asignar campos de Xero desde tu paso de activación o campos de los pasos de acción anteriores. Estos valores se añadirán automáticamente a los campos del elemento después de ejecutar la acción. ![](/migration-assets/xero-connector/4.png)
+6.  Después de realizar una configuración correcta, prueba si el paso de acción de Xero está configurado correctamente haciendo clic en el botón **P****robar**. El conector extraerá los datos de los campos de tu cuenta de Xero seleccionada y los mostrará como una salida JSON. Al igual que en el paso de activación, se te notificarán los errores de inmediato. Corrígelos antes de volver a probar el paso de acción.
+
+### Configurar un conector de Xero
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción del conector de Xero, activa el botón de alternancia para activar la ejecución de la integración. Cuando se produce un evento de activación, se activa la acción de Xero.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

@@ -1,0 +1,78 @@
+---
+title: "Registro de auditoría del tablero"
+description: "BORRADOR (sin verificar) — migrado desde /t/83ykl8g/board-audit-log"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+La sección de [registro de auditoría](/t/h7h4akc/admin-history) almacena el historial de todas las actividades relacionadas con tu tablero. Permite a los [administradores del tablero](/t/m1h9qls/managing-members-and-roles-in-a-board#admin) buscar y encontrar los cambios a nivel de flujo y de elemento realizados por los usuarios en tu tablero. Para ver tu registro de auditoría, haz clic en el botón **Administrar** > **Registro de auditoría**.  
+ 
+
+![](/migration-assets/board-audit-log/2.png)
+
+Puedes consultar los siguientes detalles de los [eventos](/t/60ytnn6/event-categories-and-actions) registrados como parte de tu tablero en el registro de auditoría:
+
+-   **ID de auditoría**: es un ID único que el sistema genera automáticamente para cada evento registrado como parte del historial del tablero.  
+     
+-   **Marca de tiempo**: la hora exacta en la que ocurrió o se realizó una acción específica.  
+     
+-   **Autor**: el usuario que realizó la acción.  
+     
+-   **Acción**: el tipo de actividad o acción que tuvo lugar. Algunos ejemplos son **Tablero publicado**_,_ **Elemento creado**_,_ **Elemento eliminado**_,_ etc.  
+     
+-   **Objeto**: el objeto o recurso subyacente que se está modificando.  
+     
+-   **Categoría del evento**: nombre común de un evento que puedes usar para filtrar eventos similares. Ejemplos: Administración del tablero, Acciones de elementos, etc.  
+     
+-   **Plataforma**: el dispositivo o sistema operativo desde el que se registró el evento.  
+     
+-   **IP**: la dirección IP desde la que se registró el evento.  
+     
+-   **ID de lote**: es un ID único que el sistema genera automáticamente para un grupo de eventos relacionados entre sí. A diferencia del ID de auditoría, el ID de lote de estos eventos será el mismo como referencia.
+
+## Ordenar campos
+
+1.  En la página del tablero, haz clic en el botón **Administrar** > **Registro de auditoría**.
+2.  Haz clic en el botón **Flecha hacia abajo**  (![](/migration-assets/process-audit-log/4.svg)) junto al nombre de un campo para ordenarlo de forma ascendente o descendente.![](/migration-assets/process-audit-log/2.png)
+
+## Buscar en los campos
+
+1.  En la página del tablero, haz clic en el botón **Administrar** > **Registro de auditoría**.
+2.  Haz clic en el botón de flecha hacia abajo (![](/migration-assets/process-audit-log/4.svg)) junto al filtro de un campo para buscar una entrada específica según sea necesario.
+3.  Introduce el término de búsqueda en el área de búsqueda que aparece a continuación según sea necesario.![](/migration-assets/process-audit-log/3.png)   
+
+## Filtrar campos
+
+Puedes filtrar los eventos del registro de auditoría según los siguientes campos o criterios:
+
+-   **Período de auditoría**
+    -   Últimos 30 días: obtén información de los eventos de los últimos 30 días a partir de la fecha actual.
+    -   Intervalo de fechas personalizado: selecciona un intervalo de fechas personalizado para filtrar los eventos.
+-   **Objeto**: selecciona uno o más objetos de las sugerencias o introduce el nombre exacto del objeto cuyos detalles del registro quieres obtener.  
+     
+-   **Categoría del evento**: filtrar eventos según sus categorías es una de las formas recomendadas de obtener eventos específicos.![](/migration-assets/board-audit-log/1.png)    
+-   **Autor**: puedes seleccionar uno o más usuarios de la cuenta para filtrar los eventos según los usuarios.  
+     
+-   **Acción**: introduce una acción relevante en la barra de búsqueda del campo o selecciona una de la lista sugerida de acciones según sea necesario. Solo puedes filtrar eventos según una acción a la vez.  
+     
+-   **ID de auditoría, ID de lote y dirección IP**: estos campos se utilizan principalmente para rastrear el historial de un evento. Introduce el ID de auditoría, el ID de lote o la dirección IP exactos para filtrar los eventos según sea necesario.
+
+## Eliminar condiciones de filtro
+
+Las condiciones de filtro aplicadas se resaltarán en azul, como en la captura de pantalla anterior. Para eliminar una condición de filtro específica, haz clic en el botón **Eliminar** (![](/migration-assets/process-audit-log/7.svg)) para borrarla.  
+ 
+
+![](/migration-assets/process-audit-log/6.png)
+
+## Exportar un registro de auditoría
+
+Puedes exportar el registro de auditoría de los últimos 90 días.
+
+1.  En la página del tablero, haz clic en el botón **Administrar** > **Registro de auditoría**.
+2.  Ve a los **registros** **a nivel de flujo** o a los **registros a nivel de elemento**, según tus necesidades.
+3.  Haz clic en el botón **Exportar** (![](/migration-assets/process-audit-log/8.svg)) para exportar el registro de auditoría como archivo. Inmediatamente se enviará un correo electrónico con el enlace de descarga a la dirección de correo electrónico registrada, desde donde podrás descargar el archivo.

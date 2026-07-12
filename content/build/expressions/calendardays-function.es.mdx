@@ -1,0 +1,150 @@
+---
+title: "función calendarDays"
+description: "BORRADOR (no verificado) — migrado desde /t/m1ygzsv/calendardays"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+La función calendarDays está diseñada para realizar un seguimiento preciso de las duraciones en las que las fechas de inicio y finalización representan períodos de tiempo activos. A diferencia de la resta estándar, que calcula la diferencia entre fechas, calendarDays utiliza un conteo inclusivo (la fecha de inicio = día 1).
+
+Es altamente personalizable, ya que te permite excluir los días no laborables o aislar restos específicos, como los días restantes de un mes.
+
+## Detalles de la función
+
+**Función**
+
+**Descripción**
+
+**Sintaxis**
+
+**Resultado**
+
+**Tipo de resultado**
+
+calendarDays
+
+Calcula la diferencia inclusiva entre fechas, contando tanto la fecha de inicio como la de finalización.
+
+calendarDays(date1, date2, "unit", "day\_filter")
+
+5
+
+Número
+
+![](/migration-assets/calendardays-function/1.png)
+
+### Parámetros
+
+#### Unidad (predeterminada: D)
+
+Determina el resto matemático o el total que quieres ver.
+
+-   **D**: Devuelve el número total de días dentro del intervalo.
+    
+-   **M**: Devuelve el número total de meses completos dentro del intervalo.
+    
+-   **Y**: Devuelve el número total de años completos dentro del intervalo.
+    
+-   **HR**: Devuelve el número total de horas entre dos marcas de tiempo.
+    
+-   **MIN**: Devuelve el número total de minutos entre dos marcas de tiempo.
+    
+-   **SEC**: Devuelve el número total de segundos entre dos marcas de tiempo.
+    
+-   **MD**: Devuelve el número de días restantes después de restar los meses completos.
+    
+-   **YM**: Devuelve el número de meses restantes después de restar los años completos.
+    
+-   **YD**: Devuelve el número de días restantes después de restar los años completos.
+    
+
+#### **Filtro de días (predeterminado: WD)**
+
+Determina qué días del calendario se pueden facturar o se cuentan para el total.
+
+-   **WD** (días laborables): Omite los fines de semana (sábados y domingos) y cualquier día festivo definido en la configuración de tu cuenta de Kissflow.
+    
+-   **AD** (todos los días): Un conteo de calendario directo; no se omite ningún día.
+    
+-   **EW** (excluir fines de semana): Omite los sábados y domingos, pero incluye los días festivos.
+    
+-   **EH** (excluir días festivos): Omite los días festivos, pero incluye los sábados y domingos.
+    
+
+## Casos de uso
+
+**Gestión de proyectos (días laborables)**
+
+-   Escenario: Tienes una tarea que comienza el viernes y termina el martes siguiente. Necesitas saber cuántos días laborables reales tiene el equipo para completarla.
+    
+-   Expresión: calendarDays(Start\_date, End\_date, "D", "WD")
+    
+-   Lógica: Viernes (día 1), lunes (día 2), martes (día 3).
+    
+-   Resultado: `3`
+    
+
+**Facturación de alquileres o suscripciones (todos los días)**
+
+-   Escenario: Un cliente alquila un equipo del 1 al 10 de mayo. Como conserva el equipo durante el fin de semana, debes cobrarle todos los días.
+    
+-   Expresión: calendarDays(Start\_date, End\_date, "D", "AD") 
+    
+-   Lógica: Se cuenta cada día del 1 al 10.
+    
+-   Resultado: `10`
+    
+
+**Seguimiento de la antigüedad laboral en RR. HH. (YD)**
+
+-   Escenario: Quieres mostrar la antigüedad de un empleado con el formato: X años y Y días. Para encontrar la parte de Y días (ignorando los años), utiliza la unidad `YD`.
+    
+-   Expresión: calendarDays(Hire\_date, Today(), "YD", "AD") 
+    
+-   Lógica: Calcula el total de días transcurridos en el año de aniversario actual.
+    
+-   Resultado: `145` (la persona lleva 3 años y 145 días trabajando)
+    
+
+**Ciclo de nómina (MD)**
+
+-   Escenario: Para calcular el salario de una parte del mes, necesitas saber cuántos días ha trabajado tu empleado en el mes actual después de contabilizar los meses completos.
+    
+-   Expresión: calendarDays(Start\_date, Today(), "MD", "WD")
+    
+-   Resultado: `12` (el empleado ha trabajado 12 días laborables hasta ahora este mes)
+    
+
+## calendarDays frente a dateDiff
+
+**Característica**
+
+**dateDiff**
+
+**calendarDays**
+
+**Lógica**
+
+Duración (fecha de finalización menos fecha de inicio).
+
+Inclusiva (cuenta las fechas de inicio y finalización).
+
+**Ejemplo**
+
+De lunes a martes = 1.
+
+De lunes a martes = 2.
+
+**Unidad**
+
+día, hora, minuto, segundo, año, mes.
+
+D, M, Y, HR, MIN, SEC, MD, YM, YD.
+
+**Filtros de días**
+
+holidays=True/False  
+holidays\_list=\[array\]
+
+WD, AD, EH, EW.

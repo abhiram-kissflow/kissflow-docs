@@ -1,0 +1,24 @@
+{
+  "title": "Aplicaciones",
+  "pages": [
+    "introduction-to-kissflow-apps",
+    "launching-kissflow-apps",
+    "creating-an-app",
+    "accessing-an-app",
+    "app-environments",
+    "managing-apps",
+    "settings-in-apps",
+    "multilingual-settings-in-apps",
+    "application-to-application-lookup-through-linking",
+    "app-versioning",
+    "app-deployment",
+    "apps-sdk-reference",
+    "choosing-the-right-data-sharing-method-in-apps",
+    "customizing-themes-for-kissflow-apps",
+    "notifications-in-apps",
+    "notification-events-in-apps",
+    "app-developers",
+    "model-viewer",
+    "working-with-resource-manager-in-apps"
+  ]
+}

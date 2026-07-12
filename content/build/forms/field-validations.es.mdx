@@ -1,0 +1,331 @@
+---
+title: "Validaciones de campos"
+description: "BORRADOR (sin verificar): migrado desde /t/m1h4az4/field-validations"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Puedes validar un campo con respecto a un conjunto específico de condiciones para que el formulario solo se pueda enviar si se cumplen las condiciones.
+
+Pasa el cursor sobre un campo en el editor de formularios y haz clic en el icono de marca de verificación gris (![](/migration-assets/field-validations/1.svg)) para acceder a su configuración de validación, o ve a la pestaña **Validación** desde el panel **Propiedades del campo** a tu derecha.
+
+![](/migration-assets/field-validations/2.png)
+
+Los tipos de validación compatibles varían según el tipo de datos. Este es un resumen de los campos y sus tipos de validación compatibles:
+
+**Validación**
+
+**Descripción**
+
+**Tipo de campo**
+
+Igual a
+
+El campo debe coincidir exactamente con un valor estático o con el valor de otro campo.
+
+Texto
+
+Correo electrónico
+
+Número
+
+Moneda
+
+Fecha
+
+Fecha y hora
+
+Desplegable
+
+Usuario
+
+No es igual a
+
+El campo no debe coincidir con un valor estático determinado ni con el valor de otro campo.
+
+Texto
+
+Correo electrónico
+
+Número
+
+Moneda
+
+Fecha
+
+Fecha y hora
+
+Desplegable
+
+Usuario
+
+Contiene
+
+El campo debe contener ciertos caracteres, pero también puede tener otros caracteres.
+
+Garantiza que tu valor se encuentre en algún lugar de la entrada del usuario. Por ejemplo, si tu valor es _New York_, el usuario podría escribir _I love New York_ o _New York city_ para que la validación se apruebe.
+
+Texto
+
+Área de texto
+
+Correo electrónico
+
+No contiene
+
+El campo no debe contener ciertos caracteres.
+
+Texto
+
+Área de texto
+
+Correo electrónico
+
+Formato de correo electrónico
+
+El campo debe ser una dirección de correo electrónico válida.
+
+Texto
+
+Formato de URL
+
+El campo no debe contener espacios y debe tener un punto seguido de al menos dos letras.
+
+Texto
+
+Solo letras
+
+El campo no debe contener números ni símbolos.
+
+Texto
+
+Solo números
+
+El campo no debe contener letras ni símbolos.
+
+Texto
+
+Sin caracteres especiales
+
+El campo debe contener únicamente números y letras.
+
+Texto
+
+Comienza por
+
+El campo debe comenzar con ciertos valores.
+
+Correo electrónico
+
+Termina en
+
+El campo debe terminar con ciertos valores.
+
+Correo electrónico
+
+El dominio es igual a
+
+El campo debe coincidir exactamente con un valor de dominio.
+
+Correo electrónico
+
+El dominio no es igual a
+
+El campo no debe coincidir con un valor de dominio determinado.
+
+Correo electrónico
+
+Longitud máxima
+
+El campo no debe superar un número determinado de caracteres.
+
+Texto
+
+Área de texto
+
+Longitud mínima
+
+El campo debe tener al menos un número determinado de caracteres.
+
+Texto
+
+Área de texto
+
+Forma parte de
+
+El valor introducido debe formar parte de un valor estático o del valor de otro campo, como Texto, Área de texto, Desplegable o Búsqueda remota basada en texto.  
+  
+Garantiza que la entrada del usuario forme parte del valor que definas. Por ejemplo, si tu valor es _New York_, los usuarios pueden escribir _New, York, ork,_ o _New York_ para que la validación se apruebe.
+
+> **Nota**:
+> 
+> Esta validación distingue entre mayúsculas y minúsculas.
+
+Texto
+
+No forma parte de
+
+El valor introducido no debe formar parte de un valor estático ni del valor de otro campo, como Texto, Área de texto, Desplegable o Búsqueda remota basada en texto.
+
+Texto
+
+Mayor que
+
+El valor introducido debe ser mayor que otro valor o campo.
+
+Número
+
+Moneda
+
+Fecha
+
+Fecha y hora
+
+Menor que
+
+El valor introducido debe ser menor que otro valor o campo.
+
+Número
+
+Moneda
+
+Fecha
+
+Fecha y hora
+
+Mayor o igual que
+
+El valor introducido debe ser mayor o igual que otro valor o campo.
+
+Número
+
+Moneda
+
+Fecha
+
+Fecha y hora
+
+Menor o igual que
+
+El valor introducido debe ser menor o igual que otro valor o campo.
+
+Número
+
+Moneda
+
+Fecha
+
+Fecha y hora
+
+En el futuro
+
+La fecha introducida no puede ser la de hoy ni una fecha pasada.
+
+Fecha
+
+Fecha y hora
+
+No está en el futuro
+
+La fecha puede ser la de hoy o una fecha pasada.
+
+Fecha
+
+Fecha y hora
+
+En el pasado
+
+La fecha introducida no puede ser la de hoy ni una fecha futura.
+
+Fecha
+
+Fecha y hora
+
+No está en el pasado
+
+La fecha puede ser la de hoy o una fecha futura.
+
+Fecha
+
+Fecha y hora
+
+Sí
+
+El valor debe ser sí.
+
+Sí/No
+
+No
+
+El valor debe ser no.
+
+Sí/No
+
+Tipo de archivo adjunto
+
+El archivo adjunto debe ser de un tipo de archivo específico.
+
+Imagen
+
+Archivo adjunto
+
+Tamaño máximo del archivo adjunto
+
+El archivo adjunto debe ser inferior a un valor específico de MB.
+
+Imagen
+
+Archivo adjunto
+
+Número máximo de archivos adjuntos
+
+El número máximo de archivos que se pueden añadir a este campo.
+
+Archivo adjunto
+
+Número mínimo de archivos adjuntos
+
+El número mínimo de archivos que se pueden añadir a este campo.
+
+Archivo adjunto
+
+Número máximo de selecciones
+
+El número máximo de valores que puede seleccionar un usuario.
+
+Casilla de verificación/Selección múltiple
+
+Lista de comprobación
+
+Número mínimo de selecciones
+
+El número mínimo de valores que puede seleccionar un usuario.
+
+Casilla de verificación/Selección múltiple
+
+Lista de comprobación
+
+La selección debe contener
+
+Garantiza que uno de los valores especificados se encuentre entre las selecciones.
+
+Casilla de verificación/Selección múltiple
+
+La selección no debe contener
+
+Garantiza que uno de los valores especificados no se encuentre entre las selecciones.
+
+Casilla de verificación/Selección múltiple
+
+Seleccionar todo
+
+Obliga al usuario a marcar todos los elementos.
+
+Lista de comprobación
+
+Si no se cumple la validación, aparecerá un mensaje de error debajo del campo y el usuario no podrá enviar el formulario. Puedes personalizar el mensaje de error mientras editas la validación.

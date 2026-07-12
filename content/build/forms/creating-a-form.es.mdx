@@ -1,0 +1,400 @@
+---
+title: "Crear un formulario"
+description: "BORRADOR (no verificado) — migrado desde /t/h7h4azm/creating-a-form"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Un formulario es una entidad en la que puedes recopilar información de las personas que participan en tu flujo de trabajo. Los formularios se utilizan en procesos y tableros de Kissflow. Un formulario tiene tres componentes principales: sección, campo y tabla.
+
+## Secciones
+
+Una sección es un grupo de campos relacionados entre sí. Como administrador de Flow, puedes crear una sección para colocar un conjunto de campos que sean atributos de la entidad principal en torno a la cual gira el flujo.
+
+> **Nota:**
+> 
+> Por ejemplo, cuando creas un flujo de trabajo de proceso para agilizar los procesos de contratación de tu organización, un formulario típico de tu proceso de contratación requerirá una sección llamada "**Información del candidato**" para recopilar y almacenar información sobre los candidatos que pasarán por el proceso de contratación. Los campos que se pueden colocar en la sección _Información del candidato_ son _Nombre_, _Apellidos_, _Experiencia laboral_, _Tipo de empleo_, etc.
+
+Para añadir una nueva sección, haz clic en **Añadir** **sección**.
+
+Inicialmente, el nombre de la sección se establecerá como "Sección sin título" de forma predeterminada. Puedes cambiar el nombre de la sección por el que prefieras y añadir una descripción debajo si es necesario. También puedes cambiar el nombre de una sección desde el panel derecho; los cambios se guardarán automáticamente.
+
+![](/migration-assets/creating-a-form/10.gif)
+
+De forma similar, puedes acceder a la configuración de la sección y modificar sus condiciones de visibilidad de dos maneras: una, desde la parte superior de la sección; la otra, desde el **panel Propiedades** del lado derecho.
+
+![](/migration-assets/creating-a-form/1.png)
+
+-   Haz clic en el icono de **engranaje** (![](/migration-assets/creating-a-process-inside-apps/10.png)) para acceder a la configuración de la sección. De forma predeterminada, la sección siempre estará visible, pero puedes ocultarla. Puedes hacer que la sección sea condicional añadiendo una regla de visibilidad en la configuración de visibilidad. Para añadir una condición, selecciona un **campo**, **operador** y **tipo**, y asígnalo a un valor o a un campo según el tipo. Puedes añadir varias condiciones.
+-   Para duplicar una sección, haz clic en el icono de **clonar** (![](/migration-assets/creating-a-process-inside-apps/11.png)). Se creará una copia de la sección debajo.
+-   Haz clic en la flecha **Arriba** (![](/migration-assets/creating-a-process-inside-apps/12.png)) o **Abajo** (![](/migration-assets/creating-a-process-inside-apps/13.png)) para reorganizar las secciones.
+-   Haz clic en el icono de la **papelera** (![](/migration-assets/creating-a-process-inside-apps/14.png)) para eliminar toda la sección.
+
+## Campos
+
+Los campos son los componentes básicos de tu formulario. Son el medio principal a través del cual recopilas las entradas de los usuarios en un flujo.
+
+El panel izquierdo incluirá dos categorías principales para agrupar los tipos de campo:
+
+-   Todos los campos.
+    
+-   Campos sugeridos por AI. 
+    
+
+La pestaña Todos los campos se organizará en subcategorías como:
+
+-   Campos básicos.
+    
+-   Campos avanzados.
+    
+-   Archivos y multimedia.
+    
+-   Búsqueda de datos.
+    
+-   Widget.
+    
+
+Puedes arrastrar y soltar un campo de tu elección desde el **panel Campos** del lado izquierdo hasta el editor de formularios.
+
+![](/migration-assets/creating-a-form/4.gif)
+
+### Otras acciones de los campos
+
+-   Para reorganizar los campos dentro de una sección, simplemente arrástralos y suéltalos en su nueva posición. También puedes mover los campos individualmente (uno por uno) o como una fila completa, según lo que te resulte más práctico.  
+     
+-   Para cambiar el tamaño de un campo, coloca el cursor sobre el margen o borde del campo para acceder al icono de cambio de tamaño, con el que puedes aumentar o reducir su ancho según sea necesario.  
+     
+-   Una fila puede contener un máximo de seis campos.  
+     
+-   Para acceder a la configuración del campo y modificar sus otras propiedades, coloca el cursor sobre el campo; encontrarás los iconos correspondientes en el centro. Haz clic en el icono adecuado para modificar las propiedades del campo según sea necesario.
+
+## child table  
+
+Una child table funciona como una sección independiente y te permite recopilar y gestionar datos en formato tabular. Para añadir una child table, haz clic en **Añadir tabla**. Haz clic en el botón **A****ñadir** (![](/migration-assets/creating-a-form/2.png)) para añadir un campo nuevo. Puedes añadir hasta 100 campos por child table.
+
+Además, en la configuración de la tabla, puedes establecer validaciones para controlar el número mínimo y máximo de filas que deben completarse.
+
+![](/migration-assets/creating-a-form/3.png)
+
+### Configurar la importación de datos CSV
+
+Puedes permitir que los usuarios rellenen datos en la child table importando archivos CSV. Sigue estos pasos:
+
+1.  Haz clic en el icono de **configuración** (![](/migration-assets/creating-a-process-inside-apps/10.png)) dentro de la sección de la child table. 
+    
+2.  Activa **Habilitar importación de tablas** desde el panel de propiedades de la derecha. 
+    
+
+Una vez configurado, los usuarios podrán importar archivos CSV durante el tiempo de ejecución del formulario. 
+
+> **Nota:**
+> 
+> -   Actualmente, la herramienta de importación solo admite encabezados de columna alfanuméricos en archivos CSV. Para evitar errores, asegúrate de que los encabezados CSV estén en inglés y no contengan caracteres especiales. Una vez aceptado el archivo, podrás asignar estos encabezados alfanuméricos a tus campos específicos del sistema durante el paso de configuración de la importación.
+> -   La opción **Importar CSV** no es compatible con el modo **Simular**.
+
+![](/migration-assets/creating-a-form/5.png)
+
+### Importar datos desde un archivo CSV
+
+Durante el tiempo de ejecución, los usuarios pueden introducir datos manualmente en estas tablas o **importar datos desde un archivo CSV**.
+
+![](/migration-assets/creating-a-form/8.png)
+
+La función **Importación de CSV** te permite importar datos en bloque a child tables. Estas son algunas directrices que debes seguir al preparar un archivo CSV para la importación:
+
+-   **Campos obligatorios**: si existen campos obligatorios en tu child table, debes asignar **al menos una columna** de tu archivo CSV a los campos requeridos.  
+     
+-   **Datos**: dentro del archivo CSV, solo puedes asignar los siguientes tipos de campo a tu child table: campos de tipo **Texto, Área de texto, Número, Calificación, Fecha, Fecha y hora, Moneda, Sí/no, Usuario, Lista desplegable de selección única, Lista desplegable de selección múltiple, Control deslizante, Casilla de verificación**.  
+     
+-   **Delimitador**: solo debes utilizar la **coma** (**,**) como delimitador dentro del archivo CSV.  
+     
+-   **Filas**: el archivo CSV puede contener hasta **1.000** **filas**, sin incluir el encabezado.  
+     
+-   **Nombres de columnas CSV**: los nombres de las columnas pueden ser alfanuméricos, pero solo pueden incluir los siguientes caracteres especiales:
+    -   Espacio
+    -   Guion (-)
+    -   Guion bajo (\_) 
+-   **Codificación**: el archivo CSV debe tener la extensión **.csv** y ser compatible con la codificación **UTF-8**.  
+     
+-   **Límite de child table**: una child table puede almacenar 5.000 filas, incluidos los registros importados y los introducidos manualmente. Planifica las importaciones en consecuencia para evitar superar este límite.
+
+Una vez que hayas confirmado que tu archivo CSV cumple los requisitos anteriores, sigue estos pasos para importar los datos CSV a tu child table:
+
+1.  En la esquina superior derecha de la child table, haz clic en **Importar CSV**.
+2.  Haz clic en el botón **Importar CSV** para cargar un archivo **.csv** que contenga datos de clientes. Puedes elegir entre las siguientes fuentes de archivos:
+    
+    -   **Box**, **OneDrive**, **Dropbox** o **Google Drive**:  
+        Inicia sesión y autoriza el acceso. Una vez autenticado, busca y selecciona el archivo .csv deseado.
+        
+    -   **Tu dispositivo**:  
+        Explora directamente el almacenamiento local y selecciona el archivo .csv que quieres cargar.
+        
+3.  Después de importar el archivo CSV, el sistema comprueba si está dañado y si contiene errores de delimitador. Si encuentra algún error, corrígelo en el archivo CSV antes de volver a cargarlo.
+4.  Haz clic en **Siguiente** para continuar. A continuación, asigna las columnas de tu archivo CSV a los campos de tu child table. Debes asignar al menos una columna a cualquiera de los encabezados. Por ejemplo, puedes asignar la columna **Direcciones de correo electrónico** de tu documento CSV al campo Correo electrónico de tu child table.
+
+> **Nota:**
+> 
+> Los nombres de los encabezados CSV y los campos de datos deben ser del mismo tipo de datos.
+
+Después de asignar las columnas y los campos, puedes elegir cómo gestionar los datos durante la importación. Puedes eliminar las filas existentes e importar filas nuevas, o conservar las filas existentes e importar filas nuevas.
+
+Si se detecta algún error durante la importación, tienes dos opciones:
+
+-   **Omitir filas específicas**  
+    Ignorar las filas con errores y continuar importando las filas válidas.
+-   **Cancelar importación**  
+    Detener todo el proceso de importación sin guardar ningún cambio.
+    
+
+Después de seleccionar las opciones, haz clic en **Siguiente**. Tus datos comenzarán a importarse. 
+
+![](/migration-assets/creating-a-form/13.gif)
+
+### Configurar campos únicos en child tables
+
+Cada child table de tu formulario puede tener una sola columna con valores de campo únicos. Por ejemplo, si tu formulario contiene tres child tables, puedes marcar un campo (columna) como único en cada una de estas tablas. Una vez configurada, esta columna solo aceptará entradas únicas del usuario final y activará un error si se introduce un valor duplicado. Solo los siguientes tipos de campo admiten campos únicos:
+
+-   Texto, Número, Fecha, Lista desplegable, Correo electrónico, Opción única y Escáner.
+
+> **Nota:**
+> 
+> Esta función solo se aplica a elementos de formulario individuales. La unicidad de las entradas recopiladas de los usuarios solo se aplicará a la tabla de sus envíos de formulario individuales y no se validará en todos los envíos recibidos de varios usuarios. 
+
+Para designar un campo como único, selecciónalo y activa **Marcar como único** en el panel de propiedades del campo situado a la derecha.
+
+![](/migration-assets/creating-a-form/12.png)
+
+En esta etapa, puedes personalizar el mensaje de error que quieres mostrar a los usuarios cuando introduzcan un registro duplicado. Si no especificas un mensaje de error personalizado, se mostrará un mensaje genérico que impedirá a los usuarios enviar el formulario. 
+
+### Funcionalidades de las tablas
+
+#### Ordenar tabla 
+
+Los usuarios pueden ordenar las filas de la child table en orden ascendente o descendente para organizar los datos según la prioridad o la secuencia.
+
+En el caso de tipos de campo complejos (como Widgets), la ordenación se realiza según los datos primitivos almacenados en el backend.
+
+![](/migration-assets/creating-a-form/6.gif)
+
+#### Buscar en la tabla
+
+La función de búsqueda comprueba todas las celdas de las columnas de la child table. Cuando un usuario introduce una palabra clave, la tabla filtra y muestra solo los registros que coinciden con la consulta.
+
+![](/migration-assets/creating-a-form/7.gif)
+
+**Tipos de campo compatibles**
+
+No todos los tipos de campo admiten ordenación y búsqueda. Consulta la tabla siguiente para conocer los detalles de compatibilidad:
+
+**Categoría de campo**
+
+**Tipo de campo**
+
+**Compatibilidad con la ordenación**
+
+**Compatibilidad con la búsqueda**
+
+**Campos básicos**
+
+Texto, Área de texto, Número, Moneda
+
+Sí
+
+Sí
+
+ 
+
+Fecha, Fecha y hora
+
+Sí
+
+Sí
+
+ 
+
+Lista desplegable, Lista desplegable de selección múltiple
+
+Sí
+
+Sí
+
+ 
+
+Casilla de verificación, Botón de opción, Sí/No
+
+Sí
+
+Sí
+
+ 
+
+Correo electrónico
+
+Sí
+
+Sí
+
+ 
+
+Usuario
+
+Sí
+
+Sí
+
+**Campos avanzados**
+
+Búsqueda, Búsqueda remota
+
+Sí
+
+Sí
+
+ 
+
+Número de secuencia
+
+Sí
+
+Sí
+
+ 
+
+Escáner
+
+Sí
+
+Sí
+
+ 
+
+Agregación
+
+Sí
+
+Sí
+
+ 
+
+Firma, Geolocalización
+
+No
+
+No
+
+**Archivos y multimedia**
+
+Archivo adjunto, Smart Attachment, Imagen
+
+No
+
+No
+
+**Widgets**
+
+Calificación, Control deslizante
+
+Sí
+
+No
+
+ 
+
+Lista de comprobación
+
+No
+
+No
+
+#### Encabezados fijos (solo PWA)
+
+Al ver una child table en modo de pantalla completa en la PWA:
+
+Los encabezados de las columnas permanecen fijos en la parte superior de la pantalla mientras te desplazas por las filas.
+
+![](/migration-assets/creating-a-form/11.gif)
+
+#### Configuración personalizada de la altura de las filas
+
+Puedes alternar entre cuatro niveles de altura de fila distintos para optimizar la visibilidad y el enfoque:
+
+-   **Compacta**: el equilibrio estándar del sistema para el uso diario.
+    
+-   **Estándar**: un diseño condensado pensado para revisar datos de alta densidad.
+    
+-   **Cómoda**: mayor espaciado interno para mejorar la legibilidad.
+    
+-   **Amplia**: máximo espacio vertical, ideal para revisar entradas complejas o de varias líneas.
+    
+
+![](/migration-assets/creating-a-form/9.png)
+
+#### Revisión mejorada de errores
+
+Puedes identificar, revisar y resolver errores directamente dentro de las tablas web. Este enfoque integrado permite realizar correcciones más rápidamente y garantiza la precisión de los datos antes del envío final.
+
+#### Desplazamiento interno de tablas
+
+Al trabajar con tablas extensas, puedes desplazarte por cientos de filas mientras el formulario y los encabezados de página circundantes permanecen fijos y visibles.
+
+-   **Contexto persistente**: mantén tu posición en la página sin perder de vista los campos circundantes.
+    
+-   **Navegación mejorada**: desplazamiento vertical más fluido por grandes volúmenes de datos.
+    
+-   **Mayor estabilidad**: elimina la necesidad de desplazarte por toda la página al gestionar datos de tablas anidadas.
+    
+
+## Preguntas frecuentes
+
+**1\. ¿Cuáles son los distintos límites flexibles de los formularios de Kissflow?**
+
+**Respuesta)** Para mejorar el rendimiento y garantizar un uso eficiente de los recursos, Kissflow ha establecido las siguientes restricciones para cada formulario:
+
+-   Un máximo de 1000 campos por formulario.
+    
+-   Un límite flexible predeterminado de 10 child tables en cada formulario.
+    
+-   Un límite flexible predeterminado de 100 columnas por child table.
+    
+-   Un límite máximo de 5000 filas por child table.
+    
+-   Un límite máximo de 30 eventos por formulario (sin incluir los campos de botón).
+    
+
+**2\. ¿Puedo cambiar los tipos de datos de los campos en un formulario con más de 5000 elementos?**
+
+**Respuesta)** No puedes cambiar el tipo de datos de un campo del formulario si el formulario contiene más de 5.000 registros. Esta restricción existe para evitar posibles problemas de versionado al modificar tipos de datos en formularios grandes. Cambiar los tipos de datos con un gran volumen de registros puede provocar incoherencias y problemas de rendimiento.
+
+Como no se puede cambiar el tipo de campo, puedes ocultar el campo existente y crear uno nuevo con el tipo requerido. Utiliza el campo nuevo en el formulario o flujo de trabajo según sea necesario.
+
+**3\. ¿Hay algún tipo de campo en los formularios de Kissflow que no tenga límites flexibles?**
+
+**Respuesta)** Sí, algunos tipos de campo de los formularios de Kissflow no están sujetos a límites flexibles:
+
+-   Campos de texto enriquecido.
+    
+-   Campos de cuadrícula.
+    
+-   Campos de botón (estos tienen un límite flexible independiente de 100 botones por formulario, además del límite predeterminado del formulario).
+    
+
+Los campos de texto enriquecido y de cuadrícula están exentos de estas restricciones porque no contienen metadatos.
+
+**4\. ¿Qué ocurre si duplico una sección con límites aumentados?**
+
+**Respuesta)** Si duplicas un flujo con límites aumentados, el nuevo flujo heredará los mismos límites incrementados.
+
+**5\. ¿Recibiré alguna advertencia cuando me acerque a estos límites?**
+
+**Respuesta)** Sí, aparecerán advertencias cuando estés cerca de alcanzar los límites. Por ejemplo, cuando tengas 990 campos y 90 columnas, recibirás advertencias que indicarán que te estás acercando al límite y sugerirán que solicites una ampliación si es necesario.
+
+**6\. ¿Cuántos registros se muestran al utilizar un conjunto de datos como fuente dentro de un campo de child table?**  
+**Respuesta)** Esto depende del tipo de campo:
+
+-   **Para los campos de lista desplegable y lista desplegable de selección múltiple:** se muestra el conjunto completo de valores del conjunto de datos.
+-   **Para los campos de casilla de verificación y botón de opción:** solo se mostrarán los primeros 250 valores del conjunto de datos.

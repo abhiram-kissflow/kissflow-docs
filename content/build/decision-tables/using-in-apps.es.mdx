@@ -1,0 +1,92 @@
+---
+title: "Usar una tabla de decisiones dentro de las apps"
+description: "Evalúa una tabla de decisiones desde una app usando el SDK de Kissflow: un ejemplo práctico de aprobación de préstamos con campos de formulario y eventos de botón."
+contentType: guide
+persona: citizen-developer
+section: build
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - decision-tables
+  - sdk
+---
+
+# Usar una tabla de decisiones dentro de las apps
+
+<PlanBadge plans={["enterprise"]} />
+
+Para evaluar una tabla de decisiones desde dentro de una app, usa el [SDK de Kissflow](https://developers.kissflow.com/gettingstarted/). En este recorrido se usa un ejemplo sencillo: un banco aprueba una solicitud de préstamo según los ingresos del solicitante.
+
+## 1. Crea la tabla de decisiones
+
+Crea una tabla de decisiones con una condición de **Ingresos** (rango: límite inferior `>=`, límite superior `<`) y un resultado de **Elegibilidad**:
+
+| Ingresos >= | Ingresos \< | Elegibilidad |
+|---|---|---|
+| 15000 | — | Aprobado |
+| 10000 | 15000 | Revisión adicional |
+| 0 | 10000 | Rechazado |
+
+## 2. Crea el formulario
+
+Crea un proceso y añade estos campos a su formulario:
+
+| Nombre del campo | Tipo de campo |
+|---|---|
+| Ingresos | Moneda |
+| Comprobar aprobación | Botón |
+| ¿Aprobado o no? | Texto |
+
+![Formulario del proceso en el creador de formularios con un campo de moneda Ingresos, un botón Comprobar aprobación y un campo de texto ¿Aprobado o no?](/migration-assets/using-a-decision-table-inside-apps/1.png)
+{/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+## 3. Configura el evento del botón
+
+1. Selecciona el botón **Comprobar aprobación**, abre la pestaña **Evento** y haz clic en **Añadir un evento**.
+
+   ![Animación de la selección del botón Comprobar aprobación, la apertura de la pestaña Evento y el clic en Añadir un evento para abrir el editor de código](/migration-assets/using-a-decision-table-inside-apps/2.gif)
+   {/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+2. En el editor de código, lee el valor de los ingresos del formulario usando `getField()` del [SDK de Forms](https://developers.kissflow.com/form/about/):
+
+   ```js
+   let IncomeInput = await kf.context.getField("Income_process");
+   ```
+
+3. Evalúa la tabla de decisiones usando el [SDK de apps](https://developers.kissflow.com/app/decisiontable/):
+
+   ```js
+   let LoanDecisionTable = kf.app.getDecisionTable("Loan_decision_table_A00");
+   let decisionOutput = await LoanDecisionTable.evaluate({ Income_decision_table: IncomeInput });
+   ```
+
+   - Sustituye `"Loan_decision_table_A00"` por el ID de tu tabla de decisiones: es el segmento que aparece después de la última barra (`/`) en la URL de la tabla de decisiones.
+   - Las claves de la carga útil de `evaluate()` son los ID de tus condiciones. El ID de una condición aparece en **ID del campo**, dentro del panel de configuración de la condición. Ábrelo haciendo clic en el encabezado de la columna de la condición.
+
+4. Lee el resultado. La respuesta de la evaluación contiene un arreglo `Data` de filas de resultados coincidentes:
+
+   ```js
+   let outputValue = decisionOutput.Data.at(0);
+   ```
+
+5. Escribe el resultado de nuevo en el formulario con `updateField()`:
+
+   ```js
+   kf.context.updateField({ Approved_or_not: outputValue?.Eligibility });
+   ```
+
+   ![Editor de código del evento onClick del botón que muestra el script completo: llamadas a getField, getDecisionTable, evaluate y updateField](/migration-assets/using-a-decision-table-inside-apps/3.png)
+   {/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+6. Haz clic en **Guardar**.
+
+## 4. Implementa la app y pruébala
+
+Implementa la app. En el formulario del proceso, introduce un valor en el campo **Ingresos** y haz clic en **Comprobar aprobación**; el resultado de la tabla de decisiones aparece en el campo **¿Aprobado o no?**.
+
+## Qué sigue
+
+- [Configuración de la evaluación](/docs/build/decision-tables/evaluation-settings)
+- [Referencia del SDK de Kissflow](https://developers.kissflow.com/)

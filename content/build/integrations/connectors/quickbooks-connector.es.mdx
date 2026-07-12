@@ -1,0 +1,116 @@
+---
+title: "Conector de QuickBooks"
+description: "BORRADOR (no verificado) — migrado desde /t/m1h4afz/quickbooks-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es QuickBooks?
+
+QuickBooks de Intuit ofrece un completo software de contabilidad basado en la nube para aceptar pagos comerciales, gestionar y pagar facturas, y realizar funciones de nómina. Puedes crear facturas, gestionar tus gastos y flujo de caja, y consultar tus pérdidas y ganancias desde cualquier lugar mediante QuickBooks.
+
+## Acerca de la integración de QuickBooks con Kissflow
+
+El conector de QuickBooks de Kissflow te permite conectar QuickBooks Online al instante con las aplicaciones de Kissflow y otras aplicaciones populares de terceros. Te permite compartir datos de forma segura desde QuickBooks para crear flujos de trabajo eficaces. Para integrarte con QuickBooks Online, debes tener una cuenta válida de QuickBooks Online, además de ser cliente de pago de Kissflow. Puedes usar el conector de QuickBooks para recibir datos de otros flujos o aplicaciones con el fin de realizar acciones específicas y acciones de búsqueda en QuickBooks. Por el momento, el conector de QuickBooks no admite ningún evento desencadenador.
+
+### Acciones en QuickBooks
+
+**Acciones**
+
+**Descripción**
+
+Crear un cliente
+
+Esta acción añade un nuevo cliente a tu cuenta de QuickBooks.
+
+Crear una estimación
+
+Esta acción crea una nueva estimación (con compatibilidad con partidas) en tu cuenta de QuickBooks.
+
+Crear una factura
+
+Esta acción añade una nueva factura a tu cuenta de QuickBooks.
+
+Crear un proveedor
+
+Esta acción añade un nuevo proveedor a tu cuenta de QuickBooks.
+
+Crear un pago
+
+Esta acción crea un nuevo pago, opcionalmente vinculado a una factura en tu cuenta de QuickBooks.
+
+Crear una factura de proveedor
+
+Esta acción crea una nueva factura de proveedor, opcionalmente vinculada a un cliente en tu cuenta de QuickBooks.
+
+Actualizar un cliente
+
+Esta acción actualiza un cliente existente en QuickBooks.
+
+Crear un recibo de venta
+
+Esta acción crea un nuevo recibo de venta en tu cuenta de Quickbooks.
+
+Crear una orden de compra
+
+Esta acción crea una nueva orden de compra en tu cuenta de Quickbooks.
+
+Crear un gasto
+
+Esta acción crea un nuevo gasto y lo añade a tu cuenta de Quickbooks.
+
+Crear un artículo
+
+Esta acción crea un nuevo artículo en tu cuenta de Quickbooks.
+
+### Acciones de búsqueda en QuickBooks
+
+**Acciones de búsqueda**
+
+**Descripción**
+
+Buscar un cliente
+
+Esta acción de búsqueda encuentra un cliente por nombre o dirección de correo electrónico.
+
+Buscar una factura
+
+Esta acción de búsqueda encuentra una factura por número.
+
+Buscar un proveedor
+
+Esta acción de búsqueda encuentra un proveedor por nombre.
+
+Buscar producto(s)
+
+Esta acción de búsqueda encuentra un producto por nombre.
+
+Buscar cuenta(s)
+
+Esta acción de búsqueda encuentra una cuenta por nombre.
+
+Buscar código(s) fiscal(es)
+
+Esta acción de búsqueda encuentra y recupera códigos fiscales.
+
+## Configurar el conector de QuickBooks
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**.
+    
+2.  Una vez dentro del editor, configura un paso de desencadenador, por ejemplo, un evento desencadenador de Kissflow Process: **Cuando un elemento completa un flujo de trabajo.**
+    
+3.  Después de configurar el paso de desencadenador anterior, haz clic en el botón Add (![](/migration-assets/xero-connector/1.png)) situado al lado para configurar el paso de acción. Busca **QuickBooks** y selecciona un evento de acción entre las opciones disponibles (como se indica en la tabla anterior).![](/migration-assets/quickbooks-connector/2.png)
+4.  Después de elegir el evento de acción, autentica el conector. Haz clic en **+Añadir una cuenta** e inicia sesión con tu cuenta de QuickBooks. Kissflow utiliza OAuth de QuickBooks para la autenticación.![](/migration-assets/quickbooks-connector/1.jpg)
+5.  Después de autenticarte con tu cuenta de QuickBooks, añade los valores correspondientes a los campos del formulario de QuickBooks. Puedes hacer clic en **Actualizar campos** para ver todos los campos actualizados del formulario de QuickBooks seleccionado. También puedes asignar campos de QuickBooks desde el paso de desencadenador o campos de tus pasos de acción anteriores. Estos valores se añadirán automáticamente a los campos del elemento después de ejecutar la acción.
+6.  Después de una configuración correcta, comprueba si el paso de acción de QuickBooks está configurado correctamente haciendo clic en el botón **P****robar**. El conector extraerá los datos de los campos de la cuenta de QuickBooks seleccionada y los mostrará como una salida JSON. Al igual que con el paso de desencadenador, se te notificarán los errores de inmediato. Corrígelos antes de volver a probar el paso de acción.
+
+## Configurar un conector de QuickBooks
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción del conector de QuickBooks, activa el botón de alternancia para activar la ejecución de la integración. Cuando se produzca un evento desencadenador, se activará la acción de QuickBooks.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

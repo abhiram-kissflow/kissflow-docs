@@ -1,0 +1,71 @@
+---
+title: "Conector de Google Sheets"
+description: "BORRADOR (sin verificar) — migrado desde /t/m1h4afq/google-sheets-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es Google Sheets?
+
+Puedes crear, editar y compartir hojas de cálculo desde cualquier lugar, y recibir información automatizada sobre tus datos mediante Google Sheets.
+
+## Acerca de la integración de Google Sheets con Kissflow
+
+El conector de Google Sheets de Kissflow Integration te permite conectarte instantáneamente a Google Sheets y automatizar tu trabajo con otras aplicaciones de Kissflow y aplicaciones populares de terceros. Debes tener una cuenta de Google válida y ser cliente de pago de Kissflow para integrar Google Sheets. Para realizar acciones específicas, usa el conector de Google Sheets para recibir datos de otros flujos o aplicaciones. Por ahora, el conector de Google
+
+Sheets no admite ningún evento de activación.
+
+### Acciones del conector de Google Sheets
+
+**Eventos de acción**
+
+**Descripción**
+
+Crear una hoja de cálculo
+
+Esta acción crea una hoja de cálculo en blanco o duplica una hoja de cálculo existente. Opcionalmente, puedes proporcionar encabezados.
+
+Crear una hoja de trabajo
+
+Esta acción crea una hoja de trabajo en blanco con un título. Opcionalmente, puedes proporcionar encabezados.
+
+Crear una fila
+
+Esta acción crea una fila nueva en una hoja de cálculo específica.
+
+Crear filas en bloque
+
+Esta acción añade varias filas a una hoja de cálculo en una sola solicitud.
+
+> **Nota**
+> 
+> Aunque Kissflow no impone un límite estricto de filas por llamada a la API, se aplican restricciones prácticas. Para garantizar un rendimiento óptimo y evitar errores de tiempo de espera, sigue la recomendación de Google de mantener la carga útil total de la solicitud por debajo de 2 MB.
+
+Actualizar una fila
+
+Esta acción actualiza una fila en una hoja de cálculo específica.
+
+Buscar una fila de hoja de cálculo
+
+Esta acción busca una fila por una columna y un valor. También devuelve la fila completa si encuentra una.
+
+### El conector de Google Sheets como paso de acción
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para la integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Una vez dentro del editor, configura un paso de activación, por ejemplo, un evento de activación de un proceso de Kissflow: **Cuando se envía un elemento en borrador.**
+3.  Después de configurar el paso de activación anterior, haz clic en el botón Añadir (![](/migration-assets/google-sheets-connector/1.png)) junto a configurar el paso de acción. Busca **Google Sheets** y selecciona la acción que quieras.![](/migration-assets/google-sheets-connector/2.png)
+4.  Después de elegir el evento de acción, autentica el conector. Haz clic en **+Añadir una cuenta** e inicia sesión con tu cuenta de Google. Kissflow utiliza OAuth de Google para la autenticación.
+5.  Después de autenticarte con tu cuenta de Google, añade los valores pertinentes en los campos del formulario de Google Sheets. Puedes hacer clic en Actualizar campos para ver todos los campos actualizados del formulario de Google Sheets seleccionado. También puedes asignar campos de Google Sheets desde el paso de activación o campos de los pasos de acción anteriores. Estos valores se añadirán automáticamente a los campos del elemento después de ejecutar la acción.![](/migration-assets/google-sheets-connector/3.png)
+6.  Después de configurar todo correctamente, comprueba si el paso de acción de Google Sheets está configurado correctamente haciendo clic en el botón **P****robar**. El conector extraerá los datos de los campos de la cuenta de Google seleccionada y los mostrará como una salida JSON. Al igual que con el paso de activación, recibirás una notificación inmediata de los errores. Corrígelos antes de volver a probar el paso de acción.
+
+### Configurar un conector de Google Sheets
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción del conector de Google Sheets, activa el botón de alternancia para activar la ejecución de la integración. Cuando se produce un evento de activación, se activan las acciones de Google Sheets.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

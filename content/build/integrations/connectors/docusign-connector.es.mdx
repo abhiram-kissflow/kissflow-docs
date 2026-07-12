@@ -1,0 +1,78 @@
+---
+title: "Conector de DocuSign"
+description: "BORRADOR (sin verificar) — migrado desde /t/y4h4af9/docusign-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+## ¿Qué es DocuSign?
+
+[DocuSign](https://www.docusign.com/) es una tecnología de firma electrónica y un servicio de gestión de transacciones digitales que facilita el intercambio electrónico de documentos firmados.
+
+## Acerca de la integración de DocuSign con Kissflow
+
+El conector de DocuSign de Kissflow Integration te permite conectar tu cuenta de DocuSign con las aplicaciones de Kissflow. Debes tener una cuenta válida de DocuSign y ser cliente de pago de Kissflow para integrarte con DocuSign.Supongamos que usas Kissflow para firmar digitalmente los acuerdos de los empleados como paso final antes de incorporar a los nuevos empleados. Si usas el proceso de Kissflow como desencadenador y agregas DocuSign como una acción, puedes crear un nuevo acuerdo cada vez que un elemento complete su flujo de trabajo. 
+
+### Desencadenadores del conector de DocuSign
+
+**Eventos del desencadenador**
+
+**Descripción**
+
+Cuando se completa la firma de un sobre
+
+Se activa cuando se completa la firma de un sobre.
+
+> **Nota:**
+> 
+> La **Configuración de envío**, **Permitir que el remitente descargue los datos del formulario**, debe estar habilitada en la cuenta de DocuSign para que el desencadenador funcione.
+
+### Acciones del conector de DocuSign
+
+**Eventos de acción**
+
+**Descripción**
+
+Crear un acuerdo usando un documento
+
+Esta acción crea y transmite un acuerdo en formato PDF basado en el documento cargado.
+
+> **Nota:.**
+> 
+> Si necesitas que varios firmantes firmen el acuerdo de forma secuencial, habilita **¿Habilitar el orden de firma?**
+
+Crear un acuerdo usando una plantilla
+
+Esta acción crea y transmite un acuerdo usando una plantilla.
+
+### Conector de DocuSign como paso de acción
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Ingresa un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**.
+    
+2.  Una vez dentro del editor, configura los pasos del desencadenador y de la acción según sea necesario; por ejemplo, tu evento desencadenador puede ser **Cuando un elemento avanza al siguiente paso**.
+3.  Después de configurar el desencadenador y el paso de acción anteriores, haz clic en el botón **Agregar** (![](/migration-assets/docusign-connector/1.png)) que aparece junto a la opción para configurar el paso de acción. Busca el conector de **DocuSign** y selecciona la acción que quieras de la lista anterior.![](/migration-assets/docusign-connector/2.png) 
+4.  Después de elegir el evento de acción, autentica el conector. Haz clic en **+Agregar una cuenta** e inicia sesión con tu cuenta de DocuSign. Kissflow usa OAuth de DocuSign para la autenticación.
+5.  Después de autenticarte con tu cuenta de DocuSign, agrega los valores correspondientes a los campos del formulario de DocuSign. Puedes hacer clic en **Actualizar campos** para ver todos los campos actualizados del formulario de DocuSign seleccionado. ![](/migration-assets/docusign-connector/3.png) 
+6.  Haz clic en **Siguiente**.
+7.  Después de una configuración exitosa, prueba si el paso de acción de DocuSign está configurado correctamente haciendo clic en el botón **Probar**. El conector extraerá los datos de los campos de tu cuenta de DocuSign seleccionada y los mostrará como una salida JSON. Al igual que en el paso del desencadenador, recibirás una notificación inmediata de los errores. Corrígelos antes de volver a probar el paso de acción.
+
+### Conector de DocuSign como paso de desencadenador
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Ingresa un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**.
+    
+2.  Una vez dentro del editor, configura los pasos del desencadenador y de la acción según sea necesario. Busca el conector de DocuSign y selecciona el evento desencadenador que quieras: **Cuando se completa la firma de un sobre**.![](/migration-assets/docusign-connector/4.png)
+3.  Después de elegir el evento desencadenador, autentica el conector. Haz clic en **+Agregar una cuenta** e inicia sesión con tu cuenta de DocuSign. Elige **Actualizar un elemento** en el conector de procesos de Kissflow como evento de acción. 
+4.  Después de autenticarte con tus cuentas de DocuSign y Kissflow, agrega los valores correspondientes a los campos del formulario del proceso de Kissflow. Puedes hacer clic en **Actualizar** campos para ver todos los campos actualizados.
+5.  Haz clic en **Siguiente**.
+6.  Después de una configuración exitosa, prueba si el paso del desencadenador de DocuSign está configurado correctamente haciendo clic en el botón **Probar**. El conector extraerá los datos de los campos del proceso de Kissflow seleccionado y los mostrará como una salida JSON.
+
+## Enviar y recibir documentos en paralelo
+
+Con las acciones y el desencadenador del conector de DocuSign, puedes enviar y recibir fácilmente documentos firmados desde DocuSign. Por ejemplo, si necesitas firmar digitalmente acuerdos de empleados, puedes automatizar el proceso creando dos integraciones independientes.Crea dos integraciones independientes con DocuSign como paso de acción en una integración y como paso de desencadenador en la otra. Supongamos el ejemplo anterior, en el que debemos firmar digitalmente los documentos de los empleados. Para la primera integración, el desencadenador puede ser un desencadenador de proceso de Kissflow **Cuando un elemento avanza al siguiente paso**; la acción puede ser cualquiera de las dos acciones de DocuSign compatibles con Kissflow. Para la segunda integración, el desencadenador debe ser **Cuando se completa la firma de un sobre** del conector de DocuSign; la acción puede ser **Actualizar un elemento** del conector de procesos de Kissflow.Una vez que hayas completado todos los valores correspondientes en ambas integraciones, activa el botón de alternancia. La primera integración se activa cuando un elemento avanza al siguiente paso del proceso de incorporación de empleados. Se crea un acuerdo como PDF o como plantilla y se envía a DocuSign para su firma electrónica. Una vez que se completa la firma en DocuSign, la segunda integración se activa automáticamente y la acción del proceso de Kissflow actualiza el mismo elemento en el proceso de incorporación de empleados. Ejecutar dos integraciones simultáneamente te permite automatizar todo el proceso sin cargar manualmente documentos en Kissflow o DocuSign. 
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

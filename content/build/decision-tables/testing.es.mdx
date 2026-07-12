@@ -1,0 +1,39 @@
+---
+title: "Probar una tabla de decisiones"
+description: "Ejecuta valores de condición de muestra en una tabla de decisiones para verificar que devuelve los resultados esperados."
+contentType: guide
+persona: citizen-developer
+section: build
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - decision-tables
+  - testing
+---
+
+# Probar una tabla de decisiones
+
+<PlanBadge plans={["enterprise"]} />
+
+Las pruebas te permiten verificar que tu tabla de decisiones evalúa las condiciones correctamente y devuelve los resultados esperados, antes de que algo dependa de ella.
+
+<Callout type="info">
+  Las pruebas requieren al menos **una condición y un resultado** en tu tabla de decisiones.
+</Callout>
+
+## Probar tu tabla de decisiones
+
+1. Haz clic en el botón **Probar** en la esquina superior derecha.
+2. En el panel de pruebas, introduce valores de muestra para cada condición.
+3. Ejecuta la prueba.
+
+![Panel de pruebas con valores de muestra introducidos para las condiciones Edad y Salario, un botón Probar y el resultado Importe del préstamo devuelto en una tabla](/migration-assets/testing-a-decision-table/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+La tabla de decisiones evalúa tus valores de muestra y muestra los resultados coincidentes en una tabla, siguiendo tus [configuraciones de evaluación](/docs/build/decision-tables/evaluation-settings).
+
+## Qué sigue
+
+- [Usar una tabla de decisiones dentro de las aplicaciones](/docs/build/decision-tables/using-in-apps)

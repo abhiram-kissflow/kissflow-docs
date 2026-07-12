@@ -1,0 +1,34 @@
+---
+title: "Descripción general de SCIM"
+description: "BORRADOR (sin verificar) — migrado desde /t/p8h4ak4/scim-overview"
+contentType: overview
+persona: admin
+section: admin
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+## Cómo funciona SCIM
+
+[System for Cross-domain Identity Management (SCIM v2.0)](https://datatracker.ietf.org/doc/html/rfc7644) es una especificación de un protocolo similar a REST para el aprovisionamiento unidireccional de usuarios mediante HTTP. En el protocolo SCIM, el sistema central de gestión de identidades se denomina proveedor de identidades (IdP) y la aplicación de terceros se denomina proveedor de servicios.
+
+Al configurar tu IdP existente, puedes aprovechar el aprovisionamiento automático de cuentas en Kissflow. Para usar el aprovisionamiento, tendrás que crear una aplicación de conector junto con un proveedor de identidades compatible.
+
+## Gestión de miembros
+
+El aprovisionamiento mediante SCIM permite a los [Super Admins y administradores de IAM](/t/35h4ak036h4gg/user-roles-permissions) gestionar los miembros de forma más eficiente. Esto es lo que puedes hacer con la sincronización de SCIM:
+
+-   Crear o desactivar un usuario
+-   Crear o eliminar un grupo de usuarios
+-   Actualizar los atributos de los usuarios
+-   Añadir o eliminar usuarios de un grupo de usuarios
+
+## Configuración del aprovisionamiento de usuarios
+
+La configuración del aprovisionamiento mediante SCIM variará según el IdP que uses. Estos son los proveedores compatibles:
+
+-   [Azure Active Directory](/t/m1h4a1q36h4gg/scim-azure-ad)
+-   [Okta](/t/60h4akv36h4gg/scim-okta)
+-   [OneLogin](/t/g9h4ak936h4gg/scim-onelogin)

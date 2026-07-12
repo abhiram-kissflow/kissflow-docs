@@ -1,0 +1,44 @@
+---
+title: "Descripción general de la sincronización de directorios"
+description: "BORRADOR (no verificado) — migrado desde /t/35h4a13/directory-sync-overview"
+contentType: overview
+persona: admin
+section: admin
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Como [superadministrador o administrador de IAM](/t/35h4ak0), puedes acceder a la configuración de tu **proveedor de identidad** en **Administración de la cuenta** > **Aprovisionamiento de usuarios** > **Sincronización de directorios** para administrar y realizar otras acciones relacionadas con tu configuración. En esta sección puedes hacer seguimiento del progreso de la sincronización en curso, consultar su estado actual y el historial de sincronización, y realizar acciones como editar, eliminar o deshabilitar la configuración. 
+
+![](/migration-assets/directory-sync-overview/1.png)
+
+Como se mencionó anteriormente, Kissflow admite sincronizaciones manuales y programadas. Haz clic en **Sincronizar ahora** para activar la sincronización manualmente en cualquier momento.
+
+## Deshabilitar la configuración
+
+-   Accede a la configuración y haz clic en el botón **Más opciones** (**...**) > **Deshabilitar**
+-   Lee el mensaje de alerta que aparece en la ventana emergente y haz clic en **Deshabilitar** si quieres suspender temporalmente la configuración. Siempre puedes volver a habilitarla más adelante cuando lo necesites.
+
+## Eliminar la configuración
+
+-   Accede a la configuración y haz clic en el botón **Más opciones** (**...**) > **Eliminar configuración**
+-   Lee el mensaje de alerta que aparece en la ventana emergente y haz clic en **Eliminar** si quieres eliminar la configuración de forma permanente. Ten en cuenta que tendrás que crear la configuración desde cero si la necesitas en el futuro.
+
+## Administrar el historial de sincronización
+
+Accede a la configuración y haz clic en **Más opciones** > **Historial de sincronización**, o haz clic en el enlace **Ver historial de sincronización** que aparece junto a la información del estado de la última sincronización.
+
+![](/migration-assets/directory-sync-overview/2.gif)
+
+A continuación, se muestra la lista de posibles estados de sincronización:
+
+1. **Correcta**: La sincronización se realizó correctamente, como se esperaba.
+2. **Fallida**: La sincronización falló debido a algunos problemas críticos.
+3. **Correcta parcialmente**: La sincronización se completó con errores.
+    -   Esto puede ocurrir cuando uno de los atributos de un registro de usuario en tu cuenta del proveedor de identidad no tiene un campo equivalente en Kissflow.
+
+## Licencias de usuario y sincronización de directorios
+
+Al integrar tu proveedor de identidad con Kissflow, es importante tener en cuenta cómo se aprovisionan los usuarios y cómo se asignan las licencias. Cuando los usuarios se sincronizan desde tu proveedor de identidad, no se añaden inmediatamente a Kissflow. En su lugar, se les asigna el estado _Invitado_, lo que indica que deben aceptar su invitación para activar su cuenta.Para ilustrarlo, imagina que tu organización ha comprado 100 licencias de usuario en Kissflow. Si se sincronizan 120 usuarios desde tu proveedor de identidad, cada uno de estos 120 usuarios recibirá un correo electrónico de invitación de Kissflow. Sin embargo, Kissflow solo podrá admitir a los primeros 100 usuarios que activen sus cuentas debido al número limitado de licencias. Los 20 usuarios restantes tendrán que esperar hasta que un superadministrador o un administrador de usuarios pueda activar sus cuentas, ya que el conjunto de licencias de usuario disponibles se habrá utilizado por completo.Además, los usuarios que se hayan desactivado anteriormente en Kissflow durante el proceso de sincronización, pero que sigan formando parte del espacio de trabajo sincronizado, se reactivarán. Los usuarios nuevos que no estén actualmente en Kissflow recibirán una invitación. Por lo tanto, independientemente de su estado anterior en Kissflow, todos los usuarios del espacio de trabajo sincronizado recibirán una invitación o se reactivarán. Este completo proceso de sincronización garantiza una experiencia fluida y coherente para todos los usuarios, según la disponibilidad de licencias.

@@ -1,0 +1,205 @@
+---
+title: "Acciones de los miembros en un proceso"
+description: "Accede a los elementos de un proceso, actúa en los pasos que tienes asignados y usa acciones como aprobar, reasignar, rechazar, duplicar e imprimir."
+contentType: guide
+persona: end-user
+section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - processes
+  - tasks
+  - workflow
+---
+
+# Acciones de los miembros en un proceso
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+Como miembro de un proceso, inicias elementos y actúas en los pasos que tienes asignados. En este artículo se explica dónde encontrar tus elementos, qué acciones puedes realizar en ellos y cómo realizar acciones masivas, duplicar elementos e imprimir un formulario.
+
+## Acceder a tus elementos y tareas
+
+Cada proceso tiene dos pestañas principales: **Creados por mí** y **Elementos asignados**.
+
+### Creados por mí
+
+La pestaña **Creados por mí** muestra todos los elementos en los que has estado activo. En cada sección, puedes:
+
+- Buscar elementos.
+- Aplicar filtros.
+- Controlar qué campos se muestran u ocultan desde el menú **Mostrar/ocultar campos** ( ![Icono de mostrar/ocultar campos](/migration-assets/member-actions-in-a-process/1.png) ).
+  {/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="info">
+  Los campos de tabla no se pueden mostrar ni ocultar, y sus datos asociados no se pueden usar para buscar o filtrar.
+</Callout>
+
+Haz clic en un elemento para abrirlo y comprobar su progreso. También puedes ver los campos del formulario que están visibles en tu paso específico.
+
+![Elemento abierto desde la pestaña Creados por mí, con sus campos y progreso](/migration-assets/member-actions-in-a-process/2.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Los elementos se clasifican en este orden:
+
+| Categoría        | Lo que muestra                                                                                                                                                                                                     |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Borradores**       | Elementos que has empezado a completar, pero que aún no has enviado. Puedes editar los valores y eliminar, guardar o enviar el elemento. En la vista de tabla, selecciona las casillas situadas junto a los elementos para eliminarlos de forma masiva.                        |
+| **En curso**  | Elementos que has enviado, pero cuyo flujo de trabajo no ha terminado. Al abrir uno, aparece una barra de progreso en la parte superior derecha del formulario. No se pueden cambiar los valores de los campos. Según la configuración del administrador del proceso, es posible que puedas reasignar o retirar el elemento. |
+| **Rechazados**     | Elementos que has creado y que fueron rechazados. Al hacer clic en **Reiniciar** después de abrir uno, se muestran los mismos datos que en un borrador, y puedes enviarlo como un elemento nuevo.                                                                |
+| **Retirados**    | Elementos que has retirado. Puedes reiniciarlos después de abrirlos; al reiniciarlos, se añade una nota al flujo de trabajo para indicar que el elemento se reinició.                                                                          |
+| **Completados**      | Elementos cuyo flujo de trabajo ha terminado.                                                                                                                                                                            |
+
+### Elementos asignados
+
+La pestaña **Elementos asignados** muestra todos los pasos que tienes asignados, clasificados por paso en el flujo de trabajo. En cada paso que tengas asignado, puedes buscar, aplicar filtros y controlar qué campos se muestran u ocultan.
+
+![Pestaña Elementos asignados con los pasos asignados al usuario actual](/migration-assets/member-actions-in-a-process/3.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Según los permisos establecidos por el administrador del proceso, puedes editar o ver los campos del formulario. En el lado derecho del formulario se encuentra la sección de estado; haz clic en **Mostrar todo** para ver qué pasos se han completado y cuáles siguen pendientes.
+
+En la parte inferior del formulario aparecen las acciones que puedes realizar. Estas [acciones están configuradas](/docs/build/processes/step-configuration/configuring-actions-for-process-steps) por el administrador del proceso, por lo que su texto y visibilidad pueden variar según el paso:
+
+- **Aprobar/Listo/Enviar**: avanza el elemento al siguiente paso. Es posible que los formularios tengan validaciones que requieran que ajustes primero los valores de los campos.
+- **Reasignar**: te permite seleccionar a otra persona para completar este paso.
+- **Rechazar**: rechaza el elemento por completo. La persona que inició el elemento puede reiniciarlo como un borrador nuevo.
+- **Devolver**: coloca el elemento en un paso anterior específico del flujo de trabajo.
+- **Guardar**: guarda los valores que has introducido para que puedas volver al elemento más tarde.
+
+![Botones de acción en la parte inferior del formulario de un elemento asignado](/migration-assets/member-actions-in-a-process/4.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+### Acceder a los elementos en los que has participado
+
+Para acceder a todos los elementos en los que has actuado, haz clic en **Más** > **Elementos en los que he participado**.
+
+![Menú Más abierto con la opción Elementos en los que he participado](/migration-assets/member-actions-in-a-process/6.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Iniciar un elemento nuevo
+
+1. Haz clic en **+ Nuevo elemento** en la parte superior derecha de la pantalla.
+2. Completa los campos del formulario.
+3. Haz clic en **Enviar**.
+
+También puedes:
+
+- Hacer clic en **Guardar** para guardar tu trabajo en **Borradores** (disponible en **Creados por mí**) sin enviarlo.
+- Hacer clic en **Descartar** para eliminar el elemento permanentemente del sistema.
+
+## Realizar acciones masivas
+
+Puedes aprobar, reasignar o rechazar varios elementos a la vez desde la pestaña **Elementos asignados**.
+
+1. Ve al proceso y haz clic en la pestaña **Elementos asignados**.
+2. Selecciona los elementos sobre los que quieres actuar. También puedes seleccionar la casilla de la parte superior, junto al título de la columna, para seleccionar todos los elementos de la página.
+
+![Varios elementos seleccionados en Elementos asignados, con la barra de acciones masivas visible](/migration-assets/member-actions-in-a-process/5.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="info">
+  Las acciones masivas solo se aplican a los elementos que has seleccionado. Comprueba el tamaño de página de la cuadrícula del proceso si necesitas actuar sobre más elementos de los que están cargados actualmente.
+</Callout>
+
+### Aprobar elementos de forma masiva
+
+Selecciona los elementos que quieres aprobar y haz clic en **Aprobar**. La aprobación masiva puede tardar unos segundos; el estado final se muestra en un mensaje emergente en la parte superior derecha de la página.
+
+![Mensaje emergente que confirma que se completó la aprobación masiva](/migration-assets/member-actions-in-a-process/7.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="info">
+  Los elementos que requieren tu intervención —aquellos con campos obligatorios pendientes de tu respuesta— se omiten durante la aprobación. Los elementos omitidos muestran un signo de exclamación amarillo cuando se completa la aprobación masiva, para que puedas actuar sobre ellos y aprobarlos de nuevo individualmente.
+</Callout>
+
+### Reasignar elementos de forma masiva
+
+Selecciona los elementos que quieres reasignar y haz clic en **Reasignar**.
+
+![Acción Reasignar seleccionada para varios elementos](/migration-assets/member-actions-in-a-process/14.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Reasignar un elemento a un usuario específico solo elimina tu asociación con él; no afecta a la asociación del elemento con sus otros responsables asignados, si los hay.
+
+Por ejemplo, si John y Linda tienen asignado un elemento junto contigo y lo reasignas a Abraham, Abraham se une a John y Linda como responsable asignado. Tú eres la única persona que se elimina del elemento.
+
+<Callout type="info">
+  La reasignación funciona de forma diferente cuando el usuario que reasigna el elemento es un administrador del proceso. Obtén más información en [Acciones de los administradores en un proceso](/docs/admin/processes/admin-actions-in-a-process).
+</Callout>
+
+### Rechazar elementos de forma masiva
+
+Desde la pestaña **Elementos asignados**, selecciona los elementos que quieres rechazar, haz clic en **Rechazar** y añade las notas pertinentes.
+
+![Acción Rechazar con un campo de notas para los elementos seleccionados](/migration-assets/member-actions-in-a-process/8.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Eliminar un elemento
+
+Solo puedes eliminar un elemento cuando es un **Borrador**. Ve a **Creados por mí** > **Borradores**, selecciona los elementos que quieres eliminar y haz clic en **Eliminar**.
+
+![Elementos de borrador seleccionados con la acción Eliminar disponible](/migration-assets/member-actions-in-a-process/9.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="warn">
+  Al eliminar un elemento, se eliminan permanentemente todos los datos asociados a él.
+</Callout>
+
+## Duplicar un elemento
+
+Puedes duplicar un elemento de un proceso después de iniciarlo o enviarlo. Al duplicarlo, se crea una copia del elemento con sus valores, sujeta al alcance del iniciador.
+
+Haz clic en el botón **Duplicar** ( ![Icono de duplicar](/migration-assets/member-actions-in-a-process/10.png) ) en la parte superior de la página del elemento.
+
+![Botón Duplicar en la parte superior de un elemento abierto](/migration-assets/member-actions-in-a-process/11.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="info">
+  Solo se pueden duplicar los elementos que se encuentran en los estados **En curso** o **Completados**. El duplicado utiliza los últimos valores guardados de todos los campos.
+</Callout>
+
+### Caso de uso
+
+Linda dirige el equipo de Recursos Humanos de una empresa de TI. Es temporada de evaluaciones y está iniciando un proceso de **Evaluación individual del empleado**. El formulario tiene campos genéricos como **Nombre del empleado** y **Cargo**, además de campos confidenciales como **Salario actual** y **Porcentaje de aumento salarial**.
+
+Configura **Salario actual** y **Porcentaje de aumento salarial** para que permanezcan ocultos hasta que el elemento llegue al paso de aprobación del gerente; así, solo el gerente ve la información salarial al decidir sobre un aumento. Una vez publicado el proceso, Linda puede duplicar un elemento de evaluación existente en lugar de volver a crearlo desde cero cada vez, sin exponer los campos confidenciales durante la duplicación.
+
+## Imprimir un formulario
+
+1. Abre un elemento y haz clic en el botón **Imprimir** ( ![Icono de imprimir](/migration-assets/member-actions-in-a-process/16.svg) ) en la parte superior derecha.
+
+   ![Botón Imprimir en la parte superior derecha de un elemento abierto](/migration-assets/member-actions-in-a-process/12.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+2. Selecciona un tamaño de papel.
+3. Selecciona una orientación: **Vertical** u **Horizontal**.
+4. Establece un tamaño de fuente preferido para el texto.
+5. Elige qué incluir en la impresión:
+   - El estado del elemento.
+   - El progreso del elemento, con la opción de excluir los pasos omitidos.
+   - Los comentarios del elemento.
+   - Las tablas asociadas al elemento.
+
+   ![Opciones de impresión para el estado, el progreso, los comentarios y las tablas](/migration-assets/member-actions-in-a-process/13.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+6. En **Más configuraciones**, puedes:
+   - Imprimir cada sección del formulario en una página nueva.
+   - Incluir la zona horaria.
+   - Imprimir las filas de la tabla como una tabla o como una lista separada por comas.
+   - Seleccionar todos los campos o campos específicos para imprimir.
+
+   ![Más configuraciones para la zona horaria, el formato de las filas y la selección de campos](/migration-assets/member-actions-in-a-process/15.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+7. Haz clic en **Imprimir** para obtener una copia impresa o guardarla como PDF.
+
+## Qué hacer a continuación
+
+- [Filtrar elementos en un proceso](/docs/use/tasks/filtering-items-in-a-process)
+- [Seguir un elemento de un proceso](/docs/use/tasks/watching-a-process-item)
+- [Configurar acciones para los pasos de un proceso](/docs/build/processes/step-configuration/configuring-actions-for-process-steps)
+- [Eliminar elementos de procesos](/docs/build/processes/deleting-process-items)

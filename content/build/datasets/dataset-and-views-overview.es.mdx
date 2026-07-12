@@ -1,0 +1,49 @@
+---
+title: "Descripción general de los conjuntos de datos y las vistas"
+description: "BORRADOR (sin verificar) — migrado desde /t/p8h4alk/dataset-and-views-overview"
+contentType: overview
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es un conjunto de datos?
+
+Un conjunto de datos es una colección de datos tabulares que puedes usar en tus flujos.
+
+Los formularios de tus flujos pueden recuperar datos de conjuntos de datos o usarlos para impulsar la lógica, como los valores de los campos y las asignaciones de tareas.
+
+### Ejemplos comunes de conjuntos de datos
+
+-   Catálogos de productos
+-   Bases de datos de empleados
+-   Listas de proveedores
+-   Bases de datos de clientes
+-   Bases de datos de autenticación
+-   Asignaciones de equipos
+
+## ¿Cómo usar conjuntos de datos en Kissflow?
+
+Puedes usar conjuntos de datos de varias maneras:
+
+**Controlar las opciones de los campos**  
+Puedes controlar las opciones disponibles para la selección de un campo. Por ejemplo, si tu formulario de orden de compra está vinculado a tu conjunto de datos de proveedores aprobados, los usuarios solo podrán seleccionar un proveedor de esa lista.
+
+**Rellenar automáticamente los campos relacionados**  
+Usa conjuntos de datos para rellenar datos automáticamente. En el ejemplo anterior, después de seleccionar el proveedor, otros campos, como la dirección del proveedor, pueden completarse automáticamente según los valores que tengas en tu conjunto de datos. 
+
+**Asignar tareas dinámicamente**  
+Otra opción es asignar pasos de un proceso según los valores del conjunto de datos. Por ejemplo, crea un conjunto de datos que asigne roles a ubicaciones si cada ubicación tiene un responsable de equipo diferente.  Puede usarse para identificar al aprobador correcto de cada envío.
+
+## ¿Qué es una vista?
+
+Una vista es un subconjunto de tu conjunto de datos. Puedes crear vistas para restringir el acceso a determinadas partes de un conjunto de datos.
+
+## ¿Cómo usar las vistas?
+
+Las vistas ayudan a controlar el acceso a datos confidenciales. Por ejemplo, si tu conjunto de datos de **empleados** contiene información confidencial, puedes crear una vista que incluya únicamente campos no confidenciales para compartirla con usuarios específicos.
+
+Obtén más información sobre cómo crear [vistas](/t/y4h4alr/creating-dataset-views).

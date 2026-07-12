@@ -1,0 +1,145 @@
+---
+title: "Preguntas frecuentes sobre Analytics"
+description: "Respuestas a preguntas frecuentes sobre Kissflow Analytics: fuentes de datos, sincronización, roles y permisos, tipos de informes, dataviews y solución de problemas."
+contentType: reference
+persona: shared
+section: reference
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - analytics
+  - faq
+  - reports
+  - data-sources
+---
+
+## General
+
+### ¿Puedo incorporar datos de fuentes externas a Kissflow Analytics?
+
+No. Kissflow Analytics está diseñado para generar informes sobre datos que ya existen en tu cuenta de Kissflow: procesos, tableros, datasets y dataforms. No es una herramienta de BI de uso general para importar datos externos.
+
+### ¿Puedo conectar herramientas de BI como Power BI o Tableau a Kissflow Analytics?
+
+No directamente. Usa el [conector de Kissflow para BI](/docs/build/analytics/kissflow-connector-for-bi) para conectar los datos de Kissflow con herramientas de BI externas. Consulta [Habilitar el conector de Kissflow para BI](/docs/build/analytics/enabling-kissflow-connector-for-bi) para configurarlo, o [ponte en contacto con el soporte de Kissflow](/docs/whats-new/important-notices/slas-and-support-models#how-to-reach-support) para obtener ayuda.
+
+### ¿Con qué frecuencia se sincronizan mis datos con Analytics?
+
+Kissflow sincroniza tus procesos, tableros, datasets y dataforms con Analytics una vez por hora. Si un informe parece desactualizado, abre la fuente de datos en **Explorador de datos** y comprueba la hora de **Última sincronización**.
+
+### ¿Cómo funciona la sincronización de datos con middleware de terceros como Snowflake?
+
+No hay acceso directo a la base de datos de tus datos de Kissflow. En su lugar, las integraciones como el [conector de Kissflow para BI](/docs/build/analytics/kissflow-connector-for-bi) pasan por middleware como Snowflake, que lee los mismos datos de Analytics sincronizados cada hora. Consulta [Configurar Snowflake para el conector de Kissflow para BI](/docs/build/analytics/configuring-snowflake-for-kissflow-connector-for-bi) para conocer los pasos de configuración.
+
+### ¿Necesito un plan específico de Kissflow para acceder a Analytics?
+
+Depende de la funcionalidad. Algunas funciones de Analytics —como crear [dataviews](/docs/build/analytics/understanding-dataviews) con SQL— solo están disponibles en planes de nivel superior. Consulta los detalles del plan de tu cuenta, o ponte en contacto con el administrador de Kissflow o con nuestro equipo de soporte para confirmar qué incluye tu cuenta.
+
+### ¿Cuáles son algunos casos de uso habituales de Kissflow Analytics?
+
+Consulta nuestra [documentación de Analytics](/docs/build/analytics/overview-of-kissflow-analytics) para ver ejemplos habituales de informes, como un [informe del tiempo de finalización de elementos de proceso](/docs/build/analytics/creating-process-item-completion-time-report-with-analytics), un [informe del rendimiento de los pasos del proceso](/docs/build/analytics/creating-process-step-performance-report-with-analytics) y un [informe de carga de trabajo de los usuarios](/docs/build/analytics/creating-user-workload-report-with-analytics).
+
+### ¿Cuáles son los distintos roles para las fuentes de datos y los informes en Analytics?
+
+Las [fuentes de datos](/docs/build/analytics/understanding-data-sources#roles-in-data-sources) tienen dos roles: **Administrador de informes**, que obtiene control total de la fuente de datos, y **Creador de informes**, que obtiene acceso de visualización a la fuente de datos para poder crear dataviews e informes a partir de ella. Ninguno de los dos roles puede compartir directamente una fuente de datos ni crear, editar o eliminar fuentes de datos: las tablas de procesos, tablas de tableros, tablas del sistema, etc., se generan automáticamente.
+
+Los [roles de informes](/docs/build/analytics/managing-reports#managing-roles-and-permissions) funcionan de otra manera: los **Administradores** tienen control total sobre un informe, mientras que los **Miembros** pueden verlo y compartirlo de forma predeterminada, y se les puede conceder acceso de edición.
+
+### ¿Por qué otros usuarios no pueden editar los informes que he compartido con ellos?
+
+Los [miembros del informe](/docs/build/analytics/managing-reports#managing-roles-and-permissions) solo pueden ver los informes de forma predeterminada. Para permitirles editarlos, concédeles acceso de edición en el informe.
+
+### ¿Cómo aparecerán las child tables de un proceso o tablero en Analytics?
+
+Cada child table se crea como su propia tabla en Analytics, con el nombre del proceso principal o [tablero](/docs/build/analytics/board-table-in-analytics#child-table), seguido del nombre de la child table. Por ejemplo, un proceso **Purchase Order** con una child table llamada **Item Details** aparece en Analytics como [**Purchase Order Item Details**](/docs/build/analytics/process-table-in-analytics#child-table).
+
+### ¿Puedo editar o modificar una consulta una vez publicada?
+
+Sí. El propietario de la dataview puede editar una [dataview](/docs/build/analytics/understanding-dataviews) publicada desde **Explorador de datos** > **Mis dataviews** > **Más opciones** > **Editar**.
+
+### Si agrego o elimino campos en una dataview, ¿los cambios aparecerán en los informes existentes?
+
+No. Los informes creados a partir de una dataview no incorporan automáticamente los cambios en los campos. Si agregas o eliminas campos en la dataview, crea un informe nuevo para ver los datos actualizados.
+
+### ¿Qué son las tablas del sistema en Kissflow Analytics?
+
+Las tablas del sistema son tablas generadas por el sistema que contienen datos de actividad e historial de los elementos de tus procesos y tableros, y sobre ellas puedes crear cualquier tipo de informe. Hay tres tipos: [Process Instance y Activity Instance](/docs/build/analytics/process-table-in-analytics#processinstance-table) para procesos, [Board Workflow Instance](/docs/build/analytics/board-table-in-analytics#board-workflow-instance-table) para tableros, y tablas de usuarios y grupos para los datos de usuarios y grupos de toda la cuenta.
+
+### ¿Cómo puedo abrir un proceso de Kissflow desde un informe o panel de Power BI?
+
+Agrega una URL dinámica a tu informe de Power BI que enlace a la página web específica de Kissflow. Consulta las guías de Microsoft sobre [cómo agregar una URL dinámica](https://community.fabric.microsoft.com/t5/Desktop/Adding-dynamic-URL-to-go-to-a-specific-web-page/td-p/1189841) y [los hipervínculos de Power BI en tablas](https://learn.microsoft.com/en-us/power-bi/create-reports/power-bi-hyperlinks-in-tables?tabs=powerbi-desktop) para conocer los pasos.
+
+### ¿Cuál es la convención de nombres de tablas en Analytics y cómo la relaciono con el nombre del flujo?
+
+Analytics muestra los nombres de las tablas con guiones bajos en lugar de espacios. Por ejemplo, un proceso llamado **Purchase Request** aparece como la tabla **Purchase_Request**. También puedes relacionar un proceso con su tabla mediante el nombre del proceso en la URL del proceso. Consulta el [diagrama de relaciones entre entidades](/docs/build/analytics/process-table-in-analytics) para ver cómo se relacionan las tablas.
+
+## Funciones de generación de informes
+
+### ¿Puedo crear un informe basado en una child table dentro de un proceso?
+
+Sí. Busca las [child tables](/docs/build/analytics/process-table-in-analytics#child-table) en **Explorador de datos** > **Mis tablas** y, a continuación, crea un informe a partir de ellas de la misma forma que lo harías con cualquier otra tabla.
+
+### ¿Puedo crear un informe basado en un dataset?
+
+Sí. Los [datasets](/docs/build/analytics/dataset-table-in-analytics) aparecen en **Explorador de datos** > **Mis tablas**.
+
+### ¿Puedo crear un informe basado en un tablero?
+
+Sí, desde un solo tablero o combinando datos de varios tableros. Las [tablas de tableros](/docs/build/analytics/board-table-in-analytics) aparecen en **Explorador de datos** para cada tablero de tu cuenta.
+
+### ¿Cómo puedo crear informes basados en subelementos de un tablero?
+
+Filtra la tabla del tablero por la columna **ID principal** para aislar los subelementos y, a continuación, haz clic en **Crear informe**. Consulta [Tabla de tablero en Analytics](/docs/build/analytics/board-table-in-analytics) para conocer los pasos para aplicar el filtro.
+
+### ¿Puedo combinar varias tablas para crear informes en Analytics?
+
+Sí. Usa instrucciones SQL `JOIN` en una [dataview](/docs/build/analytics/understanding-dataviews) para combinar filas de dos o más tablas mediante un campo común. Por ejemplo, un [informe de análisis del gasto de compras](/docs/build/analytics/creating-procurement-spend-analysis-report-by-department-and-product-category) combina una tabla Purchase Order con una tabla Vendors para mostrar qué proveedores recibieron el mayor gasto.
+
+### ¿Cómo creo informes de métricas en Kissflow Analytics?
+
+Combina la tabla del proceso con la tabla de instancias de actividad, haciendo coincidir `_instance_id` en el lado de la instancia de actividad con `_id` en el lado del proceso. Consulta [Tabla de proceso en Analytics](/docs/build/analytics/process-table-in-analytics) y [Tablas del sistema en Analytics](/docs/build/analytics/system-tables-in-analytics) para conocer las columnas y el esquema involucrados, y [Crear un informe del tiempo de finalización de elementos de proceso con Analytics](/docs/build/analytics/creating-process-item-completion-time-report-with-analytics) para ver un ejemplo práctico.
+
+### ¿Cómo puedo crear un informe de resumen de los datos de mi tablero en Analytics?
+
+Crea un [informe de resumen de estados](/docs/build/analytics/creating-status-summary-report-based-on-boards-in-analytics) personalizable mediante [dataviews](/docs/build/analytics/understanding-dataviews) para obtener información de uno o más tableros. Esto ofrece más flexibilidad que el informe de resumen integrado de un tablero, que solo abarca ese tablero.
+
+### ¿Cómo puedo usar Analytics para hacer un seguimiento del rendimiento de mi equipo?
+
+Prueba un [informe de rendimiento de pasos](/docs/build/analytics/creating-process-step-performance-report-with-analytics) para ver cuánto tiempo pasan los elementos en cada paso del flujo de trabajo, o un [informe del tiempo de finalización de elementos](/docs/build/analytics/creating-process-item-completion-time-report-with-analytics) para hacer un seguimiento del tiempo desde la creación hasta la finalización. Ambos se pueden personalizar. Consulta nuestra [documentación de Analytics](/docs/build/analytics/overview-of-kissflow-analytics) para obtener más ideas de informes.
+
+### ¿Qué tipos de informes admite Kissflow Analytics?
+
+Tres: [tabular](/docs/build/analytics/tabular-reports), [de gráficos](/docs/build/analytics/chart-reports) y [dinámicos](/docs/build/analytics/pivot-reports). Los informes de gráficos ofrecen diez tipos de gráficos, incluidos los de área, barras, anillos, líneas, circulares y dispersión. Consulta [Informes de gráficos](/docs/build/analytics/chart-reports) para ver la lista completa.
+
+### ¿Puedo exportar un informe en Analytics?
+
+Solo los informes tabulares admiten la exportación de datos. Haz clic en **Más opciones** en la página de informes, selecciona **[Exportar](/docs/build/analytics/managing-reports#administering-a-report)** y, a continuación, elige **CSV** o **JSON**. Recibirás un correo electrónico con un enlace para descargar el archivo.
+
+### ¿Pueden los compañeros del mismo departamento ver informes juntos?
+
+Sí. Crea un informe —en Process o en Analytics— y [compártelo](/docs/build/analytics/managing-reports#managing-roles-and-permissions) con el equipo para que todos los que lo necesiten tengan acceso.
+
+### ¿Cómo filtro los informes de rendimiento de pasos y rendimiento de usuarios por división o departamento?
+
+Crea una dataview que combine la [tabla ActivityInstance](/docs/build/analytics/process-table-in-analytics#activityinstance-table) con la [tabla de proceso](/docs/build/analytics/process-table-in-analytics) correspondiente y, a continuación, crea un informe de rendimiento de pasos o de rendimiento de usuarios a partir de ella. Consulta [Crear un informe del rendimiento de los pasos del proceso con Analytics](/docs/build/analytics/creating-process-step-performance-report-with-analytics) para ver el procedimiento. También puedes hacerlo en Power BI usando las mismas tablas a través de tu conector de BI.
+
+## Soluciones
+
+### ¿Cómo puedo combinar dos procesos?
+
+Combínalos mediante un campo común. Por ejemplo, si un proceso Purchase Request y un proceso Purchase Order tienen ambos un campo PR ID, usa ese campo para combinar los dos en una dataview.
+
+### Recibo el mensaje «No tienes permiso para acceder a este recurso» en una consulta SQL, incluso como Super Admin. ¿Cómo lo soluciono?
+
+Esto ocurre cuando el usuario que ejecuta la consulta no tiene acceso a la tabla o tabla del sistema a la que hace referencia la dataview. Los Super Admins no obtienen acceso a todas las tablas de forma predeterminada. Primero, agrégate a la tabla o tabla del sistema correspondiente mediante **Compartir** y, a continuación, vuelve a ejecutar la consulta. Consulta [Tabla de proceso en Analytics](/docs/build/analytics/process-table-in-analytics), [Tabla de tablero en Analytics](/docs/build/analytics/board-table-in-analytics), [Tabla de dataset en Analytics](/docs/build/analytics/dataset-table-in-analytics) y [Tablas del sistema en Analytics](/docs/build/analytics/system-tables-in-analytics) para saber cómo funciona el uso compartido en cada caso.
+
+### ¿Cómo puedo combinar una tabla de proceso y una child table?
+
+Haz coincidir `_id` en la tabla de proceso con `_instance_id` en la child table. Consulta [Tabla de proceso en Analytics](/docs/build/analytics/process-table-in-analytics) para conocer las columnas y el esquema involucrados.
+
+### Recibo el mensaje «purchase_Request does not exist» en mi consulta SQL. ¿Cómo lo soluciono?
+
+Normalmente, esto significa que el nombre de la fuente de datos de la consulta no coincide exactamente. Las consultas de [dataview](/docs/build/analytics/understanding-dataviews) distinguen entre mayúsculas y minúsculas, así que comprueba dos veces las mayúsculas y minúsculas del nombre de la fuente de datos.
+
+### ¿Qué hago si pierdo las credenciales de mi conector de BI?
+
+Recibes las credenciales por correo electrónico cuando aprovisionas el [conector de Kissflow para BI](/docs/build/analytics/kissflow-connector-for-bi) para tu cuenta. Si pierdes el acceso a ese correo electrónico, pide al propietario actual de la cuenta que te [transfiera la propiedad](/docs/admin/users/user-roles-and-permissions#transferring-account-ownership), o [ponte en contacto con el soporte de Kissflow](/docs/whats-new/important-notices/slas-and-support-models#how-to-reach-support) para que vuelvan a enviarte las credenciales.

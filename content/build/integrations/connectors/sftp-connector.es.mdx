@@ -1,0 +1,95 @@
+---
+title: "Conector SFTP"
+description: "BORRADOR (no verificado): migrado desde /t/h7ytzbz/sftp-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Básico ✓ Enterprise
+
+## ¿Qué es SFTP?
+
+SFTP (Secure File Transfer Protocol) es una forma segura de enviar archivos por internet. Utiliza el cifrado SSH para proteger tus datos durante la transferencia y proporciona herramientas sólidas y personalizables para gestionar transferencias de archivos, garantizando la integridad y seguridad de los datos durante la transmisión.
+
+### Acerca del conector SFTP de Kissflow
+
+El conector SFTP de Kissflow facilita la conexión y sincronización fluidas de un servidor SFTP con las aplicaciones de Kissflow. Para compartir archivos mediante SFTP, los usuarios deben tener un servidor SFTP válido y ser clientes de pago de Kissflow.  
+  
+Imagina que gestionas las operaciones de una institución bancaria. Con la integración SFTP de Kissflow, cada vez que un elemento completa su flujo de trabajo en un Kissflow Process, un archivo correspondiente se actualiza o carga automáticamente en un servidor SFTP seguro. Esta integración fluida aprovecha el activador de Kissflow Process y configura el conector SFTP como la acción correspondiente.  
+  
+Actualmente, el conector SFTP no admite ningún evento de activación.
+
+## Acciones del conector SFTP
+
+**Acción** 
+
+**Descripción**
+
+Mostrar el contenido de un directorio
+
+Esta acción muestra el contenido de un directorio especificado en el servidor SFTP.
+
+Crear un directorio
+
+Esta acción crea un nuevo directorio en el servidor SFTP.
+
+Eliminar un archivo
+
+Esta acción elimina un archivo del servidor SFTP.
+
+Obtener un archivo
+
+Esta acción obtiene un archivo del servidor SFTP.
+
+Actualizar o cargar un archivo
+
+Esta acción actualiza o carga un archivo en el servidor SFTP.
+
+## Configurar el conector SFTP
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**.
+    
+2.  Una vez dentro del editor, configura un paso de activación; por ejemplo, un evento de activación de Kissflow Process, **Cuando un elemento completa su flujo de trabajo**.
+    
+3.  Después de configurar el paso de activación anterior, haz clic en el botón **Añadir** () para configurar el paso de acción. Busca **conector SFTP** y selecciona un evento de acción entre las opciones disponibles.
+    
+4.  Después de elegir el evento de acción, autentica el conector SFTP:
+    
+
+-   Haz clic en **+Añadir una cuenta**
+    
+-   Introduce la dirección completa del servidor SFTP al que deseas conectarte (por ejemplo, sftp.example.com).
+    
+-   Introduce el número de puerto para la conexión SFTP.
+    
+-   Introduce el nombre de usuario necesario para autenticarte con el servidor SFTP.
+    
+-   Elige **UNO** de los siguientes métodos de autenticación:  
+    a. Autenticación mediante contraseña: introduce la contraseña asociada al nombre de usuario. **O**  
+    b. Autenticación mediante clave RSA: pega tu clave privada RSA para la autenticación SSH. Asegúrate de que tenga el siguiente formato.  
+      
+    \<pega aquí el contenido de tu clave privada RSA>
+    
+
+> **Nota:**
+> 
+> Debes elegir la autenticación mediante contraseña o mediante clave RSA, pero no ambas.
+
+![](/migration-assets/sftp-connector/1.png)
+
+ 5. Después de introducir la información necesaria, haz clic en **Conectar** para verificar y establecer la conexión SFTP. Una vez autenticado correctamente, volverás a Kissflow para continuar configurando tu acción.
+
+6\. Después de autenticarte con tu cuenta SFTP, añade los valores correspondientes a los campos del formulario SFTP. Puedes hacer clic en **Actualizar campos** para ver todos los campos actualizados del formulario SFTP seleccionado. También puedes asignar campos SFTP desde tu paso de activación o campos de tus pasos de acción anteriores. Estos valores se añadirán automáticamente a los campos del elemento una vez ejecutada la acción.
+
+![](/migration-assets/sftp-connector/2.png)
+
+7\. Después de configurar todo correctamente, comprueba si el paso de acción SFTP está configurado correctamente haciendo clic en el botón **Probar**. El conector cargará los archivos en el servidor SFTP y los mostrará como una salida JSON. Al igual que ocurre con el paso de activación, recibirás una notificación inmediata de los errores. Corrígelos antes de volver a probar el paso de acción.
+
+### Configurar un conector SFTP
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción de tu conector SFTP, activa el botón de alternancia para activar la ejecución de la integración. Cuando se produzca un evento de activación, se ejecutará la acción SFTP correspondiente.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

@@ -1,0 +1,228 @@
+---
+title: "Desplegable, desplegable de selección múltiple, casilla de verificación, listas de comprobación y botones de opción"
+description: "BORRADOR (sin verificar): migrado desde /t/35h4azp/dropdown-multi-select-dropdown-checkbox-checklists-and-radio-buttons"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## Campo desplegable
+
+El campo desplegable permite a los usuarios seleccionar una opción de un conjunto de valores en el formulario, obtenidos de un campo de [lista](/t/q6h4azg/selecting-datasource#what-is-a-list) o de [dataset](/t/q6h4azg/selecting-datasource#what-is-a-dataset).
+
+### Configuración del desplegable
+
+Puedes cargar el desplegable desde una lista estática o desde un campo de dataset según tus necesidades. Elige una **Lista** o un **Dataset** como fuente de datos preferida en el campo **Seleccionar una fuente de datos**. Si no estás seguro de qué fuente de datos se adapta mejor a tus requisitos, consulta [este documento](/t/q6h4azg/selecting-a-data-source-for-your-dropdown-field) para obtener más información.
+
+![](/migration-assets/dropdown-multi-select-dropdown-checkbox-checklists-and-radio-buttons/1.png)
+
+> **Nota:**
+> 
+> En el caso de un proceso, tablero o dataform de una aplicación, los valores de campo de un desplegable, un desplegable de selección múltiple, una casilla de verificación y los botones de opción se obtienen de un dataform o una lista.
+
+### Obtener datos de una lista
+
+En **Seleccionar una fuente de datos**, selecciona **Lista** para cargar datos de una lista. Puedes seleccionar una lista existente o hacer clic en **Crear una lista** para agregar una lista nueva desde cero. Cuando crees una lista nueva, introduce su nombre en el campo de texto que aparece debajo de la barra de búsqueda e introduce sus valores en la sección **Lista de elementos** que aparece a la derecha.
+
+![](/migration-assets/dropdown-multi-select-dropdown-checkbox-checklists-and-radio-buttons/2.gif)
+
+> **Nota:**
+> 
+> Cuando modifiques los valores de una lista existente, los cambios se reflejarán en todos los flujos correspondientes que hagan referencia a la lista que modificaste.
+
+### Obtener datos de un dataset
+
+Elegir un campo de dataset como fuente del desplegable ofrece varias ventajas importantes frente a una lista. Mientras que con una lista solo puedes mostrar un conjunto estático de valores, si la fuente es un campo de dataset puedes mostrar valores tanto estáticos como dinámicos. Puedes crear [desplegables dependientes](/t/35h4azp/dropdown-checkbox-checklist#creating-a-dependent-dropdown) con valores que cambien dinámicamente según otros valores de desplegable o condiciones de campo cuando la fuente sea un campo de dataset. Sin embargo, también puedes configurar el desplegable para que se comporte como una lista simple si lo deseas.
+
+### Rellenar el desplegable con valores de un solo campo de dataset
+
+1.  En **Seleccionar una fuente de datos**, selecciona **Dataset** para cargar datos de un campo de dataset.
+2.  Busca el dataset que prefieras en la sección **Datasets disponibles** de la página siguiente. Si el dataset está disponible, haz clic en él una vez para ver la lista de campos disponibles. De lo contrario, puedes [crear un dataset nuevo](/t/h7h4alb/creating-a-dataset) desde cero haciendo clic en +**Crear un dataset** y utilizarlo para configurar el desplegable inmediatamente. Haz clic en **Editar dataset** para modificar los valores del dataset seleccionado según sea necesario.
+    
+    > **Consejo:**
+    > 
+    > Ten en cuenta que debes tener al menos un campo en tu dataset con valores para poder configurar inmediatamente el campo desplegable, de selección múltiple, de casilla de verificación o de botones de opción. Sin embargo, puedes volver al dataset específico, rellenar los valores cuando quieras y reanudar la configuración más adelante.
+    
+3.  A continuación, haz clic en el campo de dataset que prefieras en el panel **Elegir un campo de dataset** para ver la lista de valores únicos del campo. En **Valores del campo de dataset** solo verás los valores únicos del campo de dataset y, normalmente, solo se muestran los primeros 50 valores para fines de vista previa. Sin embargo, puedes acceder por separado al dataset completo con sus valores originales.
+4.  Haz clic en **Seleccionar** cuando hayas terminado.
+
+![](/migration-assets/dropdown-multi-select-dropdown-checkbox-checklists-and-radio-buttons/9.gif)
+
+> **Nota:**
+> 
+> Puedes agregar condiciones de filtro para un valor estático específico o para otro valor de desplegable, y hacer que los valores del desplegable cambien dinámicamente según la selección del usuario en el formulario activo.
+
+### Validaciones
+
+Hay dos tipos de [validaciones](/t/m1h4az4/field-validations) que puedes utilizar con un campo desplegable:
+
+-   Igual a
+-   No es igual a
+
+### Agregar condiciones de filtro al campo desplegable
+
+Después de [configurar la fuente de datos](/t/35h4azp/dropdown-checkbox-checklist#settings) del desplegable, puedes agregar condiciones de filtro y limitar los datos que se muestran en él.
+
+Haz clic en **Agregar filtro** para rellenar el desplegable según condiciones específicas. Puedes filtrar los valores del dataset comparándolos con un [valor constante](/t/35h4azp/dropdown-checkbox-checklist#filtering-values-based-on-a-constant-value), un [solo campo de dataset](/t/35h4azp/dropdown-checkbox-checklist#populating-dropdown-with-values-from-a-single-dataset-field) (sin condiciones de filtro) o [varios campos de dataset vinculados mediante condiciones de filtro](/t/35h4azp/dropdown-checkbox-checklist#creating-a-dependent-dropdown), según sea necesario.
+
+### Filtrar valores según un valor constante
+
+Para filtrar los valores del campo de dataset según un valor específico, establece la condición de filtro de la siguiente manera:
+
+**Formato de la condición de filtro**
+
+**Ejemplo de condición**
+
+\[&lt;Seleccionar nombre del campo>\] \[Igual a\] \[Valor\] \[Introducir valor\]
+
+País :: Igual a :: EE. UU.
+
+Esta condición mostrará únicamente los estados de EE. UU. en el formulario activo.
+
+### Crear un desplegable dependiente
+
+Para filtrar los valores del campo de dataset según cualquier valor elegido en otro desplegable, establece las condiciones de filtro seleccionando el nombre del campo en lugar de introducir un valor específico. También puedes agregar tantas condiciones como quieras hasta obtener los resultados deseados.
+
+**\[&lt;Seleccionar nombre del campo>\] \[Igual a\] \[Campo\] \[Seleccionar nombre del campo\]**
+
+1.  Crea un desplegable **Estado** para mostrar los estados según el país elegido en el desplegable **País**. '_Estado'_ _es el primer desplegable dependiente._
+2.  En **Seleccionar una fuente de datos**, selecciona **Dataset**.
+3.  Busca el dataset **Países y estados** y selecciona el campo **Estado**. La siguiente grabación de pantalla muestra un ejemplo de cómo el desplegable **Estado** mostrará los estados correspondientes al país que el usuario eligió en el formulario.![](/migration-assets/dropdown-multi-select-dropdown-checkbox-checklists-and-radio-buttons/4.gif)
+4.  Crea otro desplegable **Ciudad** para mostrar todas las ciudades según el país y el estado elegidos por el usuario.
+5.  Selecciona el mismo dataset como fuente y elige el campo **Ciudad**. Agrega las siguientes condiciones de filtro para configurar el desplegable Ciudad de modo que cambie dinámicamente sus valores según los valores seleccionados en los campos desplegables _País_ y _Estado_.![](/migration-assets/dropdown-multi-select-dropdown-checkbox-checklists-and-radio-buttons/3.png)
+
+> **Consejo:**
+> 
+> Puedes crear desplegables dependientes utilizando únicamente datasets y filtros. Cuando utilizas una aplicación, los desplegables dependientes solo se pueden crear mediante dataforms. El modo Lista te permite cargar datos únicamente desde una lista estática, así que asegúrate de elegir un dataset/dataform como fuente de datos del desplegable cuando los requisitos incluyan validaciones de campo que afecten a sus valores.
+
+## Desplegable de selección múltiple
+
+El campo de desplegable de selección múltiple permite a los usuarios seleccionar varias opciones de un desplegable en el formulario.
+
+### Configuración
+
+En **Seleccionar una fuente de datos**, elige un dataset o una lista existentes. Si no tienes ninguno, **crea una lista o un dataset** desde cero. En el caso de las aplicaciones, puedes **elegir un dataform o una lista** como fuente de datos principal.
+
+![](/migration-assets/dropdown-multi-select-dropdown-checkbox-checklists-and-radio-buttons/5.png)
+
+> **Nota:**
+> 
+> Cuando modifiques los valores de un dataset o una lista existentes, los cambios se reflejarán en todos los flujos que hagan referencia a ellos.
+
+## Campo de casilla de verificación
+
+La casilla de verificación permite a los usuarios marcar más de una opción de una lista de opciones en el formulario.
+
+### Configuración
+
+En **Seleccionar una fuente de datos**, elige un **dataset o una lista** existentes, o haz clic en una opción para crearla desde cero. En el caso de las aplicaciones, puedes **elegir un dataform o una lista** como fuente de datos principal.
+
+> **Nota:**  
+>   
+> Solo puedes acceder a los primeros 250 registros del dataset o dataform en el orden en que están clasificados.
+
+![](/migration-assets/dropdown-multi-select-dropdown-checkbox-checklists-and-radio-buttons/6.png)
+
+### Validaciones
+
+Hay cuatro tipos de [validaciones](/t/m1h4az4/field-validations) que puedes utilizar con un campo desplegable:
+
+-   Número mínimo de selecciones
+-   Número máximo de selecciones
+-   La selección debe contener (un valor que debe estar presente)
+-   La selección no debe contener (un valor que no debe estar presente)
+
+## Campo de lista de comprobación
+
+La lista de comprobación permite a los usuarios marcar varias opciones de la lista.
+
+### Configuración
+
+En **Seleccionar una lista**, elige una lista existente o haz clic en **Crear una lista** para agregar una lista nueva desde cero. Cuando crees una lista nueva, introduce su nombre en el campo de texto que aparece debajo de la barra de búsqueda e introduce sus valores en la sección **Lista de elementos** que aparece a la derecha.
+
+Activa la opción **Los usuarios pueden agregar sus propios valores a la lista de comprobación** para permitir que los usuarios del formulario agreguen a sus formularios los valores que elijan. Sin embargo, los valores que agreguen no se añadirán a la lista principal. Del mismo modo, puedes activar la opción **Los usuarios pueden eliminar valores de la lista de comprobación** para permitirles eliminar algunos valores de la lista de comprobación según sea necesario.
+
+![](/migration-assets/dropdown-multi-select-dropdown-checkbox-checklists-and-radio-buttons/7.png)
+
+### Validaciones
+
+Hay tres tipos de [validaciones](/t/m1h4az4/field-validations) que puedes utilizar con un campo desplegable:
+
+-   Número mínimo de selecciones
+-   Número máximo de selecciones
+-   Seleccionar todo (el usuario debe marcar todos los valores)
+
+## Expresiones para campos de lista
+
+No puedes utilizar una expresión para crear un valor en una lista, pero sí puedes utilizar los valores en otras [expresiones](/t/q6h4all/list-expression).
+
+## Botón de opción
+
+El campo de **botón de opción** permite a los usuarios seleccionar una sola opción entre varias alternativas. Al igual que en los desplegables, los desplegables de selección múltiple y las casillas de verificación, puedes obtener los valores de este campo de una **[lista](/t/q6h4azg/selecting-datasource#what-is-a-list)** o un **dataset**. Los valores del campo de **botón de opción** se muestran como opciones en las que se puede hacer clic en el formulario. En cambio, las opciones del campo de **[desplegable](/t/35h4azp/dropdown-checkbox-checklist#dropdown-field)** solo están visibles después de que el usuario hace clic en el campo.
+
+### Configuración
+
+En **Seleccionar una fuente de datos**, puedes elegir un **dataset o una lista** existentes. Si no tienes ninguno para elegir, puedes crear una **lista** o un **dataset** desde cero. En el caso de las **aplicaciones**, puedes **elegir un dataform o una lista** como fuente de datos principal.
+
+Puedes establecer un valor predeterminado para el campo de botón de **opción** seleccionando una opción adecuada en Selección predeterminada. También puedes anular la selección predeterminada mediante la opción Restablecer.
+
+> **Nota:**  
+> Solo puedes acceder a los primeros 250 registros del dataset o dataform en el orden en que están clasificados.
+
+![](/migration-assets/dropdown-multi-select-dropdown-checkbox-checklists-and-radio-buttons/8.png)
+
+### Validaciones
+
+Puedes utilizar dos tipos de validaciones con un campo de **botón** de **opción**. Son los siguientes:
+
+-   Igual a
+-   No es igual a
+
+> **Nota:**
+> 
+> Una vez que un usuario realiza una selección en el campo de **botón** de **opción** (![](/migration-assets/dropdown-multi-select-dropdown-checkbox-checklists-and-radio-buttons/10.png)), no podrá volver al estado inicial en el que no había ninguna opción seleccionada.
+
+## Preguntas frecuentes
+
+**1\. ¿Cuántos registros se muestran al utilizar un dataset o dataform como fuente de datos para los campos de casilla de verificación y botón de opción?**
+
+Solo se mostrarán los primeros 250 registros según el orden de clasificación del dataset o dataform.
+
+**2\. ¿Qué tipos de campo admiten el comportamiento de campo dependiente?**  
+La capacidad de comportamiento de campo dependiente está disponible para los campos Desplegable y Botón de opción.
+
+**3\. ¿Los campos de selección múltiple y casilla de verificación admiten desplegables dependientes?**  
+No, la capacidad de desplegable dependiente no se aplica a los campos de desplegable de selección múltiple ni de casilla de verificación.
+
+**4\. ¿Cuáles son las posibles fuentes de datos para las opciones de campo?**  
+Las opciones de los campos Desplegable, Botón de opción, Casilla de verificación y Selección múltiple pueden obtenerse de una lista o un dataset. En el caso de las [aplicaciones](/category/apps-portals), las fuentes de datos son listas y dataforms.
+
+**5\. ¿Existe un límite para el número de opciones al utilizar una lista como fuente?**  
+Sí, de forma predeterminada, las listas pueden tener un máximo de 250 valores.
+
+**6\. ¿Cuántas opciones se muestran al utilizar un dataset o un dataform como fuente?**  
+Depende del tipo de campo:
+
+-   **Para los campos Desplegable y desplegable de selección múltiple:** se puede mostrar el conjunto completo de valores del dataset o dataform.
+    
+-   **Para las casillas de verificación y los campos de botón de opción:** solo se mostrarán los primeros 250 valores del dataset o dataform.
+    
+
+**7\. ¿Los valores del dataset o dataform se clasifican o filtran al mostrarse?**  
+Sí, los 250 valores que se muestran para los campos de casilla de verificación y botón de opción se basan en las condiciones de clasificación y filtro aplicadas al dataset o dataform.
+
+**8\. ¿Cuáles son los problemas habituales de los campos desplegables y cómo los soluciono?**
+
+-   Es posible que el campo desplegable no muestre algunas o ninguna de las opciones
+-   Puede haber mensajes de error debido a errores de validación o selecciones no válidas
+
+Los administradores pueden editar un formulario y verificar si las listas, datasets o dataforms [seleccionados como fuente de datos](/t/q6h4azg) son válidos y contienen suficientes datos para mostrar las opciones.
+
+-   Asegúrate de que las opciones del desplegable estén correctamente asignadas a la fuente.
+-   Revisa las validaciones o condiciones de visibilidad establecidas en los campos desplegables.
+
+Los problemas de los desplegables suelen deberse a configuraciones incorrectas y a la disponibilidad de los datos. Verificar los aspectos anteriores ayudará a resolverlos. Si persisten, considera ponerte en contacto con el equipo de soporte de Kissflow para obtener ayuda adicional con la resolución de problemas.

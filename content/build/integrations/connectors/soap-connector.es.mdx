@@ -1,0 +1,80 @@
+---
+title: "Conector SOAP"
+description: "BORRADOR (no verificado) — migrado desde /t/g9h4afm/soap-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Básico ✓ Enterprise
+
+## ¿Qué es SOAP?
+
+SOAP (Simple Object Access Protocol) es un protocolo basado en XML que se utiliza para acceder a servicios web mediante HTTP. Los proveedores de servicios web SOAP publican sus estructuras de tablas subyacentes y los datos asociados mediante WSDL. WSDL (Web Service Definition Language) es un documento XML que describe el esquema de sus tablas y las operaciones disponibles.
+
+El conector SOAP de Kissflow consulta la URL de WSDL publicada por aplicaciones como ServiceNow, Microsoft Dynamics 365, Salesforce, etc., y:
+
+-   Analiza el XML de respuesta de WSDL para recuperar los valores de atributos SOAP especificados.
+-   o utiliza llamadas basadas en SOAP para acceder a datos y realizar determinadas acciones en estas aplicaciones.
+
+## Trabajar con el conector SOAP
+
+El conector SOAP de Kissflow admite **SOAP versión 1.1 y 1.2**. Puedes utilizarlo para invocar un servicio web SOAP en tu aplicación con el fin de realizar acciones específicas en ella o recuperar datos para tu workflow.
+
+Considera el siguiente escenario: quieres crear una orden de compra en tu cuenta de Dynamics 365 cuando se aprueba una solicitud de compra en Kissflow Process. Cuando se aprueba la solicitud de compra de Kissflow, el conector SOAP consulta la URL de WSDL de Dynamics 365 para crear una orden de compra en Dynamics 365. Como alternativa, también puedes obtener cadenas XML específicas, como el número de serie de la orden de compra de Dynamics 365, y utilizarlas como entrada para actualizar tu conjunto de datos de órdenes interno en Kissflow.
+
+### Acción en el conector SOAP
+
+Por ahora, el conector SOAP de Kissflow no admite ningún trigger.
+
+**Acción**
+
+**Descripción**
+
+Realizar una llamada SOAP
+
+Esta acción realiza una llamada SOAP con los parámetros especificados para invocar un servicio web SOAP.
+
+## Configurar tu conector SOAP
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**. 
+    
+2.  En el editor, selecciona el conector **SOAP**. También puedes utilizar la búsqueda para encontrar la acción directamente.
+    
+3.  Haz clic en el menú desplegable **Acción**, selecciona **Realizar una llamada SOAP** y haz clic en **Siguiente**.
+4.  Haz clic en **\+ Añadir una cuenta** para utilizar un nuevo servicio web SOAP.![](/migration-assets/soap-connector/3.png) 
+    
+5. **Utilizar SOAP**: proporciona los valores de los campos relevantes para autenticar tu servicio web SOAP.
+    1.  **Etiqueta de conexión**: asigna un nombre a tu conexión SOAP.
+    2.  **URL de WSDL**: especifica la ubicación de la definición del servicio web (WSDL) proporcionada por tu proveedor de servicios web. Esta dirección debe devolver una definición de WSDL válida.
+        
+        > **Nota:**
+        > 
+        > Cuando proporciones una URL de WSDL remota, introdúcela exactamente de la misma manera que la introducirías en tu navegador web.
+        
+        ![](/migration-assets/soap-connector/1.png)
+        
+    3.  **Tipo de autenticación HTTP**: especifica tu nombre de usuario y contraseña para las URL que requieren **autenticación** **básica**. Selecciona **Ninguna** si no quieres autenticar tu sesión HTTP.
+    4.  **Tipo de seguridad de servicios web**: especifica el protocolo que garantiza la **seguridad** de los mensajes basados en SOAP. Especifica tu nombre de usuario y contraseña para las URL que requieren **autenticación** **básica**. Selecciona **Ninguna** si no quieres proteger tus mensajes SOAP.
+    5.  Haz clic en **Actualizar campos** para obtener los campos actualizados del formulario.
+    6.  Haz clic en **Siguiente**.
+6.  Para configurar tu llamada SOAP, introduce los valores necesarios en los campos proporcionados. Cuando utilizas un servicio web SOAP, Kissflow hace lo siguiente por ti:
+    -   Crea el servicio web SOAP.
+    -   Crea los servicios web, puertos y operaciones expuestos con los parámetros de entrada y salida correspondientes.
+    -   Crea estructuras y entidades estáticas para contener los tipos complejos de WSDL.
+    -   Asigna los tipos de datos XML a los tipos de datos de Kissflow.![](/migration-assets/soap-connector/2.png)
+Si el servicio admite más de un puerto, elige el puerto que quieres utilizar. Del mismo modo, selecciona la operación que quieres ejecutar.8.  De forma predeterminada, se enviarán valores NULL cuando algún campo asignado quede vacío. Haz clic en la casilla de verificación para dejar de enviar estos valores NULL.  
+      
+    Si la consulta enviada a la URL de WSDL devuelve el payload requerido, el paso se mostrará como exitoso junto con los datos recibidos. Los datos recibidos por el conector SOAP también pueden ser utilizados por otras aplicaciones para realizar acciones específicas.
+
+### Activar el conector SOAP
+
+Después de configurar tu conector SOAP y tu workflow de integración, activa el botón de alternancia situado en la esquina superior derecha del editor para activar esta integración.
+
+> **Nota:**
+> 
+> Los mensajes SOAP se envían suponiendo que el destinatario cumple con XML. Un mensaje SOAP no tiene ninguna codificación. Siempre decodifica las respuestas como UTF-8 y no necesita el encabezado de codificación XML.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

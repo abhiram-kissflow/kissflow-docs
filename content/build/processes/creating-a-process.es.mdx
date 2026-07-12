@@ -1,0 +1,160 @@
+---
+title: "Crear un proceso"
+description: "BORRADOR (no verificado) — migrado desde /t/35h9qtd/creating-a-process"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Puedes crear un proceso nuevo según el [conjunto de permisos establecido por un Super Admin o IAM Admin](/t/h7h4akl/flow-settings).
+
+## Crear un proceso nuevo
+
+1.  Ve a la página de creación de procesos mediante cualquiera de los siguientes métodos:
+    1.  **Creación rápida** **\-** En la barra de navegación izquierda, haz clic en **Crear** > **Proceso.**
+    2.  **Explorador -** En la barra de navegación izquierda, haz clic en **Explorar** \> **Crear** en la parte superior derecha**.** En la página **Crear desde cero**, selecciona **Proceso.** También puedes ir a la **Galería de plantillas** e instalar una de las plantillas de proceso predefinidas.
+2.  En la página de creación de procesos, puedes elegir entre crear tu proceso con IA o crearlo tú mismo.![](/migration-assets/creating-a-process/1.png)
+
+### Crear desde cero
+
+1.  Asigna un nombre a tu proceso y, opcionalmente, añade una descripción para organizarlo y encontrarlo más adelante.
+    
+    ![](/migration-assets/creating-a-process/2.png)
+    
+2.  Haz clic en **Crear**. 
+    
+
+La URL del proceso creado se basa en el nombre que le asignes. La URL no se puede cambiar más adelante, aunque cambies el nombre del proceso.
+
+### Crear con IA (para planes Enterprise)
+
+Puedes crear un proceso en cuestión de segundos mediante IA, incluido un formulario y un flujo de trabajo de varios pasos. 
+
+Puedes comenzar adjuntando un documento o proporcionando un prompt.
+
+#### Desde un documento 
+
+Esta es la forma más rápida de digitalizar una imagen existente de un formulario o una hoja de cálculo.
+
+1. **Adjunta tu documento**
+    
+    -   Haz clic en **Adjuntar documento** y carga un PDF, CSV, PNG, JPEG o JPG de tu formulario.
+        
+        ![](/migration-assets/creating-a-process/5.png)
+        
+        A continuación, se explica cómo el documento de entrada determina la estructura del resultado:
+        
+        **Formato del documento de entrada**
+        
+        **Resultado y comportamiento esperados**
+        
+        **CSV**
+        
+        • **Asignación de campos**: todos los encabezados de columna se asignarán automáticamente a tipos de campo específicos; el formulario puede admitir hasta 1000 campos.
+        
+        • **Organización**: los campos se agruparán por secciones para garantizar un flujo lógico.
+        
+        • **Generación de tablas**: si corresponde, las tablas se crearán automáticamente.
+        
+        • **Flujo de trabajo**: se crea una estructura básica de flujo de trabajo.
+        
+        **Imágenes o PDF**
+        
+         
+        
+        (PDF, PNG, JPEG, JPG)
+        
+        • **Replicación exacta**: la IA replicará exactamente el diseño del formulario tal como aparece en el archivo cargado. Sin embargo, si proporcionas instrucciones específicas en el prompt, la IA modificará el resultado para que coincida con esas solicitudes.
+        
+        • **Detección de tablas**: si la imagen o el PDF contiene una tabla visible, se convertirá automáticamente en un campo de tabla.
+        
+        • **Flujo de trabajo**: se creará un flujo de trabajo básico según la lógica interpretada del documento.
+        
+        > **Nota**
+        > 
+        > Actualmente, los documentos PDF deben contener estructuras de formularios estándar para procesarse correctamente. Si cargas diagramas de flujo o documentos de procedimientos descriptivos, se producirá un error de procesamiento.
+        
+2. **Perfecciona tu proceso (opcional)**
+    
+    -   Después de cargar el documento, perfecciona el proceso con contexto adicional. Aquí puedes proporcionar a la IA instrucciones sencillas en lenguaje natural (límite máximo: 3000 caracteres).
+        
+    -    Por ejemplo:
+        
+        -   Haz que todos los campos sean obligatorios.
+            
+        -   La aprobación debe enviarse al gerente del departamento.
+            
+        -   Añade una sección para la información del vehículo.
+            
+3. **Crea y obtén una vista previa**
+    
+    -   Haz clic en **Comenzar a crear**. La IA analizará el documento, identificará los campos y estructurará un flujo de trabajo basándose en el documento y en las instrucciones proporcionadas.
+        
+    -   En la ventana **Añade los toques finales**, revisa el **Nombre** y la **Descripción** de tu proceso.
+        
+        ![](/migration-assets/creating-a-process/4.png)
+    -   Haz clic en **Obtener una vista previa del formulario** para revisar el formulario y asegurarte de que cumple tus necesidades.
+        
+        ![](/migration-assets/creating-a-process/3.png)
+4. **Ve al editor de procesos**
+    
+    -   Haz clic en **Ir al proceso**. Se te llevará directamente al editor, donde podrás ver el formulario y los pasos del flujo de trabajo. Desde allí, puedes personalizar el proceso según sea necesario.
+        
+
+> **Nota:**
+> 
+> Los documentos de requisitos empresariales (BRD) y los documentos de especificaciones no son compatibles.
+
+#### Desde un prompt
+
+Si no tienes un documento, puedes describir el proceso que quieres crear.
+
+1.  En el espacio **O proporciona un prompt**, describe tu proceso. Sé lo más específico posible sobre los campos del formulario y los pasos del flujo de trabajo.
+    
+    ![](/migration-assets/creating-a-process/6.png)
+2.  Haz clic en **Comenzar a crear**.
+    
+3.  En la ventana **Añade los toques finales**, revisa el **Nombre** y la **Descripción** de tu proceso.
+    
+4.  Haz clic en **Obtener una vista previa del formulario** para revisar el formulario del proceso y asegurarte de que cumple tus necesidades.
+    
+5.  Haz clic en **Ir al proceso**. Se te llevará directamente al editor, donde podrás ver el formulario y los pasos del flujo de trabajo. Desde allí, puedes personalizar el proceso según sea necesario.
+    
+
+> **Nota:**
+> 
+> -   El número de pasos del flujo de trabajo creados será de entre 2 y 10. 
+> -   El número de campos creados estará limitado a 25.
+
+El ID del proceso generado al crear un proceso no se puede cambiar más adelante.
+
+## Cambiar el nombre de un proceso
+
+Para cambiar el nombre del proceso, simplemente haz clic en el nombre actual, realiza los cambios y, a continuación, haz clic en **Intro.** Puedes cambiar la descripción de la misma forma después de hacer clic en el botón **Descripción** (![](/migration-assets/creating-a-process/7.png)). Todos los cambios se guardan automáticamente.
+
+![](/migration-assets/creating-a-process/8.png)
+
+## Personalizar un proceso
+
+Cada elemento de tu proceso tiene su propio [formulario](/t/h7h4azm/creating-a-form), [flujo de trabajo](/t/m1h9qmv/making-a-process-workflow) y [permisos](/t/60h9qtm/configuring-field-permissions-for-process-steps). Haz clic en **Administrar** > **Editar proceso** para acceder al editor, donde puedes trabajar en estos elementos. Como administrador o desarrollador del proceso, también puedes acceder al editor desde cualquier formulario haciendo clic en **Editar** **proceso** en la esquina superior derecha del formulario.
+
+![](/migration-assets/creating-a-process/11.png)
+
+## Buscar un proceso
+
+Hay dos formas de buscar tu proceso.
+
+Primero, haz clic en el botón **Buscar** (![](/migration-assets/creating-a-process/9.png)) en la barra de navegación superior de la página y escribe el nombre del proceso en el cuadro de búsqueda. También puedes abrir el cuadro de búsqueda mediante los atajos de teclado:
+
+-   En **Mac**: tecla Comando (⌘) + E.
+-   En **Windows**: tecla Ctrl + E. 
+
+![](/migration-assets/creating-a-process/10.png)
+
+Segundo, haz clic en **Explorador** en el panel de navegación izquierdo para acceder a la página **Activos**. Luego puedes usar las funciones de búsqueda y ordenación para encontrar rápidamente el proceso. Puedes encontrar los procesos que administras en la pestaña **Administrados por mí**, mientras que el resto de los procesos se encuentra en la pestaña **Otros**.
+
+![](/migration-assets/creating-a-process/12.png)

@@ -1,0 +1,23 @@
+---
+title: "Usar XML para buscar datos"
+description: "BORRADOR (sin verificar) — migrado desde /t/p8h4az0/using-xml-to-lookup-data"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+ Aquí tienes un ejemplo que usa el formato XML para mostrar el nombre botánico de una planta.
+
+1.  Crea un campo de búsqueda remota llamado **Plant**. 
+2. **En el campo URL**, agrega el enlace de API, como este ejemplo de [W3schools](https://www.w3schools.com/xml/plant_catalog.xml).
+3.  Elige **GET** como tipo de solicitud.
+4.  En el campo **¿Con qué tipo de datos estás trabajando?**, elige **XML**
+5. **En la ruta XML del valor en el resultado**, introduce `./PLANT/BOTANICAL`
+6.  En el campo **¿Con qué tipo de datos estás trabajando?**, elige **XML**. 
+7.  En el campo **¿Cómo debería seleccionarse el resultado?**, elige **Seleccionar un valor del menú desplegable.**
+
+![](/migration-assets/using-xml-to-lookup-data/1.gif)

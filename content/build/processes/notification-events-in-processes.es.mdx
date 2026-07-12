@@ -1,0 +1,172 @@
+---
+title: "Eventos de notificación en los procesos"
+description: "BORRADOR (no verificado) — migrado desde /t/h7y6kg2/notification-events-in-processes"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## Notificaciones de elementos
+
+Las notificaciones de elementos que se indican a continuación están predefinidas por el sistema. Puedes usarlas para crear nuevas notificaciones personalizadas y configurar las condiciones del activador, los destinatarios y el contenido que prefieras. Estas notificaciones predefinidas no se pueden eliminar, pero sí activar o desactivar.
+
+**[N.º](http://S.no).**
+
+**Evento de notificación**
+
+**Activador**
+
+**Destinatario**
+
+1
+
+Elemento asignado
+
+Cuando se asigna un elemento a un usuario
+
+Asignado
+
+2
+
+Elemento completado
+
+Cuando un elemento completa su flujo de trabajo
+
+Iniciador
+
+3
+
+Elemento rechazado
+
+Cuando un elemento es rechazado por el responsable de un paso
+
+Iniciador
+
+4
+
+Elemento retirado por el iniciador
+
+Cuando un iniciador retira un elemento
+
+Asignado
+
+5
+
+Elemento reasignado
+
+Cuando se reasigna un elemento a un usuario
+
+Asignado
+
+6
+
+Elemento excede su fecha límite
+
+Cuando un elemento excede su fecha límite
+
+Asignado
+
+7
+
+Elemento excede su fecha límite (alerta de notificación)
+
+Cuando un elemento excede su fecha límite
+
+Configurado en los pasos del flujo de trabajo. [Más información](/t/60h9qm9/configuring-deadline)
+
+8
+
+Elemento se acerca a su fecha límite (alerta de notificación)
+
+Cuando un elemento se acerca a su fecha límite
+
+Configurado en los pasos del flujo de trabajo. [Más información](/t/60h9qm9/configuring-deadline)
+
+9
+
+Elemento excede su fecha límite (escalación)
+
+Cuando un elemento excede su fecha límite
+
+Configurado en los pasos del flujo de trabajo. [Más información](/t/60h9qm9/configuring-deadline)
+
+10
+
+Elemento se acerca a su fecha límite (escalación)
+
+Cuando un elemento se acerca a su fecha límite
+
+Configurado en los pasos del flujo de trabajo. [Más información](/t/60h9qm9/configuring-deadline)
+
+> **Nota:**  
+> Las notificaciones de todos los pasos relacionados con el proceso que se envían al usuario correspondiente se redirigirán al usuario delegado (si la [delegación de tareas](/t/60h4ak1) está **ACTIVADA**), pero la notificación de **Elemento completado** (n.º 2 de la tabla anterior) solo la recibirá el solicitante o iniciador del elemento, incluso si el iniciador/solicitante ha delegado su tarea a otro usuario **.**
+
+## Notificaciones de gestión del proceso
+
+**[N.º](http://S.no).**
+
+**Evento de notificación**
+
+**Activador**
+
+**Destinatario**
+
+1
+
+Miembro agregado al proceso
+
+Cuando se agrega un miembro al proceso
+
+Nuevo miembro
+
+2
+
+Desarrollador agregado al proceso
+
+Cuando se agrega un desarrollador al proceso
+
+Nuevo desarrollador
+
+3
+
+Administrador de informes agregado al proceso
+
+Cuando se agrega un administrador de informes al proceso
+
+Nuevo administrador de informes
+
+4
+
+Administrador de datos agregado al proceso
+
+Cuando se agrega un administrador de datos al proceso
+
+Nuevo administrador de datos
+
+5
+
+Administrador agregado al proceso
+
+Cuando se agrega un administrador al proceso
+
+Nuevo administrador
+
+6
+
+Proceso renombrado
+
+Cuando se cambia el nombre de un proceso
+
+Todos los miembros
+
+7
+
+Nueva versión de un proceso publicada
+
+Cuando se publica una nueva versión de un proceso
+
+Administradores y desarrolladores

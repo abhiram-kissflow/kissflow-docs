@@ -1,0 +1,60 @@
+---
+title: "Conector de Expensify"
+description: "BORRADOR (no verificado) — migrado desde /t/60h4aft/expensify-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+## ¿Qué es Expensify?
+
+[Expensify](https://www.expensify.com/) es una aplicación que facilita la importación de gastos directamente desde una tarjeta de crédito para crear informes de gastos de forma rápida y sencilla.
+
+## Conexión con Expensify
+
+El conector de Expensify de Kissflow Integration te permite conectar y usar los informes de gastos creados en Expensify con aplicaciones populares de terceros y aplicaciones de Kissflow. Debes tener una cuenta válida de Expensify y ser cliente de pago de Kissflow para poder integrarte con Expensify. Por ahora, el conector de Expensify no admite ningún evento desencadenador.
+
+Tomemos un ejemplo en el que:
+
+-   Un consultor compra un billete de avión para una visita presencial que debe reembolsarse.
+-   Los detalles del billete se reciben mediante Gmail. A través de esta integración, los detalles del gasto se transfieren automáticamente a Expensify.
+-   El informe de Expensify puede activar posteriormente el flujo de trabajo del proceso de reembolso, en el que se crea un nuevo elemento en Kissflow Process junto con el informe de Expensify.
+
+## Acciones en Expensify
+
+##### **Eventos de acción**
+
+##### **Descripción**
+
+Crear un gasto individual
+
+Esta acción crea un único elemento de gasto en Expensify.
+
+### Conector de Expensify como paso de acción
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Configura el paso desencadenador; por ejemplo, puedes usarlo para conectarte con tu cuenta de Gmail. Cada vez que haya nuevos detalles de gastos en tu bandeja de entrada de Gmail, esto puede dar lugar a una acción en la integración.
+3.  Después de configurar el paso desencadenador anterior, haz clic en el botón **Añadir** (![](/migration-assets/expensify-connector/1.png) ) para configurar el paso de acción de Expensify. Busca Expensify y selecciona un evento de acción disponible.![](/migration-assets/expensify-connector/2.png) 
+
+4\. Después de elegir el evento de acción, el siguiente paso es autenticar el conector.![](/migration-assets/expensify-connector/4.png)
+
+5\. Haz clic en **+Añadir una cuenta** y se te pedirá que introduzcas un **partnerUserID** y un **partnerUserSecret** únicos de tu cuenta de Expensify. Estos son diferentes de tu nombre de usuario y contraseña habituales de Expensify.
+
+Para generar tu ID de socio y secreto únicos en Expensify, inicia sesión en tu cuenta de Expensify y accede a esta URL: [**https://www.expensify.com/tools/integrations/**](https://www.expensify.com/tools/integrations/)
+
+![](/migration-assets/expensify-connector/3.png)
+
+6\. Después de autenticarte con tus credenciales de Expensify, añade los valores correspondientes a los campos del formulario de Expensify y haz clic en **Actualizar campos** para ver todos los campos actualizados del formulario de Expensify seleccionado. También puedes asignar campos de Expensify a los campos del paso desencadenador o de la acción anterior. Los valores de los campos se añadirán automáticamente a los campos del elemento después de ejecutar la acción.
+
+7\. Después de configurar todo correctamente, prueba si el paso de acción de Expensify está configurado correctamente haciendo clic en el botón **P****robar**. El conector extraerá los datos de los campos de tu cuenta de Expensify seleccionada y los mostrará como una salida JSON. Al igual que en el paso desencadenador, se te notificarán los errores de inmediato. Corrígelos antes de volver a probar el paso de acción.
+
+### Configuración de un flujo de trabajo de Expensify
+
+Después de crear un flujo de trabajo personalizado con el paso de acción de Expensify, activa el botón de alternancia para activar la ejecución de la integración. Cuando la integración esté activa, se creará un nuevo gasto en tu cuenta de Expensify, lo que te permitirá crear un informe de gastos completo.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

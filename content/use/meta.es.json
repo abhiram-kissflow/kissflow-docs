@@ -1,0 +1,16 @@
+{
+  "title": "Usar Kissflow",
+  "description": "Trabaja con aplicaciones, formularios, tableros y procesos.",
+  "pages": [
+    "items",
+    "forms",
+    "tasks",
+    "search",
+    "notifications",
+    "mobile",
+    "apps",
+    "boards",
+    "personal-settings"
+  ],
+  "icon": "use"
+}

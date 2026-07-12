@@ -1,0 +1,69 @@
+---
+title: "Desencadenador personalizado de Kissflow"
+description: "BORRADOR (no verificado) — migrado desde /t/g9yyqy3/custom-trigger-by-kissflow"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es un desencadenador personalizado?
+
+Cuando no puedes configurar una integración mediante un desencadenador existente, puedes configurar y crear un desencadenador personalizado para un workflow específico. Un desencadenador personalizado te permite definir qué entrada buscará el desencadenador para iniciar otras acciones de integración mediante la definición de tus propios parámetros de entrada. Hay varios casos en los que un desencadenador personalizado puede ser más útil que un desencadenador predefinido de Kissflow. 
+
+-   Actualmente, no puedes llamar a una integración dentro de otra integración. Con un desencadenador personalizado, puedes llamar a tu desencadenador personalizado como una acción en una integración diferente, lo que activa la ejecución de las acciones añadidas en el desencadenador personalizado. 
+    
+-   Un desencadenador personalizado no está restringido a la acción. Puede activarse o invocarse desde diferentes flujos que tengan acceso a este desencadenador personalizado. 
+    
+
+Supongamos un ejemplo en el que hay dos procesos, **Incorporación de empleados** y **Salida de empleados**, y existe un conjunto de datos **Maestro de empleados**. Cuando un empleado se incorpora a la empresa o la deja, los cambios deben actualizarse en el conjunto de datos Maestro de empleados. Antes, solo era posible utilizar dos integraciones diferentes. Con un desencadenador personalizado, puedes hacerlo con una sola integración. 
+
+## Desencadenador personalizado como paso de desencadenador
+
+**Desencadenador**
+
+**Descripción**
+
+Configurar un desencadenador personalizado
+
+Un desencadenador personalizado que se puede configurar con campos y tablas de entrada.
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para la integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)** junto a la sección de desencadenadores personalizados. 
+    
+2.  Elige los flujos y las integraciones que pueden acceder a este desencadenador personalizado. Los flujos que no tengan acceso a este desencadenador personalizado no podrán ejecutar acciones en él. 
+    
+3.  Crea campos o tablas de entrada, asígnales un nombre y elige un tipo de datos entre los cuatro tipos disponibles.
+    
+4.  Una vez que hayas creado los campos de entrada y configurado los parámetros de entrada, haz clic en **Siguiente** y **Listo** para guardar la configuración. El paso de desencadenador del desencadenador personalizado no requiere autenticación mediante tu cuenta de Kissflow. Puedes añadir acciones después de este paso de desencadenador que deban ejecutarse.
+    
+
+Una vez que hayas creado el desencadenador personalizado, podrás llamarlo como una acción en diferentes integraciones. Cuando se ejecuta la integración con el desencadenador personalizado como acción, el historial de ejecuciones contendrá todos los detalles específicos del flujo.   
+
+![](/migration-assets/custom-trigger-by-kissflow/1.png)
+
+## Desencadenador personalizado como paso de acción
+
+**Acción**
+
+**Descripción**
+
+Llamar a una integración
+
+Esta acción activa el desencadenador personalizado y ejecuta las acciones añadidas en él.
+
+1.  Haz clic en el conector Custom trigger by Kissflow y selecciona el paso de acción: **Llamar a una integración o flujo.** 
+2.  Selecciona el desencadenador personalizado que creaste en el paso de desencadenador. La parte del desencadenador personalizado puede añadirse a más de una integración. 
+    
+3.  Asigna los campos de entrada preconfigurados utilizando los datos de las acciones anteriores para activar las acciones posteriores. 
+    
+4.  Comprueba si el paso de acción está configurado correctamente. Haz clic en **Usar datos de muestra** para utilizar datos de muestra y validar la acción. El conector validará los datos de muestra con los campos del tablero y mostrará los resultados en formato JSON. Si se produce algún error, se te notificará de inmediato. Corrígelos antes de volver a probar la acción.
+    
+
+![](/migration-assets/custom-trigger-by-kissflow/2.png)
+
+Después de configurar los desencadenadores y las acciones necesarios, activa la integración para activarla.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

@@ -1,0 +1,235 @@
+---
+title: "Ventas"
+description: "BORRADOR (sin verificar) — migrado desde /t/m1yk44d/sales"
+contentType: use-case
+persona: citizen-developer
+section: build
+---
+
+Las ventas son el motor del crecimiento empresarial, centradas en convertir clientes potenciales en clientes y cultivar relaciones a largo plazo. Las integraciones son el combustible de alto octanaje de este motor: conectan CRM como Salesforce y Salesmate con todas las demás áreas del negocio, desde marketing y comercio electrónico hasta la gestión de proyectos y las finanzas. Al automatizar el flujo de datos, los equipos de ventas pueden eliminar tareas manuales, obtener una visión de 360 grados del cliente, acelerar el ciclo de ventas y dedicar más tiempo a hacer lo que mejor saben hacer: vender.
+
+## Conectores en esta vertical
+
+**Aplicación**
+
+**Descripción**
+
+**[Salesforce](/t/83h4afb/salesforce-connector)**
+
+Una plataforma CRM de nivel empresarial que funciona como fuente central de información para todas las interacciones con clientes, oportunidades de ventas y casos de servicio.
+
+**[Salesmate](/t/35h4af1/salesmate-connector)**
+
+Un CRM flexible y moderno diseñado para ayudar a los equipos de ventas a gestionar su pipeline, automatizar el contacto con clientes potenciales y realizar un seguimiento eficiente de las actividades.
+
+**[HTTP](/t/p8h4aky/http-connector)**
+
+Además de las acciones prediseñadas disponibles en Kissflow Integrations para ventas, puede haber situaciones en las que necesites realizar una acción personalizada. En esos casos, puedes usar el conector HTTP para configurar llamadas a la API desde cero e interactuar con cualquier servicio que exponga una REST API.
+
+## Casos de uso de integraciones con Kissflow
+
+Estos son ejemplos prácticos, basados en situaciones reales, de cómo Kissflow puede activar acciones en Salesforce y Salesmate para resolver problemas empresariales comunes.
+
+### Salesforce
+
+**Objetivo empresarial**
+
+**Desencadenador (en Kissflow)**
+
+**Acción (en Salesforce)**
+
+**Situación detallada**
+
+**Beneficio clave**
+
+Automatizar la creación de oportunidades
+
+Llega un pedido mayorista de alto valor mediante un webhook de Shopify.
+
+Crear una oportunidad.
+
+Kissflow crea una nueva oportunidad en Salesforce, rellenada previamente con el valor del pedido, los SKU de los productos y el nombre de la empresa del distribuidor.
+
+Garantiza que los pedidos B2B de alto valor se registren como acuerdos formales en el CRM sin introducir datos manualmente.
+
+Mantener la precisión del pipeline
+
+Un gestor de proyectos marca _Implementación completada_ en un rastreador de progreso.
+
+Actualizar una oportunidad.
+
+El flujo actualiza inmediatamente la oportunidad relacionada, establece _Etapa = Ganada_ y registra la fecha real de puesta en marcha.
+
+Mejora la precisión de las previsiones de ventas al reflejar al instante la finalización del proyecto en el CRM.
+
+Habilitar un soporte proactivo
+
+Un sensor IoT publica un mensaje de fallo crítico.
+
+Crear un caso.
+
+El flujo de trabajo crea un nuevo caso con prioridad = alta, el ID del dispositivo y la ubicación del cliente para que el equipo de soporte pueda actuar rápidamente.
+
+Automatiza la creación de casos de servicio a partir de alertas de dispositivos y permite responder rápidamente a problemas críticos.
+
+Centralizar el servicio de campo
+
+Un técnico de campo registra una visita de reparación en una aplicación móvil.
+
+Actualizar un caso.
+
+La integración actualiza el caso abierto a _Estado = A la espera de confirmación del cliente_ y adjunta el enlace al informe del servicio.
+
+Mantiene el caso central de soporte actualizado con la información más reciente del servicio de campo.
+
+Acelerar la captura de clientes potenciales en eventos
+
+El personal envía escaneos de credenciales mediante un formulario en el stand de una feria comercial.
+
+Crear un contacto.
+
+Cada envío crea un nuevo contacto en Salesforce con nombre, correo electrónico, empresa y una _etiqueta Evento = Expo 2025_.
+
+Captura al instante los clientes potenciales de la feria en el CRM, lo que permite un seguimiento de ventas más rápido.
+
+Proporcionar alertas de riesgo en tiempo real
+
+El equipo de finanzas marca a un cliente como _vencido_ en un panel de facturación.
+
+Actualizar un contacto.
+
+La integración cambia el campo personalizado _Billing\_Status_ a _Moroso_ en el contacto correspondiente para que los CSM vean el riesgo.
+
+Proporciona a los CSM y representantes alertas de riesgo críticas y en tiempo real directamente en el registro del contacto.
+
+### Salesmate 
+
+**Objetivo empresarial**
+
+**Desencadenador (en Kissflow)**
+
+**Acción (en Salesmate)**
+
+**Situación detallada**
+
+**Beneficio clave**
+
+Automatizar la captura de clientes potenciales de marketing
+
+Se convierte un formulario de inscripción a un seminario web.
+
+Crear un contacto.
+
+Crea al instante un nuevo contacto en Salesmate con nombre, correo electrónico y _Fuente del cliente potencial = Seminario web de mayo de 2025_.
+
+Automatiza la captura de clientes potenciales cualificados por marketing directamente en el CRM de ventas.
+
+Gestionar el ciclo de vida del cliente
+
+Un CSM marca _Incorporación completada_.
+
+Actualizar un contacto.
+
+El flujo actualiza el contacto existente y establece el campo personalizado _Customer\_Status = Activo_ para cambiar los playbooks de incorporación a expansión.
+
+Mantiene actualizado el estado del cliente y permite ejecutar estrategias de ventas y expansión adaptadas al contexto.
+
+Centralizar los datos de proveedores
+
+El equipo de compras aprueba un nuevo proveedor.
+
+Crear una empresa.
+
+Un paso de integración crea una empresa en Salesmate con dirección, número de IVA y sector, lista para la interacción con el equipo de ventas.
+
+Hace que la información de los proveedores esté disponible para los procesos de ventas y compras.
+
+Sincronizar los datos financieros
+
+El equipo de finanzas cambia el límite de crédito de un cliente.
+
+Actualizar una empresa.
+
+El mismo valor se envía al registro de la empresa relacionada en Salesmate para que los representantes lo vean en tiempo real.
+
+Garantiza que los representantes de ventas tengan el contexto financiero más actualizado al negociar acuerdos.
+
+Agilizar el proceso de _cotización a acuerdo_
+
+Se aprueba un formulario de _Cotización mayorista_ de comercio electrónico.
+
+Crear un acuerdo.
+
+La aplicación crea un nuevo acuerdo en Salesmate con importe, fecha de cierre prevista y pipeline = _Mayorista_.
+
+Agiliza el proceso desde la solicitud de precio del cliente hasta la creación de un acuerdo formal en el pipeline.
+
+Automatizar el avance del pipeline
+
+Un proyecto de implementación alcanza el 80 por ciento de finalización.
+
+Actualizar un acuerdo.
+
+La automatización actualiza la etapa del acuerdo correspondiente a _Negociación ganada_ y la probabilidad a _100 por ciento_.
+
+Proporciona visibilidad en tiempo real del avance de los acuerdos según los hitos reales del proyecto.
+
+Garantizar el seguimiento de asuntos críticos
+
+Se escala un ticket de soporte.
+
+Crear una actividad.
+
+Crea automáticamente una actividad de seguimiento (_Llamar al cliente para confirmar la resolución_) asignada al responsable de la cuenta en Salesmate.
+
+Garantiza que los problemas críticos de soporte se asignen a la persona adecuada para su seguimiento mediante una tarea concreta.
+
+Cerrar el ciclo de las tareas
+
+Se registra el resultado de una llamada.
+
+Actualizar una actividad.
+
+La integración actualiza la misma actividad a _estado_ = c_ompleted_ y sincroniza las notas.
+
+Garantiza un historial completo de actividades en el CRM al sincronizar los resultados de las tareas.
+
+Evitar la introducción de datos duplicados
+
+Un representante escribe un correo electrónico en un formulario de _Registro de llamadas_.
+
+Buscar un contacto.
+
+La integración busca entre los contactos; si encuentra una coincidencia, el formulario rellena automáticamente el nombre y el teléfono del contacto.
+
+Ahorra tiempo a los representantes y evita crear contactos duplicados al rellenar automáticamente los formularios.
+
+Enrutar documentos de forma inteligente
+
+Una aplicación de traspaso de proyectos recibe un código de proyecto.
+
+Buscar un acuerdo.
+
+Kissflow busca acuerdos por ese ID externo; si devuelve un único acuerdo abierto, el flujo de trabajo adjunta una lista de comprobación y notifica al responsable.
+
+Automatiza la adjunción de documentos relevantes al acuerdo correcto y mejora los traspasos.
+
+Habilitar una incorporación inteligente
+
+La incorporación de proveedores captura el número de IVA de un proveedor.
+
+Buscar una empresa.
+
+El flujo de trabajo busca empresas; si existe una coincidencia exacta, el flujo se vincula a ella; de lo contrario, se bifurca a .
+
+Crea un proceso de incorporación más inteligente que evita duplicar los registros de empresas.
+
+Gestionar proactivamente las tareas diarias
+
+Un flujo de trabajo programado se ejecuta cada mañana.
+
+Buscar una actividad.
+
+El flujo de trabajo busca todas las actividades incompletas que vencen hoy y compila los resultados en un mensaje directo de Slack para cada representante.
+
+Aumenta la productividad al entregar proactivamente una lista diaria de tareas pendientes a cada representante.

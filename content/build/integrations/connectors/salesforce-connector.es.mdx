@@ -1,0 +1,72 @@
+---
+title: "Conector de Salesforce"
+description: "BORRADOR (sin verificar) — migrado desde /t/83h4afb/salesforce-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es Salesforce?
+
+Salesforce proporciona software y aplicaciones de gestión de relaciones con los clientes enfocados en ventas, servicio al cliente, automatización de marketing, analítica y desarrollo de aplicaciones.
+
+## Acerca de la integración de Salesforce con Kissflow
+
+El conector de Salesforce de Kissflow Integration te permite conectar y sincronizar tus carpetas y archivos de Salesforce con aplicaciones populares de terceros y aplicaciones de Kissflow. Debes tener una cuenta válida de Salesforce y ser cliente de pago de Kissflow para integrarte con Salesforce.
+
+Supón que administras tu tienda en línea a través de Shopify. Puedes crear una nueva oportunidad en Salesforce cada vez que se produce una venta en Shopify mediante el activador de webhooks en Kissflow y agregando el conector de Salesforce como acción.  
+
+Usa el conector de Salesforce para recibir datos de otros flujos o aplicaciones y realizar acciones específicas. El conector de Salesforce aún no admite eventos de activación.
+
+### Acciones en el conector de Salesforce
+
+**Eventos de acción**
+
+**Descripción**
+
+Crear una oportunidad
+
+Esta acción crea una nueva oportunidad en Salesforce.
+
+Actualizar una oportunidad
+
+Esta acción actualiza una oportunidad existente en Salesforce.
+
+Crear un caso
+
+Esta acción crea un nuevo caso que representa un problema o una incidencia de un cliente.
+
+Actualizar un caso
+
+Esta acción actualiza un caso existente que representa un problema o una incidencia de un cliente.
+
+Crear un contacto
+
+Esta acción crea un nuevo contacto en Salesforce.
+
+Actualizar un contacto
+
+Esta acción actualiza un contacto existente en Salesforce.
+
+## Conector de Salesforce como paso de acción
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Escribe un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Una vez dentro del editor, configura los pasos de activación y acción según sea necesario. Por ejemplo, el evento de activación puede ser **Webhooks by Kissflow**. Puedes usar la URL del hook para capturar datos de cualquier aplicación externa que elijas. Por ejemplo, un pedido de Shopify que recibas en tu tienda en línea.
+    
+3.  Después de configurar el activador y el paso de acción anteriores, haz clic en el botón **Agregar** (![](/migration-assets/salesforce-connector/2.png)) junto a la opción para configurar tu paso de acción. Busca el conector de Salesforce y selecciona la acción que desees de la lista anterior.![](/migration-assets/salesforce-connector/1.png) 
+4.  Después de elegir el evento de acción, autentica el conector. Haz clic en **+Agregar una cuenta** e inicia sesión con tu cuenta de Salesforce. Kissflow utiliza OAuth de Salesforce para la autenticación.
+5.  Después de autenticarte con tu cuenta de Salesforce, agrega los valores relevantes en los campos del formulario de Salesforce. Puedes hacer clic en **Actualizar campos** para ver todos los campos actualizados del formulario de Salesforce seleccionado.  
+    También puedes asignar campos de Salesforce desde tu paso de activación o campos de tus pasos de acción anteriores. Estos valores se agregarán automáticamente a los campos del elemento después de ejecutar la acción.
+6.  Haz clic en **Siguiente**.![](/migration-assets/salesforce-connector/3.png)  
+7.  Después de una configuración exitosa, prueba si tu paso de acción de Salesforce está configurado correctamente haciendo clic en el botón **Probar**. El conector extraerá los datos de los campos de tu cuenta de Salesforce seleccionada y los mostrará como una salida JSON. Al igual que en el paso de activación, recibirás una notificación inmediata de los errores. Corrígelos antes de volver a probar el paso de acción.
+
+## Configuración de un conector de Salesforce
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción de tu conector de Salesforce, activa el botón de alternancia para activar la ejecución de la integración. Cuando se produce un evento de activación, la acción de Salesforce seleccionada se activa y los cambios se reflejan en tu cuenta de Salesforce.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

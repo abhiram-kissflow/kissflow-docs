@@ -1,0 +1,222 @@
+---
+title: "Generación de plantillas de documentos"
+description: "BORRADOR (sin verificar) — migrado desde /t/y4yzjc0/generating-document-templates"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Básico ✓ Enterprise
+
+Puedes usar una plantilla de documento para automatizar la generación de archivos PDF de los formularios de tus procesos. Los desarrolladores de aplicaciones pueden crear una plantilla de documento en el entorno de desarrollo.
+
+> Por ejemplo, si estás creando una aplicación para la gestión de recursos humanos y tienes un formulario de proceso que realiza un seguimiento de la contratación, puedes crear una plantilla de documento que te ayude a generar cartas de oferta automáticamente cuando el candidato avance en el proceso de entrevistas y reciba la oferta.
+
+## Crear una plantilla de documento
+
+1.  Ve al formulario de proceso para el que quieres generar una plantilla de documento.
+    
+2.  Haz clic en **Plantillas de documentos**, en la parte superior derecha del formulario de proceso.
+    
+    ![](/migration-assets/generating-document-templates/1.png)
+    
+3.  Haz clic en **Crear desde cero**.
+4.  Introduce un nombre y una descripción opcional para la plantilla de documento.
+5.  Haz clic en **Crear**.![](/migration-assets/generating-document-templates/17.gif)
+
+### [Generar con AI](/t/x2h9qtr#generate-using-ai)
+
+Usa Kissflow AI para crear tu plantilla de documento al instante. Ve al proceso para el que quieres crear una plantilla de documento. Haz clic en **Administrar** > **Plantillas de documentos** > **Crear plantilla** > **Generar con AI**.  
+  
+Introduce el nombre de la plantilla de documento, por ejemplo, **Carta de oferta para empleados** o **Orden de compra**, selecciona un idioma para la plantilla y haz clic en **Generar** para crear el primer borrador, llamado **Borrador 1**.  
+  
+La AI usa estas entradas como indicación para generar el borrador 1 de tu plantilla de documento, como se muestra en el gif a continuación.![](/migration-assets/generating-document-templates/15.gif)
+
+> **Nota:** Además del nombre de la plantilla de documento que proporciones, la AI también considera el nombre del proceso y los campos del formulario de proceso como contexto adicional. La información relevante del proceso ayudará a generar una plantilla de documento altamente contextualizada que requiera un trabajo de edición mínimo.
+
+#### [Regenerar con AI para mejorar el borrador](/t/x2h9qtr#ai-regeneration-to-enhance-draft)
+
+Puedes perfeccionar los borradores añadiendo información adicional a un borrador seleccionado y haciendo clic en **Regenerar** para obtener los cambios deseados en el nuevo borrador, como se muestra en el gif a continuación.![](/migration-assets/generating-document-templates/5.gif)
+
+> **Nota**:
+> 
+> -   Puedes ir a cualquier borrador existente y usarlo como base para regenerar un nuevo borrador con cambios adicionales.
+>     
+> -   Los borradores solo se pueden regenerar durante la primera hora después de su creación. Por ejemplo, si el borrador 7 se generó el 19 de enero a las 15:45, puedes usarlo para regenerarlo antes del 19 de enero a las 16:45.
+>     
+> -   Cada borrador se puede regenerar un máximo de 10 veces.
+>     
+
+#### [Finalizar un borrador de plantilla](/t/x2h9qtr#finalizing-a-template-draft)
+
+Cuando estés satisfecho, ve al borrador que prefieras y haz clic en **Usar este borrador**, en la parte superior derecha de la página. El borrador seleccionado se transfiere al editor de plantillas de documentos, donde puedes personalizar aún más el documento.
+
+## Editar una plantilla de documento
+
+Puedes completar el contenido de tu plantilla en el editor que se abre después de crearla. Este editor admite todas las opciones de formato, como cualquier otro editor de texto, y ofrece compatibilidad adicional para insertar campos de proceso, saltos de página, imágenes y tablas de formulario.
+
+![](/migration-assets/generating-document-templates/3.png)
+
+Como hemos creado esta función con el motor de plantillas Jinja, te recomendamos explorar todo su potencial consultando su documentación [aquí](https://jinja.palletsprojects.com/en/3.0.x/). Puedes escribir condiciones o bucles avanzados y ampliar la funcionalidad de la plantilla si estás familiarizado con Jinja.
+
+## Insertar campos del formulario de proceso
+
+Puedes insertar un campo del sistema o del formulario específico de dos maneras:
+
+1.  Introduce dos llaves sin ningún espacio entre ellas, “&#123;&#123;“, para ver la lista de campos utilizados en el formulario de proceso actual y seleccionar el campo que quieres insertar en la plantilla.
+2.  También puedes arrastrar y soltar el campo específico desde el panel izquierdo hasta el editor de plantillas.
+
+#### [Campos compatibles](/t/x2h9qtr#supported-fields)
+
+Solo se admiten los siguientes campos dentro de las plantillas de documentos:
+
+-   Texto
+-   Área de texto
+-   Número
+-   Moneda
+-   Correo electrónico
+-   Número de secuencia
+-   Fecha
+-   Fecha y hora
+-   Usuario
+-   child table/Tablas de formulario
+-   Firma
+
+#### [Campos no compatibles](/t/x2h9qtr#unsupported-fields)
+
+Los siguientes campos no se admiten dentro de las plantillas de documentos:
+
+-   Menú desplegable
+-   Menú desplegable de selección múltiple
+-   Sí/No
+-   Casilla de verificación
+-   Botón de opción
+-   Búsqueda
+-   Búsqueda remota
+-   Adjunto
+-   Adjunto inteligente
+-   Imagen
+-   Agregación
+-   Geolocalización
+-   Escáner
+-   Lista de comprobación
+-   Calificación
+-   Control deslizante
+-   Texto enriquecido
+-   Botón
+-   Control deslizante
+
+#### Insertar saltos de página
+
+Puedes añadir tantas páginas como quieras en tu documento. Haz clic en el icono **Salto de página** (![](/migration-assets/generating-document-templates/4.png)) de la barra de herramientas para insertar un salto de página.![](/migration-assets/generating-document-templates/2.png)
+
+## Añadir una tabla de formulario
+
+Puedes insertar en tu plantilla de documento las tablas de formulario creadas como parte de tu formulario de proceso. Arrastra y suelta una tabla de formulario en tu proceso, del mismo modo que añadirías un campo al editor de plantillas. Ten en cuenta que se añadirá una línea de código encima y debajo de la tabla de formulario. Estas sintaxis las añade Kissflow y te recomendamos no eliminarlas ni modificarlas, ya que afectaría al funcionamiento de la plantilla.![](/migration-assets/generating-document-templates/6.gif)
+
+Introduce el nombre del encabezado de la columna y usa llaves dobles para insertar un campo del formulario de proceso como su valor.![](/migration-assets/generating-document-templates/16.gif)
+
+> No puedes arrastrar y soltar un campo mientras configuras los valores de un campo específico en una tabla. Asegúrate de usar llaves dobles para insertar un campo de proceso específico como valor en una tabla.
+
+## Insertar una imagen
+
+Puedes añadir o insertar una imagen de las siguientes tres maneras:
+
+1.  Desde tu escritorio: arrastra y suelta la imagen desde tu computadora local hasta el editor de plantillas.
+2.  Desde una página web: copia la URL de la imagen desde la página web. Ve al editor de plantillas y haz clic en el icono **Insertar imagen**(![](/migration-assets/generating-document-templates/7.png)). Haz clic derecho y pega la dirección de la imagen. Haz clic en **Listo**. Pasa el cursor sobre la imagen para darle formato, cambiar su tamaño o eliminarla según sea necesario.
+3.  Copiar y pegar: también puedes usar Cmd/Ctrl C + Cmd/Ctrl V para copiar y pegar las imágenes en el editor de plantillas de documentos.
+
+También puedes copiar y pegar contenido de texto de cualquier fuente externa en el editor.
+
+## Insertar un encabezado y un pie de página
+
+Un encabezado aparece en la parte superior de un documento PDF, mientras que un pie de página aparece en la parte inferior de una página. Normalmente, estas áreas se utilizan para insertar información como el nombre del documento, encabezados, números de página, imágenes, fecha, etc., que se repite en todas las páginas del documento. Así puedes añadir un encabezado y un pie de página a tu plantilla de documento: 
+
+1.  Haz clic en la opción **Encabezado y pie de página** del editor. Aparecerá una nueva ventana del editor para el encabezado y el pie de página. La altura del encabezado y del pie de página viene determinada por los márgenes superior e inferior del lienzo base, que puedes cambiar mediante el icono **Márgenes**(![](/migration-assets/generating-document-templates/9.png)).
+2.  El encabezado y el pie de página también pueden tener un margen superior e inferior, que puedes configurar dentro del editor; el tamaño máximo del margen es de 400 px. El lienzo base determina los márgenes izquierdo y derecho del encabezado y el pie de página, y no se pueden cambiar dentro del editor.
+3.  Puedes incluir lo siguiente en el encabezado y el pie de página:
+    -   Contenido textual.
+    -   Imágenes y tablas estáticas.
+    -   Número de página y cantidad de páginas.
+        
+        > **Nota:** No puedes insertar un child table.
+        
+          
+        Una vez que hayas añadido el contenido necesario, puedes previsualizar la plantilla de documento haciendo clic en el botón **Vista previa**. 
+
+## [Personalizar tu página](/t/x2h9qtr#customizing-your-page)
+
+La opción **Configuración de página** te permite configurar el diseño y el aspecto básicos de tu documento.
+
+### [Orientación de la página](/t/x2h9qtr#page-orientation)
+
+Elige la orientación de tus páginas:
+
+-   **Vertical**: la página es más alta que ancha.
+-   **Horizontal**: la página es más ancha que alta.
+
+### [Color de página](/t/x2h9qtr#page-color)
+
+Establece el color de fondo de tus páginas.
+
+### [Márgenes](/t/x2h9qtr#margins)
+
+Configura los márgenes de tus páginas. Tienes dos opciones:
+
+-   **Automático**: establece automáticamente los márgenes en 92 píxeles en la parte superior, inferior, derecha e izquierda.
+-   **Personalizado**: te permite ajustar manualmente los márgenes según tus necesidades.
+
+Haz clic en **Aplicar** para guardar los cambios en tu documento.![](/migration-assets/generating-document-templates/10.gif)
+
+## Previsualizar una plantilla de documento
+
+Haz clic en **Vista previa**, en la parte superior del editor, después de terminar de crear el borrador de la plantilla. Puedes maximizar la pantalla de vista previa y descargar el documento como archivo PDF.  
+ ![](/migration-assets/generating-document-templates/8.png)
+
+> La plantilla de documento se guardará automáticamente cuando la previsualices. Sin embargo, también puedes hacer clic en **Guardar** para guardar los cambios cuando sea necesario.
+
+## Asociar una plantilla de documento
+
+Puedes automatizar la generación de archivos PDF integrando el proceso y la plantilla de documento que acabas de crear.
+
+1.  En **Todas las integraciones**, haz clic en **Crear** **nueva integración** o selecciona una integración existente.
+2.  Selecciona el conector **Proceso de Kissflow** y el paso **Generar PDF** entre las opciones disponibles.
+3.  Configura una conexión con la cuenta requerida según sea necesario.
+4.  Después de elegir un formulario de proceso, selecciona el ID de instancia de proceso correspondiente.
+
+![](/migration-assets/generating-document-templates/11.png)
+
+![](/migration-assets/generating-document-templates/13.png)
+
+1.  Selecciona la plantilla de documento que debe asignarse al proceso.
+2.  Introduce el título del documento y elige si el documento debe compartirse como archivo adjunto en el formulario de proceso. Si es así, selecciona el campo de archivo adjunto específico al que se debe adjuntar el PDF generado.
+3.  Puedes actualizar los campos para ver todos los campos actualizados del formulario. También puedes asignar campos del formulario desde el paso de activación o campos de los pasos de acción anteriores. Estos valores se añadirán automáticamente a los campos después de ejecutar la acción.
+4.  Haz clic en **Siguiente**
+5.  Añade un [conector de correo electrónico de Kissflow](/t/q6h4akqq5h4gn/send-email-connector) para compartir el PDF generado como archivo adjunto en un correo electrónico.![](/migration-assets/generating-document-templates/14.png)
+6.  Introduce los valores de todos los campos relacionados con el correo electrónico y selecciona el campo «documento» en **Archivos adjuntos** > **Campos** > **Generar PDF**.
+7.  Activa la integración cambiándola a **ACTIVADA**.
+
+## Administrar una plantilla de documento
+
+1.  Ve a tu formulario de proceso y haz clic en **plantillas** de documentos.
+    
+2.  Elige la plantilla que prefieras y haz clic en **Más opciones**(![](/migration-assets/generating-document-templates/12.png)) para cambiar el nombre, duplicar o eliminar la plantilla de documento.
+    
+
+Los siguientes idiomas son compatibles con las plantillas de documentos:
+
+-   Inglés
+-   Italiano (Italiano)
+-   Ruso (Русский)
+-   Alemán (Deutsch)
+-   Español (Español)
+-   Francés (Français)
+-   Portugués brasileño (Portuguesê (Brazil))
+-   Vietnamita (Tiếng Việt)
+-   Árabe
+
+> **Nota importante sobre la edición simultánea de plantillas de documentos:**Para garantizar la integridad de los datos y evitar conflictos, nuestro sistema gestiona la edición simultánea mediante una regla de «el primero en guardar». Esto significa que, si dos o más usuarios editan la misma plantilla de documento al mismo tiempo, los cambios de la persona que haga clic en **Guardar** primero se registran correctamente.Si otro usuario guarda la plantilla de documento antes que tú, tu versión quedará obsoleta. Cuando intentes guardar tus cambios, se te pedirá que actualices la pestaña para cargar las últimas actualizaciones.**Ten en cuenta que actualizar la pestaña descartará todo el trabajo que no hayas guardado en la pestaña actual.**  
+>   
+> Para evitar perder tu progreso, te recomendamos encarecidamente coordinarte con tu equipo para asegurarte de que solo una persona edite activamente una plantilla de documento compartida a la vez.

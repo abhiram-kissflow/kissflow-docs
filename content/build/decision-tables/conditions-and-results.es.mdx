@@ -1,0 +1,73 @@
+---
+title: "Crear condiciones y resultados"
+description: "Define las condiciones que evalúa una tabla de decisiones y los resultados que devuelve, incluidos los operadores y los tipos de campo compatibles."
+contentType: guide
+persona: citizen-developer
+section: build
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - decision-tables
+---
+
+# Crear condiciones y resultados
+
+<PlanBadge plans={["enterprise"]} />
+
+Las condiciones son los criterios que evalúa tu tabla de decisiones; los resultados son los valores que devuelve cuando una fila coincide.
+
+## Crear una condición
+
+1. Haz clic en el botón **Añadir** (+) junto a **Condiciones**.
+2. Introduce un nombre y selecciona el tipo de campo.
+3. De forma opcional, configura validaciones para controlar qué valores se pueden introducir en la columna.
+
+![Panel para crear una condición con las pestañas Configuración y Validación, que muestra campos para el nombre, el tipo de campo, el ID del campo, el texto de ayuda y el operador](/migration-assets/creating-conditions-and-results/1.png)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+Después de crear la condición, introduce sus valores en las filas de la tabla.
+
+![Tabla de decisiones con las condiciones Edad y Salario y un resultado de Importe del préstamo, con una fila vacía lista para introducir los valores de las condiciones](/migration-assets/creating-conditions-and-results/2.png)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+### Tipos de campo compatibles
+
+Las condiciones y los resultados admiten estos tipos de campo: **Texto**, **Número**, **Fecha**, **Fecha y hora**, **Lista desplegable**, **Sí/No**, **Moneda**, **Usuario** y **Correo electrónico**.
+
+### Elegir operadores
+
+Cada condición evalúa sus valores con un operador. Elige el modo de operador que se ajuste a tu lógica:
+
+- **Único**: evalúa con un operador. Los operadores disponibles incluyen `=`, `≠`, `>`, `>=`, `<`, `<=` y, para los campos de texto, **Contiene** y **No contiene**.
+- **Rango**: evalúa los valores dentro de un rango seleccionando un operador de límite inferior (`>` o `>=`) y un operador de límite superior (`<` o `<=`). El modo de rango está disponible para las condiciones de **Número**, **Moneda**, **Fecha** y **Fecha y hora**.
+
+**Ejemplo:** En una tabla de aprobación de préstamos, para evaluar puntuaciones de crédito entre 600 y 800, selecciona **Rango** con `>=` 600 y `<=` 800. Para exigir una puntuación mínima de 700, selecciona **Único** con `>=` 700.
+
+![Panel para crear una condición con la operación Rango seleccionada, que muestra menús desplegables de operadores de límite inferior y superior para una condición de Número](/migration-assets/creating-conditions-and-results/4.png)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+## Crear un resultado
+
+1. Haz clic en el botón **Añadir** (+) junto a **Resultados**.
+2. Introduce un nombre y selecciona el tipo de campo.
+3. De forma opcional, configura validaciones para los valores del resultado.
+
+Después de crear el resultado, introduce los valores del resultado para cada fila de condiciones.
+
+![Panel para crear un resultado con las pestañas Configuración y Validación, que muestra campos para el nombre, el tipo de campo, el ID del campo y el texto de ayuda](/migration-assets/creating-conditions-and-results/3.png)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+## Editar columnas
+
+Haz clic en el encabezado de una columna de condiciones o resultados para editarla. En el menú de la columna también puedes **Añadir columna antes**, **Añadir columna después** o eliminar la columna.
+
+## Edición simultánea
+
+Solo una persona puede editar una tabla de decisiones a la vez. Si otra persona está editando, verás un mensaje que indica que otro desarrollador está editando actualmente la tabla de decisiones, y tus cambios se bloquearán hasta que termine. Sus ediciones se guardan automáticamente mientras trabaja.
+
+## Qué sigue
+
+- [Configuración de evaluación](/docs/build/decision-tables/evaluation-settings)
+- [Generar automáticamente valores de condiciones](/docs/build/decision-tables/auto-generating-values)

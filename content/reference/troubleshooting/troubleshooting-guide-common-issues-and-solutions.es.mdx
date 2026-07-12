@@ -1,0 +1,131 @@
+---
+title: "Guía de solución de problemas: problemas comunes y soluciones"
+description: "Síntomas, causas y soluciones para problemas comunes de Kissflow: acceso a la cuenta, validación de formularios, asignados de procesos y errores de integración."
+contentType: troubleshooting
+persona: shared
+section: reference
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - troubleshooting
+  - errors
+  - workflows
+  - integrations
+---
+
+# Guía de solución de problemas: problemas comunes y soluciones
+
+Esta guía cubre los problemas más frecuentes de los usuarios de Kissflow, agrupados por área, junto con la causa probable y cómo solucionar cada uno. Si una solución de esta guía no resuelve tu problema, contacta con soporte por chat.
+
+## General
+
+### "Algo salió mal. Contacta con el servicio de atención al cliente."
+
+Este error genérico puede aparecer por varios motivos, normalmente debido a una fórmula añadida recientemente o a una configuración incorrecta del flujo de trabajo. Empieza por lo básico:
+
+1. Borra la caché del navegador y vuelve a cargar la página.
+2. Intenta realizar la misma acción en una ventana de incógnito/privada para descartar una caché obsoleta o un conflicto con una extensión.
+3. Si un formulario o flujo de trabajo específico lo activa de forma constante, comprueba las fórmulas o automatizaciones que hayas añadido recientemente.
+
+Si el error persiste, contacta con nuestro equipo de soporte por chat e indica los pasos para reproducirlo.
+
+### La aprobación de la cuenta está pendiente después del registro
+
+Los nuevos registros se añaden a la cuenta como usuarios pendientes, no como usuarios activos. Cada cuenta de Kissflow tiene un conjunto de licencias de usuario, y un administrador de cuenta controla quién se activa con una de ellas. Si tu cuenta está atascada en la etapa pendiente, no podrás iniciar sesión hasta que un administrador de cuenta la active manualmente.
+
+Contacta con uno de los administradores de cuenta y pídele que apruebe tu solicitud de acceso.
+
+![Aviso de aprobación de usuario pendiente mostrado a un nuevo usuario registrado](/migration-assets/troubleshooting-guide-common-issues-and-solutions/1.png)
+{/* TODO: verificar que la captura de pantalla coincide con la interfaz de usuario actual del producto */}
+
+### Error de validación al enviar un formulario de flujo de trabajo o proyecto
+
+Si no puedes enviar un formulario y aparece un error de validación, comprueba lo siguiente:
+
+- **Valores de los campos**: asegúrate de que los campos obligatorios estén completos y coincidan con el formato esperado.
+- **Validación al enviar**: es posible que una regla de validación personalizada del formulario esté rechazando los datos introducidos.
+- **Campos de secuencia**: una configuración incorrecta de los números de secuencia también puede bloquear el envío.
+
+Si sigues sin poder enviar el formulario después de estas comprobaciones, contacta con soporte.
+
+![Error de validación mostrado en un formulario de proceso durante el envío](/migration-assets/troubleshooting-guide-common-issues-and-solutions/2.png)
+{/* TODO: verificar que la captura de pantalla coincide con la interfaz de usuario actual del producto */}
+
+### La página de inicio de Kissflow se carga como una pantalla vacía
+
+Normalmente, esto se soluciona haciendo una recarga forzada:
+
+1. Borra la caché del navegador.
+2. Vuelve a cargar la página.
+
+Si la página de inicio sigue en blanco después de hacerlo, contacta con soporte; puede que haya una extensión del navegador o un problema de red en tu dispositivo que debamos descartar conjuntamente.
+
+![Pantalla vacía de la página de inicio de Kissflow](/migration-assets/troubleshooting-guide-common-issues-and-solutions/3.png)
+{/* TODO: verificar que la captura de pantalla coincide con la interfaz de usuario actual del producto */}
+
+### "Enlace de verificación caducado" al iniciar sesión desde el correo de verificación
+
+Los enlaces de verificación de la cuenta solo son válidos durante **24 horas**. Si abres el enlace después de ese periodo, verás el error **Enlace de verificación caducado** en lugar de iniciar sesión.
+
+Pide al administrador de cuenta que te envíe un nuevo correo de verificación.
+
+![Mensaje de error "Enlace de verificación caducado"](/migration-assets/troubleshooting-guide-common-issues-and-solutions/4.png)
+{/* TODO: verificar que la captura de pantalla coincide con la interfaz de usuario actual del producto */}
+
+### Los cambios del formulario no aparecen al previsualizar un flujo de trabajo
+
+Si editas un formulario de flujo de trabajo y la vista previa sigue mostrando la versión anterior, es probable que la vista previa conserve datos simulados de una ejecución anterior.
+
+Haz clic en **Restablecer datos** en la esquina inferior izquierda del formulario de vista previa y vuelve a previsualizarlo.
+
+<Callout type="info">
+  Al restablecer los datos, solo se borran los datos de simulación de la vista previa; no afecta a ninguna solicitud activa que ya se haya enviado mediante el formulario.
+</Callout>
+
+## Flujos de trabajo
+
+### Proceso
+
+#### Faltan los botones Enviar de vuelta y Rechazar en un paso de aprobación
+
+Si eres aprobador y no ves los [botones Enviar de vuelta o Rechazar](/docs/build/processes/configuring-actions-for-process-form-steps) en un formulario de proceso, el administrador del proceso los ha ocultado para ese paso. Solo el administrador del proceso puede restaurarlos; ponte en contacto con él si necesitas que esas acciones estén disponibles.
+
+![Paso de aprobación en un formulario de proceso sin los botones Enviar de vuelta y Rechazar](/migration-assets/troubleshooting-guide-common-issues-and-solutions/5.png)
+{/* TODO: verificar que la captura de pantalla coincide con la interfaz de usuario actual del producto */}
+
+#### "No hay ningún asignado para el siguiente paso" al iniciar una solicitud
+
+Este error indica que el siguiente paso del flujo de trabajo del proceso no se resuelve en un asignado válido. Comprueba lo siguiente:
+
+- La configuración del asignado del paso: ¿hay realmente un asignado definido para este paso?
+- Cualquier fórmula utilizada para determinar el asignado.
+- Si el asignado procede de un campo de búsqueda, comprueba también la configuración de la búsqueda; un resultado de búsqueda vacío o incorrecto dejará el paso sin asignado.
+
+![Error de ausencia de asignado mostrado al iniciar una solicitud de proceso](/migration-assets/troubleshooting-guide-common-issues-and-solutions/6.png)
+{/* TODO: verificar que la captura de pantalla coincide con la interfaz de usuario actual del producto */}
+
+#### Cambiar el título de un formulario de proceso
+
+Como administrador del proceso, puedes cambiar el nombre del título de un formulario de proceso:
+
+1. Abre el proceso y haz clic en **Administrar** en la parte superior derecha.
+2. Ve a **Configuración** > **Configuración general**.
+3. Usa [Configurar el título del formulario](/docs/build/processes/process-settings#configuring-form-titles) para establecer el nuevo título.
+
+### Integración
+
+#### Una integración con varios pasos falla con un error desconocido
+
+Cada ejecución de una integración se registra, incluidos los detalles de los errores de las ejecuciones fallidas. Consulta el [historial de ejecuciones](/docs/build/integrations/managing-integrations#run-history) para comprobar el paso específico y el error que provocó el fallo:
+
+1. Haz clic en **Explorar** > **Administrado por mí** > **Integraciones** > **Historial de ejecuciones**.
+2. Selecciona la integración que quieres comprobar.
+3. Abre la ejecución fallida para ver qué paso falló y por qué.
+
+#### Los nuevos campos del flujo de trabajo no aparecen en la configuración de un paso de integración
+
+Los campos que añades a un flujo de trabajo después de configurar un paso de integración no se sincronizan automáticamente con ese paso. Actualiza el paso para incorporarlos:
+
+1. Abre el editor de integraciones correspondiente a la integración que quieres actualizar.
+2. Edita el paso de activador o acción que necesita los nuevos campos.
+3. En el formulario de configuración, haz clic en **Actualizar campos** en la esquina inferior izquierda.
+4. Confirma que los nuevos campos aparecen y vuelve a probar el activador o la acción.

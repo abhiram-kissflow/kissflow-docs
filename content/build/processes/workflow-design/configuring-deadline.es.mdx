@@ -1,0 +1,38 @@
+---
+title: "Configurar plazos"
+description: "DRAFT (unverified) — migrated from /t/60h9qm9/configuring-deadline"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+En Kissflow, puedes establecer plazos predeterminados sobre cuánto tiempo puede tardar un usuario en completar una tarea.
+
+## Plazos
+
+Puedes crear plazos para cada paso de un flujo de trabajo. De forma predeterminada, un paso no tiene ningún plazo. Para configurar un plazo predeterminado, haz clic en el paso y luego en el botón **Add** (**+**) de la sección **Deadline**. En **Allotted time**, introduce la duración del plazo predeterminado y selecciona horas, minutos o días.
+
+> **Notas:**
+>
+> -   Los [días festivos](/t/q6h4aka/weekend-holidays) no se tendrán en cuenta en el tiempo asignado. Por ejemplo, si has asignado 10 días para completar una tarea y hay 2 días festivos durante ese periodo, los días festivos no se incluirán en esos 10 días. En su lugar, el plazo se ampliará en función del número de días festivos, lo que te dará tiempo adicional para compensar los días no laborables.
+>     
+> -   Los plazos no se pueden cambiar para un elemento que ya se haya enviado.
+
+También puedes establecer el plazo predeterminado según una fórmula haciendo clic en **fx**. Puedes usar datos del formulario para crear el plazo, como _If(Destination=”US”,24,48)_. En este ejemplo, _Destination_ es un ID de campo. Si el usuario selecciona US, el plazo será de 24 minutos. Si selecciona una opción diferente, será de 48 minutos. En las fórmulas, las unidades siempre se expresan en minutos. También puedes usar una fecha o fecha y hora como parte de la fórmula. Para volver a configurar el plazo normal, haz clic en el botón **Calendar** (![](/migration-assets/configuring-deadline/3.png)).
+
+## Alertas
+
+De forma predeterminada, el responsable recibirá una notificación y un correo electrónico en cuanto se supere el plazo. Puedes añadir alertas adicionales si lo deseas. Las alertas se pueden enviar a cualquier usuario. Hay dos tipos de alertas: Notify: recuerda al usuario seleccionado que debe realizar una acción por correo electrónico. Escalate: informa a un usuario seleccionado de que el responsable del paso no ha realizado ninguna acción. Empieza haciendo clic en **\+ Add an action**.
+
+1.  Elige el tipo de **Alert**.  
+2.  Selecciona quién debe recibir la alerta. Esto también se puede configurar con una fórmula.
+3.  Selecciona el periodo de tiempo (entre 30 minutos y 1 mes).
+4.  Selecciona si quieres que la alerta se envíe antes o después del plazo.![](/migration-assets/configuring-deadline/1.png)
+
+## Plazos basados en reglas
+
+A veces querrás sustituir el plazo predeterminado. Por ejemplo, si normalmente das a un gerente 48 horas para aprobar una solicitud de viaje, pero la fecha del viaje es mañana, necesitarás una aprobación más rápida. Para estos casos, puedes crear un plazo basado en reglas. Para configurarlo, haz clic en **\+ Rule-based deadline**. Selecciona un **Field**, un **Operator** y un **Type**, y asigna un valor o un campo según el tipo. También puedes añadir condiciones para limitar los valores que se muestran.![](/migration-assets/configuring-deadline/2.png)En nuestro ejemplo, puedes crear una condición para que, si _Department_ es igual a _Product_, el plazo cambie a 1 día.

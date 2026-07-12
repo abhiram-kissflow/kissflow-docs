@@ -1,0 +1,62 @@
+---
+title: "Conector de Adobe Sign"
+description: "BORRADOR (sin verificar) — migrado desde /t/p8h4afj/adobe-sign-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise 
+
+## ¿Qué es Adobe Sign?
+
+[Adobe Acrobat Sign](https://www.adobe.com/sign.html) es un servicio de firma electrónica basado en la nube que permite a los usuarios enviar, firmar, hacer seguimiento y gestionar procedimientos de firma mediante un navegador o dispositivo móvil. Es una funcionalidad del conjunto de servicios Adobe Document Cloud.
+
+### Acerca de la integración de Adobe Sign con Kissflow
+
+El conector de Adobe Sign de Kissflow Integration te permite conectar Adobe Sign al instante con las aplicaciones de Kissflow y otras aplicaciones populares de terceros. Te permite crear y compartir acuerdos en PDF utilizando una plantilla creada en tu cuenta de Adobe Sign. Para integrarlo con Adobe Sign, debes tener una cuenta válida de Adobe Sign. También debes ser titular de una cuenta de pago de Kissflow.
+
+Tomemos como ejemplo un caso en el que utilizas los datos de entrada del formulario de Kissflow Process y los asignas para completar la plantilla de acuerdo que creaste usando el conector de Adobe Sign. Cuando se activa la integración, Adobe Sign crea un PDF de este acuerdo y lo envía a las direcciones de correo electrónico que especifiques.
+
+### Activadores en Adobe Sign
+
+**Eventos del activador**
+
+**Descripción**
+
+Cuando se firma un documento
+
+Se activa cuando se completa la firma de un documento en Adobe Sign.
+
+### Acciones en Adobe Sign
+
+**Eventos de acción**
+
+**Descripción**
+
+Crear un acuerdo usando una plantilla
+
+Esta acción crea y transmite un acuerdo en PDF basado en tu plantilla.
+
+Crear un acuerdo usando un documento
+
+Esta acción crea y transmite un acuerdo en PDF basado en el documento cargado.
+
+## Configuración del conector de Adobe Sign
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Dentro de tu **Editor**, configura un paso de activador. Por ejemplo, configura un activador de Kissflow Process.
+3.  Después de configurar el paso de activador anterior, haz clic en el botón Añadir (![](/migration-assets/xero-connector/1.png)) para configurar tu acción o busca el paso de acción. Busca el conector de **Adobe Sign** y selecciona el evento de acción.  ![](/migration-assets/adobe-sign-connector/1.png)
+4.  Autentica tu activador iniciando sesión en tu cuenta de **Adobe Sign** con el correo electrónico y la contraseña de tu cuenta.![](/migration-assets/adobe-sign-connector/2.png) 
+    
+5.  Después de autenticarte con el correo electrónico de tu cuenta de Adobe Sign, añade los valores correspondientes en los campos del formulario de configuración de Adobe Sign. Puedes hacer clic en **Actualizar** campos para ver todos los campos actualizados del formulario de configuración de Adobe Sign seleccionado. También puedes asignar campos de tu paso de activador o campos de tus pasos de acción anteriores. Estos valores se añadirán automáticamente a los campos del elemento después de ejecutar la acción.![](/migration-assets/adobe-sign-connector/3.png) 
+6.  Después de una configuración correcta, comprueba si el paso de acción de Adobe Sign está configurado correctamente haciendo clic en el botón **P****robar**. El conector extraerá los datos de los campos de la cuenta de Adobe Sign seleccionada y los mostrará como una salida JSON. Al igual que ocurre con el paso de activador, recibirás una notificación inmediata de los errores. Corrígelos antes de volver a probar el paso de acción.
+
+### Configuración de un conector de Adobe Sign
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción de tu conector de Adobe Sign, activa el botón de alternancia para activar la ejecución de la integración. Cuando ejecutes un paso de activador, se creará un documento nuevo basado en la plantilla que configuraste en Adobe Sign y se reenviará a la dirección de correo electrónico que especifiques.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

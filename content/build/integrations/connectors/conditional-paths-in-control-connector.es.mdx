@@ -1,0 +1,139 @@
+---
+title: "Rutas condicionales en el conector de control"
+description: "BORRADOR (sin verificar) — migrado desde /t/60ytd1r/conditional-paths-in-control-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## Descripción general
+
+El conector de control admite dos acciones diferentes: **[Rutas condicionales](/t/60ytd1r)** y **[Bucle](/t/p8h4al4)**.
+
+Las rutas condicionales te permiten crear varias rutas dentro de una integración, cada una con su propio conjunto de acciones y condiciones de ejecución. Esto te permite diseñar integraciones que se adapten a condiciones específicas y te da el control necesario para satisfacer tus necesidades concretas.
+
+Con las rutas condicionales, puedes:
+
+-   Crear varias rutas dentro de una sola acción.
+    
+-   Establecer condiciones de ejecución únicas para cada ruta.
+    
+-   Añadir varias acciones a cada ruta.
+    
+-   Personalizar la ejecución según criterios específicos.
+    
+
+## Tipos de rutas condicionales
+
+Hay dos tipos de rutas condicionales:
+
+![](/migration-assets/conditional-paths-in-control-connector/1.png)
+
+### Ejecutar la primera ruta coincidente
+
+-   Ejecuta únicamente la primera ruta que cumple la condición especificada.
+    
+-   Es ideal cuando quieres ejecutar solo una ruta, aunque varias condiciones sean verdaderas.
+    
+
+### Ejecutar todas las rutas coincidentes
+
+-   Ejecuta todas las rutas que cumplen la condición especificada.
+    
+-   Es ideal cuando quieres ejecutar varias rutas que satisfacen la condición requerida.
+    
+
+## Crear rutas condicionales
+
+Para añadir rutas condicionales a tu integración:
+
+1.  En el editor de integraciones, haz clic en **Conector de control.**
+    
+2.  Elige el tipo de ejecución de ruta: **Ejecutar la primera ruta coincidente** o **Ejecutar todas las rutas coincidentes**.
+    
+3.  Configura la secuencia de ejecución y las condiciones para cada ruta.
+    
+4.  Añade acciones a cada ruta según sea necesario. 
+    
+
+### Secuencia de ejecución
+
+La secuencia de ejecución varía según el tipo de ruta condicional elegido:
+
+#### Ejecutar la primera ruta coincidente
+
+-   La primera ruta está precedida por una instrucción **Si**.
+    
+-   Las rutas posteriores están precedidas por instrucciones **Si no, si**.
+    
+-   Cada ruta muestra: Si se cumplen las condiciones, ejecutar X acciones (donde X es el número de acciones de esa ruta).
+    
+-   Si no se cumplen las condiciones, la integración continúa con la siguiente ruta.
+    
+-   Solo se ejecutará la primera ruta cuyas condiciones se evalúen como verdaderas.
+    
+    ![](/migration-assets/conditional-paths-in-control-connector/2.png)
+
+#### Ejecutar todas las rutas coincidentes
+
+-   La primera ruta se etiqueta como **Primera comprobación**.
+    
+-   Las rutas posteriores se etiquetan como **Comprobar también.**
+    
+-   Cada ruta muestra: Si se cumplen las condiciones, ejecutar X acciones.
+    
+-   La integración continúa con la siguiente ruta independientemente del resultado de la ruta anterior.
+    
+-   Se ejecutarán todas las rutas cuyas condiciones se evalúen como verdaderas. 
+    
+    ![](/migration-assets/conditional-paths-in-control-connector/3.png)
+    
+
+## Configurar las condiciones de las rutas
+
+Para cada ruta, puedes establecer condiciones de ejecución que determinen cuándo se ejecutará esa ruta. Puedes añadir varias condiciones a una sola ruta. Las rutas se ejecutarán si una o todas las condiciones se evalúan como verdaderas. Puedes utilizar dos tipos de condiciones:
+
+### Condiciones básicas
+
+1.  Elige el criterio (campo que se evaluará).
+    
+2.  Selecciona el operador (es igual a, mayor que, etc.).
+    
+3.  Introduce el valor con el que se comparará.
+    
+    ![](/migration-assets/conditional-paths-in-control-connector/5.png)
+    
+
+### Condiciones avanzadas
+
+Puedes utilizar el generador de fórmulas para crear condiciones más complejas que se adapten a tu caso de uso.
+
+## Gestionar las acciones de las rutas
+
+Puedes añadir acciones a cada ruta arrastrándolas desde el panel de acciones. Puedes cambiar o eliminar acciones haciendo clic en el icono de la papelera.
+
+![](/migration-assets/conditional-paths-in-control-connector/4.png)
+
+También puedes **anidar rutas** dentro de otras rutas para condiciones más complejas, creando una estructura lógica por capas. 
+
+![](/migration-assets/conditional-paths-in-control-connector/6.png)
+
+### Gestión de rutas
+
+Para gestionar tus rutas condicionales de forma eficaz, puedes reordenarlas moviéndolas hacia la izquierda o la derecha dentro del editor. Si una ruta ya no es necesaria, puedes eliminarla junto con sus acciones asociadas. 
+
+![](/migration-assets/conditional-paths-in-control-connector/7.png)
+
+Además, puedes añadir una **ruta predeterminada** que se ejecutará si ninguna otra ruta coincide con las condiciones especificadas, lo que garantiza que tu integración gestione todos los escenarios posibles. 
+
+![](/migration-assets/conditional-paths-in-control-connector/8.png)
+
+## Prácticas recomendadas
+
+Cuando trabajes con rutas condicionales, es importante utilizar nombres descriptivos para cada ruta, de modo que su propósito quede claro. Mantener la lógica de las rutas lo más sencilla posible facilita el mantenimiento y la resolución de problemas si la integración falla. Debes configurar una ruta predeterminada para gestionar cualquier escenario inesperado. 
+
+Para asegurarte de que tus integraciones estén correctamente configuradas y probadas, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

@@ -1,0 +1,201 @@
+---
+title: "Administrar miembros y permisos del proceso"
+description: "Asigna roles a los miembros del proceso, controla lo que puede hacer cada rol y añade, cambia o elimina miembros y sus permisos."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - processes
+  - roles
+  - permissions
+---
+
+# Administrar miembros y permisos del proceso
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+Cada miembro añadido a un proceso recibe un rol que determina lo que puede hacer, desde iniciar elementos hasta editar el flujo de trabajo. En este artículo se describen los roles disponibles, lo que puede hacer cada uno y cómo añadir miembros, cambiar sus roles y administrar sus permisos.
+
+Quien crea un proceso se convierte en **Administrador del proceso** de forma predeterminada. A partir de ahí, solo un Administrador del proceso puede añadir otros miembros y asignarles un rol.
+
+## Roles en un proceso
+
+### Administrador del proceso
+
+Un Administrador del proceso tiene el nivel de privilegios más alto en un proceso. Puede realizar cualquier operación en el proceso, como añadir, eliminar o modificar los roles de otros miembros. Como Administrador del proceso, puedes:
+
+- Editar el formulario y el flujo de trabajo.
+- Asignar un rol a un miembro al añadirlo al proceso.
+- Añadir Administradores del proceso, Desarrolladores, Administradores de datos, Administradores de reportes y Miembros en cualquier momento del ciclo de vida del proceso.
+- Eliminar a cualquier miembro, independientemente de su rol.
+- Conceder o revocar permisos para un miembro.
+- Compartir reportes con miembros o con cualquier persona ajena al proceso.
+- [Administrar la configuración del proceso](/docs/admin/processes/process-settings) y [realizar acciones masivas y consultar la tabla de administración del proceso](/docs/admin/processes/admin-actions-in-a-process).
+
+### Administrador de datos
+
+Un Administrador de datos puede ver, editar y eliminar datos del proceso, así como crear reportes.
+
+<Callout type="info">
+  Administrador de datos solo está disponible en el plan **Enterprise**.
+</Callout>
+
+Como Administrador de datos, puedes:
+
+- Ver, editar y eliminar datos del proceso.
+- Ver todos los reportes, abrir un formulario de proceso desde un reporte específico y acceder al reporte de métricas del proceso.
+- [Realizar acciones masivas y consultar la tabla de administración del proceso](/docs/admin/processes/admin-actions-in-a-process).
+- Iniciar elementos (opcional; un Administrador del proceso debe conceder este permiso por separado).
+
+<Callout type="info">
+  Un Administrador de datos no puede añadir miembros a un proceso.
+</Callout>
+
+### Administrador de reportes
+
+Un Administrador de reportes puede crear, editar y compartir reportes en un proceso, incluidos los creados por otros miembros. Solo puede eliminar los reportes que haya creado.
+
+<Callout type="info">
+  Administrador de reportes solo está disponible en el plan **Enterprise**.
+</Callout>
+
+Como Administrador de reportes, puedes:
+
+- Ver, crear, editar y compartir cualquier reporte del proceso, así como eliminar los reportes que hayas creado.
+- Abrir un formulario de proceso y sus comentarios desde un reporte.
+- Mantener el acceso a tus reportes aunque tu rol se reduzca posteriormente, a menos que un Administrador del proceso lo revoque explícitamente.
+- Iniciar elementos (opcional; un Administrador del proceso debe conceder este permiso por separado).
+
+<Callout type="info">
+  Un Administrador de reportes no puede añadir miembros a un proceso.
+</Callout>
+
+### Desarrollador
+
+Un Desarrollador crea y modifica un proceso. Como Desarrollador, puedes:
+
+- Editar el formulario y el flujo de trabajo.
+- Acceder al proceso y editarlo, así como iniciar elementos.
+- Añadir iniciadores al proceso mientras editas o modificas el flujo de trabajo.
+- Crear, editar, compartir y eliminar los reportes que hayas creado (la creación de reportes es opcional; un Administrador del proceso debe conceder este permiso por separado).
+- Mantener el acceso a tus reportes aunque tu rol se reduzca posteriormente, a menos que un Administrador del proceso lo revoque explícitamente.
+- Publicar el proceso (opcional; un Administrador del proceso debe conceder este permiso por separado desde el menú **Más permisos**).
+
+### Miembro
+
+Un Miembro puede acceder a un proceso e iniciar elementos. Como Miembro, puedes:
+
+- Iniciar elementos en el proceso.
+- Crear reportes si un Administrador del proceso te concede ese permiso y acceder a los reportes que hayas creado o que se hayan compartido contigo.
+
+## Permisos por rol
+
+| Permiso | Administrador del proceso | Administrador de datos | Administrador de reportes | Desarrollador | Miembro |
+| --- | --- | --- | --- | --- | --- |
+| Acceder al proceso | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Iniciar un elemento | ✓ | Opcional | Opcional | ✓ | ✓ |
+| Administrar la configuración del proceso | ✓ | X | X | ✓ | X |
+| Añadir o eliminar miembros | ✓ | X | X | X | X |
+| Editar el proceso | ✓ | X | X | ✓ | X |
+| Realizar acciones masivas | ✓ | ✓ | X | X | X |
+| Ver el registro de auditoría | ✓ | X | X | X | X |
+| Archivar y eliminar el proceso | ✓ | X | X | X | X |
+| Duplicar un proceso | ✓ | X | X | X | X |
+| Crear reportes | ✓ | ✓ | ✓ | Opcional | Opcional |
+| Compartir reportes | ✓ | Solo reportes propios | ✓ | Solo reportes propios | Solo reportes propios |
+| Eliminar reportes | ✓ | Solo reportes propios | Solo reportes propios | Solo reportes propios | — |
+| Ver todos los reportes | ✓ | ✓ | ✓ | X | X |
+| Ver el reporte de métricas | ✓ | ✓ | ✓ | X | X |
+| Ver la tabla de administración del proceso | ✓ | ✓ | X | X | X |
+| Modificar un elemento | ✓ | ✓ | X | X | X |
+| Eliminar un elemento | ✓ | ✓ | X | X | X |
+| Publicar un proceso | ✓ | X | X | Opcional | X |
+
+## Añadir un miembro a un proceso
+
+Puedes compartir un proceso con cualquier miembro de un flujo o grupo de tu organización.
+
+![Pantalla de configuración para compartir y añadir miembros a un proceso](/migration-assets/managing-process-members-and-permissions/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+1. Ve al proceso al que quieres añadir miembros.
+2. Haz clic en **Administrar** > **Compartir**.
+3. Haz clic en **+ Añadir miembros**.
+4. Escribe el nombre o la dirección de correo electrónico del usuario o grupo en **Seleccionar usuarios y grupos**.
+
+   ![Cómo añadir usuarios y grupos en la pantalla de configuración para compartir](/migration-assets/managing-process-members-and-permissions/2.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+5. Selecciona un rol en el menú desplegable **Rol**.
+
+   <Callout type="info">
+     Administrador de datos y Administrador de reportes solo están disponibles en el plan **Enterprise**. Ponte en contacto con el equipo de soporte de Kissflow para mejorar tu plan y activar estos roles.
+   </Callout>
+
+6. Haz clic en **Añadir**.
+
+<Callout type="info">
+  Solo los Superadministradores de la cuenta pueden invitar directamente desde la pantalla de configuración para compartir a un usuario externo que no forme parte de tu organización. Un Administrador del proceso sin acceso de Superadministrador no verá esta opción. Si tienes acceso, escribe la dirección de correo electrónico del usuario externo y haz clic en el enlace **Invitar** que aparece debajo para enviar la invitación.
+
+  ![Enlace de invitación que aparece para la dirección de correo electrónico de un usuario externo](/migration-assets/managing-process-members-and-permissions/4.png)
+  {/* TODO: verify screenshot matches current product UI */}
+</Callout>
+
+## Cambiar el rol de un miembro
+
+Un miembro pierde sus privilegios actuales cuando se cambia a un rol con menos privilegios. Es posible que aún pueda acceder a los reportes que creó o a los que obtuvo acceso antes del cambio. Puedes elegir revocar ese acceso como parte del cambio de rol.
+
+1. Ve al proceso y haz clic en **Administrar** > **Compartir**.
+2. Haz clic en el botón **Más opciones** ( ![Icono de más opciones](/migration-assets/managing-process-members-and-permissions/3.svg) ) situado junto al nombre del miembro y selecciona **Cambiar rol**.
+
+   ![Opción Cambiar rol en el menú Más opciones de un miembro](/migration-assets/managing-process-members-and-permissions/5.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+3. Selecciona el nuevo rol en la lista.
+4. Lee la alerta y confirma la acción.
+
+   ![Mensaje de alerta que aparece al cambiar el rol de un miembro](/migration-assets/managing-process-members-and-permissions/6.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+5. Haz clic en **Cambiar rol** para aplicar el nuevo rol y mantener el acceso existente del miembro a los reportes, o en **Revocar acceso a los reportes y cambiar** para eliminar también el acceso a los reportes que haya creado o a los que haya accedido con su rol anterior.
+
+<Callout type="info">
+  Esta opción solo aparece cuando el nuevo rol reduciría el acceso del miembro a los reportes. Si no lo reduce, al confirmar el cambio de rol este se aplica directamente.
+</Callout>
+
+## Conceder permisos adicionales a un miembro
+
+Usa esta opción para conceder a un miembro un permiso que queda fuera del alcance normal de su rol, por ejemplo, permitir que un Miembro cree reportes o que un Desarrollador publique el proceso.
+
+1. Ve al proceso y haz clic en **Administrar** > **Compartir**.
+2. Haz clic en el botón **Más opciones** ( ![Icono de más opciones](/migration-assets/managing-process-members-and-permissions/3.svg) ) situado junto al nombre del miembro.
+
+   ![Menú Más opciones abierto para un miembro, con la sección Más permisos visible](/migration-assets/managing-process-members-and-permissions/7.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+3. En **Más permisos**, selecciona la casilla de cada permiso que quieras conceder. Desmarca una casilla para eliminar un permiso que hayas concedido anteriormente.
+
+## Eliminar un miembro de un proceso
+
+Un miembro eliminado conserva el acceso a los reportes que creó o a los que accedió mientras formaba parte del proceso, a menos que revoques ese acceso como parte de la eliminación.
+
+1. Ve al proceso y haz clic en **Administrar** > **Compartir**.
+2. Haz clic en el botón **Más opciones** ( ![Icono de más opciones](/migration-assets/managing-process-members-and-permissions/3.svg) ) situado junto al miembro que quieres eliminar.
+3. Haz clic en **Eliminar miembro**.
+4. Lee la alerta y confirma la acción.
+
+   ![Mensaje de alerta que aparece al eliminar un miembro de un proceso](/migration-assets/managing-process-members-and-permissions/8.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+5. Haz clic en **Eliminar miembro** para eliminarlo y mantener su acceso a los reportes, o en **Revocar acceso a los reportes y eliminar** para eliminar también el acceso a los reportes que haya creado o a los que haya accedido.
+
+## Qué sigue
+
+- [Configuración del proceso](/docs/admin/processes/process-settings)
+- [Configuración de seguridad para flujos](/docs/admin/processes/security-settings-for-flows)
+- [Acciones de administrador en un proceso](/docs/admin/processes/admin-actions-in-a-process)
+- [Registro de auditoría del proceso](/docs/admin/processes/process-audit-log)

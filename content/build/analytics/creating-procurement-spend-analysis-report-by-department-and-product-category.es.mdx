@@ -1,0 +1,190 @@
+---
+title: "Creación de un informe de análisis del gasto de adquisiciones por departamento y categoría de producto"
+description: "DRAFT (unverified) — migrated from /t/83h9qz8/creating-procurement-spend-analysis-report-by-department-and-product-category"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Cuando el gerente de adquisiciones de una empresa quiere comprender los patrones de adquisición a partir de las solicitudes de compra, puede medir el gasto total por departamento y categoría de producto. Este análisis puede optimizar los procesos de adquisición, negociar mejores precios con los proveedores e identificar posibles oportunidades de ahorro de costos.
+
+## Creación de una vista de datos para el análisis de solicitudes de compra
+
+Para comenzar este análisis, debemos crear una [vista de datos](/t/83h9qzn/understanding-dataviews) que combine datos de la tabla de proceso **Purchase\_Request** y sus dos child tables, **Catalog\_Items** y **Non\_Catalog\_Items**. La siguiente consulta SQL muestra cómo crear esta vista de datos:
+
+```sql
+SELECT
+pr."Purchase_Request_Number"AS "Purchase request number",
+pr."Requester_Name" AS "Requester name",
+pr."Department" AS "Department",
+prcat."Catalog_Item":Product_Name:: string AS Catalog_Item,
+prcat."Catalog_Item_Quantity" AS Catalog_Item_Quantity,
+prcat."Catalog_Item_Amount.value" AS Catalog_Amount,
+prncat."ProductService_Name" AS Non_Catalog_Item,
+prncat."Quantity" AS Non_Catalog_Item_Quantity,
+prncat."Item_Amount.value" AS Non_Catalog_Amount,
+pr."Total_PR_amount.value" AS TOTAL_PR_VALUE
+FROM
+"Purchase_Request" AS pr
+LEFT OUTER JOIN "Purchase_Request.Catalog_Items_table" prcat ON pr."_id"=prcat."_instance_id"
+LEFT OUTER JOIN "Purchase_Request.Model_7MyXBt9-2u" prncat ON pr."_id"=prncat."_instance_id"
+```
+
+En esta consulta, seleccionamos campos específicos de la tabla **Purchase\_Request** y sus child tables, **Catalog\_Items** y **Non\_Catalog\_Items**. La operación SQL **JOIN** conecta los datos de estas tablas, lo que nos permite consolidar la información relevante de las solicitudes de compra.
+
+> **Nota:**
+> 
+> Debes usar el ID de tabla correspondiente del proceso al unir las child tables en tu cuenta. En este caso, **Purchase\_Request** es la tabla de la cuenta. **Purchase\_Request.Catalog\_Items\_table** es la child table que contiene la lista de artículos del catálogo y **Purchase\_Request.Model\_7MyXBt9-2u** es la child table que contiene la lista de artículos que no pertenecen al catálogo. Estos ID de tabla variarán en cada cuenta.
+
+### Desglose de la consulta
+
+La siguiente tabla describe cada parte de la consulta. La operación **LEFT JOIN** reúne datos de varias tablas, con un enfoque principal en la tabla **Purchase\_Request**.
+
+**Nombre de columna actual**
+
+**Nombre del alias utilizado en la consulta**
+
+**Descripción**
+
+  pr."Purchase\_Request\_Number
+
+Número de solicitud de compra
+
+El número de solicitud de compra de cada solicitud de artículo creada en el proceso.
+
+pr."Requester\_Name"
+
+Nombre del solicitante
+
+El nombre del solicitante.
+
+pr."Department"
+
+Departamento
+
+El departamento del solicitante que pidió el artículo.
+
+prcat."Catalog\_Item":Product\_Name:: string
+
+Catalog\_Item
+
+La solicitud de compra de todos los artículos de la lista del catálogo. Como es una columna JSON, esta consulta se utiliza para analizarla.
+
+prcat."Catalog\_Item\_Quantity"
+
+Catalog\_Item\_Quantity
+
+La cantidad de artículos del catálogo.
+
+prcat."Catalog\_Item\_Amount.value" 
+
+Catalog\_Amount
+
+El importe de cada artículo solicitado de la lista del catálogo.
+
+prncat."ProductService\_Name"
+
+Non\_Catalog\_Item
+
+La solicitud de compra de todos los artículos de la lista de artículos que no pertenecen al catálogo.
+
+prncat."Quantity"
+
+Non\_Catalog\_Item\_Quantity
+
+La cantidad de artículos que no pertenecen al catálogo.
+
+prncat."Item\_Amount.value"
+
+Non\_Catalog\_Amount
+
+El importe de cada artículo solicitado que no pertenece al catálogo.
+
+pr."Total\_PR\_amount.value"
+
+TOTAL\_PR\_VALUE
+
+El importe total estimado de los artículos solicitados para compra en el proceso.
+
+Purchase\_Request
+
+pr
+
+La tabla "Purchase\_Request".
+
+LEFT OUTER JOIN "Purchase\_Request.Catalog\_Items\_table" prcat ON pr."\_id"=prcat."\_instance\_id"
+
+prcat
+
+Esta combinación externa izquierda vincula la tabla "Purchase\_Request" con la tabla "Catalog\_Items" mediante los ID únicos para asociar las solicitudes de compra con los artículos del catálogo.
+
+  
+ 
+
+LEFT OUTER JOIN "Purchase\_Request.Model\_7MyXBt9-2u" prncat ON pr."\_id"=prncat."\_instance\_id"
+
+prncat
+
+Esta combinación externa izquierda vincula la tabla "Purchase\_Request" con la tabla "Non\_Catalog\_Items" mediante los ID únicos para asociar las solicitudes de compra con los artículos que no pertenecen al catálogo.
+
+\_instance\_id
+
+ID del artículo
+
+El ID único de los artículos del proceso.
+
+## Configuración de la vista de datos  
+  
+![](/migration-assets/creating-procurement-spend-analysis-report-by-department-and-product-category/3.gif)  
+ 
+
+Después de escribir la consulta, ejecútala y consulta los datos. Una vez hecho esto, publica la consulta. Cuando se crea la vista de datos, el gerente de adquisiciones puede continuar con la creación de un informe significativo para el análisis de las solicitudes de compra.
+
+## Creación del informe de análisis del gasto
+
+Sigue los pasos que se indican a continuación para crear un informe de solicitudes de compra por tipo de compra:
+
+1.  Ve a Analytics y haz clic en la pestaña **Reports**.
+    
+2.  Haz clic en **Create report**.
+    
+3.  Elige la vista de datos creada anteriormente en el menú desplegable que aparece al crear un informe. 
+    
+4.  Proporciona un nombre para el informe.
+    
+5.  Selecciona el tipo de informe: **Pivot** o **Chart**, según tus preferencias, y haz clic en **Create**.
+    
+
+### Configuración de la tabla dinámica
+
+-   Values: Total\_PR\_Value
+    
+-   Rows: Department, Requester\_Name
+    
+-   Grand Totals: Show grand totals
+    
+-   Value Calculations: Percent of grand total  
+      
+    ![](/migration-assets/creating-procurement-spend-analysis-report-by-department-and-product-category/1.gif)
+    
+
+Después de realizar la configuración, haz clic en **Save** y consulta el informe. En este informe, los gerentes de adquisiciones pueden analizar el patrón de gasto en los distintos departamentos. Este análisis puede desglosarse aún más hasta el nivel de usuario para ver el porcentaje de gasto de cada usuario que creó solicitudes de compra.
+
+### Configuración del informe de gráfico
+
+En la página de configuración del informe, selecciona el gráfico **Stacked vertical bar**. Agrega las siguientes configuraciones para obtener un informe detallado sobre el número de solicitudes de compra en cada departamento.
+
+-   Dimension: Department
+    
+-   Measure: Catalog\_Amount, Non\_Catalog\_Amount
+    
+-   Sort: Department (Ascending)
+    
+
+Este informe compara el valor del gasto en artículos del catálogo, el valor del gasto en artículos que no pertenecen al catálogo y el valor del gasto total por departamento.
+
+![](/migration-assets/creating-procurement-spend-analysis-report-by-department-and-product-category/2.gif)

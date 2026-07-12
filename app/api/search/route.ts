@@ -6,5 +6,8 @@ export const revalidate = 0;
 
 export const { GET } = createFromSource(source, {
   // https://docs.orama.com/docs/orama-js/supported-languages
-  language: 'english',
+  localeMap: {
+    en: { language: 'english' },
+    es: { language: 'spanish' },
+  },
 });

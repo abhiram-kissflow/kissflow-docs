@@ -1,0 +1,155 @@
+---
+title: "Uso de diseños de tablero"
+description: "Referencia de los cuatro diseños de tablero — lista, Kanban, matriz y cronograma — para qué es más adecuado cada uno y cómo se conservan los ajustes al cambiar de diseño."
+contentType: reference
+persona: end-user
+section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - boards
+  - layouts
+---
+
+# Uso de diseños de tablero
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+El diseño de un tablero facilita localizar los elementos y navegar entre ellos. Tres pestañas predeterminadas te permiten cambiar rápidamente entre los grupos de elementos más utilizados:
+
+- **Todos** — la pestaña predeterminada que muestra todos los elementos del tablero.
+- **Asignados a mí** — todos los elementos que tienes asignados para realizar alguna acción.
+- **Creados por mí** — todos los elementos que has creado.
+
+Hay más vistas del sistema — como **Críticos**, **Vencen esta semana**, **Vencidos**, **Sin asignar** y **Elementos archivados** — disponibles en el menú **Vistas**, y puedes guardar tus propias vistas con **Guardar como una vista nueva**.
+
+La forma en que se muestran tus elementos depende del diseño que elijas. Hay cuatro:
+
+| Diseño | Más adecuado para |
+|---|---|
+| Lista | Revisiones al estilo de una hoja de cálculo y actualizaciones masivas |
+| Kanban | Visualizar el progreso entre estados |
+| Matriz | Segmentar datos en dos dimensiones |
+| Cronograma | Planificar elementos según fechas |
+
+## Lista
+
+El diseño de lista muestra tus elementos en formato tabular: las filas son elementos y las columnas son campos del formulario del tablero. Haz clic en una fila para abrir el formulario del elemento. Este diseño es ideal si estás acostumbrado a gestionar tareas en hojas de cálculo, ya que puedes revisar mucha información de una sola vez.
+
+Haz clic en el botón **Mostrar campos** para seleccionar los campos que se muestran como columnas y arrastra y suelta las columnas para organizarlas. El diseño de lista también admite [acciones masivas](/docs/use/items/creating-items): selecciona varios elementos para eliminarlos o actualizar la mayoría de los valores de los campos personalizados.
+
+En el diseño de lista puedes:
+
+- Buscar elementos mediante palabras clave.
+- Ordenar los elementos por el valor de un campo en orden ascendente o descendente.
+- [Exportar](/docs/use/items/exporting-items) elementos como archivo CSV.
+- Realizar actualizaciones masivas de elementos.
+- Configurar los campos que se muestran como columnas.
+
+![Diseño de lista de un tablero que muestra elementos como filas y campos como columnas](/migration-assets/using-board-layouts/3.svg)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Kanban
+
+El diseño Kanban es un sistema visual dividido en columnas que representan los estados de tu flujo de trabajo. Cada elemento aparece como una **tarjeta**, colocada en la columna correspondiente a su estado. Arrastra y suelta las tarjetas entre columnas para cambiar su estado; haz clic en una tarjeta para realizar cualquier otro cambio en el formulario.
+
+![Diseño Kanban de un tablero con tarjetas organizadas en columnas de estados](/migration-assets/using-board-layouts/6.svg)
+{/* TODO: verify screenshot matches current product UI */}
+
+Los tableros Kanban muestran el progreso de un elemento a medida que las tarjetas avanzan por las columnas hasta completarse, y hacen visibles los cuellos de botella — por ejemplo, cuando se acumulan elementos en un estado específico.
+
+A diferencia del diseño de lista, las columnas no se pueden configurar porque representan estados. Sin embargo, puedes elegir los campos que se muestran en una tarjeta con el botón **Mostrar campos**. Los campos **ID**, **Título**, **Responsable**, **Estado**, **Fecha de inicio**, **Fecha de vencimiento** y **Prioridad** siempre se muestran y no se pueden eliminar.
+
+<Callout type="info">
+  El campo **Prioridad** se oculta si la prioridad se ha desactivado en los ajustes del tablero.
+</Callout>
+
+En el diseño Kanban puedes:
+
+- Buscar elementos mediante palabras clave.
+- Ordenar los elementos por el valor de un campo en orden ascendente o descendente.
+- Arrastrar y soltar tarjetas para cambiar su estado.
+- Configurar los campos que se muestran en una tarjeta.
+- Realizar actualizaciones masivas de elementos.
+- Contraer las columnas que no estés utilizando activamente.
+
+## Matriz
+
+La matriz es similar a Kanban, pero añade una categorización secundaria mediante filas. Coloca los elementos en una cuadrícula y elige campos para los ejes horizontal y vertical. Este diseño es ideal para segmentar y analizar los datos del tablero, así como para equilibrar y reasignar recursos.
+
+Puedes agrupar las filas y columnas por estado, responsable o campos de usuario personalizados. Los elementos que no encajan en ningún grupo se reúnen en **Sin categorizar**.
+
+![Diseño de matriz de un tablero con elementos distribuidos en una cuadrícula de filas y columnas](/migration-assets/using-board-layouts/4.svg)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Cronograma
+
+El diseño de cronograma ofrece una vista panorámica de los elementos del tablero a lo largo del tiempo, para que puedas ver lo próximo, planificar con antelación los elementos y subelementos y cumplir los plazos con tranquilidad.
+
+![Diseño de cronograma de un tablero que muestra elementos como barras horizontales sobre un calendario](/migration-assets/using-board-layouts/7.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+El panel izquierdo muestra de forma predeterminada el ID, el título, el responsable, el estado, la prioridad, la fecha de inicio y la fecha de vencimiento de los elementos y subelementos. Haz clic en el botón **Mostrar campos** para cambiar lo que se muestra. A la derecha, las columnas verticales representan el tiempo y cada elemento aparece como una barra horizontal situada entre sus fechas de inicio y vencimiento. Los elementos vencidos, completados y sin fechas se muestran en colores distintos.
+
+Puedes cambiar las fechas de un elemento desde su formulario, arrastrar una barra a otro intervalo de tiempo o mover los extremos de una barra para ajustar sus fechas de inicio y vencimiento. Pasa el cursor sobre una barra para ver los detalles del elemento.
+
+### Intervalos y acciones del cronograma
+
+Establece el intervalo del cronograma en el menú desplegable situado cerca del selector de diseño: **Hora**, **Día**, **Semana**, **Mes**, **Trimestre** o **Año**.
+
+![Menú desplegable de intervalos en el diseño de cronograma que muestra opciones desde hora hasta año](/migration-assets/using-board-layouts/5.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+- **Día** — la vista diaria más detallada, ideal para hacer seguimiento del progreso diario.
+- **Semana** — óptima para planificar la semana siguiente.
+- **Mes** — ideal para anticipar el mes e identificar objetivos a largo plazo.
+- **Trimestre** — para tableros que hacen seguimiento de iniciativas estratégicas u objetivos a largo plazo.
+- **Año** — para hacer seguimiento de elementos que cambian anualmente.
+
+Haz clic en **Acercar** o **Alejar** para cambiar la escala del diseño y en **Hoy** para situarte en la fecha actual. También puedes:
+
+- Buscar elementos y subelementos mediante palabras clave.
+- Ordenar los elementos en orden ascendente o descendente.
+- [Exportar](/docs/use/items/exporting-items) elementos como archivo CSV.
+- Guardar la configuración actual con **Guardar como una vista nueva**.
+
+### El diseño de cronograma en la práctica
+
+Considera un tablero para gestionar la producción de un blog. Crear una nueva publicación implica una secuencia de tareas: el redactor de contenido prepara el borrador, el corrector lo edita, el responsable lo aprueba y el responsable de redes sociales lo promociona. Como elementos del tablero en un cronograma, el plan podría verse así:
+
+![Diseño de cronograma que muestra tareas de producción de un blog programadas durante dos semanas con distintos responsables](/migration-assets/use-case-for-timeline-layout/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+**Semana 1**
+
+1. Investigación y esquema de la publicación del blog (Responsable: Redactor de contenido).
+2. Redacción del blog (Responsable: Redactor de contenido).
+
+**Semana 2**
+
+1. Edición del blog (Responsable: Corrector).
+2. Revisión y aprobación del blog (Responsable: Responsable).
+3. Promoción del blog (Responsable: Equipo de marketing).
+
+Al observar el cronograma, el equipo puede detectar y evitar dos cuellos de botella habituales:
+
+- **Dependencias y solapamientos** — cada paso depende del anterior. Si el redactor no puede terminar el borrador al final de la semana 1, el equipo ve de inmediato que es necesario reprogramar las tareas posteriores.
+- **Asignación de recursos** — las tareas acumuladas en un intervalo indican que un miembro del equipo puede tener una carga excesiva. El equipo puede reasignar tareas o ampliar los plazos del trabajo de baja prioridad para evitar el agotamiento.
+
+El mismo enfoque funciona para la planificación de eventos, el desarrollo de productos, la construcción, la fabricación y la gestión ágil de proyectos; en cualquier ámbito en el que sean importantes una mayor visibilidad, la planificación anticipada y la responsabilidad.
+
+## Cambiar entre diseños
+
+Puedes cambiar entre diseños en cualquier momento sin perder datos. Ten en cuenta lo siguiente:
+
+- **El orden no se conserva.** Si ordenas los elementos en el diseño de lista, ese orden no se aplicará a las tarjetas del diseño Kanban.
+- **La configuración de campos no se conserva.** Las columnas del diseño de lista y los campos de las tarjetas Kanban se configuran de forma independiente.
+- **Los filtros se aplican en todas partes.** Un filtro aplicado en un diseño filtra los mismos elementos en todos los demás diseños, que se muestran con el orden que tenga configurado cada diseño en ese momento.
+
+## Qué sigue
+
+- [Crear y gestionar elementos](/docs/use/items/creating-items)
+- [Añadir filtros avanzados mediante AI](/docs/use/items/filtering-and-views)
+- [Exportar elementos de un tablero](/docs/use/items/exporting-items)

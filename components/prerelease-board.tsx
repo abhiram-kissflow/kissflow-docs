@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useUIStrings } from '@/lib/ui-strings';
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 
@@ -30,6 +31,7 @@ function monthLabel(epoch: number | null): string {
 }
 
 export function PreReleaseBoard({ years }: { years: string[] }) {
+  const strings = useUIStrings().prerelease;
   const [year, setYear] = useState(years[0]);
   const [notes, setNotes] = useState<Note[] | null>(null);
   const [error, setError] = useState(false);
@@ -62,15 +64,13 @@ export function PreReleaseBoard({ years }: { years: string[] }) {
   return (
     <div className="not-prose">
       <p className="mb-2 max-w-3xl text-[15px] leading-relaxed text-fd-muted-foreground">
-        Details of features and changes scheduled for upcoming Kissflow releases, published ahead
-        of rollout so you can prepare your account, users, and integrations.
+        {strings.intro}
       </p>
       <p className="mb-8 max-w-3xl text-[15px] italic leading-relaxed text-fd-muted-foreground">
-        Timelines and scope can shift before release. For updates that are already live, see the
-        What&apos;s New section.
+        {strings.disclaimer}
       </p>
 
-      <div className="mb-8 flex flex-wrap items-center gap-2" role="tablist" aria-label="Pre-release notes year">
+      <div className="mb-8 flex flex-wrap items-center gap-2" role="tablist" aria-label={strings.yearAria}>
         {years.map((y) => (
           <button
             key={y}
@@ -90,11 +90,9 @@ export function PreReleaseBoard({ years }: { years: string[] }) {
       </div>
 
       {error ? (
-        <p className="text-sm text-fd-muted-foreground">
-          Couldn&apos;t load the notes for {year}. Please refresh and try again.
-        </p>
+        <p className="text-sm text-fd-muted-foreground">{strings.loadError(year)}</p>
       ) : notes === null ? (
-        <p className="text-sm text-fd-muted-foreground">Loading {year} notes…</p>
+        <p className="text-sm text-fd-muted-foreground">{strings.loading(year)}</p>
       ) : (
         groups.map((group) => (
           <section key={group.label} className="mb-10">
@@ -104,7 +102,7 @@ export function PreReleaseBoard({ years }: { years: string[] }) {
               </h2>
               <span aria-hidden className="h-px flex-1 bg-fd-border" />
               <span className="text-xs text-fd-muted-foreground">
-                {group.notes.length} {group.notes.length === 1 ? 'note' : 'notes'}
+                {group.notes.length} {group.notes.length === 1 ? strings.note : strings.notes}
               </span>
             </div>
             <div className="flex flex-col gap-5">

@@ -1,0 +1,40 @@
+---
+title: "Configuración del conector de Kissflow BI con Microsoft Power BI mediante ODBC"
+description: "BORRADOR (sin verificar) — migrado desde /t/m1h9qzk/setting-up-kissflow-bi-connector-with-microsoft-power-bi-via-odbc"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+El conector de Kissflow BI te permite acceder a tus datos de Kissflow almacenados en una base de datos de Snowflake mediante Microsoft Power BI a través del controlador ODBC. El controlador ODBC actúa como interfaz para que Microsoft Power BI se conecte a Snowflake. Al configurar esta conexión, puedes acceder a tus datos de Kissflow y analizarlos en Microsoft Power BI.
+
+Puedes hacerlo en tres pasos:
+
+1.  Configura tu cuenta de Kissflow con la base de datos de Snowflake.
+2.  Configura el controlador ODBC de Snowflake para que actúe como interfaz. Para completar la configuración de ODBC de Snowflake, debes introducir los parámetros de conexión. Haz clic [aquí](/t/x2h9qz1/configuring-snowflake-for-kissflow-analytics) para saber cómo obtener el ID de cuenta, las credenciales y la URL del servidor de Kissflow.
+3.  Configura un conector de Kissflow BI con Microsoft Power BI. En este documento se detalla cómo configurar un conector de Kissflow BI con Microsoft Power BI.
+
+## Descarga e instalación del controlador ODBC
+
+Para habilitar la conexión ODBC para el conector de Kissflow, debes descargar e instalar el controlador ODBC de Snowflake en tu equipo Windows . Aprende a [descargar el controlador ODBC de Snowflake](https://docs.snowflake.com/en/developer-guide/odbc/odbc-download) desde el sitio web de Snowflake.
+
+## Configuración del controlador ODBC
+
+Para configurar el controlador ODBC de Snowflake en Windows, sigue estos pasos:
+
+1.  Abre la herramienta **Administración de orígenes de datos de Windows**. Puedes abrir el Administrador de orígenes de datos ODBC desde **Inicio** > **Panel de control** > **Herramientas administrativas** > **Orígenes de datos ODBC** (64 bits).![](/migration-assets/setting-up-kissflow-bi-connector-with-microsoft-power-bi-via-odbc/1.png) 
+2.  Verifica que el controlador ODBC de Snowflake esté instalado. En el origen de datos ODBC, haz clic en la pestaña **Controladores**. El controlador ODBC de Snowflake debería aparecer en la lista de controladores.![](/migration-assets/setting-up-kissflow-bi-connector-with-microsoft-power-bi-via-odbc/2.png) 
+3.  Crea un nuevo **DSN** (nombre del origen de datos). En el origen de datos ODBC, haz clic en el botón **Agregar**.
+En el cuadro de diálogo **Crear nuevo origen de datos**, selecciona el controlador ODBC de Snowflake en la lista de controladores y haz clic en **Finalizar**.![](/migration-assets/setting-up-kissflow-bi-connector-with-microsoft-power-bi-via-odbc/3.png) Introduce los [parámetros de conexión](https://docs.snowflake.com/en/developer-guide/odbc/odbc-parameters#connection-parameters) del controlador. En el cuadro de diálogo **Configuración de Snowflake**, introduce los siguientes parámetros de conexión:  
+**\- Origen de datos**: el nombre de la base de datos de Snowflake, que corresponde al ID de cuenta de Kissflow.  
+**\- Usuario**: el nombre de usuario de la base de datos de Snowflake, que es el nombre de usuario que recibiste por correo electrónico al habilitar el conector de Kissflow.  
+**\- Contraseña**: la contraseña de la base de datos de Snowflake que creaste.  
+**\- Servidor**: el nombre de host o la dirección IP del servidor de Snowflake, que corresponde a la URL que recibiste por correo electrónico junto con tu nombre de usuario.![](/migration-assets/setting-up-kissflow-bi-connector-with-microsoft-power-bi-via-odbc/4.png) Una vez que configures Snowflake, haz clic en **Probar** para comprobar si la configuración se realizó correctamente y haz clic en **Aceptar**.![](/migration-assets/setting-up-kissflow-bi-connector-with-microsoft-power-bi-via-odbc/6.png)7.  Una vez que hayas creado el DSN, puedes abrir **Microsoft Power BI**.
+8.  Haz clic en **Obtener datos** en Power BI.![](/migration-assets/setting-up-kissflow-bi-connector-with-microsoft-power-bi-via-odbc/5.png) 
+Selecciona **ODBC** y el **DSN** que hayas creado.![](/migration-assets/setting-up-kissflow-bi-connector-with-microsoft-power-bi-via-odbc/7.png) ![](/migration-assets/setting-up-kissflow-bi-connector-with-microsoft-power-bi-via-odbc/8.png) Haz clic en **Aceptar**.
+
+Ahora has habilitado correctamente la conexión ODBC con Microsoft Power BI. Puedes comenzar a importar tus datos a Power BI. Sigue las instrucciones de este [documento](/t/35yq1mq/connect-kissflow-analytics-with-power-bi) para saber cómo hacerlo.

@@ -1,0 +1,67 @@
+---
+title: "Notificaciones del tablero"
+description: "BORRADOR (no verificado) — migrado desde /t/60y68hm/board-notifications"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+<iframe src="https://player.vimeo.com/video/935819947?h=b582b722b4&app_id=122963" title="Managing notifications in Kissflow" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+Puedes crear y personalizar notificaciones para mantenerte informado sobre las actualizaciones importantes o garantizar una comunicación oportuna dentro de tu equipo.
+
+También puedes seleccionar los canales de notificación (correo electrónico, aplicación web y notificaciones push) a través de los cuales quieres recibir notificaciones. Para ello, haz clic en el botón **Más opciones** (![](/migration-assets/notifications-in-apps/1.png)) en la esquina superior derecha > **Canales de notificación**.
+
+{/* TODO: screenshot — source image expired (Google CDN); recapture from product UI */}
+
+Hay dos tipos de notificaciones disponibles en Kissflow Boards:
+
+1. **Notificaciones de elementos**: estas notificaciones están relacionadas con cualquier elemento del tablero. Puedes crear y personalizar notificaciones de elementos para asegurarte de estar al día de las actividades y los cambios relevantes.
+    
+2. **Notificaciones de administración del tablero**: estas notificaciones proporcionan a los usuarios y administradores del tablero actualizaciones relacionadas con la administración de un tablero. Solo se pueden activar o desactivar.
+    
+
+## Crear notificaciones de elementos
+
+Para crear una notificación de elemento dentro de los tableros:
+
+1.  Haz clic en el botón **Administrar** en la esquina superior derecha > **Configuración** > **Configuración de notificaciones**. Encontrarás una lista de todos los [eventos de notificación de elementos](/t/x2y6kg7/notification-events-in-boards) disponibles.
+    
+2.  Haz clic en **\+ Nueva notificación** para comenzar a crear una nueva notificación.
+    
+3. **Configurar detalles**:  
+    
+    1.  Selecciona el evento de notificación y las condiciones para activar la notificación. 
+        
+    2.  Selecciona los destinatarios a quienes se debe enviar la notificación. Haz clic en **Siguiente**.
+        
+        > **Nota**:
+        > 
+        > Si hay un campo de usuario en el formulario y se ha seleccionado un usuario, el nombre del usuario aparecerá en el menú desplegable de destinatarios.
+        
+
+> **Nota**:
+> 
+> Cambiar el evento de notificación después de configurar las condiciones y el destinatario restablecerá esas configuraciones.
+
+4\. **Personalizar y previsualizar el contenido**:
+
+-   **El contenido del correo electrónico** es para los canales de notificación por correo electrónico, donde tienes suficiente espacio para transmitir información de forma detallada y proporcionar más detalles para que los destinatarios comprendan completamente la notificación.  
+     
+-   **El contenido de la aplicación web y las notificaciones push** proporciona un resumen conciso o un fragmento del mensaje de notificación. Es ideal para canales como la aplicación web y las notificaciones push, donde el espacio es limitado.  
+     
+-   **El contenido del bot** es el mensaje que se muestra en aplicaciones de chat como Slack, Microsoft Teams y Google Chat, para que puedas consultar los detalles clave sin salir del chat.
+
+![](/migration-assets/board-notifications/1.png)
+
+Haz clic en **Siguiente**.
+
+5\. **Previsualizar**: previsualiza las notificaciones y haz clic en **Crear**. En la ventana emergente que aparece a continuación, puedes elegir cambiar el nombre de notificación generado por el sistema y asignarle el nombre que quieras.
+
+![](/migration-assets/board-notifications/2.png)
+
+Como alternativa, si quieres configurar notificaciones de correo electrónico personalizadas para destinatarios externos a Kissflow, puedes utilizar la acción de integración [enviar un correo electrónico](/t/q6h4akq/email-connector).

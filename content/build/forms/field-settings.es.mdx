@@ -1,0 +1,415 @@
+---
+title: "Configuración de campos"
+description: "BORRADOR (no verificado) — migrado desde /t/x2h4az9/field-settings"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Puedes seleccionar el campo en el editor, acceder a su configuración haciendo clic en el icono de **engranaje** (![](/migration-assets/field-settings/2.svg)) o modificarla directamente desde el panel **Propiedades del campo**.
+
+![](/migration-assets/field-settings/1.png)
+
+## Nombre e ID del campo
+
+Introduce el nombre del campo en **Nombre**. Es un campo obligatorio. El tipo de campo es el tipo de datos del campo. Indica la naturaleza de los datos almacenados en el campo. Obtén más información sobre los tipos de campo [aquí](/t/x2h4az9/field-settings#field-type).
+
+El ID del campo es una cadena única que se asigna automáticamente al campo. Lo necesitarás al crear [expresiones](/t/q6h4alh/introduction-to-expressions-and-formulas). 
+
+-   Kissflow asignará automáticamente un ID de campo idéntico o similar al nombre del campo. 
+-   Puedes personalizar el ID del campo al crearlo, pero no puedes cambiarlo después de publicar el formulario. 
+-   Los ID de campo no pueden contener espacios. Se añadirán guiones bajos automáticamente si presionas la barra espaciadora. 
+-   Hay algunos nombres restringidos, como Status, que no puedes usar como ID del campo.
+
+## Obligatorio
+
+Cuando marcas un campo como obligatorio activando el interruptor **¿Obligatorio?**, debe tener un valor en el primer paso en el que se vuelve [editable](/t/60h9qtm/configuring-field-permissions-for-process-steps).
+
+Por ejemplo, si un campo es obligatorio, pero está oculto en los dos primeros pasos y solo se vuelve editable en el tercero, el mensaje de error aparecerá en el tercer paso si el campo se deja vacío.
+
+> **Nota:**
+> 
+> Los campos obligatorios tendrán un pequeño asterisco rojo junto a ellos en el formulario activo.
+> 
+> ![](/migration-assets/field-settings/3.png)
+
+### Añadir condiciones a los campos obligatorios
+
+Puedes marcar un campo como obligatorio según condiciones específicas mediante los valores introducidos en otros campos.
+
+Para configurarlo:
+
+1.  Activa el interruptor **¿Obligatorio?** del campo.
+    
+2.  Haz clic en el icono **+** situado junto a Marcar como obligatorio cuando. Aparecerá la ventana emergente **Añadir condiciones**.
+    
+3.  Añade las condiciones que deben activar el requisito.
+    
+    -   Puedes establecer varias condiciones y elegir si todas deben coincidir (Coincidir con todas) o solo una (Coincidir con cualquiera).
+        
+4.  Haz clic en **Listo** para aplicar la condición.
+    
+
+![](/migration-assets/field-settings/8.gif)
+
+Por ejemplo, puedes configurar el campo _Adjuntar factura_ para que sea obligatorio solo cuando el _Importe del reembolso_ sea superior a 1000 $. Esto ayuda a mantener el formulario limpio para las transacciones pequeñas y, al mismo tiempo, garantiza la recopilación de datos para las más grandes.
+
+#### Añadir más condiciones
+
+Para añadir más condiciones en cualquier momento, ve a la configuración del campo. Debajo de la lista de condiciones existentes, haz clic en **\+ Añadir una condición**. Aparecerá la ventana emergente **Añadir condiciones**, donde podrás definir las condiciones necesarias.
+
+![](/migration-assets/field-settings/4.png)
+
+#### Eliminar una condición
+
+Para eliminar una condición, simplemente haz clic en el icono de eliminar (-) situado junto a la condición aplicada.
+
+![](/migration-assets/field-settings/5.png)
+
+## Texto de ayuda
+
+El texto de ayuda aparece debajo del campo y ayuda a los usuarios a saber qué deben introducir. 
+
+![](/migration-assets/field-settings/7.png)
+
+## Valor predeterminado
+
+Este es un valor de marcador de posición que se muestra en el campo antes de que un usuario introduzca información. 
+
+## Campo calculado
+
+![](/migration-assets/field-settings/6.png)
+
+Algunos campos permiten usar una expresión para cargar datos en el campo. Obtén más información sobre las [expresiones](/t/q6h4alh/introduction-to-expressions-and-formulas). 
+
+## Tipo de campo
+
+Hay 20 tipos diferentes de campos que puedes usar en tu formulario. Cada campo está estrechamente asociado a un tipo de datos determinado. El tipo de datos es muy importante si vas a usarlo en alguna expresión. El tipo de campo también determina si puedes tener un valor predeterminado y qué opciones de validación y apariencia tienes.  
+
+**Nombre**
+
+**Tipo de datos**
+
+**Uso**
+
+**Ejemplo**
+
+**¿Valor predeterminado?**
+
+**¿Expresiones?**
+
+**Más información**
+
+Texto
+
+Texto
+
+Introduce una cantidad breve de datos en una sola línea.
+
+![](/migration-assets/field-settings/9.png)
+
+Y
+
+Y
+
+[Más información](/t/p8h4az5/text-text-area-email-and-rich-text-fields#text-field)
+
+Área de texto
+
+Texto
+
+Introduce una cantidad mayor de datos con formato en varias líneas.
+
+![](/migration-assets/field-settings/11.png)
+
+N
+
+N
+
+[Más información](/t/p8h4az5/text-text-area-email-and-rich-text-fields#text-area-field)
+
+Correo electrónico
+
+Texto
+
+Recopila direcciones de correo electrónico válidas.
+
+![](/migration-assets/field-settings/12.png)
+
+Y
+
+N
+
+[Más información](/t/p8h4az5/text-text-area-email-and-rich-text-fields#email-field)
+
+Número
+
+Número
+
+Introduce únicamente números.
+
+![](/migration-assets/field-settings/10.png)
+
+Y
+
+Y
+
+Usa comas para miles y millones
+
+[Configura el número de posiciones decimales que se mostrarán](/t/60h4az2/number-field#number-field)
+
+Moneda
+
+Número
+
+Introduce un número que se mostrará como moneda.
+
+![](/migration-assets/field-settings/14.png)
+
+Y
+
+Y
+
+[Elige qué monedas aceptar](/t/m1h4azb/currency-field)
+
+Fecha
+
+Fecha
+
+Selecciona una fecha.
+
+![](/migration-assets/field-settings/13.png)
+
+Y
+
+Y
+
+Con formato basado en tu [configuración regional](/t/x2h4azf/date-and-date-time-field#date-field)
+
+Fecha y hora
+
+Fecha
+
+Selecciona una fecha y hora.
+
+![](/migration-assets/field-settings/17.png)
+
+Y
+
+Y
+
+Basado en tu [zona horaria](/t/x2h4azf/date-and-date-time-field#date-amp-time-field)
+
+Sí/No
+
+Booleano
+
+Elige sí o no.
+
+![](/migration-assets/field-settings/15.png)
+
+Y
+
+N
+
+[Más información](/t/35h4azn/yes-no-field)
+
+Imagen
+
+Ninguno
+
+Carga y visualiza una imagen.
+
+![](/migration-assets/field-settings/16.png)
+
+N
+
+N
+
+[Más información](/t/y4h4az1/image-attachment-and-signature#image-field)
+
+Valoración
+
+Número
+
+Da una valoración de 1 a 5 estrellas.
+
+![](/migration-assets/field-settings/18.png)
+
+Y
+
+N
+
+[Más información](/t/60h4az2/number-field#rating-field)
+
+Menú desplegable
+
+Texto
+
+Selecciona una opción de una lista.
+
+![](/migration-assets/field-settings/21.png)
+
+Y
+
+N
+
+[Más información](/t/35h4azp/dropdown-checkbox-checklist#dropdown-field)
+
+Casilla de verificación/Casilla de verificación de selección múltiple
+
+Lista
+
+Selecciona más de una opción de una lista.
+
+![](/migration-assets/field-settings/23.png)
+
+N
+
+N
+
+[Casilla de verificación](/t/35h4azp/dropdown-checkbox-checklist#checkbox-field)/ [Casilla de verificación de selección múltiple](/t/35h4azp/dropdown-checkbox-checklist#multi-select-dropdown)
+
+Control deslizante
+
+Número
+
+Selecciona un número en un control deslizante.
+
+![](/migration-assets/field-settings/19.png)
+
+Y
+
+N
+
+[Establece el intervalo mínimo y máximo y los intervalos](/t/60h4az2/number-field#slider-field)
+
+Usuario
+
+Usuario
+
+Selecciona un usuario de tu sistema.
+
+![](/migration-assets/field-settings/20.png)
+
+N
+
+N
+
+[Más información](/t/h7h4azj/user-field)
+
+Lista de verificación
+
+Lista
+
+Marca los elementos.
+
+![](/migration-assets/field-settings/22.png)
+
+N
+
+N
+
+[No se puede hacer obligatorio](/t/35h4azp/dropdown-checkbox-checklist#checklist-field)
+
+Archivo adjunto
+
+Archivo adjunto
+
+Adjunta archivos.
+
+![](/migration-assets/field-settings/28.png)
+
+N
+
+N
+
+[El tamaño máximo es de 100 MB](/t/y4h4az1/image-attachment-and-signature#attachment-field)
+
+Firma
+
+Imagen
+
+Dibuja tu firma.
+
+![](/migration-assets/field-settings/24.png)
+
+N
+
+N
+
+[Más información](/t/y4h4az1/image-attachment-and-signature#signature-field)
+
+Búsqueda
+
+Referencia
+
+Selecciona elementos encontrados en otros flujos.
+
+![](/migration-assets/field-settings/25.png)
+
+N
+
+N
+
+[Más información](/t/g9h4azr/lookup-field)
+
+Búsqueda remota
+
+Texto o JSON
+
+Recupera datos en tiempo real de un sistema de terceros.
+
+![](/migration-assets/field-settings/30.png)
+
+N
+
+N
+
+[Más información](/t/x2yq224/remote-lookup)
+
+Texto enriquecido
+
+Ninguno
+
+Añade texto estático con formato y contenido multimedia a tu formulario.
+
+![](/migration-assets/field-settings/26.png)
+
+N
+
+N
+
+[Más información](https://helpdocs.kissflow.com/field-types/text-text-area-email-and-rich-text-fields#rich_text_field)
+
+Agregación
+
+Texto o número
+
+Agrega datos de la tabla.
+
+![](/migration-assets/field-settings/29.png)
+
+N
+
+N
+
+[Más información](/t/83h4azk/aggregation-field)
+
+Número de secuencia
+
+Texto
+
+Añade un número de serie o de secuencia recurrente a cada elemento de tu proceso.
+
+![](/migration-assets/field-settings/27.png)
+
+N
+
+Y
+
+[Más información](/t/y4h4azw/sequence-number)

@@ -1,0 +1,47 @@
+---
+title: "Extraer texto entre paréntesis"
+description: "BORRADOR (sin verificar) — migrado desde /t/y4y1p1f/extracting-text-from-parentheses"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Imagina que tienes un formulario en el que los usuarios introducen su nombre completo y su ID en un solo campo, siguiendo un formato coherente como **Nombre (ID)**. Por ejemplo, un usuario podría introducir **Natasha (987334)**.
+
+Para fines de automatización, generación de informes o integración, a menudo necesitas aislar solo el ID y almacenarlo en un campo independiente. En esta guía se muestra cómo hacerlo automáticamente mediante una fórmula sencilla.
+
+## **La solución: usar una fórmula para extraer texto entre paréntesis**
+
+Puedes extraer un fragmento de texto de una cadena más grande buscando sus puntos de inicio y final. Esto resulta perfecto cuando los datos que necesitas están encerrados entre paréntesis, corchetes u otros marcadores coherentes.
+
+Para extraer el ID, utiliza la siguiente fórmula en el campo del nombre del cliente:
+
+```
+CustomerName.subString(CustomerName.find("(") + 1, CustomerName.find(")") - 1)
+```
+
+## **Cómo funciona**
+
+Esta fórmula puede parecer compleja, pero realiza tres acciones sencillas:
+
+1.  CustomerName.find("("): Primero, busca la posición del paréntesis de apertura (.
+2.  CustomerName.find(")" ): A continuación, busca la posición del paréntesis de cierre ).
+3.  CustomerName.subString(...): Por último, extrae el texto entre esas dos posiciones.
+
+El + 1 y -1 son importantes porque indican a la fórmula que empiece a capturar el texto _después_ del paréntesis de apertura y que se detenga antes del paréntesis de cierre.
+
+Le estás indicando al sistema: busca el texto entre los paréntesis.
+
+## **Implementación paso a paso**
+
+A continuación, te explicamos cómo aplicar esto en un creador de formularios:
+
+1. **Identifica el campo de origen:** Debes tener un campo de texto en el que los usuarios introduzcan la información combinada. Lo llamaremos **CustomerName**.
+2. **Crea un campo de destino:** Añade un nuevo campo de texto al formulario para almacenar el número extraído. Lo llamaremos **ID**. Como se rellenará automáticamente, puedes configurar este campo como de solo lectura.
+3. **Aplica la fórmula**: En la configuración del campo ID, ve a la sección de fórmulas o cálculos e introduce la expresión:
+4.  CustomerName.subString(CustomerName.find("(") + 1, CustomerName.find(")") - 1)
+5. **Pruébalo:** Guarda los cambios. Cuando un usuario introduzca Nat(88) en el campo CustomerName, el campo ID se actualizará automáticamente a 88.
+
+![](/migration-assets/extracting-text-from-parentheses/1.png)
+
+Este método es una forma eficaz de limpiar y organizar los datos de los usuarios sin realizar trabajo manual. Te permite separar fácilmente las entradas compuestas en puntos de datos independientes, lo que hace que tus datos sean más fiables para búsquedas, integraciones y otros procesos empresariales.

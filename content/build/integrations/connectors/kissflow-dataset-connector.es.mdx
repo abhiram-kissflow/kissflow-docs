@@ -1,0 +1,90 @@
+---
+title: "Conector de Kissflow Dataset"
+description: "BORRADOR (no verificado) — migrado desde /t/h7h4af7/kissflow-dataset-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## Trabajar con el conector de dataset
+
+[Kissflow Dataset](/category/datasets) es una colección de datos tabulares que puedes utilizar en tus flujos de trabajo. El conector de Kissflow Dataset incluye activadores y acciones que te permiten crear una nueva fila o actualizar un registro existente en un dataset a partir de los valores del paso del activador o de cualquier acción anterior. Por ejemplo, si se aprueba un nuevo artículo para su compra, puedes añadirlo al dataset del catálogo de compras.
+
+> **Nota**: Utiliza nuestro agente de IA integrado para crear [integraciones personalizadas](/t/h7yh4cyq5h9p9) para tu caso de uso específico.
+
+### Conectarse a un dataset
+
+Los miembros de tu integración que tengan acceso a un [dataset](/category/datasets) pueden utilizar conectores para recibir datos de otras aplicaciones y actualizar esos datos en su dataset.
+
+Supón que tu empresa tiene un proceso de solicitud de compra para gestionar su inventario y un catálogo de compras para almacenar y consultar los datos. Mediante el conector de dataset, puedes añadir o actualizar automáticamente registros del dataset en función de los cambios en los datos de tu child table de solicitud de compra.
+
+## Activadores del conector de dataset
+
+**Activador**
+
+**Descripción**
+
+Cuando se actualiza una fila existente
+
+Se activa cuando se actualiza una fila existente.
+
+## Acciones del conector de dataset
+
+**Acción**
+
+**Descripción**
+
+Crear un registro de dataset
+
+Esta acción crea un nuevo registro de dataset.
+
+Crear o actualizar un registro de dataset
+
+Esta acción actualiza un dataset existente a partir de los nuevos datos o crea un nuevo registro de dataset si no existe.
+
+Actualizar registros de dataset en bloque
+
+Esta acción actualiza los registros de un dataset en bloque.
+
+> **Nota:**
+> 
+> La acción actualiza hasta 200 registros en un dataset.
+
+Buscar registros en un dataset
+
+Esta acción busca registros específicos en tu dataset.
+
+> **Nota:**
+> 
+> Con esta acción se pueden buscar y recuperar hasta 200 filas/registros.
+
+Recuperar una fila de un dataset
+
+Esta acción recupera una fila única de tu dataset.
+
+## Configurar un conector de dataset
+
+> **Nota:**
+> 
+> Siempre debes asignar el campo **Key** del formulario del dataset a un campo de texto de tu paso o paso anterior. Además, todos los demás campos asignados deben ser del mismo tipo de datos.
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Añadir** (![](/migration-assets/kissflow-dataset-connector/1.png)) en la esquina inferior izquierda de la pantalla y haz clic en **Integraciones**. Proporciona el nombre y la descripción de tu [integración](/t/60h4akx/creating-an-integration) de dataset. A continuación, haz clic en **Crear**.
+2.  En el editor, selecciona un paso de activador. Puedes seleccionar el activador de dataset o utilizar la búsqueda para encontrar cualquier otro activador que elijas. Por ejemplo, puedes utilizar un webhook de una aplicación de terceros o un proceso que consuma el dataset.
+3.  Para configurar el activador de dataset, sigue las indicaciones y completa los pasos sugeridos por el asistente:
+    -   **Activador y autenticación:** El nombre del activador se completa automáticamente. Especifica otra cuenta o selecciona tu propia cuenta para autenticar el activador.
+    -   **Configuración:** Elige un dataset entre las opciones disponibles. Haz clic en el botón **Actualizar campos** para actualizar los campos del dataset y sus valores.
+    -   **Salida**: Haz clic en el botón **Probar activador** para verificar la configuración del activador y confirmar si está configurado correctamente.  ![](/migration-assets/kissflow-dataset-connector/3.png)
+4.  Después de configurar el paso del activador, haz clic en el **botón Añadir una acción** (![](/migration-assets/kissflow-dataset-connector/2.png)) a continuación. Selecciona el conector **Kissflow Dataset** y elige cualquiera de las acciones disponibles![](/migration-assets/kissflow-dataset-connector/5.png)
+5.  Al igual que al configurar un activador, configura una conexión con las credenciales de cuenta necesarias.
+6.  Después de seleccionar un dataset, introduce los valores correspondientes en los campos del formulario. Puedes actualizar los campos para ver todos los campos actualizados del formulario. También puedes asignar campos del formulario desde el paso del activador o campos de tus pasos de acción anteriores. Estos valores se añadirán automáticamente a los campos después de ejecutar la acción.![](/migration-assets/kissflow-dataset-connector/4.png)
+Comprueba si el paso de acción está configurado correctamente. Haz clic en **Probar acción** para validar la acción. El conector validará los datos de muestra con los campos del dataset y mostrará los resultados en formato JSON. Si se producen errores, se te notificará de inmediato. Corrígelos antes de volver a probar la acción.
+
+### Usar el conector
+
+Después de configurar el conector, activa el botón de alternancia situado en la esquina superior derecha del editor para activar la acción. Cuando se active la acción configurada, los registros del dataset se actualizarán automáticamente.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de buenas prácticas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

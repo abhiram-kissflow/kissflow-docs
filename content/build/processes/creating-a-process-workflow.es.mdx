@@ -1,0 +1,77 @@
+---
+title: "Crear un flujo de trabajo de proceso"
+description: "BORRADOR (sin verificar) — migrado desde /t/m1yzjcn/creating-a-process-workflow"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Tu flujo de trabajo es el conjunto de pasos que deben completarse para finalizar un elemento. El flujo de trabajo de un proceso muestra la ruta que siguen los datos en la situación más ideal y también permite condiciones y flujos alternativos. 
+
+## Iniciar un flujo de trabajo
+
+En los formularios de proceso, creas el flujo de trabajo en el segundo paso del editor.
+
+![](/migration-assets/creating-a-process-workflow/2.png)
+
+Puedes añadir los pasos del flujo de trabajo. Puedes añadir tantos pasos como quieras. Para añadir un paso del flujo de trabajo, haz clic en el botón **Add** (![](/migration-assets/making-a-process-workflow/12.png)) y, a continuación, [añade un paso nuevo](/t/g9h9qkn/creating-a-process-form-workflow#adding-a-new-step), [añade una rama paralela](/t/g9h9qkn/creating-a-process-form-workflow#adding-a-parallel-branch), [añade un Goto](/t/g9h9qkn/creating-a-process-form-workflow#adding-a-goto), [ejecuta un proceso](/t/g9ytv27/connected-processes-overview) o [usa la IA para sugerir y crear pasos](/t/60hv9mr/creating-ai-suggested-workflow-and-steps).
+
+![](/migration-assets/creating-a-process-workflow/1.png)
+
+## Añadir un paso nuevo
+
+![](/migration-assets/creating-a-process-workflow/3.png)
+
+Los pasos del flujo de trabajo son tareas humanas necesarias para procesar el elemento. Introduce un nombre y una descripción para el paso. Los nombres de los pasos pueden tener un máximo de 100 caracteres. Puedes añadir descripciones con formato enriquecido, incluidas imágenes y videos, haciendo clic en el botón **Text formatting** ( ![](/migration-assets/creating-a-process-workflow/4.png)  ). Estas descripciones se muestran en el formulario durante la ejecución.
+
+A continuación, elige a quién asignar la tarea. Puede ser un **application role** específico de tu formulario. Si haces clic en Choose assignee from other sources, puedes elegir **Add by user filter**, **Add by Dataform**, **Add by Dataset** o **Add by formula**. En **Assignment options**, la opción de asignación predeterminada es que solo un usuario deba aprobar el elemento. 
+
+En **When does this step happen?**, puedes [añadir condiciones] para permitir que el paso se ejecute únicamente en determinadas condiciones. 
+
+De forma predeterminada, los pasos no tienen fechas límite. Para añadir una, haz clic en **+Add a deadline**. 
+
+Si haces clic en **Manage field permission**, podrás ver qué campos se pueden editar, son de solo lectura u están ocultos en ese paso. Haz clic [aquí](/t/60h9qtm80h4g2/configuring-field-permissions-for-process-steps) para obtener más información.
+
+## Añadir una rama paralela
+
+![](/migration-assets/creating-a-process-workflow/5.png)
+
+Las ramas paralelas sirven para dos casos de uso. Uno es cuando quieres que dos o más pasos ocurran al mismo tiempo. Cada rama avanza independientemente de lo que ocurra en las demás. Por ejemplo, muchos de los pasos de la incorporación de empleados pueden ocurrir simultáneamente y no dependen de que otros pasos finalicen primero. Sin embargo, el flujo de trabajo no continuará hasta que todas las ramas hayan finalizado.
+
+El segundo caso de uso es crear dos ramas independientes que dependan de los datos del formulario. Si se activa una condición basada en determinados datos, el elemento continúa por un lado. Si no, continúa por el otro. Para configurarlo, haz clic en **Change** en la rama y, a continuación, [escribe la condición] para indicar cuándo debe ejecutarse esa rama. 
+
+Cuando añades una rama, primero le asignas un nombre a toda la rama. Después, puedes hacer clic en el botón **Add** (![](/migration-assets/making-a-process-workflow/12.png)) para añadir pasos a esa rama. Los pasos de la rama se pueden contraer o expandir haciendo clic en el botón de **flecha** situado junto a **Change**.
+
+## Añadir un Goto
+
+![](/migration-assets/creating-a-process-workflow/6.png)
+
+Un **Goto** te permite saltar entre pasos del flujo de trabajo cuando se cumplen determinadas condiciones. Puedes avanzar o retroceder dentro de los pasos del flujo de trabajo. Por ejemplo, si alguien está rellenando una solicitud de viaje, pero no necesita alojamiento en un hotel, billetes de avión ni un anticipo de viaje, puedes omitir otros pasos e ir directamente a una aprobación final. 
+
+Para configurar el **Goto**, introduce las condiciones en las que debe activarse y, a continuación, el nombre del paso al que debe ir el elemento. 
+
+## [Ejecutar (conectar) un proceso](/t/m1h9qmv/making-a-process-workflow#running-connecting-a-process) 
+
+Puedes conectar varios procesos para iniciar automáticamente elementos relacionados en función de las acciones realizadas en un proceso principal/de origen. Obtén más información sobre los [procesos conectados](/t/g9ytv27/connected-processes-overview).
+
+## [Flujo de trabajo y pasos sugeridos por la IA](/t/m1h9qmv/making-a-process-workflow#ai-suggested-workflow-and-steps)
+
+Puedes crear un flujo de trabajo de proceso completo y pasos individuales con la ayuda de la IA. Obtén más información sobre [cómo crear un flujo de trabajo y pasos sugeridos por la IA](/t/60hv9mr/creating-ai-suggested-workflow-and-steps).
+
+## [Mover, copiar y eliminar un paso](/t/m1h9qmv/making-a-process-workflow#moving-copying-and-deleting-a-step)
+
+Haz clic en el botón **More options** (![](/migration-assets/making-a-process-workflow/9.png)) de un paso de proceso específico y:
+
+-   Mueve el **paso** **-** Haz clic en **Move** y pégalo en la ubicación que quieras.
+-   Copia y pega el **paso** **-** Haz clic en **Copy** y pégalo en la ubicación que quieras.
+-   Elimina el paso.
+
+![](/migration-assets/creating-a-process-workflow/7.png)
+
+## [Exportar un flujo de trabajo](/t/m1h9qmv/making-a-process-workflow#exporting-a-workflow)
+
+Haz clic en el botón **Export** (![](/migration-assets/making-a-process-workflow/10.png)) en la esquina inferior izquierda y selecciona el formato que quieres exportar. ![](/migration-assets/creating-a-process-workflow/8.png)

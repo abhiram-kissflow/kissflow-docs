@@ -1,0 +1,79 @@
+---
+title: "Vista de hoja en dataforms"
+description: "BORRADOR (no verificado): migrado desde /t/x2yzjaw/sheet-view-in-dataforms"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Básico ✓ Enterprise
+
+La vista de hoja en [dataforms](/t/m1h9q1y/data-forms-overview) te permite visualizar los datos del formulario como una cuadrícula. Los encabezados de las columnas representan los datos seleccionados de los campos y los campos del sistema, mientras que las filas muestran los valores capturados en cada campo.
+
+> **Nota:**
+> 
+> Si agregas filas o modificas datos dentro de filas que constan de campos de formulario, los campos de número de secuencia generados mediante los datos del formulario para esa fila no se generarán, y las integraciones y validaciones de campos no se activarán.
+
+## Crear una vista de hoja
+
+1.  Abre tu **App** > **Manage > Edit app**.
+2.  Haz clic en el menú **Data** del panel de navegación izquierdo > abre un dataform.
+3.  Haz clic en **Views** > **Create view**.
+4.  Haz clic en **Sheet**.
+5.  Introduce un nombre para la hoja > haz clic en **Create**.![](/migration-assets/sheet-view-in-dataforms/1.png)  
+
+## Configurar la vista de hoja
+
+### Configuración general
+
+Aquí puedes modificar el nombre de la hoja.
+
+### Configuración de la hoja
+
+Haz clic en **Add** **columns** para crear columnas en la vista de hoja. Puedes seleccionar columnas de los campos del formulario o de los campos del sistema. Haz clic en **Select all** para agregar todos los campos como columnas en la vista de hoja.
+
+En **Manage columns**, puedes arrastrar y soltar los campos para reorganizar el orden de las columnas. También puedes eliminar las columnas que no necesites. Haz clic en **Save** para completar la configuración.
+
+![](/migration-assets/sheet-view-in-dataforms/8.png)
+
+### Filtro de datos
+
+Puedes usar el filtro de datos para determinar cómo se muestran los datos en la vista de hoja. Para hacerlo, en **Data filter** > [Advanced filters](/t/h7yzj0v/using-advanced-filters-in-apps), puedes aplicar condiciones mediante operadores y valores. En un filtro avanzado, puedes seleccionar un campo, un operador como Equal to, Not equal to, Part of, etc., especificar si se trata de un valor, un campo o un parámetro, y compararlo con el valor correspondiente. Agrega condiciones adicionales, como **AND/OR,** a estos filtros.
+
+![](/migration-assets/sheet-view-in-dataforms/2.png)
+
+### Filtro rápido
+
+Un filtro rápido te ayuda a ver los datos filtrados en una pestaña independiente. Puedes arrastrar y soltar los filtros agregados para reorganizarlos. También puedes configurar filtros rápidos dentro de una página mediante la vista de hoja. El filtro se puede activar o desactivar dentro de la página.
+
+![](/migration-assets/sheet-view-in-dataforms/3.png)![](/migration-assets/sheet-view-in-dataforms/4.png)
+
+### Ordenar datos
+
+Puedes ordenar los datos dentro de la vista de hoja en orden ascendente o descendente. Primero debes seleccionar una columna para aplicar la función de ordenamiento. Una vez que uses el botón de ordenamiento, haz clic en el botón **Expand** del título de la columna para ordenar los valores de la vista de hoja.
+
+![](/migration-assets/sheet-view-in-dataforms/5.png)
+
+## Agregar el componente de vista de hoja a una página
+
+Puedes agregar un componente de vista de hoja a una página arrastrándolo y soltándolo en ella. Una vez que lo agregues, puedes configurar las siguientes opciones en el menú **Settings**:
+
+-   **Show form:** Puedes activar el botón de mostrar formulario para permitir que los usuarios con permiso de **Manage** vean y editen el formulario durante el tiempo de ejecución.
+-   **Quick filter:** Puedes activar o desactivar los filtros rápidos configurados para el dataform en la página.
+-   **Export:** Puedes activar el botón de exportación para [exportar](/t/35yzja7/exporting-data-from-a-data-table-view) los datos de la vista de hoja como un archivo CSV descargable.
+
+![](/migration-assets/sheet-view-in-dataforms/6.gif)
+
+## Trabajar con la vista de hoja
+
+Los usuarios pueden agregar, modificar y eliminar datos de la vista de hoja durante el tiempo de ejecución. También pueden agregar varias filas mediante el botón **Add**.
+
+> **Nota:**
+> 
+> Puedes agregar hasta 100 000 filas en una vista de hoja.
+
+Como usuario, puedes copiar y pegar valores en bloque en la vista de hoja. Asegúrate de que los valores de los campos de la vista de hoja coincidan con el tipo de campo correspondiente. 
+
+![](/migration-assets/sheet-view-in-dataforms/7.gif)

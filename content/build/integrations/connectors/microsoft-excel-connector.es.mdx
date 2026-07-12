@@ -1,0 +1,57 @@
+---
+title: "conector de Microsoft Excel"
+description: "BORRADOR (sin verificar) — migrado desde /t/35h4alc/microsoft-excel-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es Microsoft Excel?
+
+Microsoft Excel es una aplicación de hojas de cálculo desarrollada por Microsoft. Incluye capacidades de cálculo o computación, herramientas de creación de gráficos, tablas dinámicas y un lenguaje de programación de macros llamado Visual Basic for Applications (VBA).
+
+## Acerca de la integración de Microsoft Excel con Kissflow
+
+El conector de Microsoft Excel de Kissflow Integration te permite conectar y sincronizar tus hojas de cálculo de Microsoft Excel con aplicaciones populares de Kissflow. Debes tener una cuenta válida de Microsoft y ser un cliente de pago de Kissflow para integrar Microsoft Excel.
+
+Supón que administras tu tienda en línea mediante Shopify. Puedes agregar cada registro de venta como una nueva fila en tu hoja de cálculo de Microsoft Excel cada vez que se produzca una venta en Shopify usando el activador de webhook en Kissflow y agregando el conector de Microsoft Excel como acción.  
+
+Puedes usar el conector de Microsoft Excel para recibir datos de otros flujos o aplicaciones y realizar acciones específicas. El conector de Microsoft Excel todavía no admite eventos de activación.
+
+### Acciones del conector de Microsoft Excel
+
+**Eventos de acción**
+
+**Descripción**
+
+Agregar una fila
+
+Esta acción agrega una nueva fila al final de una hoja de cálculo.
+
+Actualizar una fila
+
+Esta acción actualiza una fila existente en una hoja de cálculo específica.
+
+Crear un libro
+
+Esta acción crea un libro nuevo mediante Microsoft Excel.
+
+## Conector de Microsoft Excel como paso de acción
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**.
+    
+2.  Una vez dentro del editor, configura los pasos de activación y acción según sea necesario. Por ejemplo, tu evento de activación puede ser **Webhooks by Kissflow**. Puedes usar la URL del webhook para capturar datos de cualquier aplicación externa que elijas. Por ejemplo, un pedido de Shopify que recibas en tu tienda en línea.
+3.  Después de configurar el activador y el paso de acción anteriores, haz clic en el botón **Agregar** para configurar el paso de acción. Busca el conector de Microsoft Excel y selecciona la acción deseada de la lista anterior.![](/migration-assets/microsoft-excel-connector/2.png) 
+4.  Después de elegir el evento de acción, autentica el conector. Haz clic en **+Agregar una cuenta** e inicia sesión con tu cuenta de Microsoft. Kissflow usa OAuth de Microsoft para la autenticación.![](/migration-assets/microsoft-excel-connector/1.png)
+5.  Después de autenticarte con tu cuenta de Microsoft, agrega los valores relevantes en los campos del formulario de Microsoft Excel. Puedes hacer clic en **Actualizar campos** para ver todos los campos actualizados del formulario de Microsoft Excel seleccionado. Asigna los campos de Microsoft Excel desde el paso de activación o los campos de los pasos de acción anteriores. Estos valores se agregarán automáticamente a los campos de los elementos después de ejecutar la acción. Haz clic en **Siguiente**.    
+6.  Después de una configuración correcta, prueba si el paso de acción de Microsoft Excel está configurado correctamente haciendo clic en el botón **Probar**. El conector extraerá los datos de los campos de la cuenta de Microsoft Excel seleccionada y los mostrará como una salida JSON. Al igual que con el paso de activación, recibirás una notificación inmediata de los errores. Corrígelos antes de volver a probar el paso de acción.
+
+### Activar un conector de Microsoft Excel
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción del conector de Microsoft Excel, activa el botón de alternancia para habilitar la ejecución de la integración. Cuando se produzca un evento de activación, se activará la acción de Microsoft Excel seleccionada. Según la acción que elijas, los valores se agregarán o actualizarán en la hoja de cálculo de Microsoft Excel, o se agregará una nueva hoja de cálculo a la cuenta.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

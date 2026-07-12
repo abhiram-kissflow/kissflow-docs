@@ -1,0 +1,112 @@
+---
+title: "Programador de Kissflow"
+description: "BORRADOR (sin verificar) — migrado desde /t/q6h4af8/scheduler-by-kissflow"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Scheduler by Kissflow es un conector integrado que te permite programar la ejecución de un activador de integración en un intervalo específico. Por lo general, las ejecuciones de integración solo se realizan cuando ocurre un evento activador en un conector. Puedes usar los activadores del programador para ejecutar tu integración todos los días, semanas, meses o años.
+
+## Cómo funciona
+
+Este es un ejemplo de cómo puedes usar el programador.
+
+-   Seleccionas un día y una hora cada semana en el programador cuando se requiere una nueva tarea.
+-   Kissflow agrega un nuevo elemento a Kissflow Project en la fecha y hora especificadas.
+
+## Configuración del programador
+
+1.  En el panel de navegación izquierdo, haz clic en **\+ Crear** y selecciona **Integración**. Proporciona un nombre y una descripción únicos para la integración.
+    
+2.  Busca el conector **Scheduler by Kissflow**.
+    
+3.  Aquí puedes seleccionar un activador diario, semanal, mensual o anual.![](/migration-assets/scheduler-by-kissflow/5.png)
+4.  Configura exactamente cuándo quieres que el programador se ejecute y se detenga. Por ejemplo, si seleccionaste **Semanal**, seleccionarás algunos parámetros, como **Día(s) de la semana,** **Hora de inicio** y **Detención según.**
+5.  Haz clic en **Siguiente** para probar el activador. Completa la configuración del programador haciendo clic en **Listo**.
+6.  Agrega una acción relevante a continuación para completar la integración.
+
+### Ejecución de tu integración
+
+Después de crear un flujo de trabajo personalizado con el programador y los pasos de acción, activa el botón de alternancia para activar la ejecución de la integración.
+
+## Programado diariamente
+
+De forma predeterminada, este programador se activará diariamente a la hora que ingreses.
+
+> **Nota:**
+> 
+> La hora que elijas está asociada con la zona horaria que seleccionaste en **Mis ajustes** > [**Ajustes de formato**](/t/q6h4az6/my-settings). Si no has seleccionado una configuración de zona horaria local, se utilizará de forma predeterminada la [**configuración de zona horaria**](/t/p8h4akf/format-settings) del administrador. 
+
+Especifica estos campos en el formulario de configuración:
+
+-   **Seleccionar la hora del día**: El activador comenzará a esta hora todos los días.
+-   **Frecuencia de repetición (en días)**: El activador se repetirá después de este intervalo de tiempo. Este número se especifica en días.
+-   Puedes seleccionar cuándo debe finalizar el programador según las siguientes opciones:
+    -   **Fecha de finalización específica**: El activador finalizará en una fecha de calendario programada.
+    -   **Después de un número de ejecuciones**: El activador finalizará después de un número especificado de ejecuciones.![](/migration-assets/scheduler-by-kissflow/1.png) 
+
+## Programado semanalmente 
+
+En el programador semanal, selecciona los días de la semana en los que quieres que se ejecute el programador, así como la hora. 
+
+> **Nota:**
+> 
+> La hora que elijas está asociada con la zona horaria que seleccionaste en **Mis ajustes** > [**Ajustes de formato**](/t/q6h4az6/my-settings). Si no has seleccionado una configuración de zona horaria local, se utilizará de forma predeterminada la [**configuración de zona horaria**](/t/p8h4akf/format-settings) del administrador. 
+
+Especifica estos campos en el formulario de configuración:
+
+-   **Frecuencia de repetición**: Determina con qué frecuencia se ejecuta el programador. Este número se especifica en semanas.
+-   **Días de la semana**: El activador se ejecutará durante los días de la semana seleccionados.
+-   **Hora del día**: El activador se ejecutará durante la hora del día seleccionada.
+-   **Comienza a las**: El activador comenzará a esta hora de la semana.
+-   Puedes seleccionar cuándo debe finalizar el programador según las siguientes opciones:
+    -   **Fecha de finalización específica**: El activador finalizará en una fecha de calendario programada.
+    -   **Después de un número de ejecuciones**: El activador finalizará después de un número especificado de ejecuciones.![](/migration-assets/scheduler-by-kissflow/3.png) 
+
+## Programado mensualmente
+
+Selecciona el día del mes en el que quieres que se ejecute el programador, así como la hora. 
+
+> **Nota:**
+> 
+> La hora que elijas está asociada con la zona horaria que seleccionaste en **Mis ajustes** > [**Ajustes de formato**](/t/q6h4az6/my-settings). Si no has seleccionado una configuración de zona horaria local, se utilizará de forma predeterminada la [**configuración de zona horaria**](/t/p8h4akf/format-settings) del administrador. 
+
+Especifica estos campos en el formulario de configuración:
+
+-   **Comienza el:** Establece la fecha en la que quieres que comience el activador programado.
+-   **Frecuencia de repetición (en meses)**: Determina con qué frecuencia se ejecuta el programador. Este número se especifica en meses.
+-   **Días del calendario del mes**: Puedes elegir un intervalo de fechas de 1 a 31 días. Si seleccionas 29, 30 o 31, el programador solo se ejecutará en los meses que tengan esa cantidad de días. Selecciona **Último día del mes** para asegurarte de que ocurra todos los meses. 
+-   **Hora del día**: El activador comenzará a esta hora del día del calendario del mes.
+-   Puedes seleccionar cuándo debe finalizar el programador según las siguientes opciones:
+    -   **Fecha de finalización específica**: El activador finalizará en una fecha de calendario programada.
+    -   **Después de un número de ejecuciones**: El activador finalizará después de un número especificado de ejecuciones.![](/migration-assets/scheduler-by-kissflow/4.png) 
+
+## Programado anualmente
+
+En el programador anual, selecciona la fecha del calendario y el mes del año en los que quieres que se ejecute el programador, así como la hora. 
+
+> **Nota:**
+> 
+> La hora que elijas está asociada con la zona horaria que seleccionaste en **Mis ajustes** > [**Ajustes de formato**](/t/q6h4az6/my-settings). Si no has seleccionado una configuración de zona horaria local, se utilizará de forma predeterminada la [**configuración de zona horaria**](/t/p8h4akf/format-settings) del administrador. 
+
+Especifica estos campos en el formulario de configuración:
+
+-   **Comienza el:** Establece la fecha del año en la que quieres que comience el activador programado.
+-   **Frecuencia de repetición (en años)**: Determina con qué frecuencia se ejecuta el programador (calculada en años).
+-   **Meses del calendario del año**: Selecciona los meses del año en los que quieres que se ejecute este activador.
+-   **Días del calendario del mes**: Puedes elegir un intervalo de fechas de 1 a 31 días. Si seleccionas 29, 30 o 31, el programador solo se ejecutará en los meses que tengan esa cantidad de días. Selecciona **Último día del mes** para asegurarte de que ocurra todos los meses. 
+-   **Hora de la fecha seleccionada**: El activador comenzará a esta hora del día del calendario del mes.
+-   Puedes seleccionar cuándo debe finalizar el programador según las siguientes opciones:
+    -   **Fecha de finalización específica**: El activador finalizará en una fecha de calendario programada.
+    -   **Después de un número de ejecuciones**: El activador finalizará después de un número especificado de ejecuciones.![](/migration-assets/scheduler-by-kissflow/2.png)
+
+> **Nota:**
+> 
+> No es posible programar un proceso para compartirlo o habilitarlo solo durante un período específico mediante el programador. Como solución alternativa, puedes configurar una integración para enviar correos electrónicos de recordatorio al administrador, otra para habilitar o compartir el formulario en la fecha requerida y otra para deshabilitarlo posteriormente.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

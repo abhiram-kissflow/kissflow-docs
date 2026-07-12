@@ -1,0 +1,42 @@
+---
+title: "Campo Sí/No"
+description: "DRAFT (unverified) — migrated from /t/35h4azn/yes-no-field"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+El campo Sí/No permite a los usuarios tomar una decisión binaria. Los datos se almacenan como un valor booleano.
+
+En tiempo de ejecución, dentro de las secciones, el campo Sí/No aparece como un botón de alternancia segmentado, donde la opción seleccionada se resalta en azul. En una tabla, funciona como un menú desplegable.
+
+## Configuración
+
+Puedes establecer un valor predeterminado para mostrar el campo cuando se carga el formulario.
+
+![](/migration-assets/yes-no-field/1.gif)
+
+> **Nota**
+> 
+> El campo **Sí/No** no se puede establecer como **Obligatorio**.
+
+## Validaciones
+
+Hay cuatro tipos de validaciones que puedes usar con un campo Sí o No:
+
+-   Sí
+-   No
+-   Igual a
+-   Distinto de 
+
+## Expresiones
+
+[Consulta todas las expresiones booleanas que puedes usar para las condiciones.](/t/h7h4aly/logical-expressions) 
+
+> **Nota**: Aunque es posible establecer validaciones para el campo **Sí/No**, no se puede establecer como un campo calculado.
+> 
+> Como solución alternativa, puedes calcular el valor basándote en un campo **Sí/No** existente. Por ejemplo, If(Yes/no\_Field=true(),"YES","NO"), esta fórmula mostrará **"YES"** si el campo Sí/No es verdadero y **"NO"** en caso contrario.

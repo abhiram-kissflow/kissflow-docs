@@ -1,0 +1,80 @@
+---
+title: "Descripción general de la solución con tecnología de IA"
+description: "Genera un desglose legible, escrito por IA, del formulario, el flujo de trabajo y las conexiones de un proceso para que los administradores y desarrolladores puedan comprender su diseño sin revisar cada configuración."
+contentType: overview
+persona: admin
+section: admin
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - processes
+  - ai
+  - documentation
+---
+
+# Descripción general de la solución con tecnología de IA
+
+<PlanBadge plans={["enterprise"]} />
+
+Una descripción general de la solución te ofrece un desglose completo de un proceso, generado por IA, en un formato legible y estructurado que destaca cómo sus diferentes componentes se combinan para resolver un problema empresarial. Ayuda a los **administradores de procesos** y **desarrolladores** a comprender la estructura general y la lógica detrás de un proceso sin tener que explorar manualmente cada detalle de configuración.
+
+<iframe src="https://player.vimeo.com/video/1125778517?app_id=122963" title="AI-powered solution overview" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+## Generar una descripción general de la solución
+
+Para acceder a la descripción general de la solución de un proceso, haz clic en el botón **Más opciones** situado en la esquina superior derecha y selecciona **Descripción general de la solución**.
+
+![Menú Más opciones con la acción Descripción general de la solución](/migration-assets/ai-powered-solution-overview/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="info">
+  La **descripción general de la solución** solo aparece para un proceso publicado (activo). No está disponible mientras trabajas en una versión preliminar.
+</Callout>
+
+La generación de la descripción general puede tardar un momento, ya que la IA la redacta desde cero basándose en el diseño actual de tu proceso. Mientras se genera, puedes salir de forma segura o continuar con otras tareas; vuelve más tarde y la descripción general completada estará disponible.
+
+![Descripción general de la solución generándose para un proceso](/migration-assets/ai-powered-solution-overview/2.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Secciones de la descripción general de la solución
+
+La descripción general generada está organizada en cinco secciones:
+
+- **Descripción general** — una breve descripción de lo que el proceso está diseñado para hacer.
+- **Glosario** — definiciones de los términos y componentes utilizados en la solución, como flujo conectado, formulario, integración, goto, rama paralela, sección y flujo de trabajo, para que los usuarios empresariales puedan interpretar fácilmente el resto de la descripción general.
+- **Explicación detallada** — un recorrido de principio a fin sobre cómo funciona el proceso:
+  - **Formulario** — enumera todas las secciones y el tipo de información que recopila cada una, junto con los campos obligatorios y calculados.
+  - **Flujo de trabajo** — explica cada paso en orden, mostrando a quién está asignado, las fechas límite, las secciones editables u ocultas y los flujos conectados o integraciones que activa.
+- **Resumen** — un recorrido conciso del proceso de principio a fin, destacando las transiciones clave, los puntos de decisión y cómo se desplazan los datos por el flujo.
+- **Preguntas frecuentes** — responde a algunas preguntas habituales que un usuario empresarial podría tener sobre el proceso, como quién lo inicia, qué activa los flujos conectados y cómo se establecen los permisos.
+
+## Flujos e integraciones asociados
+
+El panel derecho de la descripción general de la solución muestra los flujos conectados, las integraciones y los flujos consultados del proceso. Haz clic en cualquiera de ellos para abrir el flujo o la integración correspondiente en una pestaña nueva.
+
+![Panel de flujos e integraciones asociados en la descripción general de la solución](/migration-assets/ai-powered-solution-overview/3.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Mantener actualizada la descripción general
+
+La descripción general de una solución refleja el diseño del proceso en el momento en que se generó. Si publicas cambios en el proceso posteriormente o actualizas una integración que utiliza, aparece un banner en la parte superior de la descripción general para solicitarte que la actualices.
+
+<Callout type="info">
+  No hay un control manual independiente para volver a generar la descripción general: la opción de actualización solo aparece cuando se detectan cambios, para que siempre sepas si la descripción general que estás leyendo coincide con el proceso activo.
+</Callout>
+
+## Imprimir o guardar como PDF
+
+Puedes imprimir la descripción general de la solución o guardarla como PDF. Haz clic en el botón **Imprimir** en la esquina superior derecha de la descripción general y elige las opciones que prefieras en el cuadro de diálogo de impresión del navegador.
+
+![Botón Imprimir en la descripción general de la solución](/migration-assets/ai-powered-solution-overview/4.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Qué sigue
+
+- [Analizador de soluciones de IA](/docs/admin/processes/ai-solution-analyzer) — detecta problemas en el formulario, el flujo de trabajo y los permisos antes de publicar.
+- [Descripción general de los procesos conectados](/docs/admin/processes/connected-processes-overview)
+- [Flujos asociados a procesos](/docs/admin/processes/associated-flows-for-processes)
+- [Publicar, editar, duplicar, archivar y eliminar un proceso](/docs/admin/processes/publishing-editing-duplicating-archiving-and-deleting-a-process)

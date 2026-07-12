@@ -1,0 +1,158 @@
+---
+title: "Crear un tablero"
+description: "BORRADOR (sin verificar) — migrado desde /t/35h9qly/building-a-board"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Los tableros te ayudan a gestionar trabajo que abarca un amplio espectro, incluidas tareas de proyectos, seguimiento de problemas, seguimiento de estados, mesas de ayuda, mesas de servicio, gestión de solicitudes de servicio, incorporación de empleados, gestión de incidentes, seguimiento de errores y muchos otros, todo en una sola plataforma.Es muy fácil comenzar a usar un tablero. Solo debes completar unos pasos para poder gestionar tu tablero:
+
+-   Crea un tablero nuevo.
+-   Añade nuevos miembros a tu tablero.
+-   Personaliza el formulario del tablero.
+-   Configura estados personalizados según lo requiera tu workflow.
+-   Determina si se requiere un campo de prioridad.
+
+## Crear un tablero nuevo
+
+Los tableros se pueden crear desde cero para que los personalices como quieras. Antes de comenzar, comprueba si tienes los permisos necesarios para crear tableros. Si eres un administrador que acaba de comenzar a usar una cuenta, probablemente ya tengas estos permisos; de lo contrario, ponte en contacto con un [administrador de la cuenta](/t/m1h9qls/managing-members-and-roles-boards).
+
+1.  En la navegación de la izquierda, haz clic en **Explorar.**  
+     
+2.  En la página **Explorador**, haz clic en **Crear.** También puedes ir a la **galería de plantillas** e instalar una de las plantillas predefinidas.  
+     
+3.  También puedes crear un tablero seleccionando Crear > Tablero en la navegación de la izquierda.
+4.  En la página **Crear un tablero**, selecciona una de las dos opciones:
+    
+    1.  Crear con AI
+        
+    2.  Crear desde cero
+        
+
+![](/migration-assets/building-a-board/1.png)
+
+### Crear desde cero
+
+1.  Introduce un nombre para tu tablero.![](/migration-assets/building-a-board/2.png)   
+2.  En el campo **Tipo de elemento**, introduce un nombre para el tipo de elementos que se gestionarán en tu tablero. Por ejemplo, puede ser un **Problema** si estás creando un sistema de seguimiento de problemas, una **tarea** para un tablero que gestiona proyectos o una **Solicitud** para un sistema que gestiona solicitudes de servicio.  
+     
+3.  El campo **Prefijo de ID** se completa automáticamente con una cadena generada por el sistema según el nombre asignado al tablero. Sin embargo, también puedes cambiarla manualmente si lo deseas. El prefijo debe tener un mínimo de 2 y un máximo de 4 caracteres alfanuméricos.
+    
+    > **Nota:**
+    > 
+    > El campo de prefijo no se puede modificar una vez creado el tablero, por lo que te recomendamos decidirlo antes de crear el tablero.
+    
+4.  Haz clic en **Crear**.  
+     
+
+### Crear con AI (planes Enterprise)
+
+Al usar AI, tienes dos formas de comenzar:
+
+1.  Adjuntar un documento
+    
+2.  Proporcionar un prompt
+    
+
+#### Adjuntar un documento
+
+1.  Carga un documento compatible desde tu sistema; los formatos incluyen PNG, JPEG, JPG, PDF o CSV.  
+     
+    
+    A continuación se explica cómo el documento de entrada determina la estructura del resultado:
+    
+    **Formato del documento de entrada**
+    
+    **Resultado y comportamiento esperados**
+    
+    **CSV**
+    
+    • **Asignación de campos**: Todos los encabezados de columna se asignarán automáticamente a tipos de campo específicos; el formulario puede admitir hasta 1000 campos.
+    
+    • **Organización**: Los campos se agruparán por secciones para garantizar un flujo lógico.
+    
+    • **Generación de tablas**: Si corresponde, las tablas se crearán automáticamente.
+    
+    • **Workflow**: Se crea una estructura de workflow básica.
+    
+    **Imágenes o PDF**
+    
+     
+    
+    (PDF, PNG, JPEG, JPG)
+    
+    • **Replicación exacta**: AI replicará exactamente el diseño del formulario tal como aparece en el archivo cargado. Sin embargo, si proporcionas instrucciones específicas en el prompt, AI modificará el resultado para adaptarlo a esas solicitudes.
+    
+    • **Detección de tablas**: Si la imagen o el PDF contiene una tabla visible, se convertirá automáticamente en una tabla.
+    
+    • **Workflow**: Se creará un workflow básico según la lógica interpretada del documento.
+    
+2.  Añade prompts en el espacio de abajo para definir con mayor precisión cómo AI crea el workflow de tu tablero. Este paso es opcional.
+    
+3.  Haz clic en **Comenzar a crear**.
+    
+    ![](/migration-assets/building-a-board/5.png)
+4.  Una vez completada la configuración, aparece la ventana emergente **Añadir los toques finales**. Incluye los detalles del tablero rellenados previamente. Revísalos y edítalos si es necesario.
+    
+    ![](/migration-assets/building-a-board/3.png)
+5.  Haz clic en **Previsualizar formulario** para ver el formulario utilizado en tu tablero. Si todo se ve bien, selecciona **Ir al tablero**.
+    
+    ![](/migration-assets/building-a-board/4.png)
+6.  Realiza los ajustes finales al workflow antes de publicarlo. 
+    
+
+> **Nota:**
+> 
+> No se admiten documentos de requisitos empresariales (BRD) ni documentos de especificaciones.
+
+#### Proporcionar un prompt
+
+Simplemente describe cómo quieres que funcione tu tablero en el espacio **O proporciona un prompt** y haz clic en **Comenzar a crear**. Deja que AI lo cree automáticamente por ti.
+
+![](/migration-assets/building-a-board/9.png)
+
+En la ventana emergente **Añadir los toques finales**, revisa los detalles del tablero y previsualiza el formulario. Si todo se ve bien, haz clic en **Ir al tablero** para personalizar el formulario y los pasos del workflow antes de publicarlo.
+
+Después de que AI haya creado tu tablero, encontrarás en él los estados y campos de formulario correspondientes. También puedes elegir editar el [workflow](/t/g9ykvzn/configuring-statuses) y el [formulario del tablero](/t/h7h9qlx/configuring-a-board-form) cuando quieras.
+
+## Añadir nuevos miembros
+
+Puedes añadir usuarios a tu tablero y asignarles diversos roles. Los usuarios añadidos al tablero se denominan miembros. Para añadir usuarios a tu tablero, sigue estos pasos:
+
+1.  En tu tablero, haz clic en el botón **Gestionar**, en la esquina superior derecha, > **Compartir**.  
+     
+2.  Para añadir nuevos miembros a tu tablero, haz clic en **Añadir miembros**.  
+     
+3.  En el cuadro de búsqueda, escribe el nombre de la persona que quieres añadir al tablero. También puedes añadir varios miembros a la vez.![](/migration-assets/building-a-board/6.gif) 
+4.  Después de añadir los miembros necesarios, asígnales uno de los siguientes roles:
+    1.  **Administrador**: puede crear y editar elementos, así como gestionar todos los ajustes de tu tablero.
+    2.  **Miembro**: puede crear nuevos elementos y actualizar los existentes.
+    3.  **Miembro restringido**: solo puede actuar sobre los elementos que haya creado y que se le hayan asignado.
+    4.  **Iniciador**: solo puede crear nuevos elementos y actualizar los que haya creado o solicitado.
+5.  Haz clic en **Añadir**.
+
+## Personalizar el formulario
+
+Los datos de cada elemento que avanza por un workflow se recopilan mediante un formulario. Puedes [personalizar este formulario](/t/h7h9qlx/configuring-a-board-form) para capturar la información más relevante para tu workflow. Para personalizar el formulario, haz clic en el botón **Gestionar** > **Editar formulario** en tu tablero.![](/migration-assets/building-a-board/8.gif)
+
+## Configurar estados personalizados para tu workflow
+
+Hay cinco estados predeterminados que puedes usar para indicar el progreso de un elemento en tu workflow. Además de estos, puedes crear [estados personalizados](/t/g9ykvzn/configuring-statuses). Los estados personalizados permiten realizar un seguimiento detallado de los elementos.Para crear un nuevo estado personalizado:
+
+1.  En tu tablero, haz clic en el botón **Gestionar** > **Editar** **workflow**.
+2.  Haz clic en **Añadir un estado personalizado** debajo de una categoría.
+3.  Introduce un nombre para el estado personalizado, selecciona el color y el icono que prefieras y haz clic en **Publicar**.
+
+![](/migration-assets/building-a-board/10.gif) Puedes crear varios estados personalizados y organizarlos en el orden que prefieras. Sin embargo, no se pueden crear estados personalizados en la categoría **Reabierto**.
+
+## Activar y desactivar la prioridad
+
+La prioridad indica la urgencia de resolver un elemento. Solo puedes asignar una [prioridad](/t/60h9ql7/configuring-board-settings#priority) a los elementos si has activado esta función en los ajustes del tablero. Si este ajuste no está activado, el campo **Prioridad** no estará visible en todo el tablero.
+
+1.  Para activar o desactivar la prioridad, haz clic en el botón **Gestionar** > **Ajustes**.
+2.  Haz clic en la pestaña **Ajustes** **opcionales** y activa o desactiva **Prioridad** para el tablero.![](/migration-assets/building-a-board/7.png)

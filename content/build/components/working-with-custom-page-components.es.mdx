@@ -1,0 +1,99 @@
+---
+title: "Trabajar con componentes de página personalizados"
+description: "BORRADOR (no verificado) — migrado desde /t/y4yzj4d/working-with-custom-page-components"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+## Crear componentes de página personalizados
+
+Hay dos formas de crear componentes de página personalizados:
+
+1.  [Crear con AI](/t/p8yg3zm/creating-custom-components-using-ai)
+2.  Crear desde cero usando Kissflow SDK
+
+## Crear componentes personalizados usando Kissflow SDK
+
+La función de componentes de página personalizados te permite crear una página completa desde cero usando elementos HTML, sin utilizar los componentes predeterminados.
+
+Usa el [paquete de JavaScript SDK de Kissflow](https://developers.kissflow.com/components/page/) para desarrollar componentes personalizados en la plataforma low-code. Los métodos del SDK pueden ayudarte a configurar diferentes funciones de cliente y servidor en tu componente de página personalizado.Tres pasos básicos para crear y usar un componente personalizado
+
+Diseña y crea el componente necesario. Usa los métodos del SDK de Kissflow para hacerlo interactivo y utilizable junto con otros componentes del sistema.
+
+Carga el componente, crea parámetros de entrada y publícalo.
+
+Añade el componente personalizado a una página y configura los valores de sus parámetros de entrada. Estos valores pueden ser estáticos o puedes añadir una variable global/local.
+
+## Crear componentes personalizados
+
+Puedes importar componentes personalizados al creador de aplicaciones de las siguientes formas:
+
+-   Cargando un archivo .zip que contenga las entidades del componente.
+-   Introduciendo la URL de la ubicación donde está alojado el componente.
+
+### Importar un archivo ZIP
+
+Abre el creador de aplicaciones, haz clic en **Interface** en el panel de navegación izquierdo y selecciona **Components**.2.  Haz clic en el botón **New component**.
+3.  Elige **Page** como tipo de componente personalizado.Introduce un nombre y una descripción y haz clic en **Create**.
+4.  En la página **Import component**, carga el archivo .zip.
+
+![](/migration-assets/working-with-custom-page-components/1.gif)
+
+Una vez importado el archivo, puedes hacer clic en **Preview** para ver al instante el componente importado en el modo de ejecución.
+
+> **Nota:**
+> 
+> El archivo ZIP importado siempre debe incluir un **archivo index.html**. Aquí tienes un [archivo ZIP de muestra](https://d56vh6ph4jjmq.cloudfront.net/kissflow/help-articles/custom-component.zip) para experimentar.
+
+### Cargar usando una URL externa
+
+También puedes importar tu componente alojado en una URL externa.
+
+Asegúrate de que el componente esté en un archivo ZIP en el enlace externo.Copia la URL del componente.Haz clic en la opción **Import from URL**. Luego pega la dirección del componente en el campo.Haz clic en **Preview** para renderizar el componente en el modo de ejecución.
+
+###  Vista previa en directo
+
+Puedes previsualizar tu componente antes de cargarlo usando la opción Vista previa en directo. Esto te permite ver los cambios en tiempo real mientras lo creas.
+
+#### Configurar la vista previa en directo
+
+1.  Usa la opción hacer clic aquí para abrir la ventana de Vista previa en directo.
+    
+2.  Introduce la URL de tu servidor de desarrollo (por ejemplo, [http://127.0.0.1:9000](http://127.0.0.1:9000)) y pulsa Intro.
+    
+
+![](/migration-assets/working-with-custom-page-components/2.gif)
+
+> #### Nota importante:
+> 
+> Antes de usar la URL de tu servidor de desarrollo en la Vista previa en directo, debes resolver cualquier error del certificado SSL:
+> 
+> 1.  Abre la URL de tu servidor de desarrollo en una ventana del navegador.
+>     
+> 2.  Si ves el mensaje "Your connection is not private", haz clic en Advanced > Proceed to \[your URL\].
+>     
+> 3.  Este paso solo es necesario una vez y evita errores de SSL en la vista previa en directo.
+>     
+
+Configurar parámetros de entrada
+
+Puedes crear tres tipos de parámetros de entrada para tu componente personalizado: parámetros **String**, **Number** y de **Static drop-down**, y definir sus valores en el creador de aplicaciones.
+
+Para asignar los parámetros de entrada a tu componente personalizado, usa el [método watch params](https://developers.kissflow.com/components/page/#watch-params) en el código de tu componente personalizado.
+
+![](/migration-assets/working-with-custom-page-components/3.gif)
+
+Haz clic en **Publish** para publicar el componente. Ahora está listo para usarse en tus páginas.
+
+Usar el componente personalizado en una página
+
+Para usar el componente personalizado en una página, arrastra **Custom component** y suéltalo en la página, selecciona el componente necesario en el menú desplegable **Select custom component** y guarda.
+
+> **Nota:** Puedes añadir un componente personalizado además de otros componentes del sistema en una página. Sin embargo, la configuración del creador de páginas se aplicará únicamente a los componentes del sistema.
+
+![](/migration-assets/working-with-custom-page-components/4.gif)

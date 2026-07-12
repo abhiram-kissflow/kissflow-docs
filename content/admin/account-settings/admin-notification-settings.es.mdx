@@ -1,0 +1,200 @@
+---
+title: "Configuración de notificaciones del administrador"
+description: "Activa canales de notificación para toda la cuenta, configura un servidor SMTP personalizado para el correo saliente y personaliza el correo de bienvenida, el encabezado y el pie de página que se envían a tus usuarios."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - notifications
+  - smtp
+  - account-settings
+  - email
+---
+
+# Configuración de notificaciones del administrador
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+**Configuración de notificaciones** permite a los superadministradores controlar cómo se envían las notificaciones en toda la cuenta: qué canales están activados de forma predeterminada, qué servidor envía los correos y qué aspecto tienen esos correos.
+
+## Notificaciones globales
+
+1. Haz clic en tu foto de perfil > **Administración de la cuenta** > **Configuración de notificaciones**.
+
+   ![Menú de administración de la cuenta con Configuración de notificaciones resaltada](/migration-assets/admin-notification-settings/2.png)
+   {/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+2. En **Notificaciones globales**, activa o desactiva los siguientes interruptores para todos los usuarios de la cuenta:
+   - **Notificaciones por correo electrónico**: envía notificaciones por correo electrónico.
+   - **Notificaciones de la aplicación web**: envía notificaciones dentro de la aplicación web.
+   - **Notificaciones push**: envía notificaciones push.
+   - **Notificaciones del bot**: envía notificaciones a través del bot de Kissflow en Slack, Microsoft Teams o Google Chat.
+
+<Callout type="info">
+  Las notificaciones esenciales del sistema, como las relacionadas con la seguridad de la cuenta y la gestión de usuarios, tienen prioridad y se envían independientemente de la configuración de tus canales para garantizar que nadie se pierda actualizaciones críticas.
+</Callout>
+
+<Callout type="info">
+  Los ejemplos siguientes ilustran el tipo de notificaciones del sistema que omiten la configuración de los canales. La lista exacta puede variar y no se limita a estos eventos.
+</Callout>
+
+| Notificación | Activador |
+| --- | --- |
+| Usuario activado | Se activa la cuenta de un usuario. |
+| Usuario desactivado | Se desactiva la cuenta de un usuario. |
+| Reenviar correo de verificación | Se reenvía el correo de verificación. |
+| Dirección de correo electrónico actualizada | Se actualiza la dirección de correo electrónico de un usuario. |
+| Usuario creado | Se crea un usuario nuevo. |
+| Restablecer contraseña | Se restablece la contraseña de un usuario. |
+| Estado de 2FA cambiado | Se cambia el estado de la autenticación de dos factores de un usuario. |
+| Verificación de dos factores | La autenticación de dos factores se activa con un código enviado por correo electrónico. |
+| Verificación de dominio | Se envía un correo de verificación para conectar un dominio. |
+| En espera de aprobación del administrador | Un usuario crea un proceso, tablero o conjunto de datos que requiere la aprobación del administrador. |
+| Exportar | Se realiza una exportación relacionada con un usuario, tablero, dataform, conjunto de datos o informe. |
+
+## Configuración del servidor SMTP
+
+<Callout type="info">
+  La configuración del servidor SMTP solo está disponible en los planes Enterprise.
+</Callout>
+
+De forma predeterminada, Kissflow envía los correos de notificación desde su propio servidor. Los superadministradores pueden configurar un servidor SMTP personalizado, lo que resulta útil si quieres dirigir los correos a través de tu propia infraestructura o si necesitas omitir la verificación de correo electrónico para usuarios nuevos.
+
+Haz clic en tu foto de perfil > **Administración de la cuenta** > **Configuración de notificaciones** > **Configuración del servidor SMTP**.
+
+![Página de configuración del servidor SMTP que muestra las tarjetas Servidor predeterminado y Servidor personalizado](/migration-assets/admin-notification-settings/6.gif)
+{/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+### Añadir un servidor SMTP personalizado
+
+1. Haz clic en **Añadir servidor SMTP personalizado**.
+2. Completa los detalles del servidor:
+   - **Nombre del servidor SMTP**: un nombre para identificar esta configuración.
+   - **Host**: la dirección del host de tu servidor SMTP.
+   - **Puerto**: el número de puerto.
+   - **Protocolo de seguridad**: **STARTTLS** o **SSL/TLS**.
+   - **Tipo de autenticación**:
+     - **Autenticación básica**: introduce el **Nombre de usuario** y la **Contraseña** de tu servidor SMTP.
+
+       ![Campos de autenticación básica para el nombre de usuario y la contraseña](/migration-assets/admin-notification-settings/1.png)
+       {/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+     - **OAuth 2.0**: selecciona **Google** o **Microsoft** en la lista desplegable del proveedor. Se te pedirá que inicies sesión y autorices a Kissflow a acceder a la cuenta de correo electrónico.
+
+       ![Lista desplegable del proveedor OAuth 2.0 con las opciones Google y Microsoft](/migration-assets/admin-notification-settings/3.png)
+       {/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+3. Configura el **Perfil del remitente**: **Nombre del remitente**, **Correo electrónico del remitente** y **Correo electrónico de respuesta**.
+
+   De forma predeterminada, este perfil se aplica a todos los entornos (**Desarrollo**, **Prueba** y **Producción**).
+
+   ![Campos del perfil del remitente con el banner de entornos](/migration-assets/admin-notification-settings/4.png)
+   {/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+   Para anularlo en un entorno específico:
+
+   1. Haz clic en el enlace **entornos** del banner para ver tu lista de entornos.
+   2. Haz clic en **Gestionar** en el entorno que quieras personalizar, por ejemplo, **Desarrollo**.
+   3. Ve a **Configuración de notificaciones** > **Configuración del servidor SMTP**.
+   4. Haz clic en **Crear perfil** —visible una vez que el servidor se haya configurado correctamente—, introduce los datos del remitente para ese entorno y guarda.
+
+      ![Creación de un perfil de remitente específico para un entorno](/migration-assets/admin-notification-settings/11.gif)
+      {/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+4. En **Alertas de fallo del servidor**, introduce una dirección de correo electrónico del destinatario que recibirá una notificación si el servidor no puede enviar correos.
+5. Haz clic en **Guardar y probar**. Tu configuración se guarda de inmediato y Kissflow ejecuta una prueba de conexión en segundo plano. Si la prueba falla, la tarjeta del servidor muestra un estado de validación fallida, pero la configuración guardada no se ve afectada.
+6. Para cambiar entre el **Servidor predeterminado** y tu servidor personalizado en cualquier momento, haz clic en el icono de **Más opciones** (![Icono de Más opciones](/migration-assets/admin-notification-settings/5.png)) en cualquiera de las tarjetas y selecciona **Cambiar a este servidor**.
+
+   ![Cambio entre el servidor SMTP predeterminado y el personalizado](/migration-assets/admin-notification-settings/12.gif)
+   {/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+### Omitir la verificación de correo electrónico
+
+La opción **Omitir la verificación de correo electrónico** permite que los usuarios nuevos reciban correos de notificación de inmediato, sin verificar primero su dirección de correo electrónico.
+
+<Callout type="warn">
+  Esta opción solo está disponible con un servidor SMTP personalizado; no puedes activarla mientras utilizas el servidor Kissflow predeterminado.
+</Callout>
+
+Activa **Omitir la verificación de correo electrónico** en la tarjeta de tu servidor SMTP personalizado.
+
+![Interruptor Omitir la verificación de correo electrónico en la tarjeta del servidor SMTP personalizado](/migration-assets/admin-notification-settings/7.png)
+{/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+Si todavía no has configurado un servidor personalizado, al activar este interruptor se te pedirá que añadas uno.
+
+![Solicitud para añadir un servidor SMTP personalizado al activar la opción de omitir la verificación](/migration-assets/admin-notification-settings/8.png)
+{/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+### Editar un servidor SMTP personalizado activo
+
+No puedes cambiar la configuración de un servidor SMTP personalizado mientras esté enviando correos activamente.
+
+1. Haz clic en el icono **Editar** (![Icono Editar](/migration-assets/admin-notification-settings/9.png)) en la tarjeta del servidor activo.
+2. En la ventana emergente de confirmación, haz clic en **Desactivar y editar**.
+3. Actualiza los detalles del servidor o el perfil del remitente.
+4. Haz clic en **Guardar y probar**.
+5. Cuando estés listo para volver a usarlo, cambia de nuevo al servidor SMTP personalizado.
+
+<Callout type="info">
+  Mientras lo editas, la cuenta cambia temporalmente al **Servidor predeterminado** para que la entrega de correos no se interrumpa.
+</Callout>
+
+### Eliminar un servidor SMTP personalizado activo
+
+1. Haz clic en el icono **Eliminar** (![Icono Eliminar](/migration-assets/admin-notification-settings/10.png)) en la tarjeta del servidor activo.
+2. En la ventana emergente de confirmación, haz clic en **Desactivar y eliminar**.
+
+<Callout type="info">
+  La cuenta vuelve automáticamente al **Servidor predeterminado** cuando se elimina el servidor personalizado.
+</Callout>
+
+### Editar un servidor SMTP personalizado inactivo
+
+Si un servidor personalizado no está activo actualmente, puedes actualizarlo directamente; no es necesario desactivarlo.
+
+1. Haz clic en el icono **Editar** en la tarjeta del servidor inactivo.
+2. Actualiza los detalles del servidor, las credenciales o el perfil del remitente.
+3. Haz clic en **Guardar y probar**.
+
+### Eliminar un servidor SMTP personalizado inactivo
+
+1. Haz clic en el icono **Eliminar** en la tarjeta del servidor inactivo.
+2. Haz clic en **Eliminar** para confirmar.
+
+## Personalizar las notificaciones de la cuenta
+
+En **Personalizar notificaciones**, los superadministradores pueden editar el contenido de los correos enviados desde la cuenta: el correo de bienvenida, el correo de reenvío de verificación y el encabezado y pie de página que aparecen en todos los correos.
+
+### Editar correos electrónicos
+
+1. En la pestaña **General**, haz clic en **Editar** en el correo de bienvenida o en el correo de reenvío de verificación.
+2. Usa el editor integrado para añadir, eliminar o cambiar el formato del texto. Inserta campos personalizados y campos del sistema, como el nombre, el correo electrónico o el número de teléfono, para incorporar información específica del usuario.
+
+   ![Editor de correo electrónico con campos personalizados y del sistema](/migration-assets/admin-notification-settings/15.png)
+   {/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+3. Haz clic en **Vista previa** para revisar los cambios y, después, en **Guardar**.
+
+<Callout type="info">
+  Los campos de firma no son compatibles con estas plantillas de correo electrónico, ni con las predeterminadas ni con las personalizadas.
+</Callout>
+
+Haz clic en **Restablecer** en cualquier momento para restaurar el contenido predeterminado original.
+
+### Encabezado y pie de página
+
+En la pestaña **Encabezado y pie de página**, edita o consulta el encabezado y el pie de página que aparecen en todos los correos enviados desde tu cuenta. Esto resulta útil para mantener una imagen de marca coherente, incluir información de contacto o añadir avisos legales.
+
+![Configuración del encabezado del correo electrónico](/migration-assets/admin-notification-settings/14.png)
+{/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+![Configuración del pie de página del correo electrónico](/migration-assets/admin-notification-settings/13.png)
+{/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+## Qué sigue
+
+- [Configuración de notificaciones del usuario](/docs/use/personal-settings/user-notification-settings)
+- [Configuración del bot](/docs/admin/account-settings/bot-settings)
+- [Eventos de notificación en procesos](/docs/build/processes/notification-events-in-processes)
+- [Eventos de notificación en tableros](/docs/build/boards/notification-events-in-boards)

@@ -1,0 +1,172 @@
+---
+title: "Crear un conector nuevo"
+description: "BORRADOR (no verificado) — migrado desde /t/83ygdm3/creating-a-new-connector"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+El creador de conectores de Kissflow es una plataforma de desarrollo donde puedes crear, configurar y enviar nuevos conectores de integración para incluirlos en tu biblioteca de conectores.
+
+Para crear conectores, debes tener una cuenta de desarrollador. El proceso de desarrollo se divide en cinco pasos generales:
+
+1. **Detalles básicos**: Proporciona información principal (nombre, descripción, URL, logotipo y público objetivo).
+    
+2. **Autenticación**: Configura cómo se conecta el conector de forma segura a la aplicación de destino.
+    
+3. **Diseñador de entradas**: Define los campos, activadores y acciones específicos de tu conector.
+    
+4. **Funciones avanzadas**: Configura las variables de entorno y los ajustes de conexión adicionales.
+    
+5. **Revisar y publicar**: Envía el conector completado para su revisión.
+    
+
+## Acceder al creador de conectores
+
+Solo los superadministradores tienen acceso predeterminado a la plataforma de desarrolladores. Si no puedes ver estas opciones, ponte en contacto con el administrador de tu cuenta.
+
+1.  Inicia sesión en tu cuenta de Kissflow.
+    
+2.  Haz clic en tu foto de perfil, en la esquina superior derecha.
+    
+3.  Selecciona **Creador de conectores** en el menú desplegable.
+    
+4.  Haz clic en **\+ Nuevo conector** para abrir la página de creación.
+    
+
+## Configurar los detalles básicos
+
+Completa los metadatos iniciales para clasificar y personalizar tu conector dentro de tu biblioteca de conectores.
+
+### Identidad de marca principal
+
+1. **Nombre**: Introduce el nombre oficial de la marca de la aplicación. Usa las mismas mayúsculas y el mismo estilo que en su sitio web oficial (por ejemplo, DocuSign, no Docusign). 
+    
+2. **Descripción**: Proporciona un breve resumen del caso de uso principal del conector en 60 caracteres o menos. Ejemplo: Kissflow Board es una herramienta de gestión de casos para organizar proyectos.
+    
+3. **URL de la página de inicio**: Proporciona la URL de la página de inicio de la aplicación de destino como referencia.
+    
+4. **Logotipo**: Sube una imagen cuadrada transparente de 256x256 px (o más grande) en formato PNG, JPG o JPEG. No incluyas el nombre de la aplicación en el logotipo; utiliza recursos oficiales de la marca.
+    
+5. **Categoría**: Elige la categoría principal que mejor se adapte a la utilidad principal de la aplicación. Si se aplican varias, selecciona la que más se acerque a tu caso de uso principal.
+    
+
+![](/migration-assets/creating-a-new-connector/1.png)
+
+## Configurar la autenticación
+
+La autenticación permite que tu conector acceda de forma segura a la cuenta de un usuario individual en la aplicación de destino, lo que le permite supervisar los cambios en los datos (activadores) o ejecutar tareas relacionadas con los datos (acciones).
+
+Kissflow admite tres métodos de autenticación, aunque se recomienda especialmente OAuth v2.
+
+**Tipo de autenticación**
+
+**Descripción**
+
+**Ideal para**
+
+**Autenticación básica**
+
+Utiliza un **Nombre de usuario** y una **Contraseña** sencillos. Envía las credenciales con cada llamada a la API.  
+  
+Este método almacena las credenciales sin procesar del usuario. Utilízalo solo como último recurso si la aplicación de destino no admite claves de API ni OAuth v2.
+
+Sistemas heredados en los que no hay ningún otro método de autenticación disponible.
+
+**Clave de API**
+
+Utiliza una cadena estática (y un dominio opcional) proporcionada por la aplicación de destino.
+
+Aplicaciones con un control de acceso sencillo basado en tokens.
+
+**OAuth v2**
+
+Utiliza un flujo de authorization\_code (similar al de GitHub o Facebook). Intercambia un código por tokens temporales de acceso/actualización.
+
+Estándar recomendado para integraciones modernas y seguras.
+
+![](/migration-assets/creating-a-new-connector/2.png)
+
+## Configurar OAuth v2 (el método de autenticación preferido)
+
+Dado que OAuth v2 es el estándar para las integraciones modernas, a continuación se explica paso a paso cómo configurarlo en Kissflow usando Asana como ejemplo.
+
+### 1\. Registra tu aplicación en la consola de destino
+
+Antes de configurar Kissflow, visita la consola de desarrolladores de la aplicación de destino (por ejemplo, la consola de desarrolladores de Asana) y selecciona **Crear una aplicación nueva**. Debes proporcionar:
+
+-   **Nombre de la aplicación**: El nombre que los usuarios ven cuando se les solicita conceder permisos.
+    
+-   **URL de redireccionamiento (URL de devolución de llamada)**: Copia esta URL de la pantalla de configuración de Kissflow y pégala en la configuración de desarrolladores de la aplicación de destino. Aquí se redirige a los usuarios después de un inicio de sesión correcto o fallido.
+    
+
+Una vez registrada, la aplicación de destino te proporcionará un **ID de cliente** y un **secreto de cliente**.
+
+### 2\. Construye la solicitud de URL de autorización
+
+Configura el endpoint de autorización inicial donde los usuarios iniciarán sesión. Puedes configurarlo mediante el **Modo de formulario** o el **Modo de código**.
+
+Para Asana, el endpoint base es: [https://app.asana.com/-/oauth\_authorize](https://app.asana.com/-/oauth_authorize)
+
+Añade los parámetros de consulta o encabezados HTTP requeridos. Para insertar valores de forma dinámica, utiliza la pestaña Datos de entrada (para elementos como el URI de redireccionamiento) o la pestaña Campo (`env`) para insertar variables de entorno almacenadas.
+
+#### Parámetros de consulta estándar de OAuth v2
+
+-   `client_id` (obligatorio): El ID único generado por la aplicación de destino.
+    
+-   `redirect_uri` (obligatorio): El URI de devolución de llamada que coincide con la configuración de tu aplicación.
+    
+-   `response_type`: Establécelo en `code`.
+    
+-   `state`: Un valor opaco utilizado para evitar ataques CSRF; se devuelve sin modificaciones en la respuesta.
+    
+-   `scope`: Una cadena delimitada por espacios que especifica los permisos de acceso.
+    
+
+### 3\. Configura el intercambio del token de acceso
+
+Cuando la aplicación devuelve correctamente un código de autorización, Kissflow debe intercambiarlo por un token de acceso mediante una solicitud `POST` al endpoint de tokens de la aplicación (por ejemplo, [https://app.asana.com/-/oauth\_token)](https://app.asana.com/-/oauth_token\)).
+
+Los parámetros deben enviarse en un cuerpo `POST` estándar codificado como formulario. Normalmente, el endpoint devuelve una respuesta JSON como esta:
+
+```
+{
+ "access_token": "f6ds7fdsa69ags7ag9sd5a",
+ "expires_in": 3600,
+ "token_type": "bearer",
+ "refresh_token": "hjkl325hjkl4325hj4kl32fjds",
+ "data": {
+   "id": 4673218951,
+   "gid": "4673218951",
+   "name": "Greg Sanchez",
+   "email": "gsanchez@example.com"
+ }
+}
+```
+
+> **Importante**: Kissflow no inserta automáticamente el token de acceso en los pasos de acción de API posteriores. Debes hacer referencia a él manualmente mediante `${authData.access_token}` en el **Modo de código**, o seleccionarlo entre las opciones de tokens de acceso en la pestaña de entradas cuando utilices el **Modo de formulario**.
+
+### 4\. Configura la solicitud de actualización del token
+
+Si la API de destino admite actualizaciones automáticas de tokens, configura el cuerpo de la solicitud de actualización. Esto permite que Kissflow ejecute flujos de trabajo silenciosamente en segundo plano utilizando el `refresh_token`, lo que evita interrupciones en la integración cuando caduca el `access_token` de corta duración.
+
+## Probar y etiquetar la conexión
+
+### Solicitud de prueba
+
+Antes de pasar a los activadores y las acciones, debes validar la configuración de autenticación.
+
+-   Proporciona un endpoint sencillo y sin configurar (como un endpoint de perfil /user o /me) que no requiera entradas adicionales para ejecutarse.
+    
+-   Como Kissflow no envía el token de acceso de forma predeterminada, haz clic en **Mostrar opciones** para añadir explícitamente tu encabezado de autorización, o haz clic en **Cambiar a** **modo de código** para realizar un análisis personalizado de la respuesta.
+    
+
+### Etiqueta de conexión
+
+Crea una convención de nomenclatura dinámica que ayude a los usuarios finales a distinguir entre varias cuentas conectadas (por ejemplo, para separar una cuenta personal de una cuenta de trabajo).
+
+De forma predeterminada, Kissflow asigna nombres a las conexiones mediante `[App Name] + [Version]`. Puedes personalizarlo asignando campos de la respuesta de prueba (como `${authData.data.email}` o `${authData.data.name}`) para que la etiqueta de conexión sea más reconocible.

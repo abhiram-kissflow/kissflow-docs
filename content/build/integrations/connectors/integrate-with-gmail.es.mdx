@@ -1,0 +1,78 @@
+---
+title: "Conector de Gmail"
+description: "BORRADOR (sin verificar) — migrado desde /t/x2h4af2/integrate-with-gmail"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es Gmail?
+
+Gmail es uno de los servicios de correo electrónico más utilizados. Mantiene un registro de todos tus correos con conversaciones agrupadas, etiquetas y una búsqueda impulsada por Google para ayudarte a encontrar cualquier mensaje.
+
+## Acerca de la integración de Gmail con Kissflow
+
+El conector de Gmail de Kissflow Integration te permite conectar Gmail al instante con otras aplicaciones de Kissflow y aplicaciones populares de terceros para automatizar tu trabajo. Para integrarlo con Gmail, debes tener una cuenta de Gmail válida y ser cliente de pago de Kissflow. Puedes usar el conector de Gmail para recibir datos de otros flujos o aplicaciones y realizar acciones específicas en Gmail.
+
+### Activadores del conector de Gmail
+
+**Evento del activador**
+
+**Descripción**
+
+Cuando se recibe un correo nuevo
+
+Se activa cuando se recibe un correo nuevo en tu cuenta de Gmail.
+
+### Acciones del conector de Gmail
+
+**Evento de la acción**
+
+**Descripción**
+
+Enviar un correo
+
+Esta acción redacta y envía un mensaje nuevo desde tu cuenta de Gmail.
+
+## Conector de Gmail como activador
+
+1.  Crea una integración nueva.
+    
+2.  Selecciona el conector **Gmail** y, a continuación, elige el activador **Cuando se recibe un correo nuevo**. También puedes usar la búsqueda para encontrar directamente el activador.
+    
+3.  Crea una conexión nueva o usa una conexión existente en tu cuenta. Puedes conectarte a cualquier cuenta de Gmail a la que tengas acceso. La conexión se autentica mediante tus credenciales de Google a través de OAuth. Después de autenticar la conexión, haz clic en **Next**.
+    
+4.  Selecciona la etiqueta de Gmail (por ejemplo, Principal o Promociones) que quieres supervisar. Haz clic en **Next**.
+    
+5.  Comprueba si el activador está configurado correctamente haciendo clic en el botón **Probar activador**. El conector extraerá datos de ejemplo del correo y los mostrará en formato JSON. Si hay un error en la configuración, recibirás un mensaje que indicará el problema. Vuelve a probar el activador después de realizar los cambios necesarios.
+    
+
+![](/migration-assets/integrate-with-gmail/3.png)
+
+## Conector de Gmail como paso de acción
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**. 
+2.  Una vez dentro del editor, puedes configurar un evento activador en cualquier aplicación de Kissflow o de terceros.
+3.  Después de configurar el paso del activador anterior, haz clic en el botón Agregar (![](/migration-assets/integrate-with-gmail/1.png) ) situado al lado para configurar el paso de acción. Busca **Gmail** y selecciona **Enviar un correo** como acción.![](/migration-assets/integrate-with-gmail/2.png)  
+4.  Después de elegir el evento de la acción, autentica el conector. Haz clic en **+Agregar una cuenta** e inicia sesión con tu cuenta de Google. Kissflow usa el OAuth de Gmail para la autenticación.
+5.  Después de autenticarte con tu cuenta de Gmail, añade los valores correspondientes a los campos del formulario de Gmail. Puedes hacer clic en Actualizar campos para ver todos los campos actualizados del formulario de Gmail seleccionado. También puedes asignar campos de Gmail desde el paso del activador o campos de los pasos de acción anteriores. Estos valores se añadirán automáticamente a los campos del elemento después de ejecutar la acción.
+6.  Estos son los campos obligatorios y opcionales que debes completar en el formulario de configuración de Gmail:
+    -   **Para**. Estos son los destinatarios del correo. Añade las direcciones de correo individualmente o separadas por comas. Este campo es obligatorio.
+    -   **Cc y Cco**. Estas son las direcciones que deben incluirse en copia y copia oculta en el correo. Las direcciones de correo pueden introducirse individualmente o separadas por comas. Estos campos son opcionales.
+    -   **De**. Esta es la dirección de correo electrónico o el alias de tu cuenta de Gmail. De forma predeterminada, se utiliza tu dirección de correo electrónico principal. Este campo es obligatorio.
+    -   **Asunto y cuerpo**. Aquí puedes añadir un asunto y el cuerpo personalizados para tu correo. Estos campos son obligatorios.![](/migration-assets/integrate-with-gmail/4.png)
+7.  Después de una configuración correcta, comprueba si el paso de acción de Gmail está configurado correctamente haciendo clic en el botón **P****robar**. El conector extraerá los datos de los campos de la cuenta de Gmail seleccionada y los mostrará como una salida JSON. Al igual que en el paso del activador, se te notificarán los errores de inmediato. Corrígelos antes de volver a probar el paso de acción.
+
+> **Nota:**  
+>   
+> Los archivos adjuntos están limitados a un tamaño máximo de 25 MB. 
+
+### Configurar un conector de Gmail
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción del conector de Gmail, activa el botón de alternancia para activar la ejecución de la integración.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

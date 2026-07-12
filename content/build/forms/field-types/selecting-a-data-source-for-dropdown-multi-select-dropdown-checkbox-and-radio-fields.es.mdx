@@ -1,0 +1,250 @@
+---
+title: "Selección de una fuente de datos para campos desplegables, desplegables de selección múltiple, casillas de verificación y botones de opción"
+description: "BORRADOR (sin verificar) — migrado desde /t/q6h4azg/selecting-a-data-source-for-dropdown-multi-select-dropdown-checkbox-and-radio-fields"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Los [campos desplegables, desplegables de selección múltiple, casillas de verificación y botones de opción](/t/35h4azp/dropdown-multi-select-dropdown-checkbox-checklists-and-radio-buttons) dentro de un formulario de proceso normal o de un tablero se completan mediante las siguientes fuentes de datos: [conjuntos de datos](/category/dataset) y [listas](/category/lists). Para las aplicaciones, las fuentes de datos son [dataforms](/category/dataforms-in-apps) y [listas](/category/lists). Según dónde uses estos campos, puedes seleccionar una lista predefinida o recuperar valores directamente de un conjunto de datos o dataform específicos. Si no tienes claro qué opción se adapta mejor a tus necesidades, esta guía te ayudará a tomar la decisión correcta.
+
+> **Nota**
+> 
+> Si solo ves la opción **Lista** en **Seleccionar una fuente de datos**, probablemente estés usando un plan antiguo de Kissflow. Para acceder a fuentes de datos adicionales, ponte en contacto con tu administrador de cuenta de Kissflow o con el equipo de soporte de Kissflow para conocer las opciones de actualización.
+
+## ¿Qué es una lista?
+
+Una **Lista** es una tabla sencilla de una sola columna que contiene un conjunto de valores. Por ejemplo, una lista de **Países** tendría el siguiente aspecto:
+
+![](/migration-assets/selecting-a-data-source-for-dropdown-multi-select-dropdown-checkbox-and-radio-fields/3.png)
+
+### ¿Cuándo se usa una lista en un campo desplegable?
+
+Puedes cargar datos desde una lista cuando quieras que los valores del campo desplegable, desplegable de selección múltiple, casilla de verificación o botón de opción permanezcan sin cambios o sean estáticos. Te recomendamos elegir una lista solo cuando el requisito sea sencillo y directo, como completar un campo desplegable con **colores primarios** (rojo, amarillo, azul) u opciones de botones de opción para el **tipo de empleo** (tiempo completo, tiempo parcial, contrato), etc.
+
+Si piensas lo contrario y quieres crear campos desplegables dependientes que te permitan limitar los valores mostrados en un campo desplegable según la selección realizada en otro, debes elegir un conjunto de datos o un dataform como fuente de datos del campo desplegable. [Obtén más información sobre los campos desplegables dependientes aquí](/t/q6h4azg/selecting-datasource#what-is-a-dependent-dropdown).
+
+## ¿Qué es un conjunto de datos?
+
+Un conjunto de datos es un lugar donde puedes almacenar tus datos en filas y columnas con un formato tabular. Es una tabla de varias filas y varias columnas, a diferencia de una lista. Un conjunto de datos típico tendría el siguiente aspecto:
+
+![](/migration-assets/selecting-a-data-source-for-dropdown-multi-select-dropdown-checkbox-and-radio-fields/1.png)
+
+### ¿Cuándo se cargan datos de un conjunto de datos en un campo desplegable?
+
+Puedes cargar los datos de un campo específico de un conjunto de datos en tu campo desplegable cuando quieras crear o usar varios campos desplegables que dependan entre sí según los valores de sus campos. Es decir, puedes elegir un conjunto de datos como fuente de datos cuando quieras aplicar condiciones de filtro y vincular el campo desplegable con otro hasta obtener los resultados deseados.
+
+> **Consejo:**
+> 
+> Tampoco puedes aplicar condiciones de filtro a una lista, por lo que te recomendamos elegir un conjunto de datos cuando deban cumplirse determinadas condiciones y los valores del campo desplegable deban limitarse según dichas condiciones de filtro.
+
+## ¿Qué son los campos desplegables o botones de opción dependientes?
+
+Son variantes de campo cuyos valores están limitados o se ven afectados por el campo seleccionado en otro campo desplegable o en cualquier otro campo relevante. Puede tratarse de una serie de campos desplegables o botones de opción que dependan entre sí y te permitan acceder a datos refinados según tus criterios de filtro.
+
+Estos son algunos ejemplos:
+
+-   Una lista de estados que depende del país seleccionado
+-   Una lista de cursos que depende de la universidad elegida
+-   Una lista de entrantes que depende de la cocina preferida
+
+Supongamos que _**Green&Fresh**_ es una empresa de entrega de productos agrícolas que utiliza Kissflow para gestionar su inventario. La siguiente tabla es un ejemplo del aspecto que tiene su conjunto de datos maestro:
+
+**Nombre del conjunto de datos:** Produce Master Jan 2022
+
+**Tipo de producto**
+
+**Tipo de artículo**
+
+**Nombre del artículo**
+
+Estacional
+
+Verdura
+
+Guisantes
+
+Estacional
+
+Fruta
+
+Guayaba
+
+Estacional
+
+Fruta
+
+Chirimoya
+
+Orgánico
+
+Verdura
+
+Tomates
+
+Orgánico
+
+Verdura
+
+Zanahorias
+
+Exótico
+
+Fruta
+
+Pitahaya
+
+Exótico
+
+Fruta
+
+Fresas
+
+Exótico
+
+Verduras de hoja
+
+Lechuga
+
+Exótico
+
+Verduras de hoja
+
+Apio
+
+### Caso de uso
+
+Veamos cómo esta empresa completa la información de sus existencias disponibles para entrega utilizando campos desplegables dependientes.
+
+### Solución
+
+1.  Crea un campo desplegable **Producto** para cargar los diferentes tipos de productos. _Este es el campo desplegable principal que usaremos para crear campos desplegables dependientes._
+2.  En **Seleccionar una fuente de datos**, haz clic en **Seleccionar un conjunto de datos**.
+3.  Busca el conjunto de datos **Produce Master Jan 2022** y selecciona el campo **Tipo de producto**. Tu primer campo desplegable estará listo.
+4.  Crea otro campo desplegable **Categoría de artículo** para mostrar los diferentes tipos de artículos. _Este es el primer campo desplegable dependiente._
+5.  Selecciona el mismo conjunto de datos y elige el campo **Tipo de artículo**.
+6.  Añade una condición de filtro de la siguiente manera:
+    
+    **Campo**
+    
+    **Operador**
+    
+    **Campo/Valor**
+    
+    **Nombre del campo/Introducir valor**
+    
+    Tipo de producto
+    
+    Igual a
+    
+    Campo
+    
+    Producto
+    
+    De este modo, los tipos de artículos asociados al tipo de producto seleccionado se mostrarán en el campo desplegable **Categoría de artículo**.
+    
+    > **Nota:**
+    > 
+    > Por ejemplo, si el **Tipo de producto** es _Estacional_, este campo desplegable mostrará los valores **Fruta** y **Verdura**. Si el tipo de producto es _Exótico_, este campo desplegable mostrará opciones como **Fruta** y **Verduras de hoja**.
+    
+7.  Del mismo modo, crea un tercer campo desplegable en **Artículos de hoy** para mostrar el conjunto de artículos del día según los detalles del producto y del tipo de artículo seleccionados anteriormente. _Este es el segundo campo desplegable dependiente en este contexto._
+8.  Selecciona el mismo conjunto de datos **Produce Master Jan 2022** y elige el campo **Nombre del artículo**.
+9.  Añade una condición de filtro de la siguiente manera:
+    
+    **Campo**
+    
+    **Operador**
+    
+    **Campo/Valor**
+    
+    **Nombre del campo/Introducir valor**
+    
+    Tipo de artículo
+    
+    Igual a
+    
+    Campo
+    
+    Artículo
+    
+    Y
+    
+    Tipo de producto
+    
+    Igual a
+    
+    Campo
+    
+    Producto
+    
+    Como hemos añadido dos condiciones a este filtro, este campo desplegable mostrará artículos según los tipos de artículo y de producto seleccionados en los dos campos desplegables anteriores.
+    
+    > **Nota:**
+    > 
+    > Por ejemplo, si quieren saber cuáles son los artículos de la categoría **Exótico** **Verduras de hoja** («Exótico» del primer campo desplegable + «Verduras de hoja» del segundo), este campo desplegable mostrará _Lechuga_ y _Apio_ como resultados.
+    
+
+**P: ¿Puedes añadir condiciones de filtro solo cuando la fuente de datos de tu campo desplegable o botón de opción es un conjunto de datos?**
+
+**R)** Sí, puedes crear campos desplegables o botones de opción dependientes utilizando conjuntos de datos y filtros. Para añadir condiciones de filtro:
+
+1.  Elige un conjunto de datos como fuente de datos para tu campo desplegable o botón de opción.
+    
+2.  Usa la opción de conjunto de datos cuando necesites validaciones de campo que afecten a los valores del campo desplegable o botón de opción.
+    
+
+> **Nota:**
+> 
+> -   Cambiar la selección en el campo desplegable principal restablecerá todos los campos desplegables dependientes. Tendrás que realizar nuevas selecciones en ellos.
+> -   Si no seleccionas un valor en el menú desplegable principal, los valores de los demás menús desplegables dependientes no se completarán, ya que dependen completamente de los filtros aplicados. Por lo tanto, si un usuario hace clic en los campos desplegables dependientes antes de elegir un valor en el campo desplegable principal, no se mostrarán valores para seleccionar.  
+>     Una solución alternativa es añadir un texto de ayuda en los campos desplegables dependientes para indicar al usuario que complete primero los campos desplegables anteriores para ver los resultados.
+> -   El modo Lista carga datos de una lista estática en un campo desplegable. Este modo no admite condiciones de filtro.
+
+## dataform como fuente de datos en Aplicaciones
+
+A diferencia de un conjunto de datos utilizado en el proceso, la fuente de datos de un campo desplegable dentro de una [Aplicación](/category/introduction-to-apps) es un dataform. Puedes elegir una lista o un dataform como fuente de datos dentro de la Aplicación.
+
+### ¿Qué es un dataform?
+
+En general, un dataform te permite recopilar y almacenar datos. Un dataform puede utilizarse como fuente de datos en un campo desplegable. El campo que contiene los valores necesarios se elige después de seleccionar un dataform específico como fuente de datos. El campo desplegable mostrará entonces los valores introducidos en el campo seleccionado del dataform.
+
+![](/migration-assets/selecting-a-data-source-for-dropdown-multi-select-dropdown-checkbox-and-radio-fields/2.png)
+
+**Pasos que debes seguir:**
+
+1.  En **Propiedades del campo**, en **Seleccionar una fuente de datos**, elige **Dataform**.
+2.  Haz clic en **Seleccionar un dataform**.
+3.  En la ventana emergente **Seleccionar un campo de dataform**, puedes seleccionar un dataform disponible o crear uno nuevo.
+4.  Al seleccionar el dataform, aparecerá una lista de campos del dataform.
+5.  Selecciona un campo que contenga los valores necesarios.
+6.  Al seleccionar el campo, los valores se mostrarán en la tabla de valores de campo del dataform.
+7.  Por último, haz clic en el botón **Seleccionar** para enviar.
+
+## **Preguntas frecuentes**
+
+**P1: ¿Qué tipos de campo admiten el comportamiento de campos dependientes?**  
+R) La capacidad de comportamiento de campos dependientes está disponible para los campos desplegables y los botones de opción.
+
+**P2: ¿Los campos de selección múltiple y casillas de verificación admiten campos desplegables dependientes?**  
+R) No, la capacidad de campos desplegables dependientes no se aplica a los campos desplegables de selección múltiple ni a las casillas de verificación.
+
+**P3: ¿Cuáles son las posibles fuentes de datos para las opciones de los campos?**  
+R) Las opciones de los campos desplegables, botones de opción, casillas de verificación y desplegables de selección múltiple pueden obtenerse de una lista o un conjunto de datos. En el caso de las [Aplicaciones](/category/introduction-to-apps), las fuentes de datos son las listas y los dataforms.
+
+**P4: ¿Hay un límite para el número de opciones cuando se utiliza una lista como fuente?**  
+R) Sí, de forma predeterminada, las listas pueden tener un máximo de 250 valores.
+
+**P5: ¿Cuántas opciones se muestran cuando se utiliza un conjunto de datos o un dataform como fuente?**  
+R) Esto depende del tipo de campo:
+
+-   Para los campos desplegables y los desplegables de selección múltiple: se puede mostrar el conjunto completo de valores del conjunto de datos o dataform.
+    
+-   Para las casillas de verificación y los botones de opción: solo se mostrarán los primeros 250 valores del conjunto de datos o dataform.
+    
+
+**P6: ¿Los valores del conjunto de datos se ordenan o filtran al mostrarse?**  
+R) Sí, los 250 valores que se muestran para las casillas de verificación y los botones de opción se basan en las condiciones de orden y filtro aplicadas al conjunto de datos o dataform.

@@ -1,0 +1,36 @@
+---
+title: "Uso de un campo de búsqueda remota para obtener el tipo de cambio"
+description: "BORRADOR (sin verificar) — migrado desde /t/x2yq224/using-remote-lookup-field-to-get-currency-exchange-rate"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ EnterpriseEl campo de búsqueda remota es una excelente forma de obtener datos de sistemas externos en tus formularios. 
+
+## Uso de JSON para obtener el tipo de cambio
+
+Veamos un caso de uso común para obtener el tipo de cambio actual. Queremos convertir un pedido ingresado en USD a GBP.  En el [formulario](/t/h7h4azm/creating-a-form) de Kissflow, comienza con un campo de moneda llamado _Valor de la orden de compra_ que muestre el precio total de la orden de compra en USD.A continuación, agrega un campo de búsqueda remota llamado _Tipo de cambio a GBP_. En el campo de URL, ingresa la URL a la que se debe dirigir la solicitud de API.En este ejemplo, obtendremos la URL de conversión para usar una API de terceros de **CurrencyLayer**. Puedes registrarte para obtener una cuenta gratuita en [https://currencylayer.com/product](https://currencylayer.com/product). De vuelta en el formulario de Kissflow, ingresa este [enlace](http://www.apilayer.net/api/live) en el campo de URL. En la sección del cuerpo, proporciona la clave de acceso. 
+
+1.  La búsqueda remota permite realizar una solicitud GET o POST. Este ejemplo usa **GET**. 
+2.  A continuación, puedes agregar parámetros de **encabezado** y **cuerpo** a la solicitud de API. Estos son útiles al autenticar llamadas a otros servicios de API. 
+3.  Haz clic en **+Agregar cuerpo** y, luego, escribe _access\_key_ en el campo de nombre. En el campo de valor, ingresa la clave de acceso real. Busca tu clave de acceso en el paso 3 de la guía de inicio rápido de CurrencyLayer. Con la cuenta gratuita de CurrencyLayer, tu moneda de origen siempre será USD. 
+4.  En el campo **¿Cuál es el formato de los datos de respuesta con los que estás trabajando?**, elige **JSON.**
+5.  En la ruta JSON del valor en el resultado, ingresa `$.quotes.USD[CurrencyType]`. En nuestro caso, la ruta JSON será: `$.quotes.USDGBP`.
+6.  En **¿Con qué tipo de datos estás trabajando?**, elige **Texto**.
+7.  En **¿Cómo se debe elegir el resultado?**, elige **Autocompletar un valor**. 
+
+En el formulario activo, verás un botón para las solicitudes GET que dice **Obtener datos**. Haz clic en el botón y Kissflow realizará una llamada remota y obtendrá el valor actualizado.  Si quieres calcular automáticamente el importe convertido, agrega un nuevo campo de moneda con dos decimales llamado **Orden de compra en GBP**. Márcalo como campo calculado e ingresa la fórmula:
+
+```
+PO_Value.value() * number(GBP_Conversion_Rate)
+```
+
+## Consejos profesionales
+
+Además de los tipos de cambio, puedes usar el campo de búsqueda remota para:
+
+-   Obtener cotizaciones de acciones y metales preciosos.
+-   Consultar datos de un sistema MDM diferente.

@@ -1,0 +1,64 @@
+---
+title: "Conector de Slack"
+description: "BORRADOR (sin verificar) — migrado desde /t/x2h4afh/slack-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es Slack?
+
+Slack es una plataforma de comunicación para equipos que permite enviar mensajes instantáneos, compartir documentos y buscar conocimientos para equipos modernos. Los documentos y mensajes se pueden buscar fácilmente, están disponibles desde cualquier lugar y se encuentran en un solo lugar.
+
+## Primeros pasos con la integración de Slack de Kissflow
+
+El conector de Slack de Kissflow te permite conectarte con Slack al instante y automatizar tu trabajo con otras aplicaciones de Kissflow y aplicaciones populares de terceros. Para acceder a esta función, debes tener una cuenta válida de Slack y ser cliente de pago de Kissflow. El conector de Slack te permite recibir datos de otros flujos o aplicaciones, así como ejecutar acciones específicas y acciones de búsqueda en Slack.
+
+Por ahora, el conector de Slack no admite eventos de activación.
+
+### Acciones del conector de Slack
+
+**Evento(s) de acción**
+
+**Descripción**
+
+Enviar un mensaje a un canal
+
+Esta acción publica un mensaje nuevo en un canal específico de Slack. También puedes programar un mensaje para una hora posterior.
+
+Enviar un mensaje directo
+
+Esta acción envía un mensaje directo a un usuario o a ti mismo desde Slackbot. También puedes programar un mensaje para una hora posterior.
+
+Invitar a un usuario a un canal
+
+Esta acción invita a un usuario existente al canal de Slack del que eres miembro.
+
+Crear un canal
+
+Esta acción crea un canal nuevo en Slack.
+
+Buscar un usuario por correo electrónico
+
+Esta acción de búsqueda localiza a un usuario mediante su dirección de correo electrónico.
+
+### Conector de Slack como paso de acción
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Una vez dentro del editor, configura un paso de activación, como un evento de activación de Kissflow Process, **Cuando se crea un elemento.**
+    
+3.  Después de configurar el paso de activación anterior, haz clic en el botón Add (![](/migration-assets/slack-connector/2.png) ) junto a la opción para configurar el paso de acción. Busca **Slack** y selecciona una acción.
+4.  Después de elegir el evento de acción, autentica el conector. Haz clic en **+Añadir una cuenta** e inicia sesión con tu cuenta de Slack. Kissflow utiliza Slack OAuth para la autenticación.![](/migration-assets/slack-connector/1.png) 
+5.  Después de autenticar tu cuenta de Slack, añade los valores correspondientes a los campos del formulario de Slack. Puedes hacer clic en **Actualizar campos** para ver todos los campos actualizados del formulario de Slack seleccionado. También puedes asignar campos de Slack desde el paso de activación o desde pasos de acción anteriores. Una vez ejecutada la acción, estos valores se añadirán automáticamente a los campos del elemento.![](/migration-assets/slack-connector/3.png) 
+6.  Después de configurar todo correctamente, prueba si el paso de acción de Slack está configurado de forma adecuada haciendo clic en el botón **P****rueba**. El conector extraerá los datos de los campos de la cuenta de Slack seleccionada y los mostrará como una salida JSON. Al igual que ocurre con el paso de activación, recibirás una notificación inmediata de los errores. Corrígelos antes de volver a probar el paso de acción.![](/migration-assets/slack-connector/4.png)
+
+### Configurar el conector de Slack
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción del conector de Slack, activa el botón de alternancia para activar la ejecución de la integración. Cuando se produce un evento de activación, las acciones de Slack se activan.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

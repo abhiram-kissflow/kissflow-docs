@@ -1,0 +1,115 @@
+---
+title: "Editar un objeto de datos externo"
+description: "BORRADOR (no verificado) — migrado desde /t/g9y3myh/editing-an-external-data-object"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Aquí tienes una lista detallada de todas las opciones de edición disponibles en los objetos de datos externos. 
+
+### Cambiar el nombre de un objeto de datos externo
+
+Para modificar el nombre de un objeto de datos externo,
+
+1.  Ve al menú de navegación izquierdo y selecciona el icono **Datos**.
+    
+2.  Haz clic en **Objetos de datos externos** y localiza el objeto al que quieres cambiar el nombre.
+    
+3.  Haz clic en **Más opciones** ![](/migration-assets/editing-an-external-data-object/1.png) junto al objeto de datos externo correspondiente.
+    
+4.  Introduce el nuevo nombre y confirma los cambios en la ventana emergente.
+    
+    ![](/migration-assets/editing-an-external-data-object/5.gif)
+    
+
+También puedes abrir directamente el objeto de datos externo. Haz clic en **Más opciones** junto a **Editar** y cambia el nombre desde allí.
+
+### Archivar un objeto de datos externo
+
+Para archivar un objeto de datos externo, 
+
+1.  Ve al menú de navegación izquierdo y selecciona el icono **Datos**.
+    
+2.  Haz clic en **Objetos de datos externos** y localiza el objeto que quieres archivar.
+    
+3.  Haz clic en **Más opciones** junto al objeto de datos externo correspondiente.
+    
+4. **Archiva** el objeto de datos externo.
+    
+    ![](/migration-assets/editing-an-external-data-object/2.gif)
+
+Si tu objeto de datos externo se utiliza en otros flujos, como búsquedas e integraciones, no puedes archivarlo a menos que elimines manualmente las dependencias. 
+
+> **Nota:**
+> 
+> También puedes abrir directamente el **Objeto de datos externo**. Haz clic en **Más opciones** junto a **Editar** y archívalo.
+
+#### Desarchivar un objeto de datos externo
+
+Para restaurar un objeto de datos externo archivado anteriormente, ve a los filtros, selecciona **Archivados** y **Desarchiva** el objeto de datos externo desde **Más opciones.**
+
+![](/migration-assets/editing-an-external-data-object/4.gif)
+
+### Eliminar un objeto de datos externo
+
+Para eliminar un objeto de datos externo, primero debes archivarlo.
+
+Ve a **Más opciones** en el objeto de datos externo archivado y haz clic en **Eliminar** para eliminarlo de forma permanente.
+
+![](/migration-assets/editing-an-external-data-object/3.gif)
+
+### Compartir un objeto de datos externo
+
+Puedes conceder acceso de **Administración** a otros miembros de tu aplicación para que utilicen el objeto de datos externo.
+
+> **Nota:**
+> 
+> El acceso es obligatorio para que los usuarios creen integraciones con objetos de datos externos dentro de las aplicaciones. Sin embargo, no es necesario asignar este rol para consumir datos mediante campos de búsqueda.  
+>  
+
+1.  Abre el objeto de datos externo desde el icono **Datos** del panel de navegación izquierdo.
+    
+2.  Haz clic en el icono **Compartir** (![](/migration-assets/editing-an-external-data-object/6.png)) en la esquina superior derecha de la página.
+    
+3.  Ve a **+Asignar roles** en la ventana emergente y añade los nombres de usuario. 
+    
+4.  Selecciona el permiso **Administrar** y confirma los cambios.
+    
+    ![](/migration-assets/editing-an-external-data-object/9.gif)
+
+### Modificar la configuración del objeto externo
+
+Para modificar las configuraciones de un objeto de datos externo, ve al objeto específico desde la barra de navegación izquierda de tu aplicación. 
+
+**Datos** > **Objetos externos** > **tabla específica**
+
+![](/migration-assets/editing-an-external-data-object/11.gif)
+
+> **Nota:**
+> 
+> Mientras editas un objeto externo, no puedes cambiar ni modificar la conexión o la tabla. Si necesitas hacerlo, crea un objeto externo nuevo desde cero. 
+
+Aquí encontrarás una descripción general de sus detalles y de las columnas seleccionadas.
+
+Haz clic en el botón Editar situado en la esquina superior derecha de la pantalla para acceder a la página de configuración. Aquí puedes:
+
+-   Añadir columnas nuevas en el paso **Seleccionar columnas**.
+    
+    ![](/migration-assets/editing-an-external-data-object/7.gif)
+    
+-   Eliminar columnas existentes en el paso **Configurar columnas** haciendo clic en el icono **Eliminar** (![](/migration-assets/editing-an-external-data-object/10.png)) junto a la opción **Obligatorio**.  
+      
+    Se producirá un error de dependencia si eliminas un campo que ya se utiliza en una búsqueda o integración. Para continuar con la eliminación, tendrás que volver a la dependencia correspondiente y eliminar el campo.
+    
+-   Editar nombres y tipos de campo, establecer o eliminar la obligatoriedad de los campos y modificar las reglas de validación en el paso **Configurar columnas**.  
+      
+    Ten en cuenta que el ID del campo, una vez establecido, no se puede editar posteriormente.
+    
+    ![](/migration-assets/editing-an-external-data-object/8.gif)
+
+Después de realizar los cambios necesarios, simplemente haz clic en **Guardar** para aplicarlos.

@@ -1,0 +1,198 @@
+---
+title: "Expresiones de usuario"
+description: "BORRADOR (sin verificar) — migrado desde /t/h7h4alf/user-expressions"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Los **campos de usuario** hacen referencia a un usuario específico de tu sistema; sus detalles se recuperan de la **tabla de gestión de usuarios**.
+
+Cualquier campo de usuario personalizado que agregues a un [formulario](/t/h7h4azm/creating-a-form) se puede usar en expresiones. Además, puedes usar los siguientes [campos de usuario generados por el sistema](/t/83h4alt/system-fields):
+
+**Campo del sistema**
+
+**Descripción**
+
+\_created\_by
+
+El usuario que inició el elemento.
+
+\_modified\_by
+
+El último usuario que modificó el formulario.
+
+Por ejemplo, la siguiente expresión también devuelve un campo de usuario:
+
+`lastcompletedstep().approvers()`
+
+## Mostrar información de usuario en formularios
+
+Los campos de usuario no se pueden mostrar por sí solos. Debes usar el operador de punto y luego agregar el campo que quieres mostrar. Los campos deben coincidir con la tabla de gestión de usuarios. Por ejemplo:
+
+```
+_created_by.FirstName
+```
+
+Esta es una lista de los campos predeterminados que puedes recuperar de la tabla de gestión de usuarios:
+
+**Nombre del campo**
+
+**Tipo de datos**
+
+**Sintaxis de ejemplo**
+
+**Resultado**
+
+**Ejemplo**
+
+FirstName
+
+Text
+
+\_created\_by.FirstName
+
+Nombre del creador.
+
+Pepper
+
+LastName
+
+Text
+
+\_created\_by.LastName
+
+Apellido del creador.
+
+Potts
+
+Name
+
+Text
+
+\_created\_by.Name
+
+Nombre completo del creador.
+
+Pepper Potts
+
+Email
+
+Text
+
+\_created\_by.Email
+
+Dirección de correo electrónico del creador.
+
+[pepper.potts@stark-industries.co](mailto:pepper.potts@stark-industries.co)
+
+Added on
+
+Datetime
+
+\_created\_by.\_created\_at
+
+Fecha y hora en que se agregó al creador a la cuenta.
+
+2019-05-23 11:49 AM
+
+Last signed in
+
+Datetime
+
+\_created\_by.LastLoggedInAt
+
+Fecha y hora en que el creador inició sesión por última vez en Kissflow.
+
+2019-10-31 11:52 AM
+
+Manager
+
+User1
+
+\_created\_by.Manager
+
+Gerente del creador.
+
+Natasha Romanoff
+
+1\. Si quieres mostrar información sobre el Manager en un campo de texto, debes usar el operador de punto para agregar un campo adicional. Por ejemplo:
+
+```
+_created_by.Manager.Name
+```
+
+## Asignar pasos con expresiones de usuario
+
+En el flujo de trabajo, puedes usar una fórmula para asignar un paso a un usuario. El tipo de datos de esta expresión debe ser User.
+
+Puedes usar:
+
+-   el ID de campo de cualquier campo de usuario de tu formulario
+-   un campo del sistema
+-   un campo de usuario recuperado de la tabla de gestión de usuarios, como Manager  
+    (o bien)  
+    También puedes usar las siguientes funciones de usuario según tus necesidades:
+
+### Función de usuario
+
+> **Nota:**
+> 
+> Entrada: Dirección de correo electrónico  
+> Sintaxis: user("&lt;email\_address>")
+
+Esta función devuelve la información del usuario según la dirección de correo electrónico indicada.
+
+Si la dirección de correo electrónico es **[natasha@kissflow.com](mailto:natasha@kissflow.com)**, esta función devolverá la información del usuario asociada a esta dirección de correo electrónico. También puedes obtener los demás atributos del usuario utilizando el operador de punto según corresponda.
+
+![](/migration-assets/user-expressions/3.gif)
+
+### Función Userandgroup
+
+> **Nota:**
+> 
+> Entrada: Dirección de correo electrónico o nombre del grupo  
+> Sintaxis: userandgroup("&lt;email\_address>" \\| "&lt;group\_name>")
+
+Esta función devuelve la información del usuario según la dirección de correo electrónico o el nombre del grupo que se indique en la función.
+
+Si la dirección de correo electrónico es **[natasha@kissflow.com](mailto:natasha@kissflow.com)**, esta función devolverá la información del usuario asociada a esta dirección de correo electrónico. Si el nombre del grupo indicado es “Approval team”, esta función devolverá el grupo correspondiente con el nombre especificado.
+
+![](/migration-assets/user-expressions/1.png)
+
+### Función Userandgrouplist
+
+> **Nota:**
+> 
+> Entrada: Lista de direcciones de correo electrónico o nombres de grupos  
+> Sintaxis: userandgrouplist("&lt;email\_address01>","&lt;email\_address02>","&lt;email\_address03>" \\| "&lt;group\_name01>","&lt;group\_name02>","&lt;group\_name03>")
+
+Esta función devuelve una lista de objetos de usuario o grupos según los datos introducidos.
+
+Por ejemplo:
+
+_userandgrouplist_(“tonystark@starkcorp.com”, “jacobs@starkcorp.com”, “elizamendis@starkcorp.com”) establecerá a ‘Tony Stark’, ‘Jacob’ y ‘Eliza Mendis’ como responsables del paso, respectivamente.
+
+_userandgrouplist_(“Approval team”, “Secondary approval”, “New recruits”) asignará el paso al equipo de Finanzas, al equipo de Recursos Humanos y al grupo New Recruits de una sola vez.
+
+![](/migration-assets/user-expressions/2.png)
+
+> **Consejo:**
+> 
+> También puedes usar la [función IF](/t/x2h4alm/if-function) para asignar un paso, pero ambos resultados deben ser campos de usuario.
+
+### Usar operadores de comparación con campos de usuario
+
+Los operadores **igual a** (=) y **no igual a** (&lt;>) pueden funcionar con campos de usuario.
+
+Este es un caso de uso común: tienes un paso en un flujo de trabajo llamado aprobación del gerente, que está asignado al gerente del creador. Pero ¿qué ocurre si el gerente es el creador?
+
+Crea una condición para ese paso con esta expresión:
+
+```
+_created_by<>_created_by.Manager
+```

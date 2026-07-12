@@ -1,0 +1,124 @@
+---
+title: "Hacer una copia de seguridad de los datos en Amazon S3"
+description: "Autentica tu bucket de Amazon S3, configura las preferencias de tamaño y cifrado de archivos, y elige las categorías de datos que quieres incluir en tu copia de seguridad de Kissflow."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - data-backup
+  - amazon-s3
+  - security
+---
+
+# Hacer una copia de seguridad de los datos en Amazon S3
+
+<PlanBadge plans={["enterprise"]} />
+
+Amazon Simple Storage Service (S3) es uno de los destinos de almacenamiento que puedes configurar para la función de copia de seguridad de datos de Kissflow, junto con Google Drive, Google Cloud Storage y la entrega por correo electrónico. Una vez configurado, Kissflow exporta los datos de tu cuenta como archivos JSON, los empaqueta en archivos ZIP y los carga directamente en el bucket de S3 que especifiques.
+
+<Callout type="info">
+  La copia de seguridad de datos está disponible previa solicitud. Contacta con el equipo de soporte de Kissflow para activarla en tu cuenta.
+</Callout>
+
+Para configurar las preferencias de copia de seguridad, necesitas acceso de administrador a la sección **Copia de seguridad de datos** de tu cuenta. Consulta [Roles y permisos de usuario](/docs/admin/users/user-roles-and-permissions) para saber cómo se concede el acceso a las copias de seguridad.
+
+## Antes de comenzar
+
+Concede los siguientes permisos para el bucket de Amazon S3 en tu política de IAM:
+
+- **s3:PutObject** — permite que Kissflow añada archivos de copia de seguridad a tu bucket.
+- **s3:GetObject** — permite que Kissflow obtenga objetos de tu bucket.
+- **s3:ListBucket** — permite que Kissflow enumere los objetos de tu bucket.
+
+También necesitarás un [ID de clave de acceso de AWS y una clave de acceso secreta](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey) para la autenticación. Cópialos al portapapeles o descárgalos como archivo CSV; ambas opciones funcionan cuando realizas la autenticación dentro de Kissflow.
+
+{/* TODO: captura de pantalla — la imagen de origen ha caducado (CDN de Google); volver a capturar desde la interfaz de usuario del producto */}
+
+## Iniciar una configuración de copia de seguridad
+
+1. Inicia sesión en Kissflow.
+2. Haz clic en tu foto de perfil en la esquina superior derecha de la página y, a continuación, haz clic en **Administración de la cuenta** > **Copia de seguridad de datos**.
+3. Haz clic en **Iniciar configuración** en la página **Copia de seguridad de datos**.
+
+   ![Página de copia de seguridad de datos con el botón Iniciar configuración](/migration-assets/backing-up-data-to-amazon-s3/1.png)
+   {/* TODO: verificar que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+La configuración de una copia de seguridad consta de tres pasos: autenticar el destino de almacenamiento, administrar las preferencias de copia de seguridad y seleccionar las categorías de datos que se incluirán.
+
+## Autenticar tu cuenta de Amazon S3
+
+1. Selecciona **Amazon S3** como modo de almacenamiento en la lista desplegable.
+2. Haz clic en **Cargar CSV** para completar automáticamente tu **ID de clave de acceso de AWS** y tu **clave de acceso secreta**.
+
+   <Callout type="info">
+     También puedes pegar directamente tus credenciales copiadas en los campos **ID de clave de acceso** y **Clave de acceso secreta** en lugar de cargar un CSV.
+   </Callout>
+
+3. Haz clic en **Siguiente**.
+
+   ![Paso de autenticación del modo de almacenamiento con Amazon S3 seleccionado y campos de credenciales de AWS](/migration-assets/backing-up-data-to-amazon-s3/2.png)
+   {/* TODO: verificar que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+<Callout type="info">
+  Para cambiar tus credenciales de AWS más adelante, haz clic en **Reemplazar CSV** y carga un nuevo archivo CSV con un ID de clave de acceso y una clave de acceso secreta diferentes.
+</Callout>
+
+## Administrar las preferencias de copia de seguridad
+
+1. **Establece la ubicación del archivo.** Pega el URI del bucket de S3 donde quieres almacenar los archivos de copia de seguridad, con el formato `s3://your-bucket-name`. Puedes copiarlo desde la página de detalles del bucket en la consola de AWS.
+2. **Elige el tamaño del archivo ZIP.** Selecciona **4 GB**, **8 GB**, **16 GB** o **24 GB**. Kissflow comprime y divide automáticamente tu copia de seguridad según el límite que elijas; por ejemplo, un límite de 24 GB aplicado a una copia de seguridad de 100 GB genera cuatro archivos de 24 GB y un archivo de 4 GB. Los archivos de 24 GB o menos se cargan sin cambios.
+3. **Cifra el archivo de copia de seguridad (opcional).** Activa el interruptor para añadir una frase de contraseña que cifre tu copia de seguridad y proporcione seguridad adicional. Tu frase de contraseña debe:
+   - Contener al menos ocho caracteres.
+   - Contener letras mayúsculas y minúsculas.
+   - Contener al menos un carácter numérico o un símbolo.
+
+   <Callout type="warn">
+     Guarda tu frase de contraseña de forma segura. La necesitarás para acceder posteriormente a tu archivo de copia de seguridad y Kissflow no puede recuperarla por ti.
+   </Callout>
+
+4. Haz clic en **Siguiente**.
+
+   ![Paso de preferencias de copia de seguridad que muestra la ubicación del archivo, el tamaño del ZIP y las opciones de cifrado](/migration-assets/backing-up-data-to-amazon-s3/3.png)
+   {/* TODO: verificar que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+## Seleccionar las categorías de datos para la copia de seguridad
+
+Elige una o más categorías para incluir en tu copia de seguridad:
+
+- **Datos de usuarios y grupos** — todos los datos de usuarios y grupos de la cuenta.
+- **Datos transaccionales** — detalles de los elementos del flujo, como el estado, los comentarios y los miembros involucrados.
+- **Datos del registro de auditoría** — el último año de registros de auditoría tanto a nivel del flujo como de la cuenta.
+- **Archivos adjuntos** — archivos adjuntos en flujos, como procesos, tableros y más.
+
+![Paso de selección de categorías de datos con casillas de verificación para datos de usuarios y grupos, datos transaccionales, registros de auditoría y archivos adjuntos](/migration-assets/backing-up-data-to-amazon-s3/4.png)
+{/* TODO: verificar que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+## Revisar e iniciar la copia de seguridad
+
+1. Selecciona las categorías de datos y haz clic en **Siguiente**. Se abre una ventana emergente de confirmación de la copia de seguridad en la que se resumen el modo de almacenamiento, la ubicación del archivo, el tamaño del archivo cargado y las categorías de datos seleccionadas.
+2. Verifica los detalles y haz clic en **Iniciar copia de seguridad**.
+
+   ![Ventana emergente de confirmación de la copia de seguridad que resume la configuración antes de iniciar la copia de seguridad](/migration-assets/backing-up-data-to-amazon-s3/6.png)
+   {/* TODO: verificar que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+<Callout type="warn">
+  Solo puedes hacer una copia de seguridad de tus datos una vez cada seis meses y no se puede cancelar una copia de seguridad una vez iniciada. Revisa cuidadosamente la configuración antes de hacer clic en **Iniciar copia de seguridad**.
+</Callout>
+
+Si guardas la configuración y sales sin iniciar la copia de seguridad, puedes reanudarla más tarde desde la misma página. Desde allí, también puedes editar o eliminar una configuración, o consultar el historial de copias de seguridad.
+
+![Página de copia de seguridad de datos que muestra las opciones para editar, eliminar o consultar el historial de copias de seguridad de una configuración guardada](/migration-assets/backing-up-data-to-amazon-s3/5.png)
+{/* TODO: verificar que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+## Qué sigue
+
+- [Descripción general de la copia de seguridad de datos](/docs/admin/data-backup/data-backup-overview)
+- [Comprender el resultado de tu copia de seguridad](/docs/admin/data-backup/understanding-your-backup-output)
+- [Cumplimiento e historial de copias de seguridad](/docs/admin/data-backup/compliance-and-backup-history)
+- [Hacer una copia de seguridad de los datos en Google Drive](/docs/admin/data-backup/backing-up-data-to-google-drive)
+- [Hacer una copia de seguridad de los datos en Google Cloud Storage (GCS)](/docs/admin/data-backup/backing-up-data-to-google-cloud-service-gcs)
+- [Hacer una copia de seguridad de los datos en Kissflow](/docs/admin/data-backup/backing-up-data-to-kissflow)

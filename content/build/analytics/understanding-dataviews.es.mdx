@@ -1,0 +1,223 @@
+---
+title: "Comprender las vistas de datos"
+description: "BORRADOR (sin verificar) — migrado desde /t/83h9qzn/understanding-dataviews"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+## Vistas de datos
+
+Una vista de datos es una fuente de datos única que se crea mediante la composición, ejecución y publicación de una consulta [SQL](https://docs.snowflake.com/en/sql-reference/constructs) de Snowflake en el **editor de consultas**, y la combinación de los atributos de una o más fuentes de datos. Los datos de la vista de datos se presentan en forma tabular. 
+
+Al realizar una combinación o unión SQL, puedes crear una vista de datos a partir de una o más [fuentes de datos](/t/x2h9qzw/understanding-data-sources) u otras vistas de datos. Una vez creada una vista de datos, puedes crear informes sobre ella.
+
+### Crear una vista de datos
+
+Para crear una vista de datos nueva:
+
+1.  Inicia sesión en Kissflow y haz clic en el botón **Analytics** (![](/migration-assets/overview-of-kissflow-analytics/2.png)) en la navegación izquierda.
+2.  Haz clic en **Crear vista de datos** en la esquina superior derecha de la página.![](/migration-assets/understanding-dataviews/1.png)     
+3.  Especifica un nombre para tu vista de datos, añade una descripción si es necesario y haz clic en **Crear**.
+4.  Se abrirá el editor de consultas, donde puedes redactar la consulta SQL para combinar datos de varias fuentes de datos. También puedes usar otra vista de datos como fuente de datos.![](/migration-assets/understanding-dataviews/2.png)    
+5.  Cuando hayas terminado de redactar la consulta, haz clic en **Ejecutar** para ejecutarla.
+6.  Puedes comprobar los resultados en **Resultado de la consulta** y modificar la consulta si es necesario.
+7.  Después de ejecutar correctamente la consulta, puedes hacer clic en **Publicar** para publicar la vista de datos. Cuando publicas una vista de datos, pasa del estado **Borrador** al estado **Publicada**.
+8.  Si realizas cambios en la consulta después de publicarla, puedes hacer clic en **Revertir** para volver a la última consulta publicada.
+9.  Para [crear un informe](/t/y4h9qzg/using-reports#creating-a-report-from-dataview) usando la vista de datos, haz clic en **Crear informe**.
+
+> **Nota:**
+> 
+> 1.  Una vista de datos permanece en la etapa de borrador mientras no se haya publicado al menos una vez.
+> 2.  Cuando ejecutas una consulta que llama a una fuente de datos que nunca se ha usado antes en ninguna consulta o informe de Analytics, se realiza una obtención de datos única, como se muestra en la imagen siguiente. Posteriormente, la fuente de datos se programa para sincronizarse periódicamente y mantener los datos actualizados. Esta obtención de datos inicial suele completarse en un plazo de cero a diez minutos, según el tamaño y la complejidad de la fuente de datos.![](/migration-assets/understanding-dataviews/5.jpg)
+
+### Usar el editor de consultas de vistas de datos
+
+El editor de consultas tiene un área de texto donde escribes la consulta. A la izquierda del editor se encuentra el explorador de esquemas, que muestra todas las fuentes de datos a las que tienes acceso, clasificadas en tablas y vistas de datos. Puedes hacer clic en una fuente de datos para ver su estructura, que consta de campos de formulario y campos del sistema. 
+
+Para previsualizar una fuente de datos, pasa el cursor sobre ella, haz clic en el botón **Más opciones** (![](/migration-assets/understanding-dataviews/6.svg)) y selecciona **Mostrar vista previa**. Esto mostrará las filas y columnas presentes en la fuente de datos en **Vista previa de datos**. Puedes arrastrar y soltar los nombres de las tablas y columnas en el editor de consultas.
+
+El editor de consultas te ayuda a redactar una consulta SQL mediante distintas funciones. Cuando haces clic en **Embellecer**, presenta la consulta con una estructura adecuada para facilitar su visualización. Puedes hacer clic en el botón **Copiar al portapapeles** (![](/migration-assets/understanding-dataviews/4.png)) para copiar la consulta.   
+ 
+
+![](/migration-assets/understanding-dataviews/9.gif)
+
+Estos son algunos artículos que te ayudarán a escribir consultas SQL:
+
+-   [Consultas Select](https://docs.snowflake.com/en/sql-reference/sql/select)
+-   [Combinar diferentes tablas](https://docs.snowflake.com/en/user-guide/querying-joins)
+-   [Construir una combinación](https://docs.snowflake.com/en/sql-reference/constructs/join)
+-   [Funciones de agregación](https://docs.snowflake.com/en/sql-reference/functions-aggregation)
+
+> **Nota:**
+> 
+> El asterisco (\*) no es compatible con las consultas Select (para mostrar todas las columnas).
+
+### Acceder a las vistas de datos
+
+Todas las vistas de datos a las que tienes acceso están visibles en la página **Explorador de datos**. Puedes filtrar las vistas de datos seleccionando **Mis vistas de datos** o **Vistas de datos compartidas** en la página del explorador de datos.
+
+Después de publicar una vista de datos, los datos resultantes se muestran en forma de tabla. El indicador **última sincronización** muestra cuánto tiempo ha transcurrido desde la última sincronización de los datos con las fuentes de datos.
+
+![](/migration-assets/understanding-dataviews/3.png)
+
+Puedes crear filtros, mostrar u ocultar campos para mostrar campos específicos o incluso usar la búsqueda para encontrar el nombre de un campo. Para [crear un informe](/t/y4h9qzg/using-reports#creating-a-report-from-dataview) sobre la vista de datos, haz clic en el botón **\+ Crear informe** en la esquina superior derecha de la página.
+
+Al hacer clic en el botón **Más opciones** (![](/migration-assets/understanding-dataviews/6.svg)), puedes **Compartir**, **Exportar** o consultar los **Detalles** de la vista de datos. Puedes exportar una vista de datos en formato **CSV** o **JSON**.
+
+Cuando haces clic en **Detalles**, puedes ver el nombre de la vista de datos, la descripción, el propietario, la hora de creación, la hora de la última modificación, la hora de la última sincronización y los informes correspondientes creados sobre ella.
+
+> **Nota:**
+> 
+> Los campos **Filtrar** y **Mostrar/ocultar** solo se usan para ver y exportar una vista de datos. No pueden modificar una vista de datos publicada.
+
+## Representación de los campos en las vistas de datos
+
+Si tienes una columna calculada en la consulta SQL de tu vista de datos (por ejemplo, Total\_Amount - 100 as Final Amount) y el resultado se muestra como un número, puedes expresarlo como una calificación(![](/migration-assets/understanding-dataviews/11.png)) o moneda (![](/migration-assets/understanding-dataviews/12.png)) en la vista de datos. Cuando seleccionas moneda, se aplicará el símbolo **$**.
+
+![](/migration-assets/understanding-dataviews/7.png)
+
+La calificación siempre está en el rango de uno a cinco. Si el número es mayor que cinco, se mostrará como cinco.
+
+> **Nota:**
+> 
+> Las dos formas diferentes de expresar números en el resultado de la consulta son calificación y moneda. Cambiar la forma en que se muestran los números no afecta a los datos.
+
+### Campos de moneda
+
+A continuación se muestra un ejemplo de cómo representar columnas en un campo de moneda. En este ejemplo, se considera el [campo de moneda](/t/m1h4azb/currency-field) **Total\_Catalog\_Amount**.
+
+![](/migration-assets/understanding-dataviews/8.png)
+
+Aquí, **value** es un número, **unit** es un carácter y **display\_value** es una cadena que se muestra como un widget de moneda con el símbolo del campo de unidad. 
+
+### Campos de usuario
+
+Cuando expandes una fuente de datos en el explorador de esquemas, puedes ver cuatro columnas para un campo de usuario. Por ejemplo, considera el campo **\_created\_by**, cuyos datos pueden verse como un widget de tipo de datos de usuario. Sin embargo, puedes usar **\_created\_by.\_id**, **\_created\_by.Kind** o **\_created\_by.Name** en la consulta para hacer referencia al valor especificado.
+
+**Nombres de campo**
+
+**Descripción**
+
+Name
+
+Nombre del usuario.
+
+Kind
+
+Usuario/grupo.
+
+\_id
+
+Identificador único de un usuario, que puedes encontrar en la tabla User.
+
+\_created\_by
+
+Un campo JSON que contiene toda la información anterior: nombre, tipo y \_id. Si quieres usar el campo de usuario en los informes, puedes usar este campo en la consulta.
+
+#### Vista de datos de ejemplo
+
+![](/migration-assets/understanding-dataviews/10.png)
+
+## Gestionar roles y permisos
+
+Hay dos roles para las vistas de datos:
+
+-   **Propietario**: el usuario que creó una vista de datos es el propietario. Solo puede haber un propietario para una vista de datos. El propietario puede editar, cambiar el nombre, eliminar y compartir la vista de datos, así como crear informes sobre ella.
+-   **Creador de informes**: este rol te permite ver las vistas de datos y crear informes sobre ellas.
+
+**Acción**
+
+**Propietario**
+
+**Creador de informes**
+
+Crear una vista de datos
+
+✅
+
+✅
+
+Acceder a la vista de datos propia
+
+✅ (No puede acceder a las vistas de datos creadas sobre su vista de datos)
+
+❌
+
+Reemplazar al propietario
+
+✅
+
+❌
+
+Añadir o eliminar un usuario o grupo como creador de informes
+
+✅
+
+❌
+
+Editar una vista de datos
+
+✅
+
+❌
+
+Eliminar una vista de datos
+
+✅
+
+❌
+
+Crear un informe sobre la vista de datos propia
+
+✅ 
+
+✅
+
+Acceder al informe de la vista de datos
+
+✅ (Solo informes creados sobre la vista de datos original)
+
+✅ (Solo informes creados sobre la vista de datos original)
+
+> **Nota:**
+> 
+> El rol de [Superadministrador o Administrador de la cuenta](/t/35h4ak0/user-roles-permissions#super-admins) te permite unirte a cualquier vista de datos con permisos de creador de informes. También pueden convertir a cualquier persona en propietario y añadir a otras personas como creadoras de informes.
+
+> **Nota:**
+> 
+> Cuando eliminas una vista de datos, todos los informes y demás vistas de datos creados sobre ella se verán afectados.
+
+Cuando haces clic en el botón **Más opciones** (![](/migration-assets/understanding-dataviews/6.svg)) en la página de la vista de datos, puedes realizar las siguientes acciones según el estado de publicación y el rol:
+
+**Estado de la vista de datos**
+
+**Propietario**
+
+**Creador de informes**
+
+Borrador
+
+Editar, cambiar el nombre y eliminar
+
+Sin acceso
+
+Publicada
+
+Crear informe, editar, compartir y eliminar
+
+Crear informe y compartir
+
+### Eliminar el acceso a las vistas de datos
+
+Un creador de informes no puede acceder a una vista de datos si el propietario ha revocado su acceso como creador de informes. Las vistas de datos o informes que el creador de informes haya creado sobre esta vista de datos seguirán siendo accesibles. 
+
+Para eliminar el acceso de un usuario que tiene acceso como creador de informes, sigue estos pasos:
+
+1.  En el **editor de consultas** o en la página **Explorador de datos**, selecciona una tarjeta de vista de datos y haz clic en el botón **Más opciones** (![](/migration-assets/understanding-dataviews/6.svg)).
+2.  Haz clic en **Compartir** para ver la página **Configuración de uso compartido**. 
+3.  Para eliminar a un creador de informes, en la tarjeta del usuario, haz clic en el botón **Más opciones** (![](/migration-assets/understanding-dataviews/6.svg)) > **Eliminar creador de informes**.

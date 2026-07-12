@@ -1,0 +1,347 @@
+---
+title: "Cómo interpretar el resultado de tu backup"
+description: "Una guía campo por campo de tu backup de datos de Kissflow: qué contiene UserAndGroup.json, los datos transaccionales y los logs de auditoría, y cómo descifrar un paquete cifrado."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - data-backup
+  - admin
+  - security
+  - exports
+---
+
+# Cómo interpretar el resultado de tu backup
+
+<PlanBadge plans={["enterprise"]} />
+
+<Callout type="info">
+  El backup de datos está disponible previa solicitud. Contacta con el equipo de soporte para habilitarlo en tu cuenta.
+</Callout>
+
+Cuando finaliza el backup de tu cuenta, recibes un conjunto de archivos JSON y tus archivos adjuntos originales, empaquetados en archivos ZIP (divididos y cifrados opcionalmente según tu configuración). Este artículo explica qué contiene ese paquete, cómo se organizan los datos y cómo leerlos.
+
+Si aún no has ejecutado un backup, empieza por [Descripción general del backup de datos](/docs/admin/data-backup/data-backup-overview), donde se explican las opciones de almacenamiento disponibles.
+
+## Cómo se empaqueta el backup
+
+Tu backup refleja las categorías de datos que seleccionaste durante la configuración. Después de descomprimir el paquete, verás un archivo para los datos de usuarios y grupos, una carpeta para los datos transaccionales y otra para los logs de auditoría, además de un índice de flujos y un archivo readme:
+
+![Paquete de backup descomprimido que muestra el archivo de datos de usuarios y grupos, las carpetas de datos transaccionales y logs de auditoría, el índice de flujos y el readme](/migration-assets/understanding-your-backup-output/2.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+A grandes rasgos, esta es la función de cada parte:
+
+| Parte | Qué es | Para qué se usa principalmente |
+| --- | --- | --- |
+| `UserAndGroup.json` | Tu archivo maestro de identidades: contiene todos los usuarios, usuarios externos, cuentas de servicio, roles y grupos de la cuenta. | Asignar permisos y estructurar tu directorio; determinar «quién hizo qué». |
+| `TransactionalData-0000/` | Los registros reales de tus flujos, junto con sus comentarios y archivos adjuntos. | Cargar datos operativos en herramientas como Power BI, Tableau o tus propios scripts. |
+| `AuditLogs-0000/` | Un log cronológico de la actividad de la cuenta y de los flujos durante aproximadamente el último año. | Supervisión del cumplimiento, comprobaciones forenses y seguimiento de la actividad. |
+
+Debes tener en cuenta lo siguiente:
+
+- Tus registros se almacenan como **archivos JSON** (texto sin formato), excepto los archivos adjuntos, que se conservan como sus **archivos originales** (PNG, PDF, XLSX, etc.). El paquete también incluye un par de archivos auxiliares en otros formatos: un índice de flujos en CSV y un archivo `Readme.txt`, ambos descritos más adelante.
+- La mayoría de los archivos JSON contienen una única **matriz** de registros. Los logs de auditoría son la excepción: utilizan **JSON Lines** (un objeto por línea). Lo indicamos nuevamente en la sección de auditoría porque esto cambia la forma de abrir esos archivos.
+- El sufijo `-0000` es un número de lote. Las cuentas grandes dividen sus datos transaccionales en varias carpetas de lotes (`TransactionalData-0000`, `TransactionalData-0001`, etc.). La mayoría de los flujos se encuentran completamente en un solo lote, pero los datos de un flujo muy grande pueden distribuirse en varios. Usa el [índice de flujos](#finding-a-flow-the-flow-index) para encontrar la ubicación principal de un flujo; si un flujo es grande, revisa también las demás carpetas de lotes para localizar el mismo `Flow ID`. Los datos de usuarios y grupos siempre se encuentran en un solo archivo, sin sufijo de lote.
+- El backup es una **exportación de datos**, no una base de datos restaurable. Está diseñado para leer, archivar y analizar datos, no para volver a importarlos en Kissflow.
+
+## Cómo usar los datos de tu backup
+
+Como todo está en formato JSON abierto, puedes trabajar con los datos en la herramienta que prefieras. Estos son algunos usos habituales:
+
+- **Auditoría y cumplimiento**: lee los logs de auditoría para generar un registro de la actividad de la cuenta durante un período de revisión. Agrupa los eventos relacionados mediante `BatchID`.
+- **Informes y análisis**: carga el archivo `<Flow ID>.json` de un flujo en una hoja de cálculo, una herramienta de BI o un script para analizar tus registros fuera de Kissflow.
+- **Archivado**: conserva el paquete como una copia a largo plazo y sin conexión de los datos de tu cuenta, independiente de la plataforma.
+- **Volver a conectar las partes**: relaciona los registros con las personas mediante el `_id` de `UserAndGroup.json`, y los registros con los archivos adjuntos mediante los nombres de las carpetas de ID de registro que se encuentran en `Attachments`.
+
+### Ejemplos prácticos
+
+Estas breves explicaciones muestran cómo los ID conectan los archivos.
+
+**¿Quién eliminó un grupo?** Encuentras un grupo con `_is_deleted: true` en `UserAndGroup.json` (por ejemplo, `_id: "Gr5f_Tu24tkp"`, el grupo _Operations Department_). Consulta el bloque `_modified_by` de esa misma entrada. En él aparece el autor de la acción, por ejemplo `_id: "Us4YeHqN_4jb"`. Busca ese ID en otra parte de `UserAndGroup.json` para confirmar que se trata de _Steve Rogers_, el administrador que lo eliminó.
+
+**¿Quién está detrás de una entrada del log de auditoría?** El campo `Object` de una línea de auditoría tiene el formato `id -- name` (por ejemplo, `Us7OHZJLfP2E -- Jane Doe`). Toma el ID que aparece antes de `--`, búscalo en `UserAndGroup.json` y obtendrás el perfil completo: su estado, departamento y tipo.
+
+**¿Quién envió un registro?** Abre el registro en el archivo `<Flow ID>.json` del flujo (no en el archivo `_Users.json`, que solo indica quién tenía acceso). Lee el objeto `_created_by` del registro, toma su `_id` y búscalo en `UserAndGroup.json` para revelar la identidad completa, incluido su `UserType`.
+
+## Aspectos importantes
+
+- Esta exportación sirve para **leer y archivar**, no para volver a importar datos en Kissflow.
+- Si elegiste **Email** como modo de almacenamiento, recibirás tu backup mediante un enlace de descarga. Descárgalo en un plazo de **siete días**, ya que el enlace caduca después de ese período y tendrás que ejecutar un nuevo backup para obtener otra copia.
+- Es posible que las claves de los campos no coincidan con las etiquetas de la aplicación, y no existe ningún archivo de esquema. Cuando una clave no sea clara, comprueba la aplicación activa.
+- Los logs de auditoría abarcan únicamente **aproximadamente el último año**.
+
+<Callout type="warn">
+  Si cifraste tu backup, guarda la **frase de contraseña** que configuraste; consulta [Abrir un backup cifrado](#opening-an-encrypted-backup) más adelante. Conserva una copia de cada frase de contraseña que hayas utilizado: si posteriormente editas la configuración del backup y estableces una nueva, los backups que ya se cifraron con la frase anterior no podrán descifrarse con la nueva.
+</Callout>
+
+Si tienes alguna pregunta sobre los datos de tu backup, contacta con el equipo de soporte.
+
+## Abrir un backup cifrado
+
+<Callout type="info">
+  Si no estableciste una frase de contraseña al configurar el backup, tus archivos llegarán como archivos ZIP sin formato de cifrado; puedes omitir esta sección.
+</Callout>
+
+Si estableciste una frase de contraseña, tus archivos llegarán como archivos ZIP cifrados (`.aes256cbc`), uno por módulo, con nombres como `TransactionalData-0000.aes256cbc`. Debes descifrar cada uno antes de poder leerlo.
+
+1. Instala [OpenSSL](https://github.com/openssl/openssl#build-and-install) en tu equipo si aún no lo has hecho.
+2. Para cada archivo cifrado, ejecuta:
+
+   ```
+   openssl enc -aes-256-cbc -d -salt -iter 10 -in "<encrypted-file>" -out "<output-file>.zip" -k "<passphrase>"
+   ```
+
+   Por ejemplo:
+
+   ```
+   openssl enc -aes-256-cbc -d -salt -iter 10 -in "TransactionalData-0000.aes256cbc" -out "TransactionalData-0000.zip" -k "SamplePhrase"
+   ```
+
+3. Descomprime los archivos `.zip` resultantes para obtener las carpetas y los archivos JSON descritos en el resto de este artículo.
+
+<Callout type="idea">
+  Tu backup también incluye un archivo `Readme.txt` con estos mismos pasos.
+</Callout>
+
+## Datos de usuarios y grupos
+
+**Archivo:** `UserAndGroup.json`
+
+Una única matriz JSON que contiene todas las identidades de tu cuenta: usuarios, usuarios externos, cuentas de servicio, roles y grupos. Cada entrada es un objeto, y el campo `Kind` indica de qué tipo es.
+
+### Tipos de identidad (el campo Kind)
+
+| Kind | Qué es | Notas |
+| --- | --- | --- |
+| `User` | Un miembro humano interno del equipo. | |
+| `ExternalUser` | Un cliente o proveedor externo que inicia sesión en tus portales externos. | |
+| `ServiceAccount` | Una cuenta de integración automatizada (acceso a API). | Los ID tienen el prefijo `SA-`. |
+| `Group` / `ExternalGroup` | Un conjunto de usuarios utilizado para asignar y compartir trabajo (por ejemplo, «Marketing»). | |
+| `Role` / `AppRole` | Un nivel de permisos. `AppRole` está limitado a una aplicación específica. | Los ID de `AppRole` tienen el prefijo `Ro`. |
+
+### Campos útiles de un usuario
+
+| Campo | Significado |
+| --- | --- |
+| `_id` | ID interno de la identidad (por ejemplo, `Us43NlCnXQMV`). |
+| `Kind` | El tipo de identidad, descrito arriba. |
+| `Name` | Nombre para mostrar. |
+| `Email` / `EmailVerified` | La dirección de email del usuario y si se ha verificado. |
+| `Status` | Estado de la cuenta: `Active`, `InActive`, `Invited`, `Requested Access` o `Deleted`. |
+| `UserType` | Nivel de privilegios, como `Super Admin`, `User Admin`, `Billing Admin` o `User`. |
+| `UserDepartment` | Departamento del usuario, si está configurado (por ejemplo, `HR`, `Marketing`). |
+| `_created_at` / `_created_by` | Cuándo y quién creó el registro. |
+| `_modified_at` / `_modified_by` | Detalles del último cambio. |
+| `_is_deleted` | `true` si la entrada se ha eliminado. Las entradas eliminadas se siguen incluyendo para mantener la integridad de los datos; comprueba este campo en lugar de `Status`, que puede contener otros valores no relacionados con la eliminación. |
+| `Descendants` / `_descendants` | En el caso de los grupos, sus miembros y grupos anidados. |
+
+<Callout type="idea">
+  Los valores de `_id` son la clave para todo lo demás. Los mismos ID aparecen en todos los datos transaccionales y logs de auditoría cuando se hace referencia a una persona o un grupo, por lo que este archivo sirve como directorio para determinar «quién hizo qué».
+</Callout>
+
+## Encontrar un flujo: el índice de flujos
+
+Tu backup incluye un índice de flujos, un archivo CSV (por ejemplo, `flows.csv`) que muestra todos los flujos de tu cuenta. Es la forma más rápida de localizar los datos de un flujo específico, especialmente cuando tus datos transaccionales abarcan varias carpetas de lotes.
+
+Cada fila tiene cinco columnas:
+
+| Columna | Significado |
+| --- | --- |
+| `S. No` | Número de fila. |
+| `Flow name` | Nombre para mostrar del flujo, tal como aparece en Kissflow. |
+| `Flow ID` | ID interno, que también es el nombre de la carpeta de ese flujo. |
+| `Flow type` | `Process`, `Board`, `Dataset`, `Form` o `Project`. Indica qué tipo de carpeta debes abrir. |
+| `File location` | Carpeta de lotes en la que se encuentra el flujo (por ejemplo, `TransactionalData/TransactionalData-0001`). |
+
+Para encontrar los datos de un flujo, busca su nombre en el índice y abre `<File location>/<Flow type>/<Flow ID>/`. Por ejemplo, un `Process` llamado «Leave Management», con `Flow ID` `Leave_Management` y ubicado en `TransactionalData-0001`, se encuentra en `TransactionalData-0001/Process/Leave_Management/`.
+
+<Callout type="idea">
+  Los nombres de los flujos pueden contener comas, así que abre el índice en una aplicación de hojas de cálculo en lugar de dividirlo por comas si lo procesas con un script.
+</Callout>
+
+<Callout type="info">
+  `File location` es el lote principal de un flujo, no una garantía. Los datos de un flujo muy grande pueden dividirse entre varias carpetas de lotes, y dicho flujo puede aparecer más de una vez en el índice. Si no encuentras todos los registros de un flujo en la ubicación indicada, revisa las demás carpetas `TransactionalData-NNNN` para localizar el mismo `Flow ID`.
+</Callout>
+
+## Datos transaccionales
+
+**Carpeta:** `TransactionalData-0000/` (y `-0001`, `-0002`, etc. para cuentas grandes)
+
+Esta es la parte más grande de tu backup. Contiene los registros reales (elementos) de tus flujos, junto con sus comentarios y archivos adjuntos. Los datos se organizan primero por tipo de flujo y después por flujo. Los cinco tipos de flujo son Process, Board, Dataset, Form y Project.
+
+<Callout type="info">
+  En Kissflow, una aplicación es un conjunto que agrupa varios flujos. El backup no conserva esa agrupación: el process, board, dataset y dataform de una aplicación se almacenan en sus propias carpetas de tipo de flujo, junto con los flujos independientes. No existe una carpeta `Apps`. Para reunir todo lo que pertenece a una aplicación, busca sus flujos por nombre en el índice de flujos.
+</Callout>
+
+![Índice de flujos que muestra los nombres de los flujos y sus Flow ID correspondientes](/migration-assets/understanding-your-backup-output/1.jpg)
+{/* TODO: verify screenshot matches current product UI */}
+
+Cada carpeta de flujo recibe como nombre su `Flow ID` (el valor que aparece en el índice de flujos) y es independiente. Abre `<Flow ID>.json` para leer los registros, `<Flow ID>_Users.json` para ver quién tenía acceso y las subcarpetas `Comment` y `Attachments` para consultar los elementos adjuntos a esos registros.
+
+<Callout type="warn">
+  `<Flow ID>_Users.json` contiene las personas que tenían acceso al flujo y sus roles. No es la lista de las personas que enviaron registros. Para saber quién creó o completó un registro, consulta el campo `_created_by` del propio registro, dentro de `<Flow ID>.json`.
+</Callout>
+
+### Qué contiene el archivo de registros
+
+`<Flow ID>.json` es una matriz de registros. Todos los registros comparten un conjunto común de campos del sistema y, después, incluyen los campos específicos de ese flujo.
+
+Campos del sistema que encontrarás en casi todos los registros:
+
+| Campo | Significado |
+| --- | --- |
+| `_id` | ID único del registro. |
+| `_flow_name` | La aplicación a la que pertenece el registro. |
+| `_created_at` / `_created_by` | Detalles de creación, incluido el remitente. |
+| `_modified_at` / `_modified_by` | Detalles de la última modificación. |
+| `Name` | Nombre para mostrar del registro. |
+| `_doc_version` | Número de versión interno que indica cuántas veces cambió el elemento. |
+| `_is_deleted` | Solo aparece (y tiene el valor `true`) en los registros que se eliminaron, pero se conservaron en el backup por motivos de cumplimiento. La mayoría de los registros no contiene este campo. |
+
+Los campos restantes contienen tus datos y varían según el módulo. Esto es lo que puedes esperar de cada uno.
+
+#### Registros de Process
+
+Los registros de Process contienen el estado completo del flujo de trabajo, no solo los valores del formulario. Además de los campos del formulario, encontrarás:
+
+- `ProcessInstance` y `ActivityInstance`: objetos anidados que describen la ejecución del flujo de trabajo, la actividad actual y el historial.
+- `_status`: estado del elemento (por ejemplo, `Completed`).
+- `_stage`, `_current_step`, `_current_assigned_to`, `_last_completed_step`: posición del elemento en el flujo y persona que lo tiene asignado.
+- `_request_number`: número de solicitud legible para las personas.
+- `_submitted_at`, `_completed_at`: marcas de tiempo del proceso.
+
+#### Registros de Board
+
+Los registros de Board (casos) describen una tarjeta y su posición en el board:
+
+- `CaseWorkflowInstance`: objeto de flujo de trabajo del caso.
+- `_status_id` / `_status_name`: columna en la que se encuentra la tarjeta.
+- `_priority_name`, `_priority_sequence`: prioridad.
+- `ItemType`, `_category`, `_is_draft`: clasificación y estado de borrador.
+
+#### Registros de Dataset
+
+Los Dataset son los más sencillos. Cada registro es una fila plana con tus campos y los campos del sistema:
+
+- `_order`: posición de la fila en el dataset.
+- `Name` y las columnas de tus propios campos.
+
+No contienen datos de flujo de trabajo porque los dataset almacenan datos de referencia y no pasan por un flujo de trabajo.
+
+#### Registros de Form
+
+Los registros de Form también son filas planas de valores de campos. Es posible que veas claves de campos con un sufijo numérico (por ejemplo, `Status_1`, `Use_case_1`), que es la forma en que se almacenan los campos de formulario repetibles. Un campo `_visited` indica si se abrió el formulario.
+
+#### Registros de Project (obsoleto)
+
+Los registros de Project se parecen a los registros de Process, pero utilizan objetos de flujo de trabajo específicos de los proyectos:
+
+- `ProjectFlowInstance` y `StepInstance`: el flujo de trabajo del proyecto y sus pasos.
+- `_current_step_name`, `_current_step_id`, `_entered_at`: posición actual.
+- `_counter`, `_item_id`: identificadores.
+
+### Comentarios
+
+**Archivo:** `<Flow ID>/Comment/Comment.json`
+
+Los comentarios realizados en los registros se almacenan aquí, separados de los propios registros. Cada comentario incluye:
+
+- `Content`: el comentario como un árbol estructurado de texto enriquecido, con un campo `RawContent` que proporciona la versión de texto sin formato.
+- `AtMention` y las menciones dentro de `Content`: personas etiquetadas en el comentario, con su `_id` y `Name`.
+- `Reactions`, `Status`, `AssignedTo`, `_created_by`, `_created_at`: reacciones, estado abierto o cerrado, asignación y autoría.
+
+`Comment.json` se organiza por registro: el `_id` de cada objeto de nivel superior coincide con el `_id` del registro al que pertenecen los comentarios, por lo que así puedes volver a vincular un hilo de comentarios con su registro. Dentro de un comentario, `EntityType` y `EntityId` indican dónde está anclado el comentario en el elemento (por ejemplo, una actividad o un paso específicos), no el registro en sí.
+
+### Archivos adjuntos
+
+**Carpeta:** `<Flow ID>/Attachments/`
+
+Los archivos adjuntos se conservan como sus archivos originales y con sus nombres originales, dentro de carpetas cuyos nombres son ID internos para que cada archivo pueda vincularse con el registro del que procede. La estructura suele ser la siguiente:
+
+```
+Attachments/
+└── <record ID>/
+    └── <instance ID>/
+        └── <attachment ID>/
+            └── original_file.png
+```
+
+El nombre de la carpeta superior es el `_id` del registro. Para saber a qué registro pertenece un archivo adjunto, compara el nombre de esa carpeta con el `_id` de `<Flow ID>.json`. Las carpetas internas son referencias internas que Kissflow utiliza para mantener la unicidad de cada archivo; no las necesitas para localizar el registro.
+
+## Datos del log de auditoría
+
+**Carpeta:** `AuditLogs-0000/`
+
+Los logs de auditoría se dividen en numerosos archivos numerados (`AuditLog_000000000000.json`, `AuditLog_000000000001.json`, etc.). Estos archivos utilizan el formato JSON Lines: un objeto JSON por línea, no una única matriz. Léelos línea por línea en lugar de analizar todo el archivo como un solo objeto.
+
+Cada línea representa un evento:
+
+| Campo | Significado |
+| --- | --- |
+| `AuditID` | ID único del evento. |
+| `Timestamp` | Momento en que ocurrió el evento (UTC). |
+| `ActedBy` | Persona que realizó la acción. Las acciones generadas por el sistema aparecen como `Flobot -- User`, donde Flobot es la cuenta interna del sistema de Kissflow. |
+| `Event` | Tipo de evento (por ejemplo, `AC_DatasetBatchUpdate`, `AC_BackupStatusChanged`). |
+| `Eventcategory` | Categoría general a la que pertenece el evento. |
+| `Object` | Elemento sobre el que se realizó la acción, con el formato `id -- name`. |
+| `IP`, `Platform` | Origen de la acción, cuando está disponible. |
+| `BatchID` | Agrupa los eventos relacionados de una misma operación. |
+| `EventData` | Detalles específicos del evento. |
+
+<Callout type="info">
+  Los backups de logs de auditoría incluyen aproximadamente el último año de actividad tanto a nivel de cuenta como de flujo. Los eventos anteriores no forman parte de la exportación.
+</Callout>
+
+## Interpretar los nombres y valores de los campos
+
+Esto es lo más importante que debes entender antes de empezar a trabajar con tus datos.
+
+Las claves de tus registros son ID internos de campos y no siempre coinciden con las etiquetas que ves en la aplicación. La mayoría coincide con la etiqueta (por ejemplo, `Advance_Amount`), pero algunas no:
+
+- Un campo al que nunca cambiaste el nombre puede aparecer como `Untitled_Field` o `Untitled_field`.
+- Un campo cuyo nombre cambiaste conserva su clave interna original. Si cambiaste el nombre de «Description» después de crearlo, los datos podrían seguir utilizando una clave como `_1643035136_Description`.
+- Los campos repetibles llevan sufijos numéricos (`Status_1`).
+
+El backup no incluye un esquema ni un diccionario de datos. No existe ningún archivo que asigne cada clave de campo a su etiqueta, tipo o sección de formulario actuales. Por eso, si una clave no es clara, la forma más fiable de identificarla es comparar el registro con el mismo elemento en la aplicación activa.
+
+Esto puede añadir cierta dificultad, así que conviene saberlo antes de que las claves te sorprendan.
+
+## Formatos de valores habituales
+
+Hay un par de estructuras de valores que se repiten en todas partes, por lo que vale la pena aprenderlas una vez.
+
+Las **fechas** son objetos, no cadenas de texto simples:
+
+```
+"_created_at": {
+  "v": { "$date": "2022-01-11T07:09:09.857Z" },
+  "dv": "2022-01-11T07:09:09Z",
+  "tz": "GMT",
+  "td": ""
+}
+```
+
+Usa `dv` para obtener un valor de visualización limpio, o `$date` dentro de `v` cuando necesites una precisión exacta. No son idénticos: `v.$date` conserva los milisegundos (`...09.857Z`), mientras que `dv` los omite (`...09Z`); por eso, usa `v.$date` para trabajos de coincidencia exacta o deduplicación. Ambos están en UTC; los campos `tz` y `td` describen la zona horaria original y normalmente pueden ignorarse. Si analizas los datos en Power BI o SQL, dirige tu función a la cadena `$date` interna.
+
+Las **personas** (usuarios y grupos) aparecen como objetos:
+
+```
+"_created_by": { "_id": "UsJ35GmWEn3zP", "Name": "Tony Stark", "Kind": "User" }
+```
+
+El `_id` coincide con una entrada de `UserAndGroup.json`, por lo que siempre puedes resolver una referencia y obtener el registro completo de un usuario o grupo.
+
+<Callout type="info">
+  Un `_id` solo puede resolverse dentro de su propio archivo. Los ID de usuarios y grupos se encuentran en `UserAndGroup.json`; los ID de registros se encuentran en cada `<Flow ID>.json`. No esperes encontrar un ID de registro en el archivo de usuarios, ni un ID de usuario en el archivo de registros.
+</Callout>
+
+## Qué hacer a continuación
+
+- [Descripción general del backup de datos](/docs/admin/data-backup/data-backup-overview)
+- [Cumplimiento e historial del backup](/docs/admin/data-backup/compliance-and-backup-history)
+- [Roles y permisos de usuario](/docs/admin/users/user-roles-and-permissions#super-admin)

@@ -1,0 +1,109 @@
+---
+title: "conector de monday.com"
+description: "BORRADOR (sin verificar) — migrado desde /t/35yf7bx/monday-com-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+![](/migration-assets/monday-com-connector/1.png)
+
+## ¿Qué es [monday.com](http://monday.com)?
+
+[monday.com](http://monday.com) es un software versátil de gestión de proyectos que permite a los usuarios gestionar todos sus proyectos de manera eficiente en una plataforma centralizada. Los equipos pueden crear flujos de trabajo personalizables, realizar un seguimiento del progreso de los proyectos, asignar tareas y colaborar en tiempo real. Además, la plataforma puede utilizarse como un CRM para supervisar campañas publicitarias, hacer un seguimiento de clientes potenciales, gestionar relaciones con clientes y monitorear métricas de rendimiento de marketing.
+
+## Acerca de la integración de Kissflow con [monday.com](http://monday.com)
+
+El conector de [monday.com](http://monday.com) de Kissflow Integration facilita la conexión y sincronización fluidas de los tableros de [monday.com](http://monday.com) con varias aplicaciones de terceros y aplicaciones de Kissflow. Para integrarse con [monday.com](http://monday.com), los usuarios deben tener una cuenta válida de [monday.com](http://monday.com) y ser clientes de pago de Kissflow.
+
+Un equipo de marketing utiliza Kissflow para gestionar su proceso de aprobación de campañas. Cuando se crea una nueva campaña de marketing en Kissflow, pasa por varias etapas de aprobación en las que participan diferentes partes interesadas. Mediante el activador "Cuando un elemento completa su flujo de trabajo", una vez que se aprueba completamente una campaña, Kissflow crea automáticamente un nuevo tablero en [monday.com](http://monday.com) con el nombre de la campaña, luego crea grupos adecuados para distintas actividades de marketing (redes sociales, correo electrónico, contenido, etc.) y completa cada grupo con elementos relevantes, incluidos plazos, responsables y asignaciones presupuestarias.
+
+Actualmente, no hay activadores para el conector de [monday.com](http://monday.com).
+
+## Acciones del conector de [monday.com](http://monday.com)
+
+**Acción**
+
+**Descripción**
+
+Crear un tablero
+
+Esta acción crea un nuevo tablero en tu cuenta de [monday.com](http://monday.com).
+
+Crear una columna
+
+Esta acción crea una nueva columna en un tablero de [monday.com](http://monday.com).
+
+Crear un grupo
+
+Esta acción crea un nuevo grupo vacío en tu tablero de [monday.com](http://monday.com).
+
+Crear un elemento
+
+Esta acción crea un nuevo elemento en tu tablero de [monday.com](http://monday.com).
+
+Eliminar un grupo
+
+Esta acción elimina un grupo con todos sus elementos de tu tablero de [monday.com](http://monday.com).
+
+Duplicar un grupo
+
+Esta acción duplica un grupo con todos sus elementos en tu tablero de [monday.com](http://monday.com).
+
+Crear un subelemento
+
+Esta acción crea un nuevo subelemento para un elemento existente en tu tablero de [monday.com](http://monday.com).
+
+Actualizar un elemento
+
+Esta acción actualiza un elemento existente en tu tablero de [monday.com](http://monday.com).
+
+Actualizar un subelemento
+
+Esta acción actualiza un subelemento existente en tu tablero de [monday.com](http://monday.com).
+
+Actualizar el nombre de un elemento
+
+Esta acción actualiza el nombre de un elemento existente en tu tablero de [monday.com](http://monday.com).
+
+Crear una actualización
+
+Esta acción añade un comentario de actualización a un elemento en tu tablero de [monday.com](http://monday.com).
+
+Eliminar un elemento
+
+Esta acción elimina un elemento existente de tu tablero de [monday.com](http://monday.com).
+
+## Configurar el conector de [monday.com](http://monday.com)
+
+1.  Dentro de tu cuenta de Kissflow, ve a la barra de navegación izquierda y haz clic en el botón Crear. Luego, haz clic en el botón de integración para configurar una nueva integración. Proporciona un nombre y una descripción para tu integración.
+    
+2.  Una vez dentro del editor, configura un paso de activador, por ejemplo, un evento activador de Kissflow Process: **Cuando un elemento completa su flujo de trabajo**.
+    
+3.  Después de configurar el paso de activador anterior, haz clic en el botón **Añadir** (+) para configurar el paso de acción. Busca **[monday.com](http://monday.com)** y selecciona el evento de acción **Crear un tablero**.
+    
+    {/* TODO: screenshot — source image expired (Google CDN); recapture from product UI */}
+4.  Después de elegir el evento de acción, autentica el conector. Haz clic en **+Añadir una cuenta.** Deberás introducir tu token de API de [monday.com](http://monday.com) para la autenticación. Para encontrar tu token personal:
+    
+    -   Inicia sesión en tu cuenta de [monday.com](http://monday.com)
+        
+    -   Haz clic en tu foto de perfil, en la esquina superior derecha
+        
+    -   Selecciona **Developers** para abrir el Centro para desarrolladores en una pestaña nueva
+        
+    -   Haz clic en **My Access Tokens** > **Show**
+        
+    -   Copia tu token personal
+        
+5.  Introduce este token en el campo de autenticación de Kissflow. Esto establecerá la conexión entre Kissflow y tu cuenta de [monday.com](http://monday.com).
+    
+6.  Después de autenticarte con tu cuenta de [monday.com](http://monday.com), añade los valores relevantes en los campos del formulario de [monday.com](http://monday.com). Puedes hacer clic en **Actualizar campos** para ver todos los campos actualizados del tablero seleccionado. También puedes asignar campos de tu paso de activador o campos de tus pasos de acción anteriores. Estos valores se añadirán automáticamente a los campos de los elementos después de ejecutar la acción. 
+    
+    ![](/migration-assets/monday-com-connector/2.png)
+    
+7.  Después de configurar todo correctamente, comprueba si el paso de acción de [monday.com](http://monday.com) está configurado correctamente haciendo clic en el botón **Probar**. El conector extraerá los datos de los campos de tu cuenta de [monday.com](http://monday.com) seleccionada y los mostrará como una salida JSON. Al igual que en el paso de activador, recibirás una notificación inmediata de los errores. Corrígelos antes de volver a probar el paso de acción.
+    
+
+## Configurar un conector de [monday.com](http://monday.com)
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción de tu conector de [monday.com](http://monday.com), activa el botón de alternancia para activar la ejecución de la integración. Cuando se produce un evento activador, se ejecuta la acción de [monday.com](http://monday.com).

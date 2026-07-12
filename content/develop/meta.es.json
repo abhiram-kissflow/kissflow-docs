@@ -1,0 +1,13 @@
+{
+  "title": "Guía para desarrolladores",
+  "description": "Amplía Kissflow con API, SDK y código personalizado.",
+  "pages": [
+    "overview",
+    "api",
+    "sdk",
+    "custom-components",
+    "webhooks",
+    "troubleshooting"
+  ],
+  "icon": "develop"
+}

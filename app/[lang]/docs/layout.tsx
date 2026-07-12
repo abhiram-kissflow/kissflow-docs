@@ -4,8 +4,9 @@ import { baseOptions } from '@/lib/layout.shared';
 import AIChatLauncher from '@/components/ai-chat-launcher';
 import { PersistentDocsTabMenu } from '@/components/persistent-docs-tab-menu';
 
-export default function Layout({ children }: LayoutProps<'/docs'>) {
-  const tree = source.getPageTree();
+export default async function Layout({ params, children }: LayoutProps<'/[lang]/docs'>) {
+  const { lang } = await params;
+  const tree = source.getPageTree(lang);
 
   return (
     <>

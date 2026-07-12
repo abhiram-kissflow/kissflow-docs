@@ -1,0 +1,160 @@
+---
+title: "Filtrar elementos en un proceso"
+description: "Reduce la lista de elementos del proceso con condiciones de filtro manuales, valores contextuales de usuario y fecha, o filtros generados a partir de una instrucción en lenguaje natural mediante AI."
+contentType: guide
+persona: end-user
+section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - process
+  - filters
+  - ai
+---
+
+# Filtrar elementos en un proceso
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+En lugar de desplazarte por todos los registros, aplica un filtro a la página de tu proceso para ver solo los elementos que coincidan con condiciones específicas. Puedes filtrar elementos dentro de las pestañas **Borrador**, **En progreso**, **Completado**, **Retirado** y **Rechazado**.
+
+## Añadir un filtro
+
+Un filtro puede ser una sola condición o un conjunto de condiciones agrupadas. En la página del proceso solo se muestran los elementos que cumplen el filtro.
+
+1. Haz clic en el botón **Filtro** de la página de tu proceso.
+
+   ![Botón Filtro en la barra de herramientas de la página del proceso](/migration-assets/managing-filters/5.png)
+   {/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+2. Haz clic en **+ Añadir un filtro**.
+3. Selecciona un campo en el menú desplegable **Seleccionar campo** y, luego, define la condición:
+   - Elige un operador. Los operadores se muestran según el contexto del campo que selecciones; por ejemplo, **Igual a**, **No es igual a** o **Contiene** para un campo de texto, y **Está vacío** cuando corresponda.
+   - Selecciona un campo o introduce el valor con el que se comprobará la condición.
+
+   ![Menú desplegable de operadores según el tipo del campo seleccionado](/migration-assets/filtering-items-in-a-process/6.gif)
+   {/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+4. Para añadir más condiciones al mismo grupo, haz clic en **Añadir nueva condición** y elige si el grupo utiliza la lógica **AND** o **OR**.
+
+   <Callout type="info">
+     Un grupo de filtros solo puede usar un operador lógico en todo el grupo. Si un grupo tiene cinco condiciones, todas deben estar unidas con AND o todas con OR; no puedes combinar AND y OR dentro del mismo grupo.
+   </Callout>
+
+5. Haz clic en **+ Añadir nuevo filtro** para añadir tantos grupos de filtros como necesites. Elige el operador lógico que se aplicará entre los grupos: **AND** requiere que todos los grupos sean verdaderos, mientras que **OR** requiere que al menos un grupo sea verdadero.
+
+   ![Varios grupos de filtros unidos mediante un operador AND/OR](/migration-assets/filtering-items-in-a-process/1.png)
+   {/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+6. Haz clic en **Aplicar** para filtrar los elementos.
+
+## Filtrar por el usuario actual
+
+Cuando hagas coincidir un campo de texto o de usuario con otro campo, utiliza la opción **Usuario actual** para hacer referencia a la persona que está viendo el filtro, en lugar de un nombre fijo.
+
+Mientras configuras el valor de una condición, selecciona **Usuario actual** en el menú desplegable de la derecha y, luego, elige el atributo que corresponda a tu condición: **Nombre**, **Dirección de correo electrónico**, **Responsable**, **Estado** o **Puesto**.
+
+![Opción Usuario actual con sus atributos en el menú desplegable de valores del filtro](/migration-assets/filtering-items-in-a-process/3.png)
+{/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+Por ejemplo, para comprobar si la persona que dirige un departamento es la persona que está viendo el filtro, configura la condición así:
+
+**Responsable del departamento** — **Igual a** — **Usuario actual.Nombre**
+
+## Filtrar por fechas relativas
+
+Para los campos de fecha y hora, puedes filtrar usando un valor relativo en lugar de una fecha fija. Mientras haces coincidir un campo de fecha u hora con un valor, haz clic en el botón **Más opciones** para ver las opciones relativas:
+
+![Botón Más opciones que abre los valores de fecha relativa para un campo de fecha/hora](/migration-assets/filtering-items-in-a-process/2.png)
+{/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+- Ahora
+- Próximas 6 horas
+- Próximas 12 horas
+- Hoy
+- Mañana
+- Ayer
+- Esta semana
+- Últimos 7 días
+- Próximos 7 días
+- Últimos 14 días
+- Últimos 30 días
+- Este mes
+- Este trimestre
+- Próximo trimestre
+- Este año
+
+También puedes abrir el calendario después de elegir un valor relativo y ajustar la fecha manualmente en el campo **Valor**.
+
+![Selector de calendario para ajustar el campo Valor después de elegir una fecha relativa](/migration-assets/filtering-items-in-a-process/5.png)
+{/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+## Generar filtros con AI
+
+<PlanBadge plans={["enterprise"]} />
+
+<iframe src="https://player.vimeo.com/video/1133474101?app_id=122963" title="AI-powered advanced filters - Overview video" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+En lugar de crear condiciones manualmente, describe en lenguaje natural lo que quieres ver y deja que AI cree el filtro por ti.
+
+1. Haz clic en el botón **Filtro** de la página de tu proceso.
+
+   ![Botón Filtro que abre el panel de filtros](/migration-assets/adding-advanced-filters-using-ai/1.png)
+   {/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+2. En el panel de filtros, haz clic en **Filtro avanzado**.
+3. En el cuadro de texto situado debajo de **Generar filtro avanzado con AI**, escribe tus criterios de filtrado en lenguaje natural; por ejemplo, _Mis elementos asignados de alta prioridad_.
+4. Haz clic en **Generar**. AI crea las condiciones de filtro correspondientes en la sección inferior.
+5. Cuando estés satisfecho con las condiciones, haz clic en **Aplicar** para ver los resultados filtrados.
+
+<Callout type="info">
+  La generación de filtros con AI está disponible en el plan Enterprise. En el plan Basic, puedes seguir creando filtros manualmente como se describe arriba.
+</Callout>
+
+### Resumir y volver a generar filtros
+
+Haz clic en **Resumen del filtro** para obtener un resumen generado por AI que describa lo que representan tus condiciones de filtro. Puedes usar este resumen como base para nuevas instrucciones:
+
+1. Haz clic en **Editar resumen**.
+2. Actualiza el texto del resumen para reflejar tu nuevo requisito.
+3. Haz clic en **Volver a generar** para que AI cree un nuevo conjunto de condiciones de filtro.
+
+Por ejemplo, si el resumen dice _Este filtro muestra elementos con prioridad Alta asignados al usuario actual_, puedes editarlo para que diga _Este filtro muestra elementos con prioridad Crítica asignados al usuario actual_ y volver a generar el filtro.
+
+### Ejemplos de instrucciones
+
+| Para ver... | Puedes escribir... |
+| --- | --- |
+| Elementos de alta prioridad asignados a ti | "Mis elementos asignados de alta prioridad" |
+| Elementos cuya fecha límite ya pasó | "Muéstrame todas las tareas atrasadas" |
+| Elementos creados durante la semana actual | "Todo lo creado esta semana" |
+| Elementos asignados a una persona específica | "Tareas asignadas a Natasha Romanoff" |
+| Elementos con varias condiciones | "Todos los elementos críticos del paso de aprobación cuya fecha límite es hoy" |
+
+### Solución de problemas
+
+**Error: "No se pudo generar el filtro: algunos campos obligatorios están ocultos o no se pudieron seleccionar. Hazlos visibles en el menú Mostrar/ocultar campos o ajusta tu instrucción."**
+
+- **Por qué ocurre** — AI solo puede crear filtros usando los campos que están visibles actualmente en tu proceso. Si tu instrucción menciona un campo como "Nombre" o "Tipo de activo", pero ese campo está oculto en **Mostrar/ocultar campos**, AI no puede acceder a él y el filtro falla.
+- **Cómo solucionarlo**:
+  1. Cierra el panel de filtros.
+  2. Haz clic en el botón **Mostrar/ocultar campos**.
+
+     ![Botón Mostrar/ocultar campos](/migration-assets/filtering-items-in-a-process/4.png)
+     {/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+  3. En el menú desplegable, selecciona la casilla de cada campo por el que quieras filtrar.
+  4. Intenta generar de nuevo el filtro con AI.
+
+**Los filtros generados no son los que esperaba.**
+
+- **Por qué ocurre** — AI puede haber interpretado incorrectamente una solicitud poco clara.
+- **Cómo solucionarlo** — reformula tu solicitud para que sea más directa y específica. Por ejemplo, en lugar de _Muéstrame las tareas antiguas_, prueba con _Muéstrame las tareas creadas antes del 1 de octubre de 2025_. Incluir los nombres de los campos en tu solicitud suele producir resultados más precisos.
+
+## Qué sigue
+
+- [Añadir filtros avanzados con AI](/docs/use/items/filtering-and-views) (Enterprise): el mismo creador de filtros con AI en los tableros
+- [Acciones de los miembros en un proceso](/docs/use/tasks/member-actions-in-a-process)
+- [Seguir un elemento del proceso](/docs/use/tasks/watching-a-process-item)

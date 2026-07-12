@@ -1,0 +1,33 @@
+---
+title: "Pasos condicionales"
+description: "BORRADOR (no verificado) — migrado desde /t/83h9qth/conditional-steps"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Si quieres que un paso del flujo de trabajo se ejecute solo en una situación determinada, puedes crear una condición para el paso basada en una [fórmula](/t/q6h4alh/introduction-to-expressions-and-formulas). El paso se ejecutará solo cuando se cumplan las condiciones. Para configurar una condición, haz clic en un paso. En **¿Cuándo ocurre este paso?**, selecciona **Según una condición.** A continuación, puedes introducir la fórmula. Debes usar [expresiones lógicas](/t/h7h4aly/logical-expressions) para los pasos condicionales.
+
+### Ejemplo 1
+
+Supongamos que solo quieres que un paso se ejecute si el valor total de una orden de compra de un campo de moneda supera 1 millón de dólares. La fórmula será la siguiente:Total\_estimated\_cost.value()>1000000![](/migration-assets/conditional-steps/3.gif)
+
+En la expresión anterior, debes convertir un campo de moneda en un campo numérico mediante el método value () para evaluarlo con respecto a otro número.
+
+## Operadores lógicos en las condiciones del flujo de trabajo
+
+Puedes configurar varias condiciones para un paso del flujo de trabajo y crear escenarios más específicos y dinámicos mediante operadores lógicos.
+
+-   **\\|\\| (OR)**: este operador comprueba si se cumple alguna de las condiciones. Por ejemplo: Request\_Status = "Done" \\|\\| Name = "Martin". Esta condición se evaluará como verdadera si el estado de la solicitud es "Done" o si el nombre es "Martin."  
+     
+-   **&& (AND)**: este operador comprueba si se cumplen todas las condiciones. Por ejemplo: Request\_Status = "Done" && Name = "Martin". Esta condición se evaluará como verdadera solo si tanto el estado de la solicitud es "Done" como el nombre es "Martin."
+
+## Cómo funcionan los pasos condicionales
+
+Después de establecer una condición, el paso tendrá una pequeña insignia en la parte inferior izquierda que indica que el paso se ejecuta de forma condicional.![](/migration-assets/conditional-steps/1.png)
+
+Cuando consultes el flujo de trabajo de un elemento determinado, el paso aparecerá como **Omitido** si no se cumplieron las condiciones. ![](/migration-assets/conditional-steps/2.png)

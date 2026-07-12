@@ -1,0 +1,126 @@
+---
+title: "Autocompletado guiado para adjuntos inteligentes"
+description: "BORRADOR (sin verificar) — migrado desde /t/m1yzcgv/guided-autofill-for-smart-attachments"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+El autocompletado guiado es una extensión de los adjuntos inteligentes que te permite añadir instrucciones personalizadas a campos de formulario específicos, lo que ofrece mayor precisión y control sobre el autocompletado de formularios.  
+ 
+
+<iframe src="https://player.vimeo.com/video/1039583911?app_id=122963" title="Guided autofill - Overview" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+## **Cómo acceder a las instrucciones de autocompletado**
+
+Haz clic en el campo de adjunto inteligente y, en el panel derecho, en **Instrucciones de autocompletado**, haz clic en **Configurar** para comenzar a añadir instrucciones.
+
+![](/migration-assets/guided-autofill-for-smart-attachments/1.png)
+
+## **Cómo escribir instrucciones de autocompletado para los campos del formulario**
+
+Sigue estos pasos después de hacer clic en **Configurar** para añadir instrucciones a los campos seleccionados y guiar el proceso de autocompletado:
+
+1\. Haz clic en **Añadir instrucciones**.
+
+2\. Selecciona en la lista desplegable el campo al que quieres añadir instrucciones de autocompletado.
+
+3\. Especifica **Cuáles son los datos que se deben extraer** del documento cargado.
+
+4\. Para los campos de **Área de texto**, hay un campo adicional para especificar **Cómo estructurar los datos** (por ejemplo, como viñetas o como una lista numerada).
+
+5\. Haz clic en **Vista previa** para comprobar el resultado con las instrucciones proporcionadas y, cuando estés satisfecho con los resultados, haz clic en **Guardar**.
+
+El campo configurado ahora se autocompletará según estas instrucciones. Todos los campos configurados para el autocompletado guiado estarán visibles en la pantalla final, como se muestra a continuación. Haz clic en **Listo** para cerrar la ventana de autocompletado.
+
+![](/migration-assets/guided-autofill-for-smart-attachments/7.gif)
+
+> **Nota:**  
+> Al escribir instrucciones para AI, consulta únicamente los datos del documento cargado; no hagas referencia a los valores de otros campos.
+
+Los campos configurados para el autocompletado guiado se pueden identificar fácilmente porque mostrarán el icono de autocompletado guiado, como se muestra a continuación.
+
+![](/migration-assets/guided-autofill-for-smart-attachments/2.png)
+
+> **Nota:**  
+> Solo el campo de **Área de texto** puede incluir una instrucción adicional sobre **Cómo estructurar los datos**. 
+
+## **Cómo editar y eliminar instrucciones de autocompletado**
+
+Hay dos formas de editar o eliminar las instrucciones de autocompletado de un campo específico:
+
+1\. Haz clic en el campo de **Adjunto inteligente** y, en la sección **Instrucciones de autocompletado**, haz clic en **Configurar**, como se muestra a continuación.
+
+![](/migration-assets/guided-autofill-for-smart-attachments/6.gif)
+
+2\. También puedes editar o eliminar las instrucciones seleccionando directamente el campo de formulario al que se aplican, como se muestra a continuación.
+
+![](/migration-assets/guided-autofill-for-smart-attachments/4.gif)
+
+## Campos de formulario compatibles con las instrucciones de autocompletado
+
+Esta tabla muestra los campos de formulario compatibles con las instrucciones de autocompletado:
+
+**Categoría de campo**                                                                   
+
+**Campos compatibles**
+
+Básico
+
+Todos los campos excepto los campos de usuario y sí/no
+
+Búsqueda de datos
+
+Ninguno
+
+Archivos y multimedia
+
+Ninguno
+
+Avanzado
+
+Ninguno
+
+Widget
+
+Campos de lista de verificación y valoración
+
+## Uso del autocompletado guiado en tablas
+
+### **Funcionalidad de filtrado y ordenación**
+
+Cuando quieras indicar a AI que filtre u ordene una tabla del documento antes de autocompletar la tabla del formulario, debes seleccionar el nombre de la tabla en la lista desplegable **Seleccionar campo**.
+
+![](/migration-assets/guided-autofill-for-smart-attachments/5.gif)
+
+> **Nota:**  
+> No selecciones columnas específicas en la lista desplegable para estas instrucciones.
+
+### **Cómo rellenar una columna específica de una tabla de formulario**
+
+Para rellenar una columna específica, por ejemplo, si quieres indicar a AI que calcule un descuento del 10 por ciento según el precio mencionado en el documento, selecciona la columna específica de la tabla, como se muestra en el GIF a continuación.
+
+> **Nota:**  
+> Los campos calculados no se pueden configurar para las instrucciones de autocompletado.
+
+## Campos de formulario con instrucciones de autocompletado existentes
+
+Supongamos que un campo ya está configurado con instrucciones de autocompletado. Primero, elimínalas para crear unas nuevas.  
+  
+Por ejemplo, supongamos que hay dos campos de adjunto inteligente, _Invoice\_document_ y _Delivery\_note,_ y que ya has añadido instrucciones a un campo de formulario llamado _Invoice\_number usando el_ campo de adjunto inteligente _Invoice\_document__._   
+  
+Ahora no puedes añadir instrucciones al mismo campo Invoice\_number desde otro adjunto inteligente, _Delivery\_note_, por ejemplo, para añadir el número de entrega. Esto se debe a que ya tiene una instrucción activa del campo de adjunto inteligente _I__nvoice\_document__._
+
+![](/migration-assets/guided-autofill-for-smart-attachments/3.png)
+
+## **Preguntas frecuentes**
+
+**1\. ¿Puedo añadir varias instrucciones al mismo campo?**  
+No, un campo solo puede tener un conjunto de instrucciones.  
+  
+**2\. ¿Qué ocurre cuando hay varios campos de adjunto inteligente?**  
+Las instrucciones de autocompletado son específicas del campo de adjunto inteligente seleccionado y de su documento cargado. No puedes añadir instrucciones de autocompletado al mismo campo utilizando varios campos de adjunto inteligente.

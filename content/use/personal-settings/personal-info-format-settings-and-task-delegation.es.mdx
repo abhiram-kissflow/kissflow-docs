@@ -1,0 +1,104 @@
+---
+title: "Información personal, configuración de formato y delegación de tareas"
+description: "Actualiza tus datos personales y contraseña, configura el idioma y el formato de fecha de tu cuenta, y delega tus tareas de proceso cuando no estés disponible."
+contentType: guide
+persona: end-user
+section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - personal-settings
+  - profile
+  - task-delegation
+---
+
+# Información personal, configuración de formato y delegación de tareas
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+La sección **Configuración general** de **Mi configuración** es donde administras tu propio perfil, contraseña, preferencias de visualización y delegación de tareas, por separado de la configuración de toda la cuenta, que administran los administradores.
+
+## Accede a tu configuración
+
+1. Haz clic en tu foto de perfil en la esquina superior derecha de la pantalla de inicio.
+2. Haz clic en **Mi configuración**.
+
+La página **Mi configuración** tiene tres categorías: **General**, **Seguridad** y **Configuración de notificaciones**. **Configuración general** contiene **Información personal**, **Configuración de formato** y **Delegación de tareas**.
+
+![Página Mi configuración que muestra las categorías General, Seguridad y Configuración de notificaciones](/migration-assets/personal-info-format-settings-and-task-delegation/4.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Información personal
+
+La página **Información personal** te permite completar tus datos, cargar una foto de perfil, añadir una firma y administrar tu dirección de correo electrónico.
+
+### Cambia tu contraseña
+
+1. Haz clic en **Cambiar contraseña**.
+2. Introduce tu contraseña actual y la nueva contraseña.
+3. Haz clic en **Guardar**.
+
+### Restablece una contraseña olvidada
+
+1. Haz clic en **Cambiar contraseña** > **¿Has olvidado tu contraseña?**
+2. Haz clic en **Enviar correo electrónico**.
+
+Recibirás un correo electrónico con instrucciones para restablecer tu contraseña.
+
+<Callout type="warn">
+  El enlace de restablecimiento de este correo electrónico caduca después de 24 horas. Si caduca antes de que lo uses, vuelve a iniciar el flujo **¿Has olvidado tu contraseña?** para obtener uno nuevo.
+</Callout>
+
+## Configuración de formato
+
+La configuración de formato controla cómo se muestran los datos y los valores basados en el tiempo en tu propia cuenta. Es independiente de la configuración de formato de toda la cuenta, que normalmente administran los administradores con permisos de administración de cuentas (consulta [Superadministrador](/docs/admin/users/user-roles-and-permissions)).
+
+- **Zona horaria de la cuenta** — se utiliza cuando se ejecuta una acción programada en una integración o cuando se evalúa una fecha límite en un flujo de trabajo. Los datos de tus procesos, tableros y aplicaciones se muestran en esta zona horaria.
+- **Idioma** — el idioma de visualización de tu cuenta. Kissflow admite más de 20 idiomas, incluidos inglés, francés, español, alemán, italiano, ruso, coreano, chino simplificado, japonés, vietnamita, tailandés, polaco, portugués, eslovaco, checo, ucraniano, hindi y rumano. El árabe es la excepción: solo está disponible si se ha habilitado para tu cuenta (consulta [Idiomas compatibles con Kissflow](/docs/whats-new/important-notices/languages-supported-by-kissflow)).
+- **Formato de fecha** — el formato de visualización de los campos de fecha en toda tu cuenta.
+
+<Callout type="info">
+  El formato de números y monedas no se puede configurar: siempre se basa en la configuración regional de tu navegador.
+</Callout>
+
+Haz clic en **Guardar** después de elegir tus preferencias.
+
+![Página de configuración de formato con opciones de zona horaria de la cuenta, idioma y formato de fecha](/migration-assets/personal-info-format-settings-and-task-delegation/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Delegación de tareas
+
+La delegación de tareas reasigna automáticamente tus tareas de proceso a otro usuario mientras no estés disponible. Los elementos que ya estén en tu cola cuando configures la delegación permanecerán contigo; solo se redirigirán al delegado los elementos nuevos que se te envíen.
+
+1. Haz clic en **Añadir delegación**.
+2. En **¿A quién quieres delegar tus tareas?**, selecciona un usuario.
+3. Especifica durante cuánto tiempo quieres delegar tus elementos a ese usuario.
+
+![Configuración de la delegación de tareas que muestra los campos del delegado y la duración](/migration-assets/personal-info-format-settings-and-task-delegation/2.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="info">
+  Los elementos de proceso existentes en tu cola no se delegan. Solo los elementos de proceso nuevos se redirigen al delegado.
+</Callout>
+
+### Edita o cancela una delegación
+
+- **Editar** — haz clic en **Editar delegación** junto al nombre del usuario delegado y actualiza los detalles.
+- **Cancelar** — haz clic en **Cancelar delegación**. Kissflow volverá a asignarte los elementos nuevos como de costumbre, pero los elementos que ya se hayan delegado permanecerán con el usuario delegado.
+
+![Lista de delegaciones que muestra las acciones Editar delegación y Cancelar delegación](/migration-assets/personal-info-format-settings-and-task-delegation/3.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="info">
+  Un superadministrador puede anular cualquier delegación que hayas configurado. Una vez anulada una delegación, un superadministrador no puede volver a anularla, pero sí puede editar la anulación existente.
+</Callout>
+
+## Qué sigue
+
+- [Administración de sesiones activas](/docs/use/personal-settings/active-sessions)
+- [Autenticación de dos factores](/docs/use/personal-settings/two-factor-authentication)
+- [Configuración de notificaciones de usuario](/docs/use/personal-settings/user-notification-settings)
+- [Delegación de tareas](/docs/admin/account-settings/task-delegation) (Administrador)
+- [Configuración de formato](/docs/admin/account-settings/format-settings) (Administrador)

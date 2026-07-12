@@ -1,0 +1,194 @@
+---
+title: "Trabajar con diseños de página"
+description: "BORRADOR (sin verificar) — migrado desde /t/m1ykbax/working-with-page-layouts"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+El creador de páginas de Kissflow Apps ofrece dos estilos de diseño: **Flex** y **Grid**.
+
+Cada diseño está pensado para diferentes casos de uso y niveles de experiencia. Comprender las características únicas y los propósitos de cada diseño te ayudará a crear de forma eficiente diseños prácticos y visualmente atractivos mientras desarrollas páginas en Kissflow Apps.
+
+## ¿Qué es el diseño Flex?
+
+Flex es un estilo de diseño unidimensional creado para organizar y distribuir elementos en una página de forma horizontal o vertical. El espaciado, el tamaño y la alineación de los componentes se pueden administrar mediante las propiedades de la pestaña **Estilo**.
+
+El diseño Flex te permite crear páginas con contenido dinámico, alineación personalizada y capacidad de respuesta. El contenido de tu página puede crecer, reducirse y ajustarse a la línea siguiente para adaptarse al espacio disponible, lo que te brinda más control sobre la apariencia de tus páginas en tiempo de ejecución.
+
+> **Nota:** Flex es el diseño predeterminado para las páginas.
+
+### Cómo funciona el diseño Flex
+
+En el diseño **Flex**, el contenedor del cuerpo actúa como contenedor Flex por sí mismo, y cada componente de contenedor que agregues a la página también [adopta](/t/m1ykbax/working-with-page-layouts#layout-style-hierarchy) el diseño Flex.
+
+En Flex, los componentes de la página pueden distribuirse en dirección horizontal o vertical. Los componentes agregados dentro del diseño Flex se ajustan automáticamente a la línea siguiente. Esto significa que los componentes no se ajustan visualmente a una cuadrícula; debes ajustar manualmente sus tamaños y alineación.
+
+La pestaña **Estilo** ofrece varias [opciones de estilo](/t/y4yzj9m/managing-component-style-properties), incluido el redimensionamiento. Puedes cambiar el tamaño de los componentes arrastrando los bordes o introduciendo las dimensiones de altura y anchura en **Tamaño**.
+
+### ¿Cuándo usar el diseño Flex?
+
+El diseño Flex es ideal cuando:
+
+-   Necesitas precisión y una alineación personalizada.
+    
+-   Estás creando informes detallados o vistas interactivas.
+    
+-   Te sientes cómodo configurando valores basados en píxeles y trabajando con las opciones de la pestaña **Estilo**.
+    
+
+> **Ejemplo:**
+> 
+> Puedes usar el diseño Flex para crear una interfaz con abundantes datos, varios botones, bloques de texto, iconos y secciones que requieran un control preciso del espaciado y la alineación.
+
+![](/migration-assets/working-with-page-layouts/1.png)
+
+## ¿Qué es el diseño Grid?
+
+Grid es un estilo de diseño bidimensional creado para organizar componentes en filas y columnas simultáneamente. Ofrece una experiencia más visual, ya que puedes arrastrar y soltar los componentes y organizarlos donde quieras en el lienzo del creador de páginas. La simplicidad de Grid facilita su aprendizaje y lo hace ideal para crear páginas sencillas rápidamente.
+
+### Cómo funciona el diseño Grid
+
+El diseño Grid divide el lienzo en filas y columnas en lugar de píxeles, como ocurre con el diseño Flex. Puedes colocar los componentes donde quieras y cambiar su tamaño arrastrando los bordes. Para añadir equilibrio visual a los componentes de tu página, puedes usar la propiedad **Espacio alrededor** para añadir un espaciado igual o desigual alrededor de sus bordes.
+
+### ¿Cuándo usar el diseño Grid?
+
+El diseño Grid es ideal cuando:
+
+-   Estás creando paneles, resúmenes o informes rápidos.
+    
+-   Prefieres una experiencia de edición visual con redimensionamiento mediante arrastrar y soltar.
+    
+-   Quieres evitar trabajar con ajustes de configuración detallados.
+    
+
+> **Ejemplo:**
+> 
+> Una página de panel: arrastra y cambia el tamaño de los componentes directamente en el lienzo para organizar rápidamente gráficos, contadores y widgets y crear un panel.
+
+![](/migration-assets/working-with-page-layouts/7.png)
+
+## Elegir un estilo de diseño para la página
+
+**Flex** es el diseño predeterminado para todas las páginas. Puedes cambiar al diseño **Grid** mediante el conmutador **Estilo de diseño** de la pestaña **Estilo**.
+
+![](/migration-assets/working-with-page-layouts/5.gif)
+
+Puedes cambiar entre los estilos de diseño en cualquier momento, pero no se recomienda hacerlo, ya que alterará la estructura actual y la ubicación de los componentes en tu página.
+
+Sin embargo, puedes combinar ambos diseños en la misma página mediante el componente [contenedor](/t/q6yzj4n/container).
+
+### Jerarquía de estilos de diseño
+
+Cuando agregas un contenedor a una página, este hereda automáticamente el estilo de diseño del cuerpo de la página. Por ejemplo, si la página usa el estilo de diseño Flex, todos los contenedores de la página también usarán Flex de forma predeterminada.
+
+Sin embargo, puedes cambiar el diseño de contenedores individuales. Al seleccionar un contenedor y cambiar su diseño a Grid, los componentes que contiene seguirán el comportamiento de Grid. Puedes colocarlos y cambiar su tamaño libremente mediante filas y columnas.
+
+Mientras tanto, los componentes que estén fuera de este contenedor Grid —en la página principal o en otros contenedores— seguirán el diseño Flex, lo que te permite combinar ambos estilos de diseño en una sola página.
+
+Este enfoque híbrido te ofrece lo mejor de ambos: la rapidez visual de Grid y el control personalizado de Flex.
+
+![](/migration-assets/working-with-page-layouts/2.gif)
+
+## Administrar las propiedades de estilo de los diseños de página
+
+### Propiedades de estilo del diseño Flex
+
+En el diseño Flex, puedes [configurar propiedades](/t/y4yzj9m/managing-component-style-properties) para tus componentes desde la pestaña **Estilo**.
+
+### Propiedades de estilo del diseño Grid
+
+La pestaña **Estilo** ofrece propiedades comunes y específicas de los componentes para ambos estilos de diseño. Hay algunas propiedades específicas del diseño Grid.
+
+#### Configurar la propiedad Espacio alrededor
+
+La propiedad **Espacio alrededor** se puede usar para definir el espacio de separación alrededor de los bordes de un componente, que puede servir como un tipo de relleno entre componentes colocados uno junto a otro en la cuadrícula.
+
+Configurar el espacio alrededor puede ayudarte a lograr un equilibrio visual y una mejor alineación cuando hay varios componentes juntos.
+
+Puedes establecer un espaciado igual en todos los lados de los componentes o configurar una cantidad de píxeles diferente para cada lado.
+
+![](/migration-assets/working-with-page-layouts/3.gif)![](/migration-assets/working-with-page-layouts/4.gif)
+
+El valor de espacio alrededor definido en el nivel de diseño se aplica al contenedor del cuerpo y afecta a todos los componentes de la página. Sin embargo, puedes anular este valor para componentes individuales:
+
+1.  Haz clic en un componente del lienzo para seleccionarlo.
+2.  En la pestaña **Estilo**, en **Espacio alrededor**, elige la opción **Predeterminado** o **Personalizado**.
+3.  Al elegir **Predeterminado**, se aplica al componente seleccionado el valor de espacio alrededor definido globalmente.
+4.  Al elegir **Personalizado**, puedes establecer un valor específico —uniforme o diferente— para ese componente. Este valor anulará el ajuste global aplicado al diseño de la página y funcionará de forma independiente.
+
+![](/migration-assets/working-with-page-layouts/6.gif)
+
+#### Configurar la propiedad Tamaño
+
+Puedes establecer la altura de los componentes mediante la opción **Tamaño** de la pestaña **Estilo**. En el diseño Grid o dentro de un contenedor Grid, los componentes y contenedores admiten dos modos de altura: **Automático** y **Fijo**.
+
+##### Modo Fijo
+
+En el modo **Fijo**, puedes establecer manualmente la altura de un componente arrastrando sus bordes en el lienzo. La altura se mantiene exactamente como se definió y no cambia dinámicamente según el contenido.
+
+![](/migration-assets/working-with-page-layouts/8.gif)
+
+##### Modo Automático
+
+En el modo Automático, la altura del componente se ajusta automáticamente en tiempo de ejecución según su tamaño y los elementos que lo rodean. Sin embargo, puedes elegir definir la altura mínima y máxima del componente.
+
+Para establecer estos límites, selecciona **Automático** y activa el conmutador **Límites de altura máxima y mínima**.
+
+Ahora puedes usar los controladores de arrastre de la parte superior e inferior del componente en el lienzo. De este modo, defines el número de filas dentro del cual el componente puede crecer o reducirse.
+
+El componente cambiará de tamaño automáticamente en tiempo de ejecución según estos límites, su contenido y el espacio disponible.
+
+Si eliges **Automático** y no estableces límites de altura, no podrás cambiar el tamaño del componente o contenedor en el lienzo, y su tamaño cambiará dinámicamente en tiempo de ejecución según su contenido.
+
+> **Nota:** Puedes cambiar libremente el tamaño de los componentes horizontalmente en los modos **Automático** y **Fijo**. Estos ajustes solo se aplican a la altura del componente.
+
+![](/migration-assets/working-with-page-layouts/11.gif)
+
+> **Nota:** Puedes establecer límites de altura máxima y mínima para los siguientes componentes: [Contenedor](/t/q6yzj4n/container), [etiqueta](/t/g9yzj40/label), [botón](/t/x2yzj42/button), [barra de progreso](/t/m1yzj4c/progress-bar), [hipervínculo](/t/h7yzj9h/hyperlink), [texto enriquecido](/t/y4yk1bl/rich-text), [pestaña](/t/p8yzj4s/tab), [detalles maestros](/t/83yzj44/master-details), y todos los tipos de vistas e informes.
+> 
+> Esta opción no se aplicará a otros componentes como: [Separador](/t/x2yk12w/divider), [icono](/t/p8yzj4m/icon), [tarjeta](/t/35yzj4v/card), [imagen](/t/h7yzj47/image), [iframe](/t/y4yzj49/iframe), [ventana emergente](/t/35yzj4w/popup), [componente personalizado](/t/m1yfjgz/working-with-custom-components-in-kissflow-apps).
+
+#### Configurar el tamaño del icono
+
+El componente **Icono** admite dos modos de tamaño: Fijo y Automático, lo que te permite controlar de forma independiente el comportamiento del icono y sus bordes.
+
+##### Modo Fijo para el tamaño del icono
+
+En el modo **Fijo**, puedes establecer directamente el tamaño del icono en píxeles. También puedes definir su alineación horizontal o vertical dentro de los bordes del icono.
+
+-   El tamaño especificado se aplica solo al icono, no a sus bordes.
+    
+-   Puedes cambiar manualmente el tamaño de los bordes del icono arrastrando los controladores en el lienzo.
+    
+-   El tamaño del icono no cambia aunque cambies manualmente el tamaño de los bordes.
+    
+
+![](/migration-assets/working-with-page-layouts/9.gif)
+
+##### Modo Automático para el tamaño del icono
+
+En el modo **Automático**, el tamaño del icono no se establece manualmente. En su lugar:
+
+-   El icono cambia de tamaño automáticamente según el tamaño de sus bordes.
+    
+-   Puedes cambiar libremente el tamaño de los bordes en el lienzo y el icono se ajustará proporcionalmente para encajar en ellos.
+    
+
+Esta opción te permite fijar el tamaño del icono o hacer que responda a los cambios de diseño según tus necesidades.
+
+![](/migration-assets/working-with-page-layouts/13.gif)
+
+## Administrar componentes desde el árbol de componentes
+
+Al usar el diseño Flex, puedes reordenar los componentes arrastrándolos dentro del árbol de componentes. Esto cambia directamente su ubicación en la página.
+
+![](/migration-assets/working-with-page-layouts/10.gif)
+
+En el diseño Grid, no se admite reordenar componentes mediante el árbol de componentes. En su lugar, puedes arrastrar y organizar los componentes libremente en el lienzo.
+
+Si usas ambos diseños en una sola página, por ejemplo, contenedores Grid dentro de una página basada en Flex, aún puedes reordenar en el árbol los componentes de los contenedores Flex y los componentes que estén fuera de los contenedores Grid. Sin embargo, el reordenamiento solo estará desactivado para los contenedores Grid.
+
+![](/migration-assets/working-with-page-layouts/12.gif)
+
+Aún puedes realizar las demás acciones del árbol de componentes, como copiar, incluir en un contenedor y eliminar, para ambos tipos de diseño.

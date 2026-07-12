@@ -1,0 +1,15 @@
+{
+  "title": "Páginas",
+  "pages": [
+    "app-builder-overview",
+    "app-pages-overview",
+    "creating-and-editing-pages",
+    "renaming-duplicating-and-editing-pages",
+    "managing-page-properties",
+    "working-with-the-page-builder",
+    "setting-up-conditional-visibility-for-page-components",
+    "using-advanced-filters-in-apps",
+    "card-report-for-apps",
+    "working-with-page-layouts"
+  ]
+}

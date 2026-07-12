@@ -1,0 +1,57 @@
+---
+title: "Apariencia de los campos"
+description: "BORRADOR (sin verificar) — migrado desde /t/60h4azc/field-appearance"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Básico ✓ Enterprise
+
+La apariencia de un campo en el formulario publicado es la misma que tiene en el editor de formularios. Puedes modificar la apariencia de los campos mediante la configuración de **Estilo**.
+
+## Acceder a la configuración de estilo
+
+Puedes pasar el cursor sobre el campo del editor de formularios cuya apariencia quieras modificar y hacer clic en el icono del pincel. La configuración de estilo se mostrará a la derecha. También puedes hacer clic directamente en la pestaña **Estilo** del panel derecho de **Propiedades del campo**. 
+
+**Propiedades del campo** > **Estilo  (**![](/migration-assets/field-appearance/1.png)) > **Apariencia predeterminada**
+
+![](/migration-assets/field-appearance/2.png)
+
+Inicialmente, los campos utilizan el color predeterminado del sistema. Cuando cambias el color predeterminado y publicas el formulario, los cambios de color se aplican inmediatamente a todas las solicitudes existentes, incluidas las que están en curso, las completadas y las nuevas.
+
+Puedes usar la opción [Simular](/t/y4h9qty/simulate-workflow) en la parte inferior de la pantalla para ver cómo se mostrará tu campo en tiempo de ejecución. 
+
+En la siguiente captura de pantalla, la apariencia predeterminada del campo _Elegir al compañero para solicitar comentarios_ está configurada en verde.
+
+![](/migration-assets/field-appearance/3.png)
+
+## Añadir reglas de apariencia
+
+Una regla de apariencia te permite cambiar la apariencia de un campo según una condición determinada u otros datos del formulario. Por ejemplo, puedes querer que un campo numérico se resalte en rojo si su valor es menor que dos. En el siguiente ejemplo, el campo _Valoración del compañero_ está configurado para mostrarse en rojo cuando su valor es menor que dos.
+
+> **Nota**:
+> 
+> Las reglas de apariencia solo se pueden aplicar a formularios dentro de las aplicaciones..
+
+![](/migration-assets/field-appearance/4.png)
+
+El resultado anterior se obtuvo siguiendo estos pasos:
+
+1.  Crea un campo numérico llamado _Valoración del compañero_.
+2.  Haz clic en la configuración de **Estilo** del panel derecho o pasa el cursor sobre el campo y haz clic en el icono del pincel para modificar directamente la apariencia del campo.
+3.  Haz clic en **Añadir una regla de apariencia** en la ventana **Propiedades del campo**.
+4.  Haz clic en **Menor que** e introduce el valor dos.
+5.  Selecciona el color rojo de la paleta de colores. Los cambios se guardarán automáticamente.
+
+> **Nota**:
+> 
+> Las reglas de apariencia se basan en el tipo de campo y coinciden con las que se utilizan para las [validaciones de campos](/t/m1h4az4/field-validations).
+> 
+> Puedes añadir varias reglas de apariencia para cada campo.   
+
+## Cambiar la apariencia según un paso
+
+Si quieres [cambiar la apariencia de un campo según el paso en el que se encuentre](/t/60h9qtm/configuring-field-permissions-for-process-steps), puedes hacerlo en la pestaña **Permisos**.

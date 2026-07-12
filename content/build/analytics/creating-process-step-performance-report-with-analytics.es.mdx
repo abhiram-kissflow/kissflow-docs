@@ -1,0 +1,259 @@
+---
+title: "Cómo crear un informe de rendimiento de pasos de proceso con Analytics"
+description: "BORRADOR (no verificado) — migrado desde /t/g9yqk6g/creating-process-step-performance-report-with-analytics"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+El tiempo es un factor fundamental al crear un flujo de trabajo de proceso. Establecer SLA y plazos depende de calcular el tiempo necesario para cada paso del flujo de trabajo según su complejidad y los recursos disponibles. Exploremos cómo crear un informe de rendimiento de pasos en Kissflow Analytics para analizar cuánto tiempo pasa cada elemento de proceso en cada paso del flujo de trabajo.
+
+## Informe de rendimiento de pasos
+
+![](/migration-assets/creating-process-step-performance-report-with-analytics/1.png)
+
+La imagen anterior muestra el tiempo empleado en cada paso para cada elemento mediante Kissflow Analytics. Este informe es similar al informe de [rendimiento de pasos](/t/p8h9qtn/reports-overview-new#step-performance) disponible en los informes del sistema de procesos. Veamos cómo puedes personalizar este informe mediante Analytics.
+
+## Crear una vista de datos para realizar un seguimiento del rendimiento de los pasos
+
+1. **Inicia sesión** en Kissflow y ve a Analytics.
+2.  En la pestaña **Explorador de datos**, haz clic en **Crear vista de datos**. Obtén más información sobre [cómo usar el editor de consultas de la vista de datos](/t/83h9qzn/understanding-dataviews#using-the-dataview-query-editor).
+
+### Consulta de ejemplo
+
+Puedes crear una vista de datos mediante el editor de consultas de Analytics. Copia y pega la consulta SQL proporcionada para obtener los datos deseados. Esta consulta recupera los elementos aprobados, es decir, aquellos marcados como **Completado**. No incluye los elementos **Devuelto**, **Rechazado**, **En progreso** ni **Retirado**.
+
+```sql
+SELECT
+"_instance_id" AS "Item id",
+"_flow_name" AS "Process name",
+"ActedAt.value" AS "Acted at",
+"ScriptName" AS "Workflow step",
+ActedBy.value:Name::string AS "Acted by",
+ROUND("ActualTimeTaken", 2) AS "Timetaken mins",
+ROUND(MIN("ActualTimeTaken"),2) AS Min_time,
+ROUND(MAX("ActualTimeTaken"),2) AS Max_time,
+ROUND(AVG("ActualTimeTaken"),2) AS Avg_time,
+"IsSLABreached" AS "Is SLA Breached"
+FROM
+"ActivityInstance",
+TABLE (FLATTEN(input=>"ActedBy", outer => true)) ActedBy
+WHERE
+"_status"='Completed'
+GROUP BY
+"Acted at",
+"Workflow step",
+"Acted by",
+"Timetaken mins",
+"Item id",
+"Process name",
+"IsSLABreached"
+```
+
+### Desglose de la consulta
+
+La siguiente tabla describe cada parte de la consulta. Además del nombre de la tabla **ActivityInstance**, aquí se usa el comando **FLATTEN** para analizar **ActedBy**, que es una matriz JSON, y **outer=> true** proporciona la lista de todos los elementos **ActedBy**, incluidos los pasos omitidos, como los completados en un proceso. Este comando devuelve una fila por cada elemento de la matriz.
+
+**Nombre de la columna original**
+
+**Nombre del alias usado en la consulta**
+
+**Descripción**
+
+\_instance\_id
+
+Item id
+
+El ID único del elemento.
+
+\_flow\_name
+
+Process name
+
+El nombre del proceso al que pertenece el elemento.
+
+ActedAt.value
+
+Acted at
+
+La fecha y hora en que se aprobó el paso del proceso.
+
+ScriptName
+
+Workflow step
+
+El nombre del paso del proceso.
+
+ActedBy.value:Name::string
+
+Acted by
+
+El nombre del usuario que aprobó el paso del proceso.
+
+IsSLABreached
+
+Is SLA Breached
+
+Si el paso en cuestión ha infringido el SLA, se marcará como verdadero.
+
+ROUND("ActualTimeTaken", 2)
+
+CycleTime mins
+
+La parte de la consulta ROUND("ActualTimeTaken",2) AS "CycleTime mins" se utiliza para calcular el tiempo de ciclo en minutos de cada elemento. La columna ActualTimeTaken contiene el tiempo, en minutos, que tardó en completarse cada elemento.
+
+ROUND(MIN("ActualTimeTaken"),2)
+
+Min\_time
+
+Devuelve el valor mínimo redondeado de la columna ActualTimeTaken a dos decimales.
+
+ROUND(MAX("ActualTimeTaken"),2)
+
+Max\_time
+
+Devuelve el valor máximo redondeado de la columna ActualTimeTaken a dos decimales.
+
+ROUND(AVG("ActualTimeTaken"),2)
+
+Avg\_time
+
+Devuelve el valor promedio redondeado de la columna ActualTimeTaken a dos decimales.
+
+## Publicar los datos en el editor de consultas
+
+![](/migration-assets/creating-process-step-performance-report-with-analytics/2.png)
+
+Después de escribir la consulta:
+
+1. **Ejecuta** la consulta para previsualizar la vista de datos.
+2.  Haz clic en **Publicar** cuando se muestren los resultados de la consulta.
+
+![](/migration-assets/creating-process-step-performance-report-with-analytics/3.png)
+
+> **Nota:**
+> 
+> Si encuentras algún error, consulta las [preguntas frecuentes de Analytics](/t/y4h9qz6/faqs-analytics#frequently_asked_questions) para encontrar soluciones.
+
+## Crear el informe de rendimiento de pasos
+
+Para crear un informe usando la vista de datos como [fuente de datos](/t/q6ymbj1/understanding-data-sources), sigue estos pasos:
+
+1.  En Analytics, haz clic en la pestaña **[Informes](/t/y4h9qzg/using-reports#creating-a-report-from-data-source)** y haz clic en **Crear informe**.
+2.  Selecciona en el menú desplegable la vista de datos que creaste anteriormente.
+3.  Asigna un nombre al informe, como **_Informe de rendimiento de pasos_**.
+4.  Selecciona **[Informe dinámico](/t/q6h9qz5/pivot-reports)** o **[Tabular](/t/g9h9qzb/tabular-reports)** para la visualización de datos y haz clic en **Crear**.
+
+![](/migration-assets/creating-process-step-performance-report-with-analytics/4.png)
+
+### Configurar una tabla dinámica
+
+1.  Para obtener un informe detallado, configura la página del informe añadiendo lo siguiente.  
+    \- Valores: Time Taken mins  
+    \- Filas: Process name, Workflow step, Item id y Acted by  
+    \- Columnas: Is SLA Breached  
+    \- Totales generales: Mostrar los totales generales solo para las columnas  
+    \- Cálculos de valores: Mantener como está![](/migration-assets/creating-process-step-performance-report-with-analytics/7.gif)
+2.  Filtra el informe aplicando la condición **Acted at Is not empty**.![](/migration-assets/creating-process-step-performance-report-with-analytics/5.png)
+3.  Haz clic en **Aplicar** y **Guardar** el informe para verlo.
+
+#### Ilustración de la representación de una fila
+
+![](/migration-assets/creating-process-step-performance-report-with-analytics/6.png)
+
+En la imagen proporcionada, los detalles son los siguientes:
+
+-   Nombre del proceso: Appointment Request
+-   Paso del flujo de trabajo: Executive Assistant Approval
+-   Actuado por: Carol
+-   ID del elemento: identificador único de los elementos
+
+El campo **Is SLA Breached** tiene dos valores:
+
+-   **Yes** representa el tiempo promedio de los elementos que han infringido el SLA.
+-   **Other** representa el tiempo promedio de los elementos que se completaron antes de la fecha límite de incumplimiento del SLA.
+
+### Configurar un informe tabular
+
+Para crear un informe tabular con el tiempo de cada paso para cada elemento del proceso, sigue estos pasos.
+
+1.  En la página **Configurar informe**, añade las siguientes columnas:  
+    Workflow step  
+    Acted by  
+    Timetaken mins  
+    Min\_time  
+    Max\_time  
+    Avg\_time  
+    Acted at (Date)  
+    Item id  
+    Process name  
+    Is SLA Breached
+2.  Ordena el informe por **Acted at** en orden descendente y haz clic en **Guardar**.
+
+![](/migration-assets/creating-process-step-performance-report-with-analytics/10.gif)
+
+#### Filtrar el informe
+
+Puedes **[filtrar](/t/g9h9qzb/tabular-reports#filtering-data)** el informe para mostrar datos específicos por proceso o paso del flujo de trabajo. Por ejemplo, puedes filtrar el informe para mostrar únicamente los datos del proceso **Purchase Request** y del paso del flujo de trabajo **Manager Approval**.
+
+## ¿En qué se diferencian el informe de rendimiento de pasos de Analytics y el informe de métricas de pasos de Process?
+
+**Aspecto**
+
+**Informe de rendimiento de pasos en Kissflow Analytics**
+
+**Informe de métricas de pasos en Kissflow Process**
+
+Informe
+
+![](/migration-assets/creating-process-step-performance-report-with-analytics/9.png)
+
+![](/migration-assets/creating-process-step-performance-report-with-analytics/8.png)
+
+Descripción general
+
+Ofrece un desglose detallado del tiempo empleado en cada paso por cada usuario. Además, puedes consultar el tiempo empleado en cada paso para cada elemento.
+
+Proporciona una descripción general del tiempo mínimo, máximo y promedio empleado en cada paso por los usuarios de un proceso.
+
+Filtrado
+
+Las opciones de filtrado personalizadas se configuran al crear el informe, lo que te permite consultar informes de rendimiento de pasos para un paso específico de un proceso o para varios procesos.
+
+Filtra por intervalo de fechas para ver cuándo se crean los elementos. Este informe proporciona información sobre un proceso específico.
+
+Alcance
+
+Proporciona información más detallada a nivel de paso y elemento, lo que te permite analizar más a fondo el rendimiento de varios procesos.
+
+Se centra en proporcionar información agregada a nivel de proceso en todos los pasos y usuarios.
+
+Identificación de incumplimiento de SLA
+
+Te permite identificar fácilmente el número de elementos que han infringido los SLA en los procesos.
+
+No identifica directamente los incumplimientos de SLA.
+
+Escenario de uso
+
+Adecuado para análisis detallados, especialmente cuando necesitas comprender el rendimiento de pasos específicos o identificar patrones en varios procesos.
+
+Ideal para obtener una descripción general rápida del rendimiento del proceso.
+
+Accesibilidad
+
+Se puede acceder a él mediante la plataforma Kissflow Analytics.
+
+Se puede acceder a él desde los informes de Process.
+
+Opciones de visualización de datos
+
+Ofrece una amplia variedad de opciones de visualización de datos, incluidos informes tabulares, diferentes tipos de gráficos y tablas dinámicas.
+
+Las visualizaciones de tabla se generan automáticamente y son de solo lectura.
+
+Tanto los informes de métricas de pasos en Kissflow Process como los informes de rendimiento de pasos en Analytics proporcionan información valiosa sobre el rendimiento de los procesos. Mientras que los informes de métricas de pasos ofrecen una descripción general rápida, los informes de rendimiento de pasos en Analytics permiten realizar un análisis más profundo. Según tus necesidades específicas, puedes elegir el tipo de informe más adecuado para obtener la información necesaria.

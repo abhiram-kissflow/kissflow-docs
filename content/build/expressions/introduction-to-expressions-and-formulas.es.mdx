@@ -1,0 +1,152 @@
+---
+title: "Introducción a las expresiones y fórmulas"
+description: "BORRADOR (sin verificar) — migrado desde /t/q6h4alh/introduction-to-expressions-and-formulas"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Las expresiones se utilizan en Kissflow para crear fórmulas y configuraciones para campos y pasos. 
+
+## La importancia de los tipos de datos
+
+Las expresiones en Kissflow dependen en gran medida del tipo de datos con el que trabajas. Las funciones, los métodos, los campos y los operadores solo funcionan con el tipo de datos correcto. Si tienes problemas con una expresión, empieza siempre examinando el tipo de datos. 
+
+Cada tipo de campo está asociado a un tipo de datos específico.
+
+**Tipo de datos**
+
+**Tipos de campo**
+
+**Ejemplo de salida**
+
+Texto
+
+Texto, Área de texto, Lista desplegable
+
+Stark Industries
+
+Número
+
+Número, Calificación, Control deslizante
+
+3,000
+
+Moneda
+
+Moneda
+
+$10,000
+
+Fecha
+
+Fecha
+
+29 de mayo de 1970 
+
+Fecha y hora
+
+Fecha y hora
+
+29 de mayo de 1970 3:30pm
+
+Booleano (Verdadero/Falso)
+
+Sí/ No
+
+TRUE
+
+Usuario
+
+Usuario
+
+![](/migration-assets/introduction-to-expressions-and-formulas/1.png)
+
+Referencia
+
+Búsqueda
+
+Lista&#123;texto&#125;
+
+Selección múltiple/ Casilla de verificación
+
+“Operaciones”,”Ventas”,”Marketing”
+
+Lista&#123;usuario&#125;
+
+Usuario de selección múltiple
+
+> **Notas:** 
+> 
+> -   Los campos de agregación pueden cambiar su tipo según el campo que estén evaluando. Pueden ser de texto, número, moneda, fecha o fecha y hora.
+> -   Los campos de búsqueda remota serán de texto o JSON.
+> -   No hay tipos de datos asociados a los campos de imagen, archivo adjunto, texto enriquecido o firma. No puedes utilizar estos campos en expresiones. 
+
+## Consejos detallados sobre expresiones según el tipo de datos
+
+Como las expresiones están tan vinculadas al tipo de datos, hemos separado las instrucciones para crear expresiones según el tipo de datos. 
+
+-   [Expresiones de texto](http://helpdocs.kissflow.com/expression/text-expressions)
+-   [Expresiones de números y monedas](http://helpdocs.kissflow.com/expression/number-and-currency-expressions)
+-   [Expresiones de fecha](http://helpdocs.kissflow.com/expression/date-expressions)
+-   [Función IF](http://helpdocs.kissflow.com/expression/if-function)
+-   [Expresiones lógicas](http://helpdocs.kissflow.com/expression/logical-expressions)
+-   [Expresiones de usuario](http://helpdocs.kissflow.com/expression/user-expressions)
+-   [Expresiones de pasos del flujo de trabajo](http://helpdocs.kissflow.com/expression/workflow-step-expressions)
+-   [Expresiones de listas](http://helpdocs.kissflow.com/expression/list-expression)
+
+## Partes de una expresión
+
+Las expresiones pueden estar compuestas por campos, funciones, métodos y operadores. 
+
+### Campos
+
+Puedes utilizar cualquier campo de tu formulario que tenga un tipo de datos asociado. Al utilizar un campo, debes usar el ID del campo en la expresión.
+
+También puedes utilizar [campos del sistema](http://helpdocs.kissflow.com/expression/system-fields) de los que Kissflow recopila datos automáticamente. 
+
+### Funciones y métodos
+
+Las funciones y los métodos te permiten actuar sobre los datos. Una función aparece primero en una expresión, mientras que un método se invoca después de mencionar el campo. 
+
+Cada función tiene un número específico de parámetros asociados. Por ejemplo, con una función IF, hay tres parámetros: la condición que estás comprobando, el valor que muestras si es verdadera y el valor que muestras si es falsa.
+
+_IF(Order\_total>5000, ”Yes”, ”No”)_
+
+Cada función requiere paréntesis después de ella para indicar al sistema que quieres utilizar esa función, incluso si no hay parámetros que incluir. Por ejemplo, si quieres mostrar la fecha actual, debes escribir TODAY(). 
+
+### Operadores
+
+Un operador muestra cómo deben evaluarse o conectarse las distintas partes de la expresión. Puedes ver una lista de los operadores disponibles según el tipo de campo que selecciones.
+
+## ¿Dónde puedo utilizar expresiones?
+
+### Fórmulas de campos de formulario
+
+Puedes utilizar expresiones como parte de una fórmula para calcular un campo en tu formulario. Los campos de formulario pueden mostrar todos los tipos de datos excepto los booleanos.  
+
+### Condiciones de los pasos
+
+Puedes utilizar una expresión para determinar cuándo se ejecuta un paso o una rama del flujo de trabajo. 
+
+Estas expresiones deben ser booleanas. Si el resultado es TRUE, el paso o la rama se ejecuta. Si es FALSE, el paso se omite. 
+
+### Asignar un usuario a un paso
+
+Puedes utilizar una expresión para asignar un paso a un usuario. 
+
+Estas expresiones deben dar como resultado un tipo de datos Usuario.
+
+### Plazos y mensajes
+
+Puedes utilizar una expresión para definir cuántas horas faltan para que un paso supere un plazo. 
+
+Esta expresión debe ser de tipo de datos número o fecha y hora. 
+
+También puedes utilizar una expresión para definir a quién se envía un mensaje de notificación o escalamiento cuando se supera un plazo. 
+
+Debe ser de tipo de datos usuario.

@@ -1,0 +1,84 @@
+---
+title: "Entornos de aplicaciones"
+description: "BORRADOR (sin verificar) — migrado desde /t/g9h9qkp/app-environments"
+contentType: overview
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+## Gestión del ciclo de vida de la aplicación mediante entornos
+
+El ciclo de vida de las aplicaciones de Kissflow es un proceso ágil que consiste en crear aplicaciones en el entorno de desarrollo, implementarlas en el entorno de pruebas y, finalmente, trasladarlas al entorno activo/de producción. Todos los usuarios de Kissflow tendrán acceso predeterminado a la cuenta activa de Kissflow. Como [superadministrador](/t/35h4ak036h4gg/user-roles-permissions), puedes añadir otros usuarios de Kissflow a los entornos de desarrollo y pruebas con privilegios de administrador o usuario.
+
+## ¿Cuáles son los entornos de Kissflow Apps?
+
+Kissflow Apps ofrece una consola unificada con visibilidad de todos tus entornos predeterminados:
+
+-   **Desarrollo**: Este entorno te permite crear aplicaciones con una mentalidad ágil. Puedes compartirlo con desarrolladores ciudadanos y desarrolladores de TI, quienes podrán diseñar y crear aplicaciones, así como corregir errores. Como superadministrador de la cuenta de Kissflow, podrás añadir otros usuarios al entorno de desarrollo. La URL predeterminada de este entorno es dev-&lt;account\_name>.kissflow.com. Siempre puedes modificar la URL si es necesario.
+-   **Producción:** Es el entorno activo de Kissflow para aplicaciones listas para producción y contenido terminado. Los empleados de tu organización utilizan la aplicación desde este entorno. Siempre corresponde al dominio principal de la cuenta de Kissflow. El propietario de la cuenta, todos los superadministradores, administradores de usuarios, administradores de facturación y usuarios tienen acceso al entorno de producción. La URL predeterminada de este entorno es &lt;account\_name>.kissflow.com.
+
+### **Acceso a los entornos**
+
+1.  Inicia sesión en el entorno de producción de tu cuenta.
+    
+2.  Haz clic en tu foto de perfil, en la esquina superior derecha de la página, y haz clic en **Entornos** en el menú desplegable**.**![](/migration-assets/app-environments/1.png)  
+
+### Gestión de entornos
+
+Cuando accedas a la página **Entornos**, podrás copiar desde aquí todas las URL de los entornos. Haz clic en **Gestionar** y se te redirigirá a la página de **Administración de la cuenta** de ese entorno. Esta página contiene todas las opciones de configuración y administración que necesitarás para gestionar el entorno, incluidas las opciones para añadir usuarios y ver el registro de auditoría. También puedes modificar las URL de los entornos en **[Detalles de la cuenta](/t/m1h4akp/account-details-customization-and-connected-domains#account-details)**.  
+ 
+
+![](/migration-assets/app-environments/2.png)
+
+> Cuando cambies la dirección del dominio, se te dirigirá a la nueva URL y todos los usuarios serán [notificados](/t/35yzjv9/notifications-in-apps) sobre este cambio.
+
+Obtén más información sobre la [configuración de geolocalización](/t/p8y8zv6/geolocation-settings) y los [fines de semana y días festivos](/t/q6h4aka/weekends-and-holidays).
+
+## Gestión de usuarios
+
+### Añadir usuarios al entorno de producción
+
+Para proporcionar acceso a un usuario, debes añadirlo al entorno de producción. Haz clic en **Gestionar** debajo de la URL del entorno de producción y ve a **Gestión de usuarios**. Aquí puedes [añadir usuarios a varios roles](/t/y4h4aks/adding-and-managing-users) y gestionar sus detalles.
+
+### Añadir usuarios al entorno de desarrollo
+
+Los usuarios que se añadan al entorno de producción se sincronizarán automáticamente con los subentornos (desarrollo y pruebas). Sin embargo, aún debes asignarlos manualmente al subentorno correspondiente para que puedan acceder a él.
+
+1.  Para asignar usuarios al entorno de desarrollo/pruebas, haz clic en el icono de tu perfil > **Entornos**. Haz clic en **Gestionar** debajo de la URL del entorno de desarrollo/pruebas.
+2.  Haz clic en **Añadir usuarios**. En la ventana emergente que aparece, selecciona los usuarios que deseas asignar al entorno de desarrollo/pruebas y haz clic en **Añadir**. Ahora, los usuarios asignados podrán acceder al subentorno, además del entorno de producción.
+
+> **Nota:** Solo los usuarios que se hayan añadido al entorno de producción con privilegios de administrador estarán visibles en **Gestión de usuarios** en el subentorno.
+
+![](/migration-assets/app-environments/3.gif)
+
+> **Nota:** Añadir usuarios de producción al entorno de desarrollo es crucial, ya que solo así podrás compartir aplicaciones con esos usuarios desde el entorno de desarrollo.
+
+### Nota importante
+
+En **Administración de la cuenta**, dentro del entorno de producción, los usuarios que solo se hayan añadido a un [grupo](/t/y4h4akj/group-management) no se sincronizarán con los subentornos y, por lo tanto, no podrán asignarse a los entornos de desarrollo o pruebas, aunque se les haya asignado un rol de administrador. Para asignar usuarios a otros entornos, deben añadirse por separado a la tabla de Gestión de usuarios, aunque formen parte de un grupo de administradores en **Gestión de grupos**.
+
+#### Ejemplo
+
+Una empresa tiene un superadministrador, Adam, y otros cinco usuarios que requieren acceso de administrador. Adam se añade a la tabla de Gestión de usuarios del entorno de producción con acceso de superadministrador. Para conceder acceso de administrador a los otros cinco usuarios, Adam crea un grupo y les asigna acceso de administrador de usuarios a través del grupo. Estos usuarios no se añaden a la tabla de Gestión de usuarios.
+
+En este escenario:
+
+-   Adam tendrá acceso a producción y podrá asignarse como usuario a los subentornos.
+-   Los cinco administradores de usuarios solo tendrán acceso al entorno de producción. Adam no podrá asignarlos al entorno de desarrollo/pruebas, ya que forman parte de un grupo de administradores y no se han añadido a la tabla de Gestión de usuarios.
+
+Las entradas de la tabla de Gestión de usuarios siempre tendrán precedencia sobre los grupos de usuarios.
+
+### **Motivos para tener entornos separados**
+
+-   El desarrollo de aplicaciones es un proceso continuo. Debido a que el desarrollo implica una depuración y unas pruebas exhaustivas, mezclar los entornos de pruebas y producción nunca es una buena idea. Se necesitan entornos separados para evitar problemas causados por el desarrollo de aplicaciones y limitar el riesgo de interrupciones empresariales.
+    
+-   Para reducir la probabilidad de tiempos de inactividad inesperados. No querrás que ninguna actividad empresarial se detenga porque una nueva compilación se haya puesto en producción.
+-   Debes asegurarte de que el control de calidad, las pruebas unitarias y las pruebas de estrés se realicen en un entorno completamente separado. Si algo sale mal durante el desarrollo o el control de calidad, tendrá un impacto negativo en el entorno de producción y afectará a los usuarios activos y a sus datos críticos para la misión.
+-   Para aumentar el acuerdo de nivel de servicio (SLA) de la aplicación y ofrecer una mejor experiencia de usuario.
+-   Para reducir las probabilidades de que los datos confidenciales de producción caigan en manos equivocadas. El manejo de datos de producción, como información de clientes o transacciones financieras, requiere garantías de seguridad normativa.
+
+> **Nota:** Solo puedes eliminar y archivar aplicaciones en el entorno de producción. [Obtén información](/t/x2yz5hz#archiving-and-deleting-an-app) sobre cómo archivar y eliminar aplicaciones.

@@ -1,0 +1,220 @@
+---
+title: "Exportar datos de usuarios"
+description: "BORRADOR (sin verificar) — migrado desde /t/x2h4ak7/exporting-user-data"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Los [Superadministradores, administradores de IAM y administradores de usuarios](/t/35h4ak036h4gg/user-roles-permissions) pueden exportar los detalles de algunos o de todos los usuarios de una cuenta de Kissflow.
+
+## Exportar datos de usuarios
+
+Para exportar tus datos de usuario, sigue los pasos que se indican a continuación:
+
+Inicia sesión en Kissflow. Haz clic en tu foto de perfil > **Administración de la cuenta** > **Gestión de usuarios**.![](/migration-assets/exporting-user-data/1.png)    2.  Haz clic en el botón **Exportar datos de usuarios** (![](/migration-assets/exporting-user-data/2.png)) en la tabla de gestión de usuarios.
+3.  Selecciona el botón de opción correspondiente en el menú desplegable para exportar los datos de usuario necesarios.
+    -   **Datos filtrados**: exporta los detalles únicamente de los registros de usuarios filtrados. 
+    -   **Todos los datos**: exporta los detalles de todos los usuarios de tu cuenta de Kissflow.
+        
+        ```
+        Note:
+        When you select Filtered data, all the data fields hidden from your page are
+        filtered out, only visible data is available in your exported file.
+        ```
+        
+4.  Selecciona el tipo de archivo: CSV o JSON. Haz clic en **Exportar**.
+
+Cuando hagas clic en Exportar, recibirás un correo electrónico con un enlace para descargar el archivo exportado. También puedes descargar el archivo exportado accediendo a la [tarjeta de notificación](/t/x2h4azyy7h4gj/managing-notifications) correspondiente.
+
+> **Nota:**  
+> Si utilizas el botón **Mostrar/ocultar campos** para ocultar algún campo, solo podrás exportar la página actual y no todos los datos. 
+
+## Interpretar el archivo CSV exportado
+
+Puedes consultar el archivo CSV insertado a continuación para comprender la estructura del archivo exportado. :
+
+**Nombre del campo**
+
+**Descripción**
+
+**Ejemplo**
+
+id
+
+Identificador único universal de un usuario
+
+Us245453489Zs
+
+Nombre
+
+El nombre del usuario 
+
+John
+
+Apellidos
+
+Los apellidos del usuario
+
+Doe 
+
+Dirección de correo electrónico
+
+La dirección de correo electrónico del usuario
+
+[johndoe@kissflow.com](mailto:johndoe@kissflow.com)
+
+Correo electrónico verificado
+
+Indica si se verificó o no la dirección de correo electrónico del usuario 
+
+-   TRUE
+-   FALSE
+
+TRUE
+
+Creado por (nombre)
+
+El nombre del usuario que creó este usuario 
+
+Adam
+
+Creado por (id) 
+
+El identificador único del usuario que creó este usuario
+
+A34343jvbSs
+
+Creado por (tipo)
+
+El rol del usuario que creó este usuario 
+
+Superadministrador
+
+Creado el 
+
+La fecha y hora en que se creó la cuenta del usuario en Kissflow
+
+2022-07-01 06:15
+
+Grupos 
+
+Los grupos a los que pertenece este usuario en Kissflow
+
+Marketing
+
+Apodo
+
+El apodo del usuario
+
+JD
+
+Tipo de usuario
+
+El rol de usuario asignado a este usuario en función de sus responsabilidades 
+
+-   Usuario
+-   Administrador de usuarios
+-   Superadministrador
+-   Administrador de facturación
+-   Administrador de IAM
+-   Administrador de App Store
+
+Superadministrador
+
+Estado
+
+El estado actual del usuario
+
+-   Activo 
+-   Inactivo
+
+Activo
+
+Último inicio de sesión 
+
+La fecha y hora en que el usuario inició sesión por última vez en Kissflow
+
+2022-07-01, 09:30
+
+Añadido el
+
+La fecha y hora en que se añadió el usuario a esta cuenta de Kissflow
+
+30/06/2022, 13:45
+
+Manager
+
+El nombre del manager del usuario 
+
+Adam
+
+Último acceso
+
+La fecha y hora, así como el dispositivo y el navegador mediante los cuales el usuario accedió a Kissflow
+
+Hace 1 día
+
+Acceso programático
+
+Nunca
+
+Ejemplo de datos de usuarios exportados: CSV exportado
+
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR0FByLiIoVZWI6swSiKmrkiH6W2lUQGH_BIwz7HS9a1RVNN5EVAaHSWBiZgW8L52J5rRnjlaCkXDQQ/pubhtml?gid=399517463&single=true&widget=true&headers=false" title="Embedded video" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+## Datos de usuarios exportados en formato JSON 
+
+Si exportas tus datos de usuario en formato JSON, así se verán tus datos:
+
+> &#123;"\_id": "Us5ZfNDf2USt","FirstName": "Bruce","Email": "admin@kissflow.com","Groups": "Sales and Marketing","UserType": "Super Admin","Status": "Active","\_created\_at": "2022-08-18T12:48:05Z","EmailVerified": false,"LastLoggedInAt": NaN,"\_last\_access": NaN,"\_created\_by.\_id": "Us5ZfJ1Q7GSo","\_created\_by.Name": "Frank","\_created\_by.Kind": "User","Manager.\_id": "Us5ZfK1Dad4i","Manager.Name": "Justin","Manager.Kind": "User","Manager.Email": "superadmin@kissflow.com"&#125;
+
+Si añades un campo personalizado a la tabla de gestión de usuarios y lo exportas, los datos exportados tendrán el tipo de datos del campo personalizado. 
+
+Texto
+
+Cadena
+
+Área de texto
+
+Cadena
+
+Número
+
+Número
+
+Moneda
+
+Cadena
+
+Fecha
+
+Cadena
+
+Fecha y hora
+
+Cadena
+
+Sí/No
+
+Cadena (true/false)
+
+Archivo adjunto
+
+Lista de diccionarios con el nombre, el identificador y la clave del archivo 
+
+Menú desplegable
+
+Cadena
+
+Usuario - único
+
+Diccionario con el nombre, el identificador y el tipo
+
+Usuario - varios
+
+Lista de diccionarios con el nombre, el identificador y el tipo
+
+Firma
+
+Diccionario con la clave y el nombre del archivo de firma en S3

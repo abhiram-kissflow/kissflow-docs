@@ -1,0 +1,287 @@
+---
+title: "Administrar miembros y permisos"
+description: "BORRADOR (sin verificar) — migrado desde /t/m1h4alg/managing-members-and-permissions"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Planes de Kissflow:
+
+✓ Básico ✓ Enterprise
+
+Tú controlas quién puede acceder y administrar tus conjuntos de datos mediante roles: **Administrador**, **Miembro** y **Visor**. Cada rol tiene permisos específicos para garantizar el nivel de acceso adecuado para cada colaborador.
+
+Aquí tienes una guía rápida de lo que puede hacer cada rol.
+
+## Administrador
+
+Un administrador de un conjunto de datos tiene el nivel de privilegios más alto en un conjunto de datos, y cualquier persona que cree un conjunto de datos se convierte en su Administrador, es decir, en **Administrador** de forma predeterminada.
+
+Un administrador de un conjunto de datos puede:
+
+-   Crear, editar y eliminar conjuntos de datos y vistas de conjuntos de datos.
+-   Agregar o eliminar miembros del flujo en un conjunto de datos y asignarles los roles correspondientes.
+-   Acceder al historial del conjunto de datos.
+-   Agregar o eliminar columnas de un conjunto de datos.
+-   Modificar el rol de los miembros del flujo a **Administrador**, **Miembro** o **Visor**, según sea necesario y sin restricciones.
+
+> **Consejo**
+> 
+> **¿Puede un administrador de un conjunto de datos acceder a los conjuntos de datos de otras personas?**  
+>   
+> Sí. Si el administrador del conjunto de datos también es Super Admin a nivel de cuenta, podrá acceder al conjunto de datos de cualquier persona, acceder a su configuración de uso compartido y asignarse el rol de administrador o cualquier otro rol de su elección.
+
+## Miembro del conjunto de datos
+
+Los permisos otorgados a un miembro del conjunto de datos son relativamente limitados en comparación con los de un administrador. Puede:
+
+-   Modificar los valores de un conjunto de datos.
+-   Agregar o eliminar filas en un conjunto de datos.
+-   Duplicar un conjunto de datos.
+-   Crear, editar y eliminar las vistas del conjunto de datos que posee.
+-   Convertir a otro miembro del flujo en miembro del conjunto de datos o solamente en visor; es decir, no puede convertir a nadie en administrador ni modificar o eliminar a los administradores existentes de un conjunto de datos.
+
+> **Nota**
+> 
+> Un  miembro no puede agregar ni eliminar columnas en un conjunto de datos.
+
+## Visor del conjunto de datos
+
+Un visor del conjunto de datos tiene el menor conjunto de privilegios. Solo puede:
+
+-   Ver un conjunto de datos.
+-   Exportar el conjunto de datos.
+-   Filtrar valores en el conjunto de datos.
+
+> **Nota**
+> 
+> Si un miembro del flujo es solo visor en un conjunto de datos, pero tiene acceso de Super Admin a nivel de cuenta, podrá acceder a cualquier conjunto de datos y acceder a su **configuración de uso compartido**.  
+>   
+> Puede asignarse el rol de Administrador, Miembro o Visor en el conjunto de datos al que acceda mediante sus privilegios de Super Admin y realizar las acciones correspondientes según lo desee.
+
+### Roles y permisos de un miembro del flujo en un conjunto de datos
+
+Aquí tienes una descripción detallada de los permisos de estos roles:
+
+**Permisos**
+
+**Administrador**
+
+**Miembro**
+
+**Visor**
+
+Administrar la configuración del conjunto de datos
+
+✓
+
+X
+
+X
+
+Agregar o eliminar miembros del flujo
+
+✓
+
+✓
+
+X
+
+Editar o eliminar campos en un conjunto de datos
+
+✓
+
+X
+
+X
+
+Crear, editar y eliminar vistas
+
+✓
+
+✓
+
+X
+
+Acceder al historial del conjunto de datos
+
+✓
+
+X
+
+X
+
+Eliminar el conjunto de datos
+
+✓
+
+X
+
+X
+
+Duplicar un conjunto de datos
+
+✓
+
+✓
+
+X
+
+Ver el conjunto de datos
+
+✓
+
+✓
+
+✓
+
+Compartir el conjunto de datos
+
+✓
+
+✓
+
+X\*
+
+Importar el conjunto de datos
+
+✓
+
+✓
+
+X
+
+Exportar el conjunto de datos
+
+✓
+
+✓
+
+✓
+
+Ver miembros
+
+✓
+
+✓
+
+X
+
+Filtrar los valores del conjunto de datos
+
+✓
+
+✓
+
+✓
+
+Agregar o eliminar filas en un conjunto de datos
+
+✓
+
+✓
+
+X
+
+Agregar o eliminar columnas en un conjunto de datos
+
+✓
+
+X
+
+X
+
+Modificar el nombre del conjunto de datos
+
+✓
+
+X
+
+X
+
+Modificar la descripción del conjunto de datos
+
+✓
+
+X
+
+X
+
+Ver configuraciones
+
+✓
+
+X\*
+
+X
+
+## Compartir un conjunto de datos con los miembros del flujo
+
+Cualquier persona que cree un conjunto de datos se convierte en su administrador de forma predeterminada.
+
+1.  Ve al conjunto de datos al que deseas agregar miembros.
+2.  Haz clic en el botón **Administrar**, en la esquina superior derecha, y haz clic en **Compartir**.
+3.  Haz clic en **\+ Agregar miembros**![](/migration-assets/managing-members-and-permissions/3.gif)
+4.  Introduce el nombre o la dirección de correo electrónico del miembro del flujo que deseas agregar.
+5.  Selecciona el rol correspondiente que mejor se adapte a esa persona. 
+6.  Haz clic en **Agregar**.
+
+> **Consejo**
+> 
+> Solo los miembros del flujo con acceso de Super Admin a nivel de cuenta pueden ver la página de **configuración de uso compartido** de cualquier conjunto de datos. Esto significa que pueden acceder y administrar la configuración de uso compartido de todos los conjuntos de datos, independientemente del rol que tengan asignado en cada uno.
+
+## Administrar miembros en un conjunto de datos
+
+Como administrador de un conjunto de datos, puedes modificar los roles de otros miembros del flujo en tu conjunto de datos.
+
+Para modificar el rol de un usuario:
+
+1.  Ve a la página del conjunto de datos y haz clic en **Administrar** > **Compartir**.
+2.  Haz clic en el botón **Más opciones** (![](/migration-assets/managing-members-and-permissions/1.svg)) junto al nombre de un usuario específico.![](/migration-assets/managing-members-and-permissions/2.png)   
+3.  Vuelve a asignar al usuario un rol diferente o elimínalo del conjunto de datos según sea necesario.
+
+Consulta los privilegios que tienes para volver a asignar usuarios según tu rol actual en el conjunto de datos:
+
+**Tu rol actual en el conjunto de datos**
+
+**Convertir en administrador**
+
+**Convertir en miembro**
+
+**Convertir en visor**
+
+**Eliminar**
+
+Administrador
+
+✓
+
+✓
+
+✓
+
+✓
+
+Miembro
+
+X
+
+✓
+
+✓
+
+✓\*
+
+Visor
+
+X
+
+X
+
+X
+
+X
+
+-   (\*) - Un **Miembro** solo puede eliminar a otro **Miembro** o **Visor**. No puede eliminar a los administradores del conjunto de datos.
+-   Un **Visor** no puede modificar el rol de nadie ni eliminarlo de un conjunto de datos.

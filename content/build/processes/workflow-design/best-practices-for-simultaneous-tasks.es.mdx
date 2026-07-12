@@ -1,0 +1,59 @@
+---
+title: "Prácticas recomendadas para tareas simultáneas"
+description: "BORRADOR (sin verificar) — migrado desde /t/x2h9qtq/best-practices-for-simultaneous-tasks"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Hay ocasiones en un flujo de trabajo en las que quieres que varios responsables actúen en un paso al mismo tiempo. Hay dos formas de hacerlo en Kissflow.
+
+## Ramas paralelas
+
+Las ramas paralelas crean flujos de trabajo y pasos independientes que pueden ejecutarse simultáneamente.
+
+En la sección del flujo de trabajo, haz clic en el botón **Añadir** (![](/migration-assets/making-a-process-workflow/12.png)) y, a continuación, **añade una rama paralela**. Aparecerán dos ramas. Si quieres añadir más ramas, haz clic en **Añadir una rama**. Haz clic en **Cambiar** para cambiar el nombre de cada rama o [escribir una condición](/t/83h9qth/conditional-steps) que determine cuándo debe ejecutarse esa rama.
+
+Debes añadir un paso debajo de cada rama. Haz clic en el botón **Añadir** (![](/migration-assets/making-a-process-workflow/12.png)) y, a continuación, haz clic en **Añadir un paso nuevo**. Asigna un nombre al paso y elige a los responsables.
+
+Así aparecen las tareas paralelas al revisar el estado de un flujo de trabajo:
+
+![](/migration-assets/best-practices-for-simultaneous-tasks/1.png)
+
+## Un solo paso con varios responsables
+
+La segunda forma de crear tareas simultáneas es crear una sola tarea y asignarla a varias personas. En el paso, selecciona los usuarios a quienes quieres asignar la tarea. En **Preferencia de asignación**, haz clic en **Cambiar**. A continuación, elige **Asignar a todos** y **Todos los responsables**.
+
+Así aparece una sola tarea con varios aprobadores en el progreso del flujo de trabajo:
+
+![](/migration-assets/best-practices-for-simultaneous-tasks/2.png)
+
+## ¿Qué modo de preferencia de asignación es el mejor?
+
+Asignar varios responsables a un paso es la mejor opción si:
+
+-   Todos los responsables siempre tendrán que actuar sobre el elemento, y
+-   Todos los responsables deben ver los mismos datos en el formulario
+
+La ventaja de usar un solo paso con varios responsables es que, cuando necesites editar el flujo de trabajo o los permisos, solo tendrás que cambiar un paso en lugar de revisar y cambiar varios; requiere mucho menos mantenimiento.
+
+Usar ramas paralelas es la mejor opción si:
+
+-   Quieres establecer condiciones sobre cuándo deben actuar algunas personas sobre un elemento, o
+-   Quieres cambiar los datos que se muestran a diferentes personas
+
+En ambas opciones, el flujo de trabajo no avanzará hasta que se completen todos los pasos. Sin embargo, con las ramas paralelas tienes la opción de crear pasos adicionales debajo de algunas ramas.
+
+## Casos de uso
+
+El primero es la incorporación de empleados. En una determinada sección del flujo de trabajo, quieres que los equipos de TI, Finanzas y Administración realicen una acción simultáneamente como parte del proceso de incorporación. Ninguno de los pasos depende de los demás, pero para avanzar en el flujo de trabajo deben completarse todos. Cada equipo necesita ver datos ligeramente diferentes en el formulario y tiene distintos campos en los que introducir datos.
+
+En este caso, las ramas paralelas son la opción adecuada porque quieres que los detalles del formulario aparezcan de forma diferente. Además, si hubiera situaciones en las que un candidato no necesitara completar las tres tareas, podrías escribir una condición para permitirlo.
+
+En el segundo caso de uso, necesitas que tres personas aprueben una orden de compra: el responsable del departamento, el responsable de la ubicación y el gerente de compras. Del mismo modo, no es necesario que actúen en un orden específico, pero todos deben aprobarla antes de que pueda avanzar. Los tres revisarán la misma información y darán su aprobación.
+
+En este caso, un solo paso con varios responsables es la opción adecuada. Todos los aprobadores siempre tendrán que actuar y todos consultarán los mismos datos.

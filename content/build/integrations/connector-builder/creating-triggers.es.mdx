@@ -1,0 +1,108 @@
+---
+title: "Creación de triggers"
+description: "BORRADOR (sin verificar): migrado desde /t/m1ygdrq/creating-triggers"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Un trigger es un evento o una condición que inicia una integración. Actúa como el listener o catalizador de una integración, esperando que ocurra un cambio específico en una aplicación para iniciar automáticamente una serie de acciones en otra.
+
+Por ejemplo, un trigger podría ser _Cuando se crea un nuevo lead en Salesforce_ o _Cuando se recibe un archivo adjunto de correo electrónico en Gmail._
+
+## Configurar un trigger
+
+En tu **Connector builder**, haz clic en **Edit connector** y ve a **Triggers**. Haz clic en **\+ New trigger** y accederás a la página de **Settings**.
+
+![](/migration-assets/creating-triggers/1.png)
+
+**Trigger ID**: un identificador único para este trigger.
+
+**Trigger name**: este trigger debe tener un nombre en texto simple, normalmente con un adjetivo como New o Updated, seguido del nombre del elemento que supervisa en tu aplicación. El nombre del trigger se mostrará dentro del conector de Kissflow y en las páginas de marketing de integraciones de Kissflow.
+
+**Description**: una frase que describe lo que hace el trigger y cuándo debe utilizarse. Se muestra dentro de la integración de Kissflow y en las páginas de marketing de integraciones de Kissflow.
+
+## Crear el formulario de entrada del trigger
+
+El proceso para crear formularios de entrada para un trigger es comparable a los pasos utilizados para crear formularios de entrada para las acciones. La etapa del diseñador de entradas te permite definir los campos de datos que los usuarios deben proporcionar al configurar este trigger en sus flujos de trabajo.
+
+![](/migration-assets/creating-triggers/2.png)
+
+Puedes hacer clic en **Add field** o **Add dynamic field** para comenzar a crear el formulario. En este diseñador, puedes definir los parámetros de los campos, incluidos:
+
+-   **Clave y nombre del campo**: define identificadores de API únicos y etiquetas fáciles de entender para los usuarios.
+    
+-   **Tipo de entrada**: elige estructuras de datos como Strings, Numbers o Booleans.
+    
+-   **Requisitos del campo**: configura propiedades condicionales como campos obligatorios, compatibilidad con selección múltiple o menús desplegables estáticos y dinámicos.
+    
+
+![](/migration-assets/creating-triggers/4.png)
+
+Los mecanismos de diseño subyacentes y el comportamiento de las propiedades para crear un formulario de entrada de trigger siguen exactamente las mismas convenciones que un formulario de entrada de acción. Para obtener un desglose detallado de los tipos de campo, las configuraciones de los menús desplegables y las reglas de validación, consulta nuestra documentación completa sobre el [diseñador de entradas](/t/h7ygdmg/input-designer).
+
+### Configuración de API
+
+La configuración de API debe establecerse para completar el proceso de añadir un trigger.
+
+Tu conector puede utilizar una llamada de API de sondeo para comprobar periódicamente si hay datos nuevos o actualizados, o un REST Hook con una URL de suscripción para recibir datos nuevos o actualizados automáticamente.
+
+#### Trigger de sondeo
+
+El conector de Kissflow envía una solicitud a la URL de un endpoint de API para obtener datos nuevos. Con la integración activa, el conector eliminará automáticamente los datos duplicados y ordenará la información más reciente de la API. El proceso de integración activa también comprobará periódicamente si hay datos nuevos en la URL, realizando sondeos cada 1 a 15 minutos.
+
+Para configurar un trigger de sondeo, ve a la página de configuración y haz clic en Polling. Después, en el campo API Endpoint, introduce la URL de tu API. Si tu URL de API requiere datos específicos en la ruta de la URL, incluye la clave con los datos relevantes del formulario de entrada que creaste en el paso anterior. Para incluir datos de los campos de entrada en la llamada de API, utiliza parámetros de URL para las solicitudes GET o JSON en el cuerpo de la solicitud para las solicitudes POST.
+
+Si necesitas proporcionar información adicional para tu API, haz clic en el botón Show Options para mostrar una configuración de solicitud más detallada. Como alternativa, si es necesario, puedes cambiar a Code Mode y escribir una llamada de API personalizada en código JavaScript. Después de realizar los cambios, recuerda guardar la configuración de tu trigger haciendo clic en el botón Save API Request and Continue.
+
+#### Trigger de Resthook
+
+Si tu aplicación admite REST Hooks, selecciona REST Hook como trigger. Ten en cuenta que el conector de Kissflow admite la confirmación de identidad. Esto permitirá que tu trigger se ejecute casi de inmediato, ya que tu aplicación enviará datos al conector de Kissflow y activará las integraciones en cuanto se reciban datos nuevos.
+
+![](/migration-assets/creating-triggers/3.png)
+
+Kissflow Connector requiere solicitudes de API de Subscribe y Unsubscribe para un trigger de REST Hook, a fin de establecer y eliminar la suscripción al hook.
+
+Los orígenes de webhook no verificados pueden representar una amenaza grave para la seguridad y la integridad de las integraciones de Kissflow. Esto puede provocar un procesamiento impreciso de los datos y vulnerabilidades del sistema, lo que puede comprometer la seguridad general del sistema. Para solucionar este problema, puedes activar la verificación de webhook, que mejora la seguridad y la fiabilidad de las integraciones de webhook. También puedes asegurarte de que los eventos de webhook solo se reciban de fuentes de confianza, reduciendo el riesgo de acceso no autorizado y filtraciones de datos.  
+  
+**Configurar la verificación de webhook**: 
+
+Para activar la verificación de webhook para un trigger específico, sigue estos pasos:  
+  
+1\. Elige el conector y el trigger para los que quieres activar la verificación de webhook.
+
+2\. Cambia a ON el estado de Is webhook verification required? 
+
+3\. Configura los métodos de extracción y transmisión del token de validación según los requisitos del conector de terceros. Elige cómo quieres capturar los datos enviados desde el sistema externo. Pueden estar en forma de encabezados HTTP, parámetros de URL o cuerpo de la solicitud.
+
+4\. Configura cómo quieres que responda el cuerpo de la respuesta a una solicitud específica. Puede estar en forma de encabezados HTTP o de cuerpo de la solicitud.
+
+5\. Haz clic en Save para guardar la configuración.
+
+Una vez que la validación se realiza correctamente, se establece el webhook, lo que permite que las actualizaciones de datos en tiempo real fluyan de forma segura.
+
+#### Configurar la configuración de API para descargar archivos adjuntos
+
+Actualmente, la funcionalidad de los archivos adjuntos en una integración es limitada, lo que dificulta el flujo fluido de datos entre Kissflow y los conectores de terceros, especialmente al asignar archivos adjuntos entre distintas aplicaciones y gestionar eficazmente sus flujos. Puedes solucionar este problema configurando las opciones de API para descargar archivos adjuntos sin interrupciones en triggers y acciones, lo que permite transferir datos de forma eficiente entre aplicaciones.
+
+Para comenzar a integrar archivos adjuntos en tus flujos de trabajo, sigue estos sencillos pasos:
+
+1.  Accede a la plataforma Integration Builder dentro de Kissflow.
+2. **Crear o editar una integración**: crea una integración nueva o edita una existente para incorporar la gestión de archivos adjuntos.
+3. **Especificar triggers y acciones**: define los triggers y las acciones relevantes para tu flujo de trabajo, asegurándote de que admitan archivos adjuntos.
+4. **Seleccionar el origen de los archivos adjuntos**: elige el origen de los archivos adjuntos, como archivos locales, Google Drive, Dropbox, OneDrive o Box, según los requisitos de tu integración.
+
+**¿Por qué solucionar este problema ahora?**
+
+Los archivos adjuntos desempeñan un papel fundamental al complementar los datos textuales, y su gestión eficiente garantiza una transferencia fluida de datos entre aplicaciones, lo que mejora la productividad y la colaboración.
+
+Actualmente, los usuarios cargan manualmente los archivos adjuntos dentro de las aplicaciones, lo que provoca ineficiencias y posibles errores en la transferencia de datos.
+
+> **Nota**:  
+> Cada archivo adjunto no debe superar los 100 MB.
+
+Proporciona opciones para modificar los archivos adjuntos durante la integración, como la conversión de formato o la compresión de imágenes.

@@ -1,0 +1,12 @@
+{
+  "title": "Copia de seguridad de datos",
+  "pages": [
+    "data-backup-overview",
+    "backing-up-data-to-amazon-s3",
+    "backing-up-data-to-google-cloud-service-gcs",
+    "backing-up-data-to-google-drive",
+    "backing-up-data-to-kissflow",
+    "compliance-and-backup-history",
+    "understanding-your-backup-output"
+  ]
+}

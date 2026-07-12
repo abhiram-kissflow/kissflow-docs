@@ -1,0 +1,55 @@
+---
+title: "Conector de SAP Business ByDesign"
+description: "BORRADOR (sin verificar) — migrado desde /t/h7ym3xd/sap-business-bydesign-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+## ¿Qué es SAP Business ByDesign?
+
+SAP Business ByDesign ofrece procesos prediseñados para finanzas, ventas, gestión de productos y compras dentro de una solución unificada adaptada a pequeñas y medianas empresas, lo que agiliza las operaciones y mejora la eficiencia.
+
+## Acerca de la integración de SAP Business ByDesign con Kissflow
+
+El conector de SAP Business ByDesign de Kissflow Integration facilita la conexión y sincronización fluidas de los módulos de SAP Business ByDesign con diversas aplicaciones de terceros y aplicaciones de Kissflow. Para integrarse con SAP Business ByDesign, debes tener una cuenta válida de SAP Business ByDesign y ser cliente empresarial de pago de Kissflow.  
+  
+Un empleado envía un informe de gastos en Kissflow para los gastos de un viaje de negocios, que pasa por un proceso de aprobación multinivel. Una vez aprobado, Kissflow activa automáticamente una solicitud de API a SAP Business ByDesign para crear un registro de gastos, incluidos detalles como el tipo de gasto, el importe, la fecha y los recibos adjuntos. Esta integración garantiza que todos los gastos aprobados se registren puntualmente en la cuenta de SAP Business ByDesign.
+
+Actualmente, no hay activadores para el conector de SAP Business ByDesign. 
+
+## Acciones del conector de SAP Business ByDesign
+
+**Acción** 
+
+**Descripción**
+
+Realizar una solicitud de API 
+
+Esta acción realiza una solicitud de API a tu cuenta de SAP Business ByDesign.
+
+## Configuración del conector de SAP Business ByDesign
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Una vez dentro del editor, configura un paso de activador, por ejemplo, un evento de activación de Kissflow Process, **Cuando un elemento completa su flujo de trabajo**.
+    
+3.  Después de configurar el paso de activador anterior, haz clic en el botón **Añadir** (![](/migration-assets/sap-business-bydesign-connector/1.png)) para configurar el paso de acción. Busca SAP Business ByDesign y selecciona el evento de acción **Realizar una solicitud de API**.
+    
+    ![](/migration-assets/sap-business-bydesign-connector/2.png)
+4.  Después de elegir el evento de acción, autentica el conector. Haz clic en **+Añadir una cuenta**. Introduce el nombre de usuario y la contraseña de tu cuenta de SAP Business ByDesign para autenticarte.
+    
+5.  Después de autenticarte con tu cuenta de SAP Business ByDesign, añade los valores pertinentes en los campos del formulario de SAP Business ByDesign. Puedes hacer clic en **Actualizar campos** para ver todos los campos actualizados del formulario seleccionado. También puedes asignar campos de tu paso de activador o campos de tus pasos de acción anteriores. Estos valores se añadirán automáticamente a los campos del elemento después de ejecutar la acción.{/* TODO: screenshot — source image expired (Google CDN); recapture from product UI */}
+    
+6.  Después de una configuración correcta, comprueba si el paso de acción de SAP Business ByDesign está configurado correctamente haciendo clic en el botón **Probar**. El conector extraerá los datos de los campos de tu cuenta de SAP Business ByDesign seleccionada y los mostrará como una salida JSON. Al igual que con el paso de activador, se te notificarán los errores de inmediato. Corrígelos antes de volver a probar el paso de acción.
+    
+
+### Configuración de un conector de SAP Business ByDesign
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción del conector de SAP Business ByDesign, activa el botón de alternancia para activar la ejecución de la integración. Cuando se produce un evento de activación, se ejecuta la acción de SAP Business ByDesign.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

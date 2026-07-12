@@ -1,0 +1,135 @@
+---
+title: "Gráficos en tableros"
+description: "BORRADOR (no verificado) — migrado desde /t/p8h9qlw/charts-in-boards"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Básico ✓ Enterprise
+
+Puedes generar informes como gráficos. Hay diez tipos de gráficos entre los que puedes elegir: automático, área apilada, área, barras horizontales, barras verticales, combinado, anillo, líneas, circular y burbujas.
+
+## Crear un gráfico
+
+1.  Para crear un gráfico, haz clic en el botón **Informes** situado en la parte superior derecha. 
+    
+2.  Haz clic en **\+ Crear informe.**
+    
+3.  Proporciona un nombre para el gráfico, selecciona **Gráfico** como tipo de informe**,** y haz clic en **Crear**.
+    
+    ![](/migration-assets/charts-in-boards/2.png)
+    
+4.  Elige el tipo de gráfico que quieres crear. Selecciona **Automático** cuando no estés seguro de qué tipo de gráfico elegir y Kissflow creará el más adecuado para ti.
+
+## Tipos de gráficos
+
+-   Los **gráficos de área** funcionan de forma similar a un gráfico de líneas, pero con las áreas debajo de las líneas rellenas. Puedes usar este gráfico para mostrar cómo evolucionan los valores con el tiempo.
+-   El **gráfico de área apilada** es un gráfico de área que incluye una pila de varias áreas. Puede utilizarse en lugar de un gráfico de líneas con varios gráficos para comparar la evolución o la tendencia a lo largo del tiempo.![](/migration-assets/charts-in-boards/1.png) 
+-   Los **gráficos de barras horizontales** evitan el desorden cuando un punto de datos es más largo que los demás o cuando tienes más de diez elementos que comparar. Puedes usar gráficos de barras para mostrar números negativos.![](/migration-assets/charts-in-boards/5.png) 
+-   Los **gráficos de barras verticales** se utilizan para mostrar una comparación entre distintos elementos o para mostrar una comparación de elementos a lo largo del tiempo.
+-   Los **gráficos de líneas** utilizan líneas para representar los cambios en los datos durante un período de tiempo. El eje Y muestra el valor y el eje X muestra la variable.
+-   Los **gráficos combinados** son una combinación de gráficos, como gráficos de barras y de líneas.
+-   Los **gráficos de anillo** están diseñados para expresar una relación de **parte a todo**, en la que todas las partes juntas representan el 100 %.![](/migration-assets/charts-in-boards/9.png) 
+-   Los **gráficos circulares** son similares a los gráficos de anillo, pero tienen el área central rellena.![](/migration-assets/charts-in-boards/4.png)
+-   Los **gráficos apilados** constan del total dividido en partes (que aparecen en la leyenda) para cada categoría. Ayudan a mostrar y comparar eficazmente la proporción de distintas series de datos dentro de cada categoría. Puedes crear un **gráfico de barras horizontales apiladas** y un **gráfico de barras verticales apiladas** según tus preferencias.![](/migration-assets/charts-in-boards/3.png) 
+-   El **tipo de gráfico de columnas apiladas al 100 %** muestra el porcentaje de varios datos en columnas apiladas, donde el total de las columnas apiladas siempre equivale al 100 %. Puedes crear dos tipos de gráficos apilados al 100 %: **gráfico de barras verticales apiladas al 100 %** y **gráfico de barras horizontales apiladas al 100 %.**![](/migration-assets/charts-in-boards/6.png)
+
+## Configurar un gráfico
+
+### Elegir campos
+
+Para configurar el informe, empieza por elegir los campos que quieres mostrar en el panel derecho. Hay dos tipos de campos entre los que puedes elegir.
+
+**Campos personalizados** - Son campos que has creado en el formulario del tablero y que son únicos para tu tablero.
+
+**Campos del sistema** - Son campos generados por el sistema que se crean de forma predeterminada para un tablero.
+
+-   Título
+-   Creado por
+-   Modificado por
+-   Creado el
+-   Modificado el
+-   Nombre del flujo
+-   ID
+-   Responsable
+-   Estado
+-   Prioridad
+-   Fecha de inicio
+-   Fecha de vencimiento
+-   Solicitante
+-   Tiempo de resolución
+
+Puedes elegir un número ilimitado de campos para tu informe. Verás un conjunto de muestra de 10 elementos en una vista previa a la izquierda.
+
+### Configuración  
+
+-   **Dimensión** es el campo principal que quieres utilizar para comparar los datos. En los gráficos, será el eje X.
+-   **Medida** es el otro campo o campos que quieres utilizar para comparar los datos. Este es el eje Y en los gráficos. Puedes mostrar varias medidas en el mismo gráfico.
+-   **Leyenda** hace referencia al área del gráfico que describe cada una de sus partes y solo estará visible en los gráficos automáticos, horizontales y verticales.
+
+### **Tipo de escala**
+
+Hay dos tipos de escala:
+
+-   Las escalas **lineales** son el tipo de escala predeterminado y muestran la escala en incrementos iguales.
+-   Las escalas **logarítmicas** muestran el incremento en múltiplos del anterior, como el doble o diez veces su tamaño.
+
+### Etiquetas
+
+Puedes elegir qué etiquetas quieres mostrar en tu gráfico.
+
+-   El **eje X** es horizontal en la mayoría de los gráficos, excepto en los gráficos de barras horizontales, donde el eje X es vertical.
+-   El **eje Y** es vertical en los gráficos, excepto en los gráficos de barras horizontales, donde el eje Y es horizontal.
+-   Las **etiquetas de datos** muestran la información del elemento de línea o de la barra. Pasa el cursor sobre el gráfico para ver la etiqueta.
+-   Las **leyendas** son explicaciones de los símbolos utilizados en el gráfico. Se encuentran en la parte superior izquierda del gráfico.
+
+### Agregar filtros
+
+Para limitar los datos específicos de tu informe, puedes agregar filtros. Haz clic en el botón **Agregar filtro avanzado**r para agregar un filtro. Elige los campos que quieres filtrar y, a continuación, introduce las condiciones. 
+
+Haz clic en el botón **\+ Agregar nuevo filtro** para agregar más filtros y condiciones al mismo campo. La nueva condición puede ser AND (deben cumplirse todas las condiciones) u OR (debe cumplirse cualquiera de las condiciones).
+
+### [Habilitar el desglose en los gráficos](/t/q6y3tql/creating-a-chart-report#enabling-drilldown-in-charts) 
+
+La función de [desglose](/t/y4h9qkr/reports#enabling-drilldown-in-chart-and-pivot-reports) te permite profundizar en los datos del informe al mostrar una vista tabular de las filas subyacentes asociadas con puntos de datos específicos en los [gráficos](/t/h7h9qzr/chart-reports#enabling-drilldown-in-charts). El desglose está habilitado de forma predeterminada al crear un informe. Puedes activarlo o desactivarlo en la configuración del informe.Para habilitar el desglose,
+
+1.  Ve a la pestaña de configuración.
+    
+2.  En la sección **Desglose**, habilita el desglose.
+    
+3.  Selecciona al menos dos campos.
+    
+4.  Haz clic en **Aplicar**.
+    
+
+![](/migration-assets/charts-in-boards/8.png)
+
+> **Nota:** 
+> 
+> Los campos seleccionados del informe se eligen automáticamente como campos de desglose predeterminados. Asegúrate de seleccionar un mínimo de dos campos para el desglose.
+
+Después de configurar el gráfico, pasa el cursor sobre él y haz clic para profundizar en los datos. Al hacer clic en el gráfico, aparecerá una vista previa tabular que muestra los datos subyacentes. Puedes buscar campos, mostrar u ocultar columnas y [exportar](/t/q6h9qz5/pivot-reports#exporting-drilldown-data) datos en tiempo de ejecución. Haz clic en el menú desplegable de cada encabezado de columna para ordenar los datos en orden ascendente o descendente.
+
+## Aplicar estilos a los gráficos
+
+En la pestaña **Estilo**, puedes elegir entre 10 colores diferentes para aplicar a tus gráficos.
+
+![](/migration-assets/charts-in-boards/10.png)
+
+## [Exportar informes de gráficos](/t/h7h9qzr#exporting-chart-reports)
+
+Puedes exportar informes de gráficos y descargarlos en tu dispositivo para compartirlos, usarlos en presentaciones o consultarlos sin conexión.Para exportar,
+
+1.  Haz clic en el botón **Exportar** situado en la parte superior derecha.
+    
+2.  Selecciona el formato requerido: PNG o PDF
+    
+3.  Haz clic en **Exportar**.
+    
+
+![](/migration-assets/charts-in-boards/7.png)
+
+El informe se exportará en el formato seleccionado y se descargará en tu dispositivo.

@@ -1,0 +1,133 @@
+---
+title: "Ver un elemento de proceso dentro de las aplicaciones"
+description: "BORRADOR (sin verificar) — migrado desde /t/83yg703/watching-a-process-item-inside-apps"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Los observadores pueden mantenerse informados sobre un elemento de proceso sin participar en su flujo de trabajo. Como iniciador de un elemento, si necesitas que alguien pueda ver el progreso de un elemento, pero no necesitas que lo apruebe, rechace o realice acciones en él, puedes añadirlo como observador.
+
+### Caso de uso
+
+Un empleado envía una solicitud de compra y quiere que su gerente se mantenga informado sobre su progreso y resultado final, pero el gerente no necesita participar en el flujo de aprobación.
+
+Al añadir al gerente como observador, puede seguir el progreso del elemento, recibir notificaciones sobre el resultado y participar en los comentarios sin que se le asignen tareas del flujo de trabajo.
+
+## Añadir y eliminar observadores
+
+Antes de que los usuarios puedan añadir observadores a un elemento, los administradores deben [habilitar a los iniciadores para observar elementos](/t/35yzjca#watcher-permissions) en **Configuración**.
+
+Solo se pueden añadir como observadores los usuarios que ya formen parte del proceso en cualquier rol.
+
+Los siguientes usuarios pueden añadir o eliminar observadores de un elemento:
+
+-   Iniciador del elemento (añadir y eliminar)
+    
+-   Observador (solo puede eliminarse a sí mismo)
+    
+
+### Añadir un observador
+
+Como iniciador de un elemento:
+
+1.  Abre el elemento de proceso.
+    
+2.  Haz clic en el botón **Observadores**  (![](/migration-assets/watching-a-process-item-inside-apps/1.png)) del formulario del elemento.
+    
+3.  Busca y selecciona un usuario del proceso.
+    
+4.  Haz clic en **Añadir**.
+    
+
+![](/migration-assets/watching-a-process-item-inside-apps/5.gif)
+
+> **Nota:**
+> 
+> Se puede añadir un máximo de 10 observadores a un elemento.
+
+### Eliminar un observador
+
+Como iniciador de un elemento:
+
+1.  Abre el elemento de proceso.
+    
+2.  Haz clic en el botón **Observadores** (![](/migration-assets/watching-a-process-item-inside-apps/1.png)).
+    
+3.  Pasa el cursor sobre el nombre del observador.
+    
+4.  Haz clic en **Eliminar**.
+    
+
+![](/migration-assets/watching-a-process-item-inside-apps/4.gif)
+
+Si ya eres observador, puedes dejar de observar el elemento en cualquier momento. Abre el elemento de proceso y haz clic en el botón **Dejar de observar**.
+
+![](/migration-assets/watching-a-process-item-inside-apps/3.gif)
+
+Se te eliminará de la lista de observadores y ya no recibirás notificaciones sobre ese elemento.
+
+### ¿Qué pueden hacer los observadores?
+
+Los observadores pueden:
+
+-   Ver los campos en modo de solo lectura
+    
+-   Seguir el progreso del flujo de trabajo
+    
+-   Ver el historial y el estado del elemento
+    
+-   Ver y añadir comentarios
+    
+-   Mencionar a los participantes del elemento en los comentarios
+    
+
+Los observadores no pueden:
+
+-   Editar el formulario
+    
+-   Aprobar o rechazar elementos
+    
+-   Reasignar tareas
+    
+-   Realizar acciones del flujo de trabajo
+    
+-   Mencionar a usuarios que no sean participantes de un elemento
+    
+
+### Notificaciones para los observadores
+
+Los observadores reciben notificaciones cuando:
+
+-   Se les añade como observadores
+    
+-   Se les elimina como observadores
+    
+-   El elemento completa su ciclo de vida (completado, rechazado y retirado)
+    
+-   Se les menciona en un comentario
+    
+-   Alguien reacciona al comentario de un observador y responde a él
+    
+
+Los observadores no reciben notificaciones sobre asignaciones ni eventos intermedios del flujo de trabajo.
+
+## Ver elementos observados
+
+Como observador, puedes acceder a los elementos que estás observando desde la pestaña **Lista de seguimiento** en **[Mis elementos](/t/x2h9qzv/my-items)**
+
+![](/migration-assets/watching-a-process-item-inside-apps/2.png)
+
+Estas vistas te ayudan a seguir elementos en distintos procesos sin necesidad de participar en sus flujos de trabajo.
+
+## Limitaciones
+
+-   No se pueden añadir observadores a elementos en borrador.
+    
+-   Los elementos reiniciados no conservan a sus observadores anteriores.
+    
+-   Los usuarios eliminados del proceso se eliminan automáticamente como observadores.

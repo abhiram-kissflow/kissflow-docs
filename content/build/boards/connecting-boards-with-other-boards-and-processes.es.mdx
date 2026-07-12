@@ -1,0 +1,74 @@
+---
+title: "Conectar tableros con otros tableros y procesos"
+description: "BORRADOR (no verificado) — migrado desde /t/m1ymay3/connecting-boards-with-other-boards-and-processes"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Al conectar un tablero principal con otro tablero o proceso, puedes interconectar flujos de trabajo.  
+  
+Un cambio de estado en un elemento de un tablero principal puede actuar como desencadenador para iniciar una acción en otro tablero o proceso. Esto te permite automatizar la creación de elementos y orquestar el ciclo de vida completo del elemento en esos flujos. Así es como puedes hacerlo:
+
+1.  Haz clic en el botón **Administrar** en la esquina superior derecha y haz clic en **Editar flujo de trabajo**. Se abrirá el modal **Configuración del flujo de trabajo**.
+    
+2.  Haz clic en **Conectar un flujo a un estado**.
+    
+    ![](/migration-assets/connecting-boards-with-other-boards-and-processes/6.gif)
+    
+3.  En el panel que se abre a la derecha:
+    
+    -   Introduce el nombre y la descripción (opcional) del estado.
+        
+    -   Selecciona el tablero o proceso que quieres conectar al estado y en el que quieres crear elementos dependientes.
+        
+    -   **Mapear campos**: puedes mapear campos entre los flujos conectados para que los valores de los campos del elemento de origen se hereden en los elementos dependientes. Puedes mapearlos manualmente o mediante AI. Además, puedes añadir funciones al mapear los campos.
+        
+        ![](/migration-assets/connecting-boards-with-other-boards-and-processes/1.png)
+        
+        Para realizar el mapeo de campos de tabla a tabla entre el tablero actual y el flujo conectado, haz clic en **Añadir una tabla**, selecciona la tabla y añade los campos que quieres mapear.  
+          
+        ![](/migration-assets/connecting-boards-with-other-boards-and-processes/3.gif)
+        
+    
+    -   **Bloquear elementos de origen**: puedes bloquear el elemento de origen en el mismo estado hasta que todos sus elementos dependientes alcancen el estado deseado en el tablero conectado. No puedes editar este elemento de origen hasta que se desbloquee.
+        
+        1.  Selecciona el estado al que deben pasar los elementos dependientes y desbloquea su elemento de origen.
+            
+        2.  Selecciona el estado del tablero actual al que debe pasar el elemento de origen después de desbloquearlo.
+            
+            ![](/migration-assets/connecting-boards-with-other-boards-and-processes/2.png)
+            
+            Desbloquea el elemento de origen después de que sus elementos conectados alcancen el estado.
+            
+            > **Nota:**
+            > 
+            > Solo los administradores pueden desbloquear manualmente el elemento de origen haciendo clic en el botón **Desbloquear** en el elemento o dentro del formulario. Desbloquear un elemento lo libera de la configuración de bloqueo establecida para ese estado en particular.  
+            >  
+            
+    -   Por último, establece las condiciones para crear elementos dependientes en el tablero o proceso conectado. Solo los elementos que cumplan las condiciones pueden entrar en el estado conectado al flujo.
+        
+4.  Haz clic en **Publicar** para actualizar los cambios o en **Guardar y cerrar** para volver más tarde y editar el flujo de trabajo.
+    
+
+Puedes encontrar los elementos de origen y dependientes de un elemento en la pestaña **Elementos conectados** de la derecha.
+
+## Crear varios elementos dependientes
+
+Puedes crear varios elementos dependientes en el tablero o proceso conectado a partir de las entradas o filas de una tabla del elemento de origen. El número de elementos dependientes creados es igual al número de filas de la tabla seleccionada. Activa **Crear elementos a partir de entradas de tabla** y selecciona una tabla. 
+
+![](/migration-assets/connecting-boards-with-other-boards-and-processes/4.png)
+
+> **Nota:**
+> 
+> Solo puedes seleccionar una tabla para crear varios elementos dependientes.
+
+También puedes establecer condiciones para crear esos elementos dependientes añadiendo un filtro.
+
+![](/migration-assets/connecting-boards-with-other-boards-and-processes/5.png)
+
+Cuando **Crear elementos a partir de entradas de tabla** está activado, los campos de tabla del elemento de origen estarán disponibles para el mapeo de campos.

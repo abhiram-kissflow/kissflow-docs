@@ -1,0 +1,55 @@
+---
+title: "Conector de Microsoft OneDrive"
+description: "BORRADOR (sin verificar) — migrado desde /t/y4h4afk/microsoft-onedrive-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Básico ✓ Enterprise
+
+## ¿Qué es Microsoft OneDrive?
+
+[Microsoft OneDrive](https://www.microsoft.com/en-in/microsoft-365/onedrive/online-cloud-storage) ofrece un servicio en la nube para alojar todas tus fotos, vídeos y archivos, que pueden respaldarse, protegerse, sincronizarse y hacerse accesibles en todos tus dispositivos.
+
+## Acerca de la integración de Microsoft OneDrive con Kissflow
+
+El conector de Microsoft OneDrive de Kissflow Integration te permite conectar y sincronizar tus carpetas y archivos de Microsoft OneDrive con las aplicaciones de Kissflow. Debes tener una cuenta válida de Microsoft y ser cliente de pago de Kissflow para integrar Microsoft OneDrive.
+
+Por ejemplo, después de completar un flujo de trabajo de Kissflow Process, puedes configurar una integración con el conector de Microsoft OneDrive para guardar archivos adjuntos o archivos en una carpeta específica de tu cuenta de Microsoft OneDrive.
+
+Usa el conector de Microsoft OneDrive para recibir datos de otros flujos o aplicaciones y realizar acciones específicas. El conector de Microsoft OneDrive todavía no admite eventos de activación.
+
+### Acciones del conector de Microsoft OneDrive
+
+**Eventos de acción**
+
+**Descripción**
+
+Crear una carpeta
+
+Esta acción crea una carpeta en tu cuenta de Microsoft OneDrive.
+
+Cargar un archivo
+
+Esta acción carga un archivo o un archivo adjunto de no más de 4 MB en tu cuenta de Microsoft OneDrive.
+
+## Conector de Microsoft OneDrive como paso de acción
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Una vez dentro del editor, configura un paso de activación; por ejemplo, un evento de activación de Kissflow Process: **Cuando un elemento completa su flujo de trabajo.** 
+3.  Después de configurar el paso de activación anterior, haz clic en el botón Añadir (![](/migration-assets/xero-connector/1.png)) junto a él para configurar el paso de acción. Busca **Microsoft OneDrive** y selecciona la acción que desees.![](/migration-assets/microsoft-onedrive-connector/2.png)  
+4.  Después de elegir el evento de acción, autentica el conector. Haz clic en **+Añadir una cuenta** e inicia sesión con tu cuenta de Microsoft. Kissflow utiliza OAuth de Microsoft para la autenticación.
+5.  Después de autenticarte con tu cuenta de Microsoft, añade los valores correspondientes a los campos del formulario de Microsoft OneDrive. Puedes hacer clic en **Actualizar campos** para ver todos los campos actualizados del formulario de Microsoft OneDrive seleccionado.  
+    También puedes asignar campos de Microsoft OneDrive desde tu paso de activación o campos de tus pasos de acción anteriores. Estos valores se añadirán automáticamente a los campos del elemento después de ejecutar la acción.
+6.  Haz clic en **Siguiente**.![](/migration-assets/microsoft-onedrive-connector/1.png)    
+7.  Después de una configuración correcta, comprueba si el paso de acción de Microsoft OneDrive está configurado correctamente haciendo clic en el botón **P****rueba**. El conector extraerá los datos de los campos de la cuenta de Microsoft seleccionada y los mostrará como una salida JSON. Al igual que en el paso de activación, recibirás una notificación inmediata de los errores. Corrígelos antes de volver a probar el paso de acción.
+
+## Configuración de un conector de Microsoft OneDrive
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción del conector de Microsoft OneDrive, activa el botón de alternancia para activar la ejecución de la integración. Cuando se produce un evento de activación, se activan las acciones de Microsoft OneDrive.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

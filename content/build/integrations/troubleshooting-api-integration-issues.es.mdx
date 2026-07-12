@@ -1,0 +1,116 @@
+---
+title: "Solución de problemas de integraciones de API"
+description: "BORRADOR (sin verificar) — migrado desde /t/60y13dt/troubleshooting-api-integration-issues"
+contentType: troubleshooting
+persona: citizen-developer
+section: build
+---
+
+Las integraciones de API en Kissflow te permiten conectarte con sistemas externos y automatizar flujos de trabajo. Sin embargo, pueden surgir problemas ocasionalmente debido a errores de autenticación, configuraciones incorrectas o problemas con los endpoints.
+
+Este artículo proporciona una guía estructurada para diagnosticar y resolver problemas comunes de integración de API en Kissflow, incluidos tipos de error específicos como **Se produjo un error inesperado** y **la conexión del socket se cerró.**
+
+## **Comprobaciones iniciales para detectar problemas en las integraciones de API**
+
+### Comprobar y volver a conectar la autenticación
+
+-   Verifica que la autenticación de la integración esté configurada correctamente.
+    
+-   Vuelve a conectar las credenciales si los activadores fallan o se rechazan los elementos.
+    
+-   Asegúrate de usar el mismo método de autenticación (OAuth, clave de API, etc.) de forma coherente en todos los pasos de conexión.
+    
+-   Confirma que estás conectado al entorno correcto (producción o pruebas).
+    
+
+### Verificar la configuración y los ajustes
+
+-   Comprueba que las configuraciones coincidan entre Kissflow y el sistema externo.
+    
+-   Valida todos los enlaces, las asignaciones y los ajustes de la integración.
+    
+-   Si algunas etapas del activador se completan correctamente, pero otras fallan, vuelve a comprobar cuidadosamente cada paso para detectar pequeñas inconsistencias.
+    
+
+###  Reconstruir la integración
+
+-   Si los mensajes de error son imprecisos o la solución de problemas no resuelve el problema, reconstruye la integración desde cero.
+    
+-   Reconstruir la integración ayuda a eliminar problemas de configuración acumulados.
+    
+-   Esto resulta especialmente útil cuando los activadores iniciales se completan correctamente, pero los pasos posteriores fallan de forma constante.
+    
+
+## Solución de problemas de errores comunes de API
+
+### Errores generales de API
+
+Este error suele aparecer durante las llamadas a API de terceros. Para resolverlo:
+
+-   **Validar la solicitud de API**
+    
+    -   Comprueba si la carga JSON contiene errores de sintaxis.
+        
+    -   Confirma que el endpoint (URL) sea correcto.
+        
+    -   Prueba la solicitud en Postman para verificar que funciona.
+        
+-   **Confirmar las configuraciones de los encabezados**
+    
+    -   Asegúrate de incluir todos los encabezados obligatorios.
+        
+    -   Por ejemplo, si se necesita un encabezado de autorización, inclúyelo con el valor correcto.
+        
+-   **Comprobar la disponibilidad de la API**
+    
+    -   Confirma que el sistema externo esté en línea y pueda aceptar solicitudes.
+        
+-   **Recopilar los detalles del error**
+    
+    -   Recopila los mensajes de error, las cargas y las configuraciones.
+        
+    -   Comparte los detalles con el equipo de soporte de Kissflow para realizar un análisis más profundo.
+        
+
+### Errores de conexión del socket
+
+Un **error de conexión del socket** ocurre cuando Kissflow no puede establecer o mantener una conexión con un endpoint externo (como una API o un script personalizados).
+
+**Cómo diagnosticarlo y resolverlo**
+
+1. **Revisar los registros**
+    
+    -   Comprueba los registros de ejecución de Kissflow para identificar las solicitudes fallidas.
+        
+    -   Si se utiliza un script externo (como Google Apps Script), revisa también sus registros.
+        
+2. **Aislar el origen**
+    
+    -   Si los fallos son externos, ponte en contacto con el proveedor del endpoint o del script.
+        
+    -   Si el problema parece interno, escálalo al equipo de soporte de Kissflow con registros detallados.
+        
+3. **Gestionar los errores transitorios**
+    
+    -   Si volver a ejecutar la integración funciona, supervisa si se producen fallos recurrentes.
+        
+    -   Los problemas repetidos pueden indicar inestabilidad del endpoint.
+        
+4. **Resolver problemas conocidos**
+    
+    -   Corrige los errores de los scripts personalizados (por ejemplo, actualizando la lógica de Google Apps Script).
+        
+    -   Trabaja con el proveedor del endpoint para mejorar la disponibilidad.
+        
+    -   Vuelve a intentar las ejecuciones fallidas cuando se trate de problemas temporales.
+        
+
+## Prácticas recomendadas para mantener integraciones estables
+
+-   Supervisa los registros de ejecución con regularidad para detectar y resolver los problemas cuanto antes.
+    
+-   Actualiza las API, los scripts y los servicios externos para reducir los problemas de compatibilidad.
+    
+-   Documenta los patrones recurrentes de los fallos para identificar más rápidamente la causa raíz.
+    
+-   Escala los problemas persistentes al proveedor del endpoint o al equipo de soporte de Kissflow con los registros de errores completos.

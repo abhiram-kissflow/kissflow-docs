@@ -1,0 +1,9 @@
+{
+  "title": "Móvil",
+  "pages": [
+    "android-devices",
+    "ios-devices",
+    "managing-processes-in-pwa",
+    "form-child-tables-in-the-pwa-and-native-mobile-app"
+  ]
+}

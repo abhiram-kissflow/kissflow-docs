@@ -1,0 +1,83 @@
+---
+title: "Autenticación de dos factores"
+description: "Configura la autenticación de dos factores con un código por correo electrónico o una aplicación de autenticación, y comprende cómo los administradores de IAM de Kissflow controlan la inscripción en 2FA para tu cuenta."
+contentType: guide
+persona: end-user
+section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - security
+  - authentication
+  - personal-settings
+---
+
+# Autenticación de dos factores
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+La autenticación de dos factores (2FA) añade una capa adicional de seguridad a tu cuenta de Kissflow, ya que requiere algo más que una contraseña para iniciar sesión. Una vez activada la 2FA para tu cuenta, se te pedirá que introduzcas un código junto con tu nombre de usuario y contraseña.
+
+## Inscripción en 2FA
+
+Los [administradores de IAM de Kissflow](/docs/admin/users/user-roles-and-permissions#iam-admin) controlan la inscripción en 2FA de cada usuario de la cuenta y pueden establecerla en uno de estos tres estados:
+
+| Inscripción | Qué significa                                                |
+| ----------- | ------------------------------------------------------------- |
+| Recomendada | Los usuarios pueden elegir si activar la 2FA en su propia cuenta. Esta es la opción predeterminada para los usuarios nuevos. |
+| Obligatoria  | Se requiere 2FA para iniciar sesión.                                   |
+| Desactivada     | La 2FA no está disponible para el usuario.                               |
+
+<Callout type="info">
+  Los usuarios nuevos comienzan con la 2FA configurada como **Recomendada**, no desactivada; ya puedes activar la 2FA para tu propia cuenta, a menos que tu administrador de IAM haya cambiado esta configuración.
+</Callout>
+
+![Vista del administrador de las opciones de inscripción masiva en 2FA para los usuarios](/migration-assets/two-factor-authentication/3.gif)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+## Activar la 2FA para tu cuenta
+
+Si tu administrador de IAM ha establecido la 2FA como recomendada u obligatoria, verás el widget de 2FA en **Mis ajustes** > **Seguridad**. Activa el widget y, a continuación, elige cómo quieres recibir tu código de inicio de sesión:
+
+- **Correo electrónico**: el código se envía a tu dirección de correo electrónico. No es necesario configurar nada más.
+- **Aplicación de autenticación**: el código lo genera una aplicación de autenticación en tu dispositivo móvil u ordenador.
+
+![Pestaña Seguridad de Mis ajustes que muestra el widget de 2FA con las opciones Correo electrónico y Aplicación de autenticación](/migration-assets/two-factor-authentication/1.png)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+## Configurar una aplicación de autenticación
+
+Kissflow admite aplicaciones de autenticación estándar como Google Authenticator, Authy, 1Password y LastPass.
+
+1. Activa el widget de 2FA en **Mis ajustes** > **Seguridad**.
+2. Junto a **Aplicación de autenticación**, haz clic en **Configurar**.
+
+   ![Cuadro de diálogo de configuración de la aplicación de autenticación con un código QR y un campo para el código de seis dígitos](/migration-assets/two-factor-authentication/2.png)
+   {/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+3. Abre la aplicación de autenticación en tu dispositivo y escanea el código QR.
+4. Introduce el código de seis dígitos generado por la aplicación.
+5. Haz clic en **Verificar** para completar la configuración.
+
+Para cambiar a otra aplicación de autenticación, haz clic en **Cambiar** junto a **Aplicación de autenticación** y repite los pasos de configuración: escanear un nuevo código QR y verificarlo reemplaza automáticamente la aplicación anterior. No es necesario eliminar primero la aplicación antigua.
+
+<Callout type="warn">
+  Al eliminar tu aplicación de autenticación, se eliminan todos los datos guardados en ella. Si quieres usar una aplicación de autenticación después, tendrás que configurarla de nuevo desde cero; mientras tanto, puedes seguir iniciando sesión con un código por correo electrónico.
+</Callout>
+
+## Iniciar sesión con la 2FA activada
+
+Iniciar sesión con la 2FA activada es solo ligeramente distinto de un inicio de sesión normal. Introduce tu nombre de usuario y contraseña como de costumbre y, a continuación, verás una segunda solicitud según el modo de 2FA que hayas activado.
+
+- **Código por correo electrónico**: introduce el código enviado a tu dirección de correo electrónico. Es válido durante cinco minutos.
+- **Código de la aplicación de autenticación**: introduce el código de seis dígitos que se muestra actualmente en tu aplicación de autenticación.
+
+## Qué sigue
+
+- [Gestionar sesiones activas](/docs/use/personal-settings/active-sessions)
+- [Información personal, ajustes de formato y delegación de tareas](/docs/use/personal-settings/personal-info-format-settings-and-task-delegation)
+- [Ajustes de notificaciones del usuario](/docs/use/personal-settings/user-notification-settings)
+- [Añadir y gestionar usuarios](/docs/admin/users/adding-and-managing-users)
+- [Roles y permisos de los usuarios](/docs/admin/users/user-roles-and-permissions)

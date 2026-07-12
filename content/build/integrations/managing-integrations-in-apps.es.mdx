@@ -1,0 +1,72 @@
+---
+title: "Administrar integraciones en las apps"
+description: "BORRADOR (sin verificar) — migrado desde /t/m1yzjvt/managing-integrations-in-apps"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+## Administrar integraciones
+
+Para ver todas las integraciones asociadas con tu app:
+
+1.  Abre tu app en el entorno de producción.
+2.  Haz clic en **Administrar > Integraciones**.
+3.  Aquí puedes encontrar una lista de integraciones, los conectores utilizados y el historial de ejecuciones.
+
+![](/migration-assets/managing-integrations-in-apps/1.png)
+
+### Conexiones
+
+Una conexión es la autenticación que permite que Kissflow interactúe con un conector interno o externo en una integración. Las ejecuciones de integración requieren conexiones válidas antes de poder configurar los activadores y las acciones. Las conexiones de Kissflow se basan en la autenticación mediante una clave de acceso y un token secreto. La mayoría de los conectores externos se autentican mediante OAuth.
+
+![](/migration-assets/app-integration-overview/3.png)
+
+Para las nuevas integraciones, debes agregar una conexión y autenticarla antes de activar la integración.
+
+Para hacerlo, haz clic en **Conectar ahora**. Ingresa los datos de tu cuenta de Kissflow para la autenticación. Puedes encontrar el [ID de cuenta y el dominio de la cuenta](/t/35h4az8/api-authentication#account-id), así como el [ID de la clave de acceso y el secreto de la clave de acceso](/t/35h4az8/api-authentication#creating-a-new-access-key), en **Mis ajustes > Configuración de seguridad > Autenticación de API**, en el perfil de tu cuenta de Kissflow.
+
+![](/migration-assets/managing-integrations-in-apps/3.gif)
+
+ En **Conexiones**, puedes realizar tres acciones:
+
+1.  Ver el número de integraciones que utilizan una conexión específica
+2.  Volver a autenticar una conexión para garantizar que las integraciones se ejecuten según lo programado
+3.  Probar el estado de la conexión para garantizar que la integración no falle durante la ejecución
+
+### Historial de ejecuciones
+
+Cada dato que pasa por el sistema de flujos de trabajo de tu aplicación cuenta como una ejecución de integración. Esto significa que, si tu integración agrega 20 elementos a un formulario de Kissflow Board, tu integración acaba de realizar 20 ejecuciones de integración. Cada vez que se produce una ejecución de integración, te ahorras una tarea manual. Puedes realizar un seguimiento de todas las ejecuciones de integración desde el **Historial de ejecuciones** de la página de tu integración.
+
+![](/migration-assets/app-integration-overview/5.gif)
+
+ Para acceder al historial de ejecuciones en producción después de implementar tu app, ve a **Administrar > Integraciones > Historial de ejecuciones**.
+
+![](/migration-assets/app-integration-overview/6.gif)
+
+### Todas las integraciones
+
+Muestra una lista de todas las integraciones disponibles en esta app. Puedes ver el estado de la integración (Activa/Archivada) y activarla o desactivarla desde esta página.
+
+## Editar una integración
+
+Para editar y administrar integraciones individuales:
+
+1.  Haz clic en **Editar app** y abre el creador de apps en el entorno de desarrollo.
+2.  Aquí, haz clic en **Lógica >** **Integración** en el menú de navegación izquierdo.![](/migration-assets/managing-integrations-in-apps/2.png)
+3.  Desde aquí puedes editar, cambiar el nombre, duplicar y archivar una integración. Ten en cuenta que debes implementar la app para que los cambios surtan efecto.
+
+> **Nota:** Una vez implementada tu app, todas las integraciones estarán desactivadas de forma predeterminada.
+> 
+> Para que tu integración funcione en producción después de la implementación, debes hacer lo siguiente:
+> 
+> 1.  Ve a tu app en el entorno de producción y dirígete a **Administrar > Integración**.
+> 2.  Ve a **Conexiones** y haz clic en **Conectar ahora**.
+> 3.  Vuelve a autenticar tu integración con el ID de cuenta, el dominio de la cuenta y los datos de la clave de acceso del entorno de producción. Es fundamental que no reutilices los datos de autenticación de tu entorno de desarrollo.
+> 4.  Prueba el estado de la conexión y activa tu integración. Ahora funcionará según lo esperado.
+> 5.  Debes volver a autenticar la conexión de tu integración con los datos de tu cuenta de producción después de cada implementación.
+>

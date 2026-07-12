@@ -1,0 +1,118 @@
+---
+title: "Publicar, editar, duplicar, archivar y eliminar un proceso"
+description: "Publica un proceso, resuelve conflictos de edición con otros administradores, duplica un proceso existente y archiva o elimina un proceso que ya no necesites."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: "kf-xg-frontend@92fd3889d43"
+tags:
+  - processes
+  - publishing
+  - archiving
+  - duplicating
+---
+
+# Publicar, editar, duplicar, archivar y eliminar un proceso
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+Los administradores de procesos y desarrolladores gestionan un proceso durante todo su ciclo de vida: desde publicarlo hasta editarlo posteriormente, duplicarlo, archivarlo o eliminarlo cuando ya no se necesite.
+
+## Publicar un proceso
+
+1. Termina de diseñar el [formulario](/docs/build/forms/creating-a-form) y el [flujo de trabajo](/docs/build/processes/workflow-design/making-a-process-workflow) del proceso.
+2. Ejecuta el [analizador de soluciones de AI](/docs/admin/processes/ai-solution-analyzer) para comprobar si hay posibles errores en tu diseño. Este paso es opcional, pero se recomienda.
+3. Haz clic en **Publicar** en la esquina inferior derecha del editor de procesos.
+
+   ![Botón Publicar en la esquina inferior derecha del editor de procesos](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/1.png)
+
+<Callout type="info">
+  Publicar pone el proceso en funcionamiento en un solo paso: todos los cambios más recientes que hayas hecho en el formulario, el flujo de trabajo y los permisos se publican juntos.
+</Callout>
+
+<Callout type="warn">
+  No se puede restaurar la versión anterior de un proceso una vez que lo publiques. Revisa cuidadosamente los cambios antes de hacer clic en **Publicar**.
+</Callout>
+
+Los cambios que haces en el editor de procesos se guardan automáticamente mientras trabajas. Si has hecho cambios no deseados antes de publicar, puedes pedirle a otro administrador de procesos que abra el proceso y [descarte tus cambios mientras asume la edición](#edit-a-process).
+
+<Callout type="warn">
+  No se recomienda cambiar el tipo de un campo una vez que el campo ya contiene datos. Si el campo existía antes de la última publicación del proceso, Kissflow restringe los cambios de tipo permitidos para evitar conflictos de datos cuando vuelvas a publicar.
+</Callout>
+
+## Editar un proceso
+
+1. Haz clic en **Administrar** en la esquina superior derecha del proceso.
+2. Haz clic en **Editar proceso**.
+
+   ![Menú Administrar abierto con la opción Editar proceso](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/7.gif)
+
+Si otro administrador de procesos o desarrollador está editando el proceso actualmente, verás un mensaje que te lo indicará.
+
+![Mensaje que indica que otro usuario está editando el proceso actualmente](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/2.png)
+
+Puedes [revisar sus cambios](/docs/admin/processes/reviewing-publish-changes) y elegir una de las siguientes opciones:
+
+1. **Descartar sus cambios y asumir la edición**: elimina los cambios no publicados que haya hecho el otro usuario para que puedas empezar de cero.
+2. **Guardar sus cambios y asumir la edición**: guarda primero los cambios del otro usuario y luego te transfiere la edición.
+
+<Callout type="info">
+  Si prefieres no interrumpir su trabajo, pídele al otro usuario que publique sus cambios.
+</Callout>
+
+## Duplicar un proceso
+
+Duplicar un proceso crea una copia con los mismos campos, secciones, tablas, flujo de trabajo y permisos que el original. Los elementos y los datos no se transfieren.
+
+1. Haz clic en el botón **Más opciones** (![Icono de Más opciones](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/6.png)) y selecciona **Duplicar**.
+2. El nuevo proceso se llama **Copia de &lt;nombre del proceso original&gt;** de forma predeterminada; puedes cambiarle el nombre más adelante.
+3. Elige si quieres duplicar los informes del proceso original.
+4. Haz clic en **Duplicar**.
+
+   ![Cuadro de diálogo para duplicar un proceso con un campo de nombre y una casilla para duplicar informes](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/3.png)
+
+<Callout type="info">
+  Un proceso recién duplicado suele estar bloqueado para los envíos, por lo que nadie puede iniciar elementos hasta que hayas tenido la oportunidad de comprobar sus informes y configuración. Un administrador de procesos puede desbloquearlo para los envíos cuando esté listo.
+</Callout>
+
+<Callout type="warn">
+  Las integraciones asociadas con el proceso original no se duplican. [Duplica esas integraciones](/docs/build/integrations/duplicating-archiving-and-deleting-an-integration) por separado.
+</Callout>
+
+## Archivar un proceso
+
+Archiva un proceso que ya no necesites tener activo. Sus datos se conservan, pero nadie puede ver ni realizar acciones en sus elementos mientras esté archivado.
+
+1. Haz clic en el botón **Más opciones** (![Icono de Más opciones](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/6.png)) en la esquina superior derecha del proceso.
+2. Haz clic en **Archivar**.
+
+Los administradores de procesos pueden acceder al registro de auditoría de un proceso archivado y desarchivarlo o eliminarlo.
+
+Para buscar un proceso archivado que administras, ve a **Explorar** > **Administrados por mí** > **Procesos** y filtra el estado por **Archivado**. Para buscar procesos archivados administrados por otras personas, usa la pestaña **Otros**.
+
+![Panel Explorar filtrado para mostrar procesos archivados](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/4.png)
+
+### Desarchivar un proceso
+
+1. Ve a **Explorar** > **Administrados por mí** (o **Otros**) > **Procesos** y filtra el estado por **Archivado**.
+2. Selecciona el proceso y haz clic en **Desarchivar**.
+
+   ![Lista de procesos archivados con la acción Desarchivar](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/5.png)
+
+## Eliminar un proceso
+
+Un proceso debe archivarse antes de poder eliminarlo. En el proceso archivado, haz clic en el botón **Más opciones** y selecciona **Eliminar**.
+
+<Callout type="warn">
+  Eliminar un proceso lo elimina junto con todos sus datos de forma permanente; esta acción no se puede deshacer. Antes de eliminarlo, revisa con quién se comparte el proceso y comprueba si hay otros procesos conectados a él.
+</Callout>
+
+## Qué hacer a continuación
+
+- [Revisar cambios de publicación](/docs/admin/processes/reviewing-publish-changes)
+- [Ejecutar el analizador de soluciones de AI](/docs/admin/processes/ai-solution-analyzer)
+- [Administrar miembros y permisos del proceso](/docs/admin/processes/managing-process-members-and-permissions)
+- [Configuración del proceso](/docs/admin/processes/process-settings)

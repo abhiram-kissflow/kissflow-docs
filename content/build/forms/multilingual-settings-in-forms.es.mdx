@@ -1,0 +1,194 @@
+---
+title: "Configuración multilingüe en formularios"
+description: "BORRADOR (sin verificar) — migrado desde /t/83hvnzt/multilingual-settings-in-forms"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+<iframe src="https://player.vimeo.com/video/855305682?h=1f7a81df59&app_id=122963" title="Multilingual Support in Kissflow Forms" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+La configuración multilingüe permite a los administradores/desarrolladores de Kissflow Process y a los administradores de Boards personalizar y presentar sus formularios de flujo de trabajo en varios idiomas. Puedes incorporar etiquetas de formulario traducidas manualmente o usar la función de traducción con AI.
+
+Por ejemplo, si has diseñado un formulario en inglés, pero quieres atender a hablantes de chino, sigue los pasos que se indican a continuación. Una vez configurado, el formulario cambiará al chino para los usuarios que hayan elegido chino en la configuración de su perfil, lo que garantiza una experiencia fluida tanto para los hablantes de inglés como de chino.
+
+1.  Selecciona el idioma.
+    
+2.  Descarga las etiquetas del formulario.
+    
+3.  Traduce manualmente las etiquetas o elige la traducción con AI.
+    
+4.  Importa las etiquetas de nuevo al formulario si traduces el archivo manualmente.
+    
+
+> **Nota**
+> 
+> Esta función está disponible para Kissflow Processes y Boards independientes. En los formularios solo se admitirán los idiomas disponibles a nivel de la plataforma.
+
+Para implementar capacidades multilingües, sigue esta guía, con ejemplos usando Kissflow Process. También puedes aplicar los mismos pasos a Kissflow Boards.
+
+## Acceder a la configuración multilingüe
+
+Si eres administrador/desarrollador de Process o administrador de Board, sigue estos pasos para acceder a la pestaña de configuración multilingüe: 
+
+1.  En la esquina superior derecha de la página de tu Process (o Board), haz clic en **Administrar** \> **Configuración.**
+    
+2.  En el panel de navegación de configuración, haz clic en **Configuración multilingüe**.
+    
+3.  Activa el botón de alternancia **Configurar varios idiomas** (
+    
+    ![](/migration-assets/multilingual-settings-in-forms/1.png)
+    
+     ![](/migration-assets/multilingual-settings-in-forms/2.gif)) .
+    
+
+Después de activar la configuración, puedes descargar las etiquetas haciendo clic en **Descargar JSON**. Sin embargo, si optas por la traducción automática, haz clic en **Traducir con AI**. 
+
+![](/migration-assets/multilingual-settings-in-forms/3.gif)
+
+### Traducción manual
+
+1.  En Idioma, haz clic en **+Agregar idioma** y elige **Traducir manualmente**.
+    
+2.  En la ventana emergente, elige el idioma que quieras en la lista desplegable.
+    
+3.  Haz clic en **Descargar JSON** y traduce el archivo manualmente. ![](/migration-assets/multilingual-settings-in-forms/4.gif)
+    
+4.  Después de traducirlo, en el siguiente paso de la ventana emergente, haz clic en **Importar JSON**.
+    
+5.  Confirma la verificación del archivo y la validación de los datos, y haz clic en **Agregar.**
+    
+
+![](/migration-assets/multilingual-settings-in-forms/17.gif)
+
+### Traducción con AI
+
+AI traduce automáticamente las etiquetas del formulario y los nombres de los pasos al idioma seleccionado en un archivo JSON. 
+
+1.  En **Idioma**, haz clic en **+Agregar idioma** y elige **Traducir con AI**.
+    
+2.  En la ventana emergente, elige el idioma que quieras en la lista desplegable. 
+    
+3.  Haz clic en **Traducir automáticamente**. 
+    
+
+![](/migration-assets/multilingual-settings-in-forms/5.gif)
+
+> **Nota:**
+> 
+> Revisa el archivo generado para asegurarte de que no haya discrepancias.
+
+## Reemplazar el archivo traducido
+
+### Para archivos traducidos manualmente
+
+Si quieres cambiar alguna de las etiquetas traducidas o agregar la traducción de etiquetas nuevas, modifica el archivo JSON localmente y carga la versión revisada.
+
+1.  Pasa el cursor sobre el idioma que quieres modificar en Configuración multilingüe y haz clic en el botón **Más opciones**. 
+    
+2.  Selecciona **Reemplazar JSON** y carga tu archivo.
+    
+3.  Confirma la verificación del archivo y la validación de los datos, y haz clic en **Reemplazar**.
+    
+
+![](/migration-assets/multilingual-settings-in-forms/6.gif)
+
+> **Nota:**
+> 
+> Si has perdido tu archivo traducido, usa el botón **Más opciones** para recuperar la versión existente.
+> 
+> ![](/migration-assets/multilingual-settings-in-forms/7.png)
+
+> **Nota:**
+> 
+> **Notificaciones instantáneas**
+> 
+> Las traducciones faltantes activarán una advertencia que mostrará el número de etiquetas sin traducir debajo del idioma que acabas de agregar. Edita tu archivo JSON para agregar estas traducciones y reemplaza la versión existente.
+
+### Para archivos traducidos con AI
+
+Si has usado la traducción con AI para convertir las etiquetas del formulario y los nombres de los pasos, y hay cambios nuevos en el formulario, haz clic en **Más opciones** > **Volver a traducir con AI** para cargar el archivo recién traducido. 
+
+![](/migration-assets/multilingual-settings-in-forms/8.png)
+
+## Previsualizar el formulario multilingüe
+
+Antes de publicar el formulario para tu audiencia, puedes previsualizar cómo aparecerán los campos traducidos en la pantalla.
+
+> **Nota:**
+> 
+> La posibilidad de previsualizar formularios multilingües no está disponible en Kissflow Boards.
+
+1.  En la esquina superior derecha de la pantalla de tu proceso, haz clic en **Editar proceso**. Se abrirá el editor de formularios.
+    
+2.  Haz clic en **Simular**. El formulario aparecerá en su idioma predeterminado.
+    
+3.  Usa la lista desplegable del icono de **Idioma** (
+    
+    ![](/migration-assets/multilingual-settings-in-forms/9.png)
+    
+     ![](/migration-assets/multilingual-settings-in-forms/13.gif)) en la parte superior para cambiar de idioma.
+    
+
+![](/migration-assets/multilingual-settings-in-forms/12.gif)
+
+> **Nota:**
+> 
+> Las acciones estándar del sistema, como seleccionar sí o no en el campo Sí/No y adjuntar archivos en el campo Adjunto, permanecen en el idioma preferido del usuario; durante la simulación solo cambian las etiquetas del formulario.
+
+## Actualizar los campos del formulario
+
+Cuando se agregan campos nuevos a un formulario multilingüe existente, debes proporcionar la traducción actualizada para asegurarte de que el formulario esté al día. 
+
+En **Configurar varios idiomas**, haz clic en **Descargar JSON**. Se te proporcionará la versión más reciente del formulario con los campos recién agregados. 
+
+![](/migration-assets/multilingual-settings-in-forms/11.png)
+
+## Desactivar la traducción 
+
+Puedes desactivar cualquiera de los idiomas agregados en cualquier momento desactivando el botón de alternancia (
+
+![](/migration-assets/multilingual-settings-in-forms/10.png)
+
+ ![](/migration-assets/multilingual-settings-in-forms/14.gif)) junto al idioma correspondiente en la lista de idiomas.
+
+![](/migration-assets/multilingual-settings-in-forms/15.gif)
+
+## Usar formularios multilingües
+
+### Usuarios de la cuenta
+
+El acceso a los formularios multilingües depende de la configuración de idioma del perfil y de la cuenta de los usuarios. La configuración del perfil tiene prioridad. Si ambas no están definidas, se usa el idioma original del formulario.
+
+#### Configurar las preferencias de idioma del perfil
+
+1.  Haz clic en Perfil en la esquina superior derecha de la pantalla.
+    
+2.  Selecciona **Mis preferencias**.
+    
+3.  En **Información personal** > **Configuración de formato**, selecciona tu idioma preferido en la lista desplegable Idioma.
+    
+4.  Haz clic en **Guardar**.
+    
+
+![](/migration-assets/multilingual-settings-in-forms/20.gif)
+
+El idioma seleccionado se reflejará en todo tu perfil. Ahora, si se asigna un formulario a un usuario y el idioma del perfil es compatible con la función multilingüe, el usuario podrá ver automáticamente el formulario en ese idioma.
+
+> **Nota:**
+> 
+> La traducción de las etiquetas se limita a las etiquetas del formulario y de la página de inicio. Las actividades de administración que aparecen en la sección Más opciones no se traducirán y aparecerán siempre en el idioma de origen en el que se configuró inicialmente el formulario.
+
+### Usuarios públicos
+
+Los usuarios pueden acceder al menú desplegable del icono de Idioma (
+
+![](/migration-assets/multilingual-settings-in-forms/16.png)
+
+ ![](/migration-assets/multilingual-settings-in-forms/19.gif)) en la esquina superior derecha del formulario para seleccionar el idioma en el que desean verlo.
+
+![](/migration-assets/multilingual-settings-in-forms/18.gif)

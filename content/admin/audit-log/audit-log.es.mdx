@@ -1,0 +1,90 @@
+---
+title: "Registro de auditoría"
+description: "BORRADOR (sin verificar) — migrado desde /t/h7h4akc/audit-log"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+## Descripción general
+
+El registro de auditoría es un registro centralizado de todas las actividades que tienen lugar en tu cuenta de Kissflow. Ayuda a los administradores a hacer un seguimiento de quién hizo qué, cuándo y desde dónde, al capturar eventos de toda tu cuenta, como la actividad de los usuarios, los eventos relacionados con la seguridad o los cambios realizados en la configuración de la cuenta y los flujos.  
+  
+Los registros de auditoría conservan el registro de las acciones realizadas en tu cuenta, lo que brinda a los administradores claridad, trazabilidad y supervisión. También puedes filtrar eventos específicos y exportar registros con fines de cumplimiento o análisis. 
+
+El registro de auditoría a nivel de cuenta está disponible para [Superadministradores,](/t/35h4ak036h4gg/user-roles-permissions) [administradores de IAM](/t/35h4ak0/user-roles-permissions#iam-admin) (registros de gestión de cuentas) y [administradores de usuarios](/t/35h4ak036h4gg/user-roles-permissions) (registros de gestión de usuarios y grupos). Para ver el registro de auditoría, ve a **Perfil > Administración de la cuenta >** **Registro de auditoría**.  
+  
+Del mismo modo, los registros de auditoría de los flujos están disponibles para los administradores de flujos en [procesos](/t/g9h9qtg), tableros, conjuntos de datos, [integraciones](/t/y4h4akm), aplicaciones y [portales](/t/y4ymrjg). Puedes acceder a ellos haciendo clic en el botón **Más opciones** ( ![](/migration-assets/audit-log/2.svg)) > **Registro de auditoría**.
+
+![](/migration-assets/audit-log/1.png)
+
+Puedes obtener los siguientes detalles en la sección **Registro de auditoría** de tu cuenta:
+
+-   **Marca de tiempo**: La hora exacta en la que ocurrió o se realizó una acción específica.
+-   **Realizado por**: El usuario de la cuenta que realizó la acción.
+-   **[Evento](/t/60ytnn6/event-categories-and-actions)**: El tipo de actividad o acción que tuvo lugar. Algunos ejemplos son cambio de permisos del conjunto de datos, transferencia de la propiedad de la cuenta, usuario activado, actualización de la seguridad de la cuenta, campo modificado, dirección IP, etc.
+-   **[Categoría del evento](/t/60ytnn6/event-categories-and-actions)**: Nombre común de un evento que puedes usar para filtrar eventos similares. Ejemplos: Administración de procesos, Administración de casos, etc.,
+-   **Objeto**: El recurso que se actualiza.
+-   **ID de auditoría**: Este ID único se genera automáticamente mediante el sistema para cada evento registrado como parte del historial.
+-   **Plataforma**: El dispositivo o sistema operativo (SO) utilizado para registrar el evento.
+-   **IP**: La dirección IP de red del dispositivo que registra el evento.
+-   **ID de lote**: Este ID único se genera automáticamente mediante el sistema para un grupo de eventos relacionados. A diferencia del **ID de auditoría**, el **ID de lote** de estos eventos será el mismo como referencia.
+
+Las actividades de la cuenta aparecen en el registro de auditoría con retraso, normalmente de unos minutos a unas horas en algunos casos.
+
+## Interpretación del registro de auditoría
+
+Cuando haces clic en una entrada del registro de auditoría, el panel **Registro de eventos** se abre a la derecha, como se muestra en el gif de abajo. Verás un resumen generado por AI seguido de los metadatos completos, y puedes usar las flechas de navegación para desplazarte al registro anterior o siguiente sin cerrar el panel. Aquí encontrarás más información sobre cada sección:
+
+-   **Resumen de AI**: Es un resumen breve generado por AI en la parte superior del panel que proporciona una descripción general rápida del evento antes de revisar los detalles sin procesar.
+    
+-   **Vista de metadatos completos**: Debajo del resumen de AI, los metadatos del evento se muestran en un formato estructurado. Las claves y los valores se muestran en formato JSON, y puedes expandir o contraer los objetos anidados para profundizar en los detalles.
+    
+-   **Controles de navegación**: Puedes desplazarte entre eventos directamente desde este panel mediante los controles de flecha de la parte superior, como se muestra en el gif de abajo.  
+     
+    
+    ![](/migration-assets/audit-log/6.gif)
+
+### Uso de filtros
+
+Cuando haces clic en **Mostrar filtros**, aparecen opciones de filtrado adicionales que te permiten limitar los resultados del registro de auditoría. Puedes ocultar el panel de filtros en cualquier momento seleccionando **Ocultar filtros**, para volver a centrarte en las entradas del registro.
+
+Podrás filtrar los eventos del **Registro de auditoría** según los siguientes campos o criterios:
+
+-   **Período de auditoría**
+    1.  **Intervalo de fechas fijo**: Obtén registros de eventos de los **Últimos 7 días**, **Últimos 30 días** o **Últimos 90 días**.
+    2.  **Intervalo de fechas personalizado**: Selecciona un intervalo de fechas personalizado (dentro de los últimos 30 días) para filtrar eventos.
+-   **Objeto**: Selecciona uno o más objetos de las sugerencias o introduce el nombre exacto del objeto cuyos detalles de registro quieras obtener.
+-   **[Categoría del evento](/t/60ytnn6/event-categories-and-actions)**: Filtrar eventos según la **Categoría del evento** es una forma recomendada de obtener eventos específicos del **Registro de auditoría**. Si no estás seguro de cómo seleccionar la categoría del evento, introduce un nombre de flujo como _proceso_ o _tablero_ en su barra de búsqueda y se mostrarán todas las categorías relevantes para la entrada.  
+     ![](/migration-assets/audit-log/3.png) 
+-   **Realizado por:** Puedes filtrar eventos según los usuarios.
+-   **[Evento](/t/60ytnn6/event-categories-and-actions):** Selecciona una de las acciones sugeridas según sea necesario. Puedes filtrar eventos según una acción a la vez.
+-   **Nombre del campo:** Este filtro te permite profundizar en atributos específicos de un evento. Puedes combinarlo con otros filtros para obtener resultados más precisos.
+    
+    Por ejemplo, en el gif de abajo, el filtro **Realizado por** está configurado como _Neon S_ y el filtro **Nombre del campo** está configurado como _LastLoggedIn_. Esto te ayuda a auditar todos los registros relacionados con la actividad de inicio de sesión de Neon. Puedes desplazarte por las entradas usando las flechas anterior/siguiente del panel de eventos. Puedes investigar en detalle cada evento de inicio y cierre de sesión de _Neon S_ y obtener una imagen clara de su cronología de acceso.
+    
+    ![](/migration-assets/audit-log/5.gif)
+-   **ID de auditoría, ID de lote e IP:** Los filtros se aplican principalmente a estos campos para rastrear el historial de un evento. Introduce el ID de auditoría, el ID de lote o la dirección IP exactos para filtrar eventos según sea necesario.
+-   **Plataforma** : Limita los resultados del registro de auditoría según el sistema operativo del dispositivo desde el que se realizó la acción.
+-   Para borrar una condición de filtro específica, haz clic en el botón **Eliminar** (![](/migration-assets/process-audit-log/7.svg)).
+
+##  [Ordenar y fijar c](/t/h7h4akc/audit-log#sorting-fields)olumnas
+
+Como alternativa, puedes ordenar los registros en orden ascendente o descendente para encontrar más rápidamente el registro del evento que buscas. También puedes fijar una columna, manteniéndola fija mientras te desplazas horizontalmente, para que los detalles importantes permanezcan visibles en todo momento.![](/migration-assets/audit-log/4.png)
+
+## Exportar un registro de auditoría
+
+Haz clic en **Exportar** (  ![](/migration-assets/process-audit-log/8.svg)) para descargar tus registros de auditoría. En el cuadro de diálogo de exportación, puedes elegir cómo quieres que se entreguen los datos:
+
+-   **Datos filtrados** – Exporta solo los resultados que se muestran actualmente después de aplicar los filtros.
+-   **Todos los datos de los últimos 90 días** – Exporta el registro de actividad completo de los últimos 90 días.  
+     
+
+Opcionalmente, convierte todos los campos de fecha y hora del registro para que coincidan con la zona horaria configurada en **Mis ajustes**. Una vez que confirmes, se enviará un enlace al archivo CSV (empaquetado en formato ZIP) a tu dirección de correo electrónico registrada.
+
+> **Nota:**  
+> Para necesidades de exportación que abarquen más de 90 días, ponte en contacto con el servicio de atención al cliente.

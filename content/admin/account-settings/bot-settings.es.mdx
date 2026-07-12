@@ -1,0 +1,126 @@
+---
+title: "Configuración del bot"
+description: "Habilita el bot de Kissflow para que los miembros puedan iniciar sesión en Kissflow y actuar sobre las notificaciones de procesos y tableros directamente desde Slack, Microsoft Teams o Google Chat."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - bot
+  - notifications
+  - integrations
+  - chat-apps
+---
+
+# Configuración del bot
+
+<PlanBadge plans={["enterprise"]} />
+
+Como superadministrador, puedes habilitar el **bot de Kissflow** para la aplicación de chat de tu organización: Slack, Microsoft Teams o Google Chat. Una vez habilitado, los miembros pueden iniciar sesión en Kissflow desde la aplicación de chat y recibir notificaciones en tiempo real sobre sus procesos y tableros sin cambiar de pestaña, y luego actuar sobre ellas (ver, aprobar, rechazar, añadir notas) directamente desde el chat.
+
+<iframe src="https://player.vimeo.com/video/1076012619?app_id=122963" title="Kissflow x Chat apps - Overview video" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+## Habilitar el bot de Kissflow
+
+1. Haz clic en tu foto de perfil, en la esquina superior derecha, y ve a **Administración de la cuenta** > **Configuración de la cuenta** > **Configuración del bot**.
+2. Activa el interruptor de cada aplicación de chat que use tu organización: **Google Chat**, **Slack** o **Microsoft Teams**.
+
+![Página de configuración del bot con interruptores para Google Chat, Slack y Microsoft Teams](/migration-assets/bot-settings/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Una vez activada una aplicación de chat, los miembros pueden iniciar sesión en ella siguiendo los pasos que se indican a continuación.
+
+## Iniciar sesión en Kissflow desde Google Chat
+
+1. Instala la aplicación de Kissflow:
+   1. Ve a [Google Workspace Marketplace](https://workspace.google.com/marketplace?pann=ogb).
+   2. Busca la aplicación **Kissflow** e instálala.
+
+   ![Listado de la aplicación Kissflow en Google Workspace Marketplace](/migration-assets/bot-settings/3.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+2. Busca **Kissflow** en tu lista de Google Chat.
+3. Inicia sesión en tu cuenta de Kissflow:
+   1. Escribe **/login** dentro de la aplicación Kissflow y presiona **Enter** para iniciar sesión. Se generará automáticamente una URL de inicio de sesión.
+   2. Haz clic en la URL de inicio de sesión, introduce el dominio de tu cuenta de Kissflow y haz clic en **Submit**.
+   3. Haz clic en **Allow** en la ventana emergente de permisos que aparece.
+
+   ![Ventana emergente de permisos para iniciar sesión en Kissflow desde Google Chat](/migration-assets/bot-settings/2.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+Una vez que hayas iniciado sesión, comenzarás a recibir notificaciones de tus procesos y tableros directamente en la aplicación de Kissflow dentro de Google Chat. Para cerrar sesión, escribe **/logout** y presiona **Enter**.
+
+## Iniciar sesión en Kissflow desde Microsoft Teams
+
+<iframe src="https://player.vimeo.com/video/1121104456?app_id=122963" title="Kissflow App for Microsoft Teams" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+1. Instala la aplicación de Kissflow:
+   1. En Microsoft Teams, haz clic en **Apps** en la barra lateral izquierda.
+   2. Busca la aplicación **Kissflow** y añádela.
+
+   ![Aplicación Kissflow en la lista de aplicaciones de Microsoft Teams](/migration-assets/bot-settings/4.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+2. Abre el chat de Kissflow que acabas de añadir.
+3. Inicia sesión en tu cuenta de Kissflow:
+   1. Escribe **login** (sin barra) dentro de la aplicación Kissflow y presiona **Enter** para iniciar sesión. Se generará automáticamente una URL de inicio de sesión.
+   2. Haz clic en la URL de inicio de sesión, introduce el dominio de tu cuenta de Kissflow y haz clic en **Submit**.
+   3. Haz clic en **Allow** en la ventana emergente de permisos que aparece.
+
+   ![Ventana emergente de permisos para iniciar sesión en Kissflow desde Microsoft Teams](/migration-assets/bot-settings/5.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+Una vez que hayas iniciado sesión, comenzarás a recibir notificaciones de tus procesos y tableros directamente en el chat de la aplicación Kissflow dentro de Microsoft Teams. Para cerrar sesión, escribe **logout** y presiona **Enter**.
+
+## Iniciar sesión en Kissflow desde Slack
+
+<iframe src="https://player.vimeo.com/video/1064973381?app_id=122963" title="Kissflow Apps for Slack" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+1. Instala la aplicación de Kissflow:
+   1. En Slack, haz clic en **Apps**.
+   2. Busca la aplicación **Kissflow** y añádela.
+2. Abre el chat de Kissflow que acabas de añadir.
+3. Inicia sesión en tu cuenta de Kissflow:
+   1. Escribe **/login** dentro de la aplicación Kissflow y presiona **Enter** para iniciar sesión. Se generará automáticamente una URL de inicio de sesión.
+   2. Haz clic en la URL de inicio de sesión, introduce el dominio de tu cuenta de Kissflow y haz clic en **Submit**.
+   3. Haz clic en **Allow** en la ventana emergente de permisos que aparece.
+
+Una vez que hayas iniciado sesión, comenzarás a recibir notificaciones de tus procesos y tableros directamente en el chat de la aplicación Kissflow dentro de Slack. Para cerrar sesión, escribe **/logout** y presiona **Enter**.
+
+## Acciones de las notificaciones
+
+Los miembros pueden actuar sobre una notificación directamente desde la tarjeta que aparece en su aplicación de chat:
+
+| Módulo  | Acciones disponibles                    |
+| ------- | ------------------------------------- |
+| Proceso | Ver elemento, Aprobar elemento, Rechazar elemento  |
+| Tablero   | Ver elemento, Añadir nota                   |
+
+## Eventos de las notificaciones
+
+Las notificaciones de los procesos y tableros se envían a la aplicación de chat cuando ocurren los siguientes eventos:
+
+| Módulo  | Evento                     | Destinatario            |
+| ------- | ------------------------- | --------------------- |
+| Proceso | Elemento asignado a un usuario   | Usuario asignado               |
+| Proceso | Elemento aprobado             | Iniciador del elemento         |
+| Proceso | Elemento rechazado              | Iniciador del elemento         |
+| Proceso | Elemento reasignado           | Usuario recién asignado    |
+| Proceso | Se incumplió la fecha límite del elemento               | Usuario asignado               |
+| Tablero   | Elemento asignado a un usuario   | Usuario asignado               |
+| Tablero   | Se incumplió la fecha límite del elemento              | Usuario asignado               |
+| Tablero   | Usuario mencionado en una nota   | Usuario mencionado          |
+
+<Callout type="info">
+  Los eventos y destinatarios anteriores reflejan el comportamiento estándar de las notificaciones. La [configuración de notificaciones](/docs/use/personal-settings/user-notification-settings) de tu organización puede personalizar aún más qué eventos se envían para procesos, tableros o aplicaciones específicos.
+</Callout>
+
+## What's next
+
+- [Configuración de notificaciones del usuario](/docs/use/personal-settings/user-notification-settings)
+- [Notificaciones de procesos](/docs/build/processes/process-notifications)
+- [Notificaciones de tableros](/docs/build/boards/board-notifications)
+- [Roles y permisos de usuario](/docs/admin/users/user-roles-and-permissions)

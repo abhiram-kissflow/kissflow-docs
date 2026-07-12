@@ -1,0 +1,142 @@
+---
+title: "Variables y parámetros en el desarrollo de apps"
+description: "BORRADOR (sin verificar) — migrado desde /t/35yzj4x/variables-and-parameters-in-app-development"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+### Comprender las variables en el desarrollo de apps
+
+Haz clic [aquí](/t/83yzj4y/using-variables-in-application-development) para conocer los tipos de variables disponibles y cómo usarlas en el desarrollo de apps.
+
+### Parámetros de entrada
+
+Los parámetros de entrada se utilizan para proporcionar datos a un campo. Se pueden crear dentro de una página y pasar de una página a otra. Los parámetros de entrada se pueden usar dentro de una página y también pasar a otras páginas. Por ejemplo, puedes pasar un **ID de instancia** y un **ID de instancia de actividad** a un formulario de proceso desde otro elemento de proceso mediante parámetros de entrada.
+
+En el **constructor de apps** > **páginas**, los parámetros de entrada se encuentran en el lado derecho, en la pestaña **Propiedades generales** (![](/migration-assets/variables-and-parameters-in-app-development/1.png)).
+
+Para crear un parámetro de entrada:
+
+1.  Haz clic en el botón **Agregar** (![](/migration-assets/variables-and-parameters-in-app-development/2.png)).
+2.  Introduce el nombre del parámetro.
+3.  Agrega una descripción al parámetro si es necesario.
+4.  Haz clic en Agregar para agregar el nuevo parámetro. También puedes editar o eliminar un parámetro más adelante.  
+     ![](/migration-assets/variables-and-parameters-in-app-development/3.png)
+
+### Parámetros de eventos
+
+Estos son parámetros que se pasan desde un evento dentro de un componente. Se puede crear un parámetro de evento seleccionando un componente, accediendo a la pestaña **Propiedades del evento**, agregando un evento y seleccionando la acción y la página de redirección.
+
+Por ejemplo, se pueden pasar un **ID de instancia** y un **ID de actividad** mediante un evento **al hacer clic** que redirige a otra página.
+
+![](/migration-assets/variables-and-parameters-in-app-development/5.png)
+
+### Propiedades de configuración
+
+Estas son constantes que tienen el mismo valor en toda la app y en diferentes entornos, como desarrollo y producción. Se pueden establecer con un valor predeterminado y cambiar durante el tiempo de ejecución. Por ejemplo, una clave de API puede ser una propiedad de configuración.
+
+#### Comparación entre variables y parámetros
+
+**Tipo**
+
+**Ámbito**
+
+**¿Dónde se puede definir?**
+
+**Uso**
+
+**Ejemplo**
+
+**Variables globales**
+
+En todos los entornos de la app
+
+Sección Variables en el constructor de apps, dentro de una página
+
+Código JavaScript
+
+Correo electrónico del usuario
+
+**Variables locales**
+
+Página
+
+Dentro de una página
+
+Código JavaScript
+
+ID de página
+
+**Parámetros de entrada**
+
+Página
+
+Propiedades generales del cuerpo de la página
+
+Se utilizan en los componentes y el código JavaScript
+
+ID de aplicación
+
+**Parámetros de eventos**
+
+Página/app, según a dónde se pasen
+
+Propiedades del evento de un componente
+
+Código JavaScript, para pasar valores a los parámetros de entrada de otra página
+
+ID de instancia
+
+**Propiedad de configuración**
+
+En todos los entornos de la app
+
+Dentro de una app, como constante
+
+Código JavaScript 
+
+Clave de API
+
+#### Uso en el editor de JavaScript
+
+Puedes agregar código JavaScript a un evento dentro de un componente abriendo el editor de código en Propiedades del evento del componente y seleccionando la acción de JavaScript. Una vez abierto el editor de código, puedes usar variables globales y locales, ventanas emergentes, parámetros de eventos y parámetros de entrada haciendo doble clic en sus nombres para definirlos dentro del código.
+
+![](/migration-assets/variables-and-parameters-in-app-development/4.png)
+
+![](/migration-assets/variables-and-parameters-in-app-development/6.png)
+
+En resumen, las variables, los parámetros de entrada, los parámetros de eventos y las propiedades de configuración se utilizan en el desarrollo de apps para almacenar y pasar datos dentro de la app. Cada uno tiene su propio ámbito, uso y ejemplos de cuándo se podría utilizar en una app real.
+
+### Agregar eventos a dataform
+
+Puedes crear eventos para componentes dataform individuales en tu app.
+
+1.  Selecciona el dataform correspondiente en la página de tus apps
+    
+2.  Ve a la pestaña Eventos
+    
+3.  Elige un evento en el menú desplegable
+    
+    -   Al enviar
+        
+    -   Al guardar
+        
+    -   Al descartar
+        
+    -   Al eliminar
+        
+4.  Selecciona la acción que quieres que active el evento. 
+    
+    -   Redirección: puedes dirigir a los usuarios a otra página.
+        
+    -   Ventana emergente: muestra una ventana emergente cuando ocurre un evento. 
+        
+    -   [Acciones de JavaScript personalizadas](/t/35yzj4x#usage-in-javascript-editor): puedes configurar acciones personalizadas además de redirecciones y ventanas emergentes.
+        
+
+![](/migration-assets/variables-and-parameters-in-app-development/7.gif)

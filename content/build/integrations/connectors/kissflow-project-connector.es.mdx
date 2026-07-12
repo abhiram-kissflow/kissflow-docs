@@ -1,0 +1,101 @@
+---
+title: "Conector de Kissflow Project"
+description: "BORRADOR (sin verificar) — migrado desde /t/g9h4al9/kissflow-project-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es Kissflow Project?
+
+Con Kissflow Project, puedes planificar el trabajo de tu equipo, saber quién está trabajando en qué y entregar excelentes resultados sin tener que hacer un seguimiento constante. Es la herramienta definitiva de gestión de proyectos para gerentes funcionales. Puedes enumerar tus elementos, organizarlos en una visualización de kanban, lista o matriz, y crear vistas personalizadas para mantener tus prioridades del proyecto bajo control.
+
+### Activadores en Kissflow Project
+
+##### Eventos del activador
+
+##### Descripción
+
+Cuando se actualiza un elemento
+
+Este activador se activa cuando se actualiza cualquier elemento del proyecto.
+
+Cuando se mueve un elemento dentro del proyecto
+
+Este activador se activa cuando cualquier elemento se mueve a un paso o estado diferente del proyecto.
+
+Cuando se crea un elemento
+
+Este activador se activa en cuanto alguien hace clic en el botón **Nuevo elemento**.
+
+Cuando se completa un elemento
+
+Este activador se activa cuando cualquier elemento llega al paso **Completado** del proyecto.
+
+Cuando se inicia un elemento
+
+Este activador se activa cuando cualquier elemento avanza desde el paso **No iniciado** del proyecto.
+
+Cuando se reasigna un elemento
+
+Este activador se activa cuando cualquier elemento se reasigna a otro asignado en un paso específico del proyecto.
+
+Cuando se elimina un elemento
+
+Este activador se activa cuando se elimina cualquier elemento del proyecto.
+
+Cuando un elemento supera su fecha de vencimiento
+
+Este activador se activa cuando cualquier elemento supera su fecha de vencimiento en el proyecto.
+
+### Acciones en Kissflow Project
+
+##### Eventos de la acción
+
+##### Descripción
+
+Crear un elemento
+
+Esta acción agrega un nuevo elemento en el paso de tu proyecto.
+
+Mover un elemento
+
+Esta acción mueve un elemento a un paso o estado diferente de tu proyecto.
+
+Asignar un elemento a un miembro
+
+Esta acción agrega un asignado a un elemento de tu proyecto.
+
+Actualizar un elemento
+
+Esta acción actualiza un elemento del proyecto.
+
+## Conectarse a tu Kissflow Project
+
+Los miembros de la integración que tienen permiso para acceder al proyecto pueden usar el conector de Kissflow Project para enviar datos desde tu proyecto a otros flujos internos o aplicaciones de terceros. También pueden recibir datos de otros flujos o aplicaciones para realizar acciones específicas en tu proyecto.
+
+Por ejemplo, tienes un [tablero](/t/q6h9ql3/board-overview) para gestionar una mesa de ayuda y quieres realizar un seguimiento separado de determinadas solicitudes de cambio en un proyecto. Para que esto sea posible, el sistema de casos y el proyecto deben comunicarse entre sí. Los conectores hacen posible esta comunicación. Con conectores predefinidos, puedes configurar activadores y acciones para que, cuando se cree una nueva solicitud de cambio en tu mesa de ayuda, se agregue un elemento correspondiente en tu sistema de proyectos.
+
+Del mismo modo, también puedes diseñar flujos de trabajo en los que el proyecto sea el activador principal. En este caso, un elemento completado en tu proyecto puede iniciar otro elemento en el proceso de aprobación.
+
+### Conector de Kissflow Project como paso de activador
+
+1.  El primer paso es elegir un paso de activador en cualquier integración. Selecciona el conector de Kissflow Project o usa el cuadro de búsqueda para encontrar directamente un activador del proyecto. Después de seleccionar el conector, elige un activador entre las opciones disponibles.![](/migration-assets/kissflow-project-connector/1.gif) 
+[Crea una conexión nueva](/t/g9h4alw/integrations-overview) o usa una conexión existente en tu cuenta. También puedes conectarte a otra cuenta de Kissflow o usar tu propia cuenta de Kissflow. Después de autenticar la conexión, haz clic en **Siguiente**.3.  Configura tu cuenta seleccionando el proyecto con el que quieres trabajar. Después de seleccionar el proyecto, haz clic en **Siguiente**.
+4.  Por último, comprueba si el paso de activador está configurado correctamente haciendo clic en el botón **probar**. El conector extraerá los datos de los campos del proyecto seleccionado y los mostrará como una salida JSON. Si se produce un error en la configuración, recibirás un mensaje al respecto. En este caso, tendrás que volver a probar el activador después de realizar los cambios necesarios.
+
+### Conector de Kissflow Project como paso de acción
+
+1.  Haz clic en el conector de Kissflow Project y selecciona un paso de acción entre las opciones disponibles.
+Al igual que en el paso de activador anterior, configura una conexión con tu cuenta de Kissflow Project.3.  Después de elegir un proyecto, agrega los valores correspondientes a los campos del formulario del proyecto. Puedes hacer clic en Actualizar campos para ver todos los campos actualizados del formulario del proyecto seleccionado. También puedes asignar campos del formulario desde tu paso de activador o campos de tus pasos de acción anteriores. Estos valores se agregarán automáticamente a los campos del elemento una vez ejecutada la acción.
+4.  Por último, comprueba si el paso de acción está configurado correctamente haciendo clic en el botón **probar**. El conector extraerá los datos de los campos del proyecto seleccionado y los mostrará como una salida JSON. Al igual que con el paso de activador, recibirás una notificación inmediata de los errores. Corrígelos antes de volver a probar el paso de acción.
+
+### Configurar un flujo de trabajo de proyecto
+
+Después de crear un flujo de trabajo personalizado con los activadores o pasos de acción de Kissflow Project, activa el botón de alternancia **ON** para activar la ejecución de la integración.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

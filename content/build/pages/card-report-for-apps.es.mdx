@@ -1,0 +1,821 @@
+---
+title: "Informe de tarjetas para apps"
+description: "BORRADOR (sin verificar) — migrado desde /t/h7y8qgv/card-report-for-apps"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+La función de informes de tarjetas es una presentación visual de métricas analíticas y KPI clave que proporciona una vista general clara del rendimiento y las tendencias de un vistazo mediante datos esenciales y cálculos comparativos. Configurable para necesidades específicas de generación de informes, cada tipo de tarjeta proporciona información valiosa y agiliza el flujo de trabajo del desarrollador dentro de las apps.
+
+Aunque los informes de tarjetas mejoran la eficiencia al mostrar datos, los [componentes de tarjeta](/t/35yzj4v/card) convencionales del creador de páginas seguirán permitiéndote visualizar datos para casos de uso como el número de tareas asignadas y las tareas atrasadas.
+
+## Crear un informe de tarjetas en apps
+
+Para crear un informe de tarjetas en apps:
+
+1.  Inicia sesión en Kissflow.
+    
+2.  Haz clic en + **Crear** en el menú de navegación izquierdo > **Apps**. También puedes hacer clic en la opción **Explorar** en la navegación izquierda y luego en **Crear**, en la esquina superior derecha, para abrir el menú **Crear desde cero**.
+    
+3.  Se te redirigirá al entorno de desarrollo de apps en una nueva pestaña del navegador.
+    
+4.  Abre un proceso, tablero o dataform.
+    
+5.  Ve a la sección **Informes** de tu proceso, tablero o dataform.
+    
+6.  En Administrar informes, haz clic en **Nuevo informe**.
+    
+7.  Especifica un nombre para tu informe.
+    
+8.  Elige **Tarjeta** como tipo de informe.
+    
+
+> **Nota:**
+> 
+> La función de informes de tarjetas no está disponible en Analytics.
+
+![](/migration-assets/card-report-for-apps/1.gif)
+
+# Tipos de tarjeta
+
+Hay cuatro tipos de informes de tarjetas.
+
+-   Tarjeta simple
+    
+-   Tarjeta con icono
+    
+-   Tarjeta de KPI
+    
+-   Tarjeta de comparación
+    
+
+## Tarjeta simple
+
+Una tarjeta simple muestra una única métrica de forma destacada. Proporciona una representación clara y concisa de un valor numérico específico.
+
+![](/migration-assets/card-report-for-apps/2.png)
+
+### Configuración
+
+#### Seleccionar campos
+
+Elige el campo que quieres mostrar en la tarjeta. Solo puedes seleccionar un campo.
+
+#### Etiquetar tarjetas
+
+-   **Etiqueta**: Define un título para la tarjeta.
+    
+-   **Descripción**: Proporciona una descripción breve para añadir contexto.
+    
+
+#### Configuración de valores
+
+-   **Formato del valor**: Elige entre Número, Moneda, Porcentaje y Personalizado. Al seleccionar Personalizado, puedes añadir el prefijo y el sufijo al valor mostrado.
+    
+-   **Unidad de visualización**: Especifica la unidad (Ninguna, Miles, Millones, Miles de millones).
+    
+-   **Decimales**: Define el número de decimales.
+    
+
+#### Filtro de datos
+
+Añade [filtros](/t/h7yzj0v/using-advanced-filters-in-apps) a tus tarjetas según sea necesario.
+
+![](/migration-assets/card-report-for-apps/8.gif)
+
+## Tarjeta con icono
+
+La tarjeta con icono combina un valor numérico con un icono asociado. Añade un elemento visual a la métrica, lo que facilita la interpretación y el recuerdo de la información.
+
+![](/migration-assets/card-report-for-apps/3.png)
+
+### Configuración
+
+#### Seleccionar campos
+
+Elige el campo que quieres mostrar en la tarjeta. Solo puedes seleccionar un campo.
+
+#### Etiquetar tarjetas
+
+-   **Etiqueta**: Define un título para la tarjeta.
+    
+-   **Descripción**: Proporciona una descripción breve para añadir contexto.
+    
+
+#### Configuración del icono
+
+-   **Seleccionar icono**: Selecciona un icono del conjunto de iconos disponible en la biblioteca de iconos. Haz clic en Reemplazar icono para cambiarlo.
+    
+-   **Posición del icono**: Puedes cambiar la posición de los iconos en la tarjeta.
+    
+
+#### Configuración de valores
+
+-   **Formato del valor**: Elige entre Número, Moneda, Porcentaje y Personalizado. Al seleccionar Personalizado, puedes añadir el prefijo y el sufijo al valor mostrado.
+    
+-   **Unidad de visualización**: Especifica la unidad (Ninguna, Miles, Millones, Miles de millones).
+    
+-   **Decimales**: Define el número de decimales.
+    
+
+#### Filtro de datos
+
+Añade [filtros](/t/h7yzj0v/using-advanced-filters-in-apps) de datos a las tarjetas según tus necesidades.
+
+## Tarjeta de KPI
+
+La tarjeta de KPI muestra indicadores clave de rendimiento y ofrece información sobre el progreso hacia objetivos medibles. Incluye valores reales y objetivo, así como un valor de KPI calculado.
+
+![](/migration-assets/card-report-for-apps/4.png)
+
+Permite obtener una vista completa del rendimiento mediante cuatro indicadores clave de rendimiento diferentes: diferencia absoluta, porcentaje del valor real, porcentaje de la diferencia absoluta y porcentaje de la diferencia con respecto al promedio.
+
+## Comprender las métricas de KPI con la tarjeta de KPI
+
+Veamos estas métricas de KPI con un caso de uso. Considera el ciclo de gestión de relaciones con los clientes (CRM) de una organización cuyo equipo de ventas se ha fijado objetivos ambiciosos en términos de generación de ingresos y adquisición de clientes.
+
+El equipo se ha propuesto alcanzar $1,000K en ingresos por ventas mensuales. Sin embargo, ha registrado $950,000 en ingresos por ventas reales durante el mes. Esta es claramente una dirección de tendencia de «Más alto es mejor».
+
+**Tipos de valores de KPI**
+
+**Fórmula**
+
+**Descripción**
+
+**Ejemplo**
+
+Diferencia absoluta
+
+Actual value - Target value
+
+Calcula la diferencia absoluta entre el valor real y el valor objetivo.
+
+Diferencia absoluta: \\|$950,000 - $1,000,000\\| = $50,000
+
+La diferencia absoluta entre el valor real y el valor objetivo indica qué tan lejos está el resultado del valor deseado. En este caso, la diferencia absoluta es de $50,000 entre los ingresos por ventas reales y los objetivo.  
+ 
+
+% del valor real
+
+(Actual value / Target value) x 100
+
+Calcula el porcentaje del valor real con respecto al valor objetivo.
+
+% del valor real: ($950,000 / $1,000,000) \* 100 = 95%
+
+Los ingresos por ventas reales representan el 95 % de los ingresos objetivo. Este porcentaje indica qué tan cerca está el equipo de ventas de alcanzar el objetivo de ingresos establecido.
+
+% de la diferencia absoluta
+
+(Absolute difference / Target value) x 100
+
+Calcula el porcentaje de la diferencia absoluta con respecto al valor objetivo.
+
+% de la diferencia absoluta: ($50,000 / $1,000,000) \* 100 = 5%
+
+Observamos que la diferencia absoluta de $50,000 constituye el 5 % de los ingresos por ventas objetivo. Esta métrica destaca la magnitud de la desviación con respecto al objetivo de ingresos deseado.
+
+% de la diferencia con respecto al promedio
+
+(Absolute difference/((Actual value + Target value)/2)) x 100  
+ 
+
+Calcula el porcentaje de la diferencia absoluta con respecto al promedio de los valores real y objetivo.
+
+% de la diferencia con respecto al promedio: ($50,000 / $975,000) \* 100 ≈ 5.13%  
+  
+Los ingresos por ventas reales se mantienen en $950,000 y el promedio de los ingresos por ventas reales y objetivo se calcula en $975,000. Por lo tanto, la diferencia absoluta de $50,000 representa aproximadamente el 5.13 % de este valor promedio. Esta comparación entre la diferencia absoluta y el promedio de los ingresos por ventas reales y objetivo ofrece una medida relativa de la desviación de los ingresos.
+
+Estas métricas de KPI proporcionan información valiosa sobre el rendimiento de ventas de la empresa y facilitan la toma de decisiones fundamentadas y los ajustes estratégicos.
+
+### Configuración de la tarjeta de KPI
+
+![](/migration-assets/card-report-for-apps/5.gif)
+
+#### Seleccionar campos
+
+Elige los campos que quieres mostrar en la tarjeta. Selecciona un campo para el valor real y otro para el valor objetivo.
+
+#### Etiquetar tarjetas
+
+-   **Etiqueta**: Define un título para la tarjeta.
+    
+-   **Etiqueta real**: Proporciona un título para la etiqueta del valor real.
+    
+-   **Etiqueta objetivo**: Proporciona un título para la etiqueta del valor objetivo.
+    
+
+#### Configuración de valores
+
+-   **Valor real y valor objetivo**: Activa o desactiva estos valores mediante los botones de alternancia.
+    
+-   **Tipo de valor de KPI**: Elige entre distintos tipos de valores de KPI, como diferencia absoluta, porcentaje del objetivo, porcentaje de cambio y porcentaje de diferencia.
+    
+-   **Formato del valor**: Configura las opciones de formato para Número, Moneda, Porcentaje y Personalizado. Al seleccionar Personalizado, puedes añadir el prefijo y el sufijo al valor mostrado.
+    
+-   **Unidad de visualización**: Especifica la unidad (Ninguna, Miles, Millones, Miles de millones).
+    
+-   **Decimales**: Define el número de decimales.
+    
+
+> **Nota:**
+> 
+> Solo puedes añadir unidades al valor real, el valor objetivo y la diferencia absoluta mediante el formato del valor.
+
+#### Configuración de tendencias
+
+-   **Dirección de la tendencia**: Personaliza las direcciones de tendencia según el caso de uso específico y la naturaleza de los resultados, ya sea «Más alto es mejor» o «Más bajo es mejor».
+    
+-   **Posición de la tendencia**: Puedes colocar el icono de tendencia a la izquierda o a la derecha del valor.
+    
+-   **Tendencia alta**: Selecciona iconos para indicar que la tendencia es alta. Haz clic en **Reemplazar icono** para cambiar el icono.
+    
+-   **Tendencia media**: Selecciona iconos para indicar que la tendencia es media. Haz clic en **Reemplazar icono** para cambiar el icono.
+    
+-   **Tendencia baja**: Selecciona iconos para indicar que la tendencia es baja. Haz clic en **Reemplazar icono** para cambiar el icono.
+    
+
+#### Filtro de datos
+
+Añade [filtros](/t/h7yzj0v/using-advanced-filters-in-apps) de datos a tu informe según sea necesario.
+
+## Tarjeta de comparación
+
+La tarjeta de comparación permite ver y comparar dos métricas una al lado de la otra. Proporciona una representación visual rápida de qué tan bien se alinean los valores reales con los valores objetivo establecidos.
+
+![](/migration-assets/card-report-for-apps/7.png)
+
+### Configuración
+
+#### Seleccionar campos
+
+Elige los campos que quieres mostrar en la tarjeta. Selecciona un campo para el valor real y otro para el valor objetivo.
+
+#### Etiquetar tarjetas
+
+-   **Etiqueta real**: Proporciona un título para la etiqueta del valor real.
+    
+-   **Etiqueta objetivo**: Proporciona un título para la etiqueta del valor objetivo.
+    
+
+#### Configuración de valores
+
+-   **Formato del valor**: Configura las opciones de formato para Número, Moneda, Porcentaje y Personalizado. Al seleccionar Personalizado, puedes añadir el prefijo y el sufijo al valor mostrado.
+    
+-   **Unidad de visualización**: Especifica la unidad (Ninguna, Miles, Millones, Miles de millones).
+    
+-   **Decimales**: Define el número de decimales.
+    
+
+**Filtro de datos**
+
+-   Añade [filtros](/t/h7yzj0v/using-advanced-filters-in-apps) de datos a tu informe según sea necesario para ver datos específicos.
+
+> **Nota:**
+> 
+> Los siguientes campos aparecerán en el menú desplegable de selección de campos del informe de tarjetas: Texto, Número, Moneda, Fecha (partes), Fecha y hora (partes), Correo electrónico, Sí/No, Clasificación, Lista desplegable, Control deslizante, Usuario, Agregación y Número de secuencia.
+
+# Aplicar estilos a los informes de tarjetas
+
+Aplica estilos a tus tarjetas según su alineación, fondo, valores, valores reales, valores objetivo, etiquetas, etiquetas reales, etiquetas objetivo, descripción, iconos e iconos de tendencia.
+
+**Opciones de estilo**
+
+**Tarjeta simple**
+
+**Tarjeta con icono**
+
+**Tarjeta de KPI** 
+
+**Tarjeta de comparación**
+
+**Alineación**
+
+ 
+
+ 
+
+ 
+
+ 
+
+Alineación horizontal
+
+✅
+
+✅
+
+✅
+
+✅
+
+Alineación vertical
+
+✅
+
+✅
+
+✅
+
+✅
+
+Espaciado horizontal
+
+❌
+
+❌
+
+✅
+
+✅
+
+Espaciado vertical
+
+✅
+
+✅
+
+✅
+
+❌
+
+**Fondo**
+
+ 
+
+ 
+
+ 
+
+ 
+
+Color de fondo
+
+✅
+
+✅
+
+✅
+
+✅
+
+Relleno
+
+✅
+
+✅
+
+✅
+
+✅
+
+**Valor**
+
+ 
+
+ 
+
+ 
+
+ 
+
+Color de fuente
+
+✅
+
+✅
+
+✅
+
+❌
+
+Tamaño de fuente
+
+✅
+
+✅
+
+✅
+
+❌
+
+Peso de fuente
+
+✅
+
+✅
+
+✅
+
+❌
+
+Relleno
+
+✅
+
+✅
+
+✅
+
+❌
+
+Estilo de fuente
+
+✅
+
+✅
+
+✅
+
+❌
+
+**Valor real y valor objetivo**
+
+ 
+
+ 
+
+ 
+
+ 
+
+Color de fuente
+
+❌
+
+❌
+
+✅
+
+✅
+
+Tamaño de fuente
+
+❌
+
+❌
+
+✅
+
+✅
+
+Peso de fuente
+
+❌
+
+❌
+
+✅
+
+✅
+
+Estilo de fuente
+
+❌
+
+❌
+
+✅
+
+✅
+
+Relleno
+
+❌
+
+❌
+
+✅
+
+✅
+
+**Etiqueta**
+
+ 
+
+ 
+
+ 
+
+ 
+
+Color de fuente
+
+✅
+
+✅
+
+✅
+
+❌
+
+Tamaño de fuente
+
+✅
+
+✅
+
+✅
+
+❌
+
+Peso de fuente
+
+✅
+
+✅
+
+✅
+
+❌
+
+Estilo de fuente
+
+✅
+
+✅
+
+✅
+
+❌
+
+Relleno
+
+✅
+
+✅
+
+✅
+
+❌
+
+**Etiqueta real y etiqueta objetivo**
+
+ 
+
+ 
+
+ 
+
+ 
+
+Color de fuente
+
+❌
+
+❌
+
+✅
+
+✅
+
+Tamaño de fuente
+
+❌
+
+❌
+
+✅
+
+✅
+
+Peso de fuente
+
+❌
+
+❌
+
+✅
+
+✅
+
+Estilo de fuente
+
+❌
+
+❌
+
+✅
+
+✅
+
+Relleno
+
+❌
+
+❌
+
+✅
+
+✅
+
+**Descripción**
+
+ 
+
+ 
+
+ 
+
+ 
+
+Color de fuente
+
+✅
+
+✅
+
+❌
+
+❌
+
+Tamaño de fuente
+
+✅
+
+✅
+
+❌
+
+❌
+
+Peso de fuente
+
+✅
+
+✅
+
+❌
+
+❌
+
+Relleno
+
+✅
+
+✅
+
+❌
+
+❌
+
+Estilo de fuente
+
+✅
+
+✅
+
+❌
+
+❌
+
+**Icono**
+
+ 
+
+ 
+
+ 
+
+ 
+
+Color del icono
+
+❌
+
+✅
+
+❌
+
+❌
+
+Tamaño del icono
+
+❌
+
+✅
+
+❌
+
+❌
+
+Relleno
+
+❌
+
+✅
+
+❌
+
+❌
+
+Ancho del borde
+
+❌
+
+✅
+
+❌
+
+❌
+
+Color del borde
+
+❌
+
+✅
+
+❌
+
+❌
+
+Radio del borde
+
+❌
+
+✅
+
+❌
+
+❌
+
+Estilo del borde
+
+❌
+
+✅
+
+❌
+
+❌
+
+**Icono de tendencia**
+
+ 
+
+ 
+
+ 
+
+ 
+
+Color del icono de tendencia alta
+
+❌
+
+❌
+
+✅
+
+❌
+
+Color del icono de tendencia media
+
+❌
+
+❌
+
+✅
+
+❌
+
+Color del icono de tendencia baja
+
+❌
+
+❌
+
+✅
+
+❌
+
+Tamaño del icono
+
+❌
+
+❌
+
+✅
+
+❌
+
+Relleno
+
+❌
+
+❌
+
+✅
+
+❌
+
+# Otras acciones
+
+Una vez que hayas configurado y guardado el informe, puedes cambiarle el nombre, compartirlo y eliminarlo. Para ello, haz clic en el botón **Más opciones** del informe de tarjetas que quieras > selecciona uno de los botones necesarios > **Cambiar nombre**, **Compartir** o **Eliminar**.
+
+![](/migration-assets/card-report-for-apps/6.png)

@@ -1,0 +1,67 @@
+---
+title: "Generación automática de registros de dataform"
+description: "BORRADOR (sin verificar) — migrado desde /t/83yzjcq/auto-generating-dataform-records"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+La función de generación automática de registros utiliza AI para crear automáticamente datos de prueba de muestra relevantes para el contexto de tus dataforms. Esta función ofrece una alternativa sencilla a [importar datos mediante CSV](/t/h7h9qk9/importing-data-from-csv-file), lo que resulta más adecuado para agregar registros específicos de grandes volúmenes u organizaciones. Con solo hacer clic, los datos generados automáticamente completan tus formularios con registros significativos, lo que te permite visualizar fácilmente las vistas y los informes en el entorno de desarrollo.
+
+<iframe src="https://player.vimeo.com/video/1000721706?app_id=122963" title="AI-powered sample data generation" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+### ¿Cómo funciona?
+
+1.  Para generar registros de datos automáticamente, [crea un dataform nuevo](/t/q6h9qk4/creating-and-managing-data-forms) y asígnale un nombre significativo. La función de AI utiliza el nombre y la descripción del dataform como indicación para completar la generación automática; es decir, cuanto más descriptivos sean el nombre del formulario y los nombres de sus campos, más significativos serán los datos generados. Por ejemplo, «Formulario de comentarios de evaluación de empleados para RR. HH.» es mejor que «Formulario de evaluación».
+    
+2.  En el constructor de formularios, agrega campos relevantes a tu dataform y crea una [vista](/t/60h9q1h/data-table-view). En el constructor de vistas, agrega todos los campos para los que quieras generar datos automáticamente.
+    
+
+> **Nota:**
+> 
+> Es posible que los registros generados automáticamente no cumplan las restricciones de los campos establecidas mediante reglas de visibilidad, fórmulas de cálculo en el constructor de formularios y filtros de datos en el constructor de vistas. Te recomendamos revisar y ajustar manualmente las entradas de datos para asegurarte de que cumplan tus condiciones.
+
+   3. Haz clic en **Generar registros automáticamente**. Según el número de campos del formulario y la especificidad del nombre del formulario, la generación de los registros puede tardar unos momentos.
+
+   4. Se generará un total de 30 registros para un máximo de 50 campos del formulario. Después de revisar los datos, puedes agregar la vista a una página o convertirla en un informe con gran cantidad de datos.
+
+![](/migration-assets/auto-generating-dataform-records/1.gif)
+
+> **Nota:**
+> 
+> Los registros del formulario solo se pueden generar automáticamente en el entorno de desarrollo, ya que esta función sirve como herramienta de asistencia para que los desarrolladores de aplicaciones visualicen y prueben cómo se comportarán los datos en tiempo de ejecución. Por ahora, esta opción solo está disponible para las vistas de dataform.
+
+### Limitaciones
+
+1.  Si tu formulario tiene más de 50 campos, la opción de generar registros automáticamente estará deshabilitada. Elimina algunos campos y vuelve a intentarlo.
+    
+2.  La opción de generación automática solo está disponible en dataforms vacíos. Si tu formulario ya contiene datos, considera eliminarlos o utiliza la opción Importar CSV para agregar los datos adicionales.
+    
+3.  Los siguientes tipos de campos no son compatibles, por lo que no se pueden generar datos automáticamente:
+    
+
+-   Botón
+    
+-   Lookup
+    
+-   Remote lookup
+    
+-   Geolocation
+    
+-   Signature
+    
+-   Attachment
+    
+-   Image
+    
+-   Aggregation
+    
+-   Rich text
+    
+-   Un child table agregado dentro del dataform
+    
+-   Campos del formulario que tienen configuradas reglas de validación dinámica.

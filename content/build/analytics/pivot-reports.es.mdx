@@ -1,0 +1,216 @@
+---
+title: "Informes de tabla dinámica"
+description: "BORRADOR (sin verificar) — migrado desde /t/q6h9qz5/pivot-reports"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Los informes de tabla dinámica te permiten resumir, organizar y comparar grandes cantidades de datos de manera eficaz.
+
+<iframe src="https://player.vimeo.com/video/912865796?h=cbcaf19ff3" title="Embedded video" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+## Crear un informe de tabla dinámica
+
+1.  Haz clic en el botón **\+ Crear informe** en la página de Analytics.
+    
+2.  Selecciona la fuente de datos.
+    
+3.  Proporciona un nombre.
+    
+4.  Selecciona el tipo de informe: tabla dinámica.
+    
+5.  Haz clic en **Crear**.  
+     
+    
+    ![](/migration-assets/pivot-reports/1.gif)
+    
+
+## Configuración
+
+En la configuración, puedes seleccionar los campos según las columnas, los valores y las filas. Hay dos tipos de campos para elegir. 
+
+-   **Campos personalizados**: son campos que creaste en tu proceso, tablero o conjunto de datos, y son únicos para tu proceso, tablero o conjunto de datos.
+-   **Campos del sistema** \- son campos generados por el sistema que se crean de forma predeterminada para un proceso, como Nombre, Creado por, Modificado por, Creado el, Modificado el y Nombre del flujo.
+
+### Seleccionar campos
+
+En la selección de campos, puedes hacer lo siguiente:
+
+-   Haz clic en **\+ Agregar campos** para agregar los campos necesarios de la fuente de datos.
+    
+-   Para eliminar un campo, haz clic en el botón **Eliminar** resaltado en la imagen siguiente (![](/migration-assets/pivot-reports/4.png)).
+    
+-   Haz clic en el icono de arrastrar y soltar (![](/migration-assets/pivot-reports/3.png)) para arrastrar y soltar columnas, valores y filas.  
+     
+    
+    ![](/migration-assets/pivot-reports/5.gif)
+    
+
+#### Columnas
+
+Agrega campos como columnas desde la fuente de datos. El orden de tu selección crea la jerarquía de columnas. Puedes reorganizar el orden de las columnas mediante la función de arrastrar y soltar para mayor flexibilidad. 
+
+Puedes incluir hasta 10 campos como columnas, y las columnas de subtotales se generan automáticamente para los niveles consecutivos, con Total añadido al nombre de la columna.
+
+#### Valores
+
+En Valores, selecciona un campo para los valores agregados. Elige entre tipos de agregación como Suma, Promedio, Recuento, Mínimo, Máximo o Varianza. Solo puedes agregar un campo.
+
+#### Filas
+
+Agrega campos como filas desde la fuente de datos. El orden de selección define la jerarquía de filas. Las filas sucesivas siguen a la fila inicial según el orden de los campos. 
+
+Puedes agregar hasta 10 campos como filas. Usa la función de arrastrar y soltar para colocar las filas en el orden que prefieras. 
+
+> **Consejo:** Si pasas el cursor sobre el valor de una celda, puedes ver a qué fila y columna pertenece, junto con el valor.
+
+### Filtrar datos
+
+Para limitar los datos específicos de tu tabla dinámica, puedes agregar filtros. Haz clic en **Filtro avanzado** para agregar un filtro a tu informe durante la configuración. Elige los campos que quieres filtrar e introduce las condiciones. Haz clic en **Guardar** para configurar el informe. 
+
+Haz clic en el botón **+ Agregar nuevo filtro** para agregar más filtros y condiciones al mismo campo. La nueva condición puede ser AND (deben cumplirse todas las condiciones) u OR (debe cumplirse cualquiera de las condiciones). Obtén más información sobre cómo usar los [filtros avanzados](/t/g9h9qzb/tabular-reports#filtering-data).  
+ 
+
+![](/migration-assets/pivot-reports/2.gif)
+
+### Habilitar el desglose en los informes de tabla dinámica
+
+La [función de desglose](/t/y4h9qkr/reports#enabling-drilldown-in-chart-and-pivot-reports) te permite profundizar en los datos de tu informe al mostrar una vista tabular de las filas subyacentes asociadas con puntos de datos específicos en informes de gráficos y tablas dinámicas. El desglose está habilitado de forma predeterminada al crear un informe. Puedes activar o desactivar el desglose en la configuración del informe.
+
+Para habilitar el desglose,
+
+1.  Ve a la pestaña **Configuración**.
+    
+2.  En la sección **Desglose**, habilita el desglose.
+    
+3.  Selecciona al menos dos campos.
+    
+4.  Haz clic en **Aplicar**.
+    
+
+![](/migration-assets/pivot-reports/11.gif)
+
+> **Nota:** Los campos seleccionados del informe se eligen automáticamente como campos de desglose predeterminados. Asegúrate de seleccionar un mínimo de dos campos para el desglose.
+
+#### Vista previa de los datos desglosados
+
+Después de configurar tu informe de tabla dinámica, pasa el cursor sobre él y haz clic para desglosar los datos. 
+
+Al hacer clic en el informe de tabla dinámica, aparecerá una vista previa tabular que muestra los datos subyacentes. Puedes buscar campos, mostrar u ocultar columnas y exportar datos en tiempo de ejecución. Haz clic en el menú desplegable de cada encabezado de columna para ordenar los datos en orden ascendente o descendente.
+
+#### Exportar datos desglosados
+
+Puedes exportar los datos desglosados desde la vista previa del desglose. 
+
+1.  Haz clic en el icono **Exportar**.
+    
+2.  Selecciona **CSV**, **JSON**, **CSV (varios archivos)**.
+    
+3.  Comprueba la configuración de zona horaria para habilitar la zona horaria en el informe.
+    
+4.  Haz clic en **Exportar**. Los datos desglosados exportados se enviarán a tu correo electrónico. 
+    
+
+> **Nota:** Al exportar datos, habilita la configuración de zona horaria para convertir todos los campos de fecha y hora del informe a la zona horaria establecida en Mis ajustes. Si no has establecido una zona horaria personal, se usará la zona horaria de tu cuenta. Si la casilla no está marcada, los campos de fecha y hora seguirán las zonas horarias presentes en el informe.
+
+### Totales generales 
+
+En **Totales generales**, selecciona cómo quieres mostrar los totales generales**.**
+
+-   **Mostrar totales generales** \- muestra los totales generales de todas las filas y columnas.
+    
+-   **Mostrar totales generales solo para las columnas** - muestra los totales generales de cada columna.
+    
+-   **Mostrar totales generales solo para las filas** - muestra los totales generales de cada fila.
+    
+-   **No mostrar totales generales** - oculta los totales generales de todas las filas y columnas.  
+      
+    ![](/migration-assets/pivot-reports/7.png)
+    
+
+### Cálculos de valores
+
+En **Cálculos de valores**, selecciona cómo quieres calcular los valores.
+
+-   **Mantener tal cual** - los valores no cambian.
+    
+-   **% del total general** - los valores de la tabla se mostrarán como porcentaje en lugar de como suma.
+    
+-   **% de la fila** - el total de la fila se mostrará como porcentaje en lugar de como suma.
+    
+-   **% de las columnas** - el total de la columna se mostrará como porcentaje en lugar de como suma.  
+    ![](/migration-assets/pivot-reports/6.png)
+    
+
+### Formato condicional 
+
+El formato condicional te permite mejorar visualmente las celdas de datos de una tabla dinámica mediante diversos estilos, según las condiciones especificadas. Esta funcionalidad permite asignar colores y categorizar los datos para facilitar el análisis.   
+![](/migration-assets/pivot-reports/8.png)
+
+Durante la configuración del informe, puedes personalizar la apariencia de las celdas de datos, incluidos el valor y el color de fondo, mediante la definición de condiciones. Estas condiciones pueden basarse en los valores de las celdas, como igual a, distinto de, mayor que, menor que, mayor o igual que, menor o igual que, entre y no entre.
+
+Sigue estos pasos para aplicar el formato condicional.
+
+-   En Formato condicional, haz clic en **Agregar condición** \> **\+ Agregar condición**.
+    
+-   Selecciona la condición que quieres aplicar a la celda.
+    
+-   Introduce el valor.
+    
+-   Define el color de fondo y el color de fuente de la celda.
+    
+-   Haz clic en **Aplicar**.
+    
+
+Puedes reorganizar fácilmente las condiciones mediante la función de arrastrar y soltar durante el proceso de adición. En caso de que haya dos condiciones con el mismo rango de valores, la última condición aplicada mediante arrastrar y soltar tendrá prioridad. Después, puedes editarlas según tus necesidades.
+
+Puedes agregar cualquier cantidad de condiciones. Las condiciones especificadas se evalúan de arriba abajo, y las opciones de formato asociadas con la primera condición coincidente se aplican a la celda de datos correspondiente. Para eliminar una condición, haz clic en el icono **Eliminar condición**(_⊖)_  
+{/* TODO: screenshot — source image expired (Google CDN); recapture from product UI */}
+
+> **Nota:**
+> 
+> El formato condicional no se aplicará a los totales de columnas y filas (totales basados en columnas y totales basados en filas), ni a los totales generales. 
+
+## Aplicar estilos a los informes de tabla dinámica
+
+Da formato al encabezado de columna, las celdas y los totales generales de tu informe según tus preferencias. Elige el **Estado normal** para la apariencia predeterminada y el **Estado al pasar el cursor** para previsualizar los estilos al pasar el cursor.
+
+-   **Sección del encabezado**: personaliza el color de fondo, el tamaño de fuente, el color de fuente, el peso de fuente y el color del icono del encabezado de columna. El menú desplegable de peso de fuente ofrece opciones como Regular, Mediano y Seminegrita.
+    
+-   **Configuración de celdas**: ajusta el tamaño de fuente, el color de fuente, el peso de fuente, la altura de línea y el espaciado entre letras de las celdas de tu informe de tabla dinámica.
+    
+-   **Personalización del total general**: en la sección de totales generales, puedes ajustar el color de fondo, el color de fuente y el peso de fuente de la sección de totales generales de tu informe.   
+    {/* TODO: screenshot — source image expired (Google CDN); recapture from product UI */}
+    
+
+## Acciones adicionales
+
+Una vez que hayas configurado y guardado tu informe, puedes realizar acciones como reorganizar filas y columnas, aplicar filtros, personalizar la vista expandiendo o contrayendo los niveles de la tabla dinámica y dar formato a los campos de moneda.
+
+-   **Ordenar**: organiza las filas y columnas en orden ascendente o descendente mediante el botón **Ordenar**. Las filas y columnas se ordenan en orden ascendente de forma predeterminada.
+    
+-   **Filtrar**: para filtrar por filas o columnas específicas, haz clic en el icono **Filtro** junto a la fila o columna > usa el cuadro de búsqueda para identificar fácilmente los campos o selecciona las casillas junto a los elementos que quieres mostrar > haz clic en **Aplicar**. Usa **Seleccionar todo** y **Borrar todo** para filtrar fácilmente los elementos.
+    
+-   **Expandir/contraer**: haz clic en **Expandir** para ver los detalles de una sección o en **Contraer** para ocultarlos. El estado seleccionado (expandido/contraído) se guarda incluso si abandonas la página.
+    
+-   **Widgets**: al seleccionar un campo de tipo moneda en Valores, el formato de moneda se aplicará a los campos. Los campos de usuario en filas y columnas se mostrarán en un formato de widget de usuario similar al de los formularios.  
+      
+    ![](/migration-assets/pivot-reports/10.png)
+    
+
+> **Nota:**
+> 
+> Si el valor de un campo de moneda tiene varios formatos de tipo de moneda, se mostrará como números sin ningún formato de moneda.
+
+## Caso de uso
+
+Si quieres crear un informe de catálogo de compras en el que puedas comparar los totales de cada fila, un informe de tabla dinámica es la opción adecuada. El informe ofrece una vista general rápida de los datos al mostrar los totales generales según las necesidades específicas del usuario. 
+
+Por ejemplo, un gerente de ventas puede usar un informe de tabla dinámica para analizar los datos de ventas por categoría de producto, cliente o representante de ventas. El gerente puede usar los totales generales para ver el número total de clientes en cada grupo de edad, ubicación o producto comprado.  
+  
+![](/migration-assets/pivot-reports/9.png)

@@ -1,0 +1,75 @@
+---
+title: "Cumplimiento e historial de copias de seguridad"
+description: "Edita la configuración de tus copias de seguridad, cancela una copia en cola y usa el seguimiento del progreso y el historial de copias de seguridad para supervisar las copias de seguridad de la cuenta con fines de cumplimiento."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - data-backup
+  - audit-log
+  - compliance
+---
+
+# Cumplimiento e historial de copias de seguridad
+
+<PlanBadge plans={["enterprise"]} />
+
+<Callout type="info">
+  La copia de seguridad de datos está disponible previa solicitud. Ponte en contacto con el equipo de soporte de Kissflow para habilitarla en tu cuenta.
+</Callout>
+
+Como [superadministrador](/docs/admin/users/user-roles-and-permissions#super-admin), gestionas la copia de seguridad de los datos de tu cuenta: puedes editar su configuración, cancelar una copia de seguridad que aún esté en la cola y revisar su historial.
+
+## Cancelar una copia de seguridad en cola
+
+Solo puedes cancelar una copia de seguridad mientras siga en la cola, antes de que comience el procesamiento. Una vez que la copia de seguridad esté en curso, la cancelación ya no estará disponible.
+
+1. Inicia sesión en Kissflow.
+2. Haz clic en tu foto de perfil, en la parte superior derecha de la página, y luego haz clic en **Administración de la cuenta** > **Copia de seguridad de datos**.
+3. Mientras la copia de seguridad aparezca como en cola, haz clic en **Cancelar** junto a ella.
+
+## Editar la configuración de las copias de seguridad
+
+Mientras una copia de seguridad esté en cola o en curso, su configuración será de solo lectura: puedes verla, pero no cambiarla. Una vez que se complete la copia de seguridad, la configuración volverá a ser editable.
+
+1. Inicia sesión en Kissflow.
+2. Haz clic en tu foto de perfil, en la parte superior derecha de la página, y luego haz clic en **Administración de la cuenta** > **Copia de seguridad de datos**.
+3. Haz clic en el botón **Más opciones** (![Icono de más opciones](/migration-assets/compliance-and-backup-history/1.png)) junto a **Hacer copia de seguridad ahora** y luego haz clic en **Editar configuración** para cambiar la configuración de las copias de seguridad, o en **Eliminar configuración** para eliminarla por completo y detener las copias de seguridad futuras hasta que configures una nueva.
+
+![Página de copia de seguridad de datos con el menú Más opciones abierto, que muestra Editar configuración, Historial de copias de seguridad y Eliminar configuración](/migration-assets/compliance-and-backup-history/4.png)
+{/* TODO: verificar que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+<Callout type="warn">
+  Editar la configuración restablece la frase de contraseña de cifrado, es decir, la que [estableciste cuando configuraste por primera vez el destino de la copia de seguridad](/docs/admin/data-backup/backing-up-data-to-kissflow#manage-backup-settings). Guarda tu frase de contraseña anterior en un lugar seguro antes de editarla: aún la necesitarás para abrir los archivos de copia de seguridad creados antes del cambio, y no funcionará con ninguna copia de seguridad que ejecutes después.
+</Callout>
+
+## Seguir el progreso de la copia de seguridad
+
+Mientras se ejecuta una copia de seguridad, la página **Copia de seguridad de datos** muestra su estado en tiempo real, incluidas etapas como la validación de la configuración, la copia de seguridad en curso y la finalización de la copia de seguridad, para que siempre sepas en qué punto se encuentra una copia de seguridad en curso.
+
+![Página de copia de seguridad de datos que muestra el progreso en tiempo real durante la validación de la configuración, la copia de seguridad en curso y la finalización de la copia de seguridad de datos](/migration-assets/compliance-and-backup-history/2.png)
+{/* TODO: verificar que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+Una vez que se completa una copia de seguridad, sus detalles, incluidos el modo de almacenamiento, la hora de la copia de seguridad y el estado, se registran en el [registro de auditoría a nivel de cuenta](/docs/admin/audit-log/audit-log), junto con las acciones del usuario y del sistema registradas durante todo el proceso de copia de seguridad.
+
+## Ver el historial de copias de seguridad
+
+Después de que finalice una copia de seguridad, puedes revisar su historial: la persona solicitante, el modo de almacenamiento, las categorías de datos incluidas, el estado y la fecha y hora de la copia de seguridad.
+
+1. Inicia sesión en Kissflow.
+2. Haz clic en tu foto de perfil, en la parte superior derecha de la página, y luego haz clic en **Administración de la cuenta** > **Copia de seguridad de datos**.
+3. Haz clic en el botón **Más opciones** (![Icono de más opciones](/migration-assets/compliance-and-backup-history/1.png)) junto a **Hacer copia de seguridad ahora** y luego haz clic en **Historial de copias de seguridad**.
+
+![Tabla del historial de copias de seguridad con la persona solicitante, el modo de almacenamiento, las categorías de datos, el estado y la fecha y hora de las copias de seguridad completadas](/migration-assets/compliance-and-backup-history/3.png)
+{/* TODO: verificar que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+## Qué sigue
+
+- [Descripción general de la copia de seguridad de datos](/docs/admin/data-backup/data-backup-overview)
+- [Información sobre el resultado de la copia de seguridad](/docs/admin/data-backup/understanding-your-backup-output)
+- [Registro de auditoría](/docs/admin/audit-log/audit-log)
+- [Roles y permisos de usuario](/docs/admin/users/user-roles-and-permissions)

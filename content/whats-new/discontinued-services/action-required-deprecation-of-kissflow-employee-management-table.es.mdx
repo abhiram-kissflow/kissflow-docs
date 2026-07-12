@@ -1,0 +1,34 @@
+---
+title: "Acción requerida: obsolescencia de la tabla de gestión de empleados de Kissflow"
+description: "Kissflow dejó obsoleta la tabla de gestión de empleados a mediados de enero de 2024; los datos de los empleados ahora se encuentran en la tabla de gestión de usuarios y _employee() se reemplazó por user()."
+contentType: reference
+persona: shared
+section: whats-new
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - users
+  - deprecation
+  - discontinued
+---
+
+# Acción requerida: obsolescencia de la tabla de gestión de empleados de Kissflow
+
+A partir de **mediados de enero de 2024**, Kissflow dejó obsoleta la tabla de gestión de empleados. Después de esta fecha, los detalles de los empleados ya no están disponibles a través de esa tabla.
+
+## Qué cambió
+
+Todos los detalles de los empleados que antes estaban disponibles en la tabla de gestión de empleados ahora pueden consultarse en la tabla de gestión de usuarios.
+
+El acceso es más restringido que antes: solo los administradores de usuarios, los administradores de IAM y los superadministradores pueden ver allí los detalles de los usuarios. Anteriormente, los detalles de los empleados podían compartirse con un grupo más amplio de usuarios.
+
+El campo del sistema `_employee()` ya no está disponible para nuevos usos. Los campos existentes que hacían referencia a `_employee()` se reemplazaron automáticamente por `user()`. Usa `user()` en los nuevos workflows.
+
+## Qué hacer
+
+Si compartías detalles de empleados con otros usuarios a través de la tabla de gestión de empleados, infórmales sobre este cambio y dirígelos a un administrador de usuarios, administrador de IAM o superadministrador para cualquier información que aún necesiten.
+
+<Callout type="info">
+  Este cambio se aplica a las cuentas con los planes KF Digital Workflow, KF Process, KF Project, KF Workflow Lite, KF Workflow Suite y KF Workflow.
+</Callout>
+
+Si tienes preguntas, [contacta con el equipo de soporte de Kissflow](/docs/whats-new/important-notices/slas-and-support-models#how-to-reach-support).

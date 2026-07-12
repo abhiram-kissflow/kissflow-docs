@@ -1,0 +1,66 @@
+---
+title: "Configurar SCIM con Okta"
+description: "BORRADOR (sin verificar) — migrado desde /t/60h4akv/setting-up-scim-with-okta"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Planes de Kissflow:
+
+✕ Básico ✓ Enterprise
+
+Kissflow admite el aprovisionamiento automático de usuarios con el estándar System for Cross-domain Identity Management (SCIM). El aprovisionamiento de usuarios basado en SCIM de Okta para Kissflow admite las siguientes funciones:
+
+-   Crear usuarios
+-   Actualizar atributos de usuario seleccionados
+-   Desactivar usuarios
+-   Enviar grupos a Kissflow
+
+Al aprovisionar usuarios, el directorio de Okta se asigna a una sola cuenta de Kissflow. Cualquier usuario nuevo en Okta recibirá una invitación por correo electrónico para crear una cuenta de Kissflow.
+
+## Configurar el aprovisionamiento de usuarios en Kissflow
+
+Para configurar el aprovisionamiento de usuarios de Kissflow con Okta, debes tener un rol de [Superadministrador o administrador de IAM](/t/35h4ak036h4gg/user-roles-permissions) y una cuenta activa de Okta.
+
+1.  Ve a tu cuenta de administrador de Okta, accede a la pestaña de aplicaciones y haz clic en el botón **Add Application**. Luego, busca la aplicación **SCIM 2.0 Test App (OAuth Bearer Token)** y cambia el nombre de la aplicación según corresponda.
+2.  En Kissflow, ve a **Administración de la**** cuenta** y abre la pantalla **Aprovisionamiento de usuarios**. Haz clic en el botón **Configurar** en **SCIM**, copia la **URL base** de **SCIM** y genera un nuevo **token de SCIM**. Selecciona **Guardar** para terminar de configurar el aprovisionamiento en Kissflow.
+    
+    > **Nota:**
+    > 
+    > Debes mantener seguro el token de SCIM, ya que una vez generado no estará disponible nuevamente para copiarlo o descargarlo.
+    
+    ![](/migration-assets/setting-up-scim-with-okta/1.png)
+    
+En la pestaña **Provisioning** de la aplicación SCIM de Okta, pega la URL base y el token secreto copiados en los campos correspondientes. Luego, haz clic en **Test API Credentials** para verificar la aplicación. Si la verificación es correcta, **guarda** las credenciales.![](/migration-assets/setting-up-scim-with-okta/2.png)  4.  Puedes hacer clic en **Edit**, junto a **Provisioning to App**, para habilitar las funciones **Create Users, Update User Attributes,** y **Deactivate Users**.![](/migration-assets/setting-up-scim-with-okta/3.png)  
+5.  A continuación, ve a la pestaña **Assignments** de la aplicación. Haz clic en el botón desplegable **Assign** para asignar la aplicación a más personas o grupos de tu cuenta de Okta.
+6.  Cuando se complete la asignación de usuarios y grupos, estos usuarios y grupos se agregarán a Kissflow. No se crearán grupos independientes; solo se agregarán a Kissflow los usuarios que formen parte de estos grupos.
+7.  También puedes **Push groups** para sincronizar tu grupo de Okta y sus usuarios con Kissflow. Ten en cuenta que cada vez que envíes un grupo, este se creará en Kissflow. Sin embargo, solo se asignarán al grupo los miembros que ya formen parte de Kissflow.![](/migration-assets/setting-up-scim-with-okta/4.png)  
+
+Los nuevos usuarios sincronizados desde Okta se agregan en estado activo de forma predeterminada. Cuando eliminas a alguien en Okta, se conserva en Kissflow como usuario inactivo.
+
+## Asignar parámetros personalizados
+
+Para asignar parámetros personalizados de Okta con campos personalizados agregados en la tabla de administración de usuarios de Kissflow,
+
+![](/migration-assets/setting-up-scim-with-okta/6.gif)
+
+1.  Ve a la pestaña **Provisioning** de la aplicación de Okta y, en **Profile Attributes & Mapping** > **User Attributes**, haz clic en el botón **Edit Attributes**. Se te redirigirá a la pantalla **Profile Editor**.
+2.  Aquí puedes **Add Attribute**. Introduce los datos relevantes en los siguientes campos según el campo de Kissflow que hayas creado.
+    -   **Data type:** selecciona aquí el tipo de campo de Kissflow. El tipo de datos puede ser **number, string, integer, boolean**, entre otros.
+    -   **Display name:** etiqueta legible para las personas cuando el atributo aparece en la interfaz de usuario.
+    -   **Variable name:** el nombre de la variable se utiliza para hacer referencia al atributo en las asignaciones de perfiles y las expresiones. Introduce aquí el **Field ID** correspondiente de **Kissflow**.
+    -   **External namespace:** el espacio de nombres externo se utiliza para hacer referencia al espacio de nombres en el sistema externo. Puedes pegar la siguiente extensión de esquema personalizada de Kissflow.
+        
+        ```
+        urn:kissflow:scim:schemas:extension:Kissflow Account ID:2:User
+        ```
+        
+        > **Nota:**
+        > 
+        > En la extensión de esquema que se muestra arriba, reemplaza el texto resaltado por tu [ID de cuenta de Kissflow](/t/35h4az8/api-authentication#account-id) real.
+        
+        ![](/migration-assets/setting-up-scim-with-okta/5.png)
+Haz clic en **Guardar**. Encontrarás el atributo recién creado en la parte inferior de la pantalla.4.  Puedes volver a asignar tus atributos personalizados accediendo a la pestaña **Provisioning** > **Profile Attributes & Mappings** > **Edit Attributes Mappings**. 
+
+Una vez completada la asignación de parámetros, cada vez que se agregue un usuario o grupo nuevo en Okta, el valor del atributo personalizado asignado también se sincronizará con Kissflow.

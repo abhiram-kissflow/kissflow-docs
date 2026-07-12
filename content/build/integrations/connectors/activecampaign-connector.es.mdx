@@ -1,0 +1,86 @@
+---
+title: "Conector de ActiveCampaign"
+description: "BORRADOR (no verificado) — migrado desde /t/q6h4afp/activecampaign-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+##    
+¿Qué es ActiveCampaign?
+
+[ActiveCampaign](https://www.activecampaign.com/) es un software de automatización de la experiencia del cliente (CXA) que ayuda a las organizaciones a interactuar mejor con sus clientes. Accede a automatizaciones prediseñadas que combinan marketing por correo electrónico, automatización de marketing, CRM y machine learning para lograr una segmentación y personalización eficaces en redes sociales, correo electrónico, mensajería, chat y mensajes de texto.
+
+## Acerca de la integración de ActiveCampaign de Kissflow
+
+El conector de ActiveCampaign de Kissflow Integration te permite conectar ActiveCampaign al instante con las aplicaciones de Kissflow y otras aplicaciones populares de terceros. Para integrarte con ActiveCampaign, debes tener una cuenta válida de ActiveCampaign y ser cliente de pago de Kissflow. Puedes usar el conector de ActiveCampaign para recibir datos de otros flujos o aplicaciones y realizar acciones específicas en ActiveCampaign. Por el momento, el conector de ActiveCampaign no admite eventos de activación.
+
+Por ejemplo, puedes usar el conector de ActiveCampaign para crear una lista personalizada de suscriptores de correo electrónico en ActiveCampaign. De este modo, cada vez que un nuevo suscriptor te envíe un correo electrónico, se capturará automáticamente en tu lista de contactos de ActiveCampaign.
+
+### Acciones del conector de ActiveCampaign
+
+**Eventos de acción**
+
+**Descripción**
+
+Crear o actualizar un contacto
+
+Esta acción crea un contacto nuevo o actualiza uno existente en ActiveCampaign.
+
+Crear un contacto
+
+Esta acción crea un contacto nuevo en ActiveCampaign.
+
+Crear un acuerdo
+
+Esta acción crea un acuerdo nuevo en ActiveCampaign.
+
+Crear una cuenta
+
+Esta acción crea una cuenta nueva en ActiveCampaign.
+
+Actualizar una cuenta
+
+Esta acción actualiza una cuenta existente en ActiveCampaign.
+
+Crear una lista
+
+Esta acción crea una lista de contactos en ActiveCampaign.
+
+Actualizar un acuerdo
+
+Esta acción actualiza un acuerdo existente en ActiveCampaign.
+
+Añadir un contacto a una lista
+
+Esta acción añade un contacto a una lista de contactos en ActiveCampaign.
+
+Eliminar una lista
+
+Esta acción elimina una lista de contactos en ActiveCampaign.
+
+### Obtener las credenciales de API de ActiveCampaign
+
+Antes de comenzar con la integración de ActiveCampaign, primero debes iniciar sesión en tu cuenta de ActiveCampaign, generar una clave de API única y obtener la URL. Sigue los [pasos indicados aquí](https://help.activecampaign.com/hc/en-us/articles/207317590-Getting-started-with-the-API#how-to-obtain-your-activecampaign-api-url-and-key) para obtener estas credenciales. Copia estas credenciales en el portapapeles y guárdalas para usarlas más adelante.
+
+![](/migration-assets/activecampaign-connector/3.png)
+
+## Configurar la integración de ActiveCampaign
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para la integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Una vez dentro del editor, configura un paso de activación, por ejemplo, un evento de activación de Kissflow Process: **Cuando un elemento completa un flujo de trabajo.**
+3.  Después de configurar el paso de activación anterior, haz clic en el botón Añadir (![](/migration-assets/activecampaign-connector/1.png) ) junto a él para configurar el paso de acción. Busca **ActiveCampaign** y selecciona un evento de acción entre las opciones disponibles (como se indica en la tabla anterior).![](/migration-assets/activecampaign-connector/4.png)   
+4.  Después de elegir el evento de acción, autentica el conector. Haz clic en **+Añadir una cuenta** e inicia sesión con tu cuenta de ActiveCampaign. Pega tu [clave de API y URL de ActiveCampaign](https://help.activecampaign.com/hc/en-us/articles/207317590-Getting-started-with-the-API#how-to-obtain-your-activecampaign-api-url-and-key) copiadas para completar la autenticación. ![](/migration-assets/activecampaign-connector/2.png) 
+5.  Después de autenticarte con tu cuenta de ActiveCampaign, añade los valores correspondientes a los campos del formulario de ActiveCampaign. Puedes hacer clic en Actualizar campos para ver todos los campos actualizados del formulario de ActiveCampaign seleccionado. También puedes asignar campos de ActiveCampaign desde el paso de activación o campos de los pasos de acción anteriores. Estos valores se añadirán automáticamente a los campos del elemento una vez que se ejecute la acción.
+6.  Después de una configuración correcta, prueba si el paso de acción de ActiveCampaign está configurado correctamente haciendo clic en el botón **P****rueba**. El conector extraerá los datos de los campos de la cuenta de ActiveCampaign seleccionada y los mostrará como una salida JSON. Al igual que con el paso de activación, recibirás una notificación inmediata de los errores. Corrígelos antes de volver a probar el paso de acción.
+
+## Configurar un conector de ActiveCampaign
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción del conector de ActiveCampaign, activa el botón de alternancia para activar la ejecución de la integración. Una vez que se produzca un evento de activación, se activará la acción de ActiveCampaign.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

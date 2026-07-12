@@ -1,0 +1,54 @@
+---
+title: "Conector de Recruitee"
+description: "BORRADOR (sin verificar) — migrado desde /t/35h4afv/recruitee-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es Recruitee?
+
+[Recruitee](https://recruitee.com) es el software colaborativo de contratación que ofrece una solución completa para ayudar a los equipos internos de RR. HH. a trabajar con el resto de su organización y contratar mejor juntos.
+
+## Acerca de la integración de Recruitee con Kissflow
+
+El conector de Recruitee de Kissflow Integration te permite conectar Recruitee al instante y automatizar tu trabajo con otras aplicaciones de Kissflow y aplicaciones populares de terceros. Debes tener una cuenta válida de Recruitee y ser cliente de pago de Kissflow para poder integrar Recruitee. Para realizar acciones específicas, utiliza el conector de Recruitee para recibir datos de otros flujos o aplicaciones. Por ahora, el conector de Recruitee no admite eventos desencadenadores.
+
+Por ejemplo, puedes iniciar un proceso de entrevista en Kissflow Process y, una vez completado el proceso, utilizar el conector de Recruitee para crear una oferta de trabajo para el candidato seleccionado.
+
+### Acción en el conector de Recruitee
+
+**Evento de acción**
+
+**Descripción**
+
+Crear una oferta de trabajo
+
+Esta acción crea una nueva oferta de trabajo para tu empresa.
+
+### Conector de Recruitee como paso de acción
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**.
+    
+    Una vez dentro del editor, configura un paso desencadenador, como Kissflow Process, y selecciona un evento: **Cuando un elemento completa su flujo de trabajo.**
+2.  Después de configurar el paso desencadenador anterior, haz clic en el **botón Añadir** (![](/migration-assets/recruitee-connector/1.png) ) para configurar el paso de acción. Busca **Recruitee** y selecciona una acción.![](/migration-assets/recruitee-connector/2.png)
+    
+3.  Después de elegir el evento de acción, autentica el conector. Haz clic en **+Añadir una cuenta** e inicia sesión con tu cuenta de Recruitee. Se te pedirá que introduzcas el **subdominio**, el **token de API** y el **ID de la empresa** para autenticar correctamente tu cuenta de Recruitee.
+    
+    > **Nota:**
+    > 
+    > Para obtener tu token de API de Recruitee, inicia sesión en tu **cuenta de Recruitee** > ve a **Configuración** > **Aplicaciones y complementos** > **Tokens de API personales** > haz clic en **\+ Nuevo token**. Encontrarás el subdominio y el ID de la empresa en **Detalles de la empresa actual**.
+    
+4.  Copia los datos necesarios de tu cuenta de Recruitee y pégalos en la ventana emergente de autenticación.![](/migration-assets/recruitee-connector/3.png)
+5.  Después de autenticarte con tu cuenta de Recruitee, configura el formulario añadiendo los valores correspondientes a los campos del formulario de Recruitee. Puedes hacer clic en Actualizar campos para ver todos los campos actualizados del formulario de Recruitee seleccionado. También puedes asignar campos de Recruitee desde el paso desencadenador o campos de tus pasos de acción anteriores. Estos valores se añadirán automáticamente a los campos del elemento una vez ejecutada la acción.
+6.  Después de una configuración correcta, prueba si el paso de acción de Recruitee está configurado correctamente haciendo clic en el botón **P****rueba**. El conector extraerá los datos de los campos de tu cuenta de Recruitee seleccionada y los mostrará como una salida JSON. Al igual que con el paso desencadenador, los errores se te notificarán de inmediato. Corrígelos antes de volver a probar el paso de acción.
+
+## Configuración de un conector de Recruitee
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción de tu conector de Recruitee, activa el botón de alternancia para activar la ejecución de la integración. Una vez que ocurre un evento desencadenador, cada vez que se habilita un paso desencadenador o de acción, se crea una nueva oferta de trabajo en Recruitee.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

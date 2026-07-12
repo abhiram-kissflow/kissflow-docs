@@ -1,0 +1,52 @@
+---
+title: "Lanzamiento de aplicaciones de Kissflow"
+description: "BORRADOR (sin verificar) — migrado desde /t/83h9qk5/launching-kissflow-apps"
+contentType: overview
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow: ✕ Basic ✓ Work Platform Enterprise
+
+## Creación de aplicaciones de Kissflow
+
+Todas las **cuentas de Kissflow Enterprise** tendrán dos **entornos** para crear y desplegar aplicaciones en producción.
+
+-   **Entorno de desarrollo** - Tendrás un creador de aplicaciones para crear tu aplicación desde cero. Todas las aplicaciones solo se pueden crear en este entorno. Necesitarás permisos independientes de **Super Admin** o **User** para acceder a este entorno. Puedes acceder a un entorno de desarrollo añadiendo el prefijo "dev-" antes del dominio de tu cuenta de Kissflow. Por ejemplo, **[dev-starkcorp.kissflow.com](http://dev-starkcorp.kissflow.com)** será la URL del entorno de desarrollo de tu cuenta.
+-   **Entorno de producción** - Este es el entorno activo donde tú y otros usuarios de la aplicación pueden acceder a la aplicación final. Este siempre es el dominio de tu cuenta; es decir, en nuestro ejemplo anterior, **[starkcorp.kissflow.com](http://starkcorp.kissflow.com)**.
+
+Si necesitas un entorno de pruebas para probar la aplicación antes de desplegarla en producción, puedes solicitar a nuestro equipo de soporte un entorno adicional al configurar tu cuenta de Kissflow.
+
+Todos los usuarios de Kissflow podrán crear aplicaciones siempre que tengan permisos de _Super Admin o User_ en estos entornos.Creación y administración de una aplicación
+
+1.  Inicia sesión en Kissflow.
+    
+2.  Haz clic en el botón **Create** de la barra de navegación izquierda y haz clic en **App**. También puedes hacer clic en el botón **Explore** > + **Create** para abrir el menú **Create from scratch**.
+3.  Introduce el nombre y la descripción de la aplicación, y haz clic en **Create**. Tu nueva aplicación se creará en el entorno de producción como borrador.![](/migration-assets/launching-kissflow-apps/1.png)![](/migration-assets/launching-kissflow-apps/4.gif)  
+
+En el entorno de producción, en la sección **Create an app**, podrás definir la información general de tu aplicación.
+
+1.  Nombre de tu aplicación: elige un nombre descriptivo con el que tus usuarios puedan identificarse.
+2.  Añade una descripción: explica para qué se utilizará tu aplicación.
+3.  Añade el logotipo de la aplicación: carga un icono o selecciona uno de nuestra biblioteca y elige un color.
+
+Después de proporcionar los datos relevantes, haz clic en **Create**. Puedes ir a la sección **Explore** de tu página de inicio para ver la versión de borrador de la aplicación que acabas de crear.
+
+## Cambiar el nombre de una aplicación
+
+Para cambiar el nombre de tu aplicación en el creador de aplicaciones, haz clic en el icono de **Settings** de la esquina inferior izquierda y ve a **App settings** > **General settings**, actualiza el nombre y la descripción actuales y haz clic en **Save.** También puedes hacer clic en el nombre de la aplicación en la esquina superior izquierda y escribir un nombre nuevo.![](/migration-assets/launching-kissflow-apps/2.png)
+
+## Añadir administradores a tu aplicación
+
+Como propietario de una aplicación, puedes invitar a otros _Super Admins_ y _Users_ a ser administradores de tu aplicación.Para añadir administradores de la aplicación, sigue los pasos que se indican a continuación:
+
+Haz clic en la aplicación no publicada y haz clic en la opción **Share**. También puedes hacer clic en **Manage** y luego en **Share** para abrir la página **Share settings**.Aquí, haz clic en **\+ Add users** para añadir usuarios al entorno de producción o de desarrollo. Puedes añadir usuarios exclusivamente a los entornos de producción o de desarrollo.Haz clic en las etiquetas **Production** / **Development** para ver los usuarios que forman parte de los entornos correspondientes.![](/migration-assets/launching-kissflow-apps/3.gif)
+
+## Definir roles y permisos de la aplicación
+
+Cada usuario que acceda a la aplicación necesitará un [rol](/t/h7yzj46/application-roles) y un ámbito de [permisos](/t/83yzj9j/role-permissions) específicos. Por ejemplo, para una aplicación de gestión de activos de TI, puedes definir roles como responsable de activos, empleado, proveedor, etc.
+
+## Añadir páginas con componentes a tu aplicación
+
+Las páginas y los componentes son los elementos básicos que crean una experiencia visual en la aplicación. [Obtén más información](/category/building-apps) sobre los tipos de componentes y diseños de página que puedes utilizar en el creador de aplicaciones.En la sección de páginas, puedes crear nuevas vistas de página para tu aplicación. Tendrás una amplia variedad de componentes del sistema y personalizados que puedes utilizar para adaptar páginas individuales. Cada aplicación puede contener varias páginas y se pueden asignar a diferentes roles de usuario.  
+Obtén más información sobre los diseños de página [aquí](/t/m1ykbax/working-with-page-layouts).

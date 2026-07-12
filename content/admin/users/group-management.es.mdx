@@ -1,0 +1,56 @@
+---
+title: "Gestión de grupos"
+description: "BORRADOR (sin verificar) — migrado desde /t/y4h4akj/group-management"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Los grupos pueden ser creados y administrados por [Superadministradores y administradores de usuarios](/t/35h4ak036h4gg/user-roles-permissions) para simplificar la administración y mejorar la gestión del acceso. Puedes usar estos grupos para asignar pasos del flujo de trabajo, compartir flows y mucho más. Los administradores de IAM pueden asignar uno o varios roles a un grupo, que se compartirán con los demás miembros del grupo.
+
+## Crear un grupo
+
+Ve a **Administración de la cuenta** > **Gestión de grupos** y haz clic en **Nuevo grupo** para crear un nuevo grupo de usuarios. Asigna un nombre al grupo y selecciona los usuarios en el cuadro emergente que aparece. También puedes agregar grupos que ya hayas creado como parte del grupo actual y agregar roles al grupo si es necesario. Cuando hayas terminado, haz clic en **Crear** para crear el grupo.  
+ 
+
+![](/migration-assets/group-management/1.png)
+
+## Editar y eliminar un grupo
+
+Haz clic en el botón **Editar** (![](/migration-assets/group-management/2.png)) para modificar los detalles de un grupo existente. Solo el administrador de usuarios tiene permiso para agregar o eliminar miembros del grupo. Haz clic en el botón **Eliminar** (![](/migration-assets/group-management/3.png)) para eliminar el grupo permanentemente.  
+  
+
+![](/migration-assets/group-management/4.png)
+
+> **Nota:**
+> 
+> Los [administradores de IAM](/t/35h4ak0/user-roles-permissions#iam-admin) también pueden eliminar un grupo, además de los superadministradores y administradores de usuarios.
+
+## Identificar los grupos a los que pertenece el usuario
+
+Puedes ver el conjunto de grupos a los que pertenece un usuario desplazándote hasta el campo **Grupos** en la sección **Gestión de usuarios**. Como se mencionó anteriormente, un grupo puede heredar otro grupo.
+
+## El grupo Everyone
+
+Todas las cuentas de Kissflow incluyen un grupo generado por el sistema llamado **Everyone**. Todos los usuarios actuales se agregan automáticamente como miembros. Cuando agregas nuevos usuarios, se agregan automáticamente al grupo **Everyone**. Los usuarios no se pueden eliminar de este grupo, y este grupo no se puede editar ni eliminar. Para compartir un flow con toda la organización, compártelo con el grupo Everyone. Los roles no se pueden compartir con el grupo **Everyone**.
+
+## Agregar roles a un grupo
+
+Si eres administrador de IAM, puedes asignar roles a un grupo. Los roles que asignes se compartirán automáticamente con todos los usuarios de ese grupo. Además, los subgrupos que formen parte del grupo principal también heredarán estos roles, lo que permitirá que sus usuarios accedan a ellos. Para agregar roles a un grupo:
+
+1.  Selecciona el grupo al que quieres agregar roles.
+    
+2.  Elige los roles que quieras asignar a ese grupo.
+    
+3.  Haz clic en **Listo** una vez que hayas elegido los roles. El usuario tendrá acceso a los roles directos y heredados, si los hay, de cualquiera de los subgrupos, siempre que pertenezca a este grupo. 
+    
+
+## Administrar roles en un grupo
+
+Como administrador de [Gestión de identidades y accesos](/t/35h4ak036h4gg/user-roles-permissions) (IAM), puedes eliminar los roles que se hayan asignado a un grupo específico. Es importante tener en cuenta que eliminar roles afectará a todos los miembros del grupo, incluidos aquellos que pertenezcan a cualquier subgrupo dentro del grupo. Para eliminar roles, haz clic en el botón Editar (![](/migration-assets/group-management/2.png)), elimina los roles correspondientes y haz clic en **Modificar** para guardar los cambios. 
+
+> **Nota:** Si a un usuario se le asignan roles tanto en la tabla de [Gestión de usuarios](/t/y4h4aks/adding-and-managing-users) como en un grupo de usuarios, el rol de la tabla de Gestión de usuarios tiene prioridad y se aplicará al usuario.

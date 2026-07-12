@@ -1,0 +1,49 @@
+---
+title: "Preguntas frecuentes - Tableros conectados"
+description: "BORRADOR (no verificado) — migrado desde /t/35ymay8/faq-connected-boards"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+1.  ### ¿Por qué no puedo desbloquear un elemento de origen?
+    
+    Solo los administradores del tablero pueden desbloquear un elemento de origen.  
+     
+2.  ### ¿Por qué no puedo ver el tablero al que quiero conectarme?
+    
+    ![](/migration-assets/faq-connected-boards/1.png)  
+    Solo puedes ver los tableros a los que tienes acceso de administrador.  
+     
+3.  ### ¿Por qué no puedo crear elementos dependientes para todas las entradas de la tabla de mi elemento de origen a la vez?
+    
+    Según el número de entradas o filas de la tabla en el elemento de origen, puedes crear hasta 100 elementos dependientes en el tablero conectado.   
+      
+    Si el número de entradas de la tabla de origen es superior a 100, solo puedes crear 100 elementos dependientes.
+4.  ### Estoy recibiendo un error al crear elementos en el tablero conectado. ¿Cuál podría ser la causa?
+    
+    Puede deberse a una de las siguientes razones:
+    -   El elemento de origen no cumplió las condiciones establecidas.
+        
+    -   **Actualizaciones masivas simultáneas**: en el diseño de lista, si intentas actualizar masivamente elementos a un estado conectado al flujo mientras otra actualización masiva al mismo estado ya está en curso.
+        
+5.  ### ¿Qué sucede si las entradas de la tabla no cumplen las condiciones para crear elementos dependientes?
+    
+    -   Si ninguna entrada de la tabla cumple la condición establecida, el elemento de origen pasará al estado conectado al flujo y permanecerá desbloqueado, incluso si el estado tiene una configuración de bloqueo.   
+         
+    -   Si al menos una entrada de la tabla cumple la condición, el elemento de origen pasará al estado conectado al flujo y se bloqueará si el estado tiene una configuración de bloqueo. En este caso, los elementos dependientes se crearán para las entradas de la tabla que cumplan la condición.
+6.  ### ¿Puedo crear elementos dependientes desde el mismo elemento de origen más de una vez?
+    
+    Al mover un elemento nuevamente al estado conectado al flujo, puedes volver a crear elementos dependientes.   
+     
+7.  ### ¿Puedo desactivar la configuración de bloqueo de un estado si contiene elementos bloqueados?
+    
+    La configuración de bloqueo no se puede desactivar ni activar mientras haya al menos un elemento bloqueado en el estado.  
+     
+8.  ### ¿Puedo eliminar un estado que está conectado a un tablero?
+    
+    Un estado conectado al flujo se puede eliminar y activar solo si no contiene ningún elemento. Asegúrate de que no haya elementos en el estado conectado al flujo. Si hay elementos, también deben eliminarse junto con el estado.

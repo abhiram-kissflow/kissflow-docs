@@ -1,0 +1,355 @@
+---
+title: "Eventos de notificación en las aplicaciones"
+description: "BORRADOR (sin verificar) — migrado desde /t/y4yzjv4/notification-events-in-apps"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+## Notificaciones de elementos
+
+Las notificaciones de elementos que se indican a continuación están predefinidas por el sistema. En función de estas, puedes crear nuevas notificaciones personalizadas y configurar las condiciones de activación, los destinatarios, el contenido y la página de redirección que prefieras. Estas notificaciones predefinidas no se pueden eliminar, pero sí activar o desactivar.
+
+### Procesos
+
+**N.º**    
+
+**Evento de notificación**
+
+**Activador**
+
+**Destinatario**
+
+1
+
+Elemento asignado
+
+Cuando se asigna un elemento a un usuario
+
+Asignado
+
+2
+
+Elemento completado
+
+Cuando un elemento completa su flujo de trabajo
+
+Iniciador
+
+3
+
+Elemento rechazado
+
+Cuando el asignado a un paso rechaza un elemento
+
+Iniciador
+
+4
+
+Elemento retirado por el iniciador
+
+Cuando un iniciador retira un elemento
+
+Asignado
+
+5
+
+Elemento reasignado
+
+Cuando se reasigna un elemento a un usuario
+
+Asignado
+
+6
+
+Elemento ha superado la fecha límite
+
+Cuando un elemento supera su fecha límite
+
+Asignado
+
+### Tableros
+
+**N.º**    
+
+**Evento de notificación**
+
+**Activador**
+
+**Destinatario**
+
+1
+
+Elemento asignado
+
+Cuando se asigna un elemento a un usuario
+
+Asignado y observador del elemento
+
+2
+
+Estado del elemento cambiado
+
+Cuando cambia el estado de un elemento
+
+Asignado y observador del elemento
+
+3
+
+Elemento próximo a su fecha límite
+
+Cuando un elemento se aproxima a su fecha límite
+
+Asignado y observador del elemento
+
+4
+
+Elemento ha superado su fecha límite
+
+Cuando un elemento ha superado su fecha límite
+
+Asignado y observador del elemento
+
+5
+
+Nota añadida al elemento
+
+Cuando se añade una nota a un elemento
+
+Asignado y observador del elemento
+
+6
+
+Reacción a las notas del elemento
+
+Cuando un usuario reacciona a una nota del elemento
+
+Autor de la nota
+
+7
+
+Mención en las notas del elemento
+
+Cuando se menciona a un usuario en una nota del elemento
+
+Usuario mencionado
+
+8
+
+Elemento eliminado
+
+Cuando se elimina un elemento
+
+Asignado y observador del elemento
+
+9
+
+Observador añadido
+
+Cuando se añade un observador a un elemento
+
+Nuevo observador del elemento
+
+10
+
+Observador eliminado
+
+Cuando se elimina un observador de un elemento
+
+Último observador del elemento
+
+11
+
+Subelemento asignado
+
+Cuando se asigna un subelemento a un usuario
+
+Asignado del subelemento
+
+12
+
+Fecha de vencimiento del subelemento actualizada
+
+Cuando se actualiza la fecha de vencimiento de un subelemento
+
+Asignado del subelemento y observador del elemento
+
+13
+
+Estado del subelemento cambiado
+
+Cuando cambia el estado de un subelemento
+
+Asignado del subelemento y observador del elemento
+
+14
+
+Asignado del subelemento cambiado
+
+Cuando cambia el asignado de un subelemento
+
+Último asignado del subelemento y observador del elemento
+
+15
+
+Subelemento próximo a su fecha límite
+
+Cuando un subelemento se aproxima a su fecha límite
+
+Asignado del subelemento y observador del elemento
+
+16
+
+Subelemento ha superado su fecha límite
+
+Cuando un subelemento ha superado su fecha límite
+
+Asignado del subelemento y observador del elemento
+
+17
+
+Elemento convertido en subelemento
+
+Cuando un elemento se convierte en un subelemento
+
+Asignado y observador del elemento
+
+18
+
+Subelemento convertido en elemento
+
+Cuando un subelemento se convierte en un elemento
+
+Asignado y observador del subelemento
+
+19
+
+Subelemento movido a otro elemento
+
+Cuando un subelemento se mueve a otro elemento
+
+Asignado y observador del elemento actual
+
+20
+
+Subelemento eliminado
+
+Cuando se elimina un subelemento
+
+Asignado del subelemento y observador del elemento
+
+21
+
+Nota añadida al subelemento
+
+Cuando se añade una nota a un subelemento
+
+Asignado del subelemento y observador del elemento
+
+22
+
+Reacción a las notas del subelemento
+
+Cuando un usuario reacciona a una nota del subelemento
+
+Autor de la nota
+
+23
+
+Mención en las notas del subelemento
+
+Cuando se menciona a un usuario en una nota del subelemento
+
+Usuario mencionado
+
+24
+
+Elemento a punto de comenzar
+
+Cuando un elemento está a punto de comenzar
+
+Asignado del elemento
+
+25
+
+Elemento iniciado
+
+Cuando un elemento ha comenzado
+
+Asignado y observador del elemento
+
+26
+
+Subelemento a punto de comenzar
+
+Cuando un subelemento está a punto de comenzar
+
+Asignado del subelemento
+
+27
+
+Subelemento iniciado
+
+Cuando un subelemento ha comenzado
+
+Asignado del subelemento
+
+### dataform
+
+**N.º**   
+
+**Evento de notificación**
+
+**Activador**
+
+**Destinatario**
+
+1
+
+Formulario enviado
+
+Cuando se envía un formulario
+
+Usuario
+
+## Notificaciones de administración de aplicaciones
+
+**Evento de notificación**
+
+**Activador**
+
+**Destinatario**
+
+Aplicación implementada en el siguiente entorno
+
+Cuando una aplicación se implementa en el siguiente entorno
+
+Todos los desarrolladores
+
+Administrador añadido a la aplicación
+
+Cuando se añade un administrador a una aplicación
+
+Administrador añadido
+
+Miembro añadido a la aplicación
+
+Cuando se añade un miembro a una aplicación
+
+Miembro añadido
+
+Desarrollador eliminado de la aplicación
+
+Cuando se elimina un desarrollador de una aplicación
+
+Desarrollador eliminado
+
+Aplicación archivada
+
+Cuando se archiva una aplicación
+
+Todos los desarrolladores

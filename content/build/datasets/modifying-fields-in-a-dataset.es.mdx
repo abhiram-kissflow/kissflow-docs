@@ -1,0 +1,90 @@
+---
+title: "Modificación de campos en un conjunto de datos"
+description: "BORRADOR (sin verificar) — migrado desde /t/q6h4al2/modifying-fields-in-a-dataset"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Este artículo cubre los conceptos básicos del mantenimiento de tu conjunto de datos: actualizar valores, validar entradas y exportar datos para mantener todo preciso y organizado.
+
+## Añadir un campo
+
+Haz clic en el icono de signo más del encabezado para añadir un campo nuevo.
+
+![](/migration-assets/modifying-fields-in-a-dataset/6.gif)
+
+Elige un [tipo de campo](/category/field-types) y asigna un nombre al campo. En la configuración, puedes marcar los campos como obligatorios, establecer un valor predeterminado y añadir texto de ayuda. También puedes validar un campo según determinadas condiciones para que el conjunto de datos solo pueda enviarse si se cumplen esas condiciones.
+
+![](/migration-assets/modifying-fields-in-a-dataset/1.png)
+
+## Editar un campo
+
+Para modificar un campo, haz clic en la flecha hacia abajo (▼) junto al nombre del campo y haz clic en **Editar** **campo**. Después de realizar los cambios necesarios, haz clic en **Listo**.
+
+![](/migration-assets/modifying-fields-in-a-dataset/3.png)
+
+> **Nota**
+> 
+> Para proteger la integridad de los datos, no puedes cambiar el tipo de campo después de insertar valores. Si es absolutamente necesario, crea un campo nuevo y copia y pega los valores.
+
+## Eliminar un campo
+
+Para eliminar un campo, haz clic en la flecha hacia abajo (▼) junto al nombre del campo y haz clic en **Eliminar** **campo**.
+
+![](/migration-assets/modifying-fields-in-a-dataset/2.png)
+
+Si ese campo se usa en una fórmula dentro de un flujo, se te pedirá que elimines primero las dependencias. Después de eliminar las dependencias, puedes eliminar el campo de forma segura.
+
+## Añadir o eliminar una fila
+
+Para añadir filas, introduce el número de filas que quieres añadir en el campo situado debajo de la última fila del conjunto de datos y haz clic en **Añadir**.
+
+![](/migration-assets/modifying-fields-in-a-dataset/9.gif)
+
+Para eliminar una fila específica, coloca el cursor sobre el número de serie de la fila que quieres eliminar y selecciona la casilla de verificación. El número de serie se encuentra a la izquierda del primer campo de tu conjunto de datos. Después de seleccionar la casilla de verificación, haz clic en **Eliminar**, en la esquina superior derecha de la pantalla.
+
+![](/migration-assets/modifying-fields-in-a-dataset/11.gif)
+
+## Añadir y editar valores de campos
+
+Puedes añadir valores a un campo específico o modificar los valores existentes del campo en tu conjunto de datos de dos maneras. Puedes editar en línea o abrir la fila del conjunto de datos como un formulario independiente y realizar los cambios correspondientes.
+
+Para modificar el valor de un campo del conjunto de datos en su vista de formulario:
+
+1.  Haz clic en el icono **Expandir fila** (![](/migration-assets/modifying-fields-in-a-dataset/5.svg)) junto al campo **Clave**.
+2.  Añade o modifica los valores de los campos de la fila del conjunto de datos. Tus cambios se guardarán automáticamente.
+3.  Haz clic en el icono **Enlace** (![](/migration-assets/modifying-fields-in-a-dataset/4.svg) ) para copiar el enlace de la fila y compartirlo con un miembro del equipo.
+4.  Haz clic en el icono **Salir** (![](/migration-assets/modifying-fields-in-a-dataset/8.svg) ) para salir de la fila y volver a la vista del conjunto de datos.
+
+![](/migration-assets/modifying-fields-in-a-dataset/10.gif)
+
+> **Consejo**
+> 
+> También puedes expandir las filas de tabla utilizadas en los formularios de tu flujo como un formulario independiente y modificar sus valores según sea necesario.
+
+Para modificar en línea el valor de un campo del conjunto de datos:
+
+1.  Ve al campo específico y a la fila exacta que quieres editar.
+2.  Escribe el nuevo valor directamente en la celda. Los tipos de campo como los menús desplegables requieren que hagas doble clic.
+3.  Pulsa Intro o Tab cuando hayas terminado de realizar los cambios.
+
+También puedes copiar y pegar valores desde cualquier otra hoja de cálculo. Si copias y pegas valores, asegúrate de que todos los campos y formatos coincidan con los del archivo de origen. Los cambios que realices siempre se guardarán automáticamente.
+
+> **Nota**
+> 
+> Se puede crear o pegar un máximo de 5.000 valores de fila dentro del conjunto de datos.
+
+## Exportar un conjunto de datos
+
+Puedes exportar todas las filas de tu conjunto de datos a un archivo CSV o a un archivo separado por tabulaciones (TXT). Haz clic en **Exportar**, en la esquina superior derecha de la pantalla, selecciona el tipo de archivo que prefieras y haz clic en **Exportar** para completar el proceso.
+
+![](/migration-assets/modifying-fields-in-a-dataset/7.png)
+
+Después de exportar correctamente, recibirás una notificación y los datos exportados se enviarán a tu dirección de correo electrónico.
+
+Obtén más información sobre quién puede editar y administrar conjuntos de datos [aquí](/t/m1h4algk9h4ga/managing-members-and-permissions).

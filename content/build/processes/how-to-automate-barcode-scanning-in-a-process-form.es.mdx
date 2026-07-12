@@ -1,0 +1,26 @@
+---
+title: "Automatizar el escaneo de códigos de barras en un formulario de proceso"
+description: "BORRADOR (sin verificar) — migrado desde /t/y4h9qtf/how-to-automate-barcode-scanning-in-a-process-form"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Si estás desarrollando un proceso para optimizar los requisitos de adquisición de activos de tu organización, puedes personalizar el formulario de proceso para permitir que los usuarios finales escaneen el código de barras o código QR de un activo y obtengan automáticamente sus detalles. Puedes hacerlo con la ayuda de un [campo de escáner](/t/83h4azd/scanner-field), un [campo de búsqueda](/t/g9h4azr/lookup-field) vinculado a una clave de un [conjunto de datos](/t/h7h4alb/creating-a-dataset) y otros campos necesarios. Cuando el usuario final escanea el código de un activo, sus detalles se completan automáticamente en el formulario. Sigue los pasos que se indican a continuación para configurar un campo de escáner en tu proceso de adquisición de activos:
+
+1.  Crea un [conjunto de datos](/t/h7h4alb/creating-a-dataset) llamado **Base de datos de activos** y complétalo con los detalles relevantes de los activos.![](/migration-assets/how-to-automate-barcode-scanning-in-a-process-form/3.png)
+2.  Establece valores de código de barras únicos como claves en el conjunto de datos. Este será el valor que se obtendrá al escanear el código.
+3.  Crea un [formulario de proceso](/t/h7h4a18/process-overview) y añade campos de [escáner](/t/83h4azd/scanner-field) (ID del activo) y de [búsqueda](/t/g9h4azr/lookup-field) (Detalles del activo).![](/migration-assets/how-to-automate-barcode-scanning-in-a-process-form/2.png)
+4.  En el campo de búsqueda **Detalles del activo** de tu formulario, selecciona el conjunto de datos **Base de datos de activos** para poder consultar campos del conjunto de datos como **Clave**, **Tipo de activo**, **Nombre del activo** y **Precio del activo**.
+    
+    ![](/migration-assets/how-to-automate-barcode-scanning-in-a-process-form/4.gif)
+    
+5.  Añade un filtro para hacer coincidir la clave del conjunto de datos con el valor obtenido por el campo de escáner **ID del activo**.![](/migration-assets/how-to-automate-barcode-scanning-in-a-process-form/5.png)
+6.  Activa **Seleccionar automáticamente el primer valor según los filtros**.![](/migration-assets/how-to-automate-barcode-scanning-in-a-process-form/1.png) 
+7.  Haz clic en **Publicar.**
+
+En el formulario de proceso publicado, cuando escanees el código de barras o código QR del activo, los detalles del activo se completarán automáticamente en el campo de búsqueda **Detalles del activo**.

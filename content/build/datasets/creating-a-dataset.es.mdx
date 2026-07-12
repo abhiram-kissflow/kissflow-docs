@@ -1,0 +1,89 @@
+---
+title: "Creación de un conjunto de datos"
+description: "BORRADOR (sin verificar) — migrado desde /t/h7h4alb/creating-a-dataset"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Puedes crear un conjunto de datos de dos maneras: desde cero o instalando una plantilla de conjunto de datos según tus requisitos empresariales.
+
+1.  Haz clic en **+Crear** en la navegación izquierda y selecciona **Conjunto de datos**.
+2.  Introduce el nombre del conjunto de datos. También puedes añadir una descripción para encontrarlo más adelante.
+3.  Si ya tienes datos en formato CSV, XLSX o XLS, puedes hacer clic en **Importar datos de otras fuentes** y cargar el archivo. Solo puedes importar un máximo de 10 000 filas.   
+      
+    La configuración estándar admite hasta 100 columnas y 50 000 filas. Este es un límite flexible; si un requisito empresarial necesita un volumen de datos mayor, ponte en contacto con el equipo de atención al cliente.  
+     
+4.  Haz clic en **Crear**.
+
+![](/migration-assets/creating-a-dataset/1.png)
+
+> **Consejo:**
+> 
+> Puedes elegir una plantilla de conjunto de datos relevante en **Explorar > Galería de plantillas**, o crear un nuevo conjunto de datos desde cero en **Explorar > + Crear > Conjunto de datos** si ninguna de las plantillas satisface tus necesidades.
+
+## El campo Clave
+
+El primer campo del conjunto de datos se denomina Clave. Este es el único campo cuyo nombre, eliminación o tipo de campo no puedes cambiar. Cada fila debe contener un valor único, como un número de empleado, SKU, nombre del proveedor o número de serie.
+
+![](/migration-assets/creating-a-dataset/2.png)
+
+## Cambiar el nombre de un conjunto de datos
+
+Para cambiar el nombre del conjunto de datos, haz clic en el nombre actual, realiza los cambios y haz clic en **Intro** o fuera del nombre. Puedes cambiar la descripción de la misma manera.
+
+Todos los cambios se guardan automáticamente.
+
+## Buscar un conjunto de datos
+
+Hay dos maneras de buscar tu conjunto de datos.
+
+Primero, haz clic en el icono de **Búsqueda** (![](/migration-assets/creating-a-process/9.png)) en la barra de navegación superior de la página e introduce el nombre del conjunto de datos en el cuadro de búsqueda. También puedes abrir el cuadro de búsqueda mediante los atajos de teclado:
+
+-   **Mac**: tecla Comando, ⌘ + E
+-   **Windows**: tecla Ctrl + E
+
+![](/migration-assets/creating-a-dataset/5.gif)
+
+Segundo, haz clic en **Explorar** en la barra de navegación izquierda y elige una de las tres opciones:
+
+-   **Activo**
+-   **Gestionados por mí** \> **Conjuntos de datos**
+-   **Otros** \> **Conjuntos de datos**
+
+![](/migration-assets/creating-a-dataset/3.png)
+
+Aquí puedes ver todos los conjuntos de datos creados y a los que has accedido recientemente.
+
+Puedes usar el cuadro de búsqueda para encontrar el conjunto de datos que quieras o ordenarlos según su nombre y la fecha de última publicación, lo que te resulte más conveniente.
+
+## Buscar un elemento en un conjunto de datos
+
+Puedes usar el menú desplegable de campos para buscar elementos en un conjunto de datos. Selecciona el nombre del campo en el menú desplegable, introduce tu consulta y los resultados aparecerán al instante. De forma predeterminada, el menú desplegable de búsqueda apunta al campo **Clave**.
+
+![](/migration-assets/creating-a-dataset/4.gif)
+
+Esta barra de búsqueda está disponible en el conjunto de datos principal y también en sus vistas.
+
+**Tipos de campo compatibles**
+
+-   Campos de Texto, Área de texto, Número, Desplegable, Sí/No, Selección múltiple, Casilla de verificación, Moneda, Correo electrónico, Control deslizante y Usuario.
+    
+-   Campos del sistema: Clave, Creado por y Modificado por.
+    
+
+> **Nota:**
+> 
+> La barra de búsqueda no está disponible para conjuntos de datos con más de 200 000 filas.
+
+## Ver el ID del conjunto de datos
+
+Es posible que quieras obtener y usar el ID del conjunto de datos al realizar llamadas a la API relacionadas con conjuntos de datos en Kissflow.
+
+Accede al conjunto de datos para el que quieres realizar una llamada a la API y copia la última cadena que aparece después de «../dataset/» en su URL. La cadena '**Employee\_Master**' en la siguiente URL es el ID del conjunto de datos Employee\_Master:
+
+[https://stark-corporation.kissflow.com/view/dataset/Employee\_Master](https://stark-corporation.kissflow.com/view/dataset/Employee_Master)

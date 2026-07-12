@@ -1,0 +1,55 @@
+---
+title: "Administrar las propiedades de la página"
+description: "BORRADOR (sin verificar) — migrado desde /t/q6yzj9z/managing-page-properties"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+El creador de páginas proporciona propiedades a nivel de página que te permiten configurar los detalles, el color de fondo y el diseño de tu página. Sigue estos pasos para acceder a estas propiedades:
+
+1.  Abre tu aplicación.
+2.  En el creador de aplicaciones, selecciona la página requerida y abre el **creador de páginas**.
+3.  Haz clic en el botón **Configuración** (![](/migration-assets/managing-page-properties/3.png)) junto al botón **Vista previa**. El panel _Propiedades de la página_ se desliza desde la derecha:
+4.  Administra las propiedades según sea necesario.
+
+#### Configuración general para establecer una imagen o un color de fondo para tu página
+
+1.  En la pestaña General, puedes cambiar los metadatos generales de la página, como el nombre y la descripción.
+2.  Además, en **Estilo**, selecciona la imagen o el color de fondo predeterminado de tu página.
+    1.  Puedes importar la imagen desde tu equipo local o desde una URL alojada.
+    2.  Puedes elegir cualquiera de los colores del sistema.
+
+#### Parámetros de entrada
+
+Un parámetro de entrada te permite proporcionar datos a un componente para utilizarlos posteriormente. El parámetro de entrada está disponible en el ámbito de ese componente de página. Se invoca automáticamente cuando se accede a la página.
+
+Por ejemplo, si agregas un parámetro de entrada a una acción de cliente web, puedes:
+
+-   Proporcionar un nombre, una descripción y un valor para ese parámetro de entrada al llamar a la acción de cliente web.
+-   El tipo de datos puede ser Texto, Número o Booleano.
+-   Los parámetros de entrada pueden ser obligatorios u opcionales, según su propiedad **Es obligatorio**.
+-   Usar el valor en el flujo de trabajo de la acción de cliente web, por ejemplo, en expresiones o como parte de los valores de los parámetros de entrada de otras llamadas.
+
+En el siguiente ejemplo, hay dos parámetros de entrada para este componente de formulario de proceso:  `instance_id` y `activity_id`
+
+Cuando se accede a esta página desde tu aplicación, `instance_id` y`activity_id`
+
+también se pasan junto con el encabezado de esta página. Esto permite abrir un formulario específico dentro de la aplicación.
+
+![](/migration-assets/managing-page-properties/1.png)
+
+#### Eventos
+
+Puedes propagar cambios dentro de un componente como **tarjeta** mediante el fragmento de código de eventos. El código JavaScript se puede agregar a los eventos **al cargar (cuando se actualiza la página)** y **al descargar (cuando se navega a una página diferente)**. Para ello:
+
+-   Define un evento en el editor de código utilizando código JS puro. Para definir código, simplemente haz clic en el bloque de código y se abrirá el editor de código. Puedes usar tus **variables globales** y **parámetros de entrada** a nivel de página dentro de tu código.  
+    
+-   Define una acción controladora que se active mediante el **evento**.
+    -   Los eventos suelen activarse al hacer clic.
+    -   Las acciones controladoras pueden ser redirecciones, aperturas de ventanas emergentes o la ejecución del código JS agregado a la pestaña de eventos.
+-   Cuando la aplicación comienza a ejecutarse, la tarjeta activa las acciones en su página principal y pasa los parámetros para obtener los datos reales.  ![](/migration-assets/managing-page-properties/2.png)

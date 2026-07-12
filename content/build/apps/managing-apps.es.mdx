@@ -1,0 +1,87 @@
+---
+title: "Administrar aplicaciones"
+description: "BORRADOR (no verificado) — migrado desde /t/q6yzjvv/managing-apps"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic   ✓ EnterpriseComo administrador de la aplicación, tendrás control total sobre la aplicación en el entorno de desarrollo. Después de implementar la aplicación, podrás administrarla en producción y en el entorno de destino, como staging también.Ve a **Manage > Settings** en tu aplicación.
+
+Configuración generalConfiguración de notificacionesImplementaciónFormulario públicoNúmero de secuencia
+
+Configuración generalEn **Configuración general**, puedes encontrar el nombre y el ícono de la aplicación. Para hacer cambios, ve a [Configuración general](/t/x2yzjvr/settings-in-apps) dentro del constructor de aplicaciones.Configuración de notificaciones
+
+En esta sección, puedes configurar las notificaciones para los workflows de tu aplicación. Obtén más información [aquí](/category/notification-settings).
+
+ImplementaciónPuedes ver el historial de implementación de una aplicación tanto en los entornos de desarrollo como de prueba/producción después de implementarla.Para ver el historial de implementación en el entorno de desarrollo:
+
+Abre el constructor de aplicacionesHaz clic en **el ícono de Configuración > [Configuración de la aplicación](/t/x2yzjvr/settings-in-apps#deployment-history) > Historial de implementación**.
+
+Para abrir el historial de implementación en el entorno de prueba/producción:Ve a **Manage > Settings > Deployment**.La página del historial de implementación muestra la versión de la aplicación, la compilación, el nombre de la persona que realizó la implementación, la fecha de implementación y el estado (completada o fallida).![](/migration-assets/managing-apps/1.png)También puedes consultar el historial detallado de implementación y ver los cambios realizados en la aplicación implementada en **Configuración de la aplicación**, dentro del constructor de aplicaciones.![](/migration-assets/managing-apps/2.gif)Formulario público
+
+Puedes administrar todos los formularios públicos de tu formulario. Tendrás la opción de activar y desactivar los enlaces de los formularios públicos, lo que significa que podrás conceder o revocar el acceso a los formularios públicos cuando quieras.
+
+Obtén más información [aquí](/t/q6yzjas/public-form).
+
+> **Nota:****La configuración no se comparte entre entornos.**  
+> Todos los cambios de configuración se aplican únicamente al entorno en el que se realizan. Por ejemplo, revocar el acceso a un formulario público, activar las notificaciones o activar un bloqueo de envío de procesos en el entorno de desarrollo no tendrá ningún efecto en producción hasta que se realicen los mismos cambios allí.
+
+Bloqueo de envío de procesos
+
+El bloqueo de envío de procesos permite a los administradores impedir que los miembros inicien nuevos elementos en un workflow de proceso. Esto resulta útil cuando el proceso está en desarrollo activo o está experimentando cambios importantes. El proceso permanecerá bloqueado hasta que un administrador lo desbloquee.
+
+Cuando el bloqueo está activado:
+
+-   Los usuarios no pueden crear ni iniciar nuevos elementos.
+    
+-   No aparecerán nuevos elementos en el feed.
+    
+-   Los elementos que ya están en curso continuarán siguiendo el workflow sin interrupciones.
+    
+-   Los elementos en borrador no se podrán enviar hasta que se quite el bloqueo.
+    
+
+### Bloquear un proceso desde la página Manage
+
+Los administradores también pueden administrar el bloqueo de envío de procesos fuera del constructor de aplicaciones, en **Manage > Settings > Process submission lock**. Esto ofrece una forma más rápida de bloquear o desbloquear un proceso sin requerir una nueva implementación.
+
+Para activar o desactivar el bloqueo:
+
+1.  Ve a **Manage > Settings > Process submission lock**.
+    
+2.  Busca el proceso mediante la barra de búsqueda o desplazándote por la lista.
+    
+3.  Activa o desactiva el interruptor de bloqueo de envío del proceso.
+    
+
+![](/migration-assets/managing-apps/5.gif)
+
+Los cambios surten efecto de inmediato. Cuando un proceso se bloquea desde **Manage > Settings**, esto se refleja en la configuración individual del proceso dentro del constructor de aplicaciones, y viceversa. Ambas ubicaciones permanecen sincronizadas en todo momento.
+
+### Bloquear un proceso desde el constructor de aplicaciones
+
+El bloqueo de envío de procesos se puede configurar desde el constructor de aplicaciones para cada proceso individual. Ve al proceso en el constructor de aplicaciones y abre la [configuración del proceso](/t/35yzjca/process-settings#lock-submission) para desactivar los envíos.
+
+> **Nota:** Los cambios realizados desde el constructor de aplicaciones surten efecto únicamente después de volver a implementar la aplicación. Guardar esta configuración por sí solo no restringirá ni restablecerá los envíos hasta que se complete una implementación.
+
+### Comportamiento específico del entorno
+
+La configuración del bloqueo de envío de procesos establecida en **Manage > Settings** se limita al entorno en el que se aplica. El estado del bloqueo se mantiene de forma independiente en los entornos Development, Staging y Production.
+
+Los administradores de aplicaciones deben activar o desactivar el bloqueo por separado en cada entorno, según sea necesario. Por ejemplo, un cambio realizado en el entorno de desarrollo no se reflejará en Production hasta que se realice la misma acción allí.
+
+Por ejemplo, si un proceso está bloqueado en el entorno Production pero permanece desbloqueado en Development, volver a implementar la aplicación de Development a Production no anulará el bloqueo. El proceso seguirá bloqueado en Production hasta que un administrador lo desbloquee explícitamente allí.
+
+Compartir una aplicación
+
+Solo puedes compartir la aplicación con usuarios desde el entorno de producción. Ve a la página **Manage** y haz clic en **Share.**  
+En esta página, puedes compartir la aplicación con usuarios individualmente en los entornos de desarrollo y producción. Cuando se agrega un usuario al entorno de desarrollo para una aplicación específica, podrá verla y acceder a ella únicamente desde el entorno de desarrollo.
+
+![](/migration-assets/managing-apps/3.gif)
+
+### Implementar aplicaciones en el entorno de destino
+
+Si eres administrador de la aplicación en el entorno de desarrollo, tendrás permiso para implementar aplicaciones en producción después de desarrollarla. Para mover una aplicación al entorno de destino, simplemente haz clic en **Deploy**.Obtén más información sobre la [implementación de aplicaciones](/t/h7yz5qq/application-deployment).![](/migration-assets/managing-apps/4.png)

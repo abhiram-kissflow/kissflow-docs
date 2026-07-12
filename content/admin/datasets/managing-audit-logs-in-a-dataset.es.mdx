@@ -1,0 +1,131 @@
+---
+title: "Administrar los registros de auditoría en un conjunto de datos"
+description: "DRAFT (unverified) — migrated from /t/60yk88c/managing-audit-logs-in-a-dataset"
+contentType: guide
+persona: admin
+section: admin
+---
+
+**El registro de auditoría** es un registro cronológico de las actividades de los usuarios dentro de tu conjunto de datos. Estas actividades incluyen acciones realizadas por los usuarios en los flujos y elementos.
+
+Los registros de auditoría ayudan a mantener la transparencia y la responsabilidad mediante el seguimiento de los cambios tanto a **nivel de flujo** como a **nivel de elemento**.
+
+## Acceder al registro de auditoría
+
+Para ver el registro de auditoría:
+
+-   Ve a **Administrar** \> **Registro de auditoría**.
+    
+-   Usa el interruptor para cambiar entre las vistas de **nivel de flujo** y **nivel de elemento**.
+    
+
+![](/migration-assets/managing-audit-logs-in-a-dataset/3.gif)
+
+## Lo que puedes ver en el registro de auditoría
+
+Cada entrada del registro proporciona información detallada sobre un evento específico:
+
+-   **ID de auditoría**: un identificador único generado automáticamente para cada evento registrado.
+    
+-   **Marca de tiempo**: la fecha y hora exactas en que ocurrió la acción.
+    
+-   **Autor**: la cuenta de usuario que realizó la acción.
+    
+-   **Acción**: describe la actividad específica, como conjunto de datos publicado, elementos actualizados por lotes, etc.
+    
+-   **Objeto**: el recurso o entidad afectado.
+    
+-   **Categoría del evento**: una etiqueta general para el tipo de evento, útil para filtrar. Por ejemplo, administración del conjunto de datos. 
+    
+-   **Plataforma**: el dispositivo o sistema operativo utilizado durante la acción.
+    
+-   **Dirección IP**: la dirección de red desde la que se realizó la acción.
+    
+-   **ID del lote**: un identificador compartido para un grupo de eventos relacionados, útil para correlacionar acciones. A diferencia del ID de auditoría, varios eventos pueden compartir el mismo ID del lote.
+    
+
+> **Nota**:
+> 
+> Las entradas del registro de auditoría pueden aparecer en la interfaz con un breve retraso, normalmente de unos segundos hasta un máximo de cuatro horas.
+
+Para comprender mejor cada entrada, consulta la guía [**Interpretar los registros de auditoría**](#).
+
+## Ordenar campos en los registros
+
+Para organizar y analizar fácilmente las entradas en la página **Registro de auditoría**, puedes ordenar campos individuales:
+
+-   Haz clic en el icono **Expandir** ( ![](/migration-assets/process-audit-log/4.svg) ) junto al encabezado de un campo para ordenar las entradas de forma ascendente o descendente.
+    
+
+![](/migration-assets/managing-audit-logs-in-a-dataset/4.gif)
+
+Esto te ayuda a encontrar rápidamente eventos específicos según las marcas de tiempo, las acciones, los autores u otros campos.
+
+## Buscar en los campos
+
+Para encontrar entradas específicas en el **Registro de auditoría**, puedes usar la función de búsqueda integrada:
+
+-   Haz clic en el icono **Expandir** (  ![](/migration-assets/process-audit-log/4.svg) ) junto al encabezado de un campo para mostrar las opciones de filtro.
+    
+-   Usa el **cuadro de búsqueda** ( ![](/migration-assets/managing-audit-logs-in-a-dataset/5.svg)) para introducir el término que quieres buscar dentro de ese campo.
+    
+
+![](/migration-assets/managing-audit-logs-in-a-dataset/1.png)
+
+Esto te ayuda a limitar rápidamente el registro a las entradas más relevantes.
+
+## Filtrar eventos del registro de auditoría
+
+Puedes filtrar las entradas del registro de auditoría usando los siguientes campos y criterios:
+
+**Período de auditoría**
+
+Elige un intervalo de tiempo para ver eventos de:
+
+-   **Últimos 30 días** – muestra los eventos de los últimos 30 días.
+    
+-   **Últimos 60 días** – muestra los eventos de los últimos 60 días.
+    
+-   **Últimos 90 días** – muestra los eventos de los últimos 90 días.
+    
+-   **Intervalo de fechas personalizado** – selecciona un intervalo de fechas específico para ver los eventos de ese período.
+    
+
+> **Nota:** El registro de auditoría conserva los datos únicamente de los últimos 90 días. Para acceder a registros de más de 90 días, ponte en contacto con nuestro equipo de atención al cliente.
+
+**Objeto**
+
+Filtra por nombre de objeto para limitar los registros relacionados con un elemento específico. Puedes seleccionar uno de la lista sugerida o introducir manualmente el nombre exacto del objeto.
+
+**Categoría del evento**
+
+Usa las categorías de eventos para localizar eficazmente tipos específicos de eventos. Si no sabes el nombre de la categoría, intenta introducir un nombre de flujo (por ejemplo, _Proceso_ o _Tablero_) en la barra de búsqueda; esto mostrará las categorías de eventos relevantes asociadas con ese tipo de flujo.
+
+**Autor**
+
+Filtra los eventos según uno o varios usuarios que realizaron las acciones. Solo tienes que seleccionar los usuarios de la lista.
+
+**Acción**
+
+Busca o selecciona una acción específica (por ejemplo, conjunto de datos publicado). Ten en cuenta que solo puedes filtrar una acción a la vez.
+
+**ID de auditoría, ID del lote y dirección IP**
+
+Usa estos campos para rastrear eventos específicos:
+
+-   **ID de auditoría** – filtra por el ID único asignado a cada evento registrado.
+    
+-   **ID del lote** – úsalo para localizar un grupo de eventos relacionados.
+    
+-   **Dirección IP** – filtra los registros que se originaron desde una dirección IP específica.
+    
+
+![](/migration-assets/managing-audit-logs-in-a-dataset/2.png)
+
+## [Eliminar condiciones de filtro](/t/h7h4akc/audit-log#removing-filter-conditions)
+
+Para eliminar una condición de filtro específica, pasa el cursor sobre ella y haz clic en el botón **Eliminar** (![](/migration-assets/process-audit-log/7.svg)) para borrarla.
+
+## [Exportar un registro de auditoría](/t/h7h4akc/audit-log#exporting-an-audit-log)
+
+Haz clic en el botón **Exportar** ( ![](/migration-assets/process-audit-log/8.svg)) para exportar el registro de auditoría como un archivo desde la página **Registro de auditoría**. Inmediatamente se enviará un correo electrónico con el enlace de descarga a tu dirección de correo electrónico registrada, desde donde podrás descargar el archivo.

@@ -1,0 +1,58 @@
+---
+title: "Administrar sesiones activas"
+description: "Consulta todos los dispositivos donde tu cuenta de Kissflow tiene una sesión iniciada y cierra una sesión individual o todas a la vez."
+contentType: guide
+persona: end-user
+section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - security
+  - personal-settings
+  - sessions
+---
+
+# Administrar sesiones activas
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+La página Sesiones activas muestra todos los dispositivos donde tu cuenta tiene una sesión iniciada, junto con el navegador, el sistema operativo y la dirección IP utilizados en cada sesión. Úsala para detectar sesiones que no reconozcas y cerrarlas.
+
+## Acceder a las sesiones activas
+
+1. Inicia sesión en Kissflow y haz clic en tu foto de perfil, en la esquina superior derecha de la página de inicio.
+2. Haz clic en **Mis ajustes** > **Ajustes de seguridad** > **Sesiones activas**.
+
+![Página de sesiones activas que muestra los dispositivos con sesiones iniciadas y sus detalles del navegador, sistema operativo e IP](/migration-assets/active-sessions/1.png)
+{/* TODO: verificar que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+## Qué muestra cada sesión
+
+Cada entrada de la lista corresponde a un dispositivo o navegador donde tu cuenta tiene una sesión iniciada.
+
+| Detalle | Descripción |
+| --- | --- |
+| Información del dispositivo | El navegador web y, para las sesiones de computadora, la versión del sistema operativo. |
+| Dirección IP | La dirección IP desde la que se conecta la sesión. |
+| Primera fecha de inicio de sesión | La fecha y hora en que se inició sesión por primera vez. Pasa el cursor sobre ella para ver la marca de tiempo exacta. |
+
+<Callout type="info">
+  La versión del sistema operativo solo se muestra para las sesiones iniciadas desde una computadora. Para otros tipos de dispositivos, este campo queda vacío.
+</Callout>
+
+## Cerrar una sesión
+
+- **Cerrar una sesión**: haz clic en el botón **Más opciones** de esa sesión y selecciona **Cerrar sesión**. Si cierras tu sesión actual, se te pedirá que confirmes antes de cerrar la sesión.
+- **Cerrar todas las sesiones**: haz clic en **Cerrar sesión en todas las sesiones activas** para cerrar tu sesión actual y todas las demás sesiones activas en todos los dispositivos a la vez. También se te pedirá confirmación antes de continuar.
+
+<Callout type="warn">
+  Revisa esta página con regularidad y cierra cualquier sesión que no reconozcas. Si detectas una sesión desconocida, cambia también tu contraseña.
+</Callout>
+
+## Qué hacer a continuación
+
+- [Autenticación de dos factores](/docs/use/personal-settings/two-factor-authentication)
+- [Información personal, ajustes de formato y delegación de tareas](/docs/use/personal-settings/personal-info-format-settings-and-task-delegation)
+- [Autenticación de API](/docs/use/personal-settings/api-authentication)

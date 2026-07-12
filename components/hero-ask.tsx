@@ -8,6 +8,7 @@ import { parsePartialJson } from 'ai';
 import { ArrowUp, FileText, Loader2, Sparkle } from 'lucide-react';
 import { PersonaNav } from '@/components/persona-nav';
 import { WingField } from '@/components/wing-field';
+import { useUIStrings } from '@/lib/ui-strings';
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 
@@ -68,6 +69,7 @@ function Markdown({ text }: { text: string }) {
 }
 
 export default function HeroAsk() {
+  const strings = useUIStrings().hero;
   const [turns, setTurns] = useState<Turn[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -170,7 +172,7 @@ export default function HeroAsk() {
       // fall back to the top retrieved article.
       const firstSource = lastSourcesRef.current[0];
       if (content.trim() && !/\]\(/.test(content) && firstSource) {
-        content += `\n\nRead more: [${firstSource.title}](${firstSource.url})`;
+        content += `\n\n${strings.readMore}: [${firstSource.title}](${firstSource.url})`;
       }
       updateLastAssistant({
         content,
@@ -196,7 +198,7 @@ export default function HeroAsk() {
       <input
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        placeholder={started ? 'Ask a follow-up…' : 'Ask anything about Kissflow…'}
+        placeholder={started ? strings.followUpPlaceholder : strings.placeholder}
         className="min-w-0 flex-1 bg-transparent text-lg outline-none placeholder:text-fd-muted-foreground"
         disabled={loading}
         autoFocus
@@ -204,7 +206,7 @@ export default function HeroAsk() {
       <button
         type="submit"
         disabled={loading || input.trim().length < 2}
-        aria-label="Ask"
+        aria-label={strings.askAria}
         className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#CF2C91] text-white transition hover:bg-[#b92682] disabled:bg-fd-muted disabled:text-fd-muted-foreground"
       >
         {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <ArrowUp className="h-4 w-4" />}
@@ -220,12 +222,9 @@ export default function HeroAsk() {
         <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 pb-8 pt-10 sm:pt-14">
           <div className="text-center">
             <h1 className="text-3xl font-semibold tracking-tight text-fd-foreground sm:text-4xl">
-              Everything Kissflow, answered
+              {strings.title}
             </h1>
-            <p className="mt-2 text-fd-muted-foreground">
-              Ask across every guide, API, and SDK — grounded, with sources. Or browse articles
-              in the folders below.
-            </p>
+            <p className="mt-2 text-fd-muted-foreground">{strings.subtitle}</p>
           </div>
           {inputBar}
           <div className="flex flex-wrap justify-center gap-2">
@@ -242,7 +241,7 @@ export default function HeroAsk() {
           </div>
           <div className="flex flex-col gap-3">
             <div className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-fd-muted-foreground">
-              Browse folders
+              {strings.browseFolders}
             </div>
             <PersonaNav />
           </div>
@@ -266,15 +265,15 @@ export default function HeroAsk() {
                 {t.streaming && !t.content ? (
                   <div className="inline-flex items-center gap-2 text-sm text-fd-muted-foreground">
                     <Loader2 className="h-4 w-4 animate-spin text-[#CF2C91]" />
-                    Searching the docs…
+                    {strings.searching}
                   </div>
                 ) : t.errored ? (
                   <p className="text-sm text-fd-muted-foreground">
-                    The assistant is unavailable right now. Please try again.
+                    {strings.unavailable}
                   </p>
                 ) : t.abstained ? (
                   <p className="text-sm text-fd-muted-foreground">
-                    I couldn&apos;t find that in the Kissflow docs. Try rephrasing, or browse by role.
+                    {strings.notFound}
                   </p>
                 ) : (
                   <Markdown text={t.content} />
@@ -289,7 +288,7 @@ export default function HeroAsk() {
       <aside className="hidden lg:block">
         <div className="sticky top-8">
           <div className="mb-3 text-xs font-semibold uppercase tracking-wide text-fd-muted-foreground">
-            Relevant articles
+            {strings.relevantArticles}
           </div>
           <div className="flex flex-col gap-2">
             {sources.map((s) => (
@@ -303,7 +302,7 @@ export default function HeroAsk() {
               </Link>
             ))}
             {sources.length === 0 ? (
-              <p className="text-sm text-fd-muted-foreground">No related articles.</p>
+              <p className="text-sm text-fd-muted-foreground">{strings.noRelated}</p>
             ) : null}
           </div>
         </div>

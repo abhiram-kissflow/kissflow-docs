@@ -1,0 +1,139 @@
+---
+title: "Mis elementos"
+description: "Encuentra en un solo lugar todos los elementos que tienes asignados o que has creado en procesos, tableros y aplicaciones, y gestiona acciones administrativas como reasignaciones y aprobaciones."
+contentType: guide
+persona: shared
+section: get-started
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - my-items
+  - admin-actions
+  - approvals
+  - items
+---
+
+# Mis elementos
+
+**Mis elementos** reúne todos los elementos que has creado o que están pendientes de tu aprobación en todos tus procesos, tableros y aplicaciones, para que no tengas que abrir cada flujo individualmente para revisar tu trabajo.
+
+Los elementos se agrupan en dos pestañas:
+
+- **Asignados a mí**: elementos de cualquier proceso, tablero o aplicación que requieren tu atención.
+- **Creados por mí**: elementos que has enviado o creado, independientemente de dónde se encuentren.
+
+Si eres [administrador de cuenta](/docs/admin/users/user-roles-and-permissions) o aprobador de un flujo, también verás una pestaña de **Acciones administrativas** con acciones pendientes de **Reasignación de elementos**, **Aprobaciones de flujos**, **Asignación de administradores** y **Solicitudes de incorporación** que requieren tu atención.
+
+## Buscar elementos asignados a mí
+
+La pestaña **Asignados a mí** muestra los elementos de cada proceso, tablero y aplicación en los que tienes trabajo pendiente. Usa el panel de navegación para desplazarte entre los flujos o aplica el filtro **Vencimiento** para limitar la lista.
+
+![Página Mis elementos que muestra los elementos asignados al usuario](/migration-assets/my-items/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Haz clic en cualquier elemento para abrir su formulario de proceso o tablero. Al cerrar el elemento, volverás a la lista **Asignados a mí**.
+
+Filtra la lista usando el campo **Vencimiento**:
+
+- **Todos**: todos los elementos asignados a ti, independientemente de la fecha de vencimiento.
+- **Hoy**: elementos que vencen hoy.
+- **Mañana**: elementos que vencen el día siguiente.
+- **Esta semana**: elementos que vencen en algún momento de esta semana.
+- **Vencidos**: elementos cuya fecha de vencimiento ya pasó.
+
+## Buscar elementos creados por mí
+
+La pestaña **Creados por mí** muestra todos los elementos que has creado en procesos, tableros y aplicaciones, en el panel de navegación izquierdo. Haz clic en un elemento para abrir su formulario de proceso o tablero.
+
+![Página Mis elementos que muestra los elementos creados por el usuario](/migration-assets/my-items/2.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Filtra los elementos creados por estado:
+
+- **En progreso**: elementos con el estado **En progreso**, tanto en procesos como en tableros.
+- **No iniciados**: elementos con el estado **Borrador** en procesos y elementos con el estado **No iniciados** o **Reabiertos** en tableros.
+- **Completados**: elementos con el estado **Completado**, **Retirado** o **Rechazado** en procesos, y con el estado **Finalizado** o **Cerrado** en tableros, de los últimos 90 días.
+
+<Callout type="info">
+  Solo aparecen los elementos completados en los últimos 90 días cuando filtras por **Completados**.
+</Callout>
+
+Según el filtro de estado que elijas, puedes limitar aún más la lista usando el campo de fecha **Creado** o **Completado**:
+
+- **Todos**: elementos creados o completados en cualquier momento.
+- **Hoy**: elementos creados o completados hoy.
+- **Ayer**: elementos creados o completados el día anterior.
+- **Última semana**: elementos creados o completados en los últimos 7 días.
+- **Últimos 14 días**: elementos creados o completados en los últimos 14 días.
+- **Este mes**: elementos creados o completados durante el mes natural actual.
+- **Últimos 30 días**: elementos creados o completados en los últimos 30 días.
+- **Intervalo de fechas personalizado**: elementos creados o completados dentro del intervalo de fechas que especifiques.
+
+## Acciones administrativas
+
+La pestaña **Acciones administrativas** solo aparece cuando hay algo pendiente que requiere la atención de un administrador de cuenta o de un aprobador de flujo. Si tu cuenta tiene varios administradores de cuenta o aprobadores de flujo, todos ven las mismas acciones pendientes; cuando un administrador completa una acción, esta desaparece de la lista de los demás.
+
+![Página Mis elementos que muestra la pestaña Acciones administrativas](/migration-assets/my-items/3.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+En **Acciones administrativas**, encontrarás cuatro secciones: **Reasignación de elementos**, **Aprobaciones de flujos**, **Asignación de administradores** y **Solicitudes de incorporación**.
+
+### Reasignación de elementos
+
+Los elementos asignados a un usuario que posteriormente ha sido desactivado o eliminado quedan sin nadie que pueda gestionarlos. Estos elementos aparecen en **Reasignación de elementos**, donde un administrador de cuenta o administrador de flujo puede asignarlos a un usuario activo.
+
+Para reasignar un elemento:
+
+1. Haz clic en **Mis elementos** > **Acciones administrativas** > **Reasignación de elementos**.
+2. Selecciona un elemento de la lista y haz clic en **Reasignar**.
+3. En el cuadro de diálogo que se abre, revisa el proceso y el paso actual del elemento, selecciona un usuario activo al que reasignarlo, añade una nota si es necesario y haz clic en **Reasignar**.
+
+   ![Reasignación de un elemento desde la pestaña Reasignación de elementos](/migration-assets/my-items/6.gif)
+   {/* TODO: verify screenshot matches current product UI */}
+
+El elemento pasa al nuevo usuario y desaparece de la lista **Reasignación de elementos**. La reasignación se realiza de un elemento a la vez.
+
+### Aprobaciones de flujos
+
+De forma predeterminada, cualquier persona de tu cuenta puede crear procesos, tableros y conjuntos de datos. Si la [configuración de flujos](/docs/admin/account-settings/flow-settings) de tu cuenta requiere aprobación antes de crear un flujo nuevo, las solicitudes de los usuarios aparecen en **Aprobaciones de flujos** para los aprobadores especificados.
+
+![Pestaña Aprobaciones de flujos que muestra una solicitud pendiente de creación de flujo](/migration-assets/my-items/4.gif)
+{/* TODO: verify screenshot matches current product UI */}
+
+Los aprobadores pueden **Aprobar** o **Rechazar** cada solicitud desde aquí.
+
+### Asignación de administradores
+
+Cada proceso y tablero necesita al menos un administrador. Si el único administrador de un flujo es desactivado o eliminado, el flujo queda sin administrador. **Asignación de administradores** muestra estos flujos para que puedas asignar un reemplazo.
+
+Para asignar un administrador:
+
+1. Haz clic en **Mis elementos** > **Acciones administrativas** > **Asignación de administradores**.
+2. Selecciona el proceso o tablero que necesita un administrador y haz clic en **Asignar administrador**.
+3. Selecciona un usuario y haz clic en **Asignar** para convertirlo en administrador.
+
+   ![Asignación de un administrador a un proceso desde la pestaña Asignación de administradores](/migration-assets/my-items/7.gif)
+   {/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="info">
+  Si un flujo necesita más de un administrador, repite esta acción para cada administrador adicional; el cuadro de diálogo asigna un usuario a la vez.
+</Callout>
+
+### Solicitudes de incorporación
+
+Si tu cuenta [permite nuevos registros](/docs/admin/security/account-security#manage-sign-up-preferences), las personas ajenas a tu cuenta pueden solicitar unirse mediante la URL de incorporación única de tu cuenta. Estas solicitudes aparecen en **Solicitudes de incorporación** para que los administradores de cuenta las **Aprueben** o **Rechacen**.
+
+![Pestaña Solicitudes de incorporación que muestra una solicitud de registro pendiente](/migration-assets/my-items/5.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Al aprobar una solicitud, se activa el usuario en tu cuenta.
+
+<Callout type="warn">
+  Si tu cuenta no tiene licencias de usuario disponibles, la activación del usuario falla y este permanece en estado solicitado hasta que se libere una licencia.
+</Callout>
+
+## Qué sigue
+
+- [Roles y permisos de usuario](/docs/admin/users/user-roles-and-permissions)
+- [Configuración de flujos](/docs/admin/account-settings/flow-settings)
+- [Seguridad de la cuenta](/docs/admin/security/account-security)
+- [Ver un elemento de proceso](/docs/use/tasks/watching-a-process-item)

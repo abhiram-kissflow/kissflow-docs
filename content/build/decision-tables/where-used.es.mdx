@@ -1,0 +1,43 @@
+---
+title: "¿Dónde se usan las tablas de decisiones?"
+description: "Escenarios comunes en los que las tablas de decisiones reemplazan una lógica de ramificación compleja, ilustrados con un ejemplo de aprobación de préstamos."
+contentType: overview
+persona: citizen-developer
+section: build
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - decision-tables
+  - use-cases
+---
+
+# ¿Dónde se usan las tablas de decisiones?
+
+<PlanBadge plans={["enterprise"]} />
+
+Las tablas de decisiones son adecuadas para cualquier situación en la que un flujo de trabajo o una aplicación deba elegir un resultado a partir de varios factores de entrada. Un ejemplo común es el de una institución financiera que automatiza su proceso de aprobación de préstamos.
+
+Supón que un banco procesa solicitudes de préstamo y necesita una forma sistemática de evaluar la elegibilidad. Una tabla de decisiones puede ponderar varios factores —la puntuación crediticia, los ingresos y la relación entre deuda e ingresos— y devolver una decisión.
+
+## Condiciones
+
+Las condiciones son los criterios que se utilizan para evaluar los valores de entrada. Para la aprobación de préstamos, definirías rangos para la puntuación crediticia, los niveles de ingresos y las relaciones aceptables entre deuda e ingresos.
+
+## Resultados
+
+Los resultados son las opciones que corresponden a cada combinación de condiciones. La tabla de decisiones compara los valores de entrada con cada fila y devuelve el resultado coincidente: aprobado, denegado o requiere una revisión adicional.
+
+| Puntuación crediticia | Ingresos | Relación entre deuda e ingresos | Elegibilidad |
+|---|---|---|---|
+| > 700 | Altos | Baja | Aprobado |
+| 600 – 700 | Medios | Media | Revisión adicional |
+| \< 600 | Bajos | Alta | Denegado |
+
+La tabla ofrece una representación visual y clara de cada escenario, de modo que el proceso de préstamo pueda evaluar las solicitudes de forma automática y coherente.
+
+## ¿Qué sigue?
+
+- [Crear una tabla de decisiones](/docs/build/decision-tables/creating-a-decision-table)
+- [Usar una tabla de decisiones dentro de las aplicaciones](/docs/build/decision-tables/using-in-apps)

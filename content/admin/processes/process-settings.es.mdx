@@ -1,0 +1,131 @@
+---
+title: "Configuración del proceso"
+description: "Configura los títulos de los formularios, el bloqueo de envíos, las notificaciones, los formularios públicos, los números de secuencia y la compatibilidad con varios idiomas para un proceso."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - processes
+  - settings
+  - sequence-numbers
+  - admin
+---
+
+# Configuración del proceso
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+Cuando creas un proceso, te conviertes en su administrador del proceso. La configuración del proceso te permite controlar su comportamiento, desde el título del formulario y el bloqueo de envíos hasta las notificaciones, los formularios públicos, los números de secuencia y la compatibilidad con varios idiomas.
+
+Para abrir la configuración del proceso, haz clic en el botón **Manage** del proceso y, después, en **Settings**.
+
+## Configuración general
+
+La pestaña **General** incluye el título del formulario, el bloqueo de envíos y el enlace rápido del proceso.
+
+### Configurar el título del formulario
+
+El título del formulario es el nombre que se asigna a cada elemento a medida que avanza por el flujo de trabajo del proceso.
+
+1. En la pestaña **General**, haz clic en el botón **Add** (**+**).
+2. Elige los campos del sistema o del formulario que quieras y organízalos en el orden en que quieras que aparezca el título.
+3. Haz clic en **Save**.
+
+Según este formato, los títulos se generan automáticamente y se muestran en la parte superior de cada formulario del proceso.
+
+![](/migration-assets/process-settings/1.png)
+{/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+### Bloquear envíos
+
+Cuando hagas cambios importantes en un proceso, es posible que quieras impedir que los miembros inicien nuevos elementos mientras trabajas.
+
+1. En la pestaña **General**, marca la casilla **Lock submissions**.
+2. Haz clic en **Save**.
+
+<Callout type="info">
+  El bloqueo de envíos impide que los miembros creen y envíen nuevos elementos. Los elementos que ya están en curso continúan normalmente por el flujo de trabajo.
+</Callout>
+
+![](/migration-assets/process-settings/2.png)
+{/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+### Compartir el enlace rápido
+
+Comparte el enlace rápido del proceso con los miembros para que puedan iniciar directamente un nuevo elemento. Los miembros que hayan iniciado sesión irán directamente al formulario; quienes no hayan iniciado sesión serán dirigidos primero a la página de inicio de sesión.
+
+![](/migration-assets/process-settings/3.png)
+{/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+## Configuración de notificaciones
+
+En la pestaña **Notification settings**, activa o desactiva las notificaciones, obtén una vista previa y personaliza las plantillas de las notificaciones largas y cortas que se envían a los usuarios para los distintos eventos de tu proceso.
+
+Obtén más información sobre las [notificaciones del proceso](/docs/build/processes/process-notifications).
+
+## Configuración del formulario público
+
+En la pestaña **Public form settings**, puedes activar o desactivar el formulario público de un proceso.
+
+- Para activarlo, habilita **Public form URL**, copia la URL y compártela con cualquier persona ajena a tu organización.
+- Para desactivarlo, deshabilita **Public form URL**. Los usuarios externos ya no podrán iniciar nuevos elementos desde el formulario público, aunque los elementos que ya están en curso continuarán por el flujo de trabajo.
+
+![](/migration-assets/process-settings/4.png)
+{/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+Obtén más información sobre [cómo configurar un formulario público](/docs/build/processes/public-forms).
+
+## Números de secuencia
+
+La pestaña **Sequence numbers** muestra todos los prefijos de números de secuencia configurados para este proceso.
+
+- **Total sequence number**: cantidad de prefijos activos para el campo de número de secuencia.
+- **Prefix**: prefijo configurado en el formulario. Un campo dinámico, como Departamento, produce una secuencia diferente para cada valor que genera.
+- **Current number**: valor actual de cada prefijo.
+
+![](/migration-assets/process-settings/5.png)
+{/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+Cada fila de prefijo tiene dos acciones, y hay otras dos que se aplican a todos los prefijos a la vez:
+
+- **Reset**: introduce un número para ese prefijo. El valor actual del prefijo se establece en el número que introduzcas, por lo que el *siguiente* elemento creado para ese prefijo recibe ese número **más uno**.
+- **Remove**: elimina por completo ese prefijo. El siguiente elemento creado para él inicia una nueva secuencia desde 1.
+- **Reset all**: introduce un número para aplicarlo a todos los prefijos activos a la vez, del mismo modo que **Reset** lo hace para un solo prefijo. Esto no elimina ningún prefijo.
+- **Remove all**: elimina todos los prefijos activos del campo. El siguiente elemento de cada uno inicia una nueva secuencia desde 1.
+
+![](/migration-assets/process-settings/6.png)
+{/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+<Callout type="warn">
+  Reset y Remove son acciones independientes. Reset solo cambia el valor actual de un prefijo existente; usa Remove (o Remove all) si quieres eliminar un prefijo para que vuelva a comenzar desde 1.
+</Callout>
+
+## Configuración multilingüe
+
+La configuración multilingüe permite a los administradores de procesos y tableros presentar formularios de flujo de trabajo en varios idiomas mediante la traducción de las etiquetas del formulario, ya sea manualmente o con traducción mediante IA.
+
+Por ejemplo, si has creado un formulario en inglés, pero quieres admitir a personas que hablen chino:
+
+1. Selecciona el idioma.
+2. Descarga las etiquetas del formulario.
+3. Traduce manualmente las etiquetas o utiliza la traducción mediante IA.
+4. Importa las etiquetas traducidas de nuevo al formulario.
+
+Una vez configurado, el formulario cambia automáticamente al chino para los usuarios que hayan seleccionado chino en la configuración de su perfil, mientras que quienes hablen inglés siguen viendo la versión en inglés.
+
+<Callout type="info">
+  La configuración multilingüe también está disponible para Boards y para las aplicaciones creadas con el creador de Kissflow Apps, no solo para los Processes independientes. En los formularios solo se pueden usar los [idiomas compatibles a nivel de plataforma](/docs/whats-new/important-notices/languages-supported-by-kissflow).
+</Callout>
+
+Obtén más información sobre la [configuración multilingüe en los formularios](/docs/build/forms/multilingual-settings-in-forms).
+
+## Qué sigue
+
+- [Acciones de administrador en un proceso](/docs/admin/processes/admin-actions-in-a-process)
+- [Administrar miembros y permisos del proceso](/docs/admin/processes/managing-process-members-and-permissions)
+- [Configurar un formulario público](/docs/build/processes/public-forms)
+- [Configuración multilingüe en los formularios](/docs/build/forms/multilingual-settings-in-forms)

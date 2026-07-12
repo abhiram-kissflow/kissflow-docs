@@ -1,0 +1,49 @@
+---
+title: "Acción de bucle en el conector de control"
+description: "BORRADOR (sin verificar) — migrado desde /t/p8h4al4/adding-conditions-and-iterations"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## Conector de control
+
+El conector de control admite dos acciones diferentes: **[Rutas condicionales](/t/60ytd1r)** y **Bucle**.
+
+![](/migration-assets/adding-conditions-and-iterations/1.png)
+
+## Acciones del conector de control
+
+**Acción**
+
+**Descripción**
+
+Bucle
+
+Repite un conjunto de acciones un número de veces especificado o hasta que se cumpla una condición.
+
+Las iteraciones se pueden usar para realizar una acción única para cada fila de un proceso. Por ejemplo, es posible que quieras actualizar un registro de un conjunto de datos en función de los datos introducidos en un formulario de proceso.
+
+Comienza seleccionando la tabla en el formulario de proceso. Luego, selecciona la acción que quieres realizar para cada fila.
+
+![](/migration-assets/adding-conditions-and-iterations/2.png)
+
+La acción de iteración solo funciona con los primeros 100 registros de datos. Ignora los datos posteriores al registro número 100.
+
+> **Consejo:**
+> 
+> Puedes usar el paso de **Iteración** para completar varias filas de una tabla de tu formulario en una hoja de cálculo.
+> 
+> Esta función recorre la tabla de origen y ejecuta la acción elegida para cada fila. Esto garantiza que cada elemento tenga su propia entrada en la hoja de cálculo de destino, lo que es fundamental para evitar la pérdida de datos y mantener un registro preciso y completo.
+> 
+> Consulta este [video](https://www.loom.com/share/62fe63e566f241aca7bf04f1458182c6?sid=04e0444a-b0bd-4dda-85b9-c31b71b64d35) para obtener más información.
+
+### Uso del conector de control
+
+Después de terminar de configurar la integración, activa el botón de alternancia en la esquina superior derecha del editor para activarla. Cuando se inicia el activador, las acciones posteriores se ejecutan en el orden que especificaste.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

@@ -1,0 +1,106 @@
+---
+title: "Configurar una conexión de datos externa"
+description: "BORRADOR (sin verificar) — migrado desde /t/x2y3mhr/setting-up-an-external-data-connection"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Básico ✓ Enterprise
+
+Una conexión externa es un canal entre tus plataformas externas y Kissflow que te permite crear objetos de datos externos en tus aplicaciones. Una conexión se puede reutilizar varias veces en varias aplicaciones. Por lo tanto, una sola conexión puede asociarse con varios objetos externos. 
+
+Configurar esta conexión es el primer paso para trabajar con objetos de datos externos. 
+
+En el entorno de desarrollo, cualquier persona puede crear una conexión externa siguiendo los pasos que se indican a continuación:
+
+1.  Ve a **Mi perfil** > **Conexiones de datos externas**.
+    
+2.  Haz clic en **\+ Nueva conexión** y elige el conector necesario.  
+     
+    
+    ![](/migration-assets/setting-up-an-external-data-connection/1.png)
+    
+3.  En la ventana emergente **Crear conexión**, introduce los datos generales y las credenciales de autenticación.  
+     
+    
+    ![](/migration-assets/setting-up-an-external-data-connection/3.png)
+    
+4.  Haz clic en **Crear** y tu conexión externa se establecerá correctamente. 
+    
+
+Una vez configurada, tu conexión aparecerá en la **página Conexiones externas**. 
+
+En esta página encontrarás lo siguiente:
+
+-   Todas las conexiones que hayas creado o que se hayan compartido contigo.
+    
+-   Más detalles sobre cada conexión, como el **Nombre de la conexión**, el **Conector**, **Creada el**, **Modificada el**, con quién se ha **Compartido** y los **Objetos de datos externos** vinculados.  
+     
+    
+    ![](/migration-assets/setting-up-an-external-data-connection/2.png)
+
+Si eres superadministrador, la página **Conexiones de datos externas** mostrará todas las conexiones de tu cuenta creadas por otros administradores y por ti. Sin embargo, para las conexiones propiedad de otras personas, solo podrás editarlas después de compartirlas contigo haciendo clic en **Más opciones** > **Compartir**. 
+
+> **Nota:**
+> 
+> También tienes la opción de crear una conexión nueva directamente haciendo clic en el botón **\+ Nueva conexión** disponible en la esquina superior derecha de la página **Conexiones de datos externas**.
+
+## Editar una conexión externa 
+
+En la página Conexiones externas, en la conexión específica, haz clic en **Más opciones** (![](/migration-assets/setting-up-an-external-data-connection/6.png)).
+
+Aquí puedes cambiar el nombre, volver a conectar, compartir y eliminar la conexión. 
+
+### Cambiar el nombre de una conexión externa
+
+Cuando hagas clic en **Cambiar nombre** en la configuración, aparecerá una ventana emergente **Cambiar nombre de la conexión**, donde podrás introducir el nuevo nombre de tu conexión.
+
+![](/migration-assets/setting-up-an-external-data-connection/4.gif)
+
+Después de introducir el nuevo nombre, guárdalo para confirmar los cambios.
+
+### Volver a conectar una conexión externa
+
+Para volver a conectarte a la conexión, haz clic en **Volver a conectar** en la configuración.
+
+![](/migration-assets/setting-up-an-external-data-connection/5.gif)
+
+Introduce las credenciales de autenticación en la ventana que aparece y vuelve a establecer la conexión.
+
+> **Nota:**  
+>   
+> En este punto, no es posible cambiar el conector ni modificar los datos generales del conector existente. 
+
+### Compartir una conexión externa
+
+Se te redirigirá a la página **Compartir conexiones** cuando hagas clic en **Compartir** en **Más opciones.**
+
+1.  Haz clic en **\+ Añadir administrador** en la esquina superior derecha de la pantalla. Los administradores tienen control sobre la conexión externa, incluida la posibilidad de cambiarle el nombre, volver a conectarla, compartirla con otros miembros de la aplicación y eliminarla. 
+    
+2.  Aparecerá la ventana emergente **Añadir usuarios**. Escribe los nombres de las personas a las que quieres invitar.
+    
+3.  Haz clic en **Añadir**.
+    
+    ![](/migration-assets/setting-up-an-external-data-connection/8.gif)
+    
+
+En la página **Compartir conexiones** encontrarás la lista de administradores. Aquí puedes revocar fácilmente el acceso haciendo clic en el icono de **Más opciones** en la etiqueta con el nombre del administrador.
+
+> Nota:
+> 
+> Un administrador tiene autoridad para eliminar a otro administrador de la conexión externa.
+
+### Eliminar una conexión externa
+
+Para eliminar una conexión, ve a la página **Conexiones de datos externas**, a la que puedes acceder desde tu perfil. 
+
+Haz clic en **Más opciones** > **Eliminar** en la conexión correspondiente.
+
+![](/migration-assets/setting-up-an-external-data-connection/7.gif)
+
+> **Nota:**
+> 
+> Cualquier objeto de datos externo activo asociado con esa conexión específica debe eliminarse individualmente en sus respectivas aplicaciones antes de volver aquí para eliminar la conexión de datos.

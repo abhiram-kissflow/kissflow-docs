@@ -1,0 +1,73 @@
+---
+title: "Conector de OpenAI"
+description: "BORRADOR (sin verificar) — migrado desde /t/60yk4yy/openai-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+## ¿Qué es OpenAI?
+
+OpenAI es una empresa líder en investigación y desarrollo de inteligencia artificial. Sus modelos, como GPT (transformador generativo preentrenado), están diseñados para comprender y generar lenguaje natural, lo que permite una amplia variedad de aplicaciones, desde la creación de contenido hasta el análisis de datos.
+
+## Acerca de la integración de OpenAI de Kissflow
+
+El conector de OpenAI en Kissflow Integration incorpora el poder de la IA generativa directamente en tus flujos de trabajo y aplicaciones. Puedes aprovechar los modelos de lenguaje avanzados de OpenAI para automatizar tareas creativas, analizar texto y extraer información clave sin salir del entorno de Kissflow. Para usar esta integración, debes tener una cuenta válida de OpenAI con acceso a la API y ser cliente de pago de Kissflow.
+
+Por ejemplo, un equipo de marketing puede automatizar la creación de publicaciones para redes sociales. Cuando se aprueba una nueva campaña de marketing en un proceso de Kissflow, puede activar una acción de OpenAI para Generar contenido. La acción utiliza los detalles del resumen de la campaña (como el tema, el mensaje clave y el tono) como una instrucción para crear varias publicaciones de borrador para diferentes plataformas. Esta generación de contenido en tiempo real acelera la ejecución de campañas y garantiza la coherencia de los mensajes de la marca.
+
+Actualmente, no hay activadores disponibles para el conector de OpenAI.
+
+## Acciones del conector de OpenAI
+
+**Acción**
+
+**Descripción**
+
+Generar contenido
+
+Esta acción genera contenido basado en texto a partir de una instrucción determinada.
+
+Extraer datos estructurados
+
+Esta acción identifica y extrae datos relevantes de texto no estructurado.
+
+Analizar el sentimiento
+
+Esta acción analiza el sentimiento (por ejemplo, positivo, negativo o neutral) expresado en el contenido de entrada.
+
+Instrucción personalizada
+
+Esta acción te permite usar tu propia instrucción para indicar a OpenAI que realice una tarea específica.
+
+![](/migration-assets/openai-connector/1.png)
+
+## Configurar el conector de OpenAI
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona Integration en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **Crear**.
+    
+2.  Una vez dentro del editor, configura un paso de activador, como un evento de activación de Kissflow Process cuando se crea un elemento.
+    
+3.  Después de configurar el activador, haz clic en el botón **Agregar** (+) para configurar el paso de acción. Busca **OpenAI** y selecciona una acción, como **Generar contenido**.
+    
+4.  Después de elegir la acción, deberás autenticar el conector. Haz clic en **\+ Agregar una cuenta**. Se te pedirá que introduzcas tu clave de API de OpenAI para la autenticación.
+    
+5.  Después de autenticar tu cuenta de OpenAI, configura la acción. Para la acción Generar contenido, debes introducir tu instrucción y los campos de entrada del paso de activación o de los pasos de acción anteriores. OpenAI utilizará estos valores para realizar la tarea solicitada.
+    
+6.  Después de una configuración correcta, comprueba si la acción de OpenAI está configurada correctamente haciendo clic en el botón **Probar**. El conector enviará la solicitud a tu cuenta de OpenAI y mostrará el resultado como una salida JSON. Si se produce algún error, se mostrará de inmediato para que puedas corregirlo antes de volver a realizar la prueba.
+    
+
+### **Solución de problemas**
+
+Mientras configuras la acción, es posible que encuentres los siguientes errores:
+
+-   Cuando el modelo de OpenAI seleccionado no es adecuado para la acción solicitada; por ejemplo, algunos modelos están optimizados para conversaciones de chat, mientras que otros son mejores para la generación de texto compleja. Intenta seleccionar otro modelo de la lista.
+    
+-   El modelo seleccionado no admite la salida JSON. Este error suele aparecer al usar la acción **Extraer datos estructurados**, que requiere un modelo capaz de proporcionar una respuesta en formato JSON. Asegúrate de haber seleccionado un modelo compatible.
+    
+
+## Configurar un conector de OpenAI
+
+Después de crear y probar tu flujo de trabajo personalizado con el conector de OpenAI, activa el interruptor para activar la integración. Una vez que se produzca el evento de activación, la acción de OpenAI configurada se ejecutará automáticamente.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra guía de prácticas recomendadas para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

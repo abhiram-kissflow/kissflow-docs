@@ -1,0 +1,291 @@
+---
+title: "Administrar integraciones"
+description: "BORRADOR (sin verificar) — migrado desde /t/x2h4ak8/managing-integrations"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Básico ✓ Enterprise
+
+Accede a la información sobre todas tus integraciones haciendo clic en el botón **Explorar** (
+
+![](/migration-assets/managing-integrations/1.png) ) > **Administradas por mí** > **Integraciones**.![](/migration-assets/managing-integrations/2.png)
+
+## Integraciones
+
+Puedes encontrar integraciones en Kissflow en dos lugares diferentes:
+
+-   **Administradas por mí**: muestra las integraciones que has creado o en las que participas.
+-   **Otras**: muestra todas las integraciones disponibles en tu cuenta de Kissflow. Ten en cuenta que solo los administradores de la cuenta tienen acceso a estas integraciones.
+
+### Administrar integraciones
+
+Desde la página de integraciones, puedes:
+
+-   Cambiar los estados de las integraciones (**ACTIVADA**/**DESACTIVADA**)
+    
+-   Crear duplicados
+    
+-   Archivar o desarchivar integraciones
+    
+-   Eliminar integraciones
+    
+-   Fijar las integraciones que usas con frecuencia en la navegación
+
+### Estados de las integraciones
+
+Cada integración puede tener uno de dos estados:
+
+-   **ACTIVADA**: la integración comprueba activamente si hay datos nuevos y realiza acciones cuando se activa. Ten en cuenta que los datos recibidos mientras la integración estaba desactivada no se procesarán cuando vuelva a activarse.
+-   **DESACTIVADA**: la integración deja de comprobar si hay datos nuevos y suspende todas las acciones.
+
+Para administrar una integración individual, haz clic en su nombre para abrir el editor de integraciones. 
+
+![](/migration-assets/managing-integrations/6.png)
+
+##  Ver integraciones
+
+En la página de **Integraciones**, puedes elegir ver las integraciones mediante tres vistas:
+
+-   Vista de lista (
+    
+    ![](/migration-assets/managing-integrations/3.png)
+    
+     ) - Ver las integraciones en formato de lista.
+    
+-    Vista de cuadrícula (
+    
+    ![](/migration-assets/managing-integrations/4.png)
+    
+    ) - Ver las integraciones en formato de cuadrícula.
+    
+-   Vista basada en conectores (
+    
+    ![](/migration-assets/managing-integrations/5.png)
+    
+     ) - Ver las integraciones según las acciones y los activadores utilizados en los conectores. 
+    
+    ![](/migration-assets/managing-integrations/13.gif)
+
+## Buscar tus integraciones
+
+Puedes usar la barra de búsqueda situada en la parte superior de la página de **Integraciones** para buscar integraciones específicas por nombre.
+
+También puedes ordenar tus integraciones según los siguientes criterios:
+
+-   Creadas recientemente
+-   Consultadas recientemente
+-   Ascendente a descendente, o viceversa
+-   Estado: de ACTIVADA a DESACTIVADA, o viceversa
+-   Archivadas para desarchivar
+
+![](/migration-assets/managing-integrations/21.gif)
+
+## Administrar integraciones fallidas
+
+Las integraciones pueden fallar por diversos motivos, como una autenticación incompleta o una carga útil incorrecta. También es posible que el activador no reciba eventos nuevos porque la suscripción al webhook de ese activador específico haya caducado. Para seguir recibiendo eventos asociados con un activador o una acción específicos, debes renovar manualmente la suscripción al webhook. Recibirás una notificación de cualquier fallo por correo electrónico y mediante notificaciones dentro de la aplicación. Si una integración ha fallado debido a una renovación fallida de la suscripción al webhook, sigue estos pasos:  
+ 
+
+1\. Elige la integración que ha fallado.
+
+2\. Cambia el estado de la integración de **ACTIVADA** a **DESACTIVADA** y, después, vuelve a cambiarlo a **ACTIVADA**.
+
+> **Nota:**  
+> El período de renovación de la suscripción varía según la integración. En la mayoría de las integraciones, el webhook caduca después de 30 días. 
+
+## Historial de ejecuciones
+
+Para abrir el **Historial de ejecuciones**, haz clic en el botón **Explorar** (
+
+![](/migration-assets/managing-integrations/7.png)
+
+  ) > **Administradas por mí** > **Integraciones > Historial de ejecuciones.**
+
+ El historial de ejecuciones muestra un registro de todas las ejecuciones según la fecha. Muestra el ID de ejecución único, el nombre de la integración, el estado y la hora de ejecución. Cuando se produce un fallo, puedes volver a ejecutar la integración haciendo clic en el botón **Volver a ejecutar**. Puedes usar los filtros rápidos de la parte superior de la página para filtrar el historial según cuándo se realizó la ejecución, si se realizó correctamente o no, o por nombre de la integración. 
+
+> **Nota:**
+> 
+> El historial de ejecuciones de las integraciones estará disponible durante los últimos 100 días.
+
+![](/migration-assets/managing-integrations/8.png)
+
+ Cuando haces clic en una ejecución individual, puedes ver: 
+
+-   Los nombres del activador y la acción dentro de la integración.
+-   La carga útil de API con los campos y valores asociados.
+-   El estado de la ejecución de la integración; indica si se realizó correctamente o si falló.
+-   Los mensajes de error asociados con la carga útil.![](/migration-assets/managing-integrations/9.png)Puedes usar el mensaje de error cuando te comuniques con el [equipo de soporte de Kissflow](mailto:support@kissflow.com) para obtener soluciones más rápidas. 
+
+### Solución de problemas con AI para integraciones fallidas
+
+La función de solución de problemas basada en AI te ayuda a entender por qué falló una integración y sugiere soluciones.
+
+1.  Abre la integración fallida desde el **Historial de ejecuciones**.
+    
+2.  Haz clic en el botón **Solucionar problemas con AI**. AI tardará unos momentos en analizar el error.
+    
+3.  Recibirás un informe de análisis del fallo con tres secciones sencillas:
+    
+    -   **Impacto**: un resumen del error ocurrido en la integración.
+        
+    -   **Causa raíz**: motivo técnico del fallo.
+        
+    -   **Soluciones sugeridas**: una lista de posibles soluciones para corregir el error. Cada solución se clasifica por gravedad (alta, media o baja) para ayudarte a priorizar primero la más eficaz.
+        
+
+![](/migration-assets/managing-integrations/23.gif)
+
+> **Nota:**
+> 
+> AI genera este análisis. Revisa las soluciones sugeridas para asegurarte de que se ajustan a tu configuración antes de aplicarlas.
+
+### Volver a ejecutar en bloque
+
+Con la función para volver a ejecutar en bloque, puedes volver a ejecutar fácilmente varias ejecuciones de integraciones fallidas al mismo tiempo, lo que agiliza el proceso de solución de problemas.
+
+### Cómo volver a ejecutar en bloque:
+
+1.  Ve al botón **Explorar** (
+    
+    ![](/migration-assets/managing-integrations/10.png)
+    
+      ) > **Administradas por mí** > **Integraciones > Historial de ejecuciones.**
+    
+2.  Revisa la lista de ejecuciones de integraciones. Las ejecuciones aparecen marcadas como **Correcta**, **Fallida** o **En curso**, con los indicadores de estado correspondientes codificados por color.
+    
+3.  Selecciona las casillas situadas junto a las ejecuciones fallidas que quieras volver a intentar. Puedes seleccionar hasta 100 ejecuciones a la vez. Solo las ejecuciones fallidas pueden volver a ejecutarse. 
+    
+4.  Puedes borrar tus selecciones haciendo clic en **Borrar todo** en la parte superior derecha.
+    
+5.  Haz clic en el botón **Volver a ejecutar** situado en la parte superior derecha de la tabla para iniciar el proceso de ejecución en bloque.
+    
+6.  Aparecerá un cuadro de diálogo de confirmación. Haz clic en **Continuar** para continuar con la ejecución o en **Cancelar** para volver.
+    
+7.  El estado de cada nueva ejecución se actualizará en tiempo real. 
+    
+8.  Una vez completado el proceso, recibirás una notificación sobre los resultados de la ejecución en bloque.
+    
+    ![](/migration-assets/managing-integrations/24.gif)
+    
+
+### Administrar ejecuciones en bloque superpuestas en el historial de ejecuciones de integraciones
+
+Cuando varios usuarios trabajan simultáneamente con el historial de ejecuciones de integraciones, dos personas pueden intentar volver a ejecutar las mismas instancias de integración fallidas. Kissflow cuenta con un proceso para administrar estas situaciones sin problemas.
+
+Si has seleccionado algunas instancias para volver a ejecutarlas, pero otro usuario ya inició el proceso de ejecución para algunas de esas mismas instancias justo antes de que hicieras clic en **Volver a ejecutar**, verás un mensaje de alerta rojo.
+
+El mensaje te informará de que algunas de las ejecuciones de integración que seleccionaste ya se están volviendo a ejecutar o han sido ejecutadas recientemente por otro usuario. Especificará cuántas de las instancias seleccionadas pertenecen a esta categoría.
+
+Por ejemplo, el mensaje podría decir: «8 de las 10 instancias seleccionadas ya se están volviendo a ejecutar o han sido ejecutadas recientemente por otro usuario». 
+
+![](/migration-assets/managing-integrations/11.png)
+
+### Editar cargas útiles
+
+En caso de que falle una ejecución, puedes identificar y editar una carga útil no válida que se haya enviado, lo que te permite solucionar el problema y volver a ejecutar la integración. Esto te proporciona mayor flexibilidad y control sobre tus integraciones fallidas.Para identificar una carga útil no válida,
+
+1.  Abre la integración fallida desde el **Historial de ejecuciones**. La acción asociada con el error aparecerá automáticamente.
+2.  Ve a la pestaña **Datos de salida**, donde puedes localizar la carga útil específica que provoca el fallo. Haz clic en el botón **Copiar** para copiar los detalles de la carga útil.  
+      
+    ![](/migration-assets/managing-integrations/12.gif)
+
+Para editar la carga útil,
+
+1.  Ve a la pestaña **Datos de entrada** dentro de la misma acción y haz clic en el botón **Editar**.
+2.  Edita y valida los detalles de la carga útil responsable del fallo.
+3.  Una vez realizados los cambios necesarios, haz clic en el botón **Volver a ejecutar** para ejecutar de nuevo la integración con la carga útil actualizada.
+
+![](/migration-assets/managing-integrations/17.gif)Como alternativa, también puedes editar la carga útil directamente desde el **Historial de ejecuciones**.
+
+1.  En el **Historial de ejecuciones**, localiza la ejecución específica en la que se produjo el fallo.
+2.  Haz clic en el botón **Editar carga útil** disponible para esa ejecución. Esta acción abrirá el editor de cargas útiles, donde podrás realizar las modificaciones que quieras en los detalles de la carga útil.
+3.  Una vez que hayas editado la carga útil según tus necesidades, haz clic en el botón **Volver a ejecutar** para ejecutar de nuevo la integración con la carga útil actualizada.
+
+### Actualizar el estado de la acción
+
+Si una acción falla durante la comprobación de estado, no necesitas editar la carga útil; solo tienes que volver a ejecutar la integración fallida.
+
+El fallo se produce porque la acción tardó demasiado y agotó el tiempo de espera, no por un problema con la carga útil. Como la carga útil no cambia, la opción para editarla estará desactivada y solo tendrás que volver a ejecutar el paso fallido para actualizar el estado.
+
+## Conexiones
+
+Las conexiones son autenticaciones seguras que permiten que Kissflow se comunique con otros flujos y aplicaciones de terceros en la integración. Estas autenticaciones pueden basarse en una clave de acceso o en OAuth. Las conexiones también se pueden compartir con otros miembros de la cuenta para que puedan usarse en otras integraciones. 
+
+Por ejemplo, si quieres crear un paso de activador que funcione con tus elementos de Kissflow Process, debes conceder permisos de acceso a la cuenta específica de Kissflow Process. Las ejecuciones de integraciones requieren conexiones válidas antes de poder configurar y probar activadores y acciones. 
+
+![](/migration-assets/managing-integrations/14.png)
+
+## Crear una conexión
+
+Para crear una conexión nueva, haz clic en **Nueva conexión** en la pestaña **Conexiones**. Se te pedirá que configures una conexión nueva. Debes proporcionar un nombre para la conexión y seleccionar el conector en el menú desplegable. Cuando termines, haz clic en **Siguiente**.
+
+Según el conector que hayas seleccionado, deberás autenticar tu conexión con la clave de acceso y el secreto de tu cuenta de Kissflow, o usar la autenticación de terceros basada en OAuth.
+
+Para la autenticación basada en una clave de acceso, debes introducir tu [dominio de la cuenta](/t/m1h4akp/account-settings), [clave de acceso e ID de cuenta](/t/35h4az8y7h4gj/api-keys#access-keys) y hacer clic en **Autenticar** después de introducir los valores necesarios.
+
+Mantén el estado de tu [clave de acceso](/t/35h4az8y7h4gj/api-keys#access-keys) en **ACTIVADA** para garantizar una autenticación correcta.
+
+Cuando creas una conexión con la mayoría de los conectores de terceros, Kissflow te redirige a sus respectivas páginas. Allí, se te pedirá que concedas a Kissflow acceso a tus datos, lo que se basa en la autenticación OAuth.
+
+Si todo va bien, se establecerá una conexión correctamente.
+
+## Probar tus conexiones
+
+Para comprobar si la conexión entre un conector y Kissflow sigue activa, haz clic en **Probar estado de la conexión** en la conexión.
+
+Hay dos casos posibles después de probar la conexión:
+
+-   **Prueba correcta**: la conexión está activa.
+-   **Se necesita volver a conectar**: la conexión ya no está activa. Deberás volver a conectarte con el conector.
+
+## Cambiar el nombre de tus conexiones
+
+Si tienes varias cuentas de Kissflow para el mismo conector vinculadas a Kissflow, puedes cambiarles el nombre para identificar fácilmente cada una en tu cuenta de Kissflow.
+
+-   Ve a la pestaña Conexiones.
+-   Haz clic en el botón **Más opciones** situado al final del nombre de la conexión y selecciona **Cambiar nombre**. El nuevo nombre de la conexión se guardará automáticamente poco después de introducirlo.
+
+## Volver a autenticar tus conexiones
+
+Las conexiones entre un conector y Kissflow pueden caducar si la [clave de acceso y el secreto](/t/35h4az8y7h4gj/api-keys#access-keys) se suspenden o eliminan, o debido a un error de conexión. Para volver a autenticarte con una cuenta de conector, haz clic en el botón **Volver a autenticar la conexión** (
+
+![](/migration-assets/managing-integrations/15.png)
+
+ ). Debes volver a autenticar tu conexión con una nueva clave de acceso y secreto, o volver a configurar tu conexión basada en OAuth. 
+
+![](/migration-assets/managing-integrations/16.png)
+
+## Compartir conexiones
+
+Las conexiones también se pueden compartir con otros usuarios de la cuenta. De esta manera, una conexión compartida puede usarse en pasos de integración que no hayas creado tú. Las conexiones se pueden ver en una vista de lista o de segmentos. También se pueden filtrar para ver las conexiones que has creado tú, las conexiones compartidas contigo o una vista combinada.
+
+![](/migration-assets/managing-integrations/18.png)
+
+También puedes ver la lista de integraciones de las que forma parte la conexión haciendo clic en el recuento de integraciones.
+
+![](/migration-assets/managing-integrations/19.png)
+
+**Para compartir una conexión:**
+
+-   Ve a la pestaña Conexiones.
+    
+-   Haz clic en el botón **Más opciones** (![](/migration-assets/managing-integrations/22.png)) situado al final del nombre de la conexión y selecciona **Compartir**.
+    
+-   A continuación, haz clic en el botón **\+ Añadir miembros** para añadir miembros y asignarles permisos de miembro o administrador.![](/migration-assets/managing-integrations/20.png)   
+
+**Rol de conexión**
+
+**Permisos**
+
+Administrador
+
+Puede usar y modificar la conexión en cualquier paso de integración
+
+Miembro
+
+Solo puede usar la conexión en cualquier paso de integración
+
+Las conexiones utilizadas dentro de una integración no se heredan a menos que se compartan contigo intencionadamente.

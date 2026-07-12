@@ -1,0 +1,189 @@
+---
+title: "Trabajar con componentes de campos de formulario personalizados"
+description: "BORRADOR (sin verificar) — migrado desde /t/35yfjp0/working-with-custom-form-field-components"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+## Crear un componente de campo de formulario personalizado 
+
+Puedes crear tus propios campos de formulario personalizados como componentes personalizados para usarlos en todos los formularios de tu aplicación. Para hacerlo, sigue las instrucciones de instalación y creación proporcionadas [en esta documentación para desarrolladores](https://developers.kissflow.com/components/formfield/).
+
+> **Nota:** Los campos de formulario personalizados deben crearse con el framework React y se recomienda usar Node.js versión 16.
+
+### Directrices para crear un campo de formulario personalizado
+
+Los pasos de instalación proporcionarán una estructura inicial para tu campo de formulario personalizado. Sin embargo, tendrás que escribir la configuración de la interfaz de usuario para tu campo de formulario personalizado. Puedes usar [estas API](https://developers.kissflow.com/components/formfield/#building-a-custom-form-field) para crear tu campo personalizado.
+
+Tu campo de formulario personalizado debe incluir la configuración del diseño web para la vista de formulario y tres vistas: **Tabla de datos, Hoja** y **Tarjeta**. Obtén más información sobre las vistas [aquí](/t/35yfjp0/custom-form-field-components#previewing-the-custom-component).
+
+También puedes incluir opcionalmente la configuración del diseño móvil para la vista de formulario y la vista de **Tabla de datos**.
+
+> **Nota:** La vista de formulario se refiere a cómo aparece el formulario en una página en su estado predeterminado, sin convertirse en una de las tres vistas: **[Tabla de datos](/t/g9yzja2/data-table-view)**, **[Hoja](/t/x2yzjaw/sheet-view-in-data-forms)** o **Tarjeta**.
+
+#### ¿Qué sucede si el campo de formulario personalizado no tiene configuración de la interfaz de usuario?
+
+Lo ideal es que tu campo de formulario personalizado esté diseñado para admitir las cuatro vistas en los diseños web y móviles. Sin embargo, si falta la configuración del diseño web para la vista de **Tabla de datos** o **Tarjeta**, se mostrará una interfaz de usuario de marcador de posición generada por el sistema. Ten en cuenta que esto se aplica únicamente al diseño web. Es posible que los campos personalizados que no incluyan configuraciones para otras vistas no se representen correctamente dentro de un formulario.
+
+> **Nota:** La interfaz de usuario de marcador de posición no se mostrará para los campos de formulario personalizados de los tipos de datos **Objeto** y **Matriz de objetos**.
+
+## Crear un componente personalizado
+
+1\. Crea un componente de campo personalizado siguiendo [estos](/t/m1yfjgz/custom-components-in-kissflow-apps#managing-custom-components) pasos.
+
+### Importar y previsualizar un componente personalizado
+
+En la página **Importar componente**, haz clic en la opción **Cargar archivo** para cargar un archivo .zip de tu campo de formulario personalizado.Antes de cargar tu componente, elige el tipo de datos de tu componente en el panel derecho. De forma predeterminada, se seleccionará el tipo de datos **Texto**. Asegúrate de que el tipo de datos seleccionado corresponda al tipo de datos de tu campo de formulario personalizado.
+
+> **Nota:** Una vez cargado un componente de campo personalizado, no se puede cambiar su tipo de datos. La configuración del tipo de datos no se aplica a los componentes de página.
+
+### Tipos de datos para campos de formulario personalizados
+
+Kissflow permite crear campos de formulario personalizados para determinados tipos de datos. Al crear un campo de formulario personalizado, asegúrate de que corresponda a uno de los seis tipos siguientes. Cada tipo de datos tiene un propósito específico según el tipo de datos que el campo deba gestionar:
+
+-   **Texto** – Una secuencia de caracteres o palabras, como nombres o descripciones.
+    
+-   **Número** – Cualquier valor numérico, incluidos los números enteros y decimales.
+    
+-   **Booleano** – Un valor verdadero/falso, que suele usarse para interruptores o casillas de verificación.
+    
+-   **Objeto** – Una colección estructurada de pares clave-valor, útil para almacenar datos relacionados.
+    
+-   **Matriz de cadenas** – Una lista de valores de texto, ideal para entradas de selección múltiple.
+    
+-   **Matriz de objetos** – Una lista de elementos de datos estructurados, que se suele usar para conjuntos de datos complejos.
+    
+
+#### Texto
+
+El tipo de datos de texto representa una cadena de caracteres, equivalente al tipo **String** de JavaScript. Úsalo para cualquier campo que acepte entradas de texto, como nombres, direcciones o comentarios. Los campos de texto también pueden admitir reglas de validación, como límites de caracteres o formatos obligatorios (por ejemplo, direcciones de correo electrónico).
+
+> **Nota:** El número máximo de cadenas de texto permitidas para un campo de formulario personalizado es 50.
+
+#### Número
+
+El tipo de datos de número almacena valores numéricos, incluidos números enteros y decimales. A diferencia de algunos lenguajes de programación, JavaScript usa un único tipo Number para todos los valores numéricos. Este tipo de datos resulta útil para cantidades, precios, porcentajes y cualquier campo que requiera una entrada numérica. La validación puede garantizar que los números estén dentro de un intervalo específico o cumplan requisitos de precisión.
+
+#### Booleano
+
+Booleano es un tipo de datos lógico con solo dos valores posibles: verdadero o falso. Es ideal para elecciones binarias, como activar o desactivar una función, confirmar una preferencia o responder preguntas de Sí/No.
+
+#### Matriz de cadenas
+
+Una matriz de cadenas es una lista de varios valores de cadena. Resulta útil cuando un campo debe aceptar varias entradas de texto, como seleccionar varias categorías, introducir etiquetas o enumerar aptitudes. Las matrices de cadenas pueden mostrarse como listas de verificación, listas desplegables de selección múltiple o campos de entrada separados por comas.
+
+#### Objeto
+
+Un objeto es una colección de pares clave-valor que almacena datos estructurados. Los objetos permiten agrupar varias propiedades relacionadas dentro de un solo campo. Por ejemplo, un objeto de perfil de usuario puede incluir campos como firstName, lastName, email y role. Los objetos resultan útiles cuando una sola entrada debe contener varios atributos.
+
+#### Matriz de objetos
+
+Una matriz de objetos es una matriz que contiene varios objetos, cada uno con su propio conjunto de propiedades. Resulta útil para gestionar conjuntos de datos estructurados, como una lista de productos, envíos de formularios o perfiles de usuario. Por ejemplo, una matriz de artículos de pedido podría contener objetos con los campos productName, price y quantity.
+
+> **Nota:**
+> 
+> El número máximo de objetos permitidos para un campo de formulario personalizado es 10.El número máximo de claves permitidas por objeto es 20.El número máximo de niveles anidados permitidos para cada clave es 3.
+
+Para los tipos de datos **Objeto** y **Matriz de objetos**, debes proporcionar un esquema JSON válido. Sin un esquema JSON válido, el campo de formulario personalizado no podrá aceptar entradas correctamente.Para realizar pruebas, puedes usar un esquema JSON de ejemplo. Haz clic en la opción **Rellenar ejemplo** para completar el campo.![](/migration-assets/working-with-custom-form-field-components/5.gif)
+
+> **Nota:** Si el tipo de datos seleccionado es **Objeto** o **Matriz de objetos**, no se podrá previsualizar ni publicar el campo de formulario personalizado sin introducir un esquema JSON.
+
+### Crear parámetros de entrada
+
+En la página **Importar componente**, puedes definir parámetros de entrada para tu campo personalizado. Puedes crear tres tipos de parámetros de entrada:
+
+-   **Cadena** – Acepta valores de texto.
+    
+-   **Número** – Acepta valores numéricos.
+    
+-   **Lista desplegable estática** – Una lista predefinida de opciones seleccionables.
+    
+
+#### Añadir un parámetro de entrada
+
+1.  Haz clic en **Parámetros de entrada** en el panel derecho y selecciona **Añadir un parámetro**.
+    
+2.  Introduce un **Nombre del parámetro** y un **ID**.
+    
+3.  Elige un **Tipo de parámetro**: Cadena, Número o Lista desplegable estática.
+    
+4.  Establece un valor predeterminado. Es obligatorio para la Lista desplegable estática, pero opcional para los parámetros de Cadena y Número.  
+     
+    
+    ![](/migration-assets/working-with-custom-form-field-components/4.gif)
+
+> **Nota:** Puedes crear tantos parámetros de entrada como necesites para tu componente personalizado.
+
+### Previsualizar el componente personalizado
+
+En Desktop hay cuatro tipos de vistas previas disponibles, dos de las cuales se aplican a PWA/Mobile.
+
+#### 1\. Vista de formulario (aplicable a la vista móvil)
+
+Muestra cómo aparece el campo personalizado en un formulario, como los formularios de dataform, Process o Board.
+
+#### 2\. Vista de hoja
+
+Muestra el campo personalizado dentro de una tabla editable, lo que permite actualizar directamente las entradas (por ejemplo, tablas de formularios o la vista de hoja en dataform).
+
+#### 3\. Vista de tabla de datos (aplicable a la vista móvil)
+
+Muestra el campo personalizado en una tabla de solo lectura, donde no se pueden actualizar las entradas (por ejemplo, la tabla Mis elementos o los informes tabulares).
+
+#### 4\. Vista de tarjeta
+
+Muestra el campo personalizado dentro de un diseño de tarjeta, como en informes de tarjetas o en la vista Galería de dataform.Nota: Puedes previsualizar tu componente en los modos **Editable** y **Solo lectura** ajustando los estados de permisos en el menú desplegable.
+
+> **Nota:** Puedes previsualizar tu componente en los modos Editable y Solo lectura ajustando los estados de permisos en el menú desplegable.
+
+![](/migration-assets/working-with-custom-form-field-components/1.png)
+
+### Vista previa en tiempo real
+
+Puedes previsualizar tu componente antes de cargarlo mediante la opción Vista previa en tiempo real. Esto te permite ver los cambios en tiempo real mientras lo creas.
+
+#### Configurar la vista previa en tiempo real
+
+1.  Usa la opción haz clic aquí para abrir la ventana de Vista previa en tiempo real.
+    
+2.  Introduce la URL de tu servidor de desarrollo (por ejemplo, [http://127.0.0.1:9000](http://127.0.0.1:9000)) y pulsa Intro.
+    
+
+![](/migration-assets/working-with-custom-page-components/2.gif)
+
+> #### Nota importante
+> 
+> Antes de usar la URL de tu servidor de desarrollo en la vista previa en tiempo real, debes resolver cualquier error del certificado SSL:
+> 
+> 1.  Abre la URL de tu servidor de desarrollo en una ventana del navegador.
+>     
+> 2.  Si ves el mensaje "Your connection is not private", haz clic en Advanced > Proceed to \[your URL\].
+>     
+> 3.  Este paso solo es necesario una vez y evita errores de SSL en la vista previa en tiempo real.
+>     
+
+## Publicar un campo de formulario personalizado
+
+Una vez que hayas creado los parámetros de entrada necesarios y estés satisfecho con la vista previa, tu campo de formulario personalizado estará listo para publicarse. Solo tienes que hacer clic en **Publicar** y el campo de formulario personalizado estará disponible para usarse en cualquier formulario de la aplicación en el que se publique.
+
+![](/migration-assets/working-with-custom-form-field-components/2.gif)
+
+### Usar el campo de formulario personalizado en un formulario
+
+1.  Abre un formulario de dataform, de proceso o de Board y desplázate hacia abajo en el menú Todos los campos del panel izquierdo.
+    
+2.  En **Personalizado** encontrarás todos los campos de formulario personalizados que hayas publicado.
+    
+3.  Arrastra y suelta un campo personalizado en el formulario y configúralo como un campo de formulario predeterminado.
+    
+4.  Tu campo de formulario personalizado estará listo para usarse en todos los formularios de tu aplicación.
+    
+
+![](/migration-assets/working-with-custom-form-field-components/3.gif)
+
+> **Nota**: Puedes añadir hasta 10 campos personalizados en un formulario.

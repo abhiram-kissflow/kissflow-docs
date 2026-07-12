@@ -1,0 +1,56 @@
+---
+title: "Conector de Entra ID"
+description: "BORRADOR (sin verificar) — migrado desde /t/83h4al0/microsoft-entra-id"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es Entra ID?
+
+[Microsoft Entra ID](https://www.microsoft.com/en-in/security/business/identity-access/microsoft-entra-id) ofrece a los clientes empresariales una solución de gestión de identidades y accesos (IAM) basada en la nube.
+
+## Acerca de la integración de Microsoft Entra ID con Kissflow
+
+El conector de Microsoft Entra ID de Kissflow Integration te permite conectar y sincronizar tus carpetas y archivos de Microsoft Entra ID con las aplicaciones de Kissflow. Debes tener una cuenta válida de Microsoft Entra ID y ser cliente de pago de Kissflow para integrarte con Entra ID.
+
+Por ejemplo, si quieres aprovisionar usuarios desde tu cuenta de Kissflow a Entra ID a intervalos regulares, puedes crear una integración de varios pasos. Kissflow Scheduler programará un evento de activación a una hora específica, la acción será el conector de detalles del usuario, que obtendrá los detalles más recientes de los usuarios de tu cuenta de Kissflow, y la acción final será el conector de Entra ID, que agregará estos usuarios a tu cuenta de Entra ID.
+
+Usa el conector de Microsoft Entra ID para recibir datos de otros flujos o aplicaciones y realizar acciones específicas. El conector de Microsoft Entra ID todavía no admite eventos de activación.
+
+### Acciones del conector de Microsoft Entra ID
+
+**Eventos de acción**
+
+**Descripción**
+
+Agregar un usuario
+
+Esta acción crea un usuario nuevo en tu cuenta de Entra ID.
+
+Actualizar un usuario
+
+Esta acción actualiza los detalles de un usuario existente en tu cuenta de Entra ID.
+
+### Conector de Microsoft Entra ID como paso de acción
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**.
+    
+2.  Una vez dentro del editor, configura los pasos de activación y acción según sea necesario; por ejemplo, tu evento de activación puede ser un **Kissflow Scheduler** y el paso de acción puede ser el conector de **Detalles del usuario**.
+    
+3.  Después de configurar el evento de activación y el paso de acción anteriores, haz clic en el botón **Agregar** (![](/migration-assets/xero-connector/1.png)) para configurar el paso de acción. Busca **Microsoft** Entra ID y selecciona la acción que quieras![](/migration-assets/microsoft-entra-id/1.png)
+4.  Después de elegir el evento de acción, autentica el conector. Haz clic en **+Agregar una cuenta** e inicia sesión con tu cuenta de Microsoft. Kissflow usa OAuth de Microsoft para la autenticación.
+5.  Después de autenticarte con tu cuenta de Microsoft, agrega los valores correspondientes a los campos del formulario de Microsoft Entra ID. Puedes hacer clic en **Actualizar campos** para ver todos los campos actualizados del formulario de Microsoft Entra ID seleccionado.  
+    También puedes asignar campos de Microsoft Entra ID desde tu paso de activación o campos de tus pasos de acción anteriores. Estos valores se agregarán automáticamente a los campos del elemento después de ejecutar la acción.
+6.  Haz clic en **Siguiente**.
+7.  Después de una configuración correcta, prueba si el paso de acción de Microsoft Entra ID está configurado correctamente haciendo clic en el botón **P****robar**. El conector obtendrá los datos de los campos de la cuenta de Microsoft seleccionada y los mostrará como una salida JSON. Al igual que con el paso de activación, recibirás una notificación inmediata de los errores. Corrígelos antes de volver a probar el paso de acción.
+
+### Configurar un conector de Microsoft Entra ID
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción del conector de Microsoft Entra ID, activa el botón de alternancia para activar la ejecución de la integración. Cuando se produzca un evento de activación, se activarán las acciones de Microsoft Entra ID.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

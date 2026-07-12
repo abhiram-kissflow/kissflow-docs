@@ -1,0 +1,122 @@
+---
+title: "Actualización importante sobre el certificado SSL de Kissflow"
+description: "Sectigo, el proveedor de SSL de Kissflow, está migrando a un nuevo certificado raíz. Algunos sistemas antiguos y navegadores obsoletos deben actualizar su almacén de confianza antes de la fecha límite específica del dominio para seguir accediendo a Kissflow."
+contentType: reference
+persona: shared
+section: whats-new
+tags:
+  - ssl
+  - security
+  - certificate
+  - notice
+---
+
+Sectigo, el proveedor del certificado SSL de Kissflow, está migrando su infraestructura de firma a un nuevo certificado raíz: **Sectigo Public Server Authentication Root R46**. Esto reemplaza la cadena de confianza anterior basada en **AAA Certificate Services** y **USERTrust RSA Certification Authority**.
+
+La mayoría de los usuarios no notará este cambio: los navegadores y sistemas operativos modernos ya confían en el nuevo certificado raíz. Solo afecta a los sistemas que no pueden recibir actualizaciones periódicas del sistema operativo o del navegador.
+
+## Quiénes se ven afectados
+
+Es posible que te veas afectado si accedes a Kissflow desde:
+
+- Servidores antiguos, dispositivos integrados u otros entornos aislados que no reciben actualizaciones periódicas del sistema operativo o del navegador.
+- Versiones antiguas del navegador o del sistema operativo que no incluyen compatibilidad nativa con el nuevo certificado raíz (consulta la tabla de versiones a continuación).
+
+Los sistemas afectados comenzarán a mostrar errores de confianza SSL cuando la cadena anterior deje de ser compatible:
+
+**En entornos o servidores antiguos:**
+- Error en el protocolo de enlace SSL
+- Error en la conexión SSL
+- `ERR_SSL_PROTOCOL_ERROR`
+
+**En navegadores antiguos:**
+- `NET::ERR_CERT_AUTHORITY_INVALID`
+- "Tu conexión no es privada"
+
+![Error de SSL mostrado en un navegador](/migration-assets/important-update-regarding-kissflows-ssl-certificate/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Estos errores ocurren porque el sistema afectado todavía depende de la ruta de confianza anterior — AAA Certificate Services → USERTrust RSA Certification Authority → Sectigo — que se está retirando.
+
+## Fechas límite
+
+<Callout type="warn">
+  Después de estas fechas, solo se confiará en el nuevo certificado raíz de Sectigo (R46). Los sistemas que no se hayan actualizado perderán el acceso a Kissflow.
+</Callout>
+
+| Dominio | Actualizar antes del |
+| --- | --- |
+| kissflow.eu | 13 de febrero de 2026 |
+| kissflow.com | 27 de febrero de 2026 |
+
+Revisa el dominio en la URL de tu cuenta (la parte anterior a `.kissflow.com` o `.kissflow.eu`, por ejemplo, `yourcompany.kissflow.com`) para saber qué fecha límite te corresponde.
+
+## Comprueba si tu entorno cumple los requisitos
+
+Ejecuta esta comprobación desde el navegador o entorno específico que utilizas para acceder a Kissflow.
+
+**Uso de OpenSSL:**
+
+```shell
+openssl s_client -connect sectigo.com:443 -showcerts
+```
+
+Un entorno compatible devuelve:
+
+```shell
+Issuer: Sectigo Public Server Authentication Root R46
+Verify return code: 0 (ok)
+```
+
+Si no ves un código de retorno `0`, importa el nuevo certificado Sectigo R46 en tu sistema (consulta más abajo).
+
+**Uso de un navegador:**
+
+1. Abre [https://www.sectigo.com/](https://www.sectigo.com/).
+2. Haz clic en el icono del candado → **Visor de certificados → Detalles.**
+3. Comprueba que el certificado raíz indicado sea **Sectigo Public Server Authentication Root R46**.
+
+Las siguientes versiones mínimas son compatibles de forma nativa con el nuevo certificado raíz:
+
+| Navegador | Versión mínima | Fecha de lanzamiento |
+| --- | --- | --- |
+| Chrome | 120+ | Dic 2023 |
+| Edge | 120+ | Dic 2023 |
+| Firefox | 117+ | Ago 2023 |
+| Safari (macOS/iOS) | macOS 14.4+ / iOS 17.4+ | Mar 2024 |
+| Opera | 106+ | Dic 2023 |
+| SRWare Iron | 120+ | Dic 2023 |
+
+<Callout type="info">
+  Aunque tu navegador o sistema operativo cumpla con la versión mínima, te recomendamos ejecutar la comprobación de verificación para confirmarlo.
+</Callout>
+
+## Importa el nuevo certificado
+
+Si tu sistema no puede recibir actualizaciones periódicas del sistema operativo o del navegador, instala manualmente el certificado raíz R46 antes de la fecha límite de tu dominio.
+
+1. Descarga el [certificado Sectigo Public Server Authentication Root R46](https://crt.sh/?d=1199354). Observa el nombre de archivo con el que se guarda, ya que lo necesitarás en los pasos siguientes.
+2. Instálalo en el almacén de certificados raíz de confianza de tu sistema:
+
+   - **Windows** — Abre `certmgr.msc` → **Entidades de certificación raíz de confianza → Importar**.
+   - **macOS** — Abre **Acceso a Llaveros → Raíces del sistema → Importar**.
+   - **Linux** — Copia el certificado en `/usr/local/share/ca-certificates/` (conviértelo primero al formato PEM si aún no lo está) y ejecuta:
+
+     ```shell
+     sudo update-ca-certificates
+     ```
+
+   - **Java** — Importa el certificado en el almacén de claves de Java con `keytool` (esto lo añade junto con los certificados de confianza existentes; no reemplaza el archivo del almacén de claves). Sustituye el valor de `-file` a continuación por el nombre de archivo real que descargaste:
+
+     ```shell
+     keytool -import -trustcacerts -keystore $JAVA_HOME/lib/security/cacerts \
+     -alias sectigoR46 -file SectigoPublicServerAuthenticationRootR46.crt
+     ```
+
+3. Reinicia la aplicación o el navegador que utilizas para acceder a Kissflow.
+
+<Callout type="info">
+  Si te conectas a Kissflow mediante Docker u otros entornos en contenedores, actualiza también el certificado dentro de esas imágenes y contenedores.
+</Callout>
+
+Si necesitas ayuda con esta actualización, [contacta con el equipo de soporte de Kissflow](/docs/whats-new/important-notices/slas-and-support-models#how-to-reach-support).

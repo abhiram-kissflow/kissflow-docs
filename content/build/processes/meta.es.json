@@ -1,0 +1,31 @@
+{
+  "title": "Procesos",
+  "pages": [
+    "process-overview",
+    "creating-a-process",
+    "workflow-design",
+    "step-configuration",
+    "process-forms",
+    "process-settings",
+    "creating-a-process-inside-apps",
+    "creating-a-process-workflow",
+    "configuring-actions-for-process-form-steps",
+    "managing-process-roles-and-permissions",
+    "editing-a-process-item-after-submitting",
+    "deleting-process-items",
+    "reports-overview",
+    "public-forms",
+    "tabular-reports",
+    "generating-document-templates",
+    "how-to-automate-barcode-scanning-in-a-process-form",
+    "watching-a-process-item-inside-apps",
+    "process-dashboards",
+    "process-files-panel",
+    "notification-events-in-processes",
+    "process-notifications",
+    "process-comments",
+    "pivot-report-in-processes",
+    "chart-reports",
+    "process-overview-alt2"
+  ]
+}

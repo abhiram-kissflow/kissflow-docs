@@ -1,0 +1,66 @@
+---
+title: "Administrar usuarios del portal"
+description: "BORRADOR (sin verificar) — migrado desde /t/q6yq2wc/managing-portal-users"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Los [administradores del portal](/t/35h4ak0/user-roles-permissions) pueden activar, desactivar y eliminar usuarios del portal. También pueden reenviar correos de verificación a usuarios sin verificar y enviar correos para restablecer la contraseña cuando sea necesario. La tabla de **Administración de usuarios** ofrece una forma de modificar varios usuarios del portal simultáneamente. Haz clic aquí para [obtener más información](/t/h7yzj46/application-roles) sobre cómo definir roles dentro de una app.
+
+> **Nota:**
+> 
+> Después de implementar un portal externo en producción, solo se pueden agregar usuarios externos a los roles dentro de ese portal.
+
+## Agregar usuarios manualmente
+
+1.  Ve a **Administración del portal** > **Usuarios del portal**.
+    
+2.  Haz clic en **Agregar un usuario.**
+    
+3.  Aparecerá un cuadro de diálogo en el que:
+    1.  Tanto el nombre como la dirección de correo electrónico son obligatorios.
+    2.  Hay una opción para enviar o no una invitación por correo electrónico al nuevo usuario.
+4.  Haz clic en **Agregar** para finalizar la incorporación del usuario.
+
+### Invitar usuarios
+
+Cuando invitas a alguien a unirse a tu portal, se envía un correo electrónico de invitación a la dirección especificada. Si la persona invitada acepta y hay licencias de usuario disponibles, se activará automáticamente. También puedes activarla manualmente seleccionando la casilla del usuario y haciendo clic en **Activar**. Es posible activar varios usuarios simultáneamente si hay suficientes licencias disponibles. El recuento de usuarios se actualiza automáticamente en el mosaico **Usuarios activos**. Si no hay suficientes licencias, el usuario invitado permanecerá inactivo y no podrá iniciar sesión en el portal.
+
+### Reenviar el correo de verificación 
+
+Para reenviar un correo de verificación, selecciona la casilla del usuario junto a su nombre y haz clic en **Reenviar correo de verificación**. Los usuarios que ya estén verificados o que estén desactivados no recibirán ningún correo. Después de la operación, se mostrará un resumen con información sobre quién recibió el correo y quién no, junto con los motivos.
+
+### Restablecer una contraseña
+
+Para iniciar un restablecimiento de contraseña, selecciona la casilla del usuario y haz clic en **Restablecer contraseña**. El usuario recibirá un correo electrónico con un enlace de restablecimiento válido durante 24 horas. Hasta que restablezca la contraseña, no podrá iniciar sesión. Algunos usuarios que no recibirán este correo son:
+
+-   Usuarios sin verificar.
+-   Usuarios inactivos.
+-   Usuarios de portales en los que la opción _Iniciar sesión con Kissflow_ está desactivada.
+
+## Administrar usuarios del portal
+
+Para administrar los atributos de los usuarios del portal:
+
+1.  Ve a **Administración del portal** > **Usuarios del portal**.
+2.  Haz clic en el usuario para editarlo directamente. Los cambios se guardan automáticamente. Si se actualiza un correo electrónico, el usuario debe verificar la nueva dirección antes de volver a acceder al portal.
+3.  Haz clic en **Reenviar correo de verificación** si es necesario.
+
+### Desactivar y activar usuarios
+
+Para desactivar un usuario, selecciona la casilla del usuario y haz clic en **Desactivar**. Una vez desactivado, el recuento del mosaico **Usuarios inactivos** se actualiza automáticamente. Los usuarios inactivos pueden iniciar sesión una vez que un administrador del portal vuelva a activar su cuenta. Para reactivar un usuario, selecciónalo y haz clic en **Activar**. El recuento de usuarios se actualiza automáticamente en el mosaico **Usuarios activos**. Si te has quedado sin licencias, ponte en contacto con soporte para comprar más.
+
+La licencia de un usuario se revoca después de la desactivación. Sin embargo, sus datos se conservan temporalmente en nuestros sistemas antes de eliminarse definitivamente.
+
+### Eliminar usuarios
+
+Cuando eliminas usuarios del portal, se eliminan de tu cuenta y todos sus datos se pierden. Para eliminar un usuario del portal:
+
+1.  Selecciona la casilla del usuario del portal.
+2.  Haz clic en **Eliminar usuarios**.
+3.  Después de la eliminación, se perderán todos los datos relacionados con el usuario y se actualizará el recuento de usuarios.

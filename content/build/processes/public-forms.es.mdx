@@ -1,0 +1,99 @@
+---
+title: "Formularios públicos"
+description: "BORRADOR (no verificado) — migrado desde /t/35h9qtk/public-forms"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Cualquier persona sin una cuenta de Kissflow puede iniciar un flujo de trabajo en Kissflow con la ayuda de un formulario público. Al activar esta configuración, permites que los usuarios externos a tu organización envíen sus datos a Kissflow.
+
+> **Caso de uso**
+> 
+> Supongamos que tu organización utiliza flujos de trabajo de procesos como parte de su proceso de contratación. La información del candidato se introduciría manualmente en el formulario del proceso para activar el flujo de trabajo de contratación. Ahora, con la ayuda de los formularios públicos, puedes alojar en línea un formulario de solicitud de empleo (formulario público) y utilizarlo para iniciar el proceso de selección de candidatos. 
+
+Los formularios públicos solo están disponibles para las cuentas Enterprise. Ponte en contacto con nuestro equipo de [asistencia](https://kissflow.com/support/) para activar los formularios públicos en tu cuenta.
+
+## Activar un formulario público
+
+Solo los administradores del proceso pueden activar formularios públicos.
+
+1.  Navega hasta el proceso para el que quieres activar el formulario público.
+2.  Haz clic en el botón **Manage** > **Settings**.
+3.  Haz clic en **Public form settings**
+4.  Activa el campo Public form URL y copia el enlace para compartirlo con cualquier persona externa a tu organización. También puedes [insertar el formulario público en cualquier sitio web](/t/35h9qtk/public-forms#embedding-iframe-code) para que un usuario externo pueda acceder a él desde otro lugar y enviar sus datos a Kissflow.![](/migration-assets/public-forms/2.png)
+
+## Desactivar un formulario público
+
+1.  Navega hasta el proceso para el que quieres desactivar el formulario público.
+2.  Haz clic en el botón **Manage** > **Settings** > **Public form settings**.
+3.  Desactiva (**OFF**) Public form URL para desactivarlo. Una vez desactivado el formulario público, los usuarios externos no podrán iniciar nuevos elementos. Sin embargo, los elementos que estén en curso completarán los pasos del flujo de trabajo. 
+
+> **Nota**:
+> 
+> Los elementos iniciados mediante el formulario público aparecerán como **Creado por invitado** en los informes del proceso y en la [página de administración del proceso.](/t/60h9qtj/admin-actions-in-a-process)
+
+## Insertar código iframe
+
+El código &lt;iframe> es un fragmento de código que se puede añadir a cualquier página web para permitir que alguien acceda a un formulario público desde otro lugar.
+
+Por ejemplo, puedes alojar el formulario de solicitud de empleo que acabas de crear como parte de tu proceso de contratación en la página **Careers** del sitio web de tu organización, para que cualquier persona interesada pueda acceder directamente a la solicitud y presentarla.
+
+1.  Haz clic en el botón **Copy** (![](/migration-assets/public-forms/1.svg)) para copiar el código &lt;iframe>.
+2.  Pega el fragmento de código en tu sitio web o en cualquier plataforma externa donde quieras alojar el formulario público.
+
+Este fragmento de código se genera automáticamente y está disponible cuando activas la opción **Public form URL**.
+
+> **Nota:**
+> 
+> Si el formulario público se [desactiva](/t/35h9qtk/public-forms#disabling-a-public-form) intencionalmente o existe algún otro problema para acceder a él, los usuarios no podrán acceder al formulario público desde los sitios donde esté insertado este fragmento de código.
+
+## Personalización del formulario
+
+Puedes previsualizar y personalizar el título de tu formulario público y seleccionar un color de fondo que se adapte a tu marca. Además, puedes mostrar el logotipo de tu cuenta para darle un toque más profesional al formulario.
+
+![](/migration-assets/public-forms/4.gif)
+
+## Acciones posteriores al envío
+
+Decide qué ocurre después de que un usuario envíe el formulario con las siguientes opciones:
+
+-   **Mostrar mensaje de confirmación:** Configura un mensaje de confirmación personalizado que los usuarios verán después de enviar el formulario. Puedes editar el título y la descripción del mensaje para proporcionar un siguiente paso claro o una nota de agradecimiento. Opcionalmente, añade un botón debajo del mensaje que redirija a los usuarios a una URL específica de tu elección.
+    
+    ![](/migration-assets/public-forms/5.gif)
+    
+-   **Redirigir a una URL:** Redirige automáticamente a los usuarios a una URL especificada una vez que envíen el formulario.
+    
+    ![](/migration-assets/public-forms/3.png)
+
+## Mensaje para formularios inaccesibles
+
+Si un formulario público está desactivado, puedes personalizar el título y la descripción del mensaje que se muestra para informar a los usuarios de por qué no se puede acceder al formulario. También puedes incluir un botón debajo del mensaje que redirija a los usuarios a otra página.
+
+![](/migration-assets/public-forms/6.gif)
+
+## Preguntas frecuentes
+
+Un iniciador es el destinatario de un formulario público, es decir, una persona que desea utilizar o utiliza un formulario público.
+
+1. **Como iniciador, ¿puedo rechazar o devolver un formulario público?**  
+    Los iniciadores no pueden rechazar ni devolver un formulario público; solo pueden hacerlo los responsables de los pasos y los administradores del proceso.  
+     
+2. **¿El iniciador del formulario recibirá alguna notificación después de enviar sus datos a Kissflow?**  
+    Como el iniciador no forma parte de Kissflow, es decir, su nombre aparecerá como **Invitados** dentro de Kissflow, no recibirá ninguna notificación generada por el sistema.  
+     
+3. **Un colega compartió conmigo un enlace a un formulario público y, cuando intenté acceder a él, apareció un error. ¿Qué pudo haber ocurrido?**  
+    El formulario público debía estar disponible cuando tu colega lo utilizó, pero es posible que el administrador del proceso lo haya desactivado en Kissflow por algún motivo. Puedes ponerte en contacto con la persona que compartió el enlace contigo.  
+     
+4. **¿El iniciador podrá colaborar con el equipo dentro de Kissflow con respecto a su solicitud?**  
+    No, el iniciador no puede colaborar mediante comentarios con los responsables de los pasos.  
+     
+5. **Estoy seguro de que el formulario público al que intento acceder todavía no está desactivado; sin embargo, no puedo acceder a él. ¿Cómo soluciono este problema?**
+    -   Comprueba si estás en modo **Incógnito** en tu navegador web y activa las cookies para acceder al formulario.
+    -   Si no estás utilizando una ventana de **Incógnito**, es posible que las cookies de la ventana normal del navegador hayan caducado. Debes actualizar la página para acceder al formulario.  
+        Si las opciones anteriores no ayudaron, ponte en contacto inmediatamente con nuestros agentes de asistencia al cliente para resolver el problema.
+    -   Intenta borrar la caché y las cookies de tu navegador.

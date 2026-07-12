@@ -1,0 +1,231 @@
+---
+title: "Campo de escáner"
+description: "BORRADOR (sin verificar) — migrado desde /t/83h4azd/scanner-field"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+El **campo de escáner** es un [campo de formulario avanzado](/t/y4h4azv/basic-and-advanced-fields) que te permite escanear y obtener códigos de barras y códigos de respuesta rápida (QR). Puedes usarlo en formularios de procesos, formularios de tableros y dataforms dentro de las aplicaciones.
+
+Por ejemplo, puedes usar el campo de escáner si estás creando un proceso para optimizar la adquisición de activos o una aplicación de gestión de bibliotecas para escanear y hacer un seguimiento de los préstamos de libros. Descubre cómo obtener los detalles de los activos en un proceso de _Adquisición de activos_ mediante la [automatización del escaneo de códigos de barras](/t/y4h9qtf/how-to-automate-barcode-scanning-in-a-process-form).
+
+## Configurar el campo de escáner
+
+Al igual que cualquier otro campo, puedes arrastrar y soltar el campo de escáner en tu formulario y en las [child table](/t/h7h4azm/creating-a-form#child-tablesnbsp) del formulario desde el panel izquierdo **Todos los campos**. También puedes introducir un nombre para el campo, marcarlo como obligatorio, modificar el ID del campo e introducir texto de ayuda si es necesario. También puedes **habilitar** la **carga de imágenes**, lo que permite a los usuarios cargar y escanear imágenes.
+
+![](/migration-assets/scanner-field/1.gif)
+
+Los [desarrolladores](/t/p8h9qtp/managing-process-members-and-permissions#developer) de formularios también pueden proporcionar [validaciones](/t/m1h4az4/field-validations), establecer reglas de [visibilidad](https://helpdocs.kissflow.com/fields/field-visibility) y cambiar la [configuración de apariencia](/t/60h4azc/field-appearance) del campo de escáner.
+
+## Usar el campo de escáner
+
+Una vez que el formulario esté activo, los usuarios finales pueden abrirlo y hacer clic en el icono de **escáner** (![](/migration-assets/scanner-field/4.png)) situado junto al campo para escanear y obtener códigos de barras o códigos QR usando su cámara.
+
+El campo de escáner admite archivos JPEG, JPG y PNG. Obtiene el valor del código como una cadena en un campo de texto. Los usuarios también pueden editar la cadena en el campo de escáner o introducir el valor manualmente.
+
+Si aún no lo has hecho, concede a Kissflow permiso para acceder a la cámara de tu dispositivo. Esto permite que Kissflow escanee códigos QR usando tu cámara.
+
+![](/migration-assets/scanner-field/2.png)
+
+Si no se detecta ninguna actividad, el escáner mostrará una alerta y se agotará el tiempo de espera después de tres minutos. Los usuarios pueden mantenerse activos haciendo clic en **Esperar** y, a continuación, reanudar el escaneo.
+
+![](/migration-assets/scanner-field/3.png)
+
+> **Nota:**
+> 
+> Para disfrutar de una mejor experiencia en un dispositivo móvil, te recomendamos usar la aplicación de Kissflow instalada desde la [Google Play Store](https://play.google.com/store/apps/details?id=com.orangescape.kfdw) o la [Apple App Store](https://apps.apple.com/in/app/kissflow-digital-workplace/id1470220022) para acceder al escáner en lugar de la [versión PWA](https://helpdocs.kissflow.com/mobile/ios-devices#using_a_progressive_web_app_pwa).
+> 
+> Los usuarios deben generar códigos a partir de fuentes válidas para escanearlos. El uso de imágenes distorsionadas de códigos para escanearlos puede impedir obtener el valor del código.
+
+## Tipos de códigos de barras compatibles con el escaneo
+
+El campo de escáner admite los siguientes tipos de códigos de barras:
+
+**Tipo**
+
+**Categoría**
+
+**Web**
+
+**Android**
+
+**iOS**
+
+UPC\_A
+
+1D
+
+✔
+
+✔
+
+✔
+
+UPC\_E\*
+
+1D
+
+✔
+
+✔
+
+✔
+
+UPC\_EAN\_EXTENSION
+
+1D
+
+✔
+
+✔
+
+✔
+
+EAN\_8
+
+1D
+
+✔
+
+✔
+
+✔
+
+EAN\_13\*
+
+1D
+
+✔
+
+✔
+
+✔
+
+CODE\_39
+
+1D industrial
+
+✔
+
+✔
+
+✔
+
+CODE\_39\_MOD\_43
+
+1D industrial
+
+✔
+
+✔
+
+✔
+
+CODE\_93\*
+
+1D industrial
+
+✔
+
+✔
+
+✔
+
+CODE\_128
+
+1D industrial
+
+✔
+
+✔
+
+✔
+
+ITF
+
+1D industrial
+
+✔
+
+✔
+
+✔
+
+ITF\_14
+
+1D industrial
+
+✔
+
+✔
+
+✔
+
+AZTEC
+
+2D
+
+✔
+
+✔
+
+✔
+
+DATA\_MATRIX
+
+2D
+
+✔
+
+✔
+
+✔
+
+MAXICODE
+
+2D
+
+✔
+
+✔
+
+✔
+
+PDF\_417
+
+2D
+
+✔
+
+✔
+
+✔
+
+QR\_CODE
+
+2D
+
+✔
+
+✔
+
+✔
+
+RSS\_14
+
+2D
+
+✔
+
+✔
+
+✔
+
+> **Nota:**
+> 
+> **\*** indica los tipos de códigos de barras compatibles con el escaneo únicamente mediante la cámara y no mediante la carga de la imagen del código.

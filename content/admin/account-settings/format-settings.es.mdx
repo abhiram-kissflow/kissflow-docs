@@ -1,0 +1,73 @@
+---
+title: "Configuración de formato"
+description: "Configura la zona horaria, el idioma y el formato de fecha predeterminados de tu cuenta desde la Administración de la cuenta."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - account-settings
+  - timezone
+  - language
+  - date-format
+---
+
+# Configuración de formato
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+Como Superadministrador —o cualquier administrador al que se le haya otorgado el permiso Configuración de formato— controlas la zona horaria, el idioma y el formato de fecha predeterminados de tu cuenta. Esta configuración determina cómo se muestran las fechas, las horas y los datos de los flujos en toda tu organización.
+
+<Callout type="info">
+  Cada usuario puede cambiar la zona horaria, el formato de fecha y el idioma de la cuenta para su propio perfil desde **Mi configuración**. Consulta [Información personal, configuración de formato y delegación de tareas](/docs/use/personal-settings/personal-info-format-settings-and-task-delegation).
+</Callout>
+
+## Actualizar la configuración de formato
+
+1. Haz clic en tu foto de perfil en la esquina superior derecha de la pantalla de inicio.
+2. Haz clic en **Administración de la cuenta** > **Configuración de formato**.
+3. Define la zona horaria, el idioma y el formato de fecha de tu cuenta (detalles a continuación).
+4. Haz clic en **Guardar**.
+
+![Página de configuración de formato con el mapa de zonas horarias y las opciones de idioma y formato de fecha](/migration-assets/format-settings/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+### Zona horaria
+
+La zona horaria de tu organización se utiliza cuando se ejecuta una acción programada en una integración o cuando se evalúa una [fecha límite](/docs/build/processes/workflow-design/configuring-deadline) en un flujo de trabajo; todos los datos del flujo se ajustan a esta zona horaria.
+
+Selecciona una zona horaria directamente en el menú desplegable o usa el mapa que aparece debajo: haz clic en una región para seleccionar su zona horaria y utiliza los controles de zoom para encontrar zonas más pequeñas con mayor precisión.
+
+### Idioma
+
+Elige el idioma de visualización de tu cuenta. Kissflow admite más de 20 idiomas, incluidos inglés, francés, español, alemán, italiano, ruso, coreano, chino simplificado, japonés, vietnamita, tailandés, polaco, portugués, eslovaco, checo, ucraniano, hindi y rumano.
+
+<Callout type="info">
+  El árabe es la excepción: solo está disponible si se ha habilitado para tu cuenta (consulta [Idiomas compatibles con Kissflow](/docs/whats-new/important-notices/languages-supported-by-kissflow)).
+</Callout>
+
+### Formato de fecha
+
+Elige cómo se muestran los campos de fecha y fecha y hora en tu cuenta:
+
+- **Local** — según la configuración de tu navegador.
+- **US** — M/D/YYYY.
+- **European** — D/M/YYYY.
+- **ISO** — YYYY-MM-DD.
+
+<Callout type="info">
+  El formato de fecha solo afecta a los campos de fecha y fecha y hora. El formato de números y monedas es independiente; consulta la información a continuación.
+</Callout>
+
+### Formato de números y monedas
+
+El formato de números y monedas siempre se basa en las convenciones locales del navegador y no se puede configurar desde esta página.
+
+## Qué sigue
+
+- [Información personal, configuración de formato y delegación de tareas](/docs/use/personal-settings/personal-info-format-settings-and-task-delegation)
+- [Delegación de tareas](/docs/admin/account-settings/task-delegation) (Administrador)
+- [Roles y permisos de usuario](/docs/admin/users/user-roles-and-permissions)

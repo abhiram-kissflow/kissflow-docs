@@ -1,0 +1,77 @@
+---
+title: "Descripción general de la gestión de usuarios"
+description: "BORRADOR (no verificado) — migrado desde /t/m1h4akn/user-management-overview"
+contentType: overview
+persona: admin
+section: admin
+---
+
+Planes de Kissflow:
+
+✓ Básico ✓ Enterprise
+
+## Acceder a la página Gestión de usuarios
+
+[Los superadministradores, administradores de IAM y administradores de usuarios](/t/35h4ak036h4gg/user-roles-permissions) tienen acceso a la pestaña **Gestión de usuarios** en la sección **Administración** de la **Cuenta**, que ofrece una descripción general de todos los usuarios de la organización.
+
+![](/migration-assets/user-management-overview/1.png)
+
+Los siguientes mosaicos de la parte superior funcionan como filtros rápidos y te ayudan a obtener una descripción general de:
+
+-   **Usuarios activos**: usuarios verificados que utilizan activamente una licencia.
+-   **Solicitudes para unirse**: usuarios que han solicitado unirse a la cuenta mediante la URL de registro compartida.
+-   **Invitaciones abiertas**: usuarios invitados que no han verificado sus cuentas.
+-   **Usuarios inactivos**: usuarios que no tienen una licencia activa, pero cuyos datos aún se encuentran en la cuenta.
+
+También puedes realizar acciones como [agregar](/t/y4h4aks36h4gg/add-manage-users), eliminar y configurar el [aprovisionamiento de usuarios basado en SCIM](/t/p8h4ak436h4gg/managing-members-with-scim-provisioning) desde la sección **Gestión de usuarios**.
+
+## Usar la búsqueda y los filtros
+
+También puedes encontrar los valores que necesitas en la tabla Gestión de usuarios mediante las funciones de búsqueda y filtrado. Estas funciones son especialmente útiles cuando tienes muchos usuarios o cuando resulta más difícil encontrar valores específicos en la tabla.
+
+![](/migration-assets/user-management-overview/8.gif)
+
+**Búsqueda**. Puedes introducir cualquier palabra clave en el cuadro de búsqueda para encontrar resultados relevantes en la tabla.
+
+**Filtros**. Puedes obtener los valores que necesitas de la tabla configurando filtros. Para activar un filtro, haz clic en el botón **Filtro** (![](/migration-assets/user-management-overview/4.png)) y elige los criterios que prefieras para ver los resultados correspondientes.
+
+En el **Filtro avanzado**, puedes elegir un campo, un operador o un tipo, y asignar un valor o un campo según el tipo. Puedes agregar una condición AND u OR y definir más criterios para limitar los valores que se muestran. Haz clic en el botón **Agregar nuevo filtro** para configurar bloques de filtros adicionales. Una vez que hayas definido los filtros, haz clic en el botón **Aplicar**. Puedes hacer clic en el botón **Borrar todo** para eliminar todos los filtros configurados.
+
+## Mostrar y ocultar campos
+
+Puedes decidir qué campos mostrar y ocultar en la tabla Gestión de usuarios. Haz clic en el botón **Mostrar u ocultar campos** (![](/migration-assets/user-management-overview/6.png)). A continuación, selecciona los campos que quieres ver en la tabla y anula la selección de los que quieres ocultar. También puedes ocultar un campo haciendo clic en el botón **Expandir** (▼) situado junto al encabezado del nombre del campo y haciendo clic en **Ocultar columna**. Hay 15 campos que puedes elegir mostrar u ocultar.
+
+![](/migration-assets/user-management-overview/2.png)
+
+Algunos campos, como **Nombre**, **Apellido** y **Apodo**, se recopilan al registrarte en tu cuenta de Kissflow. Los campos como **Agregado el** y **Último inicio de sesión** se generan automáticamente según la fecha en que te registraste por primera vez y la última vez que utilizaste tu cuenta de Kissflow. **Último acceso** y **Acceso mediante programación** indican cuándo accediste a tu cuenta de Kissflow y si utilizaste alguna clave de acceso que hayas creado.
+
+## Columnas personalizadas
+
+La tabla de gestión de usuarios ofrece varias columnas predeterminadas de distintos tipos de campo. Puedes crear una columna personalizada en el entorno de producción si necesitas un tipo específico de columna que no esté incluido en las opciones predeterminadas.
+
+Las columnas personalizadas pueden ser de varios tipos de campos simples y complejos, como Texto, Área de texto, Número, Archivo adjunto y Firma.
+
+### Crear una columna personalizada
+
+1.  Haz clic en el icono + para abrir **Configuración**. Introduce la columna y el tipo de campo.
+2.  Al crear una columna personalizada, el ID del campo se crea automáticamente según el nombre del campo. Sin embargo, puedes editarlo.
+3.  Marca la columna personalizada como obligatoria si es necesario, pero no es una configuración obligatoria.![](/migration-assets/user-management-overview/3.png)
+4.  Puedes configurar reglas de validación para la columna personalizada en la pestaña **Validación**. Puedes elegir entre varios operadores y configurar una o más condiciones para una columna.![](/migration-assets/user-management-overview/5.png)
+5.  La columna personalizada se puede ordenar u ocultar. También puedes controlar su visibilidad y determinar si los usuarios deben poder editarla. Todas estas configuraciones de comportamiento solo se pueden realizar en producción y se sincronizarán con los subentornos.
+
+![](/migration-assets/user-management-overview/7.gif)
+
+### Cómo usar columnas personalizadas
+
+1.  Solo puedes crear columnas personalizadas en la tabla de gestión de usuarios del entorno de producción. Las nuevas columnas personalizadas, junto con los metadatos, como el tipo de campo y las reglas de validación, se sincronizarán automáticamente con los subentornos (entornos de desarrollo y pruebas).
+2.  Cuando se produce la sincronización de una columna personalizada, solo se sincronizarán los metadatos. Esto significa que los valores de datos introducidos en la columna personalizada de producción no se copiarán en la columna personalizada de los subentornos.
+3.  Puedes agregar o eliminar valores de datos en la columna personalizada del subentorno sin afectar a los datos del entorno de producción.
+
+> **Nota:** Ten en cuenta que la configuración o los cambios de validación de una columna personalizada solo se pueden realizar desde producción.
+
+1.  Para ver la columna personalizada en los subentornos, haz clic en el **icono de perfil > Entornos**. Haz clic en **Gestionar** debajo del entorno de desarrollo o de pruebas.
+2.  Haz clic en **Gestión de usuarios** y desplázate hasta el final. Allí encontrarás la columna personalizada creada en producción.
+
+El siguiente gif muestra cómo aparece la columna personalizada denominada **Fecha de incorporación** en las tablas de gestión de usuarios de producción y del entorno de desarrollo.
+
+![](/migration-assets/user-management-overview/9.gif)

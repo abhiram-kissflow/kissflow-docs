@@ -1,0 +1,84 @@
+---
+title: "Casos de uso del diseño de cronología"
+description: "Descubre cómo un equipo de producción de contenido usa el diseño de cronología para planificar un flujo de trabajo de varios pasos según las fechas y en qué otros casos encaja este diseño."
+contentType: guide
+persona: end-user
+section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - boards
+  - layouts
+  - timeline
+---
+
+# Casos de uso del diseño de cronología
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+El diseño de cronología organiza los elementos del tablero según las fechas, lo que te ofrece una vista panorámica de lo que está por venir y te ayuda a planificar con anticipación y cumplir los plazos. En este artículo se muestra un ejemplo — un flujo de trabajo de producción de contenido — para explicar el diseño en acción.
+
+<Callout type="info">
+  Para consultar la referencia completa sobre los intervalos de la cronología, las acciones y la comparación de este diseño con los diseños de lista, Kanban y matriz, consulta [Uso de los diseños del tablero](/docs/use/apps/using-board-layouts).
+</Callout>
+
+## Producción de contenido y campañas de marketing
+
+El diseño de cronología funciona bien para los equipos de contenido y marketing que realizan el seguimiento de una pieza de contenido durante varias transferencias. Considera un tablero para gestionar la producción de un blog, donde una publicación pasa por cuatro pasos: el redactor de contenido prepara el borrador, el editor de textos lo edita, el gerente lo aprueba y el equipo de marketing la promociona en las plataformas sociales.
+
+Al convertir estas tareas en elementos del tablero y organizarlas en una cronología, se obtiene una vista como esta:
+
+![Diseño de cronología que muestra tareas de producción de un blog programadas a lo largo de dos semanas con diferentes responsables](/migration-assets/use-case-for-timeline-layout/1.png)
+{/* TODO: verificar que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+**Semana 1**
+
+1. Investigar y preparar el esquema de la publicación del blog (Responsable: Redactor de contenido)
+2. Escribir la publicación del blog (Responsable: Redactor de contenido)
+
+**Semana 2**
+
+1. Editar la publicación del blog (Responsable: Editor de textos)
+2. Revisar y aprobar la publicación del blog (Responsable: Gerente)
+3. Promocionar la publicación del blog (Responsable: Equipo de marketing)
+
+<Callout type="info">
+  Los estados como **Aún no iniciada**, **En curso**, **En espera** y **Completada** son solo un ejemplo; los estados de tu tablero se pueden configurar completamente en su flujo de trabajo. Consulta [Configurar estados](/docs/build/boards/configuring-statuses).
+</Callout>
+
+## Lo que la vista de cronología te ayuda a detectar
+
+Como cada barra de elemento se coloca entre sus fechas de inicio y de vencimiento, organizar las tareas en una cronología facilita detectar un par de situaciones con anticipación:
+
+- **Riesgo en la secuencia** — en este ejemplo, cada paso depende del anterior. Al ver las barras colocadas de extremo a extremo, resulta evidente cuándo un retraso en una tarea — por ejemplo, si el redactor no cumple el plazo del final de la semana 1 — retrasa todo lo que viene después, de modo que el equipo puede ajustar el calendario antes de que se convierta en un problema.
+
+  <Callout type="warn">
+    El diseño de cronología no realiza el seguimiento ni aplica dependencias entre elementos; coloca las barras únicamente según las fechas de inicio y de vencimiento. Cualquier conclusión sobre la secuencia proviene de interpretar el diseño, no de una función de dependencias.
+  </Callout>
+
+- **Periodos de tiempo saturados** — si varios elementos se asignan a la misma persona responsable en intervalos superpuestos, sus barras se agrupan visiblemente, lo que puede indicar que es necesario redistribuir el trabajo o posponer los elementos de menor prioridad.
+
+  <Callout type="info">
+    Para obtener un desglose específico de quién tiene más trabajo, usa el widget de **Distribución de la carga de trabajo** en un [panel del tablero](/docs/build/boards/board-dashboards) en lugar del diseño de cronología.
+  </Callout>
+
+Una vez aprobado el contenido, el equipo de marketing se encarga de la promoción, que aparece en la cronología como la barra final de la secuencia.
+
+## Otros casos de uso
+
+El mismo enfoque — convertir las tareas en elementos y organizarlos según las fechas — funciona para cualquier flujo de trabajo con transferencias secuenciales y plazos, como:
+
+- Planificación de eventos
+- Desarrollo de productos
+- Construcción
+- Fabricación
+- Gestión ágil de proyectos
+
+## Qué sigue
+
+- [Uso de los diseños del tablero](/docs/use/apps/using-board-layouts)
+- [Crear y gestionar elementos](/docs/use/items/creating-items)
+- [Configurar estados](/docs/build/boards/configuring-statuses)
+- [Paneles del tablero](/docs/build/boards/board-dashboards)

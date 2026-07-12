@@ -1,0 +1,80 @@
+---
+title: "Número de secuencia"
+description: "BORRADOR (sin verificar) — migrado desde /t/y4h4azw/sequence-number"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Puedes usar el campo **Número de secuencia** cuando quieras agregar un número de serie o de secuencia recurrente a cada elemento de tu proceso y dataform. En un formulario de proceso, puedes generar el número de secuencia en un paso específico del flujo de trabajo, mientras que en un dataform, el número de secuencia se genera cuando envías el formulario.
+
+## Configurar números de secuencia
+
+Después de arrastrar y soltar un campo de **Número de secuencia** en el editor de formularios, ve al panel derecho de **Configuración** y proporciona un **Nombre** y un **ID de campo**. 
+
+-   En **Prefijo**, agrega una fórmula para concatenar el valor de un campo a tu número de secuencia.   
+     
+-   En **Formato**, selecciona los dígitos que quieres usar como prefijo cuando comience el número de secuencia. En este ejemplo, al usar la fórmula concatenate(\_created\_by.Department,"-"), el primer número será Marketing - 001, suponiendo que el usuario que creó este elemento pertenece al departamento de Marketing. 
+
+> **Nota**
+> 
+> Los números de secuencia están sujetos a un límite máximo de 7 dígitos. Los usuarios pueden seleccionar un formato de hasta 0000001 en el menú desplegable, lo que permite que la secuencia se incremente hasta alcanzar el límite de 9999999.
+
+Al agregar funciones en **Prefijo**, el tipo de datos debe ser Texto, no cualquier otro tipo de campo, como Fecha o Usuario. Aprende [cómo convertir otros campos en campos de texto](/t/m1h4al6/text-expressions). 
+
+![](/migration-assets/sequence-number/6.gif)
+
+-   En **¿En qué paso debe generarse el número de secuencia?**, elige el paso del flujo de trabajo en el que debe generarse el número de secuencia. 
+
+En un dataform, el número de secuencia se genera únicamente cuando se envía el formulario.
+
+Los números de secuencia no se generan cuando un elemento está en estado de borrador. Debes enviarlo al flujo de trabajo para que se le asigne un número de secuencia. Por lo tanto, es posible que el campo aparezca vacío para el usuario inicial. Este debe consultar el elemento después de enviarlo para ver el número de secuencia.
+
+El número de secuencia aparecerá vacío durante la simulación y solo funcionará en el formulario activo.
+
+> **Nota:**
+> 
+> -   No se pueden elegir pasos del flujo de trabajo ni ramas paralelas con condiciones como punto de inicio de un número de secuencia, ya que existe la posibilidad de que se omitan y no se genere ningún número de secuencia. 
+> -   El campo **Número de secuencia** no se puede agregar a una tabla.
+
+## Configuración del proceso
+
+Hay configuraciones adicionales para los números de secuencia. En la página de inicio del proceso, haz clic en **Administrar** > **Configuración** y, a continuación, en **Números de secuencia.**
+
+Aquí verás todos los números de secuencia configurados para este proceso. 
+
+-   **Número total de secuencia** muestra los prefijos activos de tu campo de número de secuencia.
+-   **Prefijo** muestra el prefijo que configuraste en el formulario. Al usar un campo dinámico, como _Department_, verás los diferentes números generados para los distintos departamentos. 
+-   **Número actual** muestra el número de solicitudes actuales para cada prefijo. 
+
+![](/migration-assets/sequence-number/1.png)
+
+### Restablecer un número de secuencia específico
+
+Para restablecer un prefijo, haz clic en **Restablecer** en la fila de ese prefijo. Luego, introduce el número y haz clic en **Restablecer**. Cuando se cree una nueva solicitud en ese departamento, el número de secuencia comenzará desde ese número.
+
+![](/migration-assets/sequence-number/5.gif)
+
+### Eliminar un número de secuencia específico
+
+Para eliminar un prefijo, haz clic en **Eliminar** en la fila de ese prefijo. Esto borrará el número de secuencia en curso. Cuando se inicie un nuevo elemento en ese departamento, el número de secuencia comenzará desde 1 de forma predeterminada.
+
+![](/migration-assets/sequence-number/2.png)
+
+### Restablecer todos los números de secuencia
+
+Puedes restablecer todos los prefijos activos haciendo clic en **Restablecer todo**.
+
+![](/migration-assets/sequence-number/4.png)
+
+Al hacer clic en **Restablecer todo**, se te pedirá el número al que quieres restablecerlos. Cuando se inicie un nuevo elemento, el número de secuencia comenzará con el número introducido.
+
+### Eliminar todos los números de secuencia
+
+Puedes eliminar todos los prefijos activos haciendo clic en **Eliminar todo**.
+
+![](/migration-assets/sequence-number/3.png)

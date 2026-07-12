@@ -1,0 +1,67 @@
+---
+title: "Cómo incluir IP en la lista de permitidos para conexiones de datos externas"
+description: "La lista actual de IP estáticas salientes de Kissflow, organizada por región del dominio, para plataformas que requieren incluir IP en la lista de permitidos antes de aceptar una conexión."
+contentType: guide
+persona: citizen-developer
+section: build
+planAvailability:
+  basic: false
+  enterprise: true
+tags:
+  - network
+  - security
+  - integrations
+  - ip-safelisting
+---
+
+# Cómo incluir IP en la lista de permitidos para conexiones de datos externas
+
+<PlanBadge plans={["enterprise"]} />
+
+Algunas plataformas externas solo aceptan conexiones desde direcciones IP en las que hayas confiado explícitamente. Incluir las IP salientes de Kissflow en la lista de permitidos de esas plataformas les indica que deben tratar a Kissflow como un origen de confianza.
+
+Kissflow envía llamadas salientes —incluidas las llamadas a plataformas externas desde tus integraciones— a través de [Google Cloud NAT](https://cloud.google.com/nat/docs/overview), mediante un conjunto fijo de IP estáticas reservadas.
+
+<Callout type="info">
+  No todas las plataformas requieren incluir IP en la lista de permitidos. Consulta primero la documentación de la plataforma externa; si no lo requiere, puedes omitir esta página.
+</Callout>
+
+Busca el dominio de tu cuenta a continuación e incluye las IP correspondientes en la lista de permitidos.
+
+## Para clientes del dominio kissflow.com
+
+- `35.222.151.216`
+- `35.184.11.171`
+- `34.41.86.150`
+- `34.30.199.65`
+- `34.41.69.169`
+- `35.232.190.255`
+- `34.123.136.177`
+- `34.66.21.198`
+- `34.93.209.125`
+- `34.93.214.206`
+- `34.100.221.217`
+- `34.100.189.219`
+- `34.93.240.230`
+- `35.200.224.207`
+- `34.100.167.208`
+- `35.244.33.104`
+
+## Para clientes del dominio kissflow.eu
+
+- `34.159.62.126`
+- `34.159.85.137`
+- `35.198.112.83`
+- `35.246.174.111`
+- `34.141.48.133`
+- `35.246.245.12`
+- `35.242.234.6`
+- `35.242.252.3`
+
+<Callout type="warn">
+  Si has incluido todas las IP anteriores en la lista de permitidos y sigues viendo errores de conexión, es posible que falte una IP de una lista reemplazada anteriormente; el conjunto de IP salientes de Kissflow ha cambiado al menos una vez antes (consulta [Mejora de la estabilidad con reservas de IP estáticas](/docs/whats-new/important-notices/enhancing-stability-with-static-ip-reservations)). [Contacta con el equipo de soporte de Kissflow](/docs/whats-new/important-notices/slas-and-support-models#how-to-reach-support) e indica el dominio de tu cuenta para confirmar las IP exactas que se utilizan actualmente.
+</Callout>
+
+## Qué sigue
+
+- [Mejora de la estabilidad con reservas de IP estáticas](/docs/whats-new/important-notices/enhancing-stability-with-static-ip-reservations)

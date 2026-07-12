@@ -1,0 +1,64 @@
+---
+title: "Conector de Oracle NetSuite"
+description: "BORRADOR (no verificado) — migrado desde /t/x2y877l/oracle-netsuite-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Oracle NetSuite es un conjunto de aplicaciones de gestión empresarial basadas en la nube, que incluye Planificación de Recursos Empresariales (ERP), Gestión de Relaciones con los Clientes (CRM) y mucho más, dirigido principalmente a pequeñas y medianas empresas (pymes).
+
+## Acerca de la integración de NetSuite con Kissflow
+
+El conector de NetSuite de Kissflow Integration facilita la conexión y sincronización fluidas de los módulos de NetSuite con diversas aplicaciones de terceros y de Kissflow. Para integrarse con NetSuite, debes tener una cuenta válida de NetSuite y ser cliente de pago de Kissflow.
+
+Supongamos que gestionas una empresa de ropa B2B. Con la integración de NetSuite con Kissflow, puedes automatizar procesos como actualizar una solicitud de compra en NetSuite cada vez que se finaliza una venta con un cliente. Esta integración se logra utilizando el desencadenador de webhook en Kissflow y configurando el conector de NetSuite como la acción.
+
+## Acciones del conector de NetSuite
+
+**Acción** 
+
+**Descripción**
+
+Llamar a una API de servicio web (RESTlet/SuiteTalk)
+
+Esta acción utiliza operaciones CRUD para realizar procesos empresariales en registros existentes de NetSuite.
+
+## Configuración de tu cuenta de NetSuite
+
+1\. Configuración del flujo de autorización TBA: Inicia sesión en tu cuenta de NetSuite y haz clic en **Setup** > **Integration** > **Manage Integrations** > **New**. Especifica los detalles de la integración y, en Authentication, activa el flujo de autorización TBA.  
+  
+2\. Adición de la URL de devolución de llamada a la aplicación: Añade la siguiente URL de devolución de llamada a la integración [https://accounts.kissflow.com/integration/2/Account001/connection/Co8sTsibVz7b/1.0.0/auth/oauth1/callback](https://accounts.kissflow.com/integration/2/Account001/connection/Co8sTsibVz7b/1.0.0/auth/oauth1/callback)  
+  
+3\. Finalización de la configuración de NetSuite: Anota el Consumer Key y el Consumer Secret y haz clic en **Save**. Has creado correctamente una integración dentro de NetSuite.
+
+**Configuración de una integración en Kissflow**  
+  
+1\. Autenticación de tu cuenta de NetSuite dentro de Kissflow: Para autenticar tu cuenta de NetSuite dentro de Kissflow, necesitas los siguientes datos  
+**Account ID**: Se encuentra al principio de la URL de tu cuenta de NetSuite. Por ejemplo, si la URL es [https://1234567.app.netsuite.com/](https://1234567.app.netsuite.com/), el ID de tu cuenta es 1234567
+
+**Realm ID**: El ID de realm es el ID de la cuenta de NetSuite. Obtén el ID de tu cuenta de NetSuite haciendo clic en Setup > Company > Company Information. Escribe todas las letras en mayúscula y reemplaza los guiones por guiones bajos al introducir el ID de realm. Por ejemplo, &lt;67893>-sb1 debe introducirse como &lt;67893>\_SB1.
+
+**Consumer Key** y **Consumer Secret**: En [client credentials](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/bridgehead_4249032125.html#procedure_4253065190), encontrarás el Consumer Key (ID de cliente) y el Consumer Secret (secreto de cliente). 
+
+2\. Completa la autenticación: Haz clic en **+Add an account** y completa los campos obligatorios para la autenticación. Autentícate iniciando sesión en la cuenta de NetSuite, seleccionando el rol y haciendo clic en **Allow** para completar el proceso. Kissflow utiliza OAuth de NetSuite para la autenticación.
+
+3\. Selecciona la acción de NetSuite deseada, **Llamar a una API de servicio web (RESTlet/SuiteTalk)**, y configura los campos correspondientes. A continuación, proporciona una API REST válida. Por ejemplo, si quieres leer una factura de proveedor, utiliza el siguiente endpoint: **GET &#123;&#123;COMPANY\_URL&#125;&#125;/services/rest/record/v1/vendorBill/&#123;&#123;id&#125;&#125;?expandSubResources=true**.
+
+![](/migration-assets/oracle-netsuite-connector/1.png)
+
+A continuación, elige el método HTTP adecuado para realizar la operación CRUD necesaria. Si es necesario, añade parámetros de consulta y encabezados. Si optas por el método POST, utiliza el campo dinámico para asignar la carga útil **JSON**. También puedes asignar campos de tu paso de desencadenador o de pasos de acciones anteriores.
+
+4\. Haz clic en **Next**.  
+  
+5\. Después de una configuración correcta, prueba si el paso de acción de NetSuite está configurado correctamente haciendo clic en el botón **Test**. El conector extraerá los datos de los campos de la cuenta de NetSuite seleccionada y los mostrará como una salida JSON. Se te notificarán los errores de inmediato. Corrígelos antes de volver a probar el paso de acción.
+
+### Ejecución del conector de NetSuite
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción de tu conector de NetSuite, cambia el botón de alternancia a **ON** para activar la ejecución de la integración. Cuando se produce un evento de desencadenador, se activa la acción de NetSuite seleccionada y los cambios se reflejan en tu cuenta de NetSuite.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

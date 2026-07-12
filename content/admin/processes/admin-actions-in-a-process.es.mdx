@@ -1,0 +1,119 @@
+---
+title: "Acciones de administrador en un proceso"
+description: "Accede a los elementos del proceso, búscalos, edítalos, reasígnalos, complétalos y elimínalos desde la sección Administración, y restaura los elementos eliminados en un plazo de 30 días."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - processes
+  - administration
+  - workflow
+---
+
+# Acciones de administrador en un proceso
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+La sección **Administración** de un proceso ofrece a los administradores del proceso y de datos un único lugar para ver todos los elementos, editar sus datos e intervenir cuando un elemento se atasca: pueden reasignarlo, completarlo o eliminarlo. En este artículo se explica cómo abrir la sección Administración y usar cada una de estas acciones.
+
+## Abrir la sección Administración
+
+1. Ve al proceso.
+2. Haz clic en el botón **Más opciones** ( ![Icono de más opciones](/migration-assets/admin-actions-in-a-process/2.svg) ) en la parte superior derecha.
+3. Selecciona **Administración**.
+
+Se abrirá una lista de todos los elementos del proceso, que muestra:
+
+- **Título** — el [nombre del elemento](/docs/admin/processes/process-settings#configure-the-form-title), tal como se configuró en los ajustes del proceso.
+- **Creado el** — cuándo se creó el elemento por primera vez.
+- **Creado por** — la persona o el invitado (si se envió mediante un formulario público) que creó el elemento.
+
+Haz clic en el botón **Mostrar/ocultar campos** ( ![Icono de mostrar/ocultar campos](/migration-assets/admin-actions-in-a-process/4.png) ) para añadir otros campos a la lista o aplicar filtros.
+
+## Buscar elementos
+
+Usa la barra de búsqueda para encontrar elementos rápidamente. Su menú desplegable muestra todos los campos del proceso: selecciona uno y, luego, introduce un valor para mostrar únicamente los elementos cuyo campo seleccionado coincida con él.
+
+![Barra de búsqueda con un menú desplegable de campos para filtrar elementos](/migration-assets/admin-actions-in-a-process/1.png)
+
+## Editar los campos de un elemento
+
+Puedes ver y editar cualquier campo de un elemento o reasignarlo a otra persona.
+
+1. Abre el elemento.
+2. Haz clic en **Actualizar valores de los campos** en la parte superior del formulario del elemento.
+3. Realiza los cambios.
+4. Haz clic en **Guardar cambios**.
+
+![Edición de los valores de los campos de un elemento y guardado de los cambios](/migration-assets/admin-actions-in-a-process/8.gif)
+
+<Callout type="info">
+  Todas estas acciones se registran en el [registro de auditoría del proceso](/docs/admin/processes/process-audit-log).
+</Callout>
+
+## Realizar acciones en lote
+
+Desde la sección Administración, puedes reasignar, marcar como completados o eliminar varios elementos a la vez, hasta 100 elementos en un solo lote.
+
+1. Ve al proceso y haz clic en el botón **Más opciones** ( ![Icono de más opciones](/migration-assets/admin-actions-in-a-process/2.svg) ) > **Administración**.
+2. Selecciona los elementos sobre los que quieres realizar una acción.
+
+![Lista de elementos del proceso con casillas de verificación para la selección en lote](/migration-assets/admin-actions-in-a-process/3.png)
+
+### Reasignar elementos
+
+Si un elemento permanece demasiado tiempo en un paso porque la persona asignada no está disponible o no puede actuar, puedes reasignarlo a ti o a otro usuario que tenga los permisos necesarios para hacerlo avanzar.
+
+<Callout type="info">
+  El iniciador de un elemento también puede reasignarlo, según los [permisos que se le hayan concedido](/docs/build/processes/step-configuration/configuring-actions-for-process-steps#initiator-actions-for-items-in-progress).
+</Callout>
+
+1. Selecciona uno o varios elementos.
+2. Haz clic en **Reasignar**.
+
+![Acción Reasignar seleccionada para uno o varios elementos](/migration-assets/admin-actions-in-a-process/5.png)
+
+<Callout type="warn">
+  Reasignar un elemento con más de un usuario asignado invalida por completo la asignación anterior: no añade simplemente al nuevo usuario asignado junto con los demás. Por ejemplo, si tú, John y Linda tienen asignado un elemento y lo reasignas a Abraham, Abraham se convierte en el único usuario asignado. Tú, John y Linda se eliminan automáticamente. Esto difiere de cómo [funciona la reasignación para un miembro del proceso](/docs/use/tasks/member-actions-in-a-process#reassign-items-in-bulk), donde el miembro que realiza la reasignación simplemente se sustituye por el nuevo usuario asignado y los demás permanecen en el elemento.
+</Callout>
+
+Los elementos que ya están completados, rechazados o retirados se omiten durante la reasignación; solo se reasignan los elementos con estado **En curso**. Los elementos omitidos se marcan con un signo de exclamación amarillo para que puedas identificarlos.
+
+<Callout type="info">
+  Los elementos dentro de ramas paralelas no se pueden reasignar.
+</Callout>
+
+### Marcar elementos como completados
+
+Selecciona uno o varios elementos y haz clic en **Marcar como completado**.
+
+![Acción Marcar como completado para los elementos seleccionados](/migration-assets/admin-actions-in-a-process/6.png)
+
+Al marcar un elemento como completado, este avanza directamente hasta el final del flujo de trabajo y omite todos los pasos restantes. Esto resulta útil cuando la persona asignada a un elemento no está disponible y necesitas cerrarlo de inmediato.
+
+### Eliminar y restaurar elementos
+
+Selecciona uno o varios elementos y haz clic en **Eliminar**.
+
+<Callout type="info">
+  Los elementos eliminados se pueden restaurar en un plazo de 30 días desde su eliminación. Después de ese plazo, se eliminan permanentemente.
+</Callout>
+
+Para restaurar un elemento eliminado:
+
+1. Haz clic en la pestaña **Elementos eliminados** en la parte superior del proceso.
+2. Selecciona los elementos que quieres restaurar.
+3. Haz clic en **Restaurar**.
+
+![Pestaña Elementos eliminados con elementos seleccionados y la acción Restaurar disponible](/migration-assets/admin-actions-in-a-process/7.png)
+
+## Qué sigue
+
+- [Registro de auditoría del proceso](/docs/admin/processes/process-audit-log)
+- [Acciones de los miembros en un proceso](/docs/use/tasks/member-actions-in-a-process)
+- [Configurar acciones para los pasos del proceso](/docs/build/processes/step-configuration/configuring-actions-for-process-steps)
+- [Ajustes del proceso](/docs/admin/processes/process-settings)

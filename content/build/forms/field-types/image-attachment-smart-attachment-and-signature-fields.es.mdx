@@ -1,0 +1,165 @@
+---
+title: "Campos de imagen, archivo adjunto, archivo adjunto inteligente y firma"
+description: "BORRADOR (sin verificar) — migrado desde /t/y4h4az1/image-attachment-smart-attachment-and-signature-fields"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Hay tres tipos de campos que pueden almacenar datos como archivos: 
+
+-   Archivo adjunto
+-   Imagen
+-   Firma
+
+## Campo de archivo adjunto
+
+El campo de archivo adjunto te permite cargar muchos tipos de archivos en el formulario.
+
+En el formulario activo, haz clic en el botón **Attach files**. Después de permitir el acceso, carga un archivo desde tu unidad local o un proveedor de almacenamiento en la nube.  
+
+Puedes adjuntar cualquier cantidad de archivos a un solo campo de archivo adjunto. No hay límite para el número de archivos adjuntos que se pueden agregar a un campo de archivo adjunto, pero solo se pueden cargar 10 archivos a la vez desde el selector de archivos. El tamaño acumulado de los archivos adjuntos no debe superar 100.
+
+La vista previa está disponible para los tipos de archivo PDF, XLS, XLSX y ODS. Haz clic en el icono del archivo para obtener una vista previa sin tener que descargarlo.
+
+Pasa el cursor sobre el archivo adjunto y haz clic en el botón **Remove** (![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/1.png)) para eliminar un archivo.  
+
+![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/4.gif)
+
+### Validaciones
+
+Puedes aplicar cuatro tipos de reglas de validación. 
+
+1. **Tipo de archivo adjunto:** Puedes restringir los tipos de archivos que se pueden adjuntar. Elige entre JPG, JPEG, PNG, BMP, GIF, DOC, DOCX, PDF, PPT, PPTX, XLS, XLSX, CSV, TXT, EML y ZIP.
+2. **Tamaño máximo del archivo adjunto:** Establece el tamaño del archivo adjunto hasta 100 MB.
+3. **Número máximo de archivos adjuntos:** Establece el número máximo de archivos adjuntos que se pueden agregar en un solo campo.
+4. **Número mínimo de archivos adjuntos:** Establece el número mínimo de archivos adjuntos para un solo campo.  
+
+## Campo de archivo adjunto inteligente
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+El campo de archivo adjunto inteligente permite a los usuarios completar automáticamente los campos vacíos del formulario mediante un documento adjunto. Esta función basada en IA realiza un procesamiento inteligente de documentos (IDP), extrayendo datos del documento cargado y asignándolos a los campos correspondientes del formulario.
+
+### Agregar un campo de archivo adjunto inteligente
+
+En Propiedades del campo, proporciona el **Name** y selecciona **Field type** como **Smart attachment**.
+
+![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/5.gif)
+
+> **Nota:** 
+> 
+> -   Solo puedes cargar un archivo PDF, JPEG o PNG que no supere los 20 MB.
+> -   El archivo adjunto inteligente solo está disponible en formularios de procesos.
+> -   Admitimos documentos de hasta 20 páginas.
+> -   Extrae hasta 48.000 caracteres. El procesamiento se detiene al alcanzar este límite.
+
+### Usar un campo de archivo adjunto inteligente
+
+Haz clic en el botón **Upload file** y elige un documento de tu unidad local o de un proveedor de almacenamiento en la nube. Una vez que se carga un archivo en el campo de archivo adjunto inteligente, los campos vacíos del formulario se completan automáticamente, como se muestra a continuación.
+
+![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/11.gif)
+
+Incluso después del autocompletado, puedes completar y editar manualmente los campos, o usar los **AI-suggested data** del menú desplegable.
+
+Haz clic en **Replace file** para cargar otro documento. Esto completará automáticamente los campos vacíos restantes y dejará sugerencias para los campos que ya tienen datos.
+
+![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/2.png)
+
+A continuación se indican las últimas mejoras del campo de archivo adjunto inteligente:
+
+-   El autocompletado está habilitado de forma predeterminada. Puedes optar por cancelar el autocompletado durante el procesamiento del archivo.
+-   La compatibilidad con varios idiomas permite procesar documentos en varios idiomas. 
+-   Admite muchos formatos de documento, e incluso se pueden cargar documentos escritos a mano.
+-   Mayor precisión del autocompletado mediante el [autocompletado guiado](/t/m1yzcgv).
+
+> **Nota:** Aunque el uso inicial está cubierto por créditos gratuitos, los usos posteriores pueden generar cargos. Ponte en contacto con nuestros ejecutivos de soporte para obtener más información.
+
+## Campo de imagen
+
+El campo de imagen te permite **cargar** y mostrar una imagen directamente en el formulario. 
+
+En el formulario activo, haz clic en **Upload image**. Después de permitir el acceso, carga una imagen desde tu unidad local o un proveedor de almacenamiento en la nube. La imagen se mostrará inmediatamente en el formulario.  
+
+Solo puedes agregar una imagen por campo. Si quieres cambiar la imagen, haz clic en **Replace image** y elige una nueva. También puedes [anotar la imagen](/t/h7ytkjr) que cargues antes de enviar el formulario.  
+  
+Para eliminar la imagen por completo, haz clic en el botón **Remove** (![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/1.png)) que aparece al pasar el cursor sobre la imagen. 
+
+![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/6.gif)
+
+### Validaciones
+
+Puedes restringir el tipo de imagen cargada a JPG, JPEG, PNG, GIF o BMP. También puedes limitar el tamaño máximo de una imagen a 100 MB. [Obtén más información sobre todas las validaciones](/t/m1h4az4/field-validations).
+
+## Configuración móvil para los campos de imagen y archivo adjunto
+
+Puedes configurar las limitaciones de carga de imágenes para los usuarios que acceden a los formularios desde dispositivos móviles. Esta configuración garantiza la autenticidad de los datos de las operaciones de los campos. 
+
+Selecciona un campo de imagen o archivo adjunto en el creador de formularios y busca la sección **Mobile settings** en el panel derecho **Settings**.
+
+-   **Allow camera captures only**: Activa esta opción para restringir a los usuarios a realizar capturas únicamente con la cámara en vivo. Esto impide que los usuarios carguen imágenes desde su dispositivo móvil o almacenamiento en la nube.
+    
+-   **Add watermark to captured images**: Activa esta opción para superponer metadatos en la imagen al capturarla. La marca de agua se muestra en la esquina inferior derecha de la imagen; esta posición es fija y no se puede cambiar. Puedes seleccionar detalles específicos para la marca de agua:
+    
+    -   **Timestamp**: Agrega la fecha y hora en que se tomó la imagen.
+        
+    -   **Location**: De forma predeterminada, se muestran las coordenadas GPS de la ubicación de la imagen. Al agregar tu clave de API de Google Maps a **Account settings,** se puede agregar a la marca de agua la dirección física real de la ubicación de la imagen.  
+          
+        Si habilitas la configuración de la marca de agua, debes seleccionar al menos una opción (Timestamp o Location).
+        
+
+![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/8.gif)
+
+## Resumidor para campos de imagen, archivo adjunto y archivo adjunto inteligente
+
+Para obtener una descripción rápida de archivos largos o complejos, puedes usar el resumidor de IA integrado. Te permite extraer información clave sin revisar cada página de un archivo adjunto.
+
+1. **Abre el archivo adjunto**: Haz clic en un archivo adjunto cargado para abrir la ventana de vista previa. También puedes acceder a los archivos adjuntos desde el panel **Files**. 
+    
+2. **Genera el resumen**: Haz clic en el icono **Generate summary** (
+    
+    ![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/3.png)
+    
+     ) en la barra de herramientas superior derecha.
+    
+    ![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/12.gif)
+3. **Revisa el resumen**: El panel **Attachment summary** aparecerá a la derecha y proporcionará un desglose en viñetas de los detalles clave del archivo.
+    
+4. **Perfecciona el resumen**: Haz clic en **Edit Prompt** para personalizar el resumen. Escribe tu consulta específica y haz clic en **Generate** para actualizar los resultados según tus nuevas instrucciones.
+    
+    ![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/9.gif)
+
+> **Nota**:
+> 
+> **Navegar por los archivos**
+> 
+> -   **Dentro del mismo campo**: Si navegas entre archivos usando las flechas siguiente o anterior, tus indicaciones personalizadas se guardan, pero los resúmenes no. Tendrás que volver a hacer clic en **Generate** cuando regreses a un archivo.
+>     
+> -   **Entre distintos campos**: Si sales del campo actual para ver archivos adjuntos en otra ubicación, tanto el resumen como la indicación editada se borrarán. Tendrás que generar el resumen nuevamente. 
+>     
+
+Se puede acceder al resumidor desde el panel **Files** en cualquier etapa de un proceso. También está disponible en todas las etapas para los elementos de un tablero y dentro de Dataforms, lo que garantiza la visibilidad de los datos durante todo el flujo de trabajo.
+
+## Campo de firma
+
+El campo de firma te permite recopilar firmas electrónicas.
+
+Hay varias formas de pedirle a un usuario que introduzca su firma:
+
+-   Los usuarios pueden dibujar su firma en los formularios mediante una pantalla táctil o un ratón.  
+     
+-   Insertar una firma ya configurada en la sección **About me** de los usuarios, en la página **My profile**.![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/7.gif)
+
+Kissflow permite a los creadores de formularios restringir la capacidad de los usuarios para dibujar firmas cuando sea necesario, obligándolos a insertar únicamente la firma configurada en sus perfiles. Para hacerlo, desactiva **Allow user to draw signature** en los widgets de firma. 
+
+![](/migration-assets/image-attachment-smart-attachment-and-signature-fields/10.gif)
+
+Esta es una configuración a nivel de widget. Es posible que otros widgets de firma del formulario aún permitan a los usuarios dibujar sus firmas, a menos que se desactiven específicamente.
+
+Si el dibujo de firmas está deshabilitado y el perfil del usuario no tiene ninguna firma, el usuario debe configurar primero una firma en su perfil antes de completar el formulario.

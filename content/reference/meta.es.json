@@ -1,0 +1,14 @@
+{
+  "title": "Referencia",
+  "description": "Glosario, preguntas frecuentes y consultas rápidas.",
+  "pages": [
+    "glossary",
+    "faqs",
+    "supported-browsers",
+    "slas-and-support",
+    "multi-language-support",
+    "troubleshooting",
+    "faq"
+  ],
+  "icon": "reference"
+}

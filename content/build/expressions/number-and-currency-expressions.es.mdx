@@ -1,0 +1,339 @@
+---
+title: "Expresiones de números y monedas"
+description: "BORRADOR (sin verificar) — migrado desde /t/g9h4alx/number-and-currency-expressions"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Las expresiones de números y monedas son similares. Sin embargo, es posible que muchas funciones, métodos y operadores no funcionen al evaluar números y monedas.
+
+Si usas varios campos de moneda, asegúrate de que sean del mismo tipo. Los campos de calificación y control deslizante se pueden usar como campos de número en las expresiones. 
+
+## Ejemplo utilizado
+
+Usaremos estos campos de ejemplo en las expresiones que aparecen a continuación.
+
+**ID del campo**
+
+**Tipo**
+
+**Valor**
+
+num1
+
+Número
+
+10
+
+num2
+
+Número
+
+22.45
+
+cur1
+
+Moneda
+
+$10
+
+## Funciones de números y monedas
+
+Las funciones se colocan al principio de la expresión. 
+
+**Función**
+
+**Tipo de datos**
+
+**Descripción**
+
+**Sintaxis**
+
+**Resultado**
+
+Rand
+
+Número
+
+Genera un número aleatorio.
+
+Rand()
+
+0.449218421
+
+RandBetween
+
+Número
+
+Genera un número aleatorio entre dos valores.
+
+RandBetween(1, 10)
+
+4
+
+Mod
+
+Número o moneda
+
+Muestra el resto cuando el dividendo se divide entre el divisor.
+
+Si el dividendo es una moneda, el resultado también es una moneda.
+
+Mod(num1, 3)
+
+Mod(cur1, 3)
+
+1
+
+$1
+
+Min
+
+Número o moneda
+
+Muestra el valor mínimo de un conjunto de números.
+
+Min(num1, num2)
+
+10
+
+Max
+
+Número o moneda
+
+Muestra el valor máximo de un conjunto de números.
+
+Max(num1, num2)
+
+22.45
+
+## Métodos
+
+Los métodos aparecen después del ID del campo y se invocan con un operador de punto. 
+
+**Función**
+
+**Descripción**
+
+**Sintaxis**
+
+**Resultado**
+
+round
+
+Redondea un número hacia arriba o hacia abajo.
+
+Añade el número de posiciones decimales que quieras. 
+
+num2.round()
+
+num2.round(1)
+
+22
+
+22.5
+
+roundup
+
+Siempre redondea un número hacia arriba.
+
+Añade el número de posiciones decimales que quieras. 
+
+num2.roundup()
+
+num2.roundup(1)
+
+23
+
+22.5
+
+rounddown
+
+Siempre redondea un número hacia abajo.
+
+Añade el número de posiciones decimales que quieras.
+
+num2.rounddown()
+
+num2.rounddown(1)
+
+22
+
+22.4
+
+ceil
+
+Redondea un número hacia arriba al múltiplo más cercano de la unidad indicada.
+
+Si no se proporciona ningún valor, se considera que es 1.
+
+num2.ceil(5)
+
+25
+
+floor
+
+Redondea un número hacia abajo al múltiplo más cercano de la unidad indicada.
+
+num2.floor(5)
+
+20
+
+abs
+
+Muestra el valor absoluto de un número.
+
+num2.abs()
+
+22.45
+
+code
+
+Muestra el código de moneda en un campo de texto. 
+
+cur1.code()
+
+USD
+
+## Operadores
+
+Hay cinco operadores aritméticos en Kissflow: 
+
+-   Suma (+)
+-   Resta (-)
+-   Multiplicación (\*)
+-   División (/)
+-   Exponentes (^)
+
+Las expresiones con operadores aritméticos pueden usar enteros o campos. 
+
+### Uso de operadores
+
+Estas son todas las formas en que puedes evaluar los campos.
+
+**Campo 1**
+
+**Campo 2**
+
+**Operador**
+
+**Tipo resultante**
+
+Número
+
+Número
+
++, -, \*, /
+
+Número
+
+Número
+
+Entero
+
++, -, \*, /, ^
+
+Número
+
+Moneda
+
+Moneda (igual)
+
++, -
+
+Moneda
+
+Moneda
+
+Número/entero
+
+\*, /
+
+Moneda
+
+## Conversión de tipos de datos
+
+Estas son algunas formas de convertir tipos de datos usando números.
+
+**Nombre**
+
+**Descripción**
+
+**Sintaxis**
+
+**Resultado**
+
+value
+
+Convierte un valor de moneda en un valor numérico.
+
+cur1.value()
+
+10
+
+Número
+
+Convierte un valor de texto en un número.
+
+Por ejemplo, el valor de text1 es “10”.
+
+Number(text1)
+
+10
+
+Moneda
+
+Convierte un valor numérico en una moneda específica.
+
+Currency(10, "GBP")
+
+£ 10
+
+Moneda a partir de texto
+
+Esta función convierte un valor de cadena en una moneda específica. Debes incluir un espacio entre el valor entero y el código de moneda como parte de la sintaxis.
+
+> **Nota:**
+> 
+> Esta función solo es compatible con los formularios de configuración de integraciones.
+
+currencyFromText("10 USD")
+
+$ 10
+
+convert
+
+Convierte una moneda en otro tipo usando una tasa de cambio estática.1 
+
+cur1.convert(.90, “EUR”)
+
+EUR €9.00
+
+1\. Para usar tasas de cambio en tiempo real, [usa un campo de búsqueda remota](/t/x2yq224/remote-lookup).
+
+**Método**
+
+**Sintaxis**
+
+**Tipo de entrada**
+
+**Tipo de salida**
+
+**Explicación**
+
+extractNumber
+
+Remotelookup\_Fieldname.extractNumber
+
+(&lt;path,&lt;index>)
+
+Remotelookup\_Fieldname: JSON OBJECT&lt;path>: TEXT (valid json path)&lt;index>: NUMBER
+
+LIST&#123;NUMBER&#125;NUMBER
+
+Extrae y devuelve un arreglo de números del objeto JSON según el filtro aplicado por la ruta JSON proporcionada. Si se proporciona el índice, se extrae el número que se encuentra en ese índice específico.

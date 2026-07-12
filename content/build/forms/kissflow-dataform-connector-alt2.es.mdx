@@ -1,0 +1,75 @@
+---
+title: "Conector de dataform de Kissflow"
+description: "BORRADOR (sin verificar) — migrado desde /t/y4yzjan/kissflow-dataform-connector"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+## Dataforms
+
+Los dataforms en Kissflow Apps son formularios utilizados para recopilar datos y no incluyen un proceso de aprobación mediante workflow. También puedes crear vistas únicas para mostrar los datos recopilados.
+
+## Conexión a dataforms
+
+Los administradores de aplicaciones con permiso para acceder a un dataform y administrarlo pueden usar datos rellenados previamente desde cualquier conector para crear o actualizar tus registros de dataform.
+
+Por ejemplo, tienes un tablero para gestionar tu mesa de ayuda y quieres que ciertos tickets identificados como solicitudes de cambio pasen por un proceso de aprobación de funcionalidades. Si se aprueba la solicitud de cambio, puedes enviar los datos de la solicitud como una entrada de dataform. También puedes usar este conector para actualizar un conjunto de datos predefinido en tu dataform.
+
+## Triggers para Kissflow Dataform
+
+**Trigger**
+
+**Descripción**
+
+Cuando se añade un elemento a un dataform
+
+Se activa cuando un usuario envía un elemento nuevo de dataform.
+
+Cuando se actualiza un elemento en un dataform
+
+Se activa cuando un usuario edita y envía un elemento de dataform existente.
+
+Cuando se elimina un elemento de un dataform
+
+Se activa cuando un usuario elimina un elemento de dataform enviado anteriormente.
+
+## Actions para Kissflow Dataform
+
+**Action**
+
+**Descripción**
+
+Crear y enviar un elemento
+
+Esta acción crea y envía un elemento de dataform utilizando las entradas proporcionadas en este paso.
+
+Actualizar un elemento
+
+Esta acción actualiza los campos de un elemento de dataform.
+
+Obtener un elemento
+
+Esta acción recupera un elemento específico de tu dataform mediante su ID de elemento.
+
+Obtener uno o varios elementos
+
+Esta acción recupera varios elementos de tu dataform.
+
+Eliminar un elemento
+
+Esta acción elimina un elemento específico de tu dataform mediante su ID de elemento.
+
+## Usar un conector como acción
+
+1.  En el creador de aplicaciones, haz clic en **Logic** en el menú de navegación izquierdo > **Integrations.** Haz clic en el nombre de la integración que quieres editar y se abrirá en el editor de integraciones. Configura un paso de trigger y autentica la conexión.
+2.  Después de configurar el trigger, elige el conector **Kissflow dataform** y selecciona un paso de action entre las opciones disponibles.![](/migration-assets/kissflow-dataform-connector-2/1.png)
+3.  Al igual que configurarías un trigger, configura una conexión con la cuenta requerida.
+4.  Después de elegir un dataform, añade los valores correspondientes a los campos del formulario. Puedes actualizar los campos para ver todos los campos actualizados del formulario. También puedes asignar campos del formulario desde el paso de trigger o desde pasos de action anteriores. Una vez ejecutada la acción, estos valores se añadirán automáticamente a los campos.
+5.  Comprueba que el paso de action esté configurado correctamente haciendo clic en el botón **Test action**. El conector extraerá los datos de los campos de tu proceso y los mostrará en formato JSON. Si se produce algún error, se te notificará de inmediato. Corrígelos antes de volver a probar la acción.
+
+Después de configurar los triggers y actions necesarios, ve a la esquina superior derecha del editor y **turn on** la integración para activarla.

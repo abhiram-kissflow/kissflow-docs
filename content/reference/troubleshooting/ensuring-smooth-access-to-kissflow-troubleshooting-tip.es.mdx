@@ -1,0 +1,62 @@
+---
+title: "Garantizar un acceso fluido a Kissflow"
+description: "Soluciona los problemas de acceso bloqueado o intermitente a Kissflow mediante la inclusión de los dominios necesarios en la lista de permitidos del firewall y descarta bloqueos a nivel del ISP."
+contentType: troubleshooting
+persona: shared
+section: reference
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - access
+  - firewall
+  - networking
+---
+
+# Garantizar un acceso fluido a Kissflow
+
+Si no puedes acceder a Kissflow o algunas partes del producto no se cargan, las causas más comunes son que un firewall corporativo esté bloqueando los dominios necesarios o que un ISP esté bloqueando la infraestructura subyacente de Amazon o Google en la que se ejecuta Kissflow.
+
+## Síntoma: Kissflow no se carga o se carga parcialmente
+
+Las páginas no se cargan, faltan estilos o iconos, o funciones como el chat de soporte, el selector de archivos o los mapas no funcionan, mientras que otros sitios web funcionan correctamente.
+
+**Causa:** El firewall de tu organización está bloqueando uno o más dominios de los que depende Kissflow.
+
+**Solución:** Pide a tu equipo de TI que incluya los siguientes dominios en la lista de permitidos.
+
+### Aplicación principal
+
+- `https://*.kissflow.com` — el asterisco (`*`) incluye en la lista de permitidos cualquier subdominio de `kissflow.com`, incluido el subdominio propio de tu cuenta (por ejemplo, `https://yourcompany.kissflow.com`). Si tu firewall no admite entradas comodín, incluye en la lista de permitidos el subdominio exacto de tu cuenta.
+- `https://static-cdn1.kissflow.com` — recursos estáticos.
+- `https://www.gstatic.com` — subrecursos para elementos incrustados alojados en Google, como reCAPTCHA y Google Maps.
+
+<Callout type="info">
+  Algunas cuentas reciben dominios adicionales de recursos estáticos en función de su región de datos (por ejemplo, un segundo host de CDN para las cuentas de EE. UU. o una variante `kissflow.eu` para las cuentas de la UE). Si los recursos siguen sin cargarse después de incluir los dominios anteriores en la lista de permitidos, consulta con tu contacto de Kissflow cuál es el dominio de CDN exacto correspondiente a la región de tu cuenta.
+</Callout>
+
+### Servicios complementarios
+
+| Dominio | Se utiliza para |
+| --- | --- |
+| `https://o300529.ingest.sentry.io` | Informes de errores |
+| `https://widget.intercom.io` | Soporte por chat dentro de la aplicación |
+| `https://js.intercomcdn.com`, `https://api-iam.intercom.io`, `wss://nexus-websocket-a.intercom.io` | Soporte por chat dentro de la aplicación (recursos alojados en Intercom) |
+| `wss://*.firebaseio.com` | Actualizaciones en tiempo real |
+| `https://fonts.gstatic.com`, `https://fonts.googleapis.com` | Fuentes |
+| `https://maps.googleapis.com` | Campos de mapa |
+| `https://www.googleapis.com` | Selector de archivos de Google Drive |
+| `https://unpkg.com` | Componentes personalizados de low-code |
+| `https://www.recaptcha.net` | Protección contra bots en formularios |
+| `https://*.storage.googleapis.com` | Almacenamiento de archivos e imágenes |
+| `https://us.i.posthog.com` | Analítica del producto |
+
+<Callout type="info">
+  Si anteriormente incluiste `https://app.posthog.com` en la lista de permitidos para la analítica del producto, actualízalo a `https://us.i.posthog.com`: Kissflow ahora envía este tráfico a través del host regional de ingesta de PostHog.
+</Callout>
+
+Si tu cuenta utiliza Kissflow App Store, consulta también con tu equipo de TI si es necesario incluir `appstore.us.kissflow.store` y `resource.us.kissflow.store` en la lista de permitidos por separado, ya que pueden proporcionarse desde un entorno diferente al dominio principal de tu cuenta.
+
+## Síntoma: no se puede acceder a Kissflow aunque los dominios estén en la lista de permitidos
+
+**Causa:** Es posible que tu ISP esté bloqueando la infraestructura de nube subyacente de Amazon o Google en la que se ejecutan los servidores de Kissflow, en lugar de bloquear directamente los dominios de Kissflow.
+
+**Solución:** Intenta acceder a Kissflow mediante una VPN. Si Kissflow se carga correctamente a través de la VPN, pide a tu ISP que desbloquee los rangos de servidores de Amazon y Google o continúa utilizando una VPN como solución alternativa.

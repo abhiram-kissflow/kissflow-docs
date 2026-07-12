@@ -1,0 +1,118 @@
+---
+title: "Campo de moneda"
+description: "BORRADOR (no verificado) — migrado desde /t/m1h4azb/currency-field"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Básico ✓ Enterprise
+
+El campo de moneda funciona como el [campo numérico](/t/60h4az2/number-field), pero incluye un símbolo de moneda antes del valor.
+
+## Configuración
+
+Puedes configurar el número de posiciones decimales.
+
+![](/migration-assets/currency-field/1.gif)
+
+De forma predeterminada, el tipo de moneda aceptado es _USD_. Puedes seleccionar entre más de 250 tipos de moneda los que quieras permitir. Puedes seleccionar varias monedas aceptadas.
+
+En el formulario activo, todas las monedas aceptadas aparecerán en una lista desplegable para los usuarios.
+
+### Límites técnicos
+
+El campo de moneda admite hasta 15 dígitos significativos en total. Esto incluye el recuento combinado de dígitos antes y después del punto decimal. Este límite se basa en el estándar de coma flotante de doble precisión IEEE 754.
+
+**Valor**
+
+**Dígitos totales**
+
+**Estado**
+
+**Motivo**
+
+`123456789012345`
+
+15
+
+✓ Aceptado
+
+15 dígitos antes del decimal.
+
+`1234567890.12345`
+
+15
+
+✓ Aceptado
+
+10 antes + 5 después = 15 en total.
+
+`12345678901234.56`
+
+16
+
+✗ No recomendado
+
+14 antes + 2 después = 16 en total (pérdida de precisión: los dígitos adicionales se redondearán o truncarán, lo que provocará imprecisiones en los datos).
+
+## Validaciones
+
+Hay 6 tipos de [validaciones](/t/m1h4az4/field-validations) que puedes usar con un campo de moneda:
+
+-   Igual a
+-   No igual a
+-   Mayor que
+-   Mayor o igual que
+-   Menor que
+-   Menor o igual que
+
+## Expresiones
+
+[Consulta todas las expresiones que puedes usar para el campo de moneda.](/t/g9h4alx/number-and-currency-expressions) Para evaluar dos campos de moneda, deben ser del mismo tipo de moneda.
+
+Aprende a [configurar una búsqueda remota para obtener tipos de cambio en tiempo real](/t/x2yq224/remote-lookup).
+
+## Preguntas frecuentes
+
+**1\. ¿Cuáles son los distintos límites flexibles en los formularios de Kissflow?**
+
+**Respuesta)** Para mejorar el rendimiento y garantizar un uso eficiente de los recursos, Kissflow ha establecido las siguientes restricciones para cada formulario:
+
+-   Un máximo de 1000 campos por formulario.
+    
+-   Un límite flexible predeterminado de 10 tablas secundarias en cada formulario.
+    
+-   Un límite flexible predeterminado de 100 columnas por tabla secundaria.
+    
+-   Un límite máximo de 5000 filas por tabla secundaria.
+    
+-   Un límite máximo de 30 eventos por formulario (sin incluir los campos de botón).
+    
+
+**2\. ¿Puedo cambiar los tipos de datos de los campos en un formulario con más de 5000 elementos?**
+
+**Respuesta)** No puedes cambiar los tipos de datos de los campos en un formulario cuando hay más de 5000 registros. Esta restricción existe para evitar posibles problemas de versionado al modificar tipos de datos en formularios grandes. Cambiar los tipos de datos de muchos valores puede provocar incoherencias y problemas de rendimiento.
+
+**3\. ¿Hay tipos de campos en los formularios de Kissflow que no tengan límites flexibles?**
+
+**Respuesta)** Sí, ciertos tipos de campos en los formularios de Kissflow no están sujetos a límites flexibles:
+
+-   Campos de texto enriquecido.
+    
+-   Campos de cuadrícula.
+    
+-   Campos de botón (estos tienen un límite flexible independiente de 100 botones por formulario, además del límite predeterminado del formulario).
+    
+
+Los campos de texto enriquecido y de cuadrícula están exentos de estas restricciones porque no contienen metadatos.
+
+**4\. ¿Qué ocurre si duplico una sección con límites aumentados?**
+
+**Respuesta)** Si duplicas un flujo con límites aumentados, el nuevo flujo heredará los mismos límites incrementados.
+
+**5\. ¿Recibiré alguna advertencia cuando me acerque a estos límites?**
+
+**Respuesta)** Sí, aparecerán advertencias cuando estés cerca de alcanzar los límites. Por ejemplo, cuando tengas 990 campos y 90 columnas, recibirás advertencias indicando que te estás acercando al límite y sugiriendo que solicites una ampliación si es necesario.

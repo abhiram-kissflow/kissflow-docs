@@ -1,0 +1,155 @@
+---
+title: "Gobernanza del portal"
+description: "BORRADOR (sin verificar) — migrado desde /t/p8ygls3/portal-governance"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+La gobernanza del portal ofrece a [Super admins y administradores de IAM](/t/35h4ak0/user-roles-and-permissions) una perspectiva de cómo se utilizan los portales en toda su cuenta de Kissflow. Destaca las tendencias de actividad de los portales, ayuda a identificar portales inactivos o con un uso elevado y muestra posibles riesgos, como el acceso no autorizado o la exposición de datos externos. Estos insights son esenciales para tomar decisiones informadas sobre la gestión del ciclo de vida de los portales y la gobernanza de datos.
+
+Haz clic en tu perfil, en la esquina superior derecha dentro de Kissflow, y haz clic en **Account governance** > la pestaña **Portals** de la izquierda. Puedes encontrar la lista de portales de tu cuenta junto con sus detalles.
+
+Al hacer clic en cualquier portal, accederás a su página de detalles, donde encontrarás insights más profundos. Consulta el estado del portal y los detalles de su creador. Además de estos detalles, dispones de muchas otras secciones en las que puedes obtener más información sobre el portal.
+
+![](/migration-assets/portal-governance/13.gif)
+
+### Usuarios
+
+La sección **Usuarios** muestra a todas las personas que forman parte del portal en los distintos entornos. Supervisar la pertenencia al portal te ayuda a controlar quién puede interactuar con él, reduciendo el riesgo de filtraciones de datos o cambios no aprobados.
+
+![](/migration-assets/portal-governance/1.png)
+
+> **Nota:**
+> 
+> Esta es la única sección disponible en la página de detalles de un portal en borrador.
+
+### Métricas de uso
+
+**Usuarios únicos** - Consulta el número de usuarios distintos que accedieron al portal durante el período seleccionado para comprender la participación real.
+
+### Roles
+
+Esta sección muestra los distintos roles definidos dentro del portal, junto con el número de usuarios asignados a cada rol. Esto te ayuda a evaluar cómo se distribuyen las responsabilidades dentro del portal.
+
+![](/migration-assets/portal-governance/3.png)
+
+Al hacer clic en un rol, accederás a su página de detalles, donde podrás obtener más información sobre:
+
+-   **Usuarios** - Consulta la lista de usuarios de cada rol.
+    
+-   **Flujos** - Consulta a qué flujos pueden acceder los usuarios de este rol para garantizar que el acceso siga estando autorizado.
+    
+-   **Informes** - Haz un seguimiento del acceso a los informes para mejorar el control y el cumplimiento.
+    
+-   **Vistas** - Supervisa qué vistas están disponibles para cada rol.
+    
+
+### Roles externos
+
+Identifica los roles vinculados a este portal desde otras aplicaciones o portales de tu cuenta. Estos roles pueden incorporar usuarios que no forman parte explícitamente del portal, pero que aún tienen acceso debido a asignaciones de roles más amplias en otros lugares. Supervisar estos vínculos es clave para minimizar la exposición involuntaria de datos y garantizar que solo los usuarios adecuados puedan acceder a información confidencial dentro del portal.
+
+![](/migration-assets/portal-governance/4.png)
+
+Al hacer clic en un rol, accederás a su página de detalles, donde podrás obtener más información sobre:
+
+-   **Usuarios** - Consulta la lista de usuarios de cada rol.
+    
+-   **Flujos** - Consulta a qué flujos pueden acceder los usuarios de este rol para garantizar que el acceso siga estando autorizado.
+    
+-   **Informes** - Haz un seguimiento del acceso a los informes para mejorar el control y el cumplimiento.
+    
+-   **Vistas** - Supervisa qué vistas están disponibles para cada rol.
+    
+
+### Aplicaciones y portales vinculados
+
+Esta sección muestra una lista de aplicaciones y portales que están [vinculados a este portal](/t/35yzjvd/application-to-application-lookup-through-linking) y consultan datos en él. Esta sección te ayuda a:
+
+-   Comprender dónde se consumen externamente los datos de este portal, lo que favorece una mayor visibilidad de los datos.
+    
+-   Identificar posibles exposiciones de datos, especialmente si varios portales acceden a información confidencial.
+    
+
+![](/migration-assets/portal-governance/2.png)
+
+### Objetos de datos externos
+
+La sección **Objetos de datos externos** te permite ver si el portal se conecta a plataformas de terceros para obtener o interactuar con datos externos. Supervisar estas conexiones es esencial para comprender hacia dónde fluyen los datos de tu portal y te ayuda a evaluar posibles riesgos relacionados con la seguridad de los datos o el cumplimiento.
+
+![](/migration-assets/portal-governance/5.png)
+
+Al hacer clic en un objeto externo, accederás a su página de detalles. Esta página proporciona una lista de todos los flujos que recuperan y muestran datos de ese objeto externo.
+
+### Flujos creados
+
+En esta sección, puedes obtener una lista de todos los tipos de flujos creados dentro del portal: procesos, tableros y dataform. Esto te da una idea de cómo está estructurado el portal.
+
+![](/migration-assets/portal-governance/8.png)
+
+Al hacer clic en un flujo, accederás a su página de detalles, donde podrás consultar la siguiente información:
+
+-   Roles y actividad
+    
+-   Formularios públicos (procesos y dataform)
+    
+-   Integraciones
+    
+-   Campos confidenciales
+    
+-   Relaciones entre flujos
+    
+    -   Flujos consultados desde/hacia
+        
+    -   Flujos dependientes y de origen (procesos y tableros)
+        
+-   Registros - Descarga registros, imprime registros (procesos y tableros) y exporta registros.
+    
+
+### Componentes personalizados
+
+Puedes consultar la lista de [componentes personalizados](/t/p8h9q1s/creating-custom-components) creados en este portal, como widgets o interfaces especializadas. Esto resulta útil para identificar componentes sin uso u obsoletos que se puedan retirar y así optimizar el portal.
+
+![](/migration-assets/portal-governance/6.png)
+
+### Tablas de decisión
+
+En esta sección, puedes consultar todas las [tablas de decisión](/t/60yxblt/decision-tables-overview) creadas en este portal.
+
+![](/migration-assets/portal-governance/7.png)
+
+### Formularios públicos
+
+En esta sección, consulta todos los formularios de procesos y dataform de este portal a los que se puede acceder desde fuera de Kissflow. Cualquier información contenida en estos formularios queda expuesta externamente.
+
+![](/migration-assets/portal-governance/9.png)
+
+### Integraciones
+
+Esta sección contiene la lista de integraciones utilizadas en el portal. Muestra el estado de cada integración junto con los conectores utilizados, ya sea que se vinculen a sistemas internos de Kissflow o a plataformas externas. Revisar esta información te ayuda a garantizar que el portal solo esté conectado a los sistemas previstos, reduciendo el riesgo de exposición no autorizada de datos.
+
+![](/migration-assets/portal-governance/10.png)
+
+### Historial de implementaciones
+
+Esta sección proporciona una cronología completa de la actividad de implementación del portal, incluidos los detalles de cuándo se implementaron los cambios y quién los realizó. Cada entrada registra la fecha y hora de la implementación y el usuario responsable de ella.
+
+Este historial de implementaciones es fundamental para:
+
+-   Mantener un registro de auditoría fiable de todos los cambios del portal.
+-   Hacer un seguimiento de la responsabilidad identificando quién realizó actualizaciones específicas.
+-   Solucionar problemas al identificar la versión o implementación exacta que introdujo un cambio.
+
+Al supervisar el historial de implementaciones, puedes garantizar que todos los cambios sean intencionados y estén autorizados. 
+
+![](/migration-assets/portal-governance/11.png)
+
+#### Registro de auditoría
+
+Al utilizar el registro de auditoría, puedes obtener visibilidad e insights valiosos sobre las actividades realizadas en el portal. Proporciona un registro completo de todas las acciones en función del tiempo, lo que permite realizar análisis detallados y comprender mejor el portal. A partir de esta información, puedes hacer un seguimiento y examinar diversas actividades del portal para mejorar la supervisión y la seguridad.
+
+![](/migration-assets/portal-governance/12.png)

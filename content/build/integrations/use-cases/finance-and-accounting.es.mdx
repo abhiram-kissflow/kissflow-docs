@@ -1,0 +1,261 @@
+---
+title: "Finanzas y contabilidad"
+description: "BORRADOR (sin verificar) — migrado desde /t/m1yk4rd/finance-and-accounting"
+contentType: use-case
+persona: citizen-developer
+section: build
+---
+
+Las plataformas de finanzas y contabilidad son la columna vertebral de cualquier empresa: gestionan el flujo de caja, realizan el seguimiento de los gastos, facturan a los clientes y garantizan el cumplimiento normativo. La precisión y puntualidad de los datos financieros son fundamentales. Las integraciones son esenciales para mantener esta precisión, ya que conectan el software de contabilidad con otros sistemas operativos, como ventas (CRM), adquisiciones y RR. HH. Esto crea una única fuente de información fiable para los datos financieros y automatiza procesos tediosos como la creación de facturas, los informes de gastos y la facturación a clientes. De este modo, las empresas pueden cerrar sus libros más rápido, reducir el riesgo de errores humanos y obtener visibilidad en tiempo real de su situación financiera.
+
+## Conectores en este sector
+
+**Aplicación**
+
+**Descripción**
+
+**[QuickBooks](/t/m1h4afz/quickbooks-connector)**
+
+Un paquete completo de software de contabilidad dirigido principalmente a pequeñas y medianas empresas, que gestiona la facturación, las cuentas por pagar, el seguimiento de gastos y los informes financieros.
+
+**[FreshBooks](/t/h7h4af6/freshbooks-connector)**
+
+Un software de contabilidad centrado en pequeñas empresas de servicios y trabajadores independientes, especializado en facturación, gestión de gastos y seguimiento del tiempo.
+
+**[Expensify](/t/60h4aft/expensify-connector)**
+
+Un sistema especializado de gestión de gastos que automatiza cada paso del proceso de elaboración de informes de gastos, desde el escaneo de recibos hasta el reembolso.
+
+**[HTTP](/t/p8h4aky/http-connector)**
+
+Además de las acciones prediseñadas disponibles en Kissflow Integrations para la gestión de RR. HH., puede haber situaciones en las que necesites realizar una acción personalizada. En esos casos, puedes usar el conector HTTP para configurar llamadas a la API desde cero e interactuar con cualquier servicio que exponga una API REST.
+
+## Casos de uso de integración con Kissflow
+
+Estos son ejemplos prácticos y basados en situaciones de cómo Kissflow puede activar acciones en QuickBooks, FreshBooks y Expensify para resolver problemas empresariales habituales.
+
+### QuickBooks
+
+**Objetivo empresarial**
+
+**Desencadenador (en Kissflow)**
+
+**Acción (en QuickBooks)**
+
+**Situación detallada**
+
+**Beneficio principal**
+
+Agilizar la incorporación de clientes
+
+El equipo de ventas aprueba un nuevo cliente.
+
+Crear un cliente.
+
+Cuando el equipo de ventas aprueba un nuevo cliente en Kissflow, la integración crea un registro de cliente en QuickBooks con la información de facturación y contacto necesaria para emitir facturas.
+
+Garantiza una facturación puntual y precisa desde el primer día, sin introducir datos manualmente.
+
+Mantener datos precisos de los clientes
+
+Un cliente actualiza sus datos en un portal de autoservicio.
+
+Actualizar un cliente.
+
+El registro del cliente en QuickBooks se actualiza al instante si un cliente modifica su dirección o las condiciones de pago en el portal de Kissflow.
+
+Garantiza que las facturas y las comunicaciones siempre se envíen a la dirección correcta.
+
+Automatizar la facturación
+
+Se confirma el cumplimiento de un pedido.
+
+Crear una factura.
+
+Después de confirmar el cumplimiento de un pedido en un flujo de trabajo de Kissflow, la integración crea una factura en QuickBooks para los productos enviados.
+
+Acelera el ciclo de facturación y mejora el flujo de caja al emitir las facturas de inmediato.
+
+Simplificar la conciliación de pagos
+
+Se recibe y verifica un pago.
+
+Crear un pago.
+
+Cuando se registra un pago en Kissflow, la integración lo registra automáticamente contra la factura correcta en QuickBooks.
+
+Reduce el esfuerzo de conciliación manual y ofrece una vista en tiempo real de las facturas pagadas.
+
+Gestionar las cuentas por pagar a proveedores
+
+Se aprueba la orden de compra de un proveedor.
+
+Crear una cuenta por pagar.
+
+Al recibir la aprobación de la orden de compra de un proveedor en Kissflow, la integración crea una cuenta por pagar en QuickBooks para que el proveedor pueda procesar el pago.
+
+Agiliza el proceso de cuentas por pagar y garantiza que los proveedores reciban sus pagos a tiempo.
+
+Automatizar la configuración de proveedores
+
+Se aprueba un nuevo proveedor.
+
+Crear un proveedor.
+
+Los nuevos proveedores aprobados en un flujo de trabajo de adquisiciones de Kissflow se añaden de inmediato como proveedores en QuickBooks, con información fiscal y bancaria.
+
+Centraliza la información de los proveedores y la pone a disposición de inmediato para la facturación.
+
+Registrar transacciones en el punto de venta
+
+Se procesa un pago minorista instantáneo.
+
+Crear un recibo de venta.
+
+Para los pagos instantáneos procesados mediante una aplicación de punto de venta de Kissflow, se crea un recibo de venta en QuickBooks para registrar conjuntamente la venta y el pago.
+
+Mantiene los registros financieros perfectamente sincronizados con las actividades de venta diarias.
+
+Estandarizar las cotizaciones de ventas
+
+Se aprueba una cotización de ventas.
+
+Crear una estimación.
+
+Durante la elaboración de cotizaciones de ventas, Kissflow crea una estimación en QuickBooks a partir de la cotización aprobada, lista para convertirse posteriormente en una factura.
+
+Conecta la elaboración de cotizaciones de ventas con el seguimiento financiero.
+
+Agilizar el ciclo de adquisiciones
+
+El equipo de adquisiciones aprueba una nueva solicitud de pedido.
+
+Crear una orden de compra.
+
+La integración crea una orden de compra en QuickBooks con los datos del proveedor, los artículos y las cantidades, lo que activa el procesamiento del pedido por parte del proveedor.
+
+Automatiza el proceso de compras, reduce los errores manuales y proporciona un registro de auditoría claro.
+
+Simplificar el reembolso de gastos
+
+Se aprueba un formulario de reembolso de viaje.
+
+Crear un gasto.
+
+El flujo de trabajo crea un registro de gastos en QuickBooks, adjunta los detalles del recibo y asigna el costo al presupuesto del departamento correspondiente.
+
+Garantiza reembolsos precisos y puntuales, al tiempo que mantiene un seguimiento preciso del presupuesto de cada departamento.
+
+Mantener sincronizado el catálogo de productos
+
+El equipo de productos añade un nuevo SKU a un formulario de catálogo de productos.
+
+Crear un artículo.
+
+Se crea automáticamente un artículo en QuickBooks con la configuración de precios e inventario, lo que garantiza que los equipos de ventas y finanzas dispongan de la información más reciente del producto.
+
+Garantiza la coherencia de los precios y los productos en todas las funciones empresariales.
+
+Facilitar datos al equipo de soporte
+
+Un representante de atención al cliente recibe una llamada de un cliente.
+
+Buscar un cliente.
+
+Al introducir el nombre del cliente en Kissflow, el sistema busca en QuickBooks y recupera su información de contacto y su historial de transacciones.
+
+Mejora la resolución en la primera llamada al proporcionar a los agentes de soporte acceso instantáneo al historial financiero.
+
+Permitir búsquedas rápidas de facturas
+
+El equipo de finanzas necesita comprobar el estado de una factura.
+
+Buscar una factura.
+
+Introducen el número de factura en Kissflow, que busca en QuickBooks y muestra su estado, historial de pagos y saldo.
+
+Proporciona acceso inmediato a los detalles de la factura sin necesidad de cambiar de aplicación.
+
+Facilitar la gestión de proveedores
+
+El equipo de adquisiciones revisa el rendimiento de un proveedor.
+
+Buscar un proveedor.
+
+Introducen el nombre del proveedor en Kissflow para buscar en QuickBooks transacciones anteriores, condiciones de pago y métricas de rendimiento.
+
+Favorece la toma de decisiones basada en datos al proporcionar una visión completa del historial del proveedor.
+
+Proporcionar datos de inventario en tiempo real
+
+Un responsable de inventario comprueba la disponibilidad de un producto.
+
+Buscar productos.
+
+Busca en Kissflow para recuperar los detalles del producto desde QuickBooks, incluidos los niveles de existencias, los precios y la información del proveedor.
+
+Ayuda a prevenir la falta de existencias y orienta las decisiones de compra con datos de inventario actualizados.
+
+Facilitar las auditorías financieras
+
+El equipo de contabilidad necesita revisar cuentas específicas.
+
+Buscar cuentas.
+
+Introduce el nombre de la cuenta en Kissflow, que busca en QuickBooks y muestra el historial de transacciones y los saldos actuales.
+
+Agiliza el proceso de auditoría al facilitar el acceso a la información de las cuentas.
+
+Garantizar el cumplimiento fiscal
+
+El departamento de impuestos se prepara para presentar una declaración.
+
+Buscar códigos fiscales.
+
+Busca códigos fiscales en Kissflow, que recupera la información de QuickBooks para garantizar cálculos precisos y el cumplimiento normativo.
+
+Reduce el riesgo de incumplimiento al facilitar el acceso a información fiscal correcta.
+
+### FreshBooks
+
+**Objetivo empresarial**
+
+**Desencadenador (en Kissflow)**
+
+**Acción (en FreshBooks)**
+
+**Situación detallada**
+
+**Beneficio principal**
+
+Automatizar la facturación entre empresas
+
+Una transacción de cliente completa su flujo de trabajo.
+
+Crear una nueva factura.
+
+Para una empresa de ropa B2B, una vez que el pedido de un cliente se procesa en Kissflow, se crea automáticamente una nueva factura en FreshBooks.
+
+Acelera el ciclo de facturación de los clientes habituales y elimina la creación manual de facturas.
+
+### Expensify 
+
+**Objetivo empresarial**
+
+**Desencadenador (en Expensify)**
+
+**Acción (en Kissflow)**
+
+**Situación detallada**
+
+**Beneficio principal**
+
+Crear un proceso de reembolso fluido
+
+Se crea un nuevo informe de gastos a partir de un recibo de Gmail.
+
+Crear un nuevo elemento.
+
+El billete de avión de un consultor procedente de Gmail se envía a Expensify. El nuevo informe de Expensify activa entonces un flujo de trabajo de reembolso en Kissflow.
+
+Crea un proceso completamente automatizado de principio a fin, desde el recibo hasta la aprobación del reembolso.

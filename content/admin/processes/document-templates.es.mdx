@@ -1,0 +1,325 @@
+---
+title: "Plantillas de documentos"
+description: "Crea, edita y administra plantillas de documentos para automatizar la generación de archivos PDF relacionados con procesos, como cartas de oferta u órdenes de compra."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - processes
+  - document-templates
+  - pdf
+  - automation
+---
+
+# Plantillas de documentos
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+Una plantilla de documento te permite automatizar la generación de archivos PDF relacionados con procesos. Por ejemplo, como gerente de Recursos Humanos a cargo del proceso de **Contratación**, puedes crear una plantilla de documento que genere cartas de oferta automáticamente una vez que se cierre una entrevista.
+
+<Callout type="info">
+  Debes ser [administrador del proceso](/docs/admin/processes/managing-process-members-and-permissions#process-admin) o [desarrollador del proceso](/docs/admin/processes/managing-process-members-and-permissions#developer) para crear una plantilla de documento.
+</Callout>
+
+## Crear una plantilla de documento
+
+Puedes crear una plantilla de documento desde cero o generar un primer borrador con Kissflow AI.
+
+### Crear desde cero
+
+1. Ve al proceso para el que quieres crear una plantilla de documento.
+2. Haz clic en **Administrar** > **Plantillas de documentos** > **Crear plantilla** > **Crear desde cero**.
+3. Introduce un nombre y una descripción para tu plantilla de documento.
+4. Haz clic en **Crear desde cero** para abrir la plantilla en el editor y crearla manualmente.
+
+![](/migration-assets/document-templates/4.gif)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+### Generar con AI
+
+1. Ve al proceso para el que quieres crear una plantilla de documento.
+2. Haz clic en **Administrar** > **Plantillas de documentos** > **Crear plantilla** > **Generar con AI**.
+3. Introduce un nombre para la plantilla de documento, por ejemplo, **Carta de oferta de empleo** u **Orden de compra**.
+4. Selecciona un idioma para la plantilla.
+5. Haz clic en **Generar**. Kissflow AI usa estos datos como indicación para crear el primer borrador, llamado **Borrador 1**.
+
+![](/migration-assets/document-templates/3.gif)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+#### Regenerar con AI para mejorar los borradores
+
+Perfecciona un borrador añadiendo más información y, luego, haz clic en **Regenerar** para ver los cambios reflejados en un nuevo borrador.
+
+![](/migration-assets/document-templates/5.gif)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+<Callout type="info">
+  Puedes ir a cualquier borrador existente y usarlo como base para regenerar un nuevo borrador con los cambios que quieras.
+</Callout>
+
+<Callout type="warn">
+  Un borrador solo se puede usar para regenerar otro durante la hora posterior a su creación. Por ejemplo, si el borrador 7 se generó el 19 de enero a las 3:45 p. m., puedes usarlo para regenerar un nuevo borrador únicamente antes del 19 de enero a las 4:45 p. m. También puedes crear un máximo de 10 borradores por plantilla de documento.
+</Callout>
+
+#### Finalizar un borrador de plantilla
+
+Cuando estés conforme con un borrador, ábrelo y haz clic en **Usar este borrador** en la parte superior derecha de la página. El borrador se transfiere al editor de plantillas de documentos, donde puedes personalizar aún más el documento.
+
+## Editar una plantilla de documento
+
+El editor de plantillas admite las opciones de formato estándar que esperarías de cualquier editor de texto, además de compatibilidad con [la inserción de campos del proceso](#insertar-campos-del-proceso), [saltos de página](#insertar-saltos-de-página), [imágenes](#insertar-una-imagen) y [tablas de formularios](#añadir-una-tabla).
+
+![](/migration-assets/document-templates/1.png)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+<Callout type="idea">
+  Esta función se basa en el motor de plantillas Jinja. Si estás familiarizado con Jinja, puedes escribir condiciones o bucles avanzados para ampliar las funciones de tu plantilla. Consulta la [documentación de Jinja](https://jinja.palletsprojects.com/en/3.0.x/) para ver la sintaxis completa.
+</Callout>
+
+### Insertar campos del proceso
+
+Inserta un campo del sistema o del proceso de cualquiera de estas formas:
+
+- Escribe dos llaves sin espacio entre ellas (**&#123;&#123;**) para ver la lista de campos utilizados en el proceso actual y, luego, selecciona el que quieras insertar.
+- Arrastra y suelta un campo desde el panel izquierdo al editor de plantillas.
+
+![](/migration-assets/document-templates/19.gif)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+**Campos compatibles**
+
+Solo se admiten tablas de formularios y los siguientes tipos de campo dentro de las plantillas de documentos:
+
+- Texto
+- Área de texto
+- Número
+- Moneda
+- Correo electrónico
+- Número de secuencia
+- Fecha
+- Fecha y hora
+- Usuario
+- Lista desplegable
+- Sí/No
+- Botón de opción
+- Imagen
+- Agregación
+- Firma
+- Escáner
+
+**Campos no compatibles**
+
+Estos tipos de campo no se admiten dentro de las plantillas de documentos:
+
+- Lista desplegable de selección múltiple
+- Casilla de verificación
+- Búsqueda
+- Búsqueda remota
+- Archivo adjunto
+- Archivo adjunto inteligente
+- Geolocalización
+- Lista de comprobación
+- Calificación
+- Control deslizante
+- Texto enriquecido
+- Botón
+
+### Insertar saltos de página
+
+Añade tantas páginas como quieras al documento. Haz clic en el botón **Salto de página** (![](/migration-assets/document-templates/7.svg)) de la barra de herramientas para insertar uno.
+
+![](/migration-assets/document-templates/2.png)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+### Añadir una tabla
+
+Inserta en tu plantilla de documento una tabla de formularios creada como parte del proceso de la misma forma en que insertarías un campo: arrástrala y suéltala en el editor de plantillas.
+
+<Callout type="warn">
+  Al arrastrar una tabla de formularios al editor, se añade una línea de código encima y otra debajo. Kissflow añade estas líneas; no las elimines ni las modifiques, ya que la plantilla dejará de funcionar correctamente.
+</Callout>
+
+Introduce los nombres de los encabezados de las columnas y usa dos llaves para insertar un campo del proceso como valor de una columna.
+
+![](/migration-assets/document-templates/21.gif)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+<Callout type="info">
+  No puedes arrastrar y soltar un campo mientras estableces un valor para un campo específico de una tabla; usa dos llaves en su lugar.
+</Callout>
+
+### Insertar una imagen
+
+Añade una imagen de cualquiera de estas formas:
+
+1. **Desde tu escritorio**: arrastra y suelta un archivo de imagen desde tu computadora al editor de plantillas.
+2. **Desde una página web**: haz clic con el botón derecho en la imagen y selecciona **Copiar dirección de imagen**. En el editor de plantillas, haz clic en el icono **Insertar imagen**, haz clic con el botón derecho y pega la dirección de la imagen; luego, haz clic en **Listo**. Pasa el cursor sobre la imagen para darle formato, cambiar su tamaño o eliminarla.
+3. **Copiar y pegar**: copia una imagen de un documento existente, por ejemplo, de Microsoft Word o Google Docs, y pégala directamente en el editor de plantillas.
+
+![](/migration-assets/document-templates/20.gif)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+<Callout type="idea">
+  También puedes copiar y pegar contenido de texto de cualquier fuente externa en el editor.
+</Callout>
+
+### Insertar un encabezado y un pie de página
+
+Un encabezado aparece en la parte superior de un documento PDF y un pie de página, en la parte inferior. Ambos se suelen usar para mostrar información que se repite en todas las páginas, como el nombre del documento, encabezados, números de página, imágenes o la fecha.
+
+1. Haz clic en **Encabezado y pie de página** en el editor para abrir una ventana del editor independiente para el encabezado y el pie de página. La altura del encabezado y del pie de página se establece mediante los márgenes superior e inferior del lienzo base; puedes cambiarlos con el botón **Márgenes**. En el editor del encabezado y el pie de página, puedes configurar márgenes superior e inferior adicionales, hasta un máximo de 400 px. El lienzo base también determina los márgenes izquierdo y derecho del encabezado y del pie de página, y estos no se pueden cambiar desde el editor.
+2. Añade contenido al encabezado y al pie de página:
+   - Contenido textual
+   - Imágenes y tablas estáticas
+   - Número de página y cantidad de páginas
+
+   <Callout type="info">
+     No puedes insertar una child table en el encabezado ni en el pie de página.
+   </Callout>
+
+3. Cuando hayas añadido el contenido que necesitas, haz clic en **Guardar** y, luego, en **Vista previa** para ver cómo se representará la plantilla de documento.
+
+![](/migration-assets/document-templates/9.png)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+## Dar formato a los campos de moneda, número y fecha
+
+Si tu plantilla incluye un campo [**Número**, **Moneda**, **Fecha** o **Fecha y hora**](/docs/build/forms/basic-and-advanced-fields), puedes controlar cómo se muestran sus valores mediante la opción **Formato**. Hay tres categorías de formato disponibles: **Moneda**, **Número** y **Zona horaria**.
+
+![](/migration-assets/document-templates/12.gif)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+<Callout type="warn">
+  Los cambios de formato se aplican a todos los campos de ese tipo dentro de la plantilla de documento; no se pueden aplicar únicamente a un campo específico.
+</Callout>
+
+### Moneda
+
+Elige si los valores de moneda muestran el código de moneda después del valor o el símbolo de moneda antes de este.
+
+![](/migration-assets/document-templates/6.png)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+### Número
+
+Elige cómo se separan los números dentro de los campos **Número** y **Moneda**. Hay cuatro estilos de separador disponibles; el estilo estadounidense se aplica de forma predeterminada.
+
+![](/migration-assets/document-templates/10.png)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+### Fecha y zona horaria
+
+Elige la zona horaria y el orden de fecha que se usarán para mostrar los campos **Fecha** y **Fecha y hora**. A medida que eliges las opciones, encima de las opciones de formato aparece una vista previa del resultado esperado.
+
+![](/migration-assets/document-templates/8.png)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+## Personalizar tu página
+
+Usa la opción **Configuración de página** para configurar el diseño y el aspecto básicos del documento.
+
+### Orientación de la página
+
+Elige **Vertical** u **Horizontal** para tus páginas.
+
+### Color de la página
+
+Establece el color de fondo de tus páginas.
+
+### Márgenes
+
+Configura los márgenes de la página:
+
+- **Automático**: establece automáticamente los cuatro márgenes (superior, inferior, izquierdo y derecho) en 92 px.
+- **Personalizado**: te permite establecer cada margen manualmente.
+
+Haz clic en **Aplicar** para guardar los cambios.
+
+![](/migration-assets/document-templates/16.gif)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+## Obtener una vista previa de una plantilla de documento
+
+Haz clic en **Vista previa** en la parte superior del editor cuando termines de crear el borrador. Desde la pantalla de vista previa, puedes maximizar la vista o descargar el documento como PDF.
+
+![](/migration-assets/document-templates/11.png)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+<Callout type="info">
+  La plantilla de documento se guarda automáticamente cuando obtienes una vista previa, pero también puedes hacer clic en **Guardar** en cualquier momento.
+</Callout>
+
+## Asociar una plantilla de documento con un conector de procesos
+
+Automatiza la generación de archivos PDF conectando tu proceso a una plantilla de documento mediante el [conector de procesos](/docs/build/integrations/connectors/kissflow-process-connector).
+
+1. En el conector, selecciona el paso **Generar un documento PDF**.
+2. Configura una conexión con la cuenta requerida.
+3. Elige un proceso y, luego, selecciona el ID de instancia del proceso correspondiente.
+
+   ![](/migration-assets/document-templates/13.png)
+   {/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+4. Selecciona la plantilla de documento que quieres asignar al proceso.
+5. Introduce un título para el documento y elige si quieres adjuntarlo a un campo del formulario del proceso. Si la respuesta es afirmativa, selecciona el campo de archivo adjunto que quieres usar.
+
+   <Callout type="info">
+     Puedes actualizar los campos para ver los campos de formulario añadidos recientemente. También puedes asignar campos del paso de activación o de pasos de acción anteriores; estos valores se completan automáticamente cuando se ejecuta la acción.
+   </Callout>
+
+6. Haz clic en **Siguiente**.
+7. Añade un paso de [conector de correo electrónico de Kissflow](/docs/build/integrations/connectors/email-connector) para compartir el PDF generado como archivo adjunto de correo electrónico.
+
+   ![](/migration-assets/document-templates/17.png)
+   {/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+8. Completa los campos del correo electrónico y, en **Archivos adjuntos** > **Campos** > **Generar PDF**, selecciona el campo **clave**.
+
+   ![](/migration-assets/document-templates/18.png)
+   {/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+9. Activa la integración para activarla.
+
+## Administrar una plantilla de documento
+
+1. Ve a tu proceso y haz clic en **Administrar** > **Plantillas de documentos**.
+2. Elige una plantilla, haz clic en **Más opciones** (![](/migration-assets/document-templates/15.svg)) y, luego, edítala, cámbiale el nombre, duplícala o elimínala.
+
+![](/migration-assets/document-templates/14.png)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+## Idiomas compatibles
+
+Las plantillas de documentos admiten los siguientes idiomas:
+
+- Inglés
+- Italiano (Italiano)
+- Ruso (Русский)
+- Alemán (Deutsch)
+- Español (Español)
+- Francés (Français)
+- Portugués brasileño (Portuguesê (Brazil))
+- Chino simplificado (简体中文)
+- Coreano (한국어)
+- Japonés (日本語)
+- Vietnamita (Tiếng Việt)
+- Tailandés (ภาษาไทย)
+- Árabe (العربية)
+- Polaco (Język Polski)
+- Eslovaco (Slovenčina)
+- Checo (Čeština)
+- Ucraniano (Українська)
+- Hindi (हिन्दी)
+- Rumano (Română)
+
+## What's next
+
+- [Administrar miembros y permisos del proceso](/docs/admin/processes/managing-process-members-and-permissions)
+- [Conector de procesos de Kissflow](/docs/build/integrations/connectors/kissflow-process-connector)
+- [Conector de correo electrónico](/docs/build/integrations/connectors/email-connector)
+- [Campos básicos y avanzados](/docs/build/forms/basic-and-advanced-fields)
+- [Generar plantillas de documentos](/docs/build/processes/generating-document-templates) (para desarrolladores de aplicaciones que crean aplicaciones en el entorno de desarrollo).

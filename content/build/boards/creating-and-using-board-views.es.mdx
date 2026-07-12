@@ -1,0 +1,117 @@
+---
+title: "Creación y uso de vistas de tablero"
+description: "BORRADOR (no verificado) — migrado desde /t/p8h9ql8/creating-and-using-board-views"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## Descripción general
+
+Las vistas de tablero garantizan la alineación dentro de tu equipo, ya que te permiten enfocarte en conjuntos específicos de datos y compartirlos eficazmente con los miembros de tu equipo.
+
+Supongamos que tienes un tablero de lanzamiento de producto en el que un equipo se enfoca en el desarrollo de funcionalidades, mientras que otro se encarga de probarlas. Con las vistas de tablero, cada equipo puede crear una vista filtrada que muestre únicamente los elementos relevantes.
+
+Puedes crear y guardar vistas de tablero en los diseños de [kanban](/t/60h9qlm/using-board-layouts#kanban), [lista](/t/60h9qlm/using-board-layouts#list), [matriz](/t/60h9qlm/using-board-layouts#matrix) y [cronología](/t/60h9qlm/using-board-layouts#timeline), lo que facilita la colaboración con un mejor contexto.
+
+Cualquier persona que forme parte de un tablero puede crear nuevas vistas privadas basadas en los datos a los que tiene acceso. Solo los administradores pueden compartir vistas con otros miembros del tablero, así como con usuarios y grupos que no formen parte del tablero, pero que pertenezcan a la cuenta.
+
+> **Nota:**
+> 
+> Las vistas de tablero no se pueden crear ni personalizar en PWA.
+
+## Creación de vistas
+
+Para crear una nueva vista,
+
+-   Haz clic en el botón **Crear una vista** ( ![](/migration-assets/creating-and-using-board-views/1.png) ) junto al menú **Vistas**.![](/migration-assets/creating-and-using-board-views/2.png)
+-   Proporciona un nombre para la vista en el panel **Configuración de la vista**, a la derecha.
+-   Elige el diseño que quieras para la vista en la sección **DISEÑO**.  
+     ![](/migration-assets/creating-and-using-board-views/3.png)  
+     
+-   Según el diseño que hayas elegido, puedes organizar los elementos en columnas y grupos.
+    -   Para **kanban**, agrupa los elementos según el asignado, el estado, la prioridad o los campos personalizados.
+    -   Para **lista**, agrupa los elementos por la lista predeterminada, el asignado, el estado o los campos personalizados.
+    -   Para **matriz**, organiza los elementos en columnas y filas según el asignado, el estado, la prioridad y los campos personalizados.
+-   Ordena según los campos.
+-   Selecciona los campos que quieres mostrar en los elementos en la sección **CAMPOS DEL DISEÑO**. Ciertos campos del sistema no se pueden eliminar, ya que deben permanecer visibles.  
+     ![](/migration-assets/creating-and-using-board-views/9.gif) 
+-   Añade condiciones de filtro simples y avanzadas en la sección **FILTRO** para realizar un seguimiento de elementos específicos en tus vistas personalizadas.
+
+> **Nota:**
+> 
+> No puedes acceder a los elementos mientras configuras la vista.
+
+Haz clic en **Crear vista** cuando hayas terminado la configuración. Si estás editando una vista existente, también puedes guardarla como una vista nueva. Esto te permite replicar rápidamente una vista existente con modificaciones.
+
+![](/migration-assets/creating-and-using-board-views/4.png)
+
+## Configuración de permisos de campos
+
+Como administrador del tablero, puedes controlar cómo interactúan los usuarios con los distintos campos de los elementos en una vista determinada mediante la configuración de permisos para los campos, las tablas y las secciones de tu formulario. Puedes establecer los siguientes permisos:  
+ 
+
+**Editable**: el campo de la vista seleccionada se puede modificar.
+
+**Solo lectura**: el campo solo se puede visualizar y no modificar en la vista seleccionada.
+
+**Oculto**: el campo estará oculto y no se podrá visualizar ni editar.
+
+![](/migration-assets/creating-and-using-board-views/5.png)
+
+## Uso compartido de vistas
+
+Como administrador del tablero, puedes crear y compartir una vista nueva, o compartir una vista existente. Puedes compartirla con usuarios individuales del tablero, así como con usuarios y grupos de la cuenta que no formen parte del tablero. Puedes asignarles el rol de espectadores o miembros de la vista. Un miembro de la vista puede acceder a todos los elementos de la vista y editarlos, mientras que un espectador solo puede verlos.
+
+Para compartir una vista nueva,
+
+1.  Haz clic en el botón **Añadir miembros** ( ![](/migration-assets/creating-and-using-board-views/6.png) ) en la sección **Compartir** del panel **Configuración de la vista**.
+    
+2.  Escribe el nombre o la dirección de correo electrónico del usuario o grupo en el área de texto y haz clic en **Añadir**.
+    
+    ![](/migration-assets/creating-and-using-board-views/10.gif)
+
+Para compartir una vista existente,
+
+1.  Haz clic en el botón **Administrar** en la esquina superior derecha > **Compartir**.
+    
+2.  Selecciona una vista que quieras compartir en la sección **Vistas de tablero**, a la izquierda.
+    
+3.  Haz clic en **\+ Añadir miembros**.
+    
+4.  Escribe el nombre o la dirección de correo electrónico del usuario o grupo en el área de texto situada debajo de **Seleccionar usuarios y grupos**.
+    
+5.  Selecciona un rol adecuado para ellos en el menú desplegable de roles y haz clic en **Añadir**.
+    
+    ![](/migration-assets/creating-and-using-board-views/8.gif)
+
+De forma predeterminada, los administradores del tablero se asignan automáticamente como administradores de todas las vistas creadas por cualquier administrador. Los usuarios sin privilegios de administrador no pueden compartir las vistas que hayan creado.
+
+Cuando se comparte una vista, se añade automáticamente al menú **Vistas**. Haz clic en una pestaña de vista específica para acceder a ella. También puedes fijar vistas como pestañas en tu tablero.
+
+## Personalización de vistas
+
+Para personalizar una vista de tablero, abre el menú **Vistas** en la parte superior del tablero. Como administrador del tablero, puedes
+
+-   Editar vistas
+    
+-   Cambiar el nombre de las vistas
+    
+-   Compartir vistas
+    
+-   Duplicar vistas
+    
+-   Eliminar vistas
+    
+
+Si no eres administrador del tablero, aún puedes editar, cambiar el nombre, duplicar y eliminar vistas, pero no puedes compartirlas.
+
+![](/migration-assets/creating-and-using-board-views/7.png)
+
+## Privilegios de acceso para usuarios externos a un tablero
+
+Los usuarios y grupos que forman parte de la cuenta, pero no del tablero, aún se pueden añadir a una vista como miembros o espectadores. Un miembro de la vista puede acceder a todos los elementos de la vista y editarlos, mientras que un espectador solo puede verlos. Los elementos que estén fuera de la vista seguirán siendo inaccesibles para ellos, ya que no forman parte del tablero. Esto permite dar acceso únicamente a las personas adecuadas a los datos relevantes sin exponer el resto del tablero.

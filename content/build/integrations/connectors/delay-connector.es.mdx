@@ -1,0 +1,125 @@
+---
+title: "Conector de demora"
+description: "BORRADOR (no verificado) — migrado desde /t/83ytfv5/delay-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+El conector de demora te permite controlar el momento en que se ejecutan tus acciones mediante la adición de pausas entre los pasos de tu integración.
+
+## **¿Por qué usar una demora?**
+
+El conector de demora es esencial para programar acciones que deben ocurrir en momentos específicos o después de ciertos períodos, lo que mejora la precisión y la eficacia de tu integración sin necesidad de crear integraciones adicionales. Por ejemplo, en lugar de enviar un correo electrónico de seguimiento inmediatamente después de recibir un nuevo lead, puedes retrasarlo dos días. El conector de demora ofrece tres tipos de demora, cada uno adecuado para distintos escenarios:
+
+-   **Demorar durante**: pausa tu integración durante un período específico.
+    
+-   **Demorar hasta**: pausa tu integración hasta una fecha y hora determinadas.
+    
+-   **Demorar según la ocurrencia**: demora la ejecución según eventos o condiciones específicos.
+    
+
+### Demorar durante
+
+Esta opción te permite pausar tu integración durante un período específico antes de continuar con el siguiente paso. Aquí se explica detalladamente cómo configurarla: 
+
+1. **Elige el tipo de demora:**
+    
+    -   Selecciona "Demorar durante" en el menú desplegable para especificar una duración fija para la demora.
+        
+2. **Duración de la demora:**
+    
+    -   En esta sección puedes establecer la duración de la demora.
+        
+    -   Puedes elegir una unidad de tiempo para la demora: **Días**, **Horas** o **Minutos**.
+        
+3. **Introduce la duración:**
+    
+    -   Introduce la duración deseada de la demora como un número entero en el campo de entrada.
+        
+    -   Ten en cuenta que no se permiten decimales. También puedes usar fórmulas o hacer referencia a datos de pasos anteriores para establecer este valor.
+        
+    -   La demora mínima permitida es de 1 hora y el límite máximo de demora es de 90 días.
+        
+
+![](/migration-assets/delay-connector/1.png)
+
+**Ejemplo**: Después de que un cliente envíe un ticket de soporte, es posible que quieras enviar inmediatamente un correo electrónico inicial de confirmación. Con el conector "Demorar durante", puedes pausar el flujo de trabajo durante 60 minutos antes de enviar un correo electrónico de seguimiento para informar al cliente de que un agente de soporte está revisando su problema. 
+
+### Demorar hasta
+
+Demorar hasta pausa tu integración hasta una fecha y hora determinadas, lo que permite controlar con precisión cuándo se ejecutarán las acciones posteriores. Aquí se explica detalladamente cómo configurarla: 
+
+1. **Elige el tipo de demora:**
+    
+    -   Selecciona "Demorar hasta" en el menú desplegable para establecer una fecha y hora específicas para la demora.
+        
+2. **Elige la fecha del calendario:**
+    
+    -   Introduce la fecha y hora deseadas con el formato “YYYY-MM-DDTHH:MM".
+        
+    -   Puedes escribir la fecha y hora directamente o usar los iconos de calendario y reloj para seleccionarlas.
+        
+    -   Como alternativa, puedes proporcionar dinámicamente un valor de un paso anterior mediante el icono de fórmula.
+        
+3. **Elige la zona horaria de la cuenta:**
+    
+    -   Selecciona la zona horaria adecuada para la demora.
+        
+    -   En el ejemplo, la zona horaria está establecida en **UTC+5:30 Asia/Kolkata - IST.**
+        
+    -   Esto garantiza que la demora se base correctamente en la zona horaria especificada.
+        
+
+![](/migration-assets/delay-connector/2.png)
+
+> ### Nota:
+> 
+> Si la acción anterior de tu integración ocurre después de la fecha y hora seleccionadas, se omitirá y el flujo de trabajo pasará automáticamente al siguiente paso.
+
+**Ejemplo**: Quieres enviar un correo electrónico promocional a tus suscriptores en una fecha y hora específicas. Con el conector "Demorar hasta", puedes pausar la integración hasta el **01-09-2024 a las 15:15 IST**. Esto garantiza que el correo electrónico se envíe exactamente a la hora deseada, maximizando el impacto de tu promoción.
+
+#### Demorar según la ocurrencia
+
+Demorar según la ocurrencia pausa tu integración hasta un día y una hora específicos, como todos los lunes a las 9 a. m. Esto te permite programar acciones recurrentes a intervalos constantes. Aquí se explica detalladamente cómo configurarla:
+
+1. **Elige el tipo de demora:**
+    
+    -   Selecciona "Demorar según la ocurrencia" en el menú desplegable para especificar los días y las horas recurrentes de la demora.
+        
+2. **Elige el día de la semana:**
+    
+    -   Selecciona los días de la semana en los que quieres que ocurra la demora.
+        
+3. **Elige una hora específica:**
+    
+    -   Introduce la hora del día en la que debe ocurrir la acción con el formato "HH:MM".
+        
+    -   Puedes escribir la hora directamente o usar el icono de reloj para seleccionarla.
+        
+    -   Como alternativa, puedes proporcionar dinámicamente un valor de un paso anterior mediante el icono de fórmula.
+        
+4. **Elige la zona horaria de la cuenta:**
+    
+    -   Selecciona la zona horaria adecuada para la demora.
+        
+    -   Esto garantiza que la demora se base correctamente en la zona horaria especificada.
+        
+
+![](/migration-assets/delay-connector/3.png)
+
+**Ejemplo**: Quieres generar y enviar un informe de rendimiento a tu equipo tres veces por semana. Con el conector "Demorar según la ocurrencia", puedes pausar el flujo de trabajo hasta el lunes, jueves y sábado a las 15:15 IST de cada semana. Esto garantiza que los informes se generen y envíen de forma constante a la misma hora, lo que ayuda a tu equipo a mantenerse informado y organizado.
+
+## Restablecer una demora
+
+Para restablecer una demora y pasar inmediatamente a la siguiente acción, usa el botón "Ejecutar ahora". Esto realiza un restablecimiento completo de la demora. 
+
+## Estado
+
+Cuando una demora se establece correctamente, verás el estado como **Demorado** y, una vez ejecutada la acción, el estado cambiará a Correcto. 
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

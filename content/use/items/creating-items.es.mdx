@@ -1,0 +1,147 @@
+---
+title: "Crear y gestionar elementos"
+description: "Crea elementos en un tablero de Kissflow, actualiza su estado y sus detalles, realiza actualizaciones masivas y archiva, elimina o clona elementos."
+contentType: guide
+persona: end-user
+section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - boards
+  - items
+---
+
+# Crear y gestionar elementos
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+Una vez configurados un tablero y su formulario, puedes empezar a crear elementos para hacer un seguimiento de tu trabajo. Cada elemento pasa por los estados configurados en el flujo de trabajo del tablero, empezando por el primer estado de la categoría **Sin iniciar**.
+
+## Añadir un elemento nuevo
+
+1. Haz clic en el botón **Nuevo elemento** situado en la parte superior derecha del tablero.
+
+   <Callout type="info">
+     El nombre del botón cambia según el tipo de elemento configurado para el tablero; por ejemplo, **Nuevo ticket** en un tablero de tickets.
+   </Callout>
+
+2. En el formulario que se abre, completa los detalles:
+   - **Persona asignada**: miembro responsable del elemento.
+   - **Prioridad**: elige **Baja**, **Media**, **Alta** o **Crítica**.
+   - **Fecha de inicio**: cuándo debe comenzar el trabajo en el elemento.
+   - **Fecha de vencimiento**: cuándo debe cerrarse el elemento.
+   - **Solicitante**: usuario que solicitó el elemento.
+   - Cualquier otro campo que incluya el formulario de tu tablero.
+3. Haz clic en **Enviar**.
+
+<Callout type="info">
+  El campo **Prioridad** está oculto si se ha desactivado la prioridad en la configuración del tablero.
+</Callout>
+
+![Tablero con el botón Nuevo elemento en la parte superior derecha y la lista de elementos debajo](/migration-assets/creating-and-managing-items/1.png)
+{/* TODO: verificar que la captura coincida con la interfaz de usuario actual del producto */}
+
+Los elementos nuevos aparecen en el diseño actual de tu tablero. Haz clic en la pestaña **Todos** para ver todos los elementos del tablero o cambia entre [diseños](/docs/use/apps/using-board-layouts) para ver los elementos de distintas formas.
+
+## Crear varios elementos pegando una lista
+
+Puedes pegar una lista de texto para crear varios elementos a la vez. Copia una lista (por ejemplo, desde un bloc de notas), ve a cualquier diseño del tablero y pégala (Ctrl/Cmd + V). En el cuadro de diálogo **Pegar y crear elementos**, selecciona un campo para asignar el título y haz clic en **Crear**. Los elementos se crean en el primer estado de la categoría **Sin iniciar**.
+
+![Animación de cómo se pega una lista copiada en un tablero y se asigna el campo de título para crear varios elementos](/migration-assets/creating-and-managing-items/11.gif)
+{/* TODO: verificar que la captura coincida con la interfaz de usuario actual del producto */}
+
+<Callout type="info">
+  Puedes pegar hasta **20 elementos** a la vez.
+</Callout>
+
+Para lotes más grandes, [importa elementos desde un archivo CSV](/docs/use/items/importing-items).
+
+## Actualizar un elemento
+
+Abre un elemento desde cualquier diseño y realiza los cambios en la pestaña **Detalles**, situada a la derecha. Todos los cambios se guardan automáticamente.
+
+- **Cambiar estado**: selecciona el nuevo estado en el menú desplegable **Estado**. También puedes marcar un elemento como completado haciendo clic en la marca de verificación de su tarjeta, lo que lo mueve al estado completado del tablero.
+
+  ![Tarjeta de elemento con la marca de verificación utilizada para marcar el elemento como completado](/migration-assets/creating-and-managing-items/2.png)
+  {/* TODO: verificar que la captura coincida con la interfaz de usuario actual del producto */}
+
+  Para tachar los elementos completados, abre el menú **Más opciones** en la parte superior derecha del diseño y marca **Tachar elementos completados**.
+
+  ![Diseño del tablero en el que se muestran tachados los elementos completados después de activar la opción de tachado](/migration-assets/creating-and-managing-items/3.png)
+  {/* TODO: verificar que la captura coincida con la interfaz de usuario actual del producto */}
+
+- **Cambiar persona asignada**: selecciona otro miembro para reasignar el elemento.
+- **Cambiar prioridad**: selecciona una nueva prioridad: **Crítica**, **Alta**, **Media** o **Baja**.
+
+  ![Detalles del elemento en los que se muestra el menú desplegable Prioridad con las opciones Crítica, Alta, Media y Baja](/migration-assets/creating-and-managing-items/4.png)
+  {/* TODO: verificar que la captura coincida con la interfaz de usuario actual del producto */}
+
+## Actualizar elementos de forma masiva
+
+Puedes actualizar varios elementos a la vez desde el diseño de lista, Kanban o matriz. Selecciona los elementos y utiliza la barra de acciones para actualizar:
+
+- **Persona asignada**
+- **Estado**
+- **Prioridad**
+- **Fechas de inicio y vencimiento**: establece las fechas de inicio y vencimiento del elemento.
+
+También puedes archivar, desarchivar o eliminar los elementos seleccionados desde la misma barra de acciones, y actualizar otros campos del formulario mediante el botón **Más opciones**.
+
+![Animación de cómo se seleccionan varios elementos en el diseño de lista y se actualizan mediante acciones masivas](/migration-assets/creating-and-managing-items/9.gif)
+{/* TODO: verificar que la captura coincida con la interfaz de usuario actual del producto */}
+
+## Archivar un elemento
+
+Archivar oculta los elementos de la vista del tablero sin eliminarlos permanentemente. Es útil cuando un elemento ya no se necesita para el trabajo actual, pero puede que tengas que restaurarlo más adelante.
+
+Para archivar un elemento, haz clic en el botón **Más opciones** del elemento y selecciona **Archivar**. Un elemento archivado se convierte en solo lectura; para volver a editarlo, primero debes **Desarchivarlo**.
+
+<Callout type="warn">
+  Cuando archivas un elemento conectado, se eliminan sus conexiones con los elementos de origen y dependientes.
+</Callout>
+
+![Menú Más opciones de un elemento en el que se muestra la acción Archivar](/migration-assets/creating-and-managing-items/7.png)
+{/* TODO: verificar que la captura coincida con la interfaz de usuario actual del producto */}
+
+La posibilidad de archivar o desarchivar un elemento depende de tu rol en el tablero:
+
+| Rol en el tablero        | Archivar y desarchivar elementos |
+| ----------------- | --------------------------- |
+| Administrador             | Todos los elementos                   |
+| Miembro            | Solo los elementos que haya creado     |
+| Iniciador         | Solo los elementos que haya creado     |
+| Visualizador            | No disponible               |
+| Miembro restringido | No disponible               |
+
+Para ver los elementos archivados, ve a **Vistas** en la parte superior del tablero y selecciona **Elementos archivados**.
+
+<Callout type="info">
+  La vista **Elementos archivados** está disponible con todos los roles del tablero, pero los elementos que se muestran en ella siguen la visibilidad de elementos correspondiente a tu rol; por ejemplo, los miembros restringidos solo ven los elementos que tienen asignados.
+</Callout>
+
+![Menú Vistas abierto con la vista Elementos archivados seleccionada](/migration-assets/creating-and-managing-items/8.png)
+{/* TODO: verificar que la captura coincida con la interfaz de usuario actual del producto */}
+
+## Eliminar un elemento
+
+Selecciona un elemento en el tablero y haz clic en **Eliminar**. Para eliminar varios elementos a la vez, selecciónalos y haz clic en **Eliminar**. También puedes abrir un elemento y hacer clic en el botón **Más opciones** > **Eliminar**.
+
+## Clonar un elemento
+
+La clonación crea rápidamente un duplicado que contiene toda la información capturada en el original. El clon es un elemento independiente cuyo seguimiento y progreso pueden gestionarse por separado.
+
+1. Abre un elemento en tu tablero.
+2. Haz clic en el botón **Más opciones** > **Clonar**.
+
+![Menú Más opciones del formulario de elemento en el que se muestra la acción Clonar](/migration-assets/creating-and-managing-items/12.png)
+{/* TODO: verificar que la captura coincida con la interfaz de usuario actual del producto */}
+
+## What's next
+
+- [Añadir filtros avanzados mediante AI](/docs/use/items/filtering-and-views) (Enterprise)
+- [Colaborar en elementos](/docs/use/items/collaborating)
+- [Crear y gestionar subelementos](/docs/use/items/creating-subitems)
+- [Importar elementos desde un archivo CSV](/docs/use/items/importing-items)
+- [Usar diseños de tablero](/docs/use/apps/using-board-layouts)

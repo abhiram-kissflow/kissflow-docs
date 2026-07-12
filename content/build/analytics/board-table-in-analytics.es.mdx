@@ -1,0 +1,609 @@
+---
+title: "Tabla de tablero en Analytics"
+description: "BORRADOR (no verificado) — migrado desde /t/83yqk6f/board-table-in-analytics"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Las tablas de tablero son tablas generadas por el sistema que aparecen en Kissflow Analytics para cada tablero que crees en tu cuenta de Kissflow. Estas tablas te permiten interpretar y analizar los datos del tablero en Analytics. El módulo Analytics proporciona una vista estructurada y completa de un tablero, incluidos todos los campos de formulario y del sistema. Los subelementos que formen parte de un tablero aparecerán en la tabla principal. Una child table que forme parte de un tablero estará disponible como tabla individual en Analytics. 
+
+<iframe src="https://player.vimeo.com/video/850434572?h=153dc33957&app_id=122963" title="Embedded video" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+## Subelementos en una tabla de tablero 
+
+En una tabla de tablero, cada elemento se representa como una fila, y los subelementos también se incluyen como filas dentro de la tabla principal.
+
+Para excluir los subelementos de la vista, puedes aplicar un filtro en la tabla de tablero. También puedes aplicar el mismo filtro en la configuración del informe o en una vista de datos. Por ejemplo, en la página de la tabla de tablero, sigue estos pasos. 
+
+1.  Haz clic en el botón **filter** (![](/migration-assets/board-table-in-analytics/2.jpg)).
+    
+2.  Selecciona **Add a filter**.
+    
+3.  Elige el campo **Parent ID** y establece el operador como **Is empty** en el menú desplegable.
+    
+4.  Haz clic en **Apply** para ver únicamente la lista de elementos principales en la tabla. Como alternativa, si seleccionas el operador **Is not empty**, puedes ver los subelementos de la tabla.
+    
+
+![](/migration-assets/board-table-in-analytics/3.png)Las filas se ordenan en la tabla según la hora de modificación, con los elementos más recientes en la parte superior. Esto garantiza que puedas acceder fácilmente a los cambios más recientes realizados en el tablero y hacerles seguimiento.
+
+## Campos del sistema y campos personalizados
+
+En el editor de consultas para crear una vista de datos, los campos del sistema se pueden identificar fácilmente porque utilizan el símbolo '\_' (guion bajo) como prefijo. Algunos ejemplos de campos del sistema son \_id y \_created\_by. Esta convención de nombres también se extiende a las child tables asociadas con el tablero. Los campos personalizados se reconocen porque no comienzan con un guion bajo, aunque pueden tener guiones bajos dentro del nombre del campo. Algunos ejemplos de campos personalizados son Company\_Name y Purchase\_Request\_.
+
+Los campos del sistema se denominan Field IDs en el editor de consultas, mientras que en el visor de fuentes de datos o en la configuración del informe se denominan Field names. Los Field IDs se utilizan para construir consultas, mientras que los Field names se utilizan para ver y configurar informes.
+
+-   **\_id** - Identificador único de cada elemento y subelemento que puedes utilizar como clave principal. 
+    
+-   **\_item\_id** - El \_item\_id de un subelemento sirve como clave legible que se puede utilizar para filtrar y seleccionar elementos individuales y mostrarlos.
+    
+
+Consulta la relación completa entre las entidades de las fuentes de datos para conocer la estructura de las tablas de Analytics.
+
+![](/migration-assets/board-table-in-analytics/1.png)
+
+### Campos del sistema de la tabla de tablero
+
+Todos los campos de formulario y del sistema asociados con el tablero están disponibles como columnas en la tabla de tablero. El acceso a estos campos permite analizar y generar informes para diversos casos de uso. Por ejemplo, puedes calcular el tiempo empleado en los elementos de varios tableros para evaluar el rendimiento del responsable asignado o el estado para medir la eficacia de los empleados.
+
+**Field ID**
+
+**Type**
+
+**Field Name**
+
+**Description**
+
+\_counter
+
+Number
+
+Contador
+
+Un recuento general de elementos que incluye todos los subelementos existentes, movidos y eliminados de un tablero.
+
+\_item\_id
+
+Text
+
+ID del elemento
+
+El nombre visible, es decir, el formato legible del ID de un elemento o subelemento. 
+
+AssignedTo
+
+User
+
+Responsable asignado
+
+El nombre del usuario al que está asignado actualmente el elemento o subelemento. 
+
+\_category
+
+Text
+
+Categoría
+
+Las categorías predeterminadas del flujo de trabajo del tablero, como Not started, In progress, Done y Closed.
+
+\_status\_name
+
+Text
+
+Estado
+
+El estado actual de un elemento. Los nombres de los estados se definen dentro de las categorías predeterminadas del flujo de trabajo del tablero. Puede ser uno de los estados predeterminados, como New o In progress, o cualquier estado personalizado que añadas al flujo de trabajo del tablero.
+
+\_status\_id
+
+Text
+
+ID del estado
+
+El sistema define un ID para cada estado, que estará en el orden del flujo de trabajo.
+
+\_priority\_name
+
+Text
+
+Prioridad
+
+El nivel de prioridad establecido para un elemento en un tablero, como High, Low y Critical.
+
+\_priority\_id
+
+Text
+
+ID de prioridad
+
+El ID de prioridad asignado a un elemento, como High, Low y Critical.
+
+\_priority\_sequence
+
+Number
+
+Secuencia de prioridad
+
+El orden en el que se priorizan o clasifican los elementos según su importancia, como 1, 2, 3 y 4 (elemento principal).
+
+\_subitem\_title
+
+Text
+
+Título del subelemento
+
+El título de un subelemento en un tablero.
+
+\_subitem\_description
+
+Text
+
+Descripción del subelemento
+
+La descripción de un subelemento en un tablero.
+
+\_state\_id
+
+Text
+
+ID del estado
+
+El ID del estado del subelemento. Por ejemplo, State\_On\_Hold, State\_Not\_Started.
+
+\_state\_name
+
+Text
+
+Estado del subelemento
+
+El estado actual de un subelemento. Por ejemplo, Not started, In progress, On hold, Done.
+
+\_subitem\_index
+
+Number
+
+Índice del subelemento
+
+El orden o la posición específicos de los subelementos de un elemento. El número es específico del elemento al que se asignó cuando se creó el subelemento.
+
+\_parent\_id
+
+Text
+
+ID principal
+
+El ID principal del subelemento de un elemento. Será nulo cuando la fila corresponda a un elemento.
+
+\_total\_subitem\_count
+
+Number
+
+Recuento total de subelementos
+
+El recuento total de todos los subelementos actuales asociados con un elemento principal determinado.
+
+\_completed\_subitem\_count
+
+Number
+
+Recuento de subelementos completados
+
+El recuento total de todos los subelementos completados de un elemento.
+
+\_subitem\_counter
+
+Number
+
+Contador de subelementos
+
+Un recuento general de los subelementos asociados con un elemento principal, incluidos todos los subelementos existentes, movidos y eliminados.
+
+DueDate
+
+DateTime
+
+Fecha límite
+
+La fecha en la que debe completarse un subelemento. Esto se aplica tanto a los elementos como a los subelementos.
+
+Requester
+
+User
+
+Solicitante
+
+El usuario que solicitó un elemento. 
+
+ItemType
+
+Text
+
+Tipo de elemento
+
+El tipo de elemento de un tablero, como ISSUE o FEAT.
+
+\_current\_status\_instance\_id
+
+Text
+
+ID de la instancia del estado actual
+
+Un ID único que representa la instancia del estado actual de un elemento. Se puede consultar en la tabla BoardStatusInstance.
+
+\_previous\_status\_instance\_id
+
+Text
+
+ID de la instancia del estado anterior
+
+Un ID único que representa la instancia del estado anterior de un elemento. Se puede consultar en la tabla BoardStatusInstance.
+
+\_start\_status\_instance\_id
+
+Text
+
+ID de la instancia del estado inicial
+
+Un ID único correspondiente a la instancia del estado inicial de un elemento cuando se creó por primera vez.
+
+\_end\_status\_instance\_id
+
+Text
+
+ID de la instancia del estado final
+
+Un ID único que representa la instancia del estado final de un elemento e indica el estado que alcanzó al completarse o cerrarse.
+
+\_resolved\_at
+
+DateTime
+
+Resuelto el
+
+La fecha y hora en que se resuelve un elemento.
+
+\_resolution\_time
+
+Number
+
+Tiempo de resolución
+
+El tiempo total (en segundos) que se tarda en completar un elemento. Solo tendrá un valor para los elementos cuyo valor de ‘\_category’ = Done.
+
+\_is\_reopened
+
+Boolean
+
+Elemento reabierto
+
+Este campo indica si un elemento se volvió a abrir o no.
+
+\_watchers
+
+MultiUser
+
+Seguidores
+
+La lista de usuarios que siguen el elemento.
+
+\_id
+
+Text
+
+ID
+
+Una cadena única generada por el sistema para identificar un elemento.
+
+Name
+
+Text
+
+Título
+
+El nombre que el usuario asigna a un elemento durante su creación.
+
+\_created\_by
+
+User
+
+Creado por
+
+El nombre del usuario que creó el elemento.
+
+\_modified\_by
+
+User
+
+Modificado por
+
+El nombre del usuario que modificó el elemento por última vez. Esto se aplica tanto a los elementos como a los subelementos.
+
+\_created\_at
+
+DateTime
+
+Creado el
+
+La fecha y hora en que se creó el elemento o paso específico. Esto se aplica tanto a los elementos como a los subelementos.
+
+\_modified\_at
+
+DateTime
+
+Modificado el
+
+La fecha y hora en que se modificó por última vez el elemento, tanto para el subelemento como para el elemento.
+
+\_flow\_name
+
+Text
+
+Nombre del flujo
+
+El nombre de un tablero.
+
+\_model\_id
+
+Text
+
+ID del modelo
+
+El ID único de un tablero.
+
+> **Nota:**
+> 
+> Analytics muestra el tiempo de resolución en segundos. Sin embargo, en los informes individuales de los tableros se muestra en un formato diferente. 
+
+## child table 
+
+Si el tablero tiene child tables, cada [child table](https://helpdocs.kissflow.com/forms/creating-a-form#child_tables) se creará como una tabla independiente dentro del módulo de Analytics. Estas tablas se generan automáticamente y se nombran con el formato "BoardName-ChildTableName".
+
+### Campos del sistema de la child table
+
+**Field ID**
+
+**Type**
+
+**Field Name**
+
+**Description**
+
+\_id
+
+Text
+
+ID
+
+El ID único de la child table.
+
+Name
+
+Text
+
+Nombre
+
+El nombre de la child table.
+
+\_created\_by
+
+User
+
+Creado por
+
+El nombre del usuario que creó la child table.
+
+\_modified\_by
+
+User
+
+Modificado por
+
+El nombre del usuario que modificó la child table por última vez.
+
+\_created\_at
+
+DateTime
+
+Creado el
+
+La fecha y hora en que se creó la child table.
+
+\_modified\_at
+
+DateTime
+
+Modificado el
+
+La fecha y hora en que se modificó por última vez la child table.
+
+\_flow\_name
+
+Text
+
+Nombre del flujo
+
+El nombre del tablero.
+
+\_model\_id
+
+Text
+
+ID del modelo
+
+El ID único de la child table.
+
+\_instance\_id
+
+Text
+
+ID de la instancia
+
+El ID del elemento que se utiliza para hacer referencia al elemento correspondiente en la tabla de tablero.
+
+## Tabla Board Workflow Instance 
+
+La tabla Board Workflow Instance es una tabla del sistema que contiene una descripción general de la información de carga de trabajo, como las actualizaciones de estado de todos los elementos de todos los tableros. Puedes encontrar la tabla del sistema en la pestaña **Data explorer**. También puedes ordenar las fuentes de datos según **System tables** para identificar fácilmente la tabla **Board Workflow Instance**. Puedes utilizar los campos de la tabla Board Workflow Instance para generar varios tipos de informes, como informes tabulares, de gráficos y dinámicos.
+
+### Campos del sistema de la tabla del sistema
+
+**Field ID**
+
+**Type**
+
+**Field Name**
+
+**Description**
+
+\_status\_name
+
+Text
+
+Estado
+
+El nombre del estado de un elemento.
+
+\_status\_id
+
+Text
+
+ID del estado
+
+El ID único de los estados del tablero, como Not started, In progress y Closed. Cuando un elemento se mueve a un nuevo estado, el ID del estado se asigna al elemento.
+
+\_category
+
+Text
+
+Categoría
+
+El nombre de categoría predeterminado para todos los estados de un tablero.
+
+AssignedTo
+
+User
+
+Asignado a
+
+El nombre del usuario al que se asigna el elemento.
+
+ExitAt
+
+DateTime
+
+Salida el
+
+La hora en que el estado se cambió a otro estado.
+
+GrossTime
+
+Number
+
+Tiempo bruto
+
+El tiempo empleado (en segundos) para completar un estado.
+
+Previous
+
+Text
+
+Anterior
+
+El ID de la instancia anterior del elemento.
+
+Next
+
+Text
+
+Siguiente
+
+El ID de la instancia siguiente del elemento.
+
+\_id
+
+Text
+
+ID
+
+El ID único de cada instancia.
+
+\_created\_by
+
+User
+
+Creado por
+
+El nombre del usuario que creó el elemento.
+
+\_modified\_by
+
+User
+
+Modificado por
+
+El nombre del usuario que modificó el elemento por última vez.
+
+\_created\_at
+
+DateTime
+
+Creado el
+
+La fecha y hora en que se creó el elemento.
+
+\_modified\_at
+
+User
+
+Modificado el
+
+La fecha y hora en que se modificó el elemento por última vez.
+
+\_flow\_name
+
+Text
+
+Nombre del flujo
+
+El nombre del tablero.
+
+\_model\_id
+
+Text
+
+ID del modelo
+
+El ID único del tablero.
+
+\_instance\_id
+
+Text
+
+ID de la instancia
+
+El ID de la instancia es el ID único de un elemento en una tabla de tablero. Cada instancia del elemento genera un nuevo registro con este ID único.
+
+> **Nota:**
+> 
+> Los cambios de estado de los subelementos no estarán disponibles en la **Board Workflow Instance table**. Esto significa que solo se podrá acceder a los subelementos dentro de su tabla de tablero correspondiente, que proporciona la información más reciente sobre el estado.
+
+## Caso de uso
+
+Considera el siguiente caso de uso para una tabla de tablero. Estás gestionando un tablero que contiene varios elementos en distintas categorías. Puedes crear un informe de distribución por categoría para interpretar los datos y filtrar solo los campos relevantes. Esto te permitirá analizar y visualizar la distribución de los elementos entre las distintas categorías de tu tablero.
+
+![](/migration-assets/board-table-in-analytics/4.png)
+
+Para generar este informe, sigue estos sencillos pasos:
+
+1.  Haz clic en **Create Report**, en la pestaña **Reports** del módulo de Analytics.
+2.  Elige **Board Workflow Instance** como fuente de datos, ya que contiene la información necesaria para hacer seguimiento de los estados de los elementos.
+3.  Selecciona **Pivot** como tipo de informe para dinamizar y resumir los datos de forma eficaz, y haz clic en **Create**.
+4.  Cuando aparezca la página de configuración de la tabla dinámica, establece las columnas como **Category**, ya que serán la base del análisis de distribución.
+5.  Elige el campo **ID** como valor, que proporcionará el recuento de elementos de cada categoría.
+6.  Establece las filas como **Flow Name** para examinar la distribución según los distintos flujos de procesos.
+7.  Para perfeccionar el informe, añade un filtro haciendo clic en **Add a filter**. Elige el campo **Created at**, establece la operación como **Equal to** e introduce el valor **Last 30 days**. Esto limitará el informe a los elementos creados en los últimos 30 días.
+8.  **Apply** el filtro y guarda la configuración del informe.
+9.  De este modo, obtendrás un informe completo que muestra la distribución por categoría de los elementos creados en los últimos 30 días en el tablero.

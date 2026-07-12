@@ -1,0 +1,79 @@
+---
+title: "Descripción general de las integraciones"
+description: "BORRADOR (sin verificar) — migrado desde /t/g9h4alw/integrations-overview"
+contentType: overview
+persona: citizen-developer
+section: build
+---
+
+![](/migration-assets/integrations-overview/1.svg)
+
+Kissflow Integration es una potente herramienta de orquestación de flujos de trabajo que conecta tus aplicaciones de Kissflow con servicios de terceros para automatizar los flujos de trabajo empresariales. Puedes crear flujos de trabajo de integración sin conocimientos de programación ni asistencia de desarrolladores, lo que permite que cualquiera cree procesos automatizados personalizados con solo unos clics.
+
+## ¿Qué es Kissflow Integration?
+
+En Kissflow Integration, puedes conectar flujos de trabajo y aplicaciones de Kissflow, como Processes, Boards, Datasets, Dataforms y Apps, con servicios externos como Slack, Gmail, Google Sheets, Google Calendar, Microsoft Outlook y más. También puedes usar los webhooks integrados para compartir datos con cualquier aplicación de terceros que los admita.
+
+Por ejemplo, cuando recibes nuevos suscriptores al boletín en MailChimp, puedes guardar automáticamente su información en una hoja de Google Sheets sin intervención manual. Kissflow Integration se encarga de este proceso, ahorrándote tiempo y reduciendo el esfuerzo manual.
+
+## Cómo funciona Kissflow Integration
+
+Una integración consta de una serie de pasos secuenciales que determinan cómo se transfieren y transforman los datos entre diferentes aplicaciones. Cada paso se crea mediante conectores.
+
+Toda integración comienza con un activador: un evento en uno de tus conectores que inicia tu flujo de trabajo. Este activador envía los datos a través del flujo para completar una o más acciones de los conectores.
+
+### Ejemplos de flujos de trabajo
+
+Con Kissflow Integration, puedes crear varios flujos de trabajo desde cero. Estos son algunos ejemplos:
+
+-   Crear eventos de Google Calendar a partir de los nuevos elementos de Kissflow Board
+-   Añadir nuevas filas a Google Sheets por cada nuevo cliente potencial del CRM
+-   Enviar recordatorios por correo electrónico a tus compañeros por cada nuevo elemento añadido a tu Kissflow Process
+-   Compartir en Slack los nuevos tickets de Kissflow Board 
+-   Crear eventos de Google Calendar cuando se aprueben solicitudes de contratación en Kissflow Process
+
+## Terminología habitual
+
+### Conector
+
+Un conector permite la comunicación entre servicios o aplicaciones. Te permite realizar acciones que las aplicaciones no podrían realizar por sí solas. Los conectores pueden servir como adaptadores para acciones internas o para acceder a aplicaciones de terceros. Según sus casos de uso, los conectores incluyen activadores, acciones y acciones de búsqueda.
+
+### Activador
+
+Un activador es el evento principal de tu integración que inicia otras acciones en tu flujo de trabajo.
+
+### Acción
+
+Una acción es un evento que un conector realiza después de activarse. Por ejemplo, si quieres enviar un correo electrónico cada vez que recibes un ticket del servicio de asistencia, la acción es _Enviar un correo electrónico_. Puedes configurar varias acciones para una sola integración.  
+ 
+
+![](/migration-assets/integrations-overview/2.png)
+
+### Acción de búsqueda
+
+Las acciones de búsqueda encuentran u obtienen datos específicos de tu aplicación según tus necesidades.
+
+### Editor
+
+El Editor te permite crear una integración desde cero. En el editor, puedes seleccionar y configurar:
+
+-   Conector del activador
+-   Evento del activador
+-   Conectores de acciones
+-   Eventos de acciones
+
+Estos componentes trabajan juntos para crear tu integración personalizada.
+
+### Conexión
+
+Una conexión es una autenticación que permite que Kissflow interactúe con conectores internos o externos en una integración. Las ejecuciones de integración requieren conexiones válidas antes de poder configurar activadores y acciones.
+
+Las conexiones de Kissflow utilizan autenticación mediante clave de acceso y token secreto, mientras que la mayoría de los conectores externos utilizan OAuth. Las conexiones se pueden compartir con otros usuarios de la cuenta, lo que permite utilizar una conexión compartida en integraciones que no hayas creado.
+
+### Ejecución de integración
+
+Cada dato que pasa por el sistema de flujo de trabajo cuenta como una ejecución de integración. Si tu integración añade 20 tareas a un Kissflow Board, tu integración ha realizado 20 ejecuciones de integración. Cada ejecución de integración te evita tener que realizar una tarea manual. 
+
+![](/migration-assets/integrations-overview/3.png)
+
+Puedes hacer un seguimiento de todas las ejecuciones de integración desde la sección **Historial de ejecuciones** de la página de tu integración.

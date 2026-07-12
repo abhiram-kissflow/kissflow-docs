@@ -1,0 +1,138 @@
+---
+title: "Detalles de la cuenta, personalización y dominios conectados"
+description: "Consulta y cambia el nombre y el dominio de tu cuenta, personaliza tu logotipo, tema y marca móvil, y conecta dominios de correo electrónico adicionales a tu cuenta."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - account settings
+  - branding
+  - domains
+  - admin
+---
+
+# Detalles de la cuenta, personalización y dominios conectados
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+Los administradores pueden consultar y gestionar esta configuración desde su imagen de perfil (arriba a la derecha de la página de inicio) > **Administración de la cuenta** > **Configuración de la cuenta**. Desde aquí puedes consultar el nombre y el dominio de tu cuenta, personalizar tu logotipo y tema, aplicar la marca a la aplicación móvil y conectar dominios de correo electrónico adicionales a tu cuenta.
+
+<Callout type="info">
+  El acceso a la configuración de la cuenta depende de tu [rol de administrador](/docs/admin/users/user-roles-and-permissions). Los roles con acceso de administración a nivel de cuenta pueden acceder a esta página.
+</Callout>
+
+## Detalles de la cuenta
+
+### Nombre y dominio de la cuenta
+
+El nombre y el dominio de tu cuenta se asignan automáticamente según el dominio de correo electrónico con el que te registraste. Puedes cambiar el dominio en cualquier momento, siempre que ninguna otra organización de Kissflow lo esté utilizando.
+
+Para cambiar tu dominio:
+
+1. Ve a tu imagen de perfil > **Administración de la cuenta** > **Configuración de la cuenta** > **Detalles de la cuenta**.
+2. Haz clic en el campo del dominio e introduce tu nuevo dominio.
+3. Confirma el cambio.
+
+<Callout type="warn">
+  Cambiar tu dominio cierra la sesión de todos, incluida la tuya. Poco después se te redirigirá al nuevo dominio; los demás usuarios deben acceder al nuevo dominio por su cuenta para volver a iniciar sesión. Comparte el nuevo dominio con tu equipo antes de hacer el cambio. Una vez que dejes de usar tu dominio anterior, otra organización podrá reclamarlo.
+</Callout>
+
+![](/migration-assets/account-details-customization-and-connected-domains/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="info">
+  ¿Quieres un dominio completamente personalizado en lugar de `<your-domain>.kissflow.com`? La asignación de dominios personalizados no es una función de autoservicio. Ponte en contacto con el soporte de Kissflow para configurarla.
+</Callout>
+
+### Propietario de la cuenta
+
+El propietario de la cuenta es la persona responsable de configurar tu cuenta de Kissflow y es el principal contacto de Kissflow para la cuenta. Solo se permite un propietario por cuenta, pero el propietario actual puede transferir la propiedad a otro administrador en cualquier momento.
+
+Para transferir la propiedad:
+
+1. Ve a **Configuración de la cuenta** > **Detalles de la cuenta**.
+2. Junto a **Propietario de la cuenta**, haz clic en **Cambiar**.
+
+   <Callout type="info">
+     Solo el propietario actual de la cuenta ve esta opción.
+   </Callout>
+
+3. Busca y selecciona al nuevo propietario en la lista de administradores.
+4. Confirma el cambio.
+
+## Personalización de la cuenta
+
+### Logotipo de la cuenta
+
+El logotipo de tu cuenta se asigna automáticamente según el dominio de correo electrónico utilizado para registrarte, y aparece arriba a la derecha de tu cuenta, en la pantalla de inicio de sesión y en determinados correos electrónicos del producto. Puedes sustituirlo por uno propio.
+
+1. Ve a **Configuración de la cuenta** > **Personalización de la cuenta**.
+2. Haz clic en **Reemplazar logotipo** (o en **Cargar un logotipo** si no hay ninguno configurado).
+3. Elige el archivo de imagen.
+
+<Callout type="info">
+  Usa un logotipo rectangular, idealmente de 240x36 píxeles. El archivo debe pesar menos de 250 KB y estar en formato JPG, PNG o SVG.
+</Callout>
+
+### Marca de la aplicación móvil
+
+Personaliza el aspecto de la aplicación móvil de Kissflow (o PWA) para tu organización.
+
+1. En **Personalización de la cuenta**, introduce un nombre en el campo **Nombre de la aplicación**.
+2. Haz clic en **Reemplazar icono** (o en **Cargar un icono** si no hay ninguno configurado) y elige el archivo de imagen.
+
+<Callout type="info">
+  Usa un icono de 512x512 píxeles, de menos de 500 KB y en formato PNG.
+</Callout>
+
+### Tema de la cuenta
+
+Aplica el color de tu marca al texto de los encabezados, los enlaces y los fondos de toda tu cuenta, y elige un tipo de letra para toda la cuenta.
+
+1. Ve a tu imagen de perfil > **Administración de la cuenta** > **Configuración de la cuenta** > **Personalización de la cuenta**.
+2. En **Configuración del tema**, elige el color de tu marca en la paleta o introduce su código hexadecimal.
+   - Activa **Aplicar los cambios relevantes al fondo** para aplicar también el color a los elementos del fondo.
+3. En **Seleccionar un tipo de letra**, elige una fuente. Una vez aplicada, se utilizará en toda tu cuenta de Kissflow.
+4. Haz clic en **Vista previa** para comprobar el aspecto del color y el tipo de letra antes de aplicarlos.
+   - Haz clic en **Guardar** para conservar el tema o en **Descartar cambios** para volver atrás y ajustarlo.
+   - Para deshacer un cambio de color o de fuente, haz clic en el icono de restablecimiento que aparece junto a él y confirma la acción en la ventana emergente **Restablecer al valor predeterminado**.
+
+<Callout type="info">
+  Obtén una vista previa del tema antes de guardarlo; los tonos más claros pueden afectar a la legibilidad del texto.
+</Callout>
+
+<Callout type="info">
+  La configuración del tema y la marca de la aplicación móvil solo están disponibles si Kissflow ha habilitado estas funciones para tu cuenta. Si no ves estas secciones, ponte en contacto con el soporte de Kissflow.
+</Callout>
+
+![](/migration-assets/account-details-customization-and-connected-domains/3.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Dominios conectados
+
+Si tu organización utiliza varios dominios de correo electrónico, puedes conectar dominios adicionales a tu cuenta. Una vez conectado un dominio, nadie más podrá registrarse para crear una cuenta nueva de Kissflow utilizando ese dominio.
+
+Por ejemplo, si el dominio de tu organización es `starkcorporation.co` y también utilizas `stark-usa.co`, puedes conectar el segundo dominio a la misma cuenta:
+
+1. Haz clic en **Añadir un dominio**.
+2. Introduce el nombre del dominio, la dirección del dominio y una dirección de correo electrónico de ese dominio para verificarlo.
+3. Envía la solicitud.
+
+Se enviará un correo electrónico de invitación a esa dirección. Una vez verificado, el dominio se conectará a tu cuenta y nadie más podrá utilizarlo para crear una cuenta nueva de Kissflow.
+
+<Callout type="info">
+  Puedes conectar varios dominios a una cuenta, pero cada dominio solo puede pertenecer a una única cuenta de Kissflow.
+</Callout>
+
+![](/migration-assets/account-details-customization-and-connected-domains/2.gif)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Qué sigue
+
+- [Roles y permisos de usuario](/docs/admin/users/user-roles-and-permissions)
+- [Seguridad de la cuenta](/docs/admin/security/account-security)
+- [Suscripción y facturación](/docs/admin/account-settings/subscription-and-billing)

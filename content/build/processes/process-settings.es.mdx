@@ -1,0 +1,142 @@
+---
+title: "Configuración del proceso"
+description: "BORRADOR (sin verificar) — migrado desde /t/35yzjca/process-settings"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Como desarrollador de aplicaciones, tendrás acceso predeterminado a diversos datos que crees. Para configurar o cambiar los ajustes del proceso, haz clic en **Configuración** en el editor del proceso.
+
+## **Configuración general**
+
+En la pestaña de **Configuración** **general**, puedes configurar los títulos de los formularios y bloquear los envíos.
+
+![](/migration-assets/process-settings/7.png)
+
+### Configurar títulos de formularios
+
+El título del formulario es el nombre único que se asigna a cada elemento a medida que avanza por el flujo de trabajo del proceso. Para configurar los títulos de los formularios, haz clic en el **botón Agregar (+)** y organiza los campos del sistema predeterminados o los campos del formulario en el orden que quieras; después, haz clic en **Guardar**. Según este formato, los títulos se generan automáticamente y se muestran en la parte superior de cada formulario del proceso.
+
+### Bloquear envíos
+
+Cuando estés trabajando en el proceso o realizando cambios importantes, es posible que quieras impedir que los miembros del proceso inicien nuevos elementos. Para bloquear los envíos, selecciona la casilla de verificación **No permitir nuevos envíos**s y haz clic en **Guardar**.
+
+Después de activar esta opción, los miembros no podrán iniciar nuevos elementos y no se mostrará nada en el feed. Sin embargo, los elementos en curso continuarán siguiendo el flujo de trabajo. Los elementos en borrador no podrán enviarse hasta que se elimine esta opción.
+
+## [Controles de acceso](/t/83ymdnx/security-settings-for-flows#access-controls) para el proceso en las aplicaciones
+
+Puedes permitir o restringir los permisos de los usuarios, lo que afecta a su capacidad para imprimir formularios y descargar archivos adjuntos en los procesos.
+
+### [Permisos de impresión y descarga](/t/83ymdnx/security-settings-for-flows#print-and-download-permissions) para el proceso en las aplicaciones
+
+Puedes alternar entre dos opciones: **Cualquiera** y **Solo administradores**. Si estableces el permiso en **Cualquiera**, cualquier usuario podrá descargar archivos adjuntos o imprimir formularios. Si eliges **Solo administradores**, los permisos de descarga e impresión se restringirán únicamente a los administradores.Permisos de comentarios para el proceso en las aplicaciones
+
+Puedes permitir que los usuarios mencionen a personas que no participan en los comentarios de un proceso.
+
+#### [Participantes y no participantes](/t/83ymdnx/security-settings-for-flows#participants-vs-non-participants)
+
+ 
+
+**Participante**
+
+**No participante**
+
+**Definición**
+
+Usuarios que han participado en el flujo de trabajo del elemento hasta el paso actual
+
+Usuarios que no han participado en el flujo de trabajo del elemento hasta el paso actual. 
+
+**Incluye**
+
+El iniciador del elemento y todos los aprobadores del elemento hasta el paso actual.
+
+-   Usuarios que serán asignados en el futuro.
+    
+-   Usuarios que no forman parte del proceso, pero sí de la cuenta.
+    
+
+**Ejemplo**: Si un elemento se encuentra actualmente en el paso C, su iniciador y los aprobadores de los pasos A y B son participantes. Todos los demás se consideran no participantes.
+
+#### [Permitir que los asignados mencionen a no participantes](/t/83ymdnx/security-settings-for-flows#allowing-assignees-to-mention-non-participants)
+
+Como administrador de la aplicación, puedes controlar si los asignados pueden mencionar a no participantes en un comentario de un elemento. Esto permite que los asignados incorporen a usuarios adicionales a un hilo de comentarios para colaborar con contexto, sin agregarlos al flujo de trabajo.Abre el entorno de desarrollo y abre tu aplicación. Ve al proceso > haz clic en **Configuración** > **Controles de acceso** > **Permisos de comentarios** y activa el interruptor **Permitir que los asignados mencionen a no participantes**.Puedes:
+
+1. **Permitir que los asignados mencionen a cualquier usuario de este proceso** - Los asignados pueden mencionar a usuarios con quienes se comparte el proceso. Estos usuarios pueden haber participado o no en el elemento hasta ese momento.
+    
+2. **Permitir que los asignados mencionen a cualquier usuario de esta cuenta** \- Los asignados pueden mencionar a cualquier usuario de la cuenta, aunque actualmente no tenga acceso al proceso.
+    
+
+![](/migration-assets/process-settings/8.png)Cuando se menciona a un no participante:
+
+-   Puede ver todos los comentarios anteriores y futuros del elemento.
+    
+-   Puede reaccionar y responder únicamente en el hilo de comentarios correspondiente.
+    
+-   Puede ver los datos del elemento tal como se muestran en el paso en el que se le mencionó.
+    
+-   No se le agrega como asignado ni participante en el flujo de trabajo.
+    
+
+> **Nota**:
+> 
+> Para que un no participante se una a un hilo de comentarios, se le debe mencionar en el comentario principal de ese hilo.
+
+#### [Ejemplo de caso de uso:](/t/83ymdnx/security-settings-for-flows#use-case-example)
+
+Un gerente de RR. HH. (asignado al paso actual) está procesando un elemento de **Contrato de nuevo empleado**. Los pasos del flujo de trabajo son: Inicio > Revisión de RR. HH. > Aprobación de Finanzas > Completado.En el paso de **Revisión de RR. HH.**, el gerente de RR. HH. observa una cláusula personalizada que podría requerir una revisión legal. Legal Lee es un usuario de la cuenta, pero no forma parte de este flujo de trabajo del proceso de RR. HH.**Comportamiento de la función:**
+
+1.  El gerente de RR. HH. menciona a Legal Lee en los comentarios. Como el administrador activó **Permitir que los asignados mencionen a cualquier usuario de esta cuenta**, Legal Lee aparece en la lista.
+    
+2.  Legal Lee abre el elemento mediante la notificación.
+    
+3.  Ve todos los datos del contrato completados durante los pasos **Inicio** y **Revisión de RR. HH.**. No puede ver los campos del paso **Aprobación de Finanzas** porque ese paso aún no ha ocurrido.
+    
+4.  Legal Lee responde: "La cláusula 4 parece correcta."
+    
+
+###  Permisos de observadores
+
+**Permitir que los miembros del proceso observen elementos** - Cuando este interruptor está activado, los iniciadores de elementos pueden agregar como observadores a los usuarios que forman parte del proceso actual en los elementos que inician. 
+
+![](/migration-assets/process-settings/9.png)
+
+#### ¿Qué ocurre cuando esta configuración está activada?
+
+-   Los iniciadores de elementos pueden agregar hasta 10 usuarios del proceso como observadores de sus elementos.
+-   Los observadores pueden seguir el progreso y los resultados de los elementos.
+-   Los observadores pueden ver el formulario del elemento en modo de solo lectura.
+-   Los observadores pueden agregar comentarios y mencionar a los participantes del elemento.
+-   Se puede mencionar a los observadores en los comentarios.
+-   Los observadores reciben notificaciones cuando:
+    -   Se les agrega o elimina como observadores.
+    -   El elemento se completa, rechaza o retira.
+    -   Se les menciona en un comentario.
+    -   Alguien reacciona o responde a su comentario.
+
+#### ¿Qué ocurre cuando esta configuración está desactivada?
+
+-   Los observadores existentes no pueden observar sus elementos.
+-   No se pueden agregar nuevos observadores a los elementos del proceso.
+-   Los observadores existentes dejan de recibir notificaciones relacionadas con los observadores.
+-   Los observadores existentes se conservan y no se eliminan.
+-   Si la configuración se vuelve a activar más adelante, las capacidades de los observadores existentes vuelven a estar activas y las notificaciones se reanudan.
+
+## Configuración de formularios públicos
+
+En la pestaña **Configuración de formularios públicos**, puedes [activar y desactivar los formularios públicos](/t/35h9qtk/public-forms) para este proceso.
+
+Para activarlo, activa **ON** la URL del formulario público. Después, copia la URL y compártela con cualquier persona ajena a la organización.
+
+Para desactivarlo, cambia **OFF** la URL del formulario público y se desactivará. Una vez desactivado el formulario público, los usuarios externos no podrán iniciar nuevos elementos. Sin embargo, los elementos que estén en curso completarán los pasos del flujo de trabajo.
+
+![](/migration-assets/process-settings/10.png)
+
+> **Nota:**
+> 
+> La importación de CSV no es compatible con los formularios públicos en ningún dispositivo (de escritorio o móvil). Esto se debe a que los formularios públicos suelen estar insertados en sitios externos y Kissflow no puede verificar de forma segura la fuente de los datos ni admitir los requisitos del backend para las cargas masivas. Por lo tanto, la importación de CSV está desactivada en los formularios públicos para garantizar la seguridad del sistema.

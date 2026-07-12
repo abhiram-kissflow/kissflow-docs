@@ -1,0 +1,60 @@
+---
+title: "Gobernanza de procesos"
+description: "BORRADOR (sin verificar) — migrado desde /t/m1hvtsb/process-governance"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Planes de Kissflow:
+
+✕ Básico ✓ EnterpriseComo [superadministrador o administrador de IAM](/t/35h4ak0/user-roles-and-permissions), la gobernanza de cuentas te ayuda a ver todos los procesos en curso de tu cuenta de Kissflow. Esta función facilita la gestión de datos al ofrecerte una mejor visibilidad y control, lo que te ayuda a tomar decisiones acertadas sobre cómo se utilizan y mejoran los procesos.En la página de gobernanza de procesos, el área **Estado** te muestra cuántos procesos están activos y cuántos son borradores, para que puedas ver qué está listo y qué no. El área **Procesos inactivos** muestra todos los procesos que no han tenido actividad durante un tiempo, según el período que hayas elegido. De esta manera, puedes identificar qué procesos ya no son necesarios y tomar medidas según corresponda.![](/migration-assets/process-governance/1.png)
+
+## Seguridad y permisos
+
+La sección **Formularios públicos habilitados** muestra todos los procesos que tienen formularios públicos habilitados en su configuración de seguridad. De esta forma, puedes determinar a qué formularios de procesos se puede acceder externamente, ya que esto expone cualquier información contenida en ellos. En la sección **Conectados externamente**, puedes identificar los procesos que exponen datos confidenciales fuera de tu cuenta a través de conectores externos de las integraciones de tu cuenta. Conocer estos procesos te ayuda a gestionar la seguridad de los datos y minimizar los riesgos asociados con la exposición de datos confidenciales fuera de tu cuenta de Kissflow.Las secciones **Permisos de descarga sin restricciones** y **Permisos de impresión sin restricciones** te informan sobre los archivos adjuntos y formularios de los procesos que cualquiera puede descargar e imprimir, respectivamente. Esto te ayuda a identificar los procesos que pueden compartir datos confidenciales con personas o sistemas fuera de Kissflow.![](/migration-assets/process-governance/2.png)Puedes hacer clic en cualquier proceso para acceder a su página de detalles y ver el estado del proceso, su creador y su fecha de creación. También puedes ver cuándo y quién publicó el proceso por última vez. Además de estos detalles, hay muchas otras secciones en las que puedes obtener más información sobre el proceso.
+
+## Administradores
+
+La sección **Administradores** muestra todos los administradores de un proceso y sus roles. Para garantizar la seguridad y evitar accesos no autorizados, es importante identificar a las personas o grupos con privilegios administrativos para un proceso específico. Esta información te permite supervisar y controlar el acceso privilegiado. Supervisar y revisar periódicamente a los administradores puede ayudarte a mantener la integridad y confidencialidad del proceso, reduciendo el riesgo de acciones no autorizadas o filtraciones de datos.![](/migration-assets/process-governance/5.png)
+
+## Actividad
+
+Puedes evaluar la productividad de un proceso analizando la actividad que se lleva a cabo en él. Esto incluye el número de elementos creados en el proceso y los envíos realizados en todos los pasos durante un período seleccionado. Esto proporciona información valiosa sobre la eficacia del proceso y te ayuda a identificar áreas de mejora para aumentar la productividad y optimizar las operaciones.![](/migration-assets/process-governance/3.png)
+
+## Formulario público
+
+Esta sección te permite saber si un proceso tiene formularios públicos habilitados. Si está habilitado, se puede acceder al formulario del proceso desde sistemas externos a Kissflow, lo que puede exponer datos confidenciales.
+
+## Integraciones
+
+En esta sección, puedes consultar la lista de integraciones conectadas a un proceso específico. Muestra el estado de esas integraciones y los conectores que utilizan. De esta manera, puedes asegurarte de que el proceso solo esté conectado a las integraciones correspondientes y evitar riesgos de exposición de datos.![](/migration-assets/process-governance/7.png)
+
+## Datos confidenciales identificados por IA 
+
+Esta sección te permite conocer los campos del formulario que podrían contener datos confidenciales identificados por la IA. Con esta información, puedes tomar medidas para evitar la exposición no deseada de estos datos confidenciales posteriormente. La IA identifica y clasifica estos datos confidenciales en tres categorías:
+
+**1\. Datos personales** - Cualquier dato que pueda permitir identificar a una persona específica. Por ejemplo: nombre, dirección, datos de contacto, etc.
+
+**2\. Datos confidenciales** - Cualquier dato que requiera un alto nivel de seguridad y no esté destinado al acceso público. Esto incluye información empresarial de propiedad exclusiva, datos financieros, credenciales de inicio de sesión u otros detalles confidenciales que deban protegerse.
+
+**3\. Datos de salud** - Cualquier dato relacionado con la salud física o mental de una persona, su historial médico o sus registros de tratamiento.
+
+![](/migration-assets/process-governance/4.png)
+
+## Flujos consultados desde y consultados por
+
+En la sección **Flujos consultados desde**, puedes ver una lista de flujos desde los que un proceso puede consultar datos. Los datos de esos flujos quedan expuestos al proceso específico.![](/migration-assets/process-governance/8.png)Puedes ver una lista de flujos que pueden consultar datos de un proceso específico mediante la sección **Flujos consultados**. Los datos de este proceso quedan expuestos a los flujos que consultan este proceso.![](/migration-assets/process-governance/9.png)
+
+## Flujos dependientes y de origen
+
+Puedes supervisar todos tus [procesos conectados](/t/g9ytv27/connected-processes-overview) en las secciones de flujos dependientes y de origen, lo que simplifica la auditoría, la supervisión y la gestión de los flujos de trabajo de la organización.  
+ **Flujos dependientes** - Consulta los procesos conectados que pueden iniciar automáticamente elementos a partir de los elementos de tu proceso actual.**Flujos de origen** - Consulta los procesos conectados que pueden iniciar automáticamente elementos en tu proceso actual.![](/migration-assets/process-governance/6.png)
+
+## Registros de descarga, impresión y exportación
+
+En esta sección, puedes consultar todas las descargas, impresiones o exportaciones de datos de flujos (archivos adjuntos, formularios e informes, respectivamente) realizadas en los últimos 30 días. De esta forma, puedes detectar casos en los que podrían compartirse datos confidenciales con personas o sistemas dentro y fuera de Kissflow y tomar medidas para evitarlo.![](/migration-assets/process-governance/10.png)
+
+## Registro de auditoría
+
+El uso del registro de auditoría te permite obtener visibilidad e información valiosa sobre las actividades realizadas en un proceso. Proporciona un registro completo de todas las acciones de los últimos 30 días, lo que permite realizar un análisis detallado y comprender mejor el proceso. En función de esta información, puedes hacer un seguimiento y examinar diversas actividades para mejorar la supervisión y la seguridad.![](/migration-assets/process-governance/11.png)

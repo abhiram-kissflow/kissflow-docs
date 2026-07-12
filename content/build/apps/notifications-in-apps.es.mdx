@@ -1,0 +1,83 @@
+---
+title: "Notificaciones en las aplicaciones"
+description: "BORRADOR (sin verificar) — migrado desde /t/35yzjv9/notifications-in-apps"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+<iframe src="https://player.vimeo.com/video/935819947?h=b582b722b4&app_id=122963" title="Managing notifications in Kissflow" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+Puedes crear y personalizar notificaciones en el entorno de desarrollo de una aplicación para mantenerte informado sobre las actualizaciones importantes o garantizar una comunicación oportuna dentro de tu equipo.
+
+También puedes seleccionar los canales de notificación (correo electrónico, aplicación web y push) a través de los cuales quieres recibir notificaciones haciendo clic en el botón **Más opciones** (![](/migration-assets/notifications-in-apps/1.png)) > **Canales de notificación**.  
+ 
+
+![](/migration-assets/notifications-in-apps/7.gif)
+
+Hay dos tipos de notificaciones disponibles en Kissflow Apps:
+
+1. **Notificaciones de elementos** - Estas notificaciones están relacionadas con las transacciones de elementos de cualquier proceso, tablero o dataform dentro de la aplicación. Puedes crear y personalizar notificaciones de elementos además de las notificaciones predefinidas para asegurarte de estar al tanto de las actividades y cambios relevantes.
+    
+2. **Notificaciones de gestión de aplicaciones** - Estas son notificaciones a nivel de aplicación diseñadas específicamente para desarrolladores de aplicaciones y destinadas a proporcionarles actualizaciones y notificaciones importantes relacionadas con la gestión de aplicaciones. Solo se pueden activar o desactivar.
+    
+
+> **Nota**: 
+> 
+> No puedes personalizar las notificaciones en los entornos de prueba y producción, pero sí puedes activarlas o desactivarlas.
+
+Si has realizado cambios en las notificaciones, debes volver a implementar la aplicación para que los cambios se reflejen en el entorno de producción.
+
+## Crear notificaciones de elementos
+
+Para crear una notificación de elemento dentro de las aplicaciones,
+
+1.  Haz clic en el botón **Configuración** (![](/migration-assets/notifications-in-apps/3.png)) ubicado en el panel izquierdo de la aplicación y haz clic en **Configuración de notificaciones**.
+    
+2.  Haz clic en **\+ Nueva notificación** para comenzar a crear una notificación nueva.
+    
+3.  Selecciona el tipo de flujo y el flujo: elige el tipo de flujo (proceso, tablero o dataform) para el que quieres crear la notificación y haz clic en **Siguiente**.  
+     
+    
+    ![](/migration-assets/notifications-in-apps/2.png)
+    
+4. **Configurar detalles** -  
+    
+    1.  Selecciona el [evento de notificación](/t/y4yzjv4/notification-events-in-apps) y las condiciones para activar la notificación. 
+        
+    2.  Selecciona los destinatarios a quienes se debe enviar la notificación. Haz clic en **Siguiente**.
+        
+
+> **Nota**:
+> 
+> 1.  Si hay un campo de usuario en el formulario y se ha seleccionado un usuario, su nombre aparecerá en el cuadro desplegable de destinatarios.
+> 2.  Cambiar el [evento de notificación](/t/y4yzjv4/notification-events-in-apps) después de configurar las condiciones y el destinatario restablecerá esas configuraciones.
+
+**5\. Personalizar y previsualizar el contenido -**
+
+-   **El contenido del correo electrónico** es para los canales de notificación por correo electrónico, donde tienes mucho espacio para transmitir información de forma completa y proporcionar más detalles para que los destinatarios comprendan plenamente la notificación. Tiene un límite de 500 caracteres.  
+     
+-   **El contenido de la aplicación web y push** proporciona un resumen conciso o un fragmento del mensaje de notificación, ideal para canales como la aplicación web y las notificaciones push, donde el límite es de 300 caracteres.  
+     
+-   **El contenido de Bot e**s el mensaje que se muestra en aplicaciones de chat como Slack, Microsoft Teams y Google Chat, para que puedas consultar los detalles clave sin salir del chat.
+
+![](/migration-assets/notifications-in-apps/4.png)
+
+Haz clic en **Siguiente**.
+
+6\. **Redirección** - Elige la página de la aplicación o la ventana emergente que debe abrirse al hacer clic en la notificación. 
+
+![](/migration-assets/notifications-in-apps/5.png)
+
+También puedes seleccionar **Predeterminado del sistema** para redirigir a una página predeterminada. 
+
+Haz clic en **Siguiente**.  
+ 
+
+7\. **Vista previa** - Previsualiza las notificaciones y haz clic en **Crear**. En la ventana emergente que aparece a continuación, puedes elegir cambiar el nombre de notificación generado por el sistema y asignarle el nombre que quieras.
+
+![](/migration-assets/notifications-in-apps/6.png)

@@ -1,0 +1,98 @@
+---
+title: "Elegir el método adecuado para compartir datos en las aplicaciones"
+description: "BORRADOR (sin verificar) — migrado desde /t/h7ypyab/choosing-the-right-data-sharing-method-in-apps"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Al crear aplicaciones sofisticadas en Kissflow, a menudo necesitarás compartir datos entre ellas. Kissflow ofrece dos métodos eficaces para hacerlo: [Referencia de componentes](/t/83y6m1q/sharing-data-across-apps-using-component-referencing) y [Búsqueda entre aplicaciones](/t/35yzjvd/application-to-application-lookup-through-linking) mediante enlaces. Aunque ambos permiten compartir datos, están diseñados para distintos escenarios.
+
+Esta guía te ayudará a decidir qué método se adapta mejor a tus necesidades.
+
+## De un vistazo: diferencias clave
+
+**Característica**
+
+**Referencia de componentes**
+
+**Búsqueda entre aplicaciones**
+
+**Uso principal**
+
+Consumir datos para visualizarlos y manipularlos.
+
+Consumir datos con fines de solo lectura.
+
+**¿Qué se comparte?**
+
+Vistas, informes y pasos del flujo de trabajo.
+
+Campos de datos.
+
+**Caso de uso**
+
+Incrustar un informe de ventas en tiempo real en un panel de gestión.
+
+Consultar los datos de un empleado para una solicitud de ausencia.
+
+**Flujo de datos**
+
+Lectura y escritura bidireccionales.
+
+Consulta de datos unidireccional.
+
+**Ideal para**
+
+Flujos de trabajo complejos e interactivos que abarcan varias aplicaciones.
+
+Mantener una única fuente de verdad para los datos.
+
+## ¿Qué método debes usar?
+
+Para encontrar el método adecuado para tu caso de uso, responde a las siguientes preguntas.
+
+### ¿Cuál es tu objetivo principal?
+
+A) Consultar y hacer referencia a datos de una aplicación en un formulario de otra aplicación.  
+Si este es tu objetivo, querrás evitar duplicar datos y asegurarte de mantener una única fuente de verdad. Por ejemplo, tienes una aplicación de Clientes y quieres seleccionar un cliente en una aplicación de Proyectos sin duplicar todos los datos del cliente.
+
+Tu respuesta probablemente sea: Búsqueda entre aplicaciones. Ve a la segunda pregunta para confirmarlo.  
+ 
+
+B) Consumir, manipular y visualizar los datos utilizados en los componentes de otra aplicación.  
+Si necesitas incrustar una vista o un informe en tiempo real, o incluso activar un proceso desde otra aplicación, este es el camino que debes seguir. Por ejemplo, quieres mostrar un informe de inventario en tiempo real de tu aplicación "Inventario" dentro de tu aplicación "Ventas".
+
+Tu respuesta es: Referencia de componentes.
+
+### ¿Dónde quieres usar los datos?
+
+-   Para las búsquedas entre aplicaciones, añade un paso de búsqueda dentro del Proceso.  
+     
+    
+-   Para la referencia de componentes, usa el constructor de páginas para añadir vistas, formularios, informes o pasos del flujo de trabajo.
+    
+
+## Resumen y ejemplos
+
+### Búsqueda entre aplicaciones
+
+-   Quieres mantener una lista maestra de datos (por ejemplo, empleados, productos o clientes) y hacer referencia a ella en otras aplicaciones.
+    
+-   Necesitas rellenar campos de un formulario con datos de otra aplicación.
+    
+
+Ejemplo: Una aplicación de gestión de ausencias consulta los datos de los empleados (nombre, departamento, responsable) en la aplicación de gestión de empleados.
+
+### Referencia de componentes
+
+-   Quieres incrustar un informe interactivo en tiempo real o una vista de datos de una aplicación en otra.
+    
+-   Necesitas permitir que los usuarios inicien pasos del flujo de trabajo o actúen sobre ellos desde otra aplicación.
+    
+-   Estás creando una solución compleja e integrada que implica que varias aplicaciones trabajen juntas en tiempo real.
+    
+
+Ejemplo: Un responsable en una aplicación de gestión de proyectos puede ver un informe en tiempo real sobre la disponibilidad del equipo desde la aplicación de RR. HH. y aprobar solicitudes de ausencia sin salir de la vista del proyecto.
+
+Al seguir esta guía, podrás elegir con confianza el método adecuado para compartir datos en Kissflow y crear aplicaciones más eficientes y potentes.

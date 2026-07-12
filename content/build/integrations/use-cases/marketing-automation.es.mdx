@@ -1,0 +1,175 @@
+---
+title: "Automatización de marketing"
+description: "BORRADOR (sin verificar) — migrado desde /t/q6ykcwk/marketing-automation"
+contentType: use-case
+persona: citizen-developer
+section: build
+---
+
+Las plataformas de automatización de marketing son los motores de la estrategia digital moderna. Permiten a las empresas comunicarse con clientes y clientes potenciales a gran escala, enviando mensajes personalizados en el momento adecuado. Las integraciones son el combustible de este motor. Al conectar las plataformas de marketing con otros sistemas empresariales, como CRM, tiendas de comercio electrónico y herramientas de gestión de eventos, las empresas pueden crear una visión integral de 360 grados de su audiencia. Esto permite una automatización eficaz, desde el desarrollo de leads y la segmentación de clientes hasta los recordatorios de carritos abandonados y los seguimientos posteriores a la compra, lo que garantiza que los datos fluyan libremente y que los esfuerzos de marketing sean eficientes y efectivos.
+
+## Conectores en este sector
+
+**Aplicación**
+
+**Descripción**
+
+**[Active Campaign](/t/q6h4afp/activecampaign-connector)**
+
+Una plataforma de automatización de la experiencia del cliente que combina email marketing, automatización de marketing y herramientas de CRM para ofrecer segmentación y personalización avanzadas.
+
+**[MailChimp](/t/x2h4afl/mailchimp-connector)**
+
+Una plataforma de marketing todo en uno que ayuda a las empresas a gestionar y comunicarse con sus clientes, consumidores y otras partes interesadas, conocida por su creador de emails fácil de usar.
+
+**[HTTP](/t/p8h4aky/http-connector)**
+
+Además de las acciones prediseñadas disponibles en Kissflow Integrations para marketing, puede haber situaciones en las que necesites realizar una acción personalizada. En esos casos, puedes usar el conector HTTP para configurar llamadas a la API desde cero e interactuar con cualquier servicio que exponga una API REST.
+
+## Casos de uso de integración con Kissflow
+
+Estos son ejemplos prácticos basados en situaciones reales de cómo Kissflow puede activar acciones en Active Campaign y Mailchimp para resolver problemas empresariales comunes.
+
+### Active Campaign
+
+**Objetivo empresarial**
+
+**Desencadenador (en Kissflow)**
+
+**Acción (en ActiveCampaign)**
+
+**Situación detallada**
+
+**Beneficio clave**
+
+Enriquecer los datos de los leads
+
+Se aprueba el formulario de _solicitud de demostración_.
+
+Crear o actualizar un contacto.
+
+Kissflow envía los datos del cliente potencial. Si el contacto existe, sus campos de teléfono y empresa se actualizan; de lo contrario, se crea un nuevo contacto en un solo paso eficiente.
+
+Garantiza que los datos de los leads estén siempre actualizados sin crear duplicados.
+
+Incorporar a nuevos empleados
+
+RR. HH. envía un formulario de _bienvenida para un nuevo empleado_.
+
+Crear contacto.
+
+Siempre se crea un contacto completamente nuevo para el empleado, con el fin de garantizar que reciba los emails esenciales de incorporación y evitar conflictos con registros existentes.
+
+Garantiza la entrega de las comunicaciones internas a las nuevas incorporaciones.
+
+Automatizar el pipeline de ventas
+
+Se aprueba una cotización en una aplicación de gestión de cotizaciones.
+
+Crear un acuerdo.
+
+Se crea un nuevo acuerdo en el pipeline de ventas B2B con el valor cotizado, la fecha de cierre prevista y el cliente potencial vinculado como contacto principal.
+
+Acelera el ciclo de ventas al reflejar de inmediato las aprobaciones en el pipeline de ventas.
+
+Gestionar los datos de proveedores
+
+El equipo de compras evalúa y aprueba a un nuevo proveedor.
+
+Crear una cuenta.
+
+Se crea un registro de cuenta para el nuevo proveedor con su nombre de empresa, sector y número de IVA, lo que ofrece visibilidad completa a todos los equipos.
+
+Centraliza la información de los proveedores y la hace accesible para todos los departamentos pertinentes.
+
+Alertar a los equipos sobre cambios en las cuentas
+
+Finanzas marca a un cliente como _Retención de crédito_ en un flujo de trabajo de facturación.
+
+Actualizar una cuenta.
+
+La cuenta correspondiente se actualiza con un campo personalizado _Estado del crédito_ establecido en _En espera_, lo que alerta de inmediato a todos los representantes.
+
+Proporciona actualizaciones críticas y en tiempo real sobre el estado de las cuentas a todo el equipo de ventas.
+
+Lanzar campañas segmentadas
+
+Marketing inicia un flujo de trabajo de _Programa beta VIP_.
+
+Crear una lista.
+
+Se crea automáticamente una nueva lista de contactos llamada _VIP-Beta-2025_, lista para incorporar contactos a secuencias de emails segmentadas.
+
+Agiliza la preparación de campañas al automatizar la creación de listas.
+
+Mantener actualizado el pipeline de ventas
+
+El equipo de implementación marca un proyecto como completado al 100 por ciento en un tracker.
+
+Actualizar un acuerdo.
+
+El acuerdo vinculado se actualiza automáticamente a la etapa _Ganado_ con una probabilidad del 100 %, y la fecha de cierre real se establece en _hoy_.
+
+Mejora la precisión de las previsiones de ventas con actualizaciones en tiempo real del estado de los acuerdos.
+
+Segmentar a los asistentes a eventos
+
+Se confirma la asistencia de una persona a un evento en la aplicación de Kissflow.
+
+Añadir un contacto a una lista.
+
+El registro de contacto del asistente se añade inmediatamente a la lista específica _Webinar-Abril-2025_ para enviar comunicaciones de seguimiento segmentadas.
+
+Permite una comunicación posterior al evento oportuna y relevante.
+
+Mantener la higiene de las listas
+
+Se aprueba una solicitud para retirar la campaña _promoción-Primavera-2023_.
+
+Eliminar una lista.
+
+La lista de contactos obsoleta se elimina automáticamente, lo que mantiene el entorno de ActiveCampaign limpio, conforme y optimizado.
+
+Reduce el desorden y mejora la gobernanza y el cumplimiento de los datos.
+
+### MailChimp
+
+**Objetivo empresarial**
+
+**Desencadenador (en Kissflow)**
+
+**Acción (en Mailchimp)**
+
+**Situación detallada**
+
+**Beneficio clave**
+
+Hacer seguimiento del comportamiento de los clientes
+
+Un cliente completa el proceso de pago en un flujo de trabajo de comercio electrónico.
+
+Crear un evento personalizado.
+
+Kissflow activa un evento de _Compra completada_ en el perfil del suscriptor, lo que desencadena automatizaciones de agradecimiento posteriores a la compra y de venta adicional en Mailchimp.
+
+Mejora la experiencia del cliente con seguimientos inmediatos basados en su comportamiento.
+
+Agilizar la creación de campañas
+
+Marketing de producto aprueba las notas de una nueva versión en un proceso.
+
+Crear una campaña.
+
+Se crea al instante una campaña en borrador en Mailchimp con el título, la audiencia y la línea de asunto aprobados, lista para la revisión final.
+
+Reduce el esfuerzo manual y los posibles errores en la configuración de campañas.
+
+Automatizar el envío de campañas
+
+Control de calidad marca el email en borrador como _Aprobado_ para su envío.
+
+Enviar una campaña.
+
+La integración envía inmediatamente la campaña aprobada desde Mailchimp, lo que garantiza una comunicación oportuna para lanzamientos de productos o anuncios.
+
+Permite ejecutar campañas en tiempo real en función de las aprobaciones internas.

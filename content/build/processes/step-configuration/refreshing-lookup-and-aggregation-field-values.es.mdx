@@ -1,0 +1,47 @@
+---
+title: "Actualizar los valores de los campos de búsqueda y agregación"
+description: "BORRADOR (sin verificar) — migrado desde /t/m1h9qtt/refreshing-lookup-and-aggregation-field-values"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Los datos de origen de los campos de búsqueda y agregación pueden cambiar mientras un usuario trabaja en un formulario. 
+
+De forma predeterminada, esos valores se recuperan cuando el formulario se envía por primera vez y no se actualizan a medida que el elemento avanza por el flujo de trabajo. 
+
+Sin embargo, como administrador del proceso, puedes elegir actualizar los campos de [búsqueda](/t/g9h4azr/lookup-field) y [agregación](/t/83h4azk/aggregation-field) del formulario en determinados pasos del flujo de trabajo. Cuando el usuario hace clic en un botón de acción, los valores de los campos de búsqueda y agregación se actualizan.  
+
+## ¿Cuándo debo actualizar los campos de búsqueda y agregación de mi formulario?
+
+-   Cuando los datos de origen cambian o se actualizan constantemente.
+-   Cuando se pueden agregar nuevos datos durante el flujo de trabajo, lo que puede cambiar los valores.
+
+Considera un escenario en el que envías una **solicitud de Capex (gastos de capital)** que hace referencia al presupuesto disponible actual de un conjunto de datos de **presupuesto maestro**. Mientras completas el formulario, otra solicitud podría aprobarse simultáneamente y reducir el presupuesto disponible. Para asegurarte de trabajar con los datos más actualizados, puedes usar la acción **Actualizar** antes de enviar el formulario. Esta acción actualiza el campo de búsqueda, obtiene la información presupuestaria más reciente y evita posibles gastos excesivos.
+
+## ¿Cómo habilito la actualización de campos?
+
+Ve a la pestaña **Permisos** en el editor del proceso. Selecciona cualquier paso y desplázate hasta la parte inferior del formulario. Haz clic en **Configurar** **acciones**. Pasa el cursor sobre la acción **Enviar**, **Rechazar**, **Retirar** o **Devolver** y haz clic en **Avanzado**.
+
+![](/migration-assets/refreshing-lookup-and-aggregation-field-values/1.png)
+
+ En **Actualizar campos**, elige los campos de búsqueda o agregación necesarios que deben actualizarse.
+
+![](/migration-assets/refreshing-lookup-and-aggregation-field-values/2.png)
+
+Si el campo que quieres actualizar está en el formulario o en una tabla, selecciona el campo de búsqueda o agregación que quieres actualizar. Puedes seleccionar varios campos de la misma tabla.
+
+## Validaciones y actualización de campos
+
+Las validaciones que configuras para los ajustes de **acción** **avanzada** se ven afectadas por la actualización de campos. 
+
+Por ejemplo, supongamos que tienes una validación que garantiza que el importe del presupuesto no sea inferior a cero. En el primer paso, el presupuesto era positivo y superó la validación. Sin embargo, en un paso posterior, los valores pueden cambiar como resultado de una actualización y el importe del presupuesto puede ser inferior a cero. En este caso, el elemento no puede avanzar. 
+
+> #### Notas:
+> 
+> -   Si eliminas el campo de búsqueda o agregación, la configuración de actualización desaparecerá automáticamente. 
+> -   Cuando un usuario intenta enviar un elemento y el valor de búsqueda seleccionado se ha eliminado, el envío se permite a menos que el campo de búsqueda esté marcado como obligatorio. En ese caso, aparecerá un error de validación.

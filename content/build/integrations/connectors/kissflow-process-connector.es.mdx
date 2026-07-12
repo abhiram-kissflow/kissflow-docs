@@ -1,0 +1,176 @@
+---
+title: "Conector de Kissflow Process"
+description: "BORRADOR (no verificado) — migrado desde /t/h7h4akh/kissflow-process-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Básico ✓ Enterprise
+
+## Conexión a Kissflow Process
+
+Los miembros de la integración con permiso para acceder a un [proceso](/category/processes) pueden usar conectores para enviar datos desde un proceso a otros flujos en Kissflow o a aplicaciones de terceros. Del mismo modo, los conectores se pueden usar para recibir datos y realizar acciones específicas en tu proceso.
+
+Por ejemplo, tienes un Kissflow Board para gestionar tu mesa de ayuda y quieres que ciertos elementos identificados como solicitudes de cambio pasen por un proceso de aprobación de funcionalidades. Para que esto ocurra, el board y el proceso deben comunicarse entre sí. Los conectores hacen posible esta comunicación de forma fluida. Mediante conectores predefinidos, puedes configurar activadores y acciones para que, cuando se añada una nueva solicitud de cambio a tu mesa de ayuda, se registre el elemento correspondiente en tu proceso de aprobación de funcionalidades.
+
+### Activadores para Kissflow Process
+
+**Activador**
+
+**Descripción**
+
+Cuando se crea un elemento
+
+Se activa en cuanto alguien hace clic en el botón **Nuevo elemento**.
+
+Cuando se añade un comentario a un elemento
+
+Se activa cuando alguien añade un comentario a cualquier elemento del proceso.
+
+Cuando se envía un elemento en borrador
+
+Se activa cuando alguien envía un elemento después de hacer clic en el botón **Nuevo elemento** o en un formulario de la cola de borradores.
+
+En los flujos de trabajo cuyo primer paso es una rama paralela, usa siempre este activador en lugar del activador de paso **Cuando un elemento entra en este paso**.
+
+Cuando un elemento avanza al siguiente paso
+
+Se activa únicamente después de que todos los responsables del paso aprueban el elemento y este avanza al siguiente paso del flujo de trabajo.
+
+Cuando se rechaza un elemento
+
+Se activa cuando se rechaza un elemento en cualquier paso.
+
+Cuando se retira un elemento
+
+Se activa cuando el iniciador retira un elemento en cualquier paso.
+
+Cuando un elemento supera su fecha límite
+
+Se activa cuando cualquier elemento supera su fecha límite (SLA) en cualquier paso.
+
+Cuando se reasigna un elemento
+
+Se activa cuando se reasigna cualquier elemento en cualquier paso.
+
+Cuando se devuelve un elemento
+
+Se activa cuando cualquier elemento se devuelve a un paso anterior.
+
+Cuando un elemento completa su flujo de trabajo.
+
+Se activa cuando cualquier elemento llega al final del flujo de trabajo.
+
+Cuando un elemento entra en este paso
+
+Se activa cuando cualquier elemento entra en un paso específico del flujo de trabajo.
+
+Cuando un elemento sale de este paso
+
+Se activa cuando el elemento avanza al siguiente paso, se devuelve a un paso anterior, se rechaza, el iniciador lo retira o se detiene en ramas paralelas.
+
+Cuando un responsable aprueba un elemento en este paso
+
+Se activa cada vez que cualquier responsable aprueba un elemento en un paso específico. Según la configuración de asignación del paso, el elemento puede avanzar o no al siguiente paso del flujo de trabajo.
+
+Cuando un responsable rechaza un elemento en este paso
+
+Se activa cuando cualquier responsable rechaza un elemento en este paso. El elemento se devolverá al iniciador.
+
+Cuando un elemento supera su fecha límite en este paso
+
+Se activa cuando un elemento supera su fecha límite (SLA) en un paso específico.
+
+Cuando se reasigna un elemento en este paso
+
+Se activa cuando se reasigna un elemento a otro responsable en un paso específico.
+
+Cuando un elemento está a punto de entrar en el paso
+
+Se activa cuando un elemento entra en un paso, independientemente de la condición de omisión.
+
+### Acciones para Kissflow Process
+
+**Acción**
+
+**Descripción**
+
+Crear y enviar un nuevo elemento
+
+Esta acción crea un nuevo elemento en el flujo de trabajo de tu proceso, completa los campos y lo envía para su posterior procesamiento.
+
+Actualizar un elemento
+
+Esta acción actualiza un elemento en el flujo de trabajo de tu proceso.
+
+Generar un documento PDF
+
+Esta acción genera un documento PDF basado en:
+
+1.  Plantilla de documento
+2. **Elemento de proceso**: el documento se genera en el idioma seleccionado. Si se deja vacío, usa el idioma de entrada predeterminado del usuario. Las etiquetas de los formularios y los nombres de los pasos permanecen en su idioma original, a menos que se configuren sus ajustes multilingües.  
+    **Límites de generación del sistema:**
+    -   Tamaño de la carga útil: hasta 10 MB
+    -   Tiempo máximo de procesamiento: hasta 45 segundos
+    -   Campos de tabla (columnas): 10 (si se deja vacío, se muestran los 10 primeros campos).
+
+Crear y enviar elementos en bloque
+
+Esta acción crea varios elementos nuevos en el flujo de trabajo de tu proceso, completa los campos y los envía para su posterior procesamiento.
+
+Aprobar un elemento
+
+Esta acción aprueba automáticamente un elemento en el flujo de trabajo de tu proceso.
+
+> **Nota:** 
+> 
+> El propietario de la conexión para esta acción debe añadirse como aprobador en el paso seleccionado del flujo de trabajo. De lo contrario, la integración fallará. También se pueden usar cuentas de servicio.
+
+Buscar un elemento
+
+Esta acción busca y recupera un elemento del flujo de trabajo de tu proceso.
+
+> **Nota:** 
+> 
+> Esta acción puede buscar y recuperar hasta 100 elementos/solicitudes.
+
+Omitir y completar
+
+Esta acción omite los pasos actuales y futuros y marca el elemento como completado.
+
+## Usar un conector como activador
+
+1.  Crea una nueva [integración](/t/60h4akx/creating-an-integration).
+2.  Selecciona el conector de Kissflow Process y, a continuación, elige un activador. También puedes usar la búsqueda para encontrar directamente un activador.
+3.  Crea una nueva conexión o usa una conexión existente en tu cuenta. Puedes conectarte a otra cuenta de Kissflow o usar tu propia cuenta de Kissflow. La conexión se autentica mediante tus claves de acceso y tokens secretos. Después de autenticar la conexión, haz clic en **Siguiente**.
+4.  Selecciona el proceso con el que quieres trabajar. Haz clic en **Siguiente**.
+5.  Comprueba si el activador está configurado correctamente haciendo clic en el botón **Probar activador**. El conector extraerá los datos de los campos del proceso seleccionado y los mostrará en formato JSON. Si hay un error en la configuración, recibirás un mensaje al respecto. Vuelve a probar el activador después de realizar los cambios necesarios.  
+     ![](/migration-assets/kissflow-process-connector/3.png)
+
+> **Nota:**
+> 
+> Si no encuentras el proceso que necesitas en el menú desplegable **Elegir un proceso**, puede deberse a uno de estos dos motivos:
+> 
+> -   Permisos insuficientes: asegúrate de que se te haya concedido acceso de administrador al proceso específico al que intentas conectarte.
+>     
+> -   Conexión incorrecta: verifica que estés usando la autenticación o conexión de tu propia cuenta. El menú desplegable solo mostrará los procesos a los que tiene acceso la cuenta de usuario que autorizó la conexión.
+>     
+
+## Usar un conector como acción
+
+1.  Haz clic en el conector de proceso y selecciona un paso de acción entre las opciones disponibles.  
+     
+    
+    ![](/migration-assets/kissflow-process-connector/2.png)
+2.  Al igual que al configurar un activador, configura una conexión con la cuenta necesaria.
+3.  Después de elegir un proceso, añade los valores correspondientes a los campos del formulario. Puedes actualizar los campos para ver todos los campos actualizados del formulario. También puedes asignar campos del formulario desde tu paso de activador o campos de tus pasos de acción anteriores. Estos valores se añadirán automáticamente a los campos después de ejecutar la acción.  
+      
+    Para las acciones que implican actualizar un elemento existente, debes especificar el **ID de instancia**. Usa el ID de instancia de la URL del proceso y asegúrate de que la solicitud tenga el estado **En curso**.![](/migration-assets/kissflow-process-connector/1.png) 
+4.  Comprueba si el paso de acción está configurado correctamente haciendo clic en el botón **Probar acción**. El conector extraerá los datos de los campos de tu proceso y los mostrará en formato JSON. Si hay errores, se te notificarán de inmediato. Corrígelos antes de volver a probar la acción.
+
+Después de configurar los activadores y las acciones necesarios, ve a la esquina superior derecha del editor para activar la integración.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

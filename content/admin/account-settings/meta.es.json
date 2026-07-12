@@ -1,0 +1,15 @@
+{
+  "title": "Personalización de los detalles de la cuenta y dominios conectados",
+  "pages": [
+    "account-details-customization-and-connected-domains",
+    "task-delegation",
+    "format-settings",
+    "flow-settings",
+    "weekends-and-holidays",
+    "file-upload-settings",
+    "subscription-and-billing",
+    "bot-settings",
+    "admin-notification-settings",
+    "geolocation-settings"
+  ]
+}

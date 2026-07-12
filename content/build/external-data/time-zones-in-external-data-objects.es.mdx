@@ -1,0 +1,23 @@
+---
+title: "Zonas horarias en objetos de datos externos"
+description: "BORRADOR (sin verificar) — migrado desde /t/60yys4f/time-zones-in-external-data-objects"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Básico ✓ Enterprise
+
+Durante el proceso de configuración de columnas, puedes seleccionar tu zona horaria preferida en la lista desplegable proporcionada. De forma predeterminada, la zona horaria se establece en UTC.
+
+![](/migration-assets/time-zones-in-external-data-objects/1.gif)
+
+> **Nota:** Las bases de datos y los ERP pueden variar en sus conceptos de zona horaria. 
+
+Todas las entradas de _fecha, hora_ se almacenan como cadenas sin indicaciones explícitas de zona horaria en tu base de datos. Si tu cuenta de Kissflow está configurada en IST, las entradas dentro de Kissflow estarán en IST. Seleccionar IST en la lista desplegable garantiza que estas entradas se reflejen directamente como IST en la tabla de tu base de datos.
+
+Por el contrario, si tu cuenta de Kissflow funciona en IST, pero seleccionas UTC en las opciones de zona horaria, Kissflow convertirá las entradas de IST a UTC antes de transmitirlas a la tabla de tu base de datos, lo que garantiza la sincronización entre distintas zonas horarias.
+
+Este es un ejemplo del proceso de conversión. Si una entrada tiene la marca de tiempo 23/11/2023, 13:19 en tu sistema de Kissflow y has seleccionado UTC en las opciones de zona horaria, esta hora registrada en IST se convertirá a UTC — 23/11/2023, 7:49 antes de transmitirse a tu base de datos.

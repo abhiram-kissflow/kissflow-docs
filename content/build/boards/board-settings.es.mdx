@@ -1,0 +1,52 @@
+---
+title: "Configuración del tablero"
+description: "BORRADOR (sin verificar) — migrado desde /t/y4yzjap/board-settings"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ EnterprisePuedes modificar el funcionamiento de tu tablero cambiando opciones específicas. Para configurar o cambiar los ajustes de un formulario de tablero, haz clic en la pestaña **Configuración** del formulario de tu tablero.
+
+## Configuración general
+
+En la pestaña **General**, puedes configurar algunos de los parámetros principales del formulario de tu tablero. Puedes cambiar el nombre y el tipo de elemento, así como configurar cómo aparecen los títulos en cada formulario de tablero:
+
+-   **Tipo de elemento** - el tipo de elementos que se administran en el tablero. Puedes cambiar el nombre del tipo de elemento aquí.
+-   **Prefijo de ID** - el prefijo de los ID de elemento generados en este sistema. Por ejemplo, si usas IT, los elementos se numerarán IT-001, IT-002, etc.
+
+![](/migration-assets/board-settings/1.png)
+
+### Configurar títulos de formularios
+
+Para configurar los títulos de los formularios, haz clic en el **botón Agregar (+)** y organiza los campos predeterminados del sistema o los campos del formulario en el orden que quieras; luego, haz clic en **Guardar**. Según este formato, los títulos se generan automáticamente y se muestran en la parte superior de cada formulario de tablero.![](/migration-assets/board-settings/2.png)
+
+## Configuración opcional
+
+### Prioridad
+
+La prioridad indica la urgencia de resolver un elemento. Establecer una prioridad te permite administrar y hacer un seguimiento eficiente de tus elementos.Por ejemplo, si hay elementos con una prioridad más alta, puedes establecer su prioridad en **Alta** o **Crítica**. Los elementos críticos se identifican fácilmente y, por lo tanto, es más sencillo hacerles seguimiento.En la pestaña **Configuración** **opcional**, puedes activar o desactivar la prioridad para todo el formulario de tablero.![](/migration-assets/board-settings/3.png)
+
+Cuando desactivas la prioridad, el campo **Prioridad** se ocultará en todo el tablero en:
+
+-   Vistas
+-   Formulario
+-   Filtros
+-   Ordenar
+-   Integraciones
+
+El campo se oculta incluso si se utilizó para configurar alguna de las funciones mencionadas anteriormente.Por ejemplo, si creaste un filtro que utilizaba la prioridad y la desactivas, el filtro ya no tendrá en cuenta una prioridad para filtrar elementos.Además, si utilizaste la prioridad para definir validaciones o crear expresiones en un campo del formulario, no podrás desactivar la prioridad. Primero tendrás que eliminar estas dependencias.
+
+### Observadores
+
+Activar esta configuración permite que los roles con permisos para iniciar y administrar comiencen a seguir elementos. Los observadores reciben notificaciones sobre las actualizaciones de los elementos.
+
+## [Controles de acceso](/t/83ymdnx/security-settings-for-flows#access-controls)
+
+Puedes permitir o restringir los permisos de los usuarios, lo que afecta su capacidad para imprimir formularios y descargar archivos adjuntos en los tableros.
+
+### [Permisos de impresión y descarga](/t/83ymdnx/security-settings-for-flows#print-and-download-permissions)
+
+Puedes alternar entre dos opciones: **Cualquiera** y **Solo administradores**. Establecer el permiso en **Cualquiera** permitiría a cualquier usuario descargar archivos adjuntos o imprimir formularios. Elegir **Solo administradores** restringiría los permisos de descarga e impresión únicamente a los administradores.

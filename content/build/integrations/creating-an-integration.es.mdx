@@ -1,0 +1,108 @@
+---
+title: "Crear una integración"
+description: "BORRADOR (sin verificar) — migrado desde /t/60h4akx/creating-an-integration"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Básico ✓ Enterprise
+
+Las integraciones te permiten conectar Kissflow con otras aplicaciones para automatizar tus flujos de trabajo. Antes de crear integraciones, asegúrate de que la integración esté habilitada en [Configuración del flujo](/t/h7h4akl/flow-settings). Si no tienes permisos suficientes, ponte en contacto con tu [Super Admin](/t/35h4ak0/user-roles-permissions).
+
+Hay dos formas de crear una nueva integración en Kissflow:
+
+## Método 1: Usar el botón de creación
+
+1.  Haz clic en el botón **Crear** del panel de navegación izquierdo
+    
+2.  Selecciona **Integración** en la lista
+    
+3.  Introduce un nombre y una descripción para tu integración
+    
+4.  Haz clic en **Crear**
+    
+
+## Método 2: Usar la página de exploración
+
+1.  Haz clic en **Explorar** en el panel de navegación izquierdo
+    
+2.  Haz clic en el botón **Crear**
+    
+3.  Elige **Integración** en **Crear desde cero**
+    
+4.  Introduce un nombre y una descripción para tu integración
+    
+5.  Haz clic en **Crear**
+    
+
+## Configurar un activador
+
+Para añadir un paso de activador, sigue estos pasos:
+
+1.  Haz clic en **Añadir un activador** y elige un activador de la lista de activadores disponibles, o elige uno de los activadores más utilizados. La integración se activará según el evento que ocurra en este conector. También puedes [crear integraciones](/t/h7yh4cy/creating-integrations-using-ai) usando nuestra AI. 
+2. **Selecciona el evento del activador**. Este será el evento que ocurra en el conector seleccionado y que active la integración.
+3. **Autentica tu conexión**. Autentica el conector configurando una conexión. Puedes vincularlo a tu cuenta de Kissflow o usar otra cuenta de Kissflow para autenticar el conector. Las conexiones internas se establecen mediante la autenticación basada en tokens con el ID de la clave de acceso y el secreto de la clave de acceso. También puedes vincular [claves de acceso de cuentas de servicio](/t/q6h4akr/creating-and-managing-access-keys). Para los conectores de aplicaciones de terceros, autentica la cuenta del conector mediante OAuth o el tipo de autenticación compatible con la aplicación de terceros. ![](/migration-assets/creating-an-integration/1.png)  
+4. **Configura el paso del activador.** Personaliza tu aplicación de conector para enviar los datos que prefieras.
+5. **Prueba el activador.** Prueba el resultado del activador para comprobar si el conector del activador está configurado correctamente.![](/migration-assets/creating-an-integration/2.png)
+    
+
+Cuando cada sección está configurada correctamente, aparece una marca de verificación verde junto a ella. Completa todas las secciones antes de continuar con la configuración de las acciones. Si encuentras algún error al configurar el activador, verás todos los mensajes de error en el lado izquierdo de la página. Al hacer clic en un error, accederás al paso que contiene el error, donde podrás solucionarlo.
+
+> **Nota:**
+> 
+> Aunque la [clave de acceso](/t/35h4az8y7h4gj/api-keys#creating-a-new-access-key) asociada a la conexión del activador se elimine o desactive, el activador de tu integración seguirá funcionando.
+
+![](/migration-assets/creating-an-integration/3.png)
+
+## Configurar acciones
+
+Al igual que con el paso del activador, configura tu acción seleccionando el conector y el evento de la acción:
+
+1. **Selecciona el conector de tu acción**. El paso del activador u otro paso de acción activa la acción.
+2. **Selecciona el evento de tu acción**. Este será el evento que ocurra en el conector seleccionado cuando se active.    
+3. **Autentica la conexión de tu aplicación**. Autentica el conector configurando una conexión. Puedes vincularlo a tu cuenta de Kissflow o usar otra cuenta de Kissflow para autenticar el conector. Las conexiones internas se establecen mediante la autenticación basada en tokens con la clave de acceso y el secreto de la clave de acceso. Para los conectores de aplicaciones de terceros, autentica la cuenta del conector mediante OAuth.![](/migration-assets/creating-an-integration/8.gif)
+    
+    > **Nota:**
+    > 
+    > Para crear conexiones, ve a **Explorar** > **Administrado por mí** > **Integraciones** > **Conexiones** y haz clic en **Nueva conexión.** 
+    
+4. **Personaliza el paso de tu acción**. Personaliza los datos de la aplicación que quieres enviar al conector de tu acción.   
+     
+5. **Prueba tu acción.** Prueba el resultado de la acción para comprobar si funciona según lo esperado.
+
+> **Nota:**
+> 
+> -   Al crear una acción, pruébala con algunos campos utilizando valores de ejemplo. Cuando la prueba se complete correctamente, vuelve para completar la asignación de campos. Después de realizar la asignación, puedes hacer clic en **Siguiente** y finalizar sin volver a realizar la prueba, ya que la acción se ha validado. En el caso de los campos obligatorios, los valores de prueba se pueden eliminar después. La integración funcionará con los campos asignados.
+> -   Si la [clave de acceso](/t/35h4az8y7h4gj/api-keys#creating-a-new-access-key) asociada a tu conexión se elimina o desactiva, la acción de tu integración se detendrá. Para reiniciar la acción, actualiza tu [conexión](/t/x2h4ak8q5h4gn/managing-integrations#create-a-connection) con una nueva clave de acceso.
+
+### Duplicar acciones
+
+Puedes duplicar una acción existente copiándola y pegándola encima o debajo de cualquier acción de la misma integración. Esto te ahorra el tiempo y el esfuerzo de volver a crear manualmente una acción existente dentro de una integración. La nueva acción duplicada tendrá la misma configuración que la acción original, excepto el nombre. El nombre predeterminado de la nueva acción será **Copia de &lt;nombre de la acción original>**, que puedes cambiar más adelante. Para duplicar una acción de integración,
+
+1.  Haz clic en el botón **Más opciones**  (![](/migration-assets/creating-an-integration/6.png)) de la acción > **Copiar**.
+2.  Haz clic en el botón **Haz clic para pegar aquí** en la posición deseada para pegar la acción.
+
+![](/migration-assets/creating-an-integration/5.gif)
+
+Supongamos que quieres añadir una nueva acción similar a una existente, pero con una configuración ligeramente diferente. Puedes duplicar la acción existente y modificar la duplicada en lugar de crear una desde cero. 
+
+### Reorganizar acciones
+
+Si tienes varias acciones, puedes reorganizar su orden utilizando esta función de duplicación. Copia la acción que quieres reorganizar, pégala en la posición deseada y elimina la acción original.
+
+## Nombrar tu integración y tus conectores
+
+Cuando creas una integración, primero debes añadirle un título y una breve descripción. Puedes cambiarlos más adelante haciendo clic en el nombre de tu conector e introduciendo un nombre nuevo. También puedes actualizar la descripción haciendo clic en el icono (![](/migration-assets/creating-an-integration/7.png)) situado junto al título.
+
+![](/migration-assets/creating-an-integration/4.png)
+
+Del mismo modo, puedes cambiar el nombre de cada paso de activador o de acción. Selecciona el activador o la acción cuyo nombre quieres cambiar, haz clic en el botón **Cambiar nombre** e introduce el texto en el campo. Los cambios se guardarán automáticamente.
+
+## Activar tu integración
+
+Después de crear tu integración, el siguiente paso es activarla. Puedes hacer clic en el botón de alternancia situado en la esquina superior derecha del editor para activarla.
+
+Una vez activada la integración, ejecutará automáticamente los pasos de acción cada vez que ocurra el evento del activador. También puedes consultar el **Historial de ejecuciones** de tu integración para ver un registro de todas las ejecuciones correctas y fallidas, con los datos que entran y salen de cada paso de la integración.

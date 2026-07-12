@@ -1,0 +1,54 @@
+---
+title: "Preguntas frecuentes: procesos conectados"
+description: "Respuestas a preguntas frecuentes sobre cómo conectar procesos, iniciar elementos dependientes y solucionar errores de procesos conectados."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: "kf-xg-frontend@92fd3889d43"
+tags:
+  - processes
+  - connected-processes
+  - dependent-items
+  - faq
+---
+
+<PlanBadge plans={["enterprise"]} />
+
+### ¿Por qué no puedo ver el proceso al que quiero conectarme?
+
+Solo puedes elegir entre los procesos a los que tienes acceso de administrador; los procesos que no administras no aparecerán en la lista.
+
+![](/migration-assets/faq-connected-processes/1.png)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual */}
+
+### ¿Por qué no puedo iniciar elementos dependientes para todas las filas de la tabla de mi elemento de origen a la vez?
+
+Kissflow inicia hasta 100 elementos dependientes por elemento de origen, según el número de filas coincidentes de la tabla. Si la tabla de tu elemento de origen tiene más de 100 filas, solo se crean 100 elementos dependientes; el resto no se inicia.
+
+### Recibo un error al crear elementos dependientes en el proceso conectado. ¿Cuál podría ser la causa?
+
+Hay un par de aspectos que debes comprobar:
+
+- **Condiciones no cumplidas**: es posible que el elemento de origen, o las filas específicas de la tabla que esperabas que activaran los elementos dependientes, no cumplan las condiciones configuradas para crearlos.
+- **Persona asignada al primer paso del proceso conectado**: si la persona asignada a ese paso está configurada como **Creado por**, **Modificado por** o **Iniciador** en lugar de un usuario real, es posible que los elementos no se creen correctamente. Asigna un usuario real (por ejemplo, Stephen Strange).
+
+<Callout type="info">
+  Si ninguna de estas opciones explica el error que ves, ponte en contacto con el equipo de soporte de Kissflow e incluye el ID del elemento y una captura de pantalla del error.
+</Callout>
+
+### ¿Puedo iniciar elementos dependientes del mismo elemento de origen más de una vez?
+
+No mientras el conjunto anterior de elementos dependientes siga en curso o ya se haya completado. Devolver el elemento de origen al paso conectado al flujo no elimina automáticamente la conexión existente; Kissflow bloquea una segunda ronda de elementos dependientes hasta que se resuelvan los anteriores, para evitar crear duplicados.
+
+![](/migration-assets/faq-connected-processes/2.png)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual */}
+
+### Mi elemento de origen lleva mucho tiempo atascado en el paso conectado al flujo. ¿Cómo puedo hacerlo avanzar?
+
+Tienes dos opciones:
+
+- **Completar los elementos dependientes**: una vez que todos los elementos dependientes llegan al paso **Completado** del proceso conectado, el elemento de origen avanza automáticamente al siguiente paso.
+- **Ponerte en contacto con el administrador del proceso conectado**: si no tienes acceso al proceso conectado, pídele a su administrador que complete los elementos dependientes en tu nombre.

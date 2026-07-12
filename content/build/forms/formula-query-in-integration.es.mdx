@@ -1,0 +1,27 @@
+---
+title: "Consulta de fórmula en la integración"
+description: "BORRADOR (sin verificar) — migrado desde /t/m1y1d04/formula-query-in-integration"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Sai Mahima, de acuerdo. Ahora tengo otra pregunta: uso un campo de fecha en el que, en un paso, asigno el valor today(9 + 365
+
+Ahora, cuando apruebo una solicitud en un paso, uso una integración.
+
+![](/migration-assets/formula-query-in-integration/2.png)
+
+![](/migration-assets/formula-query-in-integration/1.png)
+
+Ahora tengo un paso en el que quiero aprobar automáticamente cuando el elemento cruce la línea.
+
+Al principio asigné Fecha en la que finalizamos F1 = today() + 365, por lo que el paso estará esperando aproximadamente un año.
+
+Pero asigné otra fecha en este campo. Ahora tengo Fecha en la que finalizamos F1 = today () +5.
+
+El problema es que el paso en espera está en otra rama y se le había asignado un valor anteriormente. El nuevo valor no cambia este paso, ¿verdad? ¿No es posible hacerlo?
+
+Gracias de antemano.
+
+Miguel

@@ -1,0 +1,122 @@
+---
+title: "Configuración de seguridad y control de acceso"
+description: "BORRADOR (sin verificar) — migrado desde /t/83h4al5/security-settings-and-access-control"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Para actualizar la configuración de seguridad de tu conjunto de datos, abre el conjunto de datos correspondiente y haz clic en **Manage** > **Security**. 
+
+![](/migration-assets/security-settings-and-access-control/1.gif)
+
+Aquí puedes acceder a las siguientes configuraciones:
+
+## Configuración de seguridad
+
+Los administradores del conjunto de datos pueden compartir conjuntos de datos con otros procesos, tableros, aplicaciones específicas y portales desde la página **Security settings**. Para compartir un conjunto de datos con una aplicación, asegúrate de que el acceso de la aplicación esté habilitado para el conjunto de datos.
+
+Para actualizar la configuración de seguridad de tu conjunto de datos, haz clic en **Manage** > **Security** > **Security settings**. A la derecha, encontrarás opciones para configurar los permisos de los campos y exponer datos al artefacto Lookup en los flujos de Kissflow.
+
+### Permiso global
+
+El permiso global define la regla de acceso para los campos de tu conjunto de datos en todos los flujos. De forma predeterminada, el permiso **All fields** está habilitado para el artefacto Lookup. 
+
+![](/migration-assets/security-settings-and-access-control/2.png)
+
+Puedes deshabilitar este permiso para obtener un control más restrictivo y otorgar permiso de consulta únicamente para campos específicos. 
+
+1.  Expande la sección **All fields** y selecciona **Lookup specific fields**.
+    
+2.  En la ventana emergente, selecciona los campos que quieres exponer a tus flujos.
+    
+3.  Haz clic en **Done**. 
+    
+
+![](/migration-assets/security-settings-and-access-control/3.png)
+
+### Permiso personalizado
+
+Los permisos personalizados proporcionan un control detallado sobre el acceso al conjunto de datos para flujos específicos. Los administradores del conjunto de datos pueden establecer reglas de acceso exclusivas, que reemplazan los permisos globales. 
+
+1.  Haz clic en **\+ Add a customized permission**.
+    
+2.  En la ventana emergente, navega por las pestañas y selecciona los flujos.
+    
+3.  Haz clic en **Done**. El flujo seleccionado aparecerá en la página de configuración, donde podrás otorgarle acceso a todos los campos o a campos específicos.
+    
+
+![](/migration-assets/security-settings-and-access-control/4.png)
+
+> **Nota**  
+> Si no se establece ningún permiso personalizado para un flujo, este seguirá la configuración de permisos globales.
+
+Para eliminar permisos personalizados de un flujo específico:
+
+1.  Haz clic en el botón para eliminar el permiso personalizado situado junto al flujo.
+    
+2.  Comprueba si existen dependencias de Lookup antes de confirmar la eliminación.
+    
+
+![](/migration-assets/security-settings-and-access-control/5.png)
+
+## Otorgar acceso a la aplicación
+
+Para consultar un conjunto de datos dentro de las aplicaciones y utilizarlo en los flujos de la aplicación, los administradores del conjunto de datos pueden sincronizar los campos y los datos de configuración con las aplicaciones mediante esta configuración. Al activar el botón de alternancia (![](/migration-assets/security-settings-and-access-control/9.png)), una copia vacía del conjunto de datos, junto con sus campos y configuraciones, estará disponible dentro de las aplicaciones. 
+
+> **Nota**  
+> Una vez activada, esta acción es irreversible. 
+
+![](/migration-assets/security-settings-and-access-control/8.gif)
+
+Todos los conjuntos de datos a los que se haya otorgado permiso de acceso a la aplicación estarán disponibles en la página **Explore** del entorno de desarrollo.
+
+![](/migration-assets/security-settings-and-access-control/6.png)
+
+### Generar registros del conjunto de datos automáticamente
+
+Los usuarios de la aplicación pueden completar automáticamente registros de muestra del conjunto de datos y simular el comportamiento de la aplicación en un entorno de desarrollo realista. Los registros se pueden generar automáticamente mediante nuestra IA avanzada, o puedes elegir importar datos desde un archivo CSV.
+
+> **Nota**:
+> 
+> Los usuarios solo pueden generar registros automáticamente para obtener una vista previa del funcionamiento del conjunto de datos compartido dentro del entorno de desarrollo de la aplicación. No es posible crear conjuntos de datos nuevos directamente dentro del entorno de desarrollo.
+
+![](/migration-assets/security-settings-and-access-control/7.gif)
+
+### Restringir el acceso a la aplicación
+
+De forma predeterminada, una vez que activas el permiso **Grant app access**, todas las aplicaciones de la cuenta tendrán acceso al conjunto de datos. Sin embargo, para restringir el acceso a aplicaciones específicas, ve a **Security settings** y haz clic en **Add a customized permission**. Luego, ve a la pestaña **Apps** y selecciona las aplicaciones a las que quieres otorgar acceso al conjunto de datos.
+
+![](/migration-assets/security-settings-and-access-control/12.gif)
+
+### Listas en conjuntos de datos
+
+Cualquier lista asociada con el conjunto de datos compartido aparecerá automáticamente como una fuente de datos válida para determinados [tipos de campo](/t/35h4azp/dropdown-multi-select-dropdown-checkbox-checklists-and-radio-buttons). A diferencia de los conjuntos de datos, los datos de la lista original utilizados en campos específicos del conjunto de datos también se sincronizarán con el entorno de desarrollo para realizar pruebas precisas. 
+
+![](/migration-assets/security-settings-and-access-control/11.gif)
+
+> **Nota**
+> 
+> Aunque puedes crear listas nuevas en el entorno de desarrollo, no es posible modificar los valores de la lista original asociada con el conjunto de datos compartido desde el entorno de producción.
+
+## [Controles de acceso](/t/83h4al5/security-settings-and-access-control#access-controls)
+
+Los administradores del conjunto de datos pueden permitir o restringir los permisos de los usuarios, lo que puede afectar su capacidad para imprimir formularios, descargar archivos adjuntos o suplantar conjuntos de datos.
+
+### [Permisos de descarga](/t/83h4al5/security-settings-and-access-control#download-permissions)
+
+Para decidir quién puede descargar archivos adjuntos de este conjunto de datos, puedes alternar entre dos opciones: **Anyone** y **Only Admins**.
+
+### [Permisos de impresión](/t/83h4al5/security-settings-and-access-control#print-permissions)
+
+Configurar los permisos de impresión para **Anyone** permite que cualquier usuario imprima archivos adjuntos de un conjunto de datos. Elegir **Only admins** restringe los permisos de impresión a los administradores del conjunto de datos.
+
+### [Suplantación](/t/83h4al5/security-settings-and-access-control#impersonation)
+
+Mediante la suplantación, puedes actuar en nombre de un usuario o un elemento dentro de tu cuenta de Kissflow. Se aplica al conjunto de datos y a todas sus vistas asociadas. [Obtén más información sobre cómo suplantar a un usuario.](/t/p8h4akb/impersonation-in-service-accounts)
+
+![](/migration-assets/security-settings-and-access-control/10.png)

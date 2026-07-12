@@ -1,0 +1,207 @@
+---
+title: "Creación de un informe del tiempo de finalización de elementos de proceso con Analytics"
+description: "BORRADOR (no verificado) — migrado desde /t/p8yq165/creating-process-item-completion-time-report-with-analytics"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ EnterpriseEl tiempo de entrega, también conocido como tiempo de finalización del elemento, es el tiempo que tarda un elemento de trabajo en pasar de su creación a su finalización. Es una medida importante de la eficiencia de una empresa. En el contexto del proceso de aprobación de un elemento, el tiempo de entrega es el tiempo que tarda en completarse la tarea desde el momento en que se crea. Incluye el tiempo de espera de las aprobaciones, así como el tiempo dedicado a revisar y aprobar el elemento. 
+
+## Informe del tiempo de finalización de elementos
+
+La imagen anterior utiliza Kissflow Analytics para representar el tiempo de entrega de los elementos creados en una fecha específica. Este informe es similar al **Informe del tiempo de finalización de elementos** disponible en las métricas del sistema de [proceso](/t/h7h4a18/process-overview). Veamos cómo se puede utilizar Analytics para personalizar este informe.
+
+## Creación de una vista de datos para realizar un seguimiento del tiempo de entrega
+
+1.  Inicia sesión en Kissflow y ve a Analytics.
+2.  En la pestaña **Explorador de datos**, haz clic en **Crear vista de datos**. Obtén más información sobre [cómo utilizar el editor de consultas de vistas de datos](/t/83h9qzn/understanding-dataviews#using-the-dataview-query-editor).
+
+### Consulta de ejemplo
+
+Puedes utilizar el editor de consultas de la plataforma Analytics para crear una vista de datos. Puedes pegar la consulta SQL proporcionada en el editor de consultas para obtener estos datos.
+
+```sql
+SELECT
+"_instance_id" AS "Item id",
+"_flow_name" AS "Process name",
+"_created_at.value" AS "Created at",
+DATEDIFF(
+'HOUR',
+"_created_at.value",
+"_modified_at.value"
+) AS "LeadTime hours",
+MIN("LeadTime hours") AS Min_time,
+MAX("LeadTime hours") AS Max_time,
+AVG("LeadTime hours") AS Avg_time
+FROM
+"ProcessInstance"
+WHERE
+"_status"='Completed'
+GROUP BY
+"Created at",
+"_modified_at.value",
+"Process name",
+"Item id"
+```
+
+### Desglose de la consulta
+
+La siguiente tabla describe cada parte de la consulta.
+
+**Nombre de columna real**
+
+**Nombre de alias utilizado en la consulta**
+
+**Descripción**
+
+\_instance\_id
+
+ID del elemento
+
+El ID único del elemento.
+
+\_flow\_name
+
+Nombre del proceso
+
+El nombre del proceso al que pertenece el elemento.
+
+\_created\_at.value
+
+Creado el
+
+La fecha y hora en que se inició el elemento.
+
+\_modified\_at.value
+
+Modificado el
+
+La fecha y hora en que se modificó el elemento por última vez.
+
+DATEDIFF('HOUR',"\_created\_at.value","\_modified\_at.value") AS "LeadTime hours"
+
+Horas de tiempo de entrega
+
+Esta es la columna en la que se calcula el tiempo de entrega determinando la diferencia entre la hora de creación del elemento y la hora de su última modificación, cuando el elemento obtuvo el estado completado. En este ejemplo, se calcula como HOUR, pero puede ser MINUTE / DAY. Consulta [esta referencia](https://docs.snowflake.com/en/sql-reference/functions/datediff) para obtener más ayuda con esta palabra clave.
+
+MIN (“LeadTime hours”)
+
+Min\_time
+
+Devuelve el valor mínimo de los registros dentro de “LeadTime hours”, por fecha de creación.
+
+MAX (“LeadTime hours”)
+
+Max\_time
+
+Devuelve el valor máximo de los registros dentro de “LeadTime hours”, por fecha de creación.
+
+AVG (“LeadTime hours”)
+
+Avg\_time
+
+Devuelve el valor promedio de los registros dentro de “LeadTime hours”, por fecha de creación.
+
+## Publicación de los datos en el editor de consultas
+
+![](/migration-assets/creating-process-item-completion-time-report-with-analytics/1.png)
+
+Una vez que hayas escrito la consulta, puedes seguir los pasos que se indican a continuación para publicar la vista de datos.
+
+1. **Ejecutar** la consulta para obtener una vista de la vista de datos.
+2.  Haz clic en **Publicar** una vez que se muestre el resultado de la consulta.
+
+> **Nota:**
+> 
+> Si se producen errores en la consulta, consulta las [preguntas frecuentes](/t/y4h9qz6/faqs-analytics#frequently_asked_questions). 
+
+## Creación del gráfico de tiempo de entrega
+
+Utilizando la vista de datos anterior como [fuente de datos](/t/q6ymbj1/understanding-data-sources), sigue los pasos que se indican a continuación para crear un informe en Analytics.
+
+1.  En Analytics, haz clic en la pestaña [Informes](/t/y4h9qzg/using-reports#creating-a-report-from-data-source) > botón **Crear informe**.
+2.  Selecciona en el menú desplegable la fuente de datos, que es la vista de datos que has creado. 
+3.  Introduce cualquier nombre para el informe de tiempo de entrega, como _Informe del tiempo de finalización de elementos_.
+4.  Elige el informe de tipo **Gráfico** para visualizar los datos.
+5.  Haz clic en **Crear**.
+
+![](/migration-assets/creating-process-item-completion-time-report-with-analytics/2.png)
+
+## Configuración del gráfico
+
+En la página [Configurar informe](/t/h7h9qzr/chart-reports#configuring_a_chart_report), selecciona el gráfico de líneas y añade lo siguiente:
+
+1.  Añade **Creado el (DATE)** al eje X (Dimensión). Cambia **YEAR**, que está establecido como opción predeterminada, a **DATE** en la Dimensión.
+2.  Añade Min\_time, Max\_time y Avg\_time al eje Y (Medida).
+3.  Selecciona las [etiquetas](/t/h7h9qzr/chart-reports#labels) de datos, como Eje X, Eje Y, Etiquetas de datos y Leyendas, para mejorar la visualización.
+4.  Ordena por **Creado el** en orden ascendente.
+5.  Haz clic en **Guardar**.
+
+![](/migration-assets/creating-process-item-completion-time-report-with-analytics/7.gif)
+
+### Filtrado del gráfico
+
+Para obtener datos específicos de un informe de gráficos, puedes [filtrar](/t/h7h9qzr/chart-reports#adding_filters) el informe por un proceso específico, como Solicitud de compra. Por ejemplo, podrías filtrar el informe por el proceso denominado Solicitud de compra.
+
+![](/migration-assets/creating-process-item-completion-time-report-with-analytics/5.gif)
+
+### Visualización de datos
+
+Puedes ver más datos en la información sobre herramientas al mover el cursor sobre los puntos de datos del informe. También puedes [ordenar el informe](/t/h7h9qzr/chart-reports#sorting_data_in_a_chart_report) según las opciones del menú desplegable, como Creado el, Min\_time, Max\_time, Avg\_time o Ninguno.
+
+![](/migration-assets/creating-process-item-completion-time-report-with-analytics/6.gif)
+
+## ¿En qué se diferencia el informe del tiempo de entrega de Analytics del informe del tiempo de finalización de elementos de Process?
+
+**Aspecto**
+
+**Informe del tiempo de entrega en Kissflow Analytics**
+
+**Informe del tiempo de finalización de elementos en Kissflow Process**
+
+Informe
+
+![](/migration-assets/creating-process-item-completion-time-report-with-analytics/4.png)
+
+![](/migration-assets/creating-process-item-completion-time-report-with-analytics/3.png)
+
+Descripción general
+
+Permite comprender el tiempo que tarda cada elemento de trabajo en pasar de su creación a su finalización en uno o varios procesos.
+
+Proporciona una descripción general del tiempo mínimo, máximo y promedio que tardan en completarse los elementos de un proceso durante el período especificado.
+
+Accesibilidad 
+
+Accesible a través de la plataforma Kissflow Analytics.
+
+Puedes acceder a este informe desde la plataforma Kissflow Process.
+
+Filtrado
+
+Las opciones de filtro personalizadas se configuran al crear el informe.
+
+Filtra por intervalo de datos para ver cuándo pasan los elementos de creados a completados. 
+
+Alcance
+
+Proporciona información sobre el tiempo de entrega en varios procesos.
+
+Proporciona información sobre el tiempo que tardan en completarse los elementos dentro de un solo proceso.
+
+Caso de uso
+
+Ideal para obtener información sobre la eficiencia y el rendimiento a nivel de elemento de los elementos de trabajo en distintos procesos.
+
+Útil para proporcionarte información agregada de los elementos de un proceso.
+
+Opciones de visualización de datos
+
+Puedes elegir visualizar los datos en gráficos, tablas y tablas dinámicas.
+
+Puedes ver los datos en formato tabular en el informe del tiempo de finalización de elementos de Process.
+
+Tanto los informes del tiempo de finalización de elementos de Kissflow Process como los informes del tiempo de entrega de Analytics proporcionan información valiosa sobre la eficiencia de los procesos y los plazos de finalización. Mientras que el informe de Process se centra en procesos individuales, el informe de Analytics te permite evaluar el tiempo de entrega en varios procesos. Elige el informe más adecuado según tus necesidades específicas de análisis y tus objetivos de optimización de procesos.

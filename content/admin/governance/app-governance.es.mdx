@@ -1,0 +1,161 @@
+---
+title: "Gobernanza de aplicaciones"
+description: "BORRADOR (sin verificar) — migrado desde /t/q6ykkzc/app-governance"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+La gobernanza de aplicaciones ofrece a los [Super admins y administradores de IAM](/t/35h4ak0/user-roles-and-permissions) una visión de cómo se utilizan las aplicaciones en toda su cuenta de Kissflow. Destaca las tendencias en la actividad de las aplicaciones, ayuda a identificar aplicaciones inactivas o de alto uso y muestra posibles riesgos, como el acceso no autorizado o la exposición de datos externos. Estos datos son esenciales para tomar decisiones informadas sobre la gestión del ciclo de vida de las aplicaciones y la gobernanza de datos.
+
+Haz clic en tu perfil en la esquina superior derecha dentro de Kissflow y selecciona **Gobernanza de la cuenta** > la pestaña **Aplicaciones** a la izquierda. En la página de resumen, encontrarás las siguientes secciones:
+
+-   **Aplicaciones activas**: aplicaciones que tuvieron mayor actividad durante el período seleccionado. Esto te ayuda a entender dónde se concentra la mayor parte del trabajo.
+    
+-   **Aplicaciones inactivas**: aplicaciones que no se utilizaron durante el período seleccionado. Esto te permite reevaluar si todavía son necesarias o si pueden retirarse.
+    
+-   Instaladas desde la tienda de aplicaciones
+    
+-   **Datos externos**: aplicaciones conectadas a sistemas externos que pueden implicar el intercambio de datos con plataformas fuera de Kissflow.
+    
+
+Al hacer clic en cualquier aplicación activa en la vista general, accederás a su página detallada con información más profunda. Consulta el estado, el creador, la fecha de creación y los detalles de la última implementación de la aplicación. Además de estos datos, encontrarás muchas otras secciones en las que puedes obtener más información sobre la aplicación.
+
+![](/migration-assets/app-governance/1.gif)
+
+### Usuarios
+
+La sección **Usuarios** muestra a todas las personas que forman parte de la aplicación en los distintos entornos. Supervisar los miembros de la aplicación te ayuda a controlar quién puede interactuar con ella, reduciendo el riesgo de filtraciones de datos o cambios no aprobados.
+
+![](/migration-assets/portal-governance/1.png)
+
+> **Nota:**
+> 
+> Esta es la única sección disponible en la página detallada de una aplicación en borrador.
+
+### Métricas de uso
+
+**Usuarios únicos**: consulta el número de usuarios distintos que accedieron a la aplicación durante el período seleccionado para comprender la interacción real.
+
+### Roles
+
+Esta sección muestra los distintos roles definidos dentro de la aplicación, junto con el número de usuarios asignados a cada rol. Esto te ayuda a evaluar cómo se distribuyen las responsabilidades dentro de la aplicación.
+
+![](/migration-assets/portal-governance/3.png)
+
+Al hacer clic en un rol, accederás a su página detallada, donde podrás obtener más información sobre:
+
+-   Usuarios: consulta la lista de usuarios de cada rol.
+    
+-   Flujos: consulta a qué flujos pueden acceder los usuarios de este rol para garantizar que el acceso siga estando autorizado.
+    
+-   Informes: realiza un seguimiento del acceso a los informes para mejorar el control y el cumplimiento.
+    
+-   Vistas: supervisa qué vistas están disponibles para cada rol.
+    
+
+### Roles de aplicaciones externas
+
+Identifica los roles vinculados a esta aplicación desde otras aplicaciones de tu cuenta. Estos roles pueden incorporar usuarios que no forman parte explícitamente de la aplicación, pero que aun así tienen acceso debido a asignaciones de roles más amplias en otros lugares. Supervisar estos vínculos es fundamental para minimizar la exposición no intencionada de datos y garantizar que solo los usuarios adecuados puedan acceder a información confidencial dentro de la aplicación.
+
+![](/migration-assets/portal-governance/4.png)
+
+Al hacer clic en un rol, accederás a su página detallada, donde podrás obtener más información sobre:
+
+-   Usuarios: consulta la lista de usuarios de cada rol.
+    
+-   Flujos: consulta a qué flujos pueden acceder los usuarios de este rol para garantizar que el acceso siga estando autorizado.
+    
+-   Informes: realiza un seguimiento del acceso a los informes para mejorar el control y el cumplimiento.
+    
+-   Vistas: supervisa qué vistas están disponibles para cada rol.
+    
+
+### Integraciones
+
+Esta sección contiene la lista de integraciones utilizadas en la aplicación. Muestra el estado de cada integración junto con los conectores utilizados, ya sea que se vinculen con sistemas internos de Kissflow o con plataformas externas. Revisar esta información te ayuda a garantizar que la aplicación solo esté conectada a los sistemas previstos, reduciendo el riesgo de exposición no autorizada de datos.
+
+![](/migration-assets/portal-governance/10.png)
+
+### Objetos de datos externos
+
+La sección **Objetos de datos externos** te permite comprobar si la aplicación se conecta con plataformas de terceros para obtener o interactuar con datos externos. Supervisar estas conexiones es esencial para comprender hacia dónde fluyen los datos de tu aplicación y te ayuda a evaluar posibles riesgos relacionados con la seguridad de los datos o el cumplimiento.
+
+![](/migration-assets/portal-governance/5.png)
+
+Al hacer clic en un objeto externo, accederás a su página detallada. Esta página proporciona una lista de todos los flujos que recuperan y muestran datos de ese objeto externo.
+
+### Flujos creados
+
+En esta sección, puedes obtener una lista de todos los tipos de flujos creados dentro de la aplicación: procesos, tableros y dataform. Esto te permite comprender cómo está estructurada la aplicación.
+
+![](/migration-assets/portal-governance/8.png)
+
+Al hacer clic en un flujo, accederás a su página detallada, donde podrás consultar la siguiente información:
+
+-   Roles y actividad 
+    
+-   Formularios públicos (proceso y dataform)
+    
+-   Integraciones
+    
+-   Campos confidenciales
+    
+-   Relaciones entre flujos: 
+    
+    -   Flujos consultados desde/hacia 
+        
+    -   Flujos dependientes y de origen (proceso y tablero)
+        
+-   Registros: descarga registros, imprime registros (proceso y tablero) y exporta registros.
+    
+
+### Componentes personalizados
+
+Puedes consultar la lista de [componentes personalizados](/t/p8h9q1s/creating-custom-components) creados en esta aplicación, como widgets o interfaces especializadas. Esto te ayuda a identificar componentes que no se utilizan o están desactualizados y que pueden retirarse para optimizar la aplicación.
+
+![](/migration-assets/portal-governance/6.png)
+
+### Formularios públicos
+
+En esta sección, consulta todos los formularios de proceso y dataform de esta aplicación a los que se puede acceder desde fuera de Kissflow. Cualquier información contenida en estos formularios queda expuesta externamente.
+
+![](/migration-assets/portal-governance/9.png)
+
+### Tablas de decisión
+
+En esta sección, puedes consultar todas las [tablas de decisión](/t/60yxblt/decision-tables-overview) creadas en esta aplicación.
+
+![](/migration-assets/portal-governance/7.png)
+
+### Aplicaciones vinculadas
+
+La sección **Aplicaciones vinculadas** muestra una lista de aplicaciones y portales [vinculados a esta aplicación](/t/35yzjvd/application-to-application-lookup-through-linking) que consultan datos de ella. Esta sección te ayuda a:
+
+-   Comprender dónde se consumen externamente los datos de esta aplicación, lo que permite mejorar su visibilidad.
+    
+-   Identificar posibles exposiciones de datos, especialmente si varias aplicaciones acceden a información confidencial.
+    
+
+![](/migration-assets/portal-governance/2.png)
+
+### Historial de implementaciones
+
+Esta sección proporciona una cronología completa de la actividad de implementación de la aplicación, incluidos los detalles de cuándo se implementaron los cambios y quién los realizó. Cada entrada registra la fecha y hora de la implementación, así como el usuario responsable de ella.
+
+Este historial de implementaciones es fundamental para:
+
+-   Mantener un registro de auditoría confiable de todos los cambios de la aplicación.
+    
+-   Realizar un seguimiento de la responsabilidad identificando quién realizó actualizaciones específicas.
+    
+-   Solucionar problemas determinando la versión o implementación exacta que introdujo un cambio.
+    
+
+Al supervisar el historial de implementaciones, puedes garantizar que todos los cambios sean intencionados y estén autorizados.
+
+![](/migration-assets/portal-governance/11.png)

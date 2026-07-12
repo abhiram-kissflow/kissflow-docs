@@ -1,0 +1,122 @@
+---
+title: "Autenticación de API"
+description: "Encuentra los identificadores de tu cuenta, recupera tu clave de sesión de depuración y administra las claves de API y las claves de acceso que se usan para autenticar llamadas a Kissflow."
+contentType: guide
+persona: end-user
+section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - api
+  - authentication
+  - access-keys
+  - personal-settings
+---
+
+# Autenticación de API
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+La página de autenticación de API en tu configuración personal reúne todo lo que necesitas para autenticar llamadas de API a Kissflow: los identificadores de tu cuenta, tu clave de sesión de depuración y las claves de API o claves de acceso que se usan para autorizar solicitudes.
+
+## Acceder a la configuración de autenticación de API
+
+1. Haz clic en tu foto de perfil, en la esquina superior derecha, y luego haz clic en **Mi configuración**.
+2. Haz clic en **Autenticación de API**.
+
+## Identificadores de la cuenta
+
+Los identificadores de la cuenta te ayudan a identificar de forma única tu cuenta de Kissflow al realizar llamadas de API o establecer sesiones.
+
+| Identificador | Descripción |
+| --- | --- |
+| ID de cuenta | Una clave alfanumérica única que identifica tu cuenta de Kissflow. Cópiala y úsala para identificar tu cuenta al realizar llamadas de API. |
+| Dominio de la cuenta | La dirección de dominio que usas para acceder directamente a tu cuenta de Kissflow en un navegador web. |
+
+![Sección de identificadores de la cuenta que muestra los campos ID de cuenta y Dominio de la cuenta con controles de copia](/migration-assets/api-authentication/1.png)
+{/* TODO: verificar que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+## Clave de sesión de depuración
+
+Si hay algún problema con tu cuenta, es posible que el equipo de Kissflow necesite tu clave de sesión de depuración para solucionarlo.
+
+1. En **Clave de sesión de depuración**, haz clic en **Mostrar** para revelar tu clave única.
+2. Haz clic en **Copiar** y comparte la clave con el equipo de Kissflow para ayudarles a solucionar el problema.
+
+<Callout type="warn">
+  Comparte tu clave de sesión de depuración únicamente con el equipo de Kissflow. Evita compartirla en cualquier otro lugar.
+</Callout>
+
+![Sección de clave de sesión de depuración con los controles Mostrar y Copiar](/migration-assets/api-authentication/2.png)
+{/* TODO: verificar que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+## Claves de API
+
+Las claves de API fueron la forma original de autenticación de API de Kissflow. Desde entonces, Kissflow ha migrado al sistema de claves de acceso para ofrecer mayor seguridad, por lo que **ya no es posible crear nuevas claves de API**.
+
+<Callout type="warn">
+  Kissflow está eliminando gradualmente las claves de API de todas las cuentas a partir del 15 de julio de 2023. Si todavía usas claves de API, [crea sus claves de acceso equivalentes](#creating-an-access-key) antes de esa fecha; las claves de API existentes seguirán funcionando únicamente hasta que queden obsoletas.
+</Callout>
+
+### Eliminar una clave de API
+
+1. Ve a la clave de API que quieres eliminar y haz clic en el botón **Más opciones**.
+2. Haz clic en **Eliminar** para quitarla de forma permanente.
+
+## Claves de acceso
+
+Una clave de acceso es un identificador único que se usa para autenticar a un usuario, desarrollador o programa que realiza llamadas a la API de Kissflow. Cada clave de acceso consta de un **ID** de clave de acceso y un **secreto** de clave de acceso: un par de ID y secreto que otorga acceso programático a Kissflow.
+
+<Callout type="warn">
+  Cualquier persona que tenga el ID y el secreto de tu clave de acceso puede realizar las mismas operaciones que tú. Mantén ambos valores seguros y no los compartas nunca.
+</Callout>
+
+### Crear una clave de acceso
+
+<Callout type="info">
+  Para crear claves de acceso, es necesario que la función de claves de acceso esté habilitada para tu cuenta. Cada usuario puede tener un máximo de 20 claves de acceso.
+</Callout>
+
+1. Haz clic en tu foto de perfil > **Mi configuración** > **Autenticación de API** > **Claves de acceso**.
+2. Haz clic en **Crear clave de acceso**.
+3. Introduce un nombre para la clave de acceso.
+
+   ![Cuadro de diálogo de creación de clave de acceso con un campo de nombre](/migration-assets/api-authentication/5.gif)
+   {/* TODO: verificar que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+4. Establece un período de vencimiento para la clave. [Obtén información sobre cómo configurar el período máximo de vencimiento a nivel de cuenta](/docs/admin/security/account-security#access-key-setting).
+5. Copia el **ID** y el **secreto** de la clave de acceso y guárdalos en un lugar seguro, o haz clic en **Descargar credenciales** para guardarlos como un archivo.
+6. Haz clic en **Listo**.
+7. Revisa el mensaje de confirmación y haz clic en **Continuar**.
+
+Tu clave de acceso ya está lista para usarse.
+
+### Ver claves de acceso generadas por el sistema
+
+Kissflow crea automáticamente algunas claves de acceso, por ejemplo, cuando configuras determinadas integraciones. Estas claves generadas por el sistema están ocultas de forma predeterminada.
+
+1. Ve a **Autenticación de API** > **Claves de acceso**.
+2. Selecciona la casilla **Mostrar claves generadas por el sistema** para verlas.
+
+Las claves generadas por el sistema tienen una etiqueta **Sistema** junto a su nombre y aparecen primero en la lista, antes que las claves que hayas creado.
+
+### Administrar una clave de acceso
+
+1. Ve a la clave de acceso cuyo nombre quieres cambiar o que quieres eliminar y haz clic en el botón **Más opciones**.
+2. Haz clic en **Cambiar nombre** para cambiar el nombre de la clave o haz clic en **Eliminar** para quitarla de forma permanente.
+
+![Menú Más opciones de una clave de acceso que muestra las acciones Cambiar nombre y Eliminar](/migration-assets/api-authentication/3.png)
+{/* TODO: verificar que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+<Callout type="warn">
+  Al eliminar una clave de acceso, se revocan automáticamente todas las conexiones establecidas mediante esa clave.
+</Callout>
+
+## Qué sigue
+
+- [Administrar sesiones activas](/docs/use/personal-settings/active-sessions)
+- [Autenticación de dos factores](/docs/use/personal-settings/two-factor-authentication)
+- [Información personal, configuración de formato y delegación de tareas](/docs/use/personal-settings/personal-info-format-settings-and-task-delegation)
+- [Seguridad de la cuenta](/docs/admin/security/account-security) (Administrador).

@@ -1,0 +1,91 @@
+---
+title: "Flujos asociados a procesos"
+description: "Consulta qué flujos buscan datos en un proceso o activan automatizaciones con él para comprender sus dependencias antes de realizar cambios."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - processes
+  - lookup-field
+  - connected-processes
+  - dependencies
+---
+
+# Flujos asociados a procesos
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+La sección **Flujos asociados** muestra cómo un proceso depende de otros flujos de tu cuenta y cómo otros flujos dependen de él, lo que te ofrece un mapa de relaciones que puedes consultar antes de cambiar el nombre de los campos, modificar los permisos o archivar el proceso.
+
+## Ver los flujos asociados a un proceso
+
+1. Abre el proceso y haz clic en el botón **Administrar**, en la parte superior derecha.
+2. Haz clic en **Flujos asociados**.
+
+   <Callout type="info">
+     **Flujos asociados** solo está disponible para administradores y editores de procesos, y únicamente mientras el proceso está **Activo**.
+   </Callout>
+
+![Panel Administrar del proceso con el mosaico Flujos asociados](/migration-assets/associated-flows-for-processes/1.png)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+Hay dos tipos de asociaciones, que se muestran como pestañas en esta página: **Flujos que buscan datos** y **Flujos conectados**.
+
+## Flujos que buscan datos
+
+Los [campos de búsqueda](/docs/build/forms/field-types/lookup-field) permiten que un proceso obtenga y muestre datos de otros flujos. La pestaña **Flujos que buscan datos** muestra ambas direcciones de esa relación.
+
+![Pestaña Flujos que buscan datos que muestra las listas Flujos que buscan datos en este proceso y Flujos desde los que se buscan datos](/migration-assets/associated-flows-for-processes/2.png)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+### Flujos que buscan datos en este proceso
+
+Muestra qué flujos buscan datos en este proceso para obtener y mostrar información.
+
+**Ejemplo**: Si otro proceso consulta detalles como **ID de órdenes de compra** o **Nombres de proveedores** del proceso actual, ese proceso aparece en **Flujos que buscan datos en este proceso**.
+
+Haz clic en **Configurar** junto a un flujo de esta lista para abrir la [configuración de seguridad](/docs/admin/processes/security-settings-for-flows) de este proceso, donde se administran los permisos de búsqueda.
+
+<Callout type="info">
+  La acción **Configurar** solo está disponible en **Flujos que buscan datos en este proceso**. Para administrar los datos que el proceso actual busca en otros flujos, abre la configuración de seguridad de ese otro flujo.
+</Callout>
+
+### Flujos desde los que se buscan datos
+
+Muestra los flujos en los que el proceso actual está buscando datos.
+
+**Ejemplo**: Si tu proceso de **Solicitud de compra** obtiene **Tipos de activos** o **Códigos presupuestarios** de un conjunto de datos principal, ese conjunto de datos aparece en **Flujos desde los que se buscan datos**.
+
+## Flujos conectados
+
+<Callout type="info">
+  Los flujos conectados requieren el plan Enterprise.
+</Callout>
+
+Los [procesos conectados](/docs/admin/processes/connected-processes-overview) permiten que las acciones de un proceso creen o actualicen automáticamente un elemento en otro proceso. La pestaña **Flujos conectados** muestra ambas direcciones de esa relación.
+
+![Pestaña Flujos conectados que muestra las listas Flujos dependientes y Flujos de origen](/migration-assets/associated-flows-for-processes/3.png)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+### Flujos dependientes
+
+Muestra los procesos conectados que pueden iniciar automáticamente nuevos elementos basados en los elementos creados o actualizados en este proceso.
+
+**Ejemplo**: Cuando se aprueba un elemento de **Solicitud de compra**, se puede crear automáticamente un elemento en un proceso de **Orden de compra** conectado.
+
+### Flujos de origen
+
+Muestra los procesos conectados que pueden iniciar nuevos elementos dentro de este proceso.
+
+**Ejemplo**: Un proceso de **Solicitud de servicio** puede activar este proceso para crear una solicitud de hardware.
+
+## Qué hacer a continuación
+
+- [Descripción general de los procesos conectados](/docs/admin/processes/connected-processes-overview)
+- [Conectar procesos](/docs/admin/processes/connecting-processes) — configura un paso conectado, asigna campos y configura condiciones
+- [Campo de búsqueda](/docs/build/forms/field-types/lookup-field)
+- [Configuración de seguridad para flujos](/docs/admin/processes/security-settings-for-flows)

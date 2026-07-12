@@ -1,0 +1,46 @@
+---
+title: "Campo de usuario"
+description: "BORRADOR (sin verificar) — migrado desde /t/h7h4azj/user-field"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Puedes mostrar un conjunto de nombres de usuario en un menú desplegable con la ayuda del campo **Usuario**. La diferencia entre un menú desplegable normal y un campo de usuario es que puedes mostrar nombres de usuario con el campo **Usuario**, mientras que con un campo **Menú desplegable** solo puedes mostrar texto estático.
+
+![](/migration-assets/user-field/1.png)
+
+## Configuración
+
+Puedes permitir que el usuario (que utilizará el formulario en el futuro) seleccione varios usuarios de la lista activando la opción **Permitir seleccionar varios usuarios** en el panel de configuración.  
+
+Si activas **Seleccionar automáticamente el primer valor según el/los filtro(s)**, el primer valor de la tabla **[Gestión de usuarios](/t/m1h4akn/user-management-overview)** se seleccionará y mostrará automáticamente en el campo según los filtros configurados.
+
+Puedes seleccionar la fuente de datos de usuarios para un campo de usuario específico, como la tabla Gestión de usuarios.
+
+## Filtros
+
+De forma predeterminada, el campo de usuario muestra todos los usuarios de tu organización. Sin embargo, puedes aplicar un filtro para limitar el número de usuarios que se muestran en el campo de usuario.
+
+Puedes filtrar por campos del sistema como **Nombre**, **ID externo**, **Dirección de correo electrónico**, **Grupos**, etc., o por campos personalizados.
+
+Los filtros se pueden configurar para que coincidan con todas las condiciones (**Coincidir con todos**) o solo con una (**Coincidir con cualquiera**). 
+
+Una vez que hayas seleccionado **Grupos**, se mostrarán todos los grupos de la gestión de grupos y podrás elegir varios grupos si es necesario.
+
+> **Nota:**
+> 
+> El filtro basado en ese grupo también se elimina si se elimina un grupo. 
+
+![](/migration-assets/user-field/2.png)
+
+## Validaciones
+
+Hay dos tipos de [validaciones](/t/m1h4az4/field-validations) que puedes usar con un campo de usuario:
+
+-   Igual a 
+-   No igual a

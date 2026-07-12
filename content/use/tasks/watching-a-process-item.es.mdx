@@ -1,0 +1,115 @@
+---
+title: "Seguir un elemento del proceso"
+description: "Añade observadores a un elemento del proceso para que puedan seguir su progreso y comentarios sin participar en el flujo de trabajo."
+contentType: guide
+persona: end-user
+section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - process
+  - watchers
+  - notifications
+---
+
+# Seguir un elemento del proceso
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+Los observadores pueden mantenerse informados sobre un elemento del proceso sin participar en su flujo de trabajo. Como iniciador de un elemento, si necesitas que alguien pueda consultar su progreso, pero no necesitas que lo apruebe, rechace o realice acciones en él, puedes añadirlo como observador.
+
+<Callout type="info">
+  Por ejemplo, un empleado envía una solicitud de compra y quiere que su responsable esté informado sobre su progreso y resultado final, sin que este participe en el flujo de trabajo de aprobación. Añadir al responsable como observador le permite hacer seguimiento del elemento y participar en la conversación sin que se le asignen tareas del flujo de trabajo.
+</Callout>
+
+Antes de que alguien pueda añadir observadores a un elemento, un administrador del proceso debe activar **Permitir que los miembros del proceso sigan los elementos** en la [configuración de seguridad](/docs/admin/processes/security-settings-for-flows) del proceso. Solo los usuarios que ya forman parte del proceso —en cualquier rol— pueden añadirse como observadores.
+
+## Añadir un observador
+
+Solo el iniciador del elemento puede añadir observadores.
+
+1. Abre el elemento del proceso.
+2. Haz clic en el botón **Observadores** del formulario del elemento.
+
+   ![Icono de Observadores en el encabezado del formulario del elemento](/migration-assets/watching-a-process-item-inside-apps/1.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+3. Busca y selecciona un usuario del proceso.
+4. Haz clic en **Añadir**.
+
+![Animación de cómo añadir un observador a un elemento del proceso](/migration-assets/watching-a-process-item/3.gif)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="info">
+  Un elemento puede tener un máximo de 10 observadores.
+</Callout>
+
+## Eliminar un observador
+
+El iniciador del elemento puede eliminar a cualquier observador; un observador solo puede eliminarse a sí mismo.
+
+Como iniciador del elemento:
+
+1. Abre el elemento del proceso.
+2. Haz clic en el botón **Observadores** del formulario del elemento.
+3. Pasa el cursor sobre el nombre del observador.
+4. Haz clic en **Eliminar**.
+
+![Animación de cómo eliminar un observador de un elemento del proceso](/migration-assets/watching-a-process-item-inside-apps/4.gif)
+{/* TODO: verify screenshot matches current product UI */}
+
+Si ya eres observador, puedes dejar de seguir un elemento en cualquier momento. Abre el elemento y haz clic en **Dejar de seguir**. Se te eliminará de la lista de observadores y dejarás de recibir notificaciones sobre ese elemento.
+
+![Animación de un observador haciendo clic en Dejar de seguir en un elemento del proceso](/migration-assets/watching-a-process-item/2.gif)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Qué pueden y qué no pueden hacer los observadores
+
+| Los observadores pueden | Los observadores no pueden |
+| --- | --- |
+| Ver los campos en modo de solo lectura | Editar el formulario |
+| Seguir el progreso del flujo de trabajo | Aprobar o rechazar elementos |
+| Ver el historial y el estado del elemento | Reasignar tareas |
+| Ver y añadir comentarios | Realizar acciones del flujo de trabajo |
+| Mencionar a participantes y otros observadores en los comentarios | Mencionar a comentaristas externos en los comentarios |
+
+## Notificaciones para los observadores
+
+Los observadores reciben notificaciones cuando se les añade o elimina como observadores.
+
+<Callout type="info">
+  Los observadores también pueden recibir notificaciones sobre otros eventos del elemento —como cuando se les menciona en un comentario, alguien reacciona a su comentario o el elemento se completa, se rechaza o se retira— según cómo estén configuradas las plantillas de notificaciones del proceso. Consulta al administrador del proceso si no tienes claro qué eventos activan una notificación para los observadores en un proceso específico.
+</Callout>
+
+## Ver los elementos que sigues
+
+Como observador, puedes acceder a los elementos que sigues desde:
+
+- La pestaña **Lista de seguimiento** dentro del proceso.
+
+  ![Pestaña Lista de seguimiento dentro de un proceso](/migration-assets/watching-a-process-item/1.png)
+  {/* TODO: verify screenshot matches current product UI */}
+
+- La pestaña **Lista de seguimiento** de [Mis elementos](/docs/use/tasks/member-actions-in-a-process).
+
+  ![Pestaña Lista de seguimiento en Mis elementos](/migration-assets/watching-a-process-item-inside-apps/2.png)
+  {/* TODO: verify screenshot matches current product UI */}
+
+Estas vistas te ayudan a hacer seguimiento de elementos en distintos procesos sin tener que participar en sus flujos de trabajo.
+
+## Limitaciones
+
+- No se pueden añadir observadores a elementos en borrador.
+
+<Callout type="warn">
+  No se pudo confirmar con el comportamiento actual del producto si los elementos reiniciados conservan sus observadores anteriores ni si eliminar a un usuario de un proceso lo elimina automáticamente como observador de los elementos en curso. Verifica estos casos directamente en tu entorno antes de basarte en ellos.
+</Callout>
+
+## Qué sigue
+
+- [Seguir un elemento en un tablero](/docs/use/items/collaborating#watching-an-item)
+- [Acciones de los miembros en un proceso](/docs/use/tasks/member-actions-in-a-process)
+- [Filtrar elementos en un proceso](/docs/use/tasks/filtering-items-in-a-process)
+- [Configuración de seguridad para los flujos](/docs/admin/processes/security-settings-for-flows)

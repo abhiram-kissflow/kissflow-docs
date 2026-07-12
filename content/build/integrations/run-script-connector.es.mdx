@@ -1,0 +1,112 @@
+---
+title: "Conector de Run script"
+description: "BORRADOR (no verificado) — migrado desde /t/h7yzj92/run-script-connector"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+## ¿Qué es el conector de Run script?
+
+El **conector de Run script** te permite ejecutar código JavaScript en respuesta a un activador o a un paso de acción anterior en la integración de tu aplicación. El código JavaScript interactúa con los datos de estos pasos y genera un resultado que pueden utilizar las acciones restantes. Por ahora, este conector no admite ningún evento de activación.
+
+Por ejemplo, imagina que tienes un formulario de tablero para realizar un seguimiento de eventos informados externamente y quieres contactar individualmente a los clientes por correo electrónico solo después de cerrar el ticket del incidente. Para que esto ocurra, el tablero y el conector de correo electrónico deben comunicarse entre sí. El conector de Run script mantiene un canal de comunicación constante al recuperar únicamente las direcciones de correo electrónico necesarias del tablero y reenviarlas al paso de acción del conector de correo electrónico. El resultado del conector de código será un arreglo de objetos que contienen cadenas de correo electrónico. Cuando la integración está habilitada, se envían notificaciones de correo electrónico independientes al cerrar los incidentes.
+
+#### Acciones compatibles con el conector de Run script
+
+**Acción**
+
+**Descripción**
+
+Ejecutar código JavaScript
+
+Esta acción ejecuta un código JavaScript insertado en respuesta a un activador de cualquiera de los pasos anteriores.
+
+## Configurar el conector de Run script
+
+1.  En tu cuenta de Kissflow, abre el creador de aplicaciones. Haz clic en el menú de navegación izquierdo y, luego, en **Logic > Integration > + icon** para crear una integración. Proporciona un nombre y una descripción para tu integración.
+2.  En el editor, selecciona un paso de activación. También puedes usar la búsqueda para encontrar directamente un activador. Por ejemplo, usa un webhook de una aplicación de terceros o un activador de uno de los flujos de Kissflow.
+3.  Haz clic en el **botón Add** (![](/migration-assets/xero-connector/1.png)) para agregar una acción. Busca el conector de **Run script** y selecciona **Run JavaScript code** como acción.  
+4.  Haz clic en **Edit** en el **editor de código JavaScript**; se abrirá el editor en pantalla completa.
+    -   **Input Data (panel izquierdo)**: configura datos de entrada personalizados asignando campos de activadores o acciones anteriores. Puedes aplicar fórmulas para transformar estos datos antes de que ingresen en tu código.
+    -   **Editor de código**: el espacio de trabajo principal donde puedes redactar tu script. Escribe código JavaScript vanilla personalizado desde cero o usa el **asistente de RunJS** para que genere el código por ti.
+    -   **Asistente de RunJS (panel derecho)**: la interfaz de chat interactiva para generar y perfeccionar código.
+
+![](/migration-assets/run-script-connector/1.png)
+
+### Cómo usar el asistente de RunJS
+
+#### Agregar datos de entrada
+
+Puedes pasar datos dinámicos a tu script definiendo pares clave-valor en la sección Input data. Estos campos asignan valores de pasos anteriores (activadores o acciones) a un objeto global inputData. Por ejemplo, si asignas un campo como email, puedes acceder a él en tu código mediante _inputData.email_.
+
+![](/migration-assets/run-script-connector/3.png)
+
+#### Generar código desde cero
+
+En el chat del **asistente de RunJS** ubicado a la derecha, describe la lógica que quieres implementar (por ejemplo, _Remove all duplicate emails and return a unique list_). 
+
+-   El asistente de RunJS generará el bloque de código por ti.
+    
+-   Puede identificar y crear automáticamente los campos de **Input data** necesarios, o usar los que ya tienes.
+    
+-   Si estás satisfecho con el resultado, haz clic en **Insert code** para pegarlo directamente en el editor central. Puedes usar los controles **Undo** y **Redo** del editor de código en cualquier momento para desplazarte por los cambios recientes y restaurar versiones anteriores.
+    
+
+![](/migration-assets/run-script-connector/5.gif)
+
+> **Nota:**  
+> Para hacer que tu solicitud sea más precisa, escribe **/** para abrir un menú desplegable con los campos disponibles y los datos de entrada configurados. Seleccionar los datos aquí garantiza que el asistente incorpore tus datos específicos en el script generado. 
+> 
+> ![](/migration-assets/run-script-connector/4.png)
+
+#### Ediciones iterativas
+
+Si el código generado necesita cambios, haz clic en **Reply** en la burbuja de chat específica para proporcionar instrucciones adicionales.
+
+![](/migration-assets/run-script-connector/2.png)
+
+#### Perfeccionar código existente
+
+Para editar código existente en el editor que necesite optimización o cambios:
+
+-   Resalta las líneas específicas del código en el editor de código.
+    
+-   Haz clic en el botón **Refine** que aparece.
+    
+-   El código se incorporará al chat del asistente de RunJS. Escribe tu solicitud (por ejemplo, _Refine this code so that it also converts all email addresses to lowercase before deduplicating, ensuring 'User@Email.com' and 'user@email.com' are treated as the same_) para modificarlo.
+    
+-   Vuelve a seleccionar el código que quieres reemplazar y haz clic en **Replace code**, debajo del widget de código, para actualizar el editor con la nueva versión.
+    
+
+![](/migration-assets/run-script-connector/6.gif)
+
+#### Probar y guardar
+
+Antes de finalizar tu integración, puedes verificar la lógica en el editor. Haz clic en **Test action** en la parte superior derecha para ejecutar el código con tus datos de muestra.
+
+![](/migration-assets/run-script-connector/7.gif)
+
+Si la prueba se realiza correctamente, cierra el editor de código y volverás a la página de configuración de la integración. Elige cuándo se ejecuta este paso y haz clic en **Next**.
+
+Por último, revisa el resultado y haz clic en **Done**.
+
+> **Nota:**
+> 
+> -   La acción Run JavaScript se ejecuta como un script aislado de terceros. No puede acceder a las variables de sistema integradas de Kissflow, como `kf.account._id`, `kf.context`, los campos de formulario o la información de los usuarios.  
+>       
+>     Cualquier dato que necesites, como un ID de cuenta o el valor de un campo, debe declararse explícitamente o pasarse al script como entrada. Este aislamiento está diseñado así por motivos de seguridad y coherencia.  
+>      
+> -   Del mismo modo, las variables de la aplicación no son compatibles dentro de la acción Run JavaScript. 
+
+## Funciones compatibles
+
+El [Kit de desarrollo de software (SDK) de JavaScript para Kissflow Low-code](https://developers.kissflow.com/integration/) incluye todas las funciones compatibles y los fragmentos de código que puedes incorporar a tu aplicación al integrarla con otros servicios.
+
+## Usar el conector
+
+Después de configurar el conector, activa el botón de alternancia en la esquina superior derecha del editor para activar la integración. Cuando se activa la acción configurada, los datos de salida del conector de código se envían como entrada a los pasos posteriores de la integración.

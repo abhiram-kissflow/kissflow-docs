@@ -1,0 +1,65 @@
+---
+title: "Generación automática de valores de condiciones"
+description: "Genera automáticamente todas las combinaciones de valores de condiciones únicos en lugar de introducir las filas manualmente."
+contentType: guide
+persona: citizen-developer
+section: build
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - decision-tables
+---
+
+# Generación automática de valores de condiciones
+
+<PlanBadge plans={["enterprise"]} />
+
+Cuando tu lógica necesita todas las combinaciones posibles de valores de condiciones, introducirlas manualmente es tedioso y propenso a errores. La opción Generar automáticamente rellena la tabla con todas las combinaciones: introduce una vez los valores únicos de cada condición y Kissflow genera las filas.
+
+<Callout type="info">
+  La generación automática requiere al menos **dos condiciones** en tu tabla de decisiones.
+</Callout>
+
+## Generar automáticamente valores de condiciones
+
+1. Haz clic en **Generar automáticamente** en la esquina superior derecha de la tabla de decisiones.
+
+   ![Tabla de decisiones con el botón Generar automáticamente resaltado en la esquina superior derecha](/migration-assets/auto-generating-condition-values/1.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+2. En el cuadro de diálogo, introduce los valores únicos de cada condición que quieras combinar.
+3. Haz clic en **Generar**.
+
+![Cuadro de diálogo Generar automáticamente con una condición seleccionada, campos para introducir valores únicos y un botón Incluir para los valores de condiciones existentes](/migration-assets/auto-generating-condition-values/2.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Las filas con todas las combinaciones de los valores que introdujiste se añaden debajo de las filas existentes. Las combinaciones que ya existen en la tabla no se duplican.
+
+## Ejemplo
+
+Una empresa minorista gestiona descuentos de productos según el tipo de cliente, el importe de compra y el nivel de membresía.
+
+**Valores únicos de las condiciones**
+
+1. Tipo de cliente — Regular, Premium
+2. Importe de compra — \> $100, \< $100
+3. Membresía — Ninguna, Gold
+
+**Filas generadas automáticamente**
+
+| Tipo de cliente | Importe de compra | Membresía |
+|---|---|---|
+| Regular | > $100 | Ninguna |
+| Regular | > $100 | Gold |
+| Regular | \< $100 | Ninguna |
+| Regular | \< $100 | Gold |
+| Premium | > $100 | Ninguna |
+| Premium | > $100 | Gold |
+| Premium | \< $100 | Ninguna |
+| Premium | \< $100 | Gold |
+
+## Qué sigue
+
+- [Importar datos desde un CSV](/docs/build/decision-tables/importing-from-csv)

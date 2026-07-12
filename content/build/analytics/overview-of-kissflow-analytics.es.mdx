@@ -1,0 +1,71 @@
+---
+title: "Descripción general de Kissflow Analytics"
+description: "BORRADOR (no verificado) — migrado desde /t/m1h9qzd/overview-of-kissflow-analytics"
+contentType: overview
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Básico ✓ Enterprise
+
+Analytics, también conocido como análisis de datos, consiste en la exploración sistemática de grandes conjuntos de datos para descubrir, examinar y comunicar nuevos conocimientos e información. Las empresas dependen de Analytics para tomar decisiones informadas basadas en datos de manera eficiente, lo que genera mayores ingresos, una ventaja competitiva y otros resultados favorables.
+
+**Kissflow Analytics** es un motor de generación de informes de autoservicio que te permite obtener información de tus datos de Kissflow mediante la creación de informes. Puedes crear informes entre flujos, informes de gráficos o tablas dinámicas sobre child tables y conjuntos de datos, informes de análisis de carga de trabajo, informes de todos los elementos y mucho más.
+
+## Fuentes de datos en Kissflow Analytics
+
+Las [fuentes de datos](http://helpdocs.kissflow.com/working-kissflow-analytics/understanding-data-sources) en Kissflow son de dos tipos:
+
+### Tablas
+
+Las tablas contienen los datos reales que deben evaluarse. Una tabla, al igual que una hoja de cálculo, está compuesta por columnas, que son los campos del formulario, y filas, que son los elementos enviados.
+
+Las tablas pueden ser de estos cuatro tipos:
+
+-   **Tabla de proceso:** Esta tabla contiene todos los campos del formulario de proceso.
+-   **Tabla de tablero**: Esta tabla incluye todos los campos del tablero como columnas, con los subelementos representados como filas.
+-   **Child table:** Es una tabla dentro de un formulario de proceso.
+-   **Conjunto de datos:** Una tabla con filas y columnas de datos.
+-   **Tabla del sistema:** Hace referencia a las tablas de instancias de proceso y a las tablas de instancias de actividad, que contienen datos de actividades de flujo de trabajo de varios procesos, así como a las tablas de usuarios y grupos.
+
+### **Dataview**
+
+Esta es una fuente de datos única creada mediante el uso de columnas de una o más tablas o [Dataviews](http://helpdocs.kissflow.com/working-kissflow-analytics/understanding-dataviews), escribiendo una consulta SQL en el editor de consultas.
+
+![](/migration-assets/overview-of-kissflow-analytics/1.jpg)
+
+## Generación de informes en Kissflow Analytics
+
+Los informes, como tablas, gráficos y tablas dinámicas, facilitan la comprensión y explicación de las tendencias, los valores atípicos y los patrones de los datos. Estos elementos visuales se pueden combinar para contar una historia de datos más amplia y ayudar en la toma de decisiones. Los [informes de Analytics](/t/35h9qzj/analytics-reports-an-overview) se pueden generar a partir de procesos, tableros, child tables, tablas del sistema, conjuntos de datos y Dataviews para supervisar diversas actividades empresariales.
+
+Analytics admite los siguientes tipos de informes:
+
+-   **Informes tabulares** te permiten mostrar los datos de forma tabular sencilla. Con esta vista, puedes generar un informe con estilo de hoja de cálculo que contenga todos tus datos.
+-   **Gráficos** muestran los datos gráficamente en uno de diez tipos de gráficos, incluidos los de barras, líneas, áreas, dispersión, circular, anillos y combinados.
+-   **Tablas dinámicas** pueden resumir, organizar y comparar rápidamente grandes cantidades de datos. Te permiten intercambiar fácilmente campos, filas y columnas.
+
+## Acceso a Kissflow Analytics
+
+Para acceder a Analytics:
+
+1.  Inicia sesión en Kissflow Work Platform.
+2.  Haz clic en el botón **Analytics** (![](/migration-assets/overview-of-kissflow-analytics/2.png)) en la navegación izquierda.
+3.  En **Explorador de datos**, puedes crear Dataviews y también encontrar [fuentes de datos](/t/x2h9qzw) como tablas de procesos, tablas de tableros, child tables, tablas del sistema, Dataviews y conjuntos de datos creados por ti o compartidos contigo
+4.  En **Informes**, puedes crear nuevos informes y también encontrar todos los informes de Analytics a los que tienes acceso.  
+     ![](/migration-assets/overview-of-kissflow-analytics/3.png) 
+
+Como [Kissflow Super Admin](https://helpdocs.kissflow.com/user-management/user-roles-permissions#super_admins), tendrás acceso a todas las fuentes de datos y Dataviews. Si eres usuario de Kissflow, solo tendrás acceso a las fuentes de datos que hayas creado o que se hayan compartido contigo. Puedes crear informes a partir de estas fuentes de datos, compartirlos con otros usuarios y también exportarlos como un archivo **CSV** o **JSON**.
+
+## Escenarios de uso
+
+Kissflow Analytics se puede utilizar en diversas funciones empresariales, como adquisiciones y gestión de empleados.
+
+### **Adquisiciones**
+
+Si utilizas Kissflow Process para gestionar solicitudes de compra, órdenes de compra y catálogos de proveedores en tu empresa, puedes usar Kissflow Analytics para obtener información que te ayude a realizar un seguimiento de los pedidos, el cumplimiento, la calidad de las entregas y otros indicadores clave de rendimiento.
+
+### **Gestión de empleados (RR. HH.)**
+
+Si utilizas Kissflow Process para gestionar las operaciones relacionadas con las personas en tu empresa, puedes usar Kissflow Analytics para evaluar indicadores clave de rendimiento, como la tasa de rotación, el tiempo promedio de contratación, el costo por contratación, la satisfacción de los empleados, etc. Al crear informes a partir de Dataviews que combinan varias tablas, puedes analizar el rendimiento de los empleados y también tomar decisiones clave de contratación.

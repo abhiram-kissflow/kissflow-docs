@@ -1,0 +1,69 @@
+---
+title: "Exportar elementos de un tablero"
+description: "Exporta los elementos de un tablero a un archivo CSV que se te enviará por correo electrónico, con los campos, filtros y ordenación de tu diseño actual aplicados."
+contentType: guide
+persona: end-user
+section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - boards
+  - items
+  - export
+---
+
+# Exportar elementos de un tablero
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+Puedes exportar elementos de un tablero a un archivo CSV. El archivo se enviará a la dirección de correo electrónico registrada en tu cuenta de Kissflow.
+
+La exportación te ayuda a compartir información sobre los elementos con personas que quizá no tengan acceso a Kissflow o a transferir datos a otras aplicaciones.
+
+## Exportar elementos
+
+1. En cualquier diseño —lista, kanban, matriz o cronología— haz clic en el botón **Más opciones** situado en la esquina superior derecha del diseño y selecciona **Exportar**.
+
+   <Callout type="info">
+     La opción **Exportar** solo está disponible para los administradores del tablero y los miembros que tengan permiso de exportación. Si no la ves, pregunta al administrador del tablero.
+   </Callout>
+
+2. En el cuadro de diálogo **Exportar datos**, confirma que solo se exportarán los campos que se muestran en el diseño actual y haz clic en **Exportar**.
+3. Descarga el archivo CSV exportado desde el correo electrónico que recibirás.
+
+![Animación de la exportación de elementos de un tablero mediante el menú Más opciones y el cuadro de diálogo Exportar datos](/migration-assets/exporting-items-from-a-board/1.gif)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Qué se exporta
+
+La exportación incluye solo los campos visibles en el diseño actual; los campos ocultos no se exportan. Si has aplicado un filtro o has ordenado los elementos, las mismas condiciones se aplican a los datos exportados. Por ejemplo, si hay un filtro activo, solo se exportan los elementos filtrados.
+
+Estos tipos de campo nunca se incluyen, aunque estén visibles:
+
+- Lookup
+- Image
+- Signature
+- Attachment
+- Checklist
+
+<Callout type="info">
+  Los campos de búsqueda remota se exportan como valores de texto; a diferencia de los campos Lookup estándar, no se excluyen.
+</Callout>
+
+Los campos dentro de tablas (elementos secundarios) también se exportan, pero en un archivo CSV independiente. Si la exportación incluye datos de tablas, recibirás dos archivos por correo electrónico: uno con los campos propios del elemento y otro con las filas de sus tablas.
+
+Otros detalles de los elementos, como las notas, los registros de actividad y las transiciones de estado, no se incluyen en la exportación.
+
+<Callout type="info">
+  Los campos de moneda aparecen como dos columnas en el archivo exportado: una para el código de moneda y otra para el valor.
+</Callout>
+
+## Qué hacer a continuación
+
+- [Importar elementos desde un archivo CSV](/docs/use/items/importing-items)
+- [Notas, registros de estado y registros de actividad en los tableros](/docs/use/boards/notes-status-logs-and-activity-logs-in-boards)
+- [Crear y gestionar subelementos](/docs/use/items/creating-subitems)
+- [Añadir filtros avanzados mediante AI](/docs/use/items/filtering-and-views) (Enterprise)
+- [Usar diseños de tablero](/docs/use/apps/using-board-layouts)

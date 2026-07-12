@@ -1,0 +1,60 @@
+---
+title: "Conector de Twilio"
+description: "BORRADOR (sin verificar) — migrado desde /t/y4h4af3/twilio-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es Twilio?
+
+Twilio te permite interactuar con los clientes de forma inteligente con la ayuda de sus API flexibles y conectar con ellos a través de sus canales preferidos. 
+
+## Acerca de la integración de Twilio con Kissflow
+
+El conector de Twilio de Kissflow Integration te permite conectar Twilio al instante y automatizar tu trabajo con otras aplicaciones de Kissflow y aplicaciones populares de terceros. Debes tener una cuenta válida de Twilio y ser cliente de pago de Kissflow para poder integrarte con Twilio. Para realizar acciones específicas, utiliza el conector de Twilio para recibir datos de otros flujos o aplicaciones. Por ahora, el conector de Twilio no admite eventos de activación. Por ejemplo, Twilio puede enviar automáticamente un SMS a un número de teléfono único cuando se actualiza el estado de un elemento en un Kissflow Board. 
+
+### Acciones del conector de Twilio
+
+**Eventos de acción**
+
+**Descripción**
+
+Enviar un SMS
+
+Esta acción envía SMS a uno o varios números.
+
+Enviar un mensaje de WhatsApp
+
+Esta acción envía un mensaje de WhatsApp a un número.
+
+> **Nota:**
+> 
+> Consulta la [documentación de Twilio](https://support.twilio.com/hc/en-us/articles/360017773294-Rules-and-Best-Practices-for-WhatsApp-Messaging-on-Twilio) antes de utilizar esta acción.
+
+### Conector de Twilio como paso de acción
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Create** del panel de navegación izquierdo y selecciona **Integration** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Create](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Una vez dentro del editor, configura un paso de activación, por ejemplo, un evento de activación del sistema Kissflow Case, **cuando se actualiza el estado de un elemento.**
+    
+3.  Después de configurar el paso de activación anterior, haz clic en el botón **Add** (
+    
+    ![](/migration-assets/twilio-connector/1.png)
+    
+    ) situado junto a la opción para configurar el paso de acción. Busca **Twilio** y selecciona la acción. Si eliges la acción **Send a WhatsApp message,** el remitente y el destinatario deben tener una cuenta de WhatsApp activa. ![](/migration-assets/twilio-connector/2.png)
+4.  Después de elegir el evento de acción, autentica el conector. Haz clic en **+Add an account** e inicia sesión con tu **Account SID** y **Auth Token**.  
+      
+    Debes tener una cuenta de Twilio para obtener tu **Account SID** y **Auth Token** únicos. Inicia sesión en tu cuenta de Twilio y desplázate hacia abajo hasta **Account Info** para encontrar tu **Account SID** y **Auth Token**. ![](/migration-assets/twilio-connector/4.png)
+5.  Después de autenticarte con tu cuenta de Twilio, añade los valores correspondientes a los campos del formulario de Twilio. Puedes hacer clic en **Refresh fields** para ver todos los campos actualizados del formulario de Twilio seleccionado. También puedes asignar campos de Twilio desde el paso de activación o desde pasos de acción anteriores. Estos valores se añadirán automáticamente a los campos del elemento después de ejecutar la acción.![](/migration-assets/twilio-connector/3.png)
+6.  Después de realizar una configuración correcta, comprueba que el paso de acción de Twilio esté configurado correctamente haciendo clic en el botón **Test**. El conector extraerá los datos de los campos de tu cuenta de Twilio seleccionada y los mostrará como una salida JSON. Al igual que con el paso de activación, recibirás una notificación inmediata de los errores. Corrígelos antes de volver a probar el paso de acción.
+
+### Configurar un conector de Twilio
+
+Después de crear un flujo de trabajo personalizado con el paso de acción de tu conector de Twilio, activa el botón de alternancia para activar la ejecución de la integración. Cuando se produzca un evento de activación, se enviará un SMS al número de Twilio que hayas especificado.
+
+Para garantizar que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

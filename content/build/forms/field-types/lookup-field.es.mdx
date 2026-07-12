@@ -1,0 +1,207 @@
+---
+title: "Campo de búsqueda"
+description: "BORRADOR (no verificado) — migrado desde /t/g9h4azr/lookup-field"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Básico ✓ Enterprise
+
+El campo de búsqueda permite a los usuarios acceder a datos de otros flujos, lo que les permite completar información en un formulario automáticamente.
+
+Por ejemplo, al completar un formulario de solicitud de alquiler de un auto, en lugar de ingresar manualmente los datos de todos los campos, puedes configurar un campo de búsqueda para recuperar la información de los autos disponibles de un conjunto de datos.
+
+## Crear un flujo
+
+Primero debes crear un flujo relevante para configurar un campo de búsqueda. Puedes crear tu flujo o descargar una plantilla de la **galería de plantillas**. 
+
+Por ejemplo, un conjunto de datos de autos de alquiler podría incluir los siguientes campos:
+
+-   Clave principal
+    
+-   Modelos de autos
+    
+-   Imágenes
+    
+
+## Configurar el campo de búsqueda 
+
+Puedes arrastrar y soltar un **Campo de búsqueda** desde el panel **Todos los campos** del lado izquierdo y seguir los pasos que se indican a continuación:
+
+1.  Proporciona un nombre para el **Campo de búsqueda** en el panel **Configuración** del lado derecho. 
+    
+2.  Selecciona el conjunto de datos que contiene la información de los autos en el menú desplegable **Elegir un flujo para realizar la búsqueda**. 
+    
+3.  En **Seleccionar campos para usar en esta búsqueda**, elige todos los campos que puedas necesitar en tu formulario.  
+     
+    
+    > **Consejo:**  
+    > Asegúrate de seleccionar todos los campos necesarios en esta etapa, ya que solo estos campos estarán disponibles para configurar el diseño de búsqueda. No podrás agregar campos adicionales más adelante sin volver a esta pantalla.
+    
+4.  En **Diseño de búsqueda**, se aplicará el diseño de **Tarjeta de texto** de forma predeterminada tanto durante como después de la selección. Puedes cambiar el diseño haciendo clic en **Cambiar diseño**. 
+    
+
+![](/migration-assets/lookup-field/7.gif)
+
+## Configurar el diseño de búsqueda
+
+Para mejorar la facilidad de uso y la legibilidad, puedes personalizar cómo aparecen los resultados de búsqueda durante y después de la selección. 
+
+### Diseño durante la selección
+
+Elige cómo aparecen los resultados del campo de búsqueda cuando un usuario selecciona una opción. Los diseños disponibles incluyen:
+
+-   **Tarjeta de texto (predeterminado**): muestra una vista compacta de los campos de datos principales, lo que resulta útil para revisar rápidamente los detalles esenciales.
+    
+-   **Tabla**: presenta los resultados de búsqueda en un formato estructurado de filas y columnas, ideal para comparar varias entradas.
+    
+-   **Tarjeta visual**: muestra los datos con elementos visuales adicionales, por lo que es adecuada para seleccionar elementos con imágenes.
+    
+-   **Valor**: muestra una representación minimalista con solo el valor seleccionado, ideal para selecciones simples y directas.
+    
+
+![](/migration-assets/lookup-field/1.gif)
+
+### Campos que se mostrarán
+
+Durante la selección, puedes elegir qué campos mostrar en el diseño de búsqueda. Puedes reordenar los campos arrastrándolos al orden deseado.
+
+> **Nota**
+> 
+> Solo estarán disponibles para la selección aquí los campos seleccionados en la página anterior (en el paso **Seleccionar campos para usar en esta búsqueda**).
+
+![](/migration-assets/lookup-field/4.gif)
+
+### Diseño después de la selección
+
+Decide cómo aparecerán en el formulario los resultados de búsqueda seleccionados. Aquí también puedes elegir uno de los diseños compatibles con la selección de diseño inicial. 
+
+![](/migration-assets/lookup-field/2.gif)
+
+#### Combinaciones de diseños
+
+Puedes crear diferentes combinaciones de diseños según tus preferencias:
+
+**Durante la selección**
+
+**Después de la selección**
+
+**Descripción**
+
+Tarjeta
+
+Tarjeta
+
+Los resultados de búsqueda aparecen como tarjetas y la opción seleccionada también se muestra como una tarjeta.
+
+Tarjeta
+
+Valor
+
+Los resultados de búsqueda aparecen como tarjetas, pero después de la selección solo se muestra el valor configurado.
+
+Tabla
+
+Tarjeta
+
+Los resultados de búsqueda se muestran en formato de tabla, pero la opción seleccionada aparece como una tarjeta.
+
+Tabla
+
+Valor
+
+Los resultados de búsqueda aparecen en una tabla, pero después de la selección solo se muestra el valor configurado.
+
+Tabla
+
+Tarjeta visual
+
+Los resultados de búsqueda aparecen en una tabla, mientras que la opción seleccionada aparece como una tarjeta visual.
+
+Tarjeta visual
+
+Tarjeta visual
+
+Tanto los resultados de búsqueda como la opción seleccionada aparecen en formato visual.
+
+Tarjeta visual
+
+Valor
+
+Los resultados de búsqueda aparecen como tarjetas visuales, pero después de la selección solo se muestra el valor configurado.
+
+Valor
+
+Valor
+
+Tanto los resultados de búsqueda como el valor configurado aparecen como valores en un formato minimalista.
+
+### Otras opciones de diseño
+
+-   **Activar encabezado de tarjeta (activar/desactivar)**: el interruptor está activado de forma predeterminada. Puedes elegir el campo de encabezado que prefieras en el menú desplegable disponible.
+    
+
+> **Nota:**  
+> Si no se realiza ninguna selección, se usará como encabezado el primer campo de texto o número aplicable del paso dos. Sin embargo, esto no se aplica a las vistas de **Tabla** o **Valor**, que no tienen encabezados.
+
+![](/migration-assets/lookup-field/5.gif)
+
+-   **Configuración adicional para el diseño de tarjeta visual:** si seleccionas el diseño de **Tarjeta visual**, tendrás acceso a configuraciones de imagen adicionales:
+    
+    -   **Seleccionar una imagen**: elige un campo de imagen en el menú desplegable para mostrarlo en la tarjeta visual.
+        
+    -   **Ubicación de la imagen**: especifica dónde debe aparecer la imagen dentro del diseño de tarjeta visual:
+        
+        -   **Izquierda**: muestra la imagen a la izquierda del contenido de texto.
+            
+        -   **Parte superior**: coloca la imagen encima del contenido de texto.
+            
+
+### Obtener una vista previa de la configuración del diseño
+
+La sección **Vista previa** en tiempo real a la derecha muestra cómo se verán los resultados del campo de búsqueda según tus selecciones, lo que te permite visualizar el resultado final antes de realizar cambios. 
+
+![](/migration-assets/lookup-field/3.png)
+
+Cuando estés conforme con la configuración del diseño, haz clic en Aplicar para guardar los cambios. Al configurar correctamente el diseño de búsqueda, puedes mejorar la visibilidad de los datos y la experiencia del usuario.
+
+### Mostrar los campos de búsqueda como columnas individuales
+
+Para facilitar la revisión y comparación de los datos buscados, activa **Mostrar campos como columnas**. Esto muestra los campos buscados seleccionados como columnas individuales.
+
+![](/migration-assets/lookup-field/11.gif)
+
+En el menú desplegable **Campo para la selección de datos**, puedes elegir qué campo buscado aparece como primera columna. De forma predeterminada, se selecciona el primer campo buscado. Todas las demás columnas se completan automáticamente a partir del registro seleccionado y permanecen en modo de solo lectura.
+
+![](/migration-assets/lookup-field/6.png)
+
+## Ordenar los resultados del campo de búsqueda
+
+Puedes ordenar los resultados de los campos de búsqueda en orden ascendente o descendente.
+
+1.  En el menú desplegable **Ordenar valores por**, selecciona el campo que quieres usar como base para la ordenación.
+    
+2.  En la sección **Tipo de orden**, elige si los resultados deben ordenarse en orden ascendente o descendente.
+    
+
+![](/migration-assets/lookup-field/8.gif)
+
+## Filtrar los resultados del campo de búsqueda
+
+Puedes controlar qué valores aparecen en un campo de búsqueda aplicando filtros.
+
+1.  Haz clic en **Agregar filtro**.
+    
+2.  Define el filtro seleccionando el **Campo**, el **Operador**, el **Tipo** y el **Valor**; luego haz clic en **Listo**.
+    
+3.  Para mostrar automáticamente el primer valor coincidente cuando se ejecute el formulario, activa el interruptor **Seleccionar automáticamente el primer valor según los filtros**. Esto establece el primer resultado filtrado como valor predeterminado para el usuario final.
+    
+
+![](/migration-assets/lookup-field/10.gif)
+
+### Eliminar un filtro aplicado al campo de búsqueda
+
+Para eliminar un filtro de un campo de búsqueda, desplázate hacia abajo hasta la sección **Filtro** del panel de configuración de la derecha y haz clic en el botón **Eliminar** (![](/migration-assets/lookup-field/9.png)) situado junto a la condición aplicada.

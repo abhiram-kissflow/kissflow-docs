@@ -1,0 +1,22 @@
+{
+  "title": "Administración",
+  "description": "Administra usuarios, seguridad, gobernanza y entornos.",
+  "pages": [
+    "account",
+    "users",
+    "provisioning",
+    "service-accounts",
+    "security",
+    "governance",
+    "ai-control",
+    "data-backup",
+    "environments",
+    "processes",
+    "boards",
+    "datasets",
+    "portals",
+    "audit-log",
+    "account-settings"
+  ],
+  "icon": "admin"
+}

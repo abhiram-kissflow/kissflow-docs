@@ -1,0 +1,96 @@
+---
+title: "Configurar el inicio de sesión único basado en SAML para Microsoft Entra ID"
+description: "Configura el inicio de sesión único basado en SAML entre Kissflow y Microsoft Entra ID intercambiando archivos de metadatos y asignando la configuración del proveedor de identidad."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - security
+  - saml
+  - single-sign-on
+  - authentication
+---
+
+# Configurar el inicio de sesión único basado en SAML para Microsoft Entra ID
+
+<PlanBadge plans={["enterprise"]} />
+
+SAML (Lenguaje de marcado de aserciones de seguridad) permite que tus usuarios inicien sesión en Kissflow con las mismas credenciales que ya usan para Microsoft Entra ID, en lugar de administrar una contraseña independiente de Kissflow. Para configurarlo, debes intercambiar archivos de metadatos entre Kissflow y Entra ID.
+
+<Callout type="info">
+  Debes ser [Superadministrador o administrador de IAM](/docs/admin/users/user-roles-and-permissions) para acceder a **Seguridad de la cuenta** y configurar el SSO basado en SAML.
+</Callout>
+
+## Descargar el archivo de metadatos de Kissflow
+
+1. Ve a **Administración de la cuenta** > **Configuración de la cuenta** > **Seguridad de la cuenta**.
+2. Junto a **Iniciar sesión con SAML**, haz clic en **Configurar SAML**.
+
+   ![Página de seguridad de la cuenta con el botón Configurar SAML junto a Iniciar sesión con SAML](/migration-assets/setting-up-saml-based-single-sign-on-for-microsoft-azure-id/2.png)
+   {/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+3. En **URL del proveedor de servicios**, haz clic en **Descargar metadatos**.
+
+   ![Panel de URL del proveedor de servicios con el botón Descargar metadatos](/migration-assets/setting-up-saml-based-single-sign-on-for-microsoft-azure-id/1.png)
+   {/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+Esto descarga un archivo de metadatos que identifica a Kissflow como el proveedor de servicios. Lo cargarás en Entra ID en el siguiente paso.
+
+## Crear la aplicación en Entra ID
+
+1. Inicia sesión en tu cuenta de Microsoft Entra ID y ve a la página de inicio para crear una aplicación nueva.
+2. Asigna un nombre a la aplicación y selecciona **Integrar cualquier otra aplicación que no encuentres en la galería (no perteneciente a la galería)**.
+
+   ![Cuadro de diálogo de Entra ID para crear una aplicación que no pertenece a la galería](/migration-assets/setting-up-saml-based-single-sign-on-for-microsoft-azure-id/8.png)
+   {/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+3. Configura el inicio de sesión único mediante SAML, haz clic en **Cargar archivo de metadatos** y selecciona el archivo de metadatos que descargaste de Kissflow.
+4. Haz clic en **Guardar**.
+
+   ![Configuración de SAML de Entra ID con la opción Cargar archivo de metadatos](/migration-assets/setting-up-saml-based-single-sign-on-for-microsoft-azure-id/6.png)
+   {/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+5. Desplázate hasta **XML de metadatos de federación** y haz clic en **Descargar**.
+
+   ![Sección XML de metadatos de federación de Entra ID con el enlace Descargar](/migration-assets/setting-up-saml-based-single-sign-on-for-microsoft-azure-id/5.png)
+   {/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+Cargarás este archivo de nuevo en Kissflow para completar el intercambio.
+
+## Configurar los detalles del IdP en Kissflow
+
+1. De vuelta en la pantalla de configuración de SAML de Kissflow, haz clic en **Cargar archivo XML** y selecciona el archivo XML de metadatos de federación que descargaste de Entra ID.
+
+   ![Panel de configuración del IdP con la opción Cargar archivo XML](/migration-assets/setting-up-saml-based-single-sign-on-for-microsoft-azure-id/3.png)
+   {/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+   <Callout type="info">
+     Cuando la carga se complete correctamente, los campos de **Configuración del IdP** —clave de seguridad, URL de cierre de sesión y URL del IdP— se completarán automáticamente a partir del archivo XML.
+   </Callout>
+
+2. En **Configuración avanzada**, revisa el **Identificador único** de los usuarios. **Dirección de correo electrónico** es la opción predeterminada.
+3. Marca la casilla para que Kissflow cree automáticamente cuentas nuevas cuando un usuario que aún no existe en Kissflow inicie sesión mediante SAML-SSO.
+4. Haz clic en **Guardar** para guardar la configuración de SAML.
+
+## Probar y habilitar el SSO
+
+1. Regresa a Entra ID y haz clic en **Probar esta aplicación** en la barra de navegación superior. Si la configuración es correcta, Entra ID te llevará a la página de inicio de tu cuenta de Kissflow.
+
+   ![Página de la aplicación de Entra ID con la opción Probar esta aplicación](/migration-assets/setting-up-saml-based-single-sign-on-for-microsoft-azure-id/7.png)
+   {/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+2. Una vez que la prueba se complete correctamente, ve a **Seguridad de la cuenta** en Kissflow y activa el interruptor de SAML.
+
+   ![Página de seguridad de la cuenta con el interruptor de inicio de sesión con SAML habilitado](/migration-assets/setting-up-saml-based-single-sign-on-for-microsoft-azure-id/4.png)
+   {/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+Con el SSO habilitado, puedes agregar los usuarios y grupos de Entra ID que deben autenticarse en Kissflow mediante SAML.
+
+## Qué sigue
+
+- [Seguridad de la cuenta](/docs/admin/security/account-security)
+- [Roles y permisos de usuario](/docs/admin/users/user-roles-and-permissions)

@@ -1,0 +1,134 @@
+---
+title: "Cálculo de campos mediante el constructor de fórmulas"
+description: "BORRADOR (sin verificar): migrado desde /t/35h4alz/computing-fields-using-formula-builder"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Puedes escribir expresiones y crear fórmulas para tus campos calculados con la ayuda de nuestro constructor de fórmulas.
+
+## ¿Qué es el constructor de fórmulas?
+
+El constructor de fórmulas es una herramienta integrada en Kissflow que te ayuda a escribir, editar y evaluar expresiones de forma más eficaz.
+
+Usuarios del plan Enterprise: exploren el [complemento de IA](/t/83ylatd/ai-formula-builder) del constructor de fórmulas.
+
+### Aspectos destacados de la función
+
+-   Editor fácil de usar
+-   Opciones de sugerencias automáticas al usar el operador de punto "." y llamar funciones
+-   Diseño sencillo de arrastrar y soltar para incluir campos y funciones en el editor
+-   Posibilidad de evaluar tu expresión antes de guardarla
+-   Práctica interfaz de _búsqueda_ para buscar un campo o una función
+
+> **Nota**:
+> 
+> Los campos de fórmula (campos calculados) son de solo lectura. Derivan sus valores dinámicamente de las entradas de otros campos y no se pueden editar manualmente.
+
+## Escribir una fórmula con el constructor de fórmulas
+
+1.  Ve al campo del formulario de tu proceso para el que quieres escribir una fórmula.
+2.  Cambia el campo **'¿Es un campo calculado?'** a **'Sí'** para habilitarlo; se abrirá el **constructor de fórmulas**.
+3.  Introduce tu fórmula directamente en el editor de fórmulas o escribe una indicación en el espacio con tecnología de IA para generar automáticamente tu fórmula.   ![](/migration-assets/computing-fields-using-formula-builder/1.png) 
+4.  Escribe la lógica en el editor.
+    1.  Es posible que necesites un campo y una función relevante para crear una fórmula. Admitimos [campos del sistema](/t/83h4alt/system-fields) y los campos de tu formulario en el editor para que puedas usar cualquiera de ellos en tu lógica según sea necesario. También contamos con un conjunto específico de funciones que puedes arrastrar y soltar fácilmente en el editor.  
+          
+        Asegúrate de no incluir los ID de los campos entre comillas cuando los uses en una fórmula.
+5.  Arrastra y suelta una [función](/t/35h4alz/computing-fields-using-formula-builder#calling-inbuilt-functions) relevante desde la sección **Funciones** del panel derecho.
+    1.  Una función opera sobre uno o más campos, así que ve a la sección **Sistema** o **Campos del formulario** para buscar los campos relevantes y crear tu fórmula.![](/migration-assets/computing-fields-using-formula-builder/2.png)
+6.  Arrastra y suelta, o haz doble clic en el campo relevante de la sección **Campos del sistema** o **Campos del formulario** para añadirlo a tu función en el editor.
+7.  Haz clic en **Embellecer** para [formatear tu código](/t/35h4alz/computing-fields-using-formula-builder#formatting-your-code) cuando hayas terminado de definir la lógica.
+8.  Haz clic en **Evaluar** para probar tu fórmula antes de guardarla.
+    1.  [Evaluar la expresión](/t/35h4alz/computing-fields-using-formula-builder#evaluating-expression) te permite proporcionar datos a tu función y comprobar si obtienes el resultado deseado. También te ayuda a [corregir cualquier error](https://helpdocs.kissflow.com/expression/computing-fields-using-formula-builder#referring_to_the_contextual_help) relacionado con tu fórmula, si los hubiera.
+9.  Introduce los datos necesarios en los campos y haz clic en **Ejecutar** para evaluar tu expresión.
+10.  Haz clic en **Guardar** después de que tu expresión se haya evaluado correctamente.
+
+## ¿Cómo usar eficazmente el editor del constructor de fórmulas?
+
+El editor tiene una interfaz intuitiva que te permite crear tu fórmula en cuestión de segundos. Los siguientes consejos pueden resultarte útiles al escribir tu lógica:
+
+### Usar el operador de punto
+
+Puedes usar el operador **Punto** "." para insertar funciones integradas en tu lógica. Puedes elegir una función relevante del panel de sugerencias automáticas que aparece al usar un operador de punto en tu expresión.
+
+### Llamar funciones integradas
+
+Admitimos las siguientes funciones en el editor y puedes arrastrar y soltar cualquiera de ellas en el editor según sea necesario.
+
+#### **Número y moneda**
+
+Puede haber situaciones en las que necesites generar un número aleatorio o ejecutar cálculos relacionados con monedas en tu fórmula. [Obtén más información sobre las expresiones de número y moneda aquí.](/t/g9h4alx/number-and-currency-expressions)
+
+#### **Texto**
+
+Realiza operaciones con cadenas usando la lista de funciones relacionadas con texto que admite Kissflow. [Obtén más información sobre las expresiones de texto aquí.](/t/m1h4al6/text-expressions)
+
+#### **Fecha**
+
+Muestra la fecha actual con o sin la marca de tiempo actual, recupera el día actual o la marca de tiempo en la que se inició un elemento según tus necesidades mediante nuestras funciones de fecha. [Obtén más información sobre las expresiones de fecha aquí.](/t/p8h4al3/date-expressions)
+
+#### **Otras expresiones lógicas**
+
+También admitimos algunas funciones lógicas en nuestro editor. Por ejemplo, puedes comprobar si un campo específico está vacío o no mediante la función **isBlank()**. [Obtén más información sobre las expresiones lógicas aquí.](/t/h7h4aly/logical-expressions)
+
+![](/migration-assets/computing-fields-using-formula-builder/3.png)
+
+### Formatear tu código
+
+¿Te preocupa el aspecto desordenado de tu código en el editor cuando intentas crear una fórmula compleja? ¡Te entendemos!
+
+Haz clic en **Embellecer**, en la sección superior derecha del constructor de fórmulas, para formatear tu código de modo que tu lógica quede organizada y se presente claramente en el editor. El formato no solo mejora el aspecto de tu código, sino también su legibilidad.
+
+### Copiar, deshacer y rehacer
+
+Puedes copiar el código al portapapeles o deshacer y rehacer los cambios según sea necesario desde el editor. Accede al constructor de fórmulas y ve a la parte superior derecha del editor para acceder a estas opciones.
+
+![](/migration-assets/computing-fields-using-formula-builder/5.png)
+
+### Usar operadores aritméticos y lógicos
+
+Admitimos todos los operadores aritméticos y lógicos básicos necesarios para crear una fórmula. Haz clic en cualquier operador para insertarlo en tu código según sea necesario.
+
+![](/migration-assets/computing-fields-using-formula-builder/6.png)
+
+Pasa el cursor sobre un operador para obtener información sobre su uso.
+
+### Evaluar una expresión
+
+Te recomendamos evaluar tu fórmula antes de ejecutarla en tu proceso. Esto te ayuda a probar la fórmula y comprobar si obtienes el resultado deseado.
+
+Con la introducción de la función **[Evaluación mediante IA](/t/83ylatd/ai-formula-builder)** en Forms, los siguientes pasos ahora se aplican únicamente a la evaluación de fórmulas en **Integrations**.
+
+![](/migration-assets/computing-fields-using-formula-builder/4.png)
+
+1.  Haz clic en **Evaluar** cuando estés listo para probar tu lógica.
+2.  Introduce los datos de los campos en la sección **Evaluar fórmula** del panel derecho.
+3.  Haz clic en **Ejecutar**
+4.  Consulta el resultado de tu expresión en la parte inferior y vuelve a probar la fórmula tantas veces como quieras hasta obtener los resultados deseados.
+
+> **Nota:**
+> 
+> La función **Ejecutar** se deshabilitará si la fórmula contiene errores. Solo podrás evaluar la expresión después de resolver los errores.
+
+### Consultar la ayuda contextual
+
+Cuando no tengas claro cómo usar una función específica, pasa el cursor sobre su nombre para obtener información sobre su uso. También puedes hacerlo para corregir errores de sintaxis, si los hubiera, al evaluar tu expresión.
+
+![](/migration-assets/computing-fields-using-formula-builder/7.gif)
+
+En el siguiente ejemplo, hay un error de sintaxis en la expresión. El resultado de la función '**randbetween()**' debe ser TEXT, mientras que su tipo de datos actual es NUMBER. Veamos cómo se resuelve el problema con la ayuda de las opciones de ayuda contextual disponibles en el editor.
+
+![](/migration-assets/computing-fields-using-formula-builder/8.gif)
+
+Etapas de la corrección:
+
+1.  El diseño intuitivo del editor alerta al usuario de que hay un problema con la lógica. (**Ejecutar** deshabilitado)
+2.  El usuario pasa el cursor sobre la sintaxis para saber qué salió mal.
+3.  El usuario descubre que la función **randbetween()** debe convertirse a TEXT, ya que su tipo de datos actual es NUMBER.
+4.  El usuario llama a la función **totext()** mediante el operador _Punto_ para obtener el resultado como una cadena.
+5.  El error se resuelve y la expresión se evalúa correctamente.

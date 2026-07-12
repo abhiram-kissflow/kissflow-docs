@@ -1,0 +1,61 @@
+---
+title: "Conector de Google Calendar"
+description: "BORRADOR (sin verificar) — migrado desde /t/h7h4afg/google-calendar-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+## ¿Qué es Google Calendar?
+
+Google Calendar es un popular servicio de calendario para gestionar y programar el tiempo, desarrollado por Google. Con sus aplicaciones web y móviles, puedes organizar y compartir tu agenda con tus amigos y colegas.
+
+### Acerca de la integración de Google Calendar de Kissflow
+
+El conector de Google Calendar de Kissflow Integration te permite conectar Google Calendar al instante con otras aplicaciones de Kissflow y aplicaciones populares de terceros para automatizar tu trabajo. Para integrar Google Calendar, debes tener una cuenta válida de Google Calendar y ser cliente de pago de Kissflow. Puedes usar el conector de Google Calendar para recibir datos de otros flujos o aplicaciones y realizar acciones específicas con Google Calendar. Por ahora, el conector de Google Calendar no admite eventos de activación.
+
+### Acciones del conector de Google Calendar
+
+**Evento de acción**
+
+**Descripción**
+
+Añadir un evento rápido
+
+Esta acción crea un evento y completa automáticamente la fecha, la hora y la descripción después de analizar los datos de texto disponibles.
+
+Crear un evento detallado
+
+Esta acción crea un evento detallado definiendo cada campo.
+
+Actualizar un evento
+
+Esta acción modifica un evento existente actualizando todos los campos completados.
+
+Añadir asistentes a un evento
+
+Esta acción invita a uno o más participantes a un evento actual.
+
+Crear un calendario
+
+Esta acción crea un calendario nuevo.
+
+Eliminar un evento
+
+Esta acción elimina un evento del calendario.
+
+## Conector de Google Calendar como paso de acción
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Una vez dentro del editor, configura un paso de activación, por ejemplo, un evento de activación de Kissflow Scheduler, **Programar diariamente.**
+3.  Después de configurar el paso de activación anterior, haz clic en el botón Añadir (![](/migration-assets/google-calendar-connector/1.png) ) junto a configurar el paso de acción. Busca Google Calendar y selecciona la acción deseada de la lista disponible. Puedes encontrar la lista de acciones compatibles arriba.  ![](/migration-assets/google-calendar-connector/2.png) 
+4.  Después de elegir el evento de acción, autentica el conector. Haz clic en **+Añadir una cuenta** e inicia sesión con tu cuenta de Google. Kissflow utiliza OAuth de Google para la autenticación.
+5.  Después de autenticar tu cuenta de Google Calendar, añade los valores correspondientes a los campos del formulario de Google Calendar. Puedes hacer clic en Actualizar campos para ver todos los campos actualizados del formulario de Google Calendar seleccionado. También puedes asignar campos de Google Calendar desde tu paso de activación o campos de tus pasos de acción anteriores. Estos valores se añadirán automáticamente a los campos del elemento después de ejecutar la acción.![](/migration-assets/google-calendar-connector/3.png)
+6.  Después de una configuración correcta, comprueba si el paso de acción de Google Calendar está configurado correctamente haciendo clic en el botón **P****robar**. El conector extraerá los datos de los campos de tu cuenta de Google Calendar seleccionada y los mostrará como una salida JSON. Al igual que en el paso de activación, recibirás una notificación inmediata de los errores. Corrígelos antes de volver a probar el paso de acción.
+
+## Configurar un conector de Google Calendar
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción de tu conector de Google Calendar, activa el botón de alternancia en la esquina superior derecha para activar la ejecución de la integración. Cuando se produzca un evento de activación, se activará la acción de Google Calendar.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

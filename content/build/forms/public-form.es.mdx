@@ -1,0 +1,97 @@
+---
+title: "Formulario público"
+description: "BORRADOR (sin verificar) — migrado desde /t/q6yzjas/public-form"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Habilitar un formulario como formulario público te permite dar acceso a usuarios ajenos a tu cuenta de Kissflow a ese proceso o dataform específico de la aplicación, compartiendo con ellos la URL del formulario público.
+
+Supongamos que diriges una empresa de servicios de entrega de paquetes y quieres recopilar comentarios de tus clientes sobre el servicio de entrega proporcionado. Puedes generar un dataform, habilitarlo como formulario público y compartir la URL con tus clientes para recopilar sus valiosos comentarios.
+
+## Habilitar el formulario público
+
+1.  Elige el proceso o dataform para el que quieres habilitar el formulario público.
+2.  En el dataform, ve a **Settings** y haz clic en **Public form settings**.
+3.  Activa **Public form URL** para habilitarlo.
+4.  A continuación, se genera la URL del formulario público junto con un [código de inserción](/t/q6yzjas/public-form#embedding-iframe-code).
+
+![](/migration-assets/public-form/1.png)
+
+## Opciones de personalización
+
+Puedes personalizar los siguientes aspectos de un dataform público:
+
+### Apariencia del formulario
+
+-   **Título del formulario**: establece un título personalizado que aparezca en la parte superior del formulario público.
+    
+-   **Color de fondo**: elige un color de fondo que combine con la imagen y el estilo de tu marca.
+    
+-   **Logotipo de la cuenta**: muestra el logotipo de tu cuenta en el formulario para reforzar la identidad de marca.
+    
+
+![](/migration-assets/public-form/7.gif)
+
+### Acciones posteriores al envío
+
+-   **Mensaje de confirmación**: muestra un mensaje de agradecimiento o cualquier texto personalizado después de que un usuario envíe el formulario. También puedes habilitar opcionalmente un botón de redirección activando el interruptor **Button**. Especifica una etiqueta para el botón (por ejemplo, Go to Homepage) y proporciona la URL a la que se debe redirigir a los usuarios cuando hagan clic en él.
+    
+    ![](/migration-assets/public-form/5.gif)
+-   **URL de redirección**: redirige automáticamente al usuario a una página web específica después del envío.
+    
+    ![](/migration-assets/public-form/3.png)
+
+### Mensajes de acceso
+
+-   **Mensaje de formulario deshabilitado**: establece un mensaje personalizado que aparezca cuando el formulario esté desactivado.
+    
+-   **Mensaje de acceso denegado**: personaliza el mensaje que se muestra cuando no se puede acceder al formulario debido a problemas de permisos.  
+    También puedes habilitar opcionalmente un botón de redirección activando el interruptor **Button**. Especifica una etiqueta para el botón (por ejemplo, Go to Homepage) y proporciona la URL a la que se debe redirigir a los usuarios cuando hagan clic en él.
+    
+
+![](/migration-assets/public-form/2.png)
+
+## Deshabilitar el formulario público
+
+1.  Ve al proceso o dataform para el que quieres deshabilitar el formulario público.
+2.  En **Settings**, haz clic en **Public form settings**.
+3.  Desactiva **Public form URL** para deshabilitarlo. Una vez deshabilitado el formulario público, los usuarios externos no podrán iniciar nuevos elementos. Sin embargo, los elementos que estén en curso se completarán.
+
+Los elementos iniciados mediante el formulario público aparecerán como '_Created by Guest_' en los informes del proceso.
+
+## Usar la URL del formulario público
+
+En Kissflow Apps, se debe habilitar un formulario público en los tres entornos de la aplicación: desarrollo, pruebas y producción.
+
+En cada entorno, la URL generada es diferente. El nombre del subdominio varía según el entorno, pero el ID único del formulario público es el mismo en todos los entornos.
+
+### Ejemplo
+
+Supongamos que las siguientes son las URL de los formularios públicos:
+
+-   Entorno de desarrollo: https://**[dev-work.workplatform.com](http://dev-work.workplatform.com)**/public/form/Pf29djiem20-fndo-3diwk
+-   Entorno de pruebas: https://**[test-work.workplatform.com](http://test-work.workplatform.com)**/public/form/Pf29djiem20-fndo-3diwk
+-   Entorno de producción: https://**[prod-work.workplatform.com](http://prod-work.workplatform.com)**/public/form/Pf29djiem20-fndo-3diwk
+
+![](/migration-assets/public-form/4.png)
+
+Una vez habilitado en todos los entornos, puedes usar la URL del entorno de producción para compartirla externamente. Para encontrar esta URL, ve a **Manage > Settings > Public form**.
+
+## Insertar código Iframe
+
+El código &lt;Iframe> es un fragmento de código que se puede añadir a cualquier página web para permitir que alguien acceda a un formulario público desde otro lugar.
+
+1.  Haz clic en el icono de **copy**(![](/migration-assets/public-form/6.png)) para copiar el código &lt;Iframe>.
+2.  Pega el fragmento de código en tu sitio web o en cualquier plataforma externa donde quieras alojar el formulario público.
+
+Este fragmento de código se genera automáticamente y está disponible cuando habilitas la opción **Public form URL**.
+
+Si el formulario público se deshabilita intencionadamente o existe algún otro problema para acceder a él, los usuarios no podrán acceder al formulario público a través de los sitios donde esté insertado este fragmento de código.
+
+> **Nota:** La importación de CSV no es compatible con los formularios públicos en ningún dispositivo (de escritorio o móvil). Esto se debe a que los formularios públicos suelen estar insertados en sitios externos, y Kissflow no puede verificar de forma segura el origen de los datos ni admitir los requisitos del backend para las cargas masivas. Por lo tanto, la importación de CSV está deshabilitada en los formularios públicos para garantizar la seguridad del sistema.

@@ -1,0 +1,72 @@
+---
+title: "Conector de correo electrónico"
+description: "BORRADOR (no verificado) — migrado desde /t/q6h4akq/email-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Puedes enviar correos electrónicos a destinatarios fuera de tu cuenta y a las direcciones de correo electrónico marcadas en pasos de activador/acción anteriores en tu integración de Kissflow. 
+
+[https://www.loom.com/share/4f62c3365f264056a609c229eec57a3f?sid=cdec1756-9388-4f32-861d-c932014090c5](https://www.loom.com/share/4f62c3365f264056a609c229eec57a3f?sid=cdec1756-9388-4f32-861d-c932014090c5)
+
+También puedes conectar aplicaciones de correo electrónico como [Gmail](/t/x2h4af2/integrate-with-gmail) y [Microsoft Outlook](/t/y4h4afd/microsoft-outlook-connector) para enviar correos electrónicos en Kissflow Integration.
+
+## ¿Cómo funciona?
+
+Este es un ejemplo de cómo puedes usar la acción de correo electrónico.
+
+Configuras un activador/acción, por ejemplo, un activador de proceso, [cuando un elemento completa su flujo de trabajo](/t/h7h4a71/lets-learn-integrations-send-an-email).2.  Kissflow envía un correo electrónico en tu nombre cuando se completa el activador/acción.
+
+> **Nota:**
+> 
+> Si has configurado [SMTP](/t/m1y6ydz/admin-notification-settings#smtp-server-settings) a nivel de cuenta, esta acción de **Enviar un correo electrónico** usará esa configuración de forma predeterminada. Una vez configurado el servidor de correo electrónico SMTP personalizado, tu configuración de SMTP sustituirá la configuración predeterminada del servidor de correo electrónico de Kissflow en todas las integraciones.
+
+Consulta nuestro [tutorial de la academia](https://academy.kissflow.com/courses/take/integrations/lessons/29017866-automate-email-workflows-using-kissflow-integration-use-case-send-an-email-to-user-field-and-email-field) para descubrir todo lo que necesitas saber sobre los conectores de correo electrónico.
+
+## Configuración de la acción de correo electrónico
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**. 
+    
+2.  En el editor, crea un activador de tu elección.
+    
+3.  A continuación, haz clic en el botón **Añadir** (![](/migration-assets/email-connector/2.png)). Busca la acción **Correo electrónico** y selecciona **Enviar un correo electrónico** como acción.![](/migration-assets/email-connector/1.png)   
+4.  A continuación, configura el formulario de correo electrónico. Haz clic en **Actualizar campos** para obtener los campos actualizados del formulario.
+
+**Para:** Introduce varios campos de correo electrónico o direcciones de correo electrónico basadas en texto como valores separados por comas. El conector también obtiene todas las direcciones de correo electrónico de los pasos de activador/acción anteriores. Incluso puedes enviar correos electrónicos a direcciones fuera de tu organización.
+
+>   **Nota**
+> 
+> -    Puedes introducir hasta **40 direcciones de correo electrónico** en el campo **Para**.
+> -   Las notificaciones a personas fuera del entorno de Kissflow solo se pueden enviar mediante este conector. Por ejemplo, puedes configurar una integración para activar notificaciones por correo electrónico sobre actualizaciones de procesos, tableros o aplicaciones usando su dirección de correo electrónico. Estas notificaciones dependen de los activadores y las acciones disponibles actualmente en las integraciones de Kissflow.
+
+-   **Asunto**: Introduce aquí el asunto del correo electrónico. El campo **Asunto** puede contener texto estático o incluir datos de tus pasos de activador/acción anteriores.
+    
+-   **Cuerpo del correo electrónico**: Puedes diseñar el contenido del cuerpo del correo electrónico haciendo clic en "**/**" y seleccionando las siguientes opciones: Puedes añadir datos de carga útil del formulario desde tu paso de activador o las etapas de acciones anteriores, incluidos los campos de correo electrónico. Si los datos de carga útil del formulario incluyen tablas u otros objetos con matrices, puedes elegir estos objetos y especificar los campos que quieres incluir en el cuerpo del correo electrónico. Cuando los destinatarios reciban tu correo electrónico, verán estos datos en una tabla.
+    -   Campos y fórmulas.
+    -   Etiquetas de encabezado y párrafo.
+    -   Enlaces.
+    -   Listas.
+    -   Formato de texto y código.
+-   **Cc y Cco**: Introduce varios campos de correo electrónico o direcciones de correo electrónico basadas en texto como valores separados por comas. El conector obtendrá las direcciones de correo electrónico de tus activadores/acciones anteriores. Incluso puedes enviar correos electrónicos a direcciones fuera de tu organización.
+-   **Responder a**: Si quieres que las respuestas se envíen a una dirección diferente de [prdadmin@kissflow.com](mailto:prdadmin@kissflow.com), introduce aquí la dirección de correo electrónico.
+-   **De**: El destinatario verá la dirección de correo electrónico y la etiqueta para mostrar.
+-   **Archivos adjuntos**: El campo de archivos adjuntos mostrará cualquier campo de archivos adjuntos que hayas configurado en tu formulario. El tamaño máximo del archivo adjunto puede ser de 10 MB.
+
+![](/migration-assets/email-connector/4.png)
+
+5. Haz clic en **Siguiente** para probar la acción. Haz clic en **Listo** si el resultado es correcto.
+
+> **Nota:**
+> 
+> Realiza los cambios necesarios y haz clic en **Volver a probar** si la prueba falla.
+
+![](/migration-assets/email-connector/3.png)Configuración de una acción de correo electrónico
+
+Después de crear un flujo de trabajo personalizado con el paso de acción de correo electrónico, activa el botón de alternancia para activar la ejecución de la integración.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

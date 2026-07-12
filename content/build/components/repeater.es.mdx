@@ -1,0 +1,120 @@
+---
+title: "Repetidor"
+description: "BORRADOR (sin verificar) — migrado desde /t/q6yghv0/repeater"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic   ✓ Enterprise
+
+## ¿Qué es el repetidor?
+
+El **Repetidor** es un componente potente y configurable para mostrar datos, que te permite diseñar una plantilla de diseño una sola vez y repetirla automáticamente para cada registro de tu conjunto de datos. Conéctalo a cualquier fuente de datos —formularios, procesos o tableros— y representará cada elemento con la misma plantilla, manteniendo la coherencia de tu interfaz sin esfuerzo manual.
+
+![](/migration-assets/repeater/6.gif)
+
+## Funciones principales
+
+-   **Renderizado virtualizado:** gestiona grandes conjuntos de datos sin afectar el rendimiento
+-   **Desplazamiento infinito:** carga automáticamente más registros a medida que los usuarios se desplazan
+-   **Integración mediante arrastrar y soltar:** funciona perfectamente con la interfaz del creador de páginas
+-   **Diseño basado en plantillas:** créalo una vez y se aplicará a todos los registros de datos
+-   **Optimización del rendimiento:** mantiene un desplazamiento fluido independientemente del tamaño del conjunto de datos
+
+### Caso de uso
+
+El **Repetidor** ofrece una flexibilidad excepcional para mostrar conjuntos de datos dinámicos y mantener patrones de diseño coherentes. El renderizado virtualizado garantiza un rendimiento óptimo independientemente del volumen de datos, y las propiedades de eventos proporcionan una interactividad completa. Estas capacidades hacen que el componente sea ideal para paneles, interfaces de gestión de datos y aplicaciones de flujo de trabajo en las que necesitas presentar información estructurada de manera eficiente.
+
+#### Ejemplo
+
+En un catálogo de productos de comercio electrónico, puedes usar un repetidor para mostrar el inventario de productos. Cada producto se diseña como una tarjeta que contiene iconos de categoría, nombres de productos con variantes de color y botones de acción **Añadir producto**.
+
+Mediante el evento de clic, puedes configurar el clic en un botón **Añadir producto** para redirigir a un nuevo elemento de formulario o a un flujo de pago, mientras que el evento de montaje puede filtrar automáticamente los productos según las preferencias o la ubicación del usuario.
+
+El diseño de cuadrícula del repetidor, con 3 columnas, proporciona una vista de catálogo organizada en ordenadores de escritorio y se ajusta automáticamente a una lista de una sola columna en dispositivos móviles para ofrecer una experiencia de navegación óptima.
+
+## Uso del componente repetidor
+
+Arrastra y suelta el repetidor en cualquier lugar de la página. Puedes usarlo como componente independiente o colocarlo dentro de un contenedor.
+
+El repetidor es, esencialmente, un contenedor. Puedes añadir varios componentes dentro del repetidor. Esta es una lista de los componentes que puedes usar dentro de un repetidor:
+
+[Contenedor](/t/q6yzj4n/container), [Etiqueta](/t/g9yzj40/label), [Botón](/t/x2yzj42/button), [Icono](/t/p8yzj4m/icon), [Divisor](/t/x2yk12w/divider), [Tarjeta](/t/35yzj4v/card), [Barra de progreso](/t/m1yzj4c/progress-bar), [Imagen](/t/h7yzj47/image), [Hipervínculo](/t/h7yzj9h/hyperlink), [Iframe](/t/y4yzj49/iframe), [Texto enriquecido](/t/y4yk1bl/rich-text), [Informe de tarjetas](/t/h7y8qgv/card-report-for-apps), [Componente personalizado](/t/m1yfjgz/working-with-custom-components-in-kissflow-apps).
+
+## Configuración de las fuentes de datos
+
+El componente repetidor necesita una fuente de datos de la que obtendrá los datos y que te permitirá mostrar elementos según el recuento de elementos (en el caso de un formulario de datos/formulario de proceso/formulario de tablero).
+
+El repetidor obtiene datos de cuatro fuentes:
+
+-   [Formularios de datos](/category/dataforms-in-apps) — Registros de envíos.
+    
+-   [Procesos](/category/processes-in-apps) — Elementos del flujo de trabajo (tus tareas, elementos asignados, etc.)
+    
+-   [Tableros](/category/boards-in-apps) — Instancias de tablero (asignadas, archivadas, creadas por ti, etc.)
+    
+-   [Variables](/category/variables) — Variables globales y locales del tipo matriz de objetos.
+    
+
+### Configuración de la fuente de datos
+
+#### dataform y tablero como fuente de datos
+
+Cuando seleccionas un dataform o un tablero como fuente de datos para el repetidor, debes elegir una vista y todos los campos del formulario correspondientes. El repetidor te permitirá usar los campos seleccionados como variables para mostrar datos en la página.
+
+![](/migration-assets/repeater/1.png)
+
+![](/migration-assets/repeater/2.png)
+
+#### Proceso como fuente de datos
+
+Cuando seleccionas un proceso como fuente de datos, debes elegir un paso o estado, ya que normalmente un proceso tiene pasos de flujo de trabajo. Selecciona los campos necesarios que quieras mostrar.
+
+![](/migration-assets/repeater/3.png)
+
+#### Variable como fuente de datos
+
+Puedes elegir una variable local o global como fuente de datos. Sin embargo, asegúrate de que la variable sea del tipo de variable matriz de objetos. Una vez seleccionada la variable, puedes añadirle o quitarle campos.
+
+Independientemente de la fuente de datos, los campos que selecciones serán los que podrás usar como variables; los encontrarás en **Parámetros de la fuente de datos > Elemento**.
+
+Al seleccionar **Parámetros de la fuente de datos > Índice**, se proporcionará el índice del elemento, lo que puede resultar útil para numerar visualmente tus elementos en el repetidor.
+
+![](/migration-assets/repeater/5.gif)
+
+## Propiedades de estilo
+
+Puedes personalizar los siguientes aspectos de un contenedor repetidor:
+
+-   **Distribución**: cambia entre el diseño de cuadrícula y de lista
+    
+-   **Dirección**: configúrala horizontal o vertical
+    
+-   **Configuración de cuadrícula**: elige el número de columnas
+    
+-   **Espaciado**: establece los espacios entre columnas y filas según tus preferencias
+    
+
+Todas las demás [propiedades de estilo](/t/y4yzj9m/managing-component-style-properties) estándar se aplican aquí, incluidas las opciones para modificar el relleno y el margen, y establecer el tamaño, el color y el radio del borde.
+
+![](/migration-assets/repeater/4.png)
+
+## Propiedades de eventos
+
+El componente repetidor admite eventos configurables con las siguientes capacidades:
+
+### Eventos de clic
+
+-   **Redirección**: permite navegar a una página específica de la aplicación o volver a la página actual.
+    
+-   **Abrir ventana emergente**: abre una ventana emergente creada con el componente [Ventana emergente](/t/35yzj4w/popup), lo que proporciona acceso rápido a contexto o información adicionales.
+    
+-   **Acción de JavaScript**: ofrece la flexibilidad de definir acciones personalizadas mediante JavaScript, lo que te permite implementar interacciones y lógica complejas específicas de los requisitos de tu aplicación
+    
+
+### Eventos de montaje
+
+Para un evento **Al montar**, puedes configurar acciones de JavaScript que funcionan como un evento «al cargar». Estas acciones se ejecutan automáticamente cuando el componente repetidor se carga por primera vez en la página, lo que te permite inicializar datos, establecer valores predeterminados o activar otras acciones de configuración.

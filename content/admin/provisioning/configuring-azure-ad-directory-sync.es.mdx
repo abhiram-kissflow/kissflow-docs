@@ -1,0 +1,83 @@
+---
+title: "Configuración de la sincronización de directorios de Azure AD"
+description: "BORRADOR (sin verificar) — migrado desde /t/q6h4a1x/configuring-azure-ad-directory-sync"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Como [Superadministrador o administrador de IAM](/t/35h4ak0), puedes sincronizar la información de usuarios y grupos de tus cuentas de directorio de terceros con Kissflow mediante la función **Proveedor de identidad**, disponible en **Aprovisionamiento de usuarios** en Kissflow. Actualmente admitimos el aprovisionamiento de usuarios desde Google Workspace y Microsoft Azure Active Directory.
+
+Una cuenta solo puede tener un servicio de aprovisionamiento de usuarios habilitado a la vez. Por eso, si actualmente usas SCIM, te recomendamos que te pongas en contacto con nuestro equipo de atención al cliente para que te ayude a deshabilitarlo.
+
+## Requisitos previos
+
+-   Una suscripción de Azure AD.
+-   Acceso de administrador a las cuentas de Azure y Kissflow utilizadas para la sincronización de directorios.
+
+> **Nota**:  
+> Si en el futuro se revoca tu acceso de administrador o tus credenciales dejan de funcionar, todas las sincronizaciones programadas se deshabilitarán hasta que vuelvas a iniciar sesión en tu cuenta de Azure AD.
+
+## Conexión con Azure AD
+
+1.  Accede a tu cuenta de Kissflow desde el navegador web y haz clic en tu foto de perfil > **Administración de cuentas** > **Aprovisionamiento de usuarios** > **Proveedores de identidad** > **Configurar.**
+2.  Haz clic en **Conectar Azure AD** en la página **Selecciona tu proveedor de identidad**.
+3.  Inicia sesión en tu cuenta de **Microsoft Azure AD** con tus credenciales.
+    1.  Es posible que la conexión falle si no eres administrador de tu cuenta de Azure AD o si la cuenta con la que intentaste iniciar sesión no era una cuenta de Azure AD.
+4.  Selecciona la casilla **Dar consentimiento en nombre de tu organización** para permitir que Kissflow acceda a la información necesaria para sincronizar los usuarios de tu cuenta de Azure AD. Esta información incluye tu rol actual en Azure AD, tu dirección de correo electrónico, tu dominio y los usuarios y grupos de tu dominio.
+5.  Haz clic en **Aceptar** para permitir que Kissflow acceda a la información necesaria para conectarse a tu cuenta de Azure AD.
+
+## Verificación de los detalles del inquilino
+
+Un inquilino es una organización de tu cuenta de Azure AD. Aprende a crear un inquilino para tu organización en tu cuenta de Azure AD [aquí](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-create-new-tenant). Como primer paso, verifica si el inquilino correcto está asociado a tu cuenta de Kissflow en la sección **Detalles del inquilino**. Haz clic en **Siguiente** si el nombre y el ID del inquilino son correctos.
+
+![](/migration-assets/configuring-azure-ad-directory-sync/1.png)
+
+## Selección de usuarios o grupos
+
+Después de verificar la información del inquilino, puedes elegir sincronizar todos los usuarios del inquilino o solo los usuarios de un conjunto específico de grupos disponibles en el inquilino.
+
+En **Sincronización de usuarios**,
+
+-   Selecciona **Todos los usuarios** si quieres agregar o sincronizar todos los usuarios del inquilino asociado a tu cuenta de Kissflow (o)
+-   Selecciona **Usuarios de grupos específicos** y elige los grupos si quieres agregar o sincronizar usuarios del inquilino.
+
+Después de seleccionar los usuarios, puedes sincronizar la información de sus grupos seleccionando la casilla **Agregar también la información de los grupos**. Si eliges sincronizar usuarios de grupos específicos, los grupos seleccionados se completarán automáticamente al marcar esta casilla. Puedes modificar la lista como quieras o dejarla tal como está.
+
+Haz clic en **Siguiente** para continuar o en **Anterior** si quieres volver a revisar la información del inquilino.
+
+## Asignación y prueba de atributos de campos
+
+Probar la asignación de campos te ayuda a detectar discrepancias en los datos entre los servicios de origen y destino y a evitar errores de sincronización más adelante.
+
+De forma predeterminada, asignaremos tres campos obligatorios —Nombre, Apellido e ID de correo electrónico— de tu cuenta de Azure AD a sus respectivos campos en tu cuenta de Kissflow. Haz clic en **\+ Campo nuevo** para agregar tantos campos como quieras desde tu cuenta de Azure AD y asígnalos a sus campos equivalentes en Kissflow.
+
+![](/migration-assets/configuring-azure-ad-directory-sync/2.png)
+
+Después de asignar los campos, puedes seleccionar aquellos cuyos cambios futuros no quieras sincronizar con Kissflow.
+
+Desactiva **Sincronizar actualizaciones** para evitar que un campo se actualice en el futuro. Sin embargo, deshabilitar esta opción no impide que el campo se agregue por primera vez.
+
+> Supongamos que una organización decide no permitir que sus empleados modifiquen en Kissflow datos como su **Nombre**, pero que un empleado cambió su nombre de _Michael Doe_ a _Mike Doe_. Si el campo **Sincronizar actualizaciones** está ACTIVADO para el campo **Nombre**, su nuevo nombre, «Mike Doe», se actualizará en Kissflow durante la siguiente sincronización. Si está DESACTIVADO, los cambios en su nombre se descartarán y se conservará _Michale Doe_ en Kissflow.
+
+Haz clic en **Probar** para previsualizar los resultados de la asignación.
+
+La asignación de campos puede fallar en los siguientes casos:
+
+-   Los campos de origen y destino deben tener el mismo tipo de datos. Por ejemplo, no puedes asignar un campo «**Nombre del gerente**» (Texto) en Azure AD a un campo «**Fecha de incorporación**» (Fecha) en Kissflow.
+-   Los valores de los campos deben estar en el formato aceptado. Por ejemplo, el campo «**Fecha de incorporación**» (Fecha) no puede tener «**seis de junio**» como uno de sus valores. En su lugar, debe seguir el formato 06/06/2019 (DD/MM/AAAA).
+
+Resuelve los errores, si los hay, y vuelve a probar la asignación según sea necesario. Cuando termines las pruebas, haz clic en **Siguiente** para continuar con el siguiente paso.
+
+## Configuración de las preferencias de sincronización
+
+En esta sección, puedes programar la sincronización, administrar los usuarios eliminados de Azure AD y asignar destinatarios de notificaciones para los errores de sincronización. Kissflow admite sincronizaciones programadas una vez al día.
+
+> Si tu organización incorpora a un nuevo empleado durante las sincronizaciones programadas y quieres agregarlo a Kissflow de inmediato, puedes hacerlo manualmente haciendo clic en el botón **Sincronizar ahora** en **Administración de cuentas** \> **Aprovisionamiento de usuarios** > **Proveedores de identidad** > **Azure AD**.
+
+-   Puedes [eliminar](/t/y4h4aks36h4gg/add-manage-users#deleting-users) o [desactivar](/t/y4h4aks36h4gg/add-manage-users#deactivating-and-activating-users) usuarios en Kissflow cuando se eliminen de tu cuenta de Azure AD.
+-   Selecciona los destinatarios en el menú desplegable **Notificar errores de sincronización** para enviarles notificaciones en caso de que se produzca un error de sincronización. Los usuarios recibirán notificaciones tanto en la aplicación como por correo electrónico.
+-   Haz clic en **Guardar y sincronizar ahora** para guardar tu configuración.
+
+> **Nota**:  
+> Aprende a consultar el estado de tu sincronización, acceder al historial de sincronización y administrar tu configuración [aquí](/t/35h4a1336h4gg/managing-directory-sync-configuration).

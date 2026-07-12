@@ -1,0 +1,61 @@
+---
+title: "Configuración de permisos de campo en las vistas de dataform"
+description: "BORRADOR (sin verificar) — migrado desde /t/83ykbq6/configuring-field-permissions-in-dataform-views"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Esta función te permite controlar si determinados campos pueden editarse, son de solo lectura o están ocultos para distintos roles de usuario.
+
+## ¿Qué son los permisos de campo?
+
+Puedes establecer permisos de acceso específicos para cada campo dentro de una vista de dataform con el fin de mejorar la seguridad de los datos y ofrecer un control más granular. Esta capacidad amplía los potentes permisos basados en roles de los formularios de Process y Board a tus vistas de dataform.
+
+Al establecer permisos a nivel de campo y de sección, puedes asegurarte de que los usuarios vean e interactúen únicamente con los datos relevantes para sus roles, protegiendo la información confidencial y evitando modificaciones no autorizadas.
+
+## Comprender los niveles de acceso
+
+Puedes asignar uno de tres niveles de acceso a cualquier campo o sección dentro de una vista de dataform:
+
+-   **Editable**: los usuarios con este permiso pueden ver y modificar el contenido del campo.
+    
+-   **Solo lectura**: los usuarios pueden ver la información del campo, pero no pueden realizar cambios. Esta opción es ideal para datos críticos que no deben modificarse.
+    
+-   **Oculto**: el campo y sus datos serán completamente invisibles para los usuarios. Usa esta opción para información confidencial a la que determinados roles no deben tener acceso.
+    
+
+## ¿Cómo configurar los permisos de campo?
+
+Una vez que hayas creado una vista en tu dataform, puedes configurar sus permisos de campo antes de compartirla con los usuarios.
+
+1.  Abre el dataform que quieres configurar.
+    
+2.  Selecciona la vista específica para la que quieres establecer permisos.
+    
+3.  Ve a Permiso de campo y haz clic en Administrar en el panel lateral derecho.
+    
+4.  Dentro de la configuración de la vista, verás una lista de todos los campos incluidos en ella.
+    
+5.  Encontrarás la configuración de permisos al pasar el cursor sobre el nombre del campo.
+    
+6.  Para cada campo, elige el nivel de acceso que quieras: Editable, Solo lectura u Oculto.
+    
+
+![](/migration-assets/configuring-field-permissions-in-dataform-views/3.gif)
+
+### Establecer permisos para una sección completa
+
+En las vistas organizadas en secciones, puedes aplicar un único nivel de permiso a todos los campos de esa sección seleccionando uno de los iconos de permisos en la esquina superior derecha de la sección.
+
+![](/migration-assets/configuring-field-permissions-in-dataform-views/1.gif)
+
+## Compartir la vista con distintos roles
+
+Después de configurar los permisos a nivel de campo, comparte la vista con los roles de usuario correspondientes. Los usuarios con esos roles solo podrán ver e interactuar con los campos según los permisos que hayas definido.
+
+![](/migration-assets/configuring-field-permissions-in-dataform-views/2.png)

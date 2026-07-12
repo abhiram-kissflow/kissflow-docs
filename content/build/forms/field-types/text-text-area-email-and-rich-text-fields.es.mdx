@@ -1,0 +1,124 @@
+---
+title: "Campos de texto, área de texto, correo electrónico y texto enriquecido"
+description: "BORRADOR (sin verificar) — migrado desde /t/p8h4az5/text-text-area-email-and-rich-text-fields"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Aprende a crear y administrar campos basados en texto en el formulario de tu flujo en este artículo. Si no tienes claro qué es un campo y cómo agregarlo a un formulario, este [artículo](/t/h7h4azm/creating-a-form) puede serte útil. Puedes aprender los conceptos básicos y volver aquí para comprender cómo funcionan los campos basados en texto.
+
+## Campo de texto
+
+Un campo de **Texto** se puede usar para almacenar una sola línea de texto. Puedes introducir letras, símbolos, números y caracteres especiales en el campo de texto.
+
+### Expresiones/fórmulas
+
+[Consulta todas las expresiones de texto que puedes usar como parte de una fórmula.](/t/m1h4al6/text-expressions) 
+
+### Validaciones
+
+Hay 13 tipos de validaciones que puedes usar para un campo de texto. [Obtén más información sobre todas las validaciones](/t/m1h4az4/field-validations). 
+
+## Campo de área de texto
+
+Un campo de **Área de texto** se usa generalmente para almacenar varias líneas de texto. Puedes introducir letras, símbolos, números y caracteres especiales en el campo de área de texto.
+
+![](/migration-assets/text-text-area-email-and-rich-text-fields/2.png)
+
+Las opciones de formato: negrita, cursiva, hipervínculo, subíndice y superíndice son compatibles con el campo de área de texto. Selecciona una parte del texto y haz clic para eliminar el formato que ya se aplicó.
+
+> **Nota:**
+> 
+> No puedes usar expresiones ni fórmulas en los campos de área de texto. 
+
+### Validaciones
+
+Hay 4 tipos de validaciones que puedes usar con un campo de área de texto: 
+
+-   Contiene
+-   No contiene
+-   Longitud máxima
+-   Longitud mínima
+
+### Campo de correo electrónico
+
+El campo de **Correo electrónico** te permite recopilar direcciones de correo electrónico válidas. Para que se considere válida, la dirección debe contener “@” y “.”. 
+
+### Configuración
+
+No puedes usar expresiones ni fórmulas con los campos de correo electrónico. 
+
+### Validaciones
+
+Puedes usar [8 tipos de validaciones](/t/m1h4az4/field-validations) para un campo de correo electrónico.
+
+## Campo de texto enriquecido
+
+El campo de **Texto enriquecido** te permite dar formato y estilo al texto estático de un formulario. También puedes agregar imágenes y videos a cualquier área de un formulario, a las acciones de correo electrónico de una integración, etc. 
+
+![](/migration-assets/text-text-area-email-and-rich-text-fields/3.gif)
+
+> **Nota:**
+> 
+> Para comenzar un nuevo párrafo en el editor de texto enriquecido, haz clic en **Enter** o **Return**. Mantén presionada la tecla **Shift** y, luego, presiona **Enter** o **Return** para insertar un salto de línea sin comenzar un nuevo párrafo.
+
+Hay dos formas diferentes de aplicar formato y estilo al texto dentro de un campo de texto enriquecido:
+
+1. **Escribe un texto y selecciona el contenido** para ver el editor de texto enriquecido en la vista horizontal.
+
+![](/migration-assets/text-text-area-email-and-rich-text-fields/1.png)
+
+  2. Haz clic en **'/'** para ver los comandos del editor de texto enriquecido en la vista vertical.
+
+![](/migration-assets/text-text-area-email-and-rich-text-fields/4.gif)
+
+Hay varias opciones de formato y estilo disponibles. A continuación, encontrarás la lista:
+
+-   Negrita
+-   Cursiva
+-   Subrayado
+-   Tachado
+-   Color del texto
+-   Alineación
+    -   Alinear a la izquierda
+    -   Alinear a la derecha
+    -   Centrar
+    -   Justificar
+-   Párrafo
+-   Encabezados H1 y H2
+-   Agregar un enlace (Por ejemplo, carga un documento en una unidad y agrega su enlace al campo para que los usuarios puedan abrirlo con un clic).
+-   Lista con viñetas
+-   Lista numerada
+-   Cita en bloque
+-   Fragmento de código
+-   Subíndice
+-   Superíndice
+-   Agregar una imagen (disponible solo en la plataforma sin código; no compatible dentro de las aplicaciones)![](/migration-assets/text-text-area-email-and-rich-text-fields/6.gif)
+-   Agregar un video![](/migration-assets/text-text-area-email-and-rich-text-fields/5.gif) 
+-   Borrar formato
+
+> **Nota**:
+> 
+> -   El editor de texto enriquecido solo permite agregar imágenes y videos. Para reemplazar un logotipo o una imagen existente dentro de un campo de texto enriquecido, primero debes eliminar la imagen actual. Una vez eliminada, escribe `/` para abrir el menú de comandos y selecciona la opción Imagen o Cargar para insertar el nuevo archivo.
+> -   El editor de texto enriquecido de Kissflow no procesa HTML sin formato ni sintaxis Markdown. Cualquier contenido HTML o Markdown pegado directamente se mostrará como texto sin formato.
+
+### **¿Dónde puedo usar el editor de texto enriquecido?**
+
+-   Formulario de proceso - campo avanzado
+-   Formulario de tablero - campo avanzado
+-   Notas del tablero
+-   Publicaciones de la organización
+-   Feeds y foros de los equipos
+-   Cuerpo del correo electrónico de la acción de integración
+
+No hay validaciones ni expresiones para el campo de **Texto enriquecido**.
+
+> **Consejo:**
+> 
+> -   Si necesitas mostrar una tabla o un formato complejo, te recomendamos crearlo en una herramienta externa (como una hoja de cálculo), hacer una captura de pantalla e insertarla como imagen en el editor.
+> -   Para adjuntar archivos estáticos directamente, usa el [campo de archivos adjuntos](/t/y4h4az1/image-attachment-smart-attachment-and-signature-fields#attachment-field). Si quieres incluir archivos adjuntos dentro del campo de texto enriquecido, inserta un enlace que redirija a los usuarios a una ubicación externa donde puedan acceder al archivo.

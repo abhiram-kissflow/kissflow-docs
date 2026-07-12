@@ -1,0 +1,115 @@
+---
+title: "Expresiones de lista"
+description: "BORRADOR (sin verificar) — migrado desde /t/q6h4all/list-expression"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Algunos campos de Kissflow utilizan el **tipo de datos de lista**, lo que significa que pueden contener varios valores a la vez. Estos campos incluyen:
+
+-   Dropdown
+-   Checkbox/multi-select
+-   Checklist
+
+Por ejemplo, la siguiente expresión devuelve una lista de usuarios:
+
+```
+Lastcompletedstep().assignees()
+```
+
+**Ejemplo utilizado en este documento**
+
+**ID del campo**
+
+**Tipo de campo**
+
+**Valores posibles**
+
+**Valores seleccionados**
+
+Regions
+
+Checkbox
+
+Americas, EMEA, Asia Pacific
+
+EMEA, Asia Pacific
+
+## Métodos
+
+Puedes aplicar métodos a los campos de lista mediante el operador punto (`.`).
+
+**Función**
+
+**Tipo de campo**
+
+**Descripción**
+
+**Sintaxis**
+
+**Salida**
+
+has
+
+Boolean
+
+TRUE si el valor estaba seleccionado.
+
+FALSE si no lo estaba.
+
+Regions.has(“EMEA”)
+
+True
+
+hasall
+
+Boolean
+
+TRUE si todos los valores estaban seleccionados.
+
+FALSE si falta algún valor.
+
+Regions.hasAll(“Americas","EMEA")
+
+False
+
+length
+
+Number
+
+Muestra el número de elementos seleccionados.
+
+Regions.length()
+
+2
+
+get
+
+Text
+
+Muestra una opción específica de la lista.
+
+Regions.get(2)
+
+Asia Pacific
+
+concatenate
+
+Text
+
+Muestra todos los valores seleccionados en una cadena.
+
+Puedes especificar el separador.
+
+Regions.concatenate()
+
+Regions.concatenate(", ")
+
+EMEA,Asia Pacific
+
+EMEA, Asia Pacific

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useUIStrings } from '@/lib/ui-strings';
 
 type Status = 'shipped' | 'planned' | 'in-progress' | 'deferred';
 
@@ -135,10 +136,11 @@ const ROADMAP: YearData[] = [
 
 function StatusChip({ status }: { status: Status }) {
   const s = STATUS_STYLES[status];
+  const label = useUIStrings().roadmap.statuses[status];
   return (
     <span className={`inline-flex shrink-0 items-center gap-1.5 text-xs font-medium ${s.text}`}>
       <span aria-hidden className={`size-1.5 rounded-full ${s.dot}`} />
-      {s.label}
+      {label}
     </span>
   );
 }
@@ -167,16 +169,17 @@ function Card({ item }: { item: RoadmapItem }) {
   );
 }
 
-function quarterSummary(items: RoadmapItem[]): string {
+function quarterSummary(items: RoadmapItem[], labels: Record<Status, string>): string {
   const counts = new Map<Status, number>();
   for (const item of items) counts.set(item.status, (counts.get(item.status) ?? 0) + 1);
   return (['shipped', 'in-progress', 'planned', 'deferred'] as const)
     .filter((s) => counts.has(s))
-    .map((s) => `${counts.get(s)} ${STATUS_STYLES[s].label.toLowerCase()}`)
+    .map((s) => `${counts.get(s)} ${labels[s].toLowerCase()}`)
     .join(' · ');
 }
 
 export function RoadmapBoard() {
+  const strings = useUIStrings().roadmap;
   const years = ROADMAP.map((y) => y.year);
   const [year, setYear] = useState(years[0]);
   const active = ROADMAP.find((y) => y.year === year) ?? ROADMAP[0];
@@ -184,15 +187,13 @@ export function RoadmapBoard() {
   return (
     <div className="not-prose">
       <p className="mb-2 max-w-3xl text-[15px] leading-relaxed text-fd-muted-foreground">
-        This roadmap offers a look at the future of Kissflow. Our goal is to keep you informed so
-        you can plan effectively and provide the feedback that shapes our product.
+        {strings.intro}
       </p>
       <p className="mb-8 max-w-3xl text-[15px] italic leading-relaxed text-fd-muted-foreground">
-        These plans are subject to change and do not represent a commitment to specific features or
-        timelines.
+        {strings.disclaimer}
       </p>
 
-      <div className="mb-10 flex items-center gap-2" role="tablist" aria-label="Roadmap year">
+      <div className="mb-10 flex items-center gap-2" role="tablist" aria-label={strings.yearAria}>
         {years.map((y) => (
           <button
             key={y}
@@ -219,7 +220,7 @@ export function RoadmapBoard() {
             </h2>
             <span aria-hidden className="h-px flex-1 bg-fd-border" />
             <span className="text-xs text-fd-muted-foreground">
-              {quarterSummary(quarter.items)}
+              {quarterSummary(quarter.items, strings.statuses)}
             </span>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">

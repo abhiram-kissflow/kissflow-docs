@@ -1,0 +1,39 @@
+---
+title: "Maestro-detalle"
+description: "BORRADOR (sin verificar) — migrado desde /t/83yzj44/master-details"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Básico   ✓ Enterprise
+
+#### Introducción
+
+Un maestro-detalle es un repositorio de datos. Usar un componente maestro-detalle en tu página te permite agregar un conjunto de datos o un dataform que contiene el registro maestro. El maestro-detalle comparte una relación principal-secundaria, en la que el detalle deriva su existencia del maestro.
+
+#### ¿Cómo usarlo?
+
+Después de arrastrar y soltar el componente maestro-detalle en la página, encontrarás dos columnas. La columna izquierda es el maestro-detalle y la columna derecha es el contenedor del maestro-detalle. 
+
+En la columna del maestro-detalle, podrás:
+
+-   Cambiar el nombre del título.
+-   Configurar la fuente de datos. La fuente de datos puede ser un conjunto de datos o un dataform que hayas creado.
+-   Una vez que selecciones la fuente de datos, podrás seleccionar un campo de título y un campo de subtítulo para tu maestro.
+-   Agregarle filtros según los campos disponibles.
+-   Ordenar los datos según los campos y el orden, ya sea ascendente o descendente.
+-   En [Propiedades de estilo](/t/y4yzj9m/managing-component-style-properties), podrás ajustar el tamaño, modificar el relleno y el margen, y establecer el tamaño, el color y el radio del borde.
+-   En las propiedades de eventos, podrás agregar los eventos **Al cargar** y **Al cambiar** para indicar al maestro-detalle que realice una acción.
+
+![](/migration-assets/master-details/1.gif)
+
+Se pueden realizar tres acciones:
+
+-   **Redirección** - Esta acción te redirige a la página de inicio definida por el usuario, a la página de inicio definida por el sistema o te permite volver a la misma página.
+-   **Abrir ventana emergente**\- La acción de abrir una ventana emergente te permite abrir una ventana emergente que hayas creado mediante el componente Popup(add link).
+-   **Acción de JavaScript**\- La acción de JavaScript te permite definir la acción que quieres realizar mediante código JS.
+
+Un contenedor de maestro-detalle es como cualquier otro [contenedor](/t/q6yzj4n/container), y todas las acciones que se realizan mediante un componente contenedor también pueden realizarse mediante un contenedor de maestro-detalle.

@@ -1,0 +1,56 @@
+---
+title: "Conector de Microsoft Teams"
+description: "BORRADOR (no verificado) — migrado desde /t/60h4alv/microsoft-teams-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es Microsoft Teams?
+
+Microsoft Teams es un espacio de trabajo colaborativo dentro de Microsoft 365 que funciona como un centro para las conversaciones laborales, el trabajo en equipo colaborativo, los chats de video y el uso compartido de documentos, todo diseñado para ayudar a la productividad de los trabajadores en un conjunto unificado de herramientas.
+
+## Primeros pasos con la integración de Microsoft Teams de Kissflow
+
+El conector de Microsoft Teams de Kissflow te permite conectarte instantáneamente con Microsoft Teams y automatizar tu trabajo con otras aplicaciones de Kissflow y aplicaciones populares de terceros. Para acceder a esta función, debes tener una cuenta válida de Microsoft Teams y ser cliente de pago de Kissflow. El conector de Microsoft Teams te permite recibir datos de otros flujos o aplicaciones, así como realizar acciones específicas y acciones de búsqueda en Microsoft Teams. Por ahora, el conector de Microsoft Teams no admite eventos de activación.
+
+Considera el siguiente escenario: conectas tu tablero de Kissflow con Microsoft Teams. Como resultado, cada vez que se agrega un elemento nuevo a tu tablero de Kissflow, se puede enviar un mensaje con los detalles del elemento a un canal de Microsoft Teams.
+
+### Acciones del conector de Microsoft Teams
+
+**Eventos de acción**
+
+**Descripción**
+
+Crear un canal
+
+Esta acción crea un canal nuevo dentro de un equipo.
+
+Enviar un mensaje a un canal
+
+Esta acción publica un mensaje nuevo en un canal existente.
+
+Enviar un mensaje de chat
+
+Esta acción envía un mensaje a un chat existente.
+
+### Conector de Microsoft Teams como paso de acción
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Escribe un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**.
+    
+2.  Una vez dentro del editor, configura un paso de activación, como un evento de activación de un proceso de Kissflow, c**uando se crea un elemento.**
+    
+3.  Después de configurar el paso de activación anterior, haz clic en el botón Agregar (![](/migration-assets/xero-connector/1.png)) para configurar el paso de acción. Busca **Microsoft Teams** y selecciona una acción. ![](/migration-assets/microsoft-teams-connector/1.png)
+4.  Después de elegir el evento de acción, autentica el conector. Haz clic en **+Agregar una cuenta** e inicia sesión con tu cuenta de **Microsoft Teams**. Kissflow utiliza OAuth de Microsoft Teams para la autenticación.
+5.  Después de autenticarte con tu cuenta de Microsoft Teams, agrega los valores correspondientes a los campos del formulario de Microsoft Teams. Puedes hacer clic en **Actualizar campos** para ver todos los campos actualizados del formulario de Microsoft Teams seleccionado. También puedes asignar campos de Microsoft Teams desde tu paso de activación o campos de tus pasos de acción anteriores. Estos valores se agregarán automáticamente a los campos del elemento después de que se ejecute la acción.
+6.  Después de una configuración correcta, prueba si el paso de acción de Microsoft Teams está configurado correctamente haciendo clic en el botón **P****robar**. El conector extraerá los datos de los campos de la cuenta de Microsoft Teams seleccionada y los mostrará como una salida JSON. Al igual que con el paso de activación, los errores se te notifican de inmediato. Corrígelos antes de volver a probar el paso de acción.
+
+### Configurar un conector de Microsoft Teams
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción de tu conector de Microsoft Teams, activa el botón de alternancia para activar la ejecución de la integración. Cuando ocurre un evento de activación, se activa la acción de Microsoft Teams seleccionada.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

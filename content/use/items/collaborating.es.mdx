@@ -1,0 +1,134 @@
+---
+title: "Colaborar en elementos"
+description: "Trabaja en conjunto en los elementos del tablero con notas, realiza un seguimiento de los cambios mediante los registros de estado y actividad, y observa elementos para mantenerte al día sobre su progreso."
+contentType: guide
+persona: end-user
+section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - boards
+  - items
+  - notes
+  - watchers
+---
+
+# Colaborar en elementos
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+Cada elemento de un tablero tiene su propia conversación e historial. Usa las notas para hablar sobre el trabajo con las partes interesadas, los registros de estado y actividad para rastrear qué cambió y cuándo, y la función de observación para mantenerte al día sobre los elementos que te importan.
+
+## Notas
+
+Las notas ofrecen una forma sencilla de colaborar con distintas partes interesadas en un elemento. Úsalas para añadir comentarios, registrar actualizaciones o elementos de acción, y reaccionar a las notas que añadan otras personas.
+
+Para añadir una nota, abre un elemento en tu tablero, haz clic en la pestaña **Notas** de la barra de navegación derecha y escribe tu comentario en el área de texto.
+
+![Pestaña Notas de un elemento que muestra el hilo de conversación y el área de texto para añadir una nota](/migration-assets/notes-status-logs-and-activity-logs-in-boards/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Escribe **/** en una nota para abrir el menú de formato:
+
+- **Adjuntar** — añade un enlace, una imagen o un clip de vídeo.
+- **Lista** — añade una lista con viñetas o numerada.
+- **Formato** — negrita, cursiva, subrayado, tachado, fragmento de código y cita en bloque.
+
+![Menú de barra en una nota que muestra las opciones de adjuntar, lista y formato](/migration-assets/notes-status-logs-and-activity-logs-in-boards/2.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Además de aplicar formato, puedes añadir emojis, adjuntar archivos o imágenes y anotar las imágenes subidas.
+
+Etiqueta a alguien escribiendo **@** y su nombre; el usuario etiquetado recibe una notificación sobre la nota. Puedes reconocer las notas de otras personas haciendo clic en el icono de aprobación, y copiar el enlace de una nota para compartirlo con otras personas y dirigirlas directamente a esa nota.
+
+![Una nota con una @mención y la opción de copiar el enlace de la nota](/migration-assets/notes-status-logs-and-activity-logs-in-boards/3.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+### Resumen de notas con AI
+
+Para obtener un resumen rápido de las notas añadidas recientemente, haz clic en el botón **Resumir** en la parte superior de la pestaña **Notas**.
+
+![Animación de cómo hacer clic en el botón Resumir para generar un resumen con AI de las notas recientes](/migration-assets/notes-status-logs-and-activity-logs-in-boards/6.gif)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Registro de estado
+
+El registro de estado captura cada cambio de estado de un elemento, junto con el tiempo transcurrido en cada estado. Abre un elemento, haz clic en la pestaña **Registro del elemento** de la barra de navegación derecha y selecciona la subpestaña **Registro de estado**.
+
+![Registro de estado de un elemento que muestra el historial de cambios de estado con marcas de tiempo](/migration-assets/notes-status-logs-and-activity-logs-in-boards/4.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Usa el tiempo transcurrido en cada estado para detectar los elementos que están atascados, especialmente los críticos, y resolverlos sin demoras.
+
+## Registro de actividad
+
+La subpestaña **Registro de actividad** de la pestaña **Registro del elemento** muestra las acciones importantes realizadas en un elemento: cambios en campos del sistema como **Prioridad**, **Responsable**, **Fecha de inicio** y **Fecha de vencimiento**, además de cuándo se creó, cerró o clonó el elemento. Para cada cambio de campo, se muestra el valor anterior y posterior al cambio. Los cambios en campos personalizados no se muestran aquí.
+
+![Registro de actividad de un elemento que muestra cambios en los campos con valores anteriores y posteriores](/migration-assets/notes-status-logs-and-activity-logs-in-boards/5.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Cada entrada muestra:
+
+- **Marca de tiempo** — la hora exacta en que se realizó la acción.
+- **Realizado por** — el miembro que realizó la acción.
+- **Actividad** — el tipo de acción, con detalles de los cambios que provocó.
+
+## Observar un elemento
+
+Observar un elemento te mantiene al día sobre su progreso mientras los responsables y otros colaboradores lo modifican. La posibilidad de observar un elemento y añadir a otras personas como observadores depende de tus permisos para ese tablero o vista, no simplemente de si eres administrador o miembro.
+
+### Observar un elemento
+
+1. En el tablero, abre el elemento que quieres observar.
+2. Haz clic en el botón **Observadores** del panel superior del formulario.
+3. Haz clic en **Observar** para recibir actualizaciones sobre el elemento. Haz clic en **Dejar de observar** cuando ya no quieras seguirlo.
+
+![Animación de cómo abrir un elemento, hacer clic en el botón Observadores y comenzar a observarlo](/migration-assets/watching-an-item-in-a-board/1.gif)
+{/* TODO: verify screenshot matches current product UI */}
+
+En el diseño Kanban o de matriz, también puedes hacer clic directamente en el botón **Comenzar a observar** / **Dejar de observar** de una tarjeta de elemento.
+
+![Tarjeta de elemento en el diseño Kanban con el botón de observación visible](/migration-assets/watching-an-item-in-a-board/2.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+### Añadir a otras personas como observadores
+
+1. Abre el elemento al que quieres añadir observadores.
+2. Haz clic en el botón **Observadores** del panel superior del formulario.
+3. Haz clic en **Añadir observadores** y selecciona miembros de la lista. Se añaden como observadores en cuanto los seleccionas.
+
+![Panel Añadir observadores con una lista de miembros del tablero para seleccionar](/migration-assets/watching-an-item-in-a-board/4.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="info">
+  Un elemento puede tener un solo responsable, pero hasta **49 observadores**.
+</Callout>
+
+Convertirse en observador es una excelente forma de que varias partes interesadas se mantengan al día sobre el progreso de un elemento, aunque no esté asignado a ellas.
+
+### Eliminar observadores
+
+Eliminar a alguien de la lista de observadores impide que reciba actualizaciones sobre el elemento.
+
+1. Abre el elemento.
+2. Haz clic en el botón **Observadores** del panel superior del formulario.
+3. En **Observadores**, coloca el cursor sobre el nombre de un usuario y haz clic en el botón **Eliminar**.
+
+![Lista de observadores con el botón Eliminar visible al colocar el cursor junto al nombre de un usuario](/migration-assets/watching-an-item-in-a-board/5.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+### Ver tu lista de seguimiento
+
+En tu tablero, haz clic en el botón **Lista de seguimiento** para ver los elementos que observas actualmente en todos los estados. Vuelve a hacer clic para regresar a la vista original.
+
+<Callout type="info" title="Board admins control this feature">
+  Un administrador del tablero puede activar o desactivar la opción **Observadores** desde los ajustes opcionales del tablero. Cuando está activada, los administradores y miembros pueden observar elementos, y los observadores reciben notificaciones sobre las actualizaciones de los elementos.
+</Callout>
+
+## Qué sigue
+
+- [Crear y gestionar elementos](/docs/use/items/creating-items)
+- [Crear y gestionar subelementos](/docs/use/items/creating-subitems)
+- [Añadir filtros avanzados mediante AI](/docs/use/items/filtering-and-views) (Enterprise)

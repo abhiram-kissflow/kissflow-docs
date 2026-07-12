@@ -1,0 +1,73 @@
+---
+title: "Administrar filtros"
+description: "BORRADOR (sin verificar) — migrado de /t/g9h4al1/managing-filters"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Un filtro te ayuda a ver un conjunto limitado de datos que coincide con determinadas condiciones. Con los filtros avanzados, puedes filtrar contextualmente algunos atributos, como el usuario y la hora, lo que proporciona mayor profundidad a las condiciones del filtro.
+
+## Crear un filtro
+
+1.  Haz clic en el botón **Filtro** (![](/migration-assets/managing-filters/5.png)) en la página del conjunto de datos.
+2.  Haz clic en **Agregar un filtro**.
+3.  Selecciona un campo que quieras agregar al filtro en el menú desplegable **Seleccionar campo** para definir las condiciones del filtro:
+    1.  Los operadores se completan contextualmente según el campo que selecciones. Elige un operador apropiado, como **Igual a**, **No es igual a**, **Contiene**, **Está vacío**, etc.
+    2.  A continuación, selecciona un **Campo** o introduce el **Valor** con el que validarás esta condición.
+4.  Haz clic en **Agregar una condición** para agregar tantas condiciones **AND/OR** como quieras.![](/migration-assets/managing-filters/1.png)  
+5.  Del mismo modo, haz clic en **\+ Agregar un filtro nuevo** para agregar tantos filtros como quieras.
+    -   Después de agregar suficientes condiciones y filtros, elige entre las condiciones **AND** y **OR** según tus preferencias. El **operador** **AND** comprueba si se cumplen todas las condiciones de filtro aplicadas, mientras que el **operador OR** comprueba si se cumple al menos una de las condiciones de filtro aplicadas.
+6.  Haz clic en **Aplicar** para filtrar los registros de tu conjunto de datos.
+
+Puedes usar el símbolo ( - ) en rojo junto a cada condición de filtro para eliminarla y el icono de cierre junto a cada filtro para eliminarlo.
+
+## Filtros contextuales basados en el usuario
+
+Un filtro avanzado permite dar más contexto a las condiciones del filtro. Por eso, hemos introducido filtros contextuales basados en el usuario que te ayudarán a elegir el atributo exacto relacionado con el usuario actual cuando definas condiciones de filtro que incluyan nombres de usuario o valores de texto.
+
+### Agregar una condición de filtro basada en un usuario
+
+Al hacer coincidir un campo de texto o de usuario con otro campo, verás un campo llamado **Usuario actual**, junto con todos sus atributos, como **Nombre**, **Dirección de correo electrónico**, **Usuario**, **Tipo**, **Estado** y **Cargo**, en el menú desplegable de la derecha. Elige el atributo adecuado para tu condición de filtro según sea necesario.
+
+![](/migration-assets/managing-filters/2.png)
+
+Por ejemplo, si quieres comprobar si el nombre del responsable de un departamento específico es el nombre del usuario actual, la condición del filtro sería la siguiente:
+
+\[**Responsable del departamento\]** \[**Igual a\]** \[**Usuario actual.Nombre\]**
+
+Los campos contextuales basados en el usuario también están disponibles en el menú desplegable **Seleccionar campo** de la izquierda.
+
+![](/migration-assets/managing-filters/3.png)
+
+## Filtros contextuales basados en el tiempo
+
+Hay varias opciones para filtrar los campos relacionados con la fecha y la hora.
+
+### Agregar una condición de filtro basada en el tiempo
+
+Al hacer coincidir un campo basado en una fecha o una hora con un valor, haz clic en el icono de elipsis para ver las opciones contextuales. Puedes elegir la opción adecuada según tus necesidades.
+
+Las siguientes opciones aparecen cuando se selecciona un campo de fecha u hora:
+
+-   Ahora
+-   Próximas 6 horas
+-   Próximas 12 horas
+-   Hoy
+-   Mañana
+-   Ayer
+-   Esta semana
+-   Últimos 7 días
+-   Próximos 7 días
+-   Últimos 14 días
+-   Últimos 30 días
+-   Este mes
+-   Este trimestre
+-   Trimestre pasado
+-   Este año![](/migration-assets/managing-filters/4.png)
+
+También puedes abrir el calendario después de elegir un valor relevante y modificar la fecha según sea necesario en el campo **Valor**.

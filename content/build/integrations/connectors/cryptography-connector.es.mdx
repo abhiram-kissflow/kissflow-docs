@@ -1,0 +1,489 @@
+---
+title: "Conector de criptografía"
+description: "BORRADOR (sin verificar) — migrado desde /t/m1ygksh/cryptography-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+El conector de criptografía es una herramienta de seguridad integrada especializada en las integraciones de Kissflow. Actúa como un filtro de privacidad para tu canalización de datos. Mientras que las conexiones estándar, como HTTPS, protegen los datos durante su transmisión, el conector de criptografía protege los datos en sí.
+
+Te permite codificar información confidencial para que, incluso si se almacena en una hoja de cálculo pública o es interceptada por un tercero, siga siendo ilegible sin las claves digitales específicas.
+
+El conector funciona como un paso intermedio en tu flujo de integración. Recibe datos de tus activadores y acciones, aplica un algoritmo matemático y genera un resultado seguro.
+
+## Acciones del conector de criptografía
+
+**Acción**
+
+**Descripción**
+
+Cifrado simétrico
+
+Cifra los datos usando una única clave secreta compartida. 
+
+Descifrado simétrico
+
+Invierte el proceso de cifrado simétrico para devolver los datos a su forma original y legible.
+
+Cifrado asimétrico
+
+Usa una clave pública para cifrar los datos. Esto garantiza que solo ese destinatario específico pueda abrirlos.
+
+Descifrado asimétrico
+
+Usa una clave privada para descifrar datos cifrados específicamente para ti.
+
+Firma PGP
+
+Crea una firma separada. Actúa como un sello digital que demuestra que el archivo lo enviaste tú y que no se ha alterado.
+
+Verificación PGP
+
+Compara una firma separada con un archivo para confirmar la identidad del remitente y la integridad de los datos.
+
+Hash/HMAC
+
+Genera una huella digital única. El hash se usa para la integridad; HMAC usa una clave secreta para demostrar tanto la integridad como la autenticidad.
+
+![](/migration-assets/cryptography-connector/1.png)
+
+## Criptografía como acción
+
+### Cifrado simétrico
+
+La acción de cifrado simétrico te permite proteger texto confidencial mediante una clave secreta compartida. Es un método de alta velocidad, ideal para proteger datos como información de identificación personal (PII) o registros internos dentro de tu flujo.
+
+1\. **Acción y autenticación**
+
+1.  Añade el **conector de criptografía** a tu integración y selecciona la acción **Cifrado simétrico**.
+    
+2.  Elige una cuenta: selecciona una conexión existente o haz clic en **\+ Añadir una cuenta**.
+    
+3.  Verifica tu cuenta:
+    
+    -   **Etiqueta de conexión**: asigna un nombre reconocible a tu conexión.
+        
+    -   **Tipo de criptografía**: selecciona **Clave simétrica**.
+        
+    -   **Clave de cifrado**: introduce tu clave codificada en hexadecimal.  
+          
+        **Nota**: asegúrate de que la longitud de la clave coincida con el algoritmo que deseas utilizar (por ejemplo, se necesita una clave hexadecimal de 32 bytes para AES-256).
+        
+4.  Haz clic en **Autenticar**.
+    
+    ![](/migration-assets/cryptography-connector/2.png)
+
+2\. **Configura el cifrado**
+
+1.  Abre la **sección Configuración**.
+    
+2. **Algoritmo**: selecciona tu método de cifrado en el menú desplegable.
+    
+3. **Texto sin formato**: asigna el campo que deseas proteger haciendo clic en Insertar campo.
+    
+4. **Codificación de entrada**: selecciona el formato de los datos entrantes.
+    
+5. **Codificación de salida**: selecciona el formato del resultado cifrado.
+    
+6. **Vector de inicialización (IV)**: introduce tu IV codificado en hexadecimal.  
+     
+    
+    ![](/migration-assets/cryptography-connector/3.png)
+
+**Nota**  
+Para GCM, normalmente se trata de una cadena de 12 bytes (24 caracteres hexadecimales).  
+ 
+
+3\. **Prueba la acción**
+
+1.  Haz clic en **Siguiente** para continuar a la sección **Salida**.
+    
+2.  Haz clic en **Probar acción** para verificar tu configuración.
+    
+
+**Solución de problemas**:
+
+-   Si recibes un error que indica que se necesita una clave de 32 bytes, comprueba que tu clave de cifrado en la configuración de conexión tenga exactamente 64 caracteres hexadecimales (para AES-256).
+-   Si recibes un error relacionado con el IV, asegúrate de que el vector de inicialización tenga la longitud requerida por el algoritmo seleccionado (por ejemplo, 12 bytes/24 caracteres hexadecimales para GCM).
+
+4\. **Finaliza**
+
+1.  Una vez que la prueba se complete correctamente, verás el resultado cifrado.
+    
+    ![](/migration-assets/cryptography-connector/5.png)
+2.  Asigna este resultado a los pasos posteriores (por ejemplo, para enviar la cadena cifrada a una base de datos o a Google Sheet).
+    
+
+### Descifrado simétrico
+
+La acción de descifrado simétrico invierte el proceso de cifrado y convierte el texto cifrado ilegible nuevamente a su formato de texto sin formato original mediante una clave secreta compartida.
+
+1\. **Acción y autenticación**
+
+1.  Añade el **conector de criptografía** a tu integración y selecciona la acción **Descifrado simétrico**.
+    
+2.  Elige una cuenta: selecciona la misma conexión que usaste para el paso de cifrado o haz clic en **\+ Añadir una cuenta**.
+    
+3.  Verifica tu cuenta:
+    
+    -   **Etiqueta de conexión**: asigna un nombre reconocible a tu conexión.
+        
+    -   **Tipo de criptografía**: selecciona Clave simétrica.
+        
+    -   **Clave de cifrado**: introduce la clave codificada en hexadecimal.
+        
+4.  Haz clic en **Autenticar**.
+    
+
+2\. **Configura el descifrado**
+
+1.  Abre la sección **Configuración**.
+    
+2. **Algoritmo**: selecciona exactamente el mismo algoritmo utilizado durante el cifrado.
+    
+3. **Texto cifrado**: asigna el campo de datos cifrados de un paso anterior (por ejemplo, el resultado de una acción de cifrado o un campo cifrado de una base de datos).
+    
+4. **Codificación de entrada**: selecciona el formato de codificación del texto cifrado entrante. **Codificación de salida**: selecciona el formato de los datos descifrados finales.
+    
+5. **Vector de inicialización (IV)**: introduce el IV codificado en hexadecimal que se usó durante el cifrado.
+    
+6. **Etiqueta de autenticación**: asigna o introduce la etiqueta de autenticación generada durante el proceso de cifrado. Esto garantiza que los datos no hayan sido manipulados.
+    
+
+3\. **Prueba la acción**
+
+1.  Haz clic en **Siguiente** para continuar a la sección **Salida**.
+    
+2.  Haz clic en **Probar acción** para verificar el descifrado.
+    
+3.  Errores comunes:
+    
+    -   **Longitud de etiqueta de autenticación no válida**: este error ocurre si el campo Etiqueta de autenticación está vacío o contiene un valor incorrecto. GCM requiere una etiqueta válida para continuar.
+        
+    -   **Error de integridad de los datos**: si la clave, el IV o la etiqueta de autenticación no coinciden con la configuración de cifrado original, la acción no podrá proteger la integridad de tus datos.
+        
+
+4\. **Finaliza**
+
+1.  Una vez que la prueba se complete correctamente, el conector mostrará los datos originales y legibles en la salida.
+    
+2.  Asigna este resultado descifrado a los pasos posteriores (por ejemplo, para usar los datos sin procesar en una rama condicional o una notificación).
+    
+
+### Cifrado asimétrico
+
+La acción de cifrado asimétrico utiliza un sistema de pares de claves para proteger los datos. Al usar una clave pública, puedes garantizar que solo la persona que tenga la clave privada correspondiente pueda desbloquear y leer la información.
+
+1\. **Acción y autenticación**
+
+1.  Añade el **conector de criptografía** a tu integración y selecciona la acción **Cifrado asimétrico**.
+    
+2.  Elige una cuenta: selecciona una conexión existente o haz clic en **\+ Añadir una cuenta**.
+    
+3.  Verifica tu cuenta:
+    
+    -   **Etiqueta de conexión**: introduce un nombre único para esta conexión.
+        
+    -   **Tipo de criptografía**: selecciona **Par de claves RSA** o **Par de claves PGP**, según los requisitos de tu socio.
+        
+    -   **Clave pública RSA**: pega la clave pública codificada en PEM que proporcionó el destinatario.  
+          
+        **Nota**: para el cifrado, solo se necesita la clave pública. Puedes dejar vacío el campo de la clave privada si solo vas a realizar operaciones de cifrado.
+        
+4.  Haz clic en **Autenticar**.
+    
+    ![](/migration-assets/cryptography-connector/4.png)
+
+2\. **Configura el cifrado**
+
+1.  Abre la sección **Configuración**.
+    
+2. **Algoritmo**: selecciona el algoritmo asimétrico.
+    
+3. **Texto sin formato**: asigna el campo de datos confidenciales de un paso anterior de Kissflow (por ejemplo, _Número de cuenta_ o _Nombre del paciente_).
+    
+4. **Algoritmo hash OAEP**: si usas RSA-OAEP, selecciona el método hash. Debe coincidir con la configuración que usará el destinatario para descifrar.
+    
+5. **Codificación de salida**: selecciona cómo debe formatearse el texto cifrado resultante.
+    
+    ![](/migration-assets/cryptography-connector/6.png)
+
+3\. **Prueba la acción**
+
+1.  Haz clic en **Siguiente** para continuar a la sección **Salida**.
+    
+2.  Haz clic en **Probar acción** para verificar la configuración.  
+      
+    **Solución de problemas**:
+    
+    -   **Formato de clave no válido**: asegúrate de que la clave pública incluya los encabezados -----BEGIN PUBLIC KEY----- y -----END PUBLIC KEY-----.
+        
+    -   **Datos demasiado grandes**: el cifrado RSA tiene un límite para la cantidad de datos que puede cifrar a la vez, según el tamaño de la clave. Para archivos muy grandes, considera usar PGP o el cifrado simétrico.
+        
+
+4\. **Finaliza**
+
+1.  Una vez que la prueba se complete correctamente, el conector generará una cadena de texto cifrado.
+    
+2.  Asigna este resultado al siguiente paso, como enviarlo mediante una llamada a un API o almacenarlo en un sistema externo.
+    
+
+### Descifrado asimétrico
+
+La acción de descifrado asimétrico usa tu clave privada para desbloquear datos cifrados específicamente para ti mediante la clave pública correspondiente. Esto garantiza que solo tú puedas leer la información entrante.
+
+1\. **Acción y autenticación**
+
+1.  Añade el **conector de criptografía** a tu integración y selecciona la acción **Descifrado asimétrico**.
+    
+2. **Elige una cuenta**: selecciona tu conexión existente de par de claves RSA o de par de claves PGP, o haz clic en **\+ Añadir una cuenta.**
+    
+3.  Verifica tu cuenta:
+    
+    -   **Etiqueta de conexión**: introduce un nombre para esta conexión (por ejemplo, Descifrado asimétrico).
+        
+    -   **Clave privada RSA**: pega tu clave privada codificada en PEM.  
+          
+        **Nota**: la clave privada es obligatoria para que funcione el descifrado. Nunca debes compartirla y debes mantenerla protegida.
+        
+4.  Haz clic en **Autenticar**.
+    
+
+2\. **Configura el descifrado**
+
+1.  Abre la sección **Configuración**.
+    
+2. **Algoritmo**: selecciona el algoritmo exacto que usó el remitente.
+    
+3. **Texto cifrado**: asigna el campo de datos cifrados de un paso anterior de Kissflow (por ejemplo, una cadena cifrada recibida mediante un Webhook).
+    
+4. **Algoritmo hash OAEP**: selecciona el método hash usado durante el cifrado (estándar: SHA-256). Si no coincide con la configuración del remitente, el descifrado fallará.
+    
+5. **Codificación de entrada**: selecciona el formato de la cadena cifrada entrante. 
+    
+6. **Codificación de salida**: selecciona el formato de los datos descifrados finales.
+    
+
+3\. **Prueba la acción**
+
+1.  Haz clic en **Siguiente** para continuar a la sección **Salida**.
+    
+2.  Haz clic en **Probar** acción para verificar el descifrado.  
+      
+    **Solución de problemas**:
+    
+    -   **Error de descifrado**: normalmente se debe a una discrepancia entre la clave pública usada para cifrar y la clave privada usada para descifrar. Asegúrate de usar el par de claves correcto.
+        
+    -   **Discrepancia de hash**: si el algoritmo hash OAEP (SHA-1, SHA-256, etc.) no coincide con el que usó el remitente, no se podrán recuperar los datos.
+        
+
+4\. **Finaliza**
+
+1.  Una vez que la prueba se complete correctamente, el conector mostrará el mensaje original y legible en la salida.
+    
+2.  Asigna este resultado descifrado al siguiente paso, como actualizar un registro en Kissflow o activar una notificación.
+    
+
+### Firma PGP
+
+La acción de firma PGP te permite crear un sello digital para tus datos. Este proceso usa tu clave privada para generar una firma única que demuestra al destinatario que los datos provienen de ti y no han sido manipulados.
+
+1\. **Acción y autenticación**
+
+1.  Añade el conector de criptografía a tu integración y selecciona la acción **Firma PGP**.
+    
+2. **Elige una cuenta**: selecciona una conexión existente o haz clic en **\+ Añadir una cuenta**.
+    
+3.  Verifica tu cuenta:
+    
+    1.  **Etiqueta de conexión**: proporciona un nombre claro (por ejemplo, _Firma PGP_).
+        
+    2.  **Tipo de criptografía**: selecciona **Par de claves PGP**.
+        
+        -   **Clave pública PGP**: pega el bloque de tu clave pública PGP con formato ASCII (comienza con -----BEGIN PGP PUBLIC KEY BLOCK-----).
+            
+        -   **Clave privada PGP**: pega el bloque de tu clave privada PGP con formato ASCII (comienza con -----BEGIN PGP PRIVATE KEY BLOCK-----).
+            
+        -   **Frase de contraseña de la clave privada**: introduce la frase de contraseña usada para proteger tu clave privada PGP.  
+              
+            **Nota**: la clave privada es esencial para el proceso de firma.
+            
+            ![](/migration-assets/cryptography-connector/7.png)
+4.  Haz clic en **Autenticar**.
+    
+
+2\. **Configura la firma**
+
+1.  Abre la sección **Configuración**.
+    
+2. **Datos**: asigna el campo o el contenido del archivo que deseas firmar (por ejemplo, un campo _Nombre_ o un _Documento_ de un paso anterior).
+    
+    -   Usa **Insertar campo** para seleccionar datos dinámicos de tu activador.
+        
+3. **Firma separada**: de forma predeterminada, esta acción genera una firma separada. Esto significa que los datos originales permanecen legibles y se produce un bloque de firma independiente para la verificación.
+    
+
+3\. **Prueba la acción**
+
+1.  Haz clic en **Siguiente** para continuar a la sección **Salida**.
+    
+2.  Haz clic en **Probar acción** para generar una firma de ejemplo.
+    
+3. **El resultado**: el conector devolverá un resultado de firma que comienza con -----BEGIN PGP SIGNATURE----  
+      
+    **Solución de problemas**:
+    
+    -   **Bloque de clave no válido**: asegúrate de haber copiado todo el bloque PGP, incluidos los encabezados y pies de página.
+        
+    -   **Error de frase de contraseña**: si la prueba falla inmediatamente, verifica que la frase de contraseña introducida en la configuración de conexión coincida con la que se usó para crear la clave PGP.
+        
+
+4\. **Finaliza**
+
+1.  Haz clic en **Listo** una vez que la prueba se complete correctamente.
+    
+2.  Asigna el resultado de **Firma** al siguiente paso (por ejemplo, envíalo como un archivo adjunto independiente en un correo electrónico o almacénalo en una base de datos junto con los datos originales).
+    
+
+### Verificación PGP
+
+La acción de verificación PGP te permite validar una firma digital con sus datos originales. Este proceso garantiza que el remitente es auténtico y que los datos no se han modificado desde que se firmaron.
+
+1\. **Acción y autenticación**
+
+1.  Añade el **conector de criptografía** a tu integración y selecciona la acción **Verificación PGP**.
+    
+2. **Elige una cuenta**: selecciona una conexión existente de par de claves PGP o haz clic en **\+ Añadir una cuenta**.
+    
+3. **Verifica tu cuenta**:
+    
+    1.  **Etiqueta de conexión**: proporciona un nombre claro (por ejemplo, Verificación PGP).
+        
+    2.  **Tipo de criptografía**: selecciona **Par de claves PGP**.
+        
+        -   **Clave pública PGP**: pega el bloque de clave pública con formato ASCII del remitente (comienza con -----BEGIN PGP PUBLIC KEY BLOCK-----).  
+            **Nota**: para la verificación, la clave pública es el requisito principal para validar la autenticidad de la firma.
+            
+        -   **Clave privada PGP y frase de contraseña**: aunque se usan principalmente para firmar o descifrar, pueden ser necesarias según la configuración específica de tu anillo de claves PGP.
+            
+4.  Haz clic en **Autenticar**.
+    
+
+2\. **Configura la verificación**
+
+1.  Abre la sección **Configuración**.
+    
+2. **Datos**: asigna el campo de datos originales sin cifrar que debe verificarse (por ejemplo, el campo _Nombre_ de tu activador).
+    
+3. **Firma**: asigna la cadena de firma PGP con formato ASCII (comienza con -----BEGIN PGP SIGNATURE-----). Normalmente, es el resultado de una acción anterior de Firma PGP o un archivo .sig recibido de un sistema externo.
+    
+
+3\. **Prueba la acción**
+
+1.  Haz clic en **Siguiente** para continuar a la sección **Salida**.
+    
+2.  Haz clic en **Probar acción** para ejecutar la verificación.  
+      
+    **Solución de problemas**:
+    
+    -   **Texto con formato ASCII incorrecto**: este error ocurre si la cadena de firma está incompleta, si faltan los encabezados o pies de página PGP, o si contiene caracteres no válidos. Asegúrate de que todo el bloque esté asignado correctamente.
+        
+    -   **Error de verificación**: si los datos han cambiado aunque sea un solo carácter después de firmarse, o si estás usando la clave pública incorrecta, la prueba fallará al proteger la integridad de los datos.
+        
+
+4. **Finaliza**
+
+1.  Una vez que la prueba se complete correctamente, el conector confirmará que la firma es válida.
+    
+2.  Ahora puedes usar este estado verificado para activar el siguiente paso de tu flujo de trabajo, como aprobar un documento o mover un archivo a una carpeta segura.
+    
+
+### Hash/HMAC
+
+La acción Hash/HMAC te permite generar una huella digital única para tus datos (hashing) o verificar la integridad y autenticidad de un mensaje mediante una clave secreta (HMAC). Esto es esencial para transmitir datos de forma segura y verificar que no hayan sido manipulados.
+
+1\. **Acción y autenticación**
+
+1.  Añade el **conector de criptografía** a tu integración y selecciona la acción **Hash/HMAC**.
+    
+2. **Elige una cuenta**: selecciona una conexión existente o haz clic en **\+ Añadir una cuenta**.
+    
+3.  Verifica tu cuenta:
+    
+    1.  **Etiqueta de conexión**: asigna un nombre reconocible a tu conexión.
+        
+    2.  **Tipo de criptografía**: selecciona **Sin autenticación (solo hashing)** si solo necesitas un hash estándar (por ejemplo, SHA-256).
+        
+        ![](/migration-assets/cryptography-connector/8.png)
+        
+        **Nota**: selecciona **Clave simétrica** si deseas realizar una operación HMAC.
+        
+4.  Haz clic en **Autenticar**.
+
+> **Nota**: si realizas una operación HMAC, debes seleccionar **Clave simétrica** como tipo de criptografía para poder proporcionar la clave secreta necesaria. Si seleccionas **Sin autenticación (solo hashing)**, la funcionalidad HMAC no estará disponible.
+
+2\. **Configura la operación**
+
+1.  Abre la sección **Configuración**.
+    
+2. **Algoritmo**: selecciona tu método de hashing en el menú desplegable (por ejemplo, SHA-256, SHA-512).
+    
+3. **Datos**: asigna el campo que contiene el texto que deseas convertir en hash o firmar haciendo clic en Insertar campo.
+    
+4. **Codificación de entrada**: selecciona el formato de los datos entrantes.
+    
+5. **Codificación de salida**: selecciona el formato del hash resultante (Hex o Base64).
+    
+
+3\. **Prueba la acción**
+
+1.  Haz clic en **Siguiente** para continuar a la sección **Salida**.
+    
+2.  Haz clic en **Probar acción** para verificar tu configuración y asegurarte de que el hash/HMAC se genere correctamente.
+    
+
+4\. **Finaliza**
+
+1.  Una vez que la prueba se complete correctamente, verás la cadena de hash o HMAC generada.
+    
+2.  Asigna este resultado a los pasos posteriores (por ejemplo, almacena el hash en una base de datos para verificar la integridad de los datos más adelante).
+    
+
+## Casos de uso de ejemplo
+
+**Caso de uso**
+
+**Acción recomendada**
+
+**¿Por qué?**
+
+Enmascaramiento de PII
+
+Cifrado simétrico
+
+Úsalo para ocultar números de seguridad social o información salarial antes de guardarlos en una hoja de Google Sheet compartida.
+
+Transferencia B2B segura
+
+Cifrado asimétrico
+
+Úsalo al enviar datos de clientes a un socio externo. Usas una clave pública para que solo ellos puedan leerlos.
+
+Validación de webhook
+
+Hash/HMAC
+
+Cuando Shopify o Stripe envíen un pedido a Kissflow, usa HMAC para demostrar que el mensaje realmente provino de ellos y no de un hacker.
+
+Cumplimiento legal
+
+Firma PGP
+
+Úsala al enviar contratos. Proporciona un sello digital que demuestra que el documento es original y no ha sido manipulado.
+
+Integridad de archivos
+
+Hash
+
+Úsalo después de descargar un archivo grande para asegurarte de que no se haya dañado durante la transferencia.

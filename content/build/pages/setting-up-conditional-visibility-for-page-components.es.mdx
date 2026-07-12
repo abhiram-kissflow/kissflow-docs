@@ -1,0 +1,82 @@
+---
+title: "Configuración de la visibilidad condicional para los componentes de la página"
+description: "BORRADOR (no verificado) — migrado desde /t/m1yzj98/setting-up-conditional-visibility-for-page-components"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+La función de visibilidad condicional te permite establecer criterios de visibilidad para los componentes del constructor de páginas, lo que te permite mostrarlos u ocultarlos según condiciones específicas. Esta función te permite reutilizar la misma página para usuarios con distintos niveles de permisos en función de determinadas variables y parámetros, adaptar el contenido al dispositivo que utilizan y mostrar información personalizada según sus necesidades.
+
+<iframe src="https://player.vimeo.com/video/1019434592" title="AI-powered sample data generation" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+Tomemos como ejemplo una aplicación de gestión de empleados con un panel personalizado para los roles de Manager y Employee.
+
+-   **Empleados**: Los empleados pueden consultar sus calificaciones de desempeño y recibir comentarios de sus managers directamente en el panel.
+-   **Managers**: Los managers pueden acceder a información relacionada con el equipo, como gráficos de desempeño y niveles de ocupación, y consultar sus propias calificaciones de desempeño.
+
+Como ambos roles comparten algunos datos, puedes optimizar la experiencia mostrando estos componentes en el mismo panel. Al establecer condiciones de visibilidad, puedes mostrar u ocultar fácilmente información específica según el rol del usuario, para garantizar que los usuarios vean solo lo que es relevante para ellos.
+
+## ¿Cómo funciona?
+
+1.  En el constructor de páginas, selecciona el componente para el que quieres establecer condiciones de visibilidad.
+2.  A la derecha, haz clic en la pestaña **Visibilidad**. Aquí, usa el interruptor para establecer la visibilidad predeterminada. De forma predeterminada, estará visible, pero puedes cambiarla a oculta.
+3.  Haz clic en **\+ Añadir una regla de visibilidad**. Para añadir una condición, elige las **Variables**, el **Operador**, el **Tipo** y el **valor** que se usarán para la comparación. Puedes elegir asignarla a un valor o a elementos de datos, como parámetros y variables. Esta lista incluirá tanto las variables globales como las variables locales declaradas en la página actual.![](/migration-assets/setting-up-conditional-visibility-for-page-components/2.gif)
+
+### **Variables**
+
+Esta lista contiene:
+
+-   Tipo de dispositivo: indica si el usuario está en la web o en un dispositivo móvil (PWA)
+-   Datos del usuario actual, como su rol de usuario, nombre, apellido y correo electrónico
+-   Todas las variables globales y locales disponibles, así como los parámetros utilizados en la aplicación
+
+### **Operadores**
+
+Esta lista incluye operadores estándar, como igual a, mayor que y menor que.
+
+### **Tipo**
+
+Selecciona el tipo de valor que se utilizará para la comparación según el operador seleccionado.
+
+Según el ejemplo anterior, utiliza estas condiciones para mostrar un componente a un **Manager** en función de su rol y del dispositivo que utiliza.
+
+**Variables**
+
+**Operador**
+
+**Tipo**
+
+**Valor**
+
+Tipo de dispositivo
+
+Igual a
+
+Valor
+
+Web
+
+Current.user.Roles
+
+Contiene
+
+Valor
+
+Manager
+
+Y selecciona **Coincidir con todo**. Ahora, solo el usuario que cumpla ambas condiciones podrá ver el componente seleccionado.
+
+![](/migration-assets/setting-up-conditional-visibility-for-page-components/1.png)
+
+> **Nota:** Solo se puede añadir una regla de visibilidad por componente, pero puede contener varias condiciones.
+
+#### Puntos importantes
+
+1.  No se puede establecer la visibilidad condicional para el componente Popup ni para los subcomponentes dentro de un componente, por ejemplo, pestañas individuales, columnas y listados dentro del contenedor Master details.
+    
+2.  Establecer condiciones de visibilidad muestra u oculta los componentes únicamente en la interfaz de usuario; el contenido de los componentes aún se puede recuperar mediante los [métodos del Kissflow SDK para componentes](https://developers.kissflow.com/app/page/component/) si el usuario tiene los permisos adecuados para acceder a ellos.

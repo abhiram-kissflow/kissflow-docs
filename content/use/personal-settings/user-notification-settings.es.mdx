@@ -1,0 +1,72 @@
+---
+title: "Configuración de notificaciones del usuario"
+description: "Activa las notificaciones por correo electrónico, aplicación web, push y bot para tu cuenta, y personaliza los canales de notificación para procesos, tableros, conjuntos de datos, aplicaciones o portales específicos."
+contentType: guide
+persona: end-user
+section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - notifications
+  - personal-settings
+  - account
+---
+
+# Configuración de notificaciones del usuario
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+**Configuración de notificaciones** te permite personalizar cómo y cuándo recibes notificaciones sobre la actividad de tu cuenta de Kissflow. Puedes controlar en qué canales recibes notificaciones y ajustar las notificaciones de procesos, tableros, conjuntos de datos, aplicaciones o portales individuales.
+
+## Notificaciones globales
+
+1. Haz clic en tu foto de perfil > **Mi configuración** > **Configuración de notificaciones**.
+
+   ![Menú Mi configuración con Configuración de notificaciones resaltada](/migration-assets/user-notification-settings/1.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+2. En **Notificaciones globales**, activa o desactiva los siguientes interruptores:
+   - **Notificaciones por correo electrónico**: actívalo para recibir notificaciones por correo electrónico.
+   - **Notificaciones de la aplicación web**: actívalo para recibir notificaciones dentro de la aplicación web.
+   - **Notificaciones push**: actívalo para recibir notificaciones push. Cuando actives esta opción por primera vez, es posible que tu navegador te solicite permiso para mostrar notificaciones de escritorio de Kissflow. Si rechazas la solicitud, las notificaciones push no funcionarán hasta que vuelvas a activarlas en la configuración de tu navegador.
+   - **Notificaciones del bot**: actívalo para recibir notificaciones del bot de Kissflow.
+
+<Callout type="info">
+  Las notificaciones esenciales del sistema, como las relacionadas con la seguridad de la cuenta y la gestión de usuarios, tienen prioridad y se envían independientemente de la configuración de tus canales, para garantizar que no te pierdas actualizaciones importantes.
+</Callout>
+
+<Callout type="info">
+  Los ejemplos siguientes ilustran el tipo de notificaciones del sistema que omiten la configuración de tus canales. La lista exacta puede variar y no se limita a estos eventos.
+</Callout>
+
+| Notificación | Activador |
+| --- | --- |
+| Usuario activado | Se activa la cuenta de un usuario. |
+| Usuario desactivado | Se desactiva la cuenta de un usuario. |
+| Reenviar correo de verificación | Se reenvía el correo de verificación. |
+| Dirección de correo electrónico actualizada | Se actualiza la dirección de correo electrónico de un usuario. |
+| Usuario creado | Se crea un usuario nuevo. |
+| Restablecer contraseña | Se restablece la contraseña de un usuario. |
+| Estado de la autenticación de dos factores modificado | Se modifica el estado de la autenticación de dos factores de un usuario. |
+| Verificación en dos pasos | Se activa la autenticación de dos factores con un código enviado por correo electrónico. |
+| Verificación del dominio | Se envía un correo de verificación para conectar un dominio. |
+| En espera de aprobación del administrador | Un usuario crea un proceso, tablero o conjunto de datos que requiere la aprobación de un administrador. |
+| Exportar | Se realiza una exportación relacionada con un usuario, tablero, dataform, conjunto de datos o informe. |
+
+## Canales de notificación
+
+Además de los interruptores globales, puedes personalizar las notificaciones de un proceso, tablero, conjunto de datos, aplicación o portal específicos. Por ejemplo, puedes silenciar las notificaciones push de un tablero y mantener activadas las notificaciones por correo electrónico de otro.
+
+Haz clic en **Canales de notificación** para ver todos los procesos, tableros, conjuntos de datos, aplicaciones y portales de los que formas parte, junto con sus propios interruptores de Correo electrónico, Aplicación web, Push y Bot.
+
+![Lista de canales de notificación con interruptores individuales de Correo electrónico, Aplicación web, Push y Bot](/migration-assets/user-notification-settings/2.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Qué sigue
+
+- [Ver notificaciones](/docs/use/personal-settings/viewing-notifications)
+- [Información personal, configuración de formato y delegación de tareas](/docs/use/personal-settings/personal-info-format-settings-and-task-delegation)
+- [Configuración de notificaciones del administrador](/docs/admin/account-settings/admin-notification-settings)
+- [Eventos de notificación en procesos](/docs/build/processes/notification-events-in-processes)

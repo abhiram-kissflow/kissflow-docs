@@ -1,0 +1,61 @@
+---
+title: "Revisar cambios de publicación"
+description: "Consulta un resumen consolidado de los cambios realizados en el formulario, el flujo de trabajo y los permisos desde la última publicación, obtén explicaciones generadas por IA de las actualizaciones complejas y descarta los cambios que no quieras conservar."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - processes
+  - publishing
+  - workflow
+---
+
+# Revisar cambios de publicación
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+La función **Revisar cambios** ofrece a los administradores y desarrolladores de procesos una visibilidad completa de cada actualización realizada en un proceso antes de que entre en funcionamiento. En lugar de comparar versiones manualmente o hacer un seguimiento de las ediciones entre sesiones, obtienes un resumen claro y consolidado de todo lo que cambió.
+
+<iframe src="https://player.vimeo.com/video/1138389042?app_id=122963" title="Review changes in Kissflow Process" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+## Abrir Revisar cambios
+
+Dentro del editor de procesos, puedes revisar los cambios de dos maneras:
+
+1. **Mientras editas**: haz clic en **Revisar cambios** en la esquina superior derecha en cualquier momento durante tu sesión de edición, sin necesidad de publicar.
+2. **Antes de publicar**: haz clic en **Activar** en la esquina inferior derecha y, después, selecciona **Revisar cambios** en la ventana emergente de confirmación.
+
+![Ventana emergente de confirmación de Activar con la opción de revisar los cambios antes de publicar](/migration-assets/reviewing-publish-changes/2.gif)
+
+## Qué muestra el resumen
+
+La página **Revisar cambios** muestra todo lo que se ha **añadido**, **eliminado** o **modificado** en tu formulario, flujo de trabajo y permisos desde la última versión publicada.
+
+![Página Revisar cambios con un resumen consolidado de los cambios realizados en el formulario, el flujo de trabajo y los permisos](/migration-assets/reviewing-publish-changes/1.png)
+
+<Callout type="info">
+  En el plan Enterprise, los cambios complejos también se explican en lenguaje sencillo mediante **resúmenes generados por IA**.
+</Callout>
+
+## Descartar cambios
+
+Si algunas actualizaciones ya no son necesarias, haz clic en **Descartar cambios** en la página **Revisar cambios**. Esto elimina todas las actualizaciones del borrador realizadas después de la última versión publicada y restaura el proceso a su estado publicado anteriormente.
+
+## Revisar los cambios realizados por otro usuario
+
+Cuando [asumas la edición](/docs/admin/processes/publishing-editing-duplicating-archiving-and-deleting-a-process#edit-a-process) de otro administrador o desarrollador de procesos, primero se te pedirá que revises los cambios realizados desde la última versión publicada. Elige una de estas opciones:
+
+- **Descartar cambios y asumir la edición**: elimina todos los cambios no publicados realizados por el otro usuario y te permite empezar de cero desde la última versión publicada.
+- **Guardar cambios y asumir la edición**: conserva los cambios del otro usuario como tu borrador para que puedas continuar desde donde los dejó. Esto no publica el proceso; cuando estés listo, aún tendrás que hacer clic en **Activar** por separado.
+
+![Ventana emergente para asumir la edición con opciones para descartar o guardar los cambios del otro usuario](/migration-assets/reviewing-publish-changes/3.gif)
+
+## Qué sigue
+
+- [Publicar, editar, duplicar, archivar y eliminar un proceso](/docs/admin/processes/publishing-editing-duplicating-archiving-and-deleting-a-process)
+- [Analizador de soluciones de IA](/docs/admin/processes/ai-solution-analyzer)
+- [Registro de auditoría del proceso](/docs/admin/processes/process-audit-log)

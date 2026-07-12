@@ -1,0 +1,187 @@
+---
+title: "Tabla de conjuntos de datos en Analytics"
+description: "BORRADOR (sin verificar) — migrado desde /t/60yq9rz/dataset-table-in-analytics"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Las tablas de conjuntos de datos aparecen en Kissflow Analytics para cada conjunto de datos que crees en tu cuenta de Kissflow. Estas tablas están diseñadas con una [estructura](/media/download/632kc6/KF_analytics_schema.pdf) tabular, con filas y columnas que almacenan valores de datos de manera organizada.  
+  
+El diagrama que muestra la relación entre las entidades de las fuentes de datos te ayuda a comprender Analytics.
+
+![](/migration-assets/dataset-table-in-analytics/1.png)
+
+## Campos del sistema de la tabla del conjunto de datos
+
+**ID del campo**
+
+**Nombre del campo**
+
+**Tipo de datos**
+
+**Descripción**
+
+\_id
+
+ID
+
+String
+
+El ID único del elemento.
+
+Name
+
+Clave
+
+String
+
+El nombre del elemento.
+
+\_created\_by
+
+Creado por
+
+JSON
+
+Este campo almacena información sobre el usuario que creó inicialmente el elemento.
+
+\_created\_by.Kind
+
+Creado por
+
+JSON
+
+Un subcampo de "\_created\_by" siempre contiene el valor "User", lo que indica que un usuario creó el elemento.
+
+\_created\_by.Name
+
+Creado por
+
+JSON
+
+Otro subcampo de "\_created\_by" muestra el nombre del usuario que creó el elemento en un formato que incluye tanto su nombre como su apellido.
+
+\_created\_by.\_id
+
+Creado por
+
+JSON
+
+El ID único del usuario que creó el elemento. 
+
+\_modified\_by
+
+Modificado por
+
+JSON
+
+Este campo almacena información sobre el usuario que modificó el elemento por última vez.
+
+\_modified\_by.Kind
+
+Modificado por
+
+JSON
+
+Un subcampo de "\_modified\_by" siempre contiene el valor "User", lo que indica que un usuario modificó el elemento.
+
+\_modified\_by.Name
+
+Modificado por
+
+JSON
+
+Otro subcampo de "\_modified\_by" muestra el nombre del usuario que modificó el elemento por última vez en un formato que incluye tanto su nombre como su apellido.
+
+\_modified\_by.\_id
+
+Modificado por
+
+JSON
+
+El ID único del usuario que modificó el elemento por última vez. 
+
+\_created\_at.display\_value
+
+Creado el
+
+DateTime
+
+Representa la fecha y hora de creación del elemento en formato GMT en la tabla del conjunto de datos.
+
+\_created\_at.timedelta
+
+Creado el
+
+DateTime
+
+Este campo contiene la duración de la diferencia de zona horaria entre la hora media de Greenwich (GMT) y la zona horaria específica. Permanece vacío cuando no existe ninguna diferencia.
+
+\_created\_at.timezone
+
+Creado el
+
+DateTime
+
+Indica la zona horaria en formato GMT en la que se creó el elemento.
+
+\_created\_at.value
+
+Creado el
+
+DateTime
+
+Este campo muestra la fecha y hora en que se creó inicialmente el elemento. El formato de la marca de tiempo se basa en GMT.
+
+\_modified\_at.display\_value
+
+Modificado el
+
+DateTime
+
+Representa la fecha y hora de la última modificación del elemento en formato GMT en la tabla del conjunto de datos. 
+
+\_modified\_at.timedelta
+
+Modificado el
+
+DateTime
+
+Este campo contiene la duración de la diferencia de zona horaria entre la hora media de Greenwich (GMT) y la zona horaria específica. Permanece vacío cuando no existe ninguna diferencia.
+
+\_modified\_at.timezone
+
+Modificado el
+
+DateTime
+
+Indica la zona horaria en formato GMT en la que se modificó el elemento por última vez.
+
+\_modified\_at.value
+
+Modificado el
+
+DateTime
+
+Este campo muestra la fecha y hora en que se modificó el elemento por última vez. El formato de la marca de tiempo se basa en GMT.
+
+\_flow\_name
+
+Nombre del flujo
+
+String
+
+El nombre del conjunto de datos.
+
+\_model\_id
+
+Texto
+
+ID del modelo
+
+                    El ID único de un conjunto de datos.

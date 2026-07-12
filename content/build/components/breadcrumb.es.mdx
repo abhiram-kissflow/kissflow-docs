@@ -1,0 +1,89 @@
+---
+title: "Migas de pan"
+description: "BORRADOR (no verificado) — migrado desde /t/y4ypnhz/breadcrumb"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic   ✓ Enterprise
+
+El componente **Breadcrumb** proporciona una ruta de navegación secundaria en cualquier página de tu aplicación. Permite a los usuarios hacer un seguimiento de su ubicación actual dentro de una carpeta de varios niveles o de la jerarquía de páginas, y navegar a cualquier página con un solo clic.
+
+## ¿Para qué usarlo?
+
+-   **Navegación jerárquica**: Simplifica la navegación por estructuras empresariales, como pasar de una **vista de departamento** a **páginas específicas de un equipo** y a **perfiles individuales de empleados**.
+    
+-   **Orientación del usuario**: Ayuda a los usuarios a comprender su posición relativa dentro de un mapa complejo de la aplicación.
+    
+-   **Acceso rápido**: Proporciona enlaces inmediatos a otras páginas y permite una navegación rápida.
+    
+
+## ¿Cómo usarlo?
+
+### Añadir un elemento de Breadcrumb
+
+1.  Arrastra y suelta el componente **Breadcrumb** en tu página.
+    
+2.  De forma predeterminada, el componente incluye dos elementos. Para añadir más, ve a **Configuración** y haz clic en **\+ Añadir elemento**.
+    
+
+![](/migration-assets/breadcrumb/3.gif)
+
+### Configurar los elementos de Breadcrumb
+
+Para cada elemento añadido, configura lo siguiente:
+
+-   **Nombre del elemento**: La etiqueta que aparece en la página.
+    
+-   **Página de redirección**: La página de destino cuando un usuario hace clic en el elemento.
+    
+-   **Icono (opcional)**: Adjunta un icono para que aparezca junto al nombre del elemento.
+    
+
+> **Consejo:** Puedes arrastrar y soltar elementos dentro de la lista de elementos de Breadcrumb en el panel de configuración para reorganizar su orden en la página.
+
+![](/migration-assets/breadcrumb/4.gif)
+
+### Diseño y separadores
+
+-   **Separadores**: De forma predeterminada, se utiliza una barra diagonal (/). Puedes cambiarla por un Chevron (>), un guion (-) o un punto (.), o cargar un icono personalizado.
+    
+-   **Límites de visualización**: De forma predeterminada, el componente muestra un número ilimitado de elementos.
+    
+-   **Contraer elementos**: Si introduces un número específico de elementos para mostrar, puedes elegir contraer la ruta de navegación desde el principio, el centro o el final.
+    
+
+> **Nota:** Si utilizas una variable para establecer este número, Breadcrumb se contraerá en el centro de forma predeterminada.
+
+![](/migration-assets/breadcrumb/1.png)
+
+### Propiedades de visibilidad y estilo
+
+-   En la pestaña **Visibilidad**, puedes establecer la visibilidad predeterminada o crear reglas para mostrar u ocultar el componente según condiciones específicas.
+    
+-   **Apariencia**: Personaliza los colores de todos los elementos, del elemento activo (actual) y del separador. También puedes ajustar el espacio entre los elementos.
+    
+    ![](/migration-assets/breadcrumb/2.png)
+    
+-   **Estilo general**: Se aplican opciones estándar, como tamaño, relleno, márgenes, bordes y tipografía (tamaño de fuente, color y fondo). Consulta [propiedades de estilo de los componentes](/t/y4yzj9m/managing-component-style-properties) para obtener más información.
+    
+
+### Propiedades de eventos
+
+Para definir qué ocurre cuando se hace clic en un elemento, ve a la pestaña **Eventos**:
+
+1.  Selecciona el activador **Al hacer clic en el elemento**.
+    
+2.  Elige una de las siguientes acciones:
+    
+    -   **Redirección**: Navega a una página de inicio del sistema o a una página específica definida por el usuario.
+        
+    -   **Abrir ventana emergente**: Activa un componente [Popup](/t/35yzj4w/popup) preconfigurado.
+        
+    -   **Acción de JavaScript**: Ejecuta una lógica personalizada mediante código JS.
+        
+
+![](/migration-assets/breadcrumb/5.gif)

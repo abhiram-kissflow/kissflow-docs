@@ -1,0 +1,148 @@
+---
+title: "Analytics en las apps"
+description: "BORRADOR (no verificado) — migrado desde /t/g9yzj45/analytics-in-apps"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Analytics permite a los desarrolladores de apps extraer información valiosa de varios formularios de la app. Los datos de cada formulario se representan en Analytics mediante tablas, lo que permite crear informes tabulares, de gráficos y dinámicos combinando distintos formularios. Los datos de Analytics se actualizan en el plazo de una hora.
+
+Para acceder a Analytics en las apps:
+
+1.  Dentro del generador de apps, ve al panel izquierdo > haz clic en **Datos**. 
+    
+2.  Selecciona **Analytics** para ver los informes y las vistas de datos que hayas creado o a las que tengas acceso.
+    
+
+## ¿Qué puedes hacer con Analytics en las apps?
+
+1.  Crear vistas de datos a partir de una o más tablas u otras vistas de datos.
+    
+2.  Crear informes basados en vistas de datos o tablas.
+    
+3.  Configurar el desglose en los informes.
+    
+
+## Crear vistas de datos en las apps
+
+Una vista de datos combina atributos de uno o más formularios, como procesos, tableros y dataforms, en tu app, y los datos resultantes se muestran en formato tabular. Para crear una [vista de datos](/t/83h9qzn/understanding-dataviews) en las apps, sigue estos pasos: 
+
+1.  Inicia sesión en Kissflow.
+    
+2.  Crea una app o abre una app existente.
+    
+3.  Dentro del generador de apps, en el panel de navegación izquierdo, en **Datos** \> haz clic en **Analytics** \> **Vistas de datos** > **Crear vista de datos**.
+    
+4.  Añade una [consulta SQL](/t/h7yy9r2/understanding-use-cases-with-sql-queries-in-kissflow-analytics) en el editor de consultas y ejecútala. 
+    
+5.  Haz clic en **Guardar** para publicar una vista de datos. 
+    
+6.  Una vez creada, puedes utilizar la vista de datos para generar informes dentro de las apps.
+    
+
+![](/migration-assets/analytics-in-apps/1.png)
+
+> **Nota:** El módulo Analytics presente en una app solo incluye los informes creados dentro de esa app específica. Del mismo modo, todas las fuentes de datos creadas dentro de una app son exclusivas y no pueden ser utilizadas por otra app dentro de la misma cuenta de Kissflow.
+
+> **Nota sobre la edición simultánea de una vista de datos de Analytics:**Para garantizar la integridad de los datos y evitar conflictos, nuestro sistema gestiona la edición simultánea mediante una regla de «el primero en guardar». Esto significa que, si dos o más usuarios editan la misma vista de datos de Analytics a la vez, los cambios de la persona que edite primero la vista de datos se guardan automáticamente.
+> 
+> Si otro usuario edita una vista de datos antes que tú, tu versión quedará obsoleta. Cuando intentes editarla, se te pedirá que tomes el control de la edición y continúes con las actualizaciones realizadas por el otro usuario.
+> 
+> Ten en cuenta que tomar el control de la edición descartará tu trabajo no guardado y conservará únicamente los cambios realizados por el usuario anterior.
+
+## Crear informes de Analytics
+
+Puedes generar [informes](/t/35h9qzj/analytics-reports-an-overview) para procesos, tableros, dataforms y vistas de datos a fin de facilitar la comprensión de tendencias, patrones y valores atípicos en tu app. También puedes combinar distintos formularios mediante vistas de datos y generar informes. 
+
+Cada informe se muestra en una vista de tarjetas. En estas tarjetas puedes consultar los siguientes detalles: 
+
+-   Nombre
+-   Tipo de informe
+-   Estado de uso compartido del informe
+
+Puedes buscar cualquier informe que hayas creado dentro de Analytics. También puedes ordenar los informes según la fecha de creación, la última modificación o el orden alfabético.
+
+Para crear un informe, sigue estos pasos:
+
+1.  En la pestaña Analytics > Informes > **Crear informe**.
+    
+2.  Selecciona la fuente de datos, el nombre del informe y la descripción correspondientes.
+    
+3.  Elige el tipo de informe: tabla, gráfico o dinámico.
+    
+4.  Haz clic en **Crear**.
+    
+
+## Activar el desglose en informes de gráficos y dinámicos
+
+La [función de desglose](/t/x2yzj9g/reports#enabling-drilldown-in-chart-and-pivot-reports) te permite profundizar en los datos del informe mostrando una vista tabular de las filas subyacentes asociadas con puntos de datos específicos en informes de gráficos y dinámicos.
+
+Para activar el desglose en los informes:
+
+1.  Ve a la pestaña **Configuración** en la página de configuración del informe.
+2.  En Desglose, selecciona los campos.
+3.  Haz clic en **Aplicar**.
+
+Pasa el cursor sobre el informe de gráficos o dinámico y haz clic para profundizar en los datos. Aparecerá una vista tabular que muestra las filas subyacentes relacionadas con el punto de datos en el que hayas hecho clic. Puedes buscar campos, mostrar u ocultar columnas y ordenar los datos haciendo clic en el menú desplegable de cada encabezado de columna. Además, puedes exportar los datos durante la ejecución.  
+  
+![](/migration-assets/analytics-in-apps/2.gif)
+
+## Compartir y exportar un informe
+
+Una vez creado el informe, tienes varias formas de administrarlo. En Informes, haz clic en el botón **Más opciones** del informe que quieras administrar. 
+
+-   Compartir: comparte el informe con los [roles](/t/h7yzj46/application-roles) creados en las apps.  
+    
+-   Exportar: la opción de exportación solo se aplica a los informes tabulares. Esta opción te permite exportar todos los datos de un informe tabular como un archivo CSV o JSON. Una vez que exportes un informe, recibirás un correo electrónico con un enlace para descargarlo.
+    
+
+> **Nota**: Debes activar el encabezado de exportación al configurar un informe tabular en una página para utilizar la opción de exportación.
+
+### Acciones adicionales
+
+Haz clic en el botón **Más opciones** del informe que quieras > selecciona una de las siguientes opciones.
+
+-   Haz clic en **Editar** \> Configura la página del informe > selecciona los campos de la fuente de datos mediante opciones como dimensión, medida y leyenda > haz clic en **Guardar**.
+    
+-   Cambia el nombre de un informe > proporciona el nuevo nombre > haz clic en **Cambiar nombre**.
+    
+-   Haz clic en **Eliminar** para eliminar el informe.
+    
+-   Selecciona la opción **Duplicar** > proporciona el nombre requerido para la copia del informe > haz clic en **Duplicar**. Se creará una copia del informe seleccionado, incluidos los permisos de uso compartido y las personalizaciones, en la página **Informes**.
+    
+
+## Usar informes de Analytics en el generador de páginas
+
+Para utilizar Analytics en el generador de páginas, sigue estos pasos:
+
+1.  Arrastra y suelta en la página el componente de informe —tabular, de gráfico o dinámico— que quieras visualizar.
+    
+2.  En la configuración, elige Analytics como tipo de flujo.
+    
+3.  Selecciona el informe que quieras que aparezca en el generador de páginas.
+    
+4.  Si se añadieron parámetros de filtro, aparecerán en [Parámetros de filtro](/t/h7yzj0v/using-advanced-filters-in-apps).
+    
+5.  Activa **Mostrar encabezado** para acceder al encabezado de tus informes.
+    
+
+Una vez activado el encabezado, podrás ver opciones para actualizar, ordenar y filtrar los datos, mostrar u ocultar campos y exportar.
+
+-   En los gráficos, puedes ver el icono de actualización de datos y las opciones de ordenación en el generador de páginas.
+-   En los informes dinámicos, solo estará disponible el icono de actualización de datos. 
+
+Los detalles de los componentes del informe, como el ID del componente, el ID del informe y el ID de la fuente de datos, se pueden consultar en Detalles del componente.
+
+-   El ID del componente es esencial para obtener detalles sobre un componente de informe específico mediante comandos del [SDK](https://developers.kissflow.com/gettingstarted/).
+-   El ID del informe y el ID de la fuente de datos se utilizan como referencia.
+
+> **Nota:** También puedes configurar un [desglose personalizado](/t/g9yzj45#enabling-drilldown-in-chart-and-pivot-reports) mediante eventos de clic en el componente de informe de gráficos o dinámico dentro del generador de páginas.
+
+> **Nota importante sobre la edición simultánea de informes de Analytics:**Para garantizar la integridad de los datos y evitar conflictos, nuestro sistema gestiona la edición simultánea mediante una regla de «el primero en guardar». Esto significa que, si dos o más usuarios editan el mismo informe de Analytics a la vez, los cambios de la persona que haga clic en **Guardar** primero se registrarán correctamente.Si otro usuario guarda el informe antes que tú, tu versión quedará obsoleta. Cuando intentes guardar tus ediciones, se te pedirá que actualices la pestaña para cargar las últimas actualizaciones.**Ten en cuenta que actualizar la pestaña descartará todo tu trabajo no guardado en la pestaña actual.** Esta regla se aplica tanto a los informes de flujos como a los informes de Analytics en una app.  
+>   
+> Para evitar perder el progreso, te recomendamos coordinarte con tu equipo para asegurarte de que solo una persona edite activamente un informe compartido cada vez.

@@ -1,0 +1,71 @@
+---
+title: "Añadir filtros avanzados con IA"
+description: "Usa lenguaje natural para generar condiciones de filtro avanzadas en un tablero, resumir los filtros existentes y volver a generarlos con IA."
+contentType: guide
+persona: end-user
+section: use
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - boards
+  - items
+  - filters
+  - ai
+---
+
+# Añadir filtros avanzados con IA
+
+<PlanBadge plans={["enterprise"]} />
+
+<iframe src="https://player.vimeo.com/video/1133474101?app_id=122963" title="AI-powered advanced filters - Overview video" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+En lugar de crear manualmente las condiciones del filtro, puedes describir en lenguaje sencillo lo que quieres ver y dejar que la IA cree el filtro por ti.
+
+## Generar un filtro a partir de una instrucción
+
+1. Haz clic en el botón **Filtro** de tu tablero.
+2. En el panel de filtros que se abre, haz clic en **Filtro avanzado**.
+3. En el cuadro de texto situado debajo de **Generar un filtro avanzado con IA**, escribe tus criterios de filtrado en un lenguaje sencillo y natural. Por ejemplo: _Mis elementos asignados de alta prioridad_.
+4. Haz clic en **Generar**. La IA crea las condiciones de filtro correspondientes en la sección inferior. También puedes añadir o ajustar las condiciones manualmente.
+5. Cuando estés satisfecho con las condiciones, haz clic en **Aplicar** para ver los resultados filtrados.
+
+{/* TODO: captura de pantalla — panel de filtros con el cuadro de texto Generar un filtro avanzado con IA y las condiciones generadas */}
+
+<Callout type="idea">
+  Para incluir subelementos en los resultados filtrados, activa **Aplicar filtro a los subelementos** en el panel de filtros.
+</Callout>
+
+## Resumir y volver a generar filtros
+
+Haz clic en **Resumen del filtro** para obtener un resumen generado por IA que describa lo que representan las condiciones de tu filtro. Puedes usar este resumen como base para nuevas instrucciones:
+
+1. Haz clic en **Editar**, junto al resumen del filtro.
+2. Actualiza el texto del resumen para reflejar tu nuevo requisito.
+3. Haz clic en **Volver a generar** para que la IA cree un nuevo conjunto de condiciones de filtro.
+
+Por ejemplo, si el resumen dice _Este filtro muestra los elementos con prioridad Alta que están asignados al usuario actual_, puedes editarlo para que diga _Este filtro muestra los elementos con prioridad Crítica que están asignados al usuario actual_ y volver a generar el filtro.
+
+## Ejemplos de instrucciones
+
+| Para ver... | Puedes escribir... |
+|---|---|
+| Elementos de alta prioridad asignados a ti | "Mis elementos asignados de alta prioridad" |
+| Elementos cuya fecha límite ya pasó | "Muéstrame todas las tareas atrasadas" |
+| Elementos creados durante la semana actual | "Todo lo creado esta semana" |
+| Elementos asignados a una persona específica | "Tareas asignadas a Natasha Romanoff" |
+| Elementos con varias condiciones | "Todos los elementos críticos del paso de aprobación cuya fecha límite es hoy" |
+
+## Solución de problemas
+
+**Los filtros generados no son los que esperaba.**
+
+- **Por qué ocurre** — Es posible que la IA haya interpretado incorrectamente una solicitud poco clara.
+- **Cómo solucionarlo** — Reformula tu solicitud de forma más directa y específica. Por ejemplo, en lugar de _Muestra las tareas antiguas_, prueba con _Muestra las tareas creadas antes del 1 de octubre de 2025_. Incluir los nombres de los campos en tu solicitud suele generar resultados más precisos.
+
+## Qué hacer a continuación
+
+- [Crear y gestionar elementos](/docs/use/items/creating-items)
+- [Exportar elementos de un tablero](/docs/use/items/exporting-items)
+- [Usar diseños de tablero](/docs/use/apps/using-board-layouts)

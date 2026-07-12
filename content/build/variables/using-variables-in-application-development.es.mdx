@@ -1,0 +1,369 @@
+---
+title: "Uso de variables en el desarrollo de aplicaciones"
+description: "BORRADOR (sin verificar) — migrado desde /t/83yzj4y/using-variables-in-application-development"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+## Descripción general
+
+En el desarrollo de aplicaciones, las variables se utilizan para almacenar valores dinámicos que cualquier usuario puede usar en cualquier lugar dentro de la aplicación o en una página específica. Una variable te permite definir pares clave-valor constantes. Estos se pueden usar para:
+
+-   Mostrar valores dentro de los componentes de una página.
+-   Filtrar datos dentro de tus flujos de trabajo, como un tablero o un proceso.
+
+Hay dos tipos de variables que puedes usar: variables globales y variables locales.
+
+**Variables globales:** Las variables globales se declaran como un valor común que cualquier usuario puede usar en toda la aplicación cualquier cantidad de veces. Una vez declarada, una variable global permanece en la aplicación durante todo el tiempo que esta se esté ejecutando.
+
+**Variables locales:** Las variables locales se crean dentro de páginas específicas y solo se pueden usar en la página donde se crean, lo que limita su alcance. Además del alcance, una variable local se puede usar cualquier cantidad de veces dentro de la página donde se define.
+
+**Variable global**
+
+**Variable local**
+
+Las variables globales se declaran como un valor común en la aplicación.
+
+Las variables locales se declaran dentro de una página específica de la aplicación.
+
+El alcance de la variable es global; es decir, todos los formularios de la aplicación pueden acceder a ella.
+
+El alcance de la variable local está limitado a la página donde se crea. Ninguna otra página dentro de la aplicación puede usar una variable local creada dentro de otra página.
+
+Cualquier cambio en la variable global afecta a todos los lugares donde se usa dentro de la aplicación.
+
+Cualquier cambio en la variable local afecta a los componentes donde se usa dentro de la página en la que se define.
+
+Una variable global está activa en la memoria de la aplicación durante todo el tiempo que esta está en uso.
+
+Una variable local está activa siempre que la página donde se define se esté ejecutando.
+
+### Ventajas de usar variables locales
+
+Las variables locales ofrecen un alcance limitado en comparación con las variables globales. Sin embargo, usar variables locales puede ayudarte a administrar el uso de la memoria, aumentar la velocidad de procesamiento y mejorar el rendimiento general de la aplicación.
+
+Aunque no es posible usar el mismo nombre de variable para el mismo tipo de variable, puedes crear variables globales y locales con el mismo nombre para organizar mejor la aplicación y evitar conflictos de nombres.
+
+Las variables locales pueden garantizar una mejor escalabilidad al crear tantas variables como sean necesarias para ejecutar las tareas rápidamente y gestionar cargas de trabajo mayores.
+
+### Tipos de variables
+
+Puedes crear una variable correspondiente a uno de los seis tipos de variables que se indican a continuación. Cada tipo de datos sirve para un propósito específico según el tipo de datos que el campo deba gestionar:
+
+-   **Texto** – Una secuencia de caracteres o palabras, como nombres o descripciones.
+    
+-   **Número** – Cualquier valor numérico, incluidos números enteros y decimales.
+    
+-   **Booleano** – Un valor verdadero/falso, que suele usarse para interruptores o casillas de selección.
+    
+-   **Objeto** – Una colección estructurada de pares clave-valor, útil para almacenar datos relacionados.
+    
+-   **Matriz de cadenas** – Una lista de valores de texto, ideal para entradas de opción múltiple.
+    
+-   **Matriz de objetos** – Una lista de elementos de datos estructurados, utilizada habitualmente para conjuntos de datos complejos.
+    
+
+### Límites de las variables
+
+Los tipos de variables **Objeto**, **Matriz de cadenas** y **Matriz de objetos** se pueden usar para crear una variable JSON. Estos tres tipos de variables tienen límites.
+
+#### Objetos
+
+-   Claves del objeto raíz: 100 como máximo (nivel superior)
+    
+-   Profundidad de anidamiento: 2 niveles
+    
+-   Claves de objetos anidados de nivel 1: 20 como máximo
+    
+-   Claves de objetos anidados de nivel 2: 10 como máximo
+    
+-   Elementos de matriz: 10 por matriz
+    
+-   Claves de objetos de elementos de matriz: 10 por matriz
+    
+
+#### Esquema JSON para objetos
+
+````json
+#### JSON SCHEMA
+
+```json
+&#123;
+  "type": "object",
+  "properties": &#123;
+    "orderId": &#123; "type": "string" &#125;,
+    "isPaid": &#123; "type": "boolean" &#125;
+  &#125;
+&#125;
+```
+````
+
+#### Ejemplo de JSON para objetos  
+ 
+
+```json
+
+// ROOT OBJECT KEYS (Max 100 keys)
+
+{
+  "userID": 101,                                 // LEVEL 1 OBJECT KEYS
+  "username": "jdoe_dev",
+  "email": "john@example.com",
+
+  "settings": {                                   // LEVEL 2 OBJECT KEYS (Max 20 keys)
+    "language": "en-US",
+    "notifications": true,
+    "privacyMode": "high",
+
+    "theme": {                                    // LEVEL 3 OBJECT KEYS (Max 10 keys)
+      "mode": "dark",
+      "primaryColor": "#00ff00",
+      "fontSize": 14,
+      "fontFamily": "Roboto",
+      "highContrast": false
+    }
+  },
+
+  "friendsList": [                                // NESTED ARRAY ITEMS (Max 10 items)
+    {                                             // OBJECT KEYS OF NESTED ARRAY ITEM (Max 10 keys)
+      "name": "Alice",
+      "status": "Online",
+      "mutualFriends": 5,
+      "lastSeen": "2024-05-20"
+    },
+    {
+      "name": "Bob",
+      "status": "Away"
+    }
+  ]
+}
+```
+
+#### Matriz de cadenas
+
+-   Elementos de la matriz raíz: 30 como máximo
+    
+
+#### Esquema JSON para una matriz de cadenas
+
+````json
+#### JSON SCHEMA
+
+```json
+&#123;
+  "type": "array",
+  "items": &#123; "type": "string" &#125;
+&#125;
+````
+
+#### Matriz de objetos
+
+-   Elementos de la matriz raíz: 100 como máximo
+    
+-   Profundidad de anidamiento: 3 niveles
+    
+-   Claves de objetos anidados de nivel 1: 30 como máximo
+    
+-   Claves de objetos anidados de nivel 2: 20 como máximo
+    
+-   Claves de objetos anidados de nivel 3: 10 como máximo
+    
+-   Elementos de matriz: 10 por matriz
+    
+-   Claves de objetos de elementos de matriz: 10 por matriz
+    
+
+#### Esquema JSON para una matriz de objetos
+
+````json
+#### JSON SCHEMA
+
+```json
+
+{
+
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "orderId": { "type": "string" }
+    }
+  }
+}
+```
+````
+
+#### Ejemplo de JSON para una matriz de objetos
+
+```json
+// ROOT ARRAY ITEMS (Max 100 items)
+
+[
+  &#123;                                        // ROOT ARRAY ITEM 1
+    "userID": 101,                         // LEVEL 1 OBJECT KEYS (Max 30 keys)
+    "username": "jdoe_dev",
+    "email": "john@example.com",
+    "status": "Active",
+
+    "settings": &#123;                          // LEVEL 2 OBJECT KEYS (Max 20 keys)
+      "language": "en-US",
+      "notifications": true,
+
+      "theme": &#123;                           // LEVEL 3 OBJECT KEYS (Max 10 keys)
+        "mode": "dark",
+        "primaryColor": "#00ff00"
+      &#125;
+    &#125;,
+
+    "friendsList": [                       // NESTED ARRAY ITEMS (Max 10 items)
+      &#123;                                    // OBJECT KEYS OF NESTED ARRAY ITEM (Max 10 keys)
+        "name": "Alice",
+        "status": "Online"
+      &#125;,
+      &#123;
+        "name": "Bob",
+        "status": "Away"
+      &#125;,
+      false
+    ]
+  &#125;,
+
+  &#123;                                        // ROOT ARRAY ITEM 2
+    "userID": 102,
+    "username": "clara_tech"
+  &#125;
+]                                          // ...up to 100 ROOT ARRAY ITEMS
+```
+
+## Crear variables globales
+
+1.  Abre una aplicación en Kissflow.
+2.  Ve a Application builder.
+3.  En la barra de navegación izquierda, ve a **Variables**.
+4.  Haz clic en **Global variable** e introduce los detalles de la variable.
+
+-   Nombre de la variable: el nombre de clave de tu variable.
+-   Descripción: la descripción de tu variable.
+-   Tipo de variable: puedes seleccionar los siguientes tipos de datos: **Texto, Número, DateTime, Booleano, Objeto, Matriz de objetos, Matriz de cadenas.**   
+     ![](/migration-assets/using-variables-in-application-development/1.png)   
+     
+-   Valor predeterminado: especifica el valor predeterminado de la clave. El valor predeterminado varía según el tipo de datos.
+
+Haz clic en **Create** para guardar la variable.![](/migration-assets/using-variables-in-application-development/2.png) 
+
+También puedes añadir nuevas variables globales desde el editor de JavaScript dentro de un formulario.
+
+![](/migration-assets/using-variables-in-application-development/3.png)
+
+Ejemplo de JavaScript para declarar variables globales y locales
+
+```javascript
+
+let idResp await kf.api("/id");
+
+let accountId idResp._accId;
+
+let pageId=idResp._pageId;
+
+//global variable
+
+kf.app.setVariable("Account_Id", accountId);
+
+//local variable
+
+kf.app.page.setVariable("Page_Id", pageId);
+
+let resp await kf.api(form/2/$&#123;accountId&#125;/Asset_Master/
+$&#123;pageId&#125;/Systems_one/view/list?apply_preference=true&_application_id=IT_Asset_Management_System');
+
+await kf.app.setVariable("Asset_Master_Count", resp.count \|\| 0);
+
+let list_resp await kf.api(`/form/2/$&#123;accountId&#125;/Asset_Entry/
+
+$&#123;pageId&#125;/view/All_Entries/list?page_number=1&page_size=100&_application_id=IT_Asset_Management_System', &#123; "method": "POST" &#125;);
+```
+
+En la página **Variables**, se mostrarán todas las variables globales existentes junto con su nombre, descripción, tipo de datos y valor predeterminado. También puedes actualizar o eliminar variables globales desde esta sección.
+
+## Crear variables locales
+
+1.  Abre una aplicación en Kissflow.
+    
+2.  Ve a Application builder.
+3.  En la barra de navegación izquierda, haz clic en **Pages** y abre la página necesaria.
+4.  En **Page properties**, haz clic en **Local variable** e introduce los detalles de una variable.
+
+-   Nombre de la variable: el nombre de clave de tu variable.
+-   Descripción: la descripción de tu variable.
+-   Tipo de variable: puedes seleccionar los siguientes tipos de datos: Número, Texto, DateTime y Booleano.
+-   Valor predeterminado: especifica el valor predeterminado de la clave. El valor predeterminado varía según el tipo de datos.
+
+Haz clic en **Add** para guardar la variable.![](/migration-assets/using-variables-in-application-development/4.png) 
+
+Todas las variables locales creadas dentro de la página actual aparecerán aquí. También puedes actualizar o eliminar una variable desde esta sección.
+
+![](/migration-assets/using-variables-in-application-development/5.png)
+
+También puedes añadir nuevas variables locales desde el editor de JavaScript dentro de una página.
+
+![](/migration-assets/using-variables-in-application-development/6.png)
+
+#### **Convenciones de nomenclatura para los nombres de variables**
+
+-   Los nombres de variables globales y locales no pueden estar vacíos ni comenzar con números u otros caracteres especiales, como un guion bajo.
+    
+-   Una variable no puede tener el mismo nombre que otra variable del mismo tipo.
+-   Las palabras clave reservadas no se pueden usar como nombres de variables. Haz clic [aquí](https://helpdocs.kissflow.com/forms/reserved-keywords) para consultar una lista de palabras clave reservadas en Kissflow.
+
+### ¿Cómo declarar variables globales y locales en el editor de JavaScript?
+
+Usa la siguiente sintaxis para declarar nuevas variables globales y locales dentro del editor de JavaScript en un formulario.
+
+#### Variable global
+
+```
+let accountId = idResp._id;
+```
+
+```
+kf.app.setVariable(“Account_Id”, accountId);
+```
+
+Con esta sintaxis, **kf.app.setVariable** crea y define una nueva variable global.
+
+#### **Variable local**
+
+```
+let user = kf.user
+```
+
+```
+kf.app.page.setVariable(“Username”, user.Name);
+```
+
+Con esta sintaxis, **kf.app.page.setVariable** crea y define una nueva variable local.
+
+Haz clic [aquí](https://developers.kissflow.com/gettingstarted/) para obtener más información sobre cómo declarar y usar variables mediante JavaScript utilizando los métodos del SDK de Kissflow.
+
+**Nota:** Cuando eliminas una página de la aplicación, también se eliminarán todas las variables locales definidas dentro de la página.
+
+### ¿Dónde se utilizan las variables?
+
+Cuando añades un componente de página, como un botón o una etiqueta, puedes usar las variables de la aplicación dentro de los campos como valores dinámicos o usarlas dentro de funciones de JavaScript. Una vez implementada la aplicación, estas variables globales se representarán durante una sesión de la aplicación.
+
+Por ejemplo, un administrador de TI podría querer llevar un registro del número total de activos de TI disponibles en una organización para gestionar eficazmente los activos existentes. Para hacerlo, puede almacenar el recuento en una variable global llamada 'assets\_master\_count'. Esta variable se puede consultar y usar en cualquier lugar de la aplicación.
+
+Para recuperar únicamente el recuento de activos de un departamento específico, el administrador puede crear una página individual para el departamento y usar variables locales para este propósito.
+
+### Preguntas frecuentes
+
+1.  ¿Puedo crear una variable global y una local con el mismo nombre?  
+    Sí, es posible usar el mismo nombre de variable para variables globales y locales. Funcionan de manera independiente, ya que sus alcances dentro de la aplicación son diferentes.  
+     
+¿Se puede actualizar el nombre de una variable después de crearla?  
+No, no es posible actualizar el nombre de la variable una vez creada. Sin embargo, puedes editar la descripción, el tipo de datos y el valor predeterminado de la variable en cualquier momento.

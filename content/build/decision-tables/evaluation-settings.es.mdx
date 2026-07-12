@@ -1,0 +1,55 @@
+---
+title: "Configuración de evaluación"
+description: "Configura cómo una tabla de decisiones evalúa las filas: operación lógica, método de evaluación y cómo se devuelven los resultados coincidentes."
+contentType: reference
+persona: citizen-developer
+section: build
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - decision-tables
+---
+
+# Configuración de evaluación
+
+<PlanBadge plans={["enterprise"]} />
+
+La configuración de evaluación controla cómo se combinan los valores de las condiciones de cada fila y qué parte de la tabla se evalúa. Para abrirla, haz clic en el botón **Más opciones** de la esquina superior derecha y selecciona **Configuración de evaluación**.
+
+![Animación de cómo abrir el cuadro de diálogo Configuración de evaluación desde el menú Más opciones en la esquina superior derecha de una tabla de decisiones](/migration-assets/evaluation-settings/3.gif)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Operación lógica
+
+Elige cómo se combinan las condiciones de una fila:
+
+- **AND**: todas las condiciones de una fila deben ser verdaderas para que se devuelvan sus resultados.
+- **OR**: si alguna condición de una fila es verdadera, se devuelven sus resultados.
+
+## Método de evaluación
+
+Elige qué parte de la tabla se evalúa:
+
+- **Evaluar hasta la primera coincidencia**: la evaluación se detiene en la primera fila coincidente y devuelve sus resultados.
+- **Evaluar todas las coincidencias**: se evalúa toda la tabla. Elige cómo se devuelven los resultados coincidentes:
+  - **Devolver todos los valores coincidentes**: devuelve todos los valores coincidentes (con un límite de 100 valores).
+  - **Devolver la última coincidencia**: devuelve los valores de la última fila coincidente.
+  - **Devolver el promedio**: devuelve el promedio de los valores coincidentes.
+  - **Devolver el valor máximo**: devuelve el valor coincidente más grande.
+  - **Devolver el valor mínimo**: devuelve el valor coincidente más pequeño.
+  - **Devolver el total**: devuelve la suma de los valores coincidentes.
+
+<Callout type="info" title="Resultados no numéricos">
+  Las opciones de agregación (promedio, máximo, mínimo, total) están deshabilitadas cuando algún resultado no es numérico. Los tipos de resultado numérico son Number y Currency.
+</Callout>
+
+![Cuadro de diálogo Configuración de evaluación que muestra las opciones de devolución para Evaluar todas las coincidencias, con las opciones de agregación deshabilitadas debido a resultados no numéricos](/migration-assets/evaluation-settings/2.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Haz clic en **Guardar** para aplicar la configuración.
+
+## What's New
+
+- [Probar una tabla de decisiones](/docs/build/decision-tables/testing)

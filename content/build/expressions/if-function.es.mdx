@@ -1,0 +1,89 @@
+---
+title: "Función IF"
+description: "DRAFT (unverified) — migrated from /t/x2h4alm/if-function"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Básico ✓ Enterprise
+
+La función IF devuelve un valor si una expresión booleana es verdadera y otro si es falsa. 
+
+La sintaxis es:
+
+```
+IF(<logical_test>,<value_if_true>,<value_if_false>)
+```
+
+Para estos ejemplos, supondremos que el campo numérico _Food\_rating_ tiene un valor de seis. 
+
+**Tipo de datos**
+
+**Ejemplo**
+
+**Resultado**
+
+Texto
+
+IF(Food\_rating > 5, ”Yummy”, ”Yucky”)
+
+Yummy
+
+Número
+
+IF(Food\_rating > 5, 10, 1)
+
+10
+
+Moneda
+
+IF(Food\_rating > 5, Currency(100, "USD"), Currency(10, "USD"))
+
+$100
+
+Fecha
+
+IF(Food\_rating > 5, today(), today().offset(2, "D"))
+
+IF(Food\_rating > 5, Date(1970, 5, 29), Date(2015, 5, 29))
+
+(Fecha de hoy)
+
+5/29/1970
+
+También puedes usar la función IF al asignar un usuario a un paso o como condición para determinar si se produce un paso. 
+
+**Caso de uso**
+
+**Ejemplo**
+
+**Resultado**
+
+Asignación de un usuario
+
+IF(Food\_rating > 5, \_created\_by, \_created\_by.manager)
+
+Los valores verdadero y falso deben ser campos de usuario o de usuario del sistema en el formulario.
+
+Paso asignado al creador
+
+Condición del paso
+
+IF(Food\_rating>5,true(),false())
+
+El paso se produce
+
+## Funciones IF anidadas
+
+Puedes usar funciones IF anidadas como esta:
+
+`IF(Food_rating>5,”Yummy”,IF(Food_rating>3,”OK”,”Yucky”))`
+
+En este caso, 
+
+-   Si la valoración es superior a 5, _Yummy_.
+-   Si es 4 o 5, _OK_.
+-   Si es 3 o inferior, _Yucky_.

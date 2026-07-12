@@ -1,0 +1,105 @@
+---
+title: "Creación de componentes personalizados usando IA"
+description: "BORRADOR (sin verificar) — migrado desde /t/p8yg3zm/creating-custom-components-using-ai"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic   ✓ Enterprise
+
+Los componentes de página personalizados te permiten crear experiencias de interfaz de usuario totalmente adaptadas usando IA. Describe exactamente lo que necesitas al chatbot de IA y este generará un componente de página listo para usar en tu app.
+
+## Creación de un componente personalizado usando IA
+
+1.  Abre **App Builder.** En la navegación izquierda, ve a **Interfaz → Componentes**.
+2.  Haz clic en **Nuevo componente**.
+3.  Encontrarás dos opciones: [Crear y cargar](/t/y4yzj4d) y Crear con IA. Haz clic en **Crear con IA**.
+4.  Elige **Página** como tipo de componente e introduce un nombre.
+5.  Introduce instrucciones detalladas que describan lo que quieres que cree la IA.
+6.  Haz clic en **Crear.** La IA generará el componente y mostrará una vista previa en tiempo real en el panel central.
+
+![](/migration-assets/creating-custom-components-using-ai/6.gif)
+
+> **Consejo:** Puedes seguir perfeccionando el componente en cualquier momento escribiendo instrucciones adicionales en el chatbot de IA.
+
+## Escritura de instrucciones eficaces
+
+Cuantos más detalles proporciones sobre el aspecto y la experiencia de tu componente, mejor será el resultado. Tus instrucciones deben abarcar:
+
+1. **Fuente de datos:** Haz referencia a un formulario por su nombre completo o ID (por ejemplo, `Hiring requests form` o `Hiring_requests_A00`). Escribe `/` para explorar y adjuntar formularios directamente.
+2. **Funciones:** Búsqueda, filtros, ordenación, paneles contraíbles, etc.
+3. **Diseño:** Tarjetas, tablas, listas y cómo deben organizarse los elementos.
+4. **Estilo visual:** Codificación por colores, espaciado, tamaño de las tarjetas y otras preferencias de diseño.
+
+### Ejemplo:
+
+Crea un componente de tabla de inventario con el formulario Inventory\_Fill\_Form\_A00. La tabla debe incluir funciones para añadir elementos, actualizar y paginar, con una interfaz moderna y colorida, animaciones fluidas y adaptada a dispositivos móviles.
+
+## Vista previa del componente personalizado
+
+-   Una vez que hagas clic en **Crear**, la IA comenzará a crear tu componente inmediatamente. Cuando finalice la generación, aparecerá una vista previa en tiempo real en el panel central.
+-   Para perfeccionar el componente, escribe tus cambios como instrucciones detalladas en el chatbot. La IA actualizará el componente en consecuencia.
+-   También puedes inspeccionar el código subyacente haciendo clic en la pestaña **Código** del panel de vista previa. El editor es **de solo lectura**, por lo que cualquier modificación debe hacerse a través del chatbot y no directamente en el código.
+
+![](/migration-assets/creating-custom-components-using-ai/2.png)
+
+> **Nota:** Esta función ofrece integración integrada con el SDK de Kissflow. Esto significa que la IA incorpora automáticamente los métodos del SDK de Kissflow en el componente generado, de modo que tu componente puede interactuar sin problemas con los demás componentes nativos de la página.
+
+## Creación de parámetros de entrada
+
+Puedes crear parámetros de entrada pidiéndoselo al chatbot o manualmente desde el panel derecho.
+
+**Para añadir uno manualmente:**
+
+1.  Haz clic en **Añadir un parámetro**.
+2.  Completa el **nombre**, el **ID**, el **tipo** y el **valor predeterminado** del parámetro.
+
+**Tipos de parámetros compatibles:** String, Number, Static drop-down.
+
+![](/migration-assets/creating-custom-components-using-ai/1.png)
+
+> **Importante:** Si actualizas un parámetro existente (por ejemplo, cambiando su tipo o valor predeterminado), debes indicar explícitamente al chatbot que aplique esos cambios al componente. Las actualizaciones de los parámetros **no** se aplican automáticamente.
+
+## Publicación
+
+Haz clic en **Publicar** en la barra superior para empaquetar e implementar tu componente en la app. Una vez publicado, el componente estará disponible para usarse en cualquier página de la app.
+
+![](/migration-assets/creating-custom-components-using-ai/3.gif)
+
+> **Nota:** La publicación funciona como una operación de guardado. Publica siempre antes de revertir si quieres conservar tus cambios.
+
+## Reversión de cambios
+
+Haz clic en **Revertir** para devolver el componente a su última versión publicada. Esto resulta útil para descartar ediciones no deseadas en un solo paso.
+
+![](/migration-assets/creating-custom-components-using-ai/5.gif)
+
+> **Nota:** La operación de reversión no se puede deshacer. Todos los cambios no publicados se perderán permanentemente.
+
+## Uso de un componente personalizado en una página
+
+1.  Abre la página en el creador de páginas.
+2.  Arrastra y suelta el widget **Componente personalizado** en la página.
+3.  Selecciona tu componente en el menú desplegable **Seleccionar componente personalizado**.
+4.  Guarda y previsualiza la página.
+
+![](/migration-assets/creating-custom-components-using-ai/4.gif)
+
+> **Nota:** Los componentes personalizados se pueden usar junto con componentes del sistema en la misma página. Sin embargo, los ajustes de configuración del creador de páginas se aplican únicamente a los componentes del sistema, no a los personalizados.
+
+## Preguntas frecuentes
+
+1. **¿Cuántos componentes personalizados puedo crear por app?**  
+      
+    Puedes crear hasta **10** componentes generados por IA por app, incluidos los borradores.  
+     
+2. **¿Qué ocurre si alcanzo el límite diario del chatbot?**  
+      
+    Cada usuario puede realizar hasta **50 intercambios al día** con el chatbot. Una vez alcanzado el límite, la edición se bloqueará durante 24 horas; después podrás continuar con normalidad.  
+     
+3. **¿Pueden otros usuarios ver mi historial de conversaciones del chatbot?**  
+      
+    No. Solo el creador del componente puede consultar su historial de intercambios con el chatbot. Los demás usuarios pueden previsualizar, editar y publicar el componente según sea necesario.

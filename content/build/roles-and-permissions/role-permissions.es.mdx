@@ -1,0 +1,176 @@
+---
+title: "Permisos de roles"
+description: "BORRADOR (sin verificar) — migrado desde /t/83yzj9j/role-permissions"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Básico ✓ Enterprise
+
+Kissflow Apps te permite compartir tu formulario de proceso, formulario de tablero, dataform, conjunto de datos y lista con diferentes roles de tu aplicación y con aplicaciones externas, y asignarles permisos de acceso únicos.
+
+> **Nota**: El permiso de **Administrar** no se puede asignar a roles vinculados externamente. Sin embargo, es posible asignar el permiso de Iniciar.
+
+#### [Formulario de proceso](/t/x2h9q14/permissions#process-form)
+
+Un rol con acceso a cualquier formulario de proceso tendrá permiso para iniciar o administrar el formulario de proceso.
+
+**Iniciar**
+
+**Administrar**
+
+Iniciar nuevos elementos en el formulario de proceso
+
+Crear y administrar elementos en el formulario de proceso
+
+Trabajar en todos los elementos que hayan creado y que se les hayan asignado
+
+Tener acceso predeterminado a todos los informes como parte del formulario de proceso
+
+![](/migration-assets/role-permissions/1.png)
+
+### Cómo funciona la herencia de permisos
+
+Cuando se comparte un proceso con un rol, sus permisos se heredan automáticamente en los informes asociados.
+
+Esto significa que, cuando asignas un rol a un proceso, todos los usuarios de ese rol obtendrán automáticamente acceso a los informes relacionados sin que sea necesario compartirlos por separado.  
+Aún puedes ajustar o anular los permisos predeterminados en cualquier momento.
+
+La tabla siguiente muestra cómo se heredan los permisos para los procesos:
+
+**Nivel de permiso**
+
+**Acceso a los informes del proceso**
+
+Iniciar
+
+❌
+
+Administrar
+
+✅
+
+#### [Dataform](/t/x2h9q14/permissions#dataform)
+
+Un rol con acceso a cualquier dataform tendrá permiso para iniciar o administrar el dataform.
+
+**Solo lectura**
+
+**Editar**
+
+**Administrar**
+
+Permite a los usuarios únicamente ver los elementos.
+
+Permite a los usuarios ver, crear y actualizar los elementos.
+
+Permite a los usuarios ver, crear, actualizar y eliminar los elementos.
+
+![](/migration-assets/role-permissions/2.png)
+
+### Cómo funciona la herencia de permisos
+
+Cuando se comparte un dataform con un rol, sus permisos se heredan automáticamente en las vistas y los informes asociados.
+
+Esto significa que, cuando asignas un rol a un dataform, todos los usuarios de ese rol obtendrán automáticamente acceso a las vistas y los informes relacionados sin que sea necesario compartirlos por separado.  
+Aún puedes ajustar o anular los permisos predeterminados en cualquier momento.
+
+La tabla siguiente muestra cómo se heredan los permisos para los dataforms:
+
+**Nivel de permiso**
+
+**Acceso a las vistas del dataform**
+
+**Acceso a los informes del dataform**
+
+Solo lectura
+
+✅ (todas excepto la vista de hoja)
+
+❌
+
+Editar
+
+✅
+
+✅
+
+Administrar
+
+✅
+
+✅
+
+Por ejemplo, si se comparte un dataform con el permiso de **Solo lectura**, los usuarios no tendrán acceso a sus informes de forma predeterminada.
+
+Si el dataform se comparte con el permiso de **Editar** o **Administrar**, los usuarios obtendrán automáticamente acceso a las vistas y los informes.
+
+#### [Formulario de tablero](/t/x2h9q14/permissions#board-form)
+
+Un rol con acceso a cualquier formulario de tablero tendrá permiso para iniciar o administrar el formulario de tablero.
+
+![](/migration-assets/role-permissions/3.png)
+
+**Solo lectura**
+
+**Iniciar**
+
+**Administrar**
+
+**Editar**
+
+Puede ver los elementos en las vistas del sistema, pero no puede editarlos.
+
+Puede iniciar nuevos elementos y trabajar en todos los elementos que haya creado.
+
+Puede crear nuevos elementos del tablero, administrar los elementos que haya creado y que se le hayan asignado. Tendrá acceso a todos los informes.
+
+Puede crear, ver y actualizar elementos.
+
+![](/migration-assets/role-permissions/4.png)
+
+### Cómo funciona la herencia de permisos
+
+Cuando se comparte un tablero con un rol, sus permisos se heredan automáticamente en las vistas y los informes asociados.
+
+Esto significa que, cuando asignas un rol a un tablero, todos los usuarios de ese rol obtendrán automáticamente acceso a las vistas y los informes relacionados sin que sea necesario compartirlos por separado.  
+Aún puedes ajustar o anular los permisos predeterminados en cualquier momento.
+
+La tabla siguiente muestra cómo se heredan los permisos para los tableros:
+
+**Nivel de permiso**
+
+**Acceso a las vistas del tablero**
+
+**Acceso a los informes del tablero**
+
+Solo lectura
+
+✅
+
+✅
+
+Iniciar
+
+✅
+
+✅
+
+Editar
+
+✅
+
+✅
+
+Administrar
+
+✅
+
+✅
+
+Las vistas y los informes del tablero estarán accesibles en todos los niveles de permiso.
+
+> **Nota:** Para anular los permisos heredados, ve a la página de [Roles](/t/h7yzj46/application-roles#adding-a-role-to-an-application) y ajusta los permisos según tus necesidades.

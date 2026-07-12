@@ -1,0 +1,182 @@
+---
+title: "Configuración de seguridad para los flujos"
+description: "Controla cómo un proceso, tablero, conjunto de datos o dataform comparte datos con otros flujos, además de los permisos de impresión, comentarios, observadores e impersonación."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - security
+  - permissions
+  - lookup
+  - processes
+---
+
+# Configuración de seguridad para los flujos
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+Los administradores de flujos pueden controlar cómo su proceso, tablero, conjunto de datos o dataform comparte datos con otros flujos de tu cuenta de Kissflow. La página de **Seguridad** te ofrece dos niveles de control —un valor predeterminado para toda la cuenta y anulaciones por flujo— además de varios controles de acceso para imprimir, descargar, comentar, observar e impersonar.
+
+## Acceder a la configuración de seguridad
+
+1. Ve al proceso, tablero, conjunto de datos o dataform que quieras administrar.
+2. Haz clic en **Administrar** > **Seguridad**.
+
+![Menú Administrar abierto con la opción Seguridad resaltada](/migration-assets/security-settings-for-flows/1.png)
+{/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+## Permisos globales
+
+Los permisos globales son la regla de acceso predeterminada que se aplica a todos los flujos de tu cuenta. Actualmente, **Lookup** es el único permiso con un interruptor global real: una configuración de **Todos los flujos** que está activada de forma predeterminada, por lo que cualquier flujo de tu cuenta puede consultar los datos de este flujo, a menos que la desactives o la anules para un flujo específico.
+
+<Callout type="info">
+  El acceso de integración no tiene una configuración global. Debe concederse a cada flujo de forma individual; consulta [Permisos personalizados](#customized-permissions) a continuación.
+</Callout>
+
+### Desactivar el acceso global de Lookup
+
+1. En la página de **Seguridad**, busca la sección **Permisos globales**.
+2. Desmarca la casilla **Lookup** de **Todos los flujos**.
+
+Al desmarcarla, ningún flujo de la plataforma podrá consultar de forma predeterminada los datos de este flujo; en su lugar, tendrás que conceder acceso individualmente a flujos específicos.
+
+<Callout type="warn">
+  Desactivar el acceso global de Lookup lo restringe en todos los flujos, a menos que lo anules mediante un permiso personalizado para un flujo específico.
+</Callout>
+
+## Permisos personalizados
+
+Los permisos personalizados te permiten conceder o restringir el acceso para un flujo específico, anulando lo que indique la configuración global para ese flujo. Úsalos cuando la mayoría de los flujos deban seguir el valor predeterminado global, pero algunos necesiten una excepción; o, en el caso del acceso de integración, porque es la única forma de concederlo.
+
+### Configurar un permiso personalizado
+
+1. En la página de **Seguridad**, en **Permisos personalizados**, haz clic en **Agregar flujo** y selecciona el flujo que quieras configurar.
+2. Elige los permisos que quieras conceder:
+   - **Lookup**: selecciona **Todos los campos** para mostrar todos los campos, o **Seleccionar campos** para mostrar solo algunos.
+   - **Acceso de integración**: actívalo para permitir que el flujo se use como fuente de datos o activador en los pasos de integración de otro flujo. Este es el único lugar donde puedes conceder el acceso de integración, ya que no existe una configuración global para él.
+3. Guarda los cambios.
+
+Cuando agregas un flujo de esta forma, comienza heredando la configuración global actual, que después puedes anular.
+
+<Callout type="info">
+  Si un flujo no tiene un permiso personalizado, simplemente sigue la configuración de permisos globales.
+</Callout>
+
+### Eliminar un permiso personalizado
+
+1. En la página de **Seguridad**, busca el flujo en **Permisos personalizados**.
+2. Haz clic en **Eliminar permiso personalizado** junto al flujo.
+3. Revisa los campos de búsqueda que dependan de este permiso; eliminarlos podría afectarlos.
+4. Haz clic en **Eliminar** para confirmar.
+
+El flujo vuelve inmediatamente a la configuración de permisos globales y se pierden los permisos específicos que hayas configurado para él.
+
+## Compartir campos de búsqueda dentro de las aplicaciones
+
+Para las aplicaciones creadas en Kissflow:
+
+- Los administradores de aplicaciones pueden vincular aplicaciones entre sí.
+- Al vincularlas, un administrador de aplicaciones puede elegir qué campos del flujo de origen estarán disponibles para la aplicación de destino.
+
+## Controles de acceso
+
+Los administradores de flujos pueden permitir o restringir los permisos que afectan a la capacidad de los usuarios para imprimir formularios, descargar archivos adjuntos, mencionar personas en comentarios, agregar observadores e impersonar a otros usuarios.
+
+### Permisos de impresión y descarga
+
+Para cada flujo, puedes seleccionar **Cualquiera** o **Solo administradores** para el acceso de impresión y descarga. **Cualquiera** permite que cualquier usuario descargue archivos adjuntos o imprima formularios; **Solo administradores** restringe ambas acciones a los administradores de flujos.
+
+<Callout type="info">
+  Esta es una configuración a nivel de flujo. Puede anularse mediante los [permisos establecidos en el nivel de Administración de la cuenta](/docs/admin/account-settings/flow-settings), que tienen prioridad cuando están configurados.
+</Callout>
+
+### Permisos de comentarios
+
+#### Participantes y no participantes
+
+| | Participante | No participante |
+| --- | --- | --- |
+| **Definición** | Un usuario que ha participado en el flujo de trabajo del elemento hasta el paso actual | Un usuario que no ha participado en el flujo de trabajo del elemento hasta el paso actual |
+| **Incluye** | El iniciador del elemento y todos los aprobadores hasta el paso actual | Futuros asignados y cualquier usuario de la cuenta que no forme parte del proceso |
+
+Por ejemplo, si un elemento se encuentra actualmente en el paso C, su iniciador y los aprobadores de los pasos A y B son participantes; todos los demás son no participantes.
+
+#### Permitir que los asignados mencionen a no participantes
+
+Como administrador de flujos, puedes permitir que los asignados mencionen a no participantes en el comentario de un elemento, incorporándolos a una conversación para proporcionar contexto sin agregarlos al flujo de trabajo.
+
+1. Ve a **Administrar** > **Seguridad** > **Controles de acceso** > **Permisos de comentarios**.
+2. Activa **Permitir que los asignados mencionen a no participantes**.
+3. Elige un alcance:
+   - **Permitir que los asignados mencionen a cualquier usuario de este proceso**: los asignados pueden mencionar a cualquier usuario con quien se comparta el proceso, independientemente de si ha participado hasta el momento.
+   - **Permitir que los asignados mencionen a cualquier usuario de esta cuenta**: los asignados pueden mencionar a cualquier usuario de la cuenta, incluso si actualmente no tiene acceso al proceso.
+
+![Configuración de permisos de comentarios con el interruptor para mencionar a no participantes y las opciones de alcance](/migration-assets/security-settings-for-flows/2.png)
+{/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+Una vez que se menciona a un no participante, puede:
+
+- Ver todos los comentarios anteriores y futuros del elemento.
+- Reaccionar y responder únicamente dentro de ese hilo de comentarios.
+- Ver los datos del elemento tal como estaban en el paso en el que se le mencionó.
+
+No se le agrega como asignado ni como participante en el flujo de trabajo.
+
+<Callout type="info">
+  Por lo general, un no participante debe mencionarse en el comentario principal de un hilo para unirse a él.
+</Callout>
+
+<Callout type="idea">
+  **Ejemplo:** Un gerente de Recursos Humanos que está procesando un elemento de Contrato de nueva contratación detecta una cláusula personalizada que requiere una revisión legal. Legal Lee es un usuario de la cuenta, pero no forma parte del flujo de trabajo de Recursos Humanos. Como está activada la opción **Permitir que los asignados mencionen a cualquier usuario de esta cuenta**, el gerente de Recursos Humanos puede mencionar directamente a Legal Lee en los comentarios. Legal Lee abre el elemento desde la notificación, ve los datos completados hasta el paso actual (pero nada de los pasos que aún no han ocurrido) y responde en el hilo, sin convertirse nunca en participante del flujo de trabajo.
+</Callout>
+
+<Callout type="info">
+  Para activar esta opción en un proceso creado dentro de Kissflow Apps, abre el entorno de desarrollo de la aplicación y ve a **Configuración** > **Controles de acceso** > **Permisos de comentarios** del proceso. Luego, activa **Permitir que los asignados mencionen a no participantes**.
+</Callout>
+
+### Permisos de observadores
+
+Activa **Permitir que los miembros del proceso observen elementos** para que los iniciadores de elementos puedan agregar a otros miembros del proceso como observadores de los elementos que crean.
+
+![Interruptor de permisos de observadores en la página Seguridad](/migration-assets/security-settings-for-flows/3.png)
+{/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+Cuando esta configuración está **activada**:
+
+- Los iniciadores pueden agregar hasta **10** usuarios del proceso como observadores por elemento.
+- Los observadores pueden seguir el progreso y el resultado de un elemento, y ver su formulario en modo de solo lectura.
+- Los observadores pueden agregar comentarios, mencionar a participantes y ser mencionados.
+- Los observadores reciben notificaciones cuando se les agrega o elimina como observadores, cuando el elemento se completa, rechaza o retira, y cuando se les menciona o reciben una reacción o respuesta en un comentario.
+
+Cuando esta configuración está **desactivada**:
+
+- Nadie puede agregar nuevos observadores a los elementos del proceso.
+- Los observadores existentes ya no pueden observar sus elementos y dejan de recibir notificaciones de observadores.
+- Los observadores existentes no se eliminan; al volver a activar la configuración, se restauran sus capacidades de observador.
+
+Para activar o desactivar los observadores de un proceso:
+
+1. Haz clic en **Administrar** > **Seguridad**.
+2. En **Controles de acceso**, activa o desactiva **Permitir que los miembros del proceso observen elementos**.
+3. Haz clic en **Guardar**.
+
+![Activación de la configuración de permisos de observadores y guardado del cambio](/migration-assets/security-settings-for-flows/5.gif)
+{/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+### Impersonación
+
+La impersonación permite que una cuenta de servicio actúe en nombre de un usuario o un elemento de tu cuenta de Kissflow. Obtén más información sobre la [Impersonación en cuentas de servicio](/docs/admin/service-accounts/impersonation-in-service-accounts).
+
+![Opción de impersonación en la configuración de controles de acceso del flujo](/migration-assets/security-settings-for-flows/4.png)
+{/* TODO: verifica que la captura coincida con la interfaz de usuario actual del producto */}
+
+## Qué sigue
+
+- [Administrar miembros y permisos del proceso](/docs/admin/processes/managing-process-members-and-permissions)
+- [Configuración del proceso](/docs/admin/processes/process-settings)
+- [Impersonación en cuentas de servicio](/docs/admin/service-accounts/impersonation-in-service-accounts)
+- [Configuración del flujo](/docs/admin/account-settings/flow-settings)

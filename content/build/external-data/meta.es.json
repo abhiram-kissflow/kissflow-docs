@@ -1,0 +1,14 @@
+{
+  "title": "Introducción a los objetos de datos externos",
+  "pages": [
+    "introduction-to-external-data-objects",
+    "setting-up-an-external-data-connection",
+    "configuring-an-external-data-object",
+    "editing-an-external-data-object",
+    "lookup-an-external-data-object",
+    "integrating-external-data-object",
+    "managing-external-data-objects-in-the-production-environment",
+    "safelisting-ips-for-external-data-connections",
+    "time-zones-in-external-data-objects"
+  ]
+}

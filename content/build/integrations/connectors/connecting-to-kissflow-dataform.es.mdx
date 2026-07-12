@@ -1,0 +1,99 @@
+---
+title: "Conector de dataform de Kissflow"
+description: "BORRADOR (no verificado) — migrado desde /t/x2y35r7/connecting-to-kissflow-dataform"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+![](/migration-assets/connecting-to-kissflow-dataform/1.svg)
+
+Los miembros de la aplicación pueden usar el conector de dataform para enviar datos desde un dataform a otros flujos de Kissflow o aplicaciones de terceros. 
+
+Por ejemplo, tienes un dataform con datos de identificación personal de empleados. Quieres iniciar un correo electrónico automatizado cada vez que un empleado envíe el formulario. Este correo les garantiza que sus datos se tratarán con la máxima confidencialidad. Puedes implementar esta configuración configurando una integración que inicie un correo electrónico cada vez que un empleado envíe el dataform.
+
+## Activadores en Dataform
+
+**Activador**
+
+**Descripción**
+
+Cuando se agrega un elemento a un Dataform
+
+Se activa cuando un usuario envía un elemento después de hacer clic en el botón Nuevo elemento o en un formulario de la cola de borradores.
+
+Cuando se actualiza un elemento en un Dataform
+
+Se activa cuando un usuario actualiza un elemento que ya se envió mediante la opción Editar. 
+
+Cuando se elimina un elemento en un Dataform
+
+Se activa cuando un usuario elimina un elemento que ya se envió mediante la opción Eliminar en el Dataform
+
+![](/migration-assets/connecting-to-kissflow-dataform/2.png)
+
+> **Nota:**
+> 
+> Los activadores mencionados anteriormente (especialmente, **Cuando se agrega un elemento a un dataform**) no son compatibles con las operaciones de importación de datos. La integración solo se activará para los envíos manuales; no se activará cuando los datos se carguen en bloque mediante una importación de CSV.
+
+## Acciones en Dataform
+
+**Acción**
+
+**Descripción**
+
+Crear y enviar un elemento
+
+Esta acción crea y envía un elemento de dataform utilizando las entradas transferidas a este paso. 
+
+Actualizar un elemento
+
+Esta acción actualiza los campos de un elemento de dataform. 
+
+Obtener un elemento
+
+Esta acción recupera un elemento específico de tu dataform con su ID de elemento.
+
+Obtener uno o más elementos
+
+Esta acción recupera varios elementos de tu dataform.
+
+Eliminar un elemento
+
+Esta acción elimina un elemento específico de tu dataform con su ID de elemento.
+
+![](/migration-assets/connecting-to-kissflow-dataform/3.png)
+
+## Usar el conector como activador
+
+1.  Crea una nueva [integración](/t/60h4akx/creating-an-integration) en tu aplicación.
+    
+2.  Selecciona el conector de Kissflow Dataform y, a continuación, elige un activador. 
+    
+3.  Crea una conexión nueva o usa una conexión existente en tu cuenta. Puedes conectarte a otra cuenta de Kissflow o usar tu propia cuenta de Kissflow. La conexión se autentica mediante tus claves de acceso y tokens secretos. Después de autenticar la conexión, haz clic en Siguiente.
+    
+4.  Selecciona el Dataform con el que quieres trabajar. Haz clic en **Siguiente**.
+    
+5.  Comprueba si el activador está configurado correctamente haciendo clic en el botón **Probar activador**. El conector extraerá datos del Dataform seleccionado y los mostrará en formato JSON. Si hay un error en la configuración, recibirás un mensaje al respecto. Vuelve a probar el activador después de realizar los cambios necesarios.
+    
+
+![](/migration-assets/connecting-to-kissflow-dataform/5.gif)
+
+## [Usar el conector como acción](/t/h7h4akh/process-connector#using-connector-as-an-action)
+
+1.  Haz clic en el conector de Dataform y selecciona un paso de acción entre las opciones disponibles.
+    
+2.  Al igual que al configurar un activador, configura una conexión con la cuenta requerida.
+    
+3.  Después de elegir un Dataform, agrega los valores pertinentes a los campos del formulario. Puedes especificar el número de elementos que se obtendrán y el número de página desde el que quieres obtenerlos. Si no se especifica, se obtendrán 200 elementos de la página 1 de forma predeterminada. El límite máximo es de 500 elementos por solicitud.
+    
+4.  También puedes asignar campos del formulario desde tu paso de activador o campos de tus pasos de acción anteriores. Después de ejecutar la acción, estos valores se agregarán automáticamente a los campos.
+    
+
+![](/migration-assets/connecting-to-kissflow-dataform/4.png)
+
+5\. Comprueba si el paso de acción está configurado correctamente haciendo clic en el botón **Probar acción**. Si hay errores, se te notificarán de inmediato. Corrígelos antes de volver a probar la acción.
+
+Después de configurar los activadores necesarios y sus acciones correspondientes, ve a la esquina superior derecha del editor para activar la integración.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

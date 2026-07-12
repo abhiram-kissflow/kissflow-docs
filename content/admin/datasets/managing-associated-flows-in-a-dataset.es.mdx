@@ -1,0 +1,35 @@
+---
+title: "Gestionar flujos asociados en un conjunto de datos"
+description: "BORRADOR (sin verificar) — migrado desde /t/m1yk8xt/managing-associated-flows-in-a-dataset"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Planes de Kissflow: ✓ Basic ✓ Enterprise
+
+La sección **Flujos asociados** ofrece una descripción general de cómo tu conjunto de datos interactúa con otros flujos. Te ayuda a comprender las dependencias, lo que facilita su gestión y actualización.
+
+Para acceder a los flujos asociados, haz clic en **Manage**, en la esquina superior derecha del conjunto de datos, y selecciona **Flujos asociados**.
+
+![](/migration-assets/managing-associated-flows-in-a-dataset/2.gif)
+
+## Flujos consultados
+
+Los [campos de búsqueda](/t/g9h4azr/lookup-field) permiten que un conjunto de datos recupere y muestre información de otros flujos. Esta sección se divide en dos partes:
+
+### **Flujos que consultan este conjunto de datos**
+
+Esta sección muestra los flujos que hacen referencia a este conjunto de datos para mostrar o recuperar información. Por ejemplo, si un proceso hace referencia a nombres o identificadores de proveedores de este conjunto de datos, el nombre del proceso aparecerá aquí.
+
+> **Nota:**
+> 
+> Si se actualiza un valor en el conjunto de datos maestro, las solicitudes existentes que ya hayan utilizado ese valor permanecerán sin cambios. Sin embargo, los flujos de trabajo que hagan referencia al valor actualizado utilizarán los datos nuevos al procesar solicitudes nuevas.
+
+![](/migration-assets/managing-associated-flows-in-a-dataset/1.gif)
+
+Para configurar la referencia, haz clic en **Configure** y serás redirigido a la página de [configuración de seguridad](/t/83h4al5/security-settings-and-access-control).
+
+### **Flujos desde los que se consulta**
+
+Esta sección muestra los flujos desde los que este conjunto de datos obtiene datos. Por ejemplo, si tu conjunto de datos de nombres de proveedores recupera datos de dirección de otro conjunto de datos, el nombre de ese flujo aparecerá aquí.

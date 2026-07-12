@@ -1,0 +1,24 @@
+{
+  "keepInEnglish": [
+    "Kissflow",
+    "Kissflow AI",
+    "dataform",
+    "child table",
+    "Smart Link",
+    "Smart Import",
+    "RunJS",
+    "Run script",
+    "What's New",
+    "API",
+    "SDK",
+    "REST",
+    "OAuth",
+    "SSO",
+    "SAML",
+    "SMTP",
+    "MCP",
+    "webhook",
+    "Kanban"
+  ],
+  "notes": "Terms the translator must keep in English (product names, feature names, protocol acronyms). Edit freely; every prompt includes this list."
+}

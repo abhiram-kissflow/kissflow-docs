@@ -1,0 +1,63 @@
+---
+title: "Configuración de geolocalización"
+description: "Añade o actualiza la clave de API de Google Maps que permite usar el campo de geolocalización en los formularios de Kissflow, para que los usuarios puedan capturar y consultar ubicaciones."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - account-settings
+  - geolocation
+  - google-maps
+  - api-key
+---
+
+# Configuración de geolocalización
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+El [campo de geolocalización](/docs/build/forms/field-types/geolocation-field) permite a los usuarios capturar y consultar ubicaciones en un formulario mediante Google Maps. Antes de que alguien pueda usarlo, un administrador de cuenta debe añadir una clave de API de Google Maps en **Configuración de geolocalización**; sin una clave válida, el campo no puede cargar Google Maps.
+
+![Página de configuración de geolocalización con el cuadro de entrada de la clave de API](/migration-assets/geolocation-settings/2.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Acceder a la configuración de geolocalización
+
+1. Inicia sesión en Kissflow.
+2. Haz clic en tu foto de perfil en la esquina superior derecha de la página.
+3. Haz clic en **Administración de la cuenta > Configuración de la cuenta > Configuración de geolocalización**.
+
+## Añadir o actualizar la clave de API de Google Maps
+
+1. En la página **Configuración de geolocalización**, introduce tu clave de API de Google Maps en el cuadro de entrada.
+
+   <Callout type="info">
+     Puedes usar una clave de API de Google Maps existente o crear una nueva. Haz clic en el enlace **Clave de API de Google Maps** de la página para consultar las instrucciones en el sitio de documentación para desarrolladores de Google.
+   </Callout>
+
+2. Guarda los cambios.
+
+<Callout type="warn">
+  Después de añadir o actualizar la clave de API, informa a tus usuarios de que deben volver a cargar Kissflow para que el cambio surta efecto.
+</Callout>
+
+## Cuando falta la clave de API o no es válida
+
+Si Kissflow no puede cargar Google Maps para el campo de geolocalización, el mensaje que se muestra depende de dónde se esté completando el formulario:
+
+- En la **aplicación móvil de Kissflow**, los usuarios ven un mensaje en el que se les pide que se pongan en contacto con su superadministrador para añadir la clave de API de Google Maps.
+- En la **web**, los usuarios ven un error de conexión general, sin una mención directa de la clave de API.
+
+![Campo de geolocalización en un formulario que muestra un error al cargar Google Maps](/migration-assets/geolocation-settings/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+En ambos casos, un administrador de cuenta debe añadir o corregir la clave en **Configuración de geolocalización** para resolver el problema.
+
+## Qué sigue
+
+- [Usar el campo de geolocalización en los formularios](/docs/build/forms/field-types/geolocation-field)
+- [Calcular con datos extraídos del campo de geolocalización](/docs/build/expressions/computing-with-data-extracted-from-the-geolocation-field)
+- [Comprender los roles y permisos de los usuarios](/docs/admin/users/user-roles-and-permissions)

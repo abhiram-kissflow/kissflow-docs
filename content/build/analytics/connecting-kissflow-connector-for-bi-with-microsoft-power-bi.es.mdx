@@ -1,0 +1,58 @@
+---
+title: "Conexión del conector de Kissflow para BI con Microsoft Power BI"
+description: "BORRADOR (sin verificar) — migrado desde /t/35yq1mq/connecting-kissflow-connector-for-bi-with-microsoft-power-bi"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ EnterpriseDespués de configurar correctamente tu cuenta de Kissflow con el almacén de datos Snowflake, debes conectar el conector de Kissflow para BI con Microsoft Power BI.
+
+## Conexión a un almacén de computación de Snowflake
+
+1.  Para conectarte a tu base de datos de Snowflake, ve a la sección **Inicio** > **Obtener datos** en el cliente de escritorio de Microsoft Power BI. En la lista desplegable, selecciona **Base de datos** > **Snowflake**.![](/migration-assets/connecting-kissflow-connector-for-bi-with-microsoft-power-bi/1.png)
+2.  Introduce la información en la ventana de Snowflake que aparece. Ten en cuenta que puedes importar los datos directamente a Microsoft Power BI. Los demás campos deben dejarse en blanco.
+3.  Introduce la URL de Snowflake en el campo del servidor sin **https://** al principio ni **/** al final.  
+    Por ejemplo, **[xxyy11.us-central1.gcp.snowflakecomputing.com](http://xxyy11.us-central1.gcp.snowflakecomputing.com)**
+4.  A continuación, introduce el nombre del almacén: **READER\_WH** y haz clic en **Aceptar.**![](/migration-assets/connecting-kissflow-connector-for-bi-with-microsoft-power-bi/2.png)
+5.  Cuando se te solicite, introduce el nombre de usuario y la contraseña en los campos correspondientes, como se muestra a continuación. Cuando termines, haz clic en **Conectar**.![](/migration-assets/connecting-kissflow-connector-for-bi-with-microsoft-power-bi/3.png)
+6.  A continuación, puedes decidir cómo conectarte al origen de datos. Haz clic en **Importar** para importar una copia de tus datos a Power BI. Haz clic en **Aceptar**.![](/migration-assets/connecting-kissflow-connector-for-bi-with-microsoft-power-bi/4.png)
+
+## Selección de tus flujos de Kissflow en Microsoft Power BI
+
+1.  Después de la validación, ahora puedes ver tu [ID de cuenta](https://helpdocs.kissflow.com/user-settings/api-keys#view_account_id) como una base de datos en la barra de navegación izquierda. Al expandirla, verás tus flujos mostrados como tablas. En esta página, encontrarás información detallada sobre las tablas, los campos que contienen y las vistas.![](/migration-assets/connecting-kissflow-connector-for-bi-with-microsoft-power-bi/9.png)
+2.  Después de seleccionar el flujo, haz clic en el botón **Cargar**. Los datos se importarán pronto a Microsoft Power BI.![](/migration-assets/connecting-kissflow-connector-for-bi-with-microsoft-power-bi/6.png)  
+     
+
+## Creación de un panel sobre tus datos de Kissflow en Microsoft Power BI
+
+1.  Una vez completada la importación, ahora puedes ver las tablas seleccionadas en el panel derecho.![](/migration-assets/connecting-kissflow-connector-for-bi-with-microsoft-power-bi/10.png)
+2.  Ahora, calculemos el número de actividades en cada estado, así como el número total de flujos de tu cuenta, y filtremos por fecha.
+
+### Filtro de fecha
+
+-   Elige el widget **Filtro de fecha** en el panel Visualizaciones, en el lado derecho de la pantalla. 
+    
+-   Selecciona el campo **\_acted\_at** de la tabla **ActivityInstance**.
+    
+
+![](/migration-assets/connecting-kissflow-connector-for-bi-with-microsoft-power-bi/5.png)
+
+### Filtro de flujo
+
+-   Elige el widget de filtro de cuadro combinado en el panel Visualizaciones. 
+-   Selecciona el campo **\_model\_id** de la tabla **ActivityInstance**. 
+
+![](/migration-assets/connecting-kissflow-connector-for-bi-with-microsoft-power-bi/8.png)
+
+### Widget de embudo
+
+-   Elige el widget de embudo en el panel Visualizaciones. 
+-   Selecciona el campo **ScriptName** de la tabla **ActivityInstance** y colócalo en **Eje**.
+-   Selecciona el campo **\_id** de la tabla **ActivityInstance** y colócalo en **Valores**. Asegúrate de que la agregación esté establecida en **Recuento** para que podamos ver cuántas actividades de carga de trabajo ocurrieron en cada estado para el flujo y el intervalo de fechas seleccionados.
+
+![](/migration-assets/connecting-kissflow-connector-for-bi-with-microsoft-power-bi/7.png)
+
+Ahora puedes usar tu panel de Power BI para analizar las actividades que ocurren en los flujos de procesos de tu cuenta de Kissflow. Del mismo modo, crea varios paneles de supervisión de cargas de trabajo y de actividades de procesos de carga de trabajo, colabora con tu equipo y mejora tu flujo de trabajo.

@@ -1,0 +1,90 @@
+---
+title: "Configuración de SCIM con OneLogin"
+description: "BORRADOR (sin verificar) — migrado desde /t/g9h4ak9/setting-up-scim-with-onelogin"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+[Los superadministradores y administradores de IAM](/t/35h4ak036h4gg/user-roles-permissions) tienen la capacidad de gestionar el aprovisionamiento de usuarios basado en SCIM con OneLogin.
+
+Comienza activando SCIM en Kissflow:
+
+1.  Ve a **Administración de l****a cuenta** **\> Aprovisionamiento de usuarios** y, en **SCIM**, haz clic en **Configurar**.![](/migration-assets/setting-up-scim-with-onelogin/5.png)  
+2.  Genera un **token de SCIM** y copia la **URL base de SCIM** y el **token de SCIM** al portapapeles. Deberás pegarlos en OneLogin.
+    
+    > **Nota:**
+    > 
+    > Debes mantener seguro el **token de SCIM**, ya que una vez generado no estará disponible nuevamente para copiarlo o descargarlo.
+    
+
+## Creación de una aplicación SCIM en OneLogin
+
+Inicia sesión en tu cuenta de OneLogin como administrador. Ve a la pestaña **Aplicaciones** y selecciona **Aplicaciones**. Busca y selecciona **SCIM Provisioner with SAML (SCIM v2 Enterprise)**, según tus necesidades de esquema. Asigna a tu aplicación SCIM un nombre visible que te ayude a reconocerla y haz clic en **Guardar**.
+
+![](/migration-assets/setting-up-scim-with-onelogin/1.png)
+
+## Configuración y conexión de tu aplicación SCIM con Kissflow
+
+1.  Selecciona la pestaña **Configuración**.
+2.  Introduce tu [dominio de cuenta de Kissflow](/t/m1h4akp36h4gg/account-settings) en el campo **URL de audiencia SAML**.
+3.  Proporciona el valor de tu **URL base de SCIM**. Esta es la dirección que indica a OneLogin la cuenta de Kissflow.![](/migration-assets/setting-up-scim-with-onelogin/2.png)  
+4.  A continuación, proporciona el valor de **Plantilla JSON de SCIM** para Kissflow. El esquema SCIM predeterminado admite los atributos: **userName**, **name**, **emails**, **title** y **Department**. Para sincronizar los datos del administrador y cualquier otro atributo personalizado, deberás usar la extensión del esquema específica de la cuenta de Kissflow que se proporciona a continuación. Puedes copiar y usar esta plantilla.
+    
+    ```
+    {
+      "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "userName": "{$parameters.scimusername}",
+      "name": {
+        "familyName": "{$user.lastname}",
+        "givenName": "{$user.firstname}",
+        "formatted": "{$user.display_name}"
+      },
+      "emails": [{
+        "value": "{$user.email}",
+        "type": "work",
+        "primary": true
+      }],
+      "title": "{$parameters.title}",
+      "Department": "{$parameters.department}",
+      "urn:kissflow:scim:schemas:extension:Kissflow Account ID:2:User":{
+        "Manager": {
+          "value": "{$parameters.external_manager_id}",
+          "displayName": "{$user.manager_firstname} {$user.manager_lastname}"
+        }
+      }
+    }
+    ```
+    
+    > **Nota:**
+    > 
+    > En la extensión del esquema que se muestra arriba, reemplaza el texto resaltado por tu [ID de cuenta de Kissflow](/t/35h4az8y7h4gj/api-keys#account-id) real.
+    
+5.  Proporciona el valor de tu **token portador de SCIM**. Este token autentica las solicitudes y respuestas enviadas entre el servicio de aprovisionamiento SCIM de OneLogin y tu cuenta de Kissflow.
+6.  Haz clic en **Activar** para permitir que la aplicación SCIM realice una conexión inicial a la **URL base de SCIM** que definiste.  
+    Esta conexión inicial no ejecuta ningún aprovisionamiento real, sino que solo realiza una solicitud GET para obtener un usuario que OneLogin sabe que no existe. Si la solicitud recibe un código de estado 404 como respuesta, confirma que el punto de conexión es válido y el **Estado de API** aparece como **Activado**.
+7.  Haz clic en **Guardar**.
+
+## Asignación de parámetros
+
+Selecciona la pestaña **Parámetros**.2.  Haz clic en **SAML NameID (Subject)** para cambiar el valor a **Correo electrónico.**![](/migration-assets/setting-up-scim-with-onelogin/3.png)  
+3.  Después de asignar correctamente el valor del parámetro, haz clic en **Guardar**.
+4.  Por último, haz clic en **Más acciones** > **Volver a aplicar las asignaciones de derechos.**
+
+## Configuración del aprovisionamiento
+
+1.  Ve a la pestaña **Aprovisionamiento** y selecciona la casilla situada junto a **Activar el aprovisionamiento**.
+2.  Según tus necesidades, selecciona o deselecciona las casillas situadas junto a **Crear usuario**, **Eliminar usuario** y **Actualizar usuario.**
+3.  En **Derechos**, haz clic en **Actualizar.** Esto indicará a OneLogin que importe los valores de derechos de la aplicación de tu organización para que puedas asignarlos a los valores de atributos de OneLogin. 
+4.  Haz clic en **Guardar** y, a continuación, en **Más acciones** > **Volver a aplicar las asignaciones de derechos.**
+5.  Vuelve al cuadro de diálogo de configuración de SCIM de Kissflow para **activar SCIM**.![](/migration-assets/setting-up-scim-with-onelogin/4.png)  
+
+Puedes asociar manualmente tus usuarios de OneLogin a la aplicación SCIM desde la pestaña **Usuarios** de OneLogin. 
+
+Los usuarios nuevos sincronizados desde OneLogin se añaden de forma predeterminada en estado activo. Según tu preferencia de SCIM de Kissflow, cuando eliminas a alguien en OneLogin, esa persona se elimina de Kissflow o se conserva en estado inactivo.

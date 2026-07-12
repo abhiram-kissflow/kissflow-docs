@@ -1,0 +1,889 @@
+---
+title: "Tablas del sistema en Analytics"
+description: "BORRADOR (sin verificar): migrado desde /t/h7yq95d/system-tables-in-analytics"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ EnterpriseLa tabla del sistema es una tabla que contiene detalles específicos de toda la información de carga de trabajo en Kissflow. Hay dos [tablas del sistema](/t/83yq9jv/process-table#system-tables) para los procesos llamadas ProcessInstance y ActivityInstance, que contienen el estado actual y el historial de actividades del flujo de trabajo de todos los elementos de todos los procesos. Los tableros también tienen una tabla del sistema llamada [Board Workload Instance](/t/83yqk6f/board-tables-in-analytics#board-workflow-instance-table), que contiene la información de carga de trabajo de todos los tableros.  
+  
+El siguiente diagrama sobre la relación entre las entidades de las fuentes de datos ayuda a comprender la estructura de las tablas de Analytics.![](/migration-assets/system-tables-in-analytics/1.png)Del mismo modo, hay dos tablas del sistema dedicadas exclusivamente a la información relacionada con los usuarios y grupos de tu cuenta de Kissflow. Estas tablas te proporcionan una vista detallada de las acciones realizadas por los usuarios añadidos a tu cuenta.
+
+Puedes encontrar la tabla del sistema dentro de la pestaña Explorador de datos. También puedes ordenar las fuentes de datos según las tablas del sistema para identificarlas fácilmente en Analytics. Los campos de las tablas del sistema se pueden usar para generar varios tipos de informes, como informes tabulares, de gráficos y dinámicos.
+
+## Tabla de usuarios
+
+La tabla de usuarios muestra información sobre todos los usuarios añadidos a la cuenta de Kissflow.
+
+**ID del campo**
+
+**Nombre del campo**
+
+**Tipo de datos**
+
+**Descripción**
+
+\_id
+
+ID
+
+String
+
+El ID de la tabla de usuarios
+
+Name
+
+Nombre
+
+String
+
+El nombre del usuario indicado en la administración de usuarios de Kissflow.
+
+\_created\_by
+
+Añadido por
+
+JSON
+
+El superadministrador que añade al usuario a la cuenta.
+
+\_created\_by.Kind
+
+Añadido por
+
+JSON
+
+Un subcampo de "\_created\_by" que contiene el valor “User.”
+
+\_created\_by.Name
+
+Añadido por
+
+JSON
+
+Otro subcampo de "\_created\_by" que muestra el nombre del superadministrador que añadió un usuario a la cuenta.
+
+\_created\_by.\_id
+
+Añadido por
+
+JSON
+
+El ID único del superadministrador que añadió al usuario a la cuenta.
+
+\_modified\_by
+
+Modificado por
+
+JSON
+
+El usuario que modificó los detalles del usuario añadido.
+
+\_modified\_by.Kind
+
+Modificado por
+
+JSON
+
+Un subcampo de “\_modified\_by” que contiene el valor “User.”
+
+\_modified\_by.Name
+
+Modificado por
+
+JSON
+
+Otro subcampo de “\_modified\_by” que muestra el nombre del usuario que modificó los detalles del usuario añadido.
+
+\_modified\_by.\_id
+
+Modificado por
+
+JSON
+
+El ID único del usuario que modificó los detalles del usuario añadido.
+
+\_created\_at.display\_value
+
+Añadido el
+
+DateTime
+
+Representa la fecha y hora en formato GMT en que se añadió el usuario. 
+
+\_created\_at.timedelta
+
+Añadido el
+
+DateTime
+
+Este campo contiene la duración de la diferencia de zona horaria entre la hora del meridiano de Greenwich (GMT) y la zona horaria específica. Permanece vacío cuando no existe tal diferencia. 
+
+\_created\_at.timezone
+
+Añadido el
+
+DateTime
+
+Indica la zona horaria en formato GMT en la que se añadió el usuario a la cuenta.
+
+\_created\_at.value
+
+Añadido el
+
+DateTime
+
+Este campo muestra la fecha y hora en que se añadió el usuario a la cuenta. El formato de la marca de tiempo se basa en GMT. 
+
+\_modified\_at.display\_value
+
+Modificado el
+
+DateTime
+
+Representa la fecha y hora en formato GMT en que se modificó el usuario en la cuenta.
+
+\_modified\_at.timedelta
+
+Modificado el
+
+DateTime
+
+Este campo contiene la duración de la diferencia de zona horaria entre la hora del meridiano de Greenwich (GMT) y la zona horaria específica. Permanece vacío cuando no existe tal diferencia. 
+
+\_modified\_at.timezone
+
+Modificado el
+
+DateTime
+
+Indica la zona horaria en formato GMT en la que se modificó el usuario en la cuenta.
+
+\_modified\_at.value
+
+Modificado el
+
+DateTime
+
+Este campo muestra la fecha y hora en que se modificó el usuario en la cuenta. El formato de la marca de tiempo se basa en GMT. 
+
+\_is\_deleted
+
+\_IsDeleted
+
+Boolean
+
+Un valor booleano que indica si el usuario se eliminó de la cuenta.
+
+\_flow\_name
+
+Nombre del flujo
+
+String
+
+Hay tres flujos en la cuenta de Kissflow: User, Group y Role. De ellos, User es el nombre del flujo de los usuarios de la cuenta.
+
+Email
+
+Dirección de correo electrónico
+
+String
+
+El correo electrónico del usuario indicado en la administración de usuarios de Kissflow.
+
+SyncFrom
+
+SyncFrom
+
+String
+
+El origen de la sincronización que tuvo lugar en la cuenta. Por ejemplo, la sincronización desde Google.
+
+\_model\_id
+
+ID del modelo
+
+String
+
+Para los usuarios, el ID del modelo se denomina user en la cuenta.
+
+ExternalId
+
+ID externo
+
+String
+
+El ID principal del usuario en la cuenta externa desde la que se sincronizan los datos. Por ejemplo, el directorio de Google Workspace tendrá el ID principal del usuario en su cuenta.
+
+Status
+
+Estado
+
+DropdownList
+
+El estado del usuario. Por ejemplo, si un usuario está activo en la cuenta, muestra active; de lo contrario, muestra inactive.
+
+FirstName
+
+Nombre
+
+String
+
+El nombre del usuario añadido a la cuenta.
+
+LastName
+
+Apellido
+
+String
+
+El apellido del usuario añadido a la cuenta.
+
+UserType
+
+Tipo de usuario
+
+DropdownList
+
+El tipo de usuario en la cuenta. Por ejemplo: superadministrador, usuario, administrador del sistema.
+
+ProfilePicture
+
+Imagen de perfil
+
+ProfilePicture
+
+Los detalles de la imagen de perfil del usuario.
+
+Groups
+
+Grupos
+
+Groups
+
+El nombre de los grupos a los que pertenece el usuario.
+
+Phone
+
+Número de teléfono
+
+String
+
+El número de teléfono del usuario en la cuenta.
+
+NickName
+
+Apodo
+
+String
+
+El apodo del usuario en la cuenta.
+
+LastLoggedInAt
+
+Último inicio de sesión
+
+DateTime
+
+La fecha y hora en que el usuario inició sesión por última vez en la cuenta.
+
+TimeZone
+
+Zona horaria
+
+JSON
+
+La zona horaria del usuario en la cuenta.
+
+Language
+
+Idioma
+
+JSON
+
+El idioma del usuario de la cuenta.
+
+DateFormat
+
+Formato de fecha
+
+String
+
+El formato de fecha en el que el usuario estaba activo en la cuenta. Por ejemplo: nunca, hace 2 minutos.
+
+\_last\_access
+
+Último acceso
+
+JSON
+
+Los detalles del último acceso del usuario en la cuenta, generados por el sistema.
+
+Designation
+
+Puesto
+
+String
+
+El puesto del usuario indicado en la administración de usuarios de Kissflow.
+
+Manager
+
+Administrador
+
+String
+
+El nombre del administrador del usuario en la cuenta.
+
+\_programmatic\_access
+
+Acceso programático
+
+JSON
+
+Los detalles de acceso de Kissflow del usuario en la cuenta.
+
+Roles
+
+Roles
+
+JSON Array
+
+Los roles que se han asignado al usuario.
+
+## Tabla de grupos
+
+La tabla de grupos muestra información sobre los grupos creados en la cuenta de Kissflow.
+
+**ID del campo**
+
+**Nombre del campo**
+
+**Tipo de datos**
+
+**Descripción**
+
+\_id
+
+ID
+
+String
+
+El ID de la tabla de grupos a la que pertenece el usuario. Habrá una fila por cada grupo al que pertenezca el usuario.
+
+Name
+
+Nombre
+
+String
+
+El nombre del usuario indicado en la administración de usuarios de Kissflow.
+
+\_created\_by
+
+Creado por
+
+JSON
+
+El usuario que crea el grupo en la cuenta.
+
+\_created\_by.Kind
+
+Creado por
+
+JSON
+
+Un subcampo de "\_created\_by" que contiene el valor “Group.”
+
+\_created\_by.Name
+
+Creado por
+
+JSON
+
+Otro subcampo de "\_created\_by" que muestra el nombre del usuario que creó el grupo en la cuenta.
+
+\_created\_by.\_id
+
+Creado por
+
+JSON
+
+El ID único del usuario que creó el grupo en la cuenta.
+
+\_modified\_by
+
+Modificado por
+
+JSON
+
+El usuario que modificó los detalles del grupo.
+
+\_modified\_by.Kind
+
+Modificado por
+
+JSON
+
+Un subcampo de “\_modified\_by” que contiene el valor “Group.”
+
+\_modified\_by.Name
+
+Modificado por
+
+JSON
+
+Otro subcampo de “\_modified\_by” que muestra el nombre del usuario que modificó los detalles del grupo.
+
+\_modified\_by.\_id
+
+Modificado por
+
+JSON
+
+El ID único del usuario que modificó los detalles del grupo.
+
+\_created\_at.display\_value
+
+Creado el
+
+DateTime
+
+Representa la fecha y hora en formato GMT en que se creó el grupo.
+
+\_created\_at.timedelta
+
+Creado el
+
+DateTime
+
+Este campo contiene la duración de la diferencia de zona horaria entre la hora del meridiano de Greenwich (GMT) y la zona horaria específica. Permanece vacío cuando no existe tal diferencia. 
+
+\_created\_at.timezone
+
+Creado el
+
+DateTime
+
+Indica la zona horaria en formato GMT en la que se creó el grupo.
+
+\_created\_at.value
+
+Creado el
+
+DateTime
+
+Este campo muestra la fecha y hora en que se creó el grupo en la cuenta. El formato de la marca de tiempo se basa en GMT.
+
+\_modified\_at.display\_value
+
+Modificado el
+
+DateTime
+
+Representa la fecha y hora en formato GMT en que se modificó el grupo en la cuenta.
+
+\_modified\_at.timedelta
+
+Modificado el
+
+DateTime
+
+Este campo contiene la duración de la diferencia de zona horaria entre la hora del meridiano de Greenwich (GMT) y la zona horaria específica. Permanece vacío cuando no existe tal diferencia. 
+
+\_modified\_at.timezone
+
+Modificado el
+
+DateTime
+
+Indica la zona horaria en formato GMT en la que se modificó el grupo en la cuenta.
+
+\_modified\_at.value
+
+Modificado el
+
+DateTime
+
+Este campo muestra la fecha y hora en que se modificó el grupo en la cuenta. El formato de la marca de tiempo se basa en GMT.
+
+\_is\_deleted
+
+\_IsDeleted
+
+Boolean
+
+Un valor booleano que indica si el grupo se eliminó de la cuenta.
+
+\_flow\_name
+
+Nombre del flujo
+
+String
+
+Hay tres flujos en la cuenta de Kissflow: user, groups y roles. De ellos, group es el nombre del flujo de los grupos de la cuenta.
+
+Email
+
+Dirección de correo electrónico
+
+String
+
+El correo electrónico del usuario indicado en la administración de usuarios de Kissflow.
+
+SyncFrom
+
+SyncFrom
+
+String
+
+El origen de la sincronización que tuvo lugar en el grupo. Por ejemplo, la sincronización desde Google.
+
+\_model\_id
+
+ID del modelo
+
+String
+
+Para los grupos, el ID del modelo se denomina groups en la cuenta.
+
+ExternalId
+
+ID externo
+
+String
+
+El ID principal del grupo en la cuenta externa desde la que se sincronizan los datos. Por ejemplo, el directorio de Google Workspace tendrá el ID principal del grupo en su cuenta.
+
+Description
+
+Descripción
+
+String
+
+La descripción del grupo en la cuenta.
+
+Descendants
+
+Descendientes
+
+GroupList
+
+La lista de grupos que son superiores al grupo creado en la cuenta de Kissflow. Por ejemplo, existe un grupo llamado Analytics. El ID del campo descendants mostrará la lista de grupos de los que forma parte el grupo Analytics.
+
+UserCount
+
+Cantidad de usuarios
+
+Number
+
+La cantidad de usuarios de un grupo determinado.
+
+GroupCount
+
+Cantidad de grupos
+
+Number
+
+La cantidad de subgrupos presentes en un grupo. Por ejemplo, Analytics tiene dos grupos llamados Datasources y Reports. En ese caso, la cantidad de subgrupos de Analytics será dos.
+
+Roles
+
+Roles
+
+JSON Array
+
+Los roles que se han asignado a los usuarios del grupo.
+
+## Campos del formulario
+
+Estos son [campos personalizados](https://helpdocs.kissflow.com/datasources-in-analytics/board-tables-in-analytics#system_fields_and_custom_fields) que se encuentran dentro de la tabla y que los usuarios generan al crear procesos, tableros o conjuntos de datos en Kissflow.
+
+**ID del campo**
+
+**Nombre del campo**
+
+**Tipo de datos**
+
+**Descripción**
+
+Text\_Field
+
+Campo de texto
+
+String
+
+ 
+
+Text\_Area
+
+Área de texto
+
+String
+
+ 
+
+Number\_Field
+
+Campo numérico
+
+Number
+
+ 
+
+Date\_Field
+
+Campo de fecha
+
+Date
+
+ 
+
+Date\_and\_Time\_Field.display\_value
+
+ 
+
+String
+
+Representa la fecha y hora en formato GMT con la zona horaria.
+
+Date\_and\_Time\_Field.timedelta
+
+ 
+
+String
+
+Este campo contiene la duración de la diferencia de zona horaria entre la hora del meridiano de Greenwich (GMT) y la zona horaria específica. Permanece vacío cuando no existe tal diferencia.
+
+Date\_and\_Time\_Field.timezone
+
+ 
+
+String
+
+Indica la zona horaria en formato GMT.
+
+Date\_and\_Time\_Field.value
+
+ 
+
+DateTime
+
+Este campo muestra la fecha y hora. El formato de la marca de tiempo se basa en GMT. 
+
+Dropdown\_Field
+
+Campo desplegable
+
+String
+
+ 
+
+YesNo\_Field
+
+Campo Sí/No
+
+Boolean
+
+ 
+
+Multiselect\_dropdown\_Field
+
+Campo desplegable de selección múltiple
+
+StringList
+
+ 
+
+Checkbox\_Field
+
+Campo de casilla de verificación
+
+StringList
+
+ 
+
+Currency\_Field
+
+Campo de moneda
+
+Currency
+
+El campo de moneda muestra un valor monetario. 
+
+Currency\_Field.display\_value
+
+ 
+
+ 
+
+El valor del campo de moneda con la unidad.
+
+Currency\_Field.unit
+
+ 
+
+ 
+
+La unidad monetaria utilizada en el campo de moneda, como USD.
+
+Currency\_Field.value
+
+ 
+
+ 
+
+El valor numérico del campo de moneda.
+
+Email\_Field
+
+Campo de correo electrónico
+
+Email
+
+ 
+
+User\_Field
+
+Campo de usuario
+
+User
+
+Los campos de usuario apuntan a un usuario específico de tu sistema. Los datos de ese usuario se obtienen de la tabla de administración de usuarios.
+
+User\_Field.Kind
+
+ 
+
+String
+
+Un subcampo de "User\_Field" que contiene el valor “User.”
+
+User\_Field.Name
+
+ 
+
+String
+
+Otro subcampo de "User\_Field" que muestra el nombre del usuario de la cuenta.
+
+User\_Field.\_id
+
+ 
+
+String
+
+El ID único del usuario de la cuenta.
+
+Rating\_Field
+
+Campo de calificación
+
+Number
+
+ 
+
+Attachement\_Field
+
+Campo de archivo adjunto
+
+JSONList
+
+ 
+
+Smart\_Attachement\_Field
+
+Campo de archivo adjunto inteligente
+
+JSONList
+
+ 
+
+Image\_Field
+
+Campo de imagen
+
+JSON
+
+ 
+
+Look\_Up\_Field
+
+Campo de búsqueda
+
+Reference
+
+ 
+
+Aggregation\_Field
+
+Campo de agregación
+
+Number
+
+ 
+
+Checklist\_Field
+
+Campo de lista de comprobación
+
+CheckList
+
+ 
+
+Slider\_1
+
+Control deslizante
+
+Number
+
+ 
+
+Remote\_Lookup\_Field
+
+Campo de búsqueda remota
+
+String
+
+ 
+
+Signature\_1
+
+Firma
+
+JSON
+
+ 
+
+Sequence\_Number\_Field
+
+Campo de número secuencial
+
+String
+
+ 
+
+Geolocation\_1
+
+Geolocalización
+
+Geolocation
+
+ 
+
+Scanner\_Field
+
+Campo de escáner
+
+String
+
+ 
+
+Radio\_Button
+
+Botón de opción
+
+String

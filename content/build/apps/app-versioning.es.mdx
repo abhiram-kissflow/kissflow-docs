@@ -1,0 +1,43 @@
+---
+title: "Versionado de aplicaciones"
+description: "BORRADOR (sin verificar) — migrado desde /t/m1h9qkg/app-versioning"
+contentType: overview
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Básico ✓ Enterprise
+
+## Comprender el versionado de aplicaciones
+
+Versionar tu aplicación te permite agregar o actualizar funcionalidades fácilmente sin afectar a los usuarios existentes.
+
+De forma predeterminada, cuando creas e implementas tu aplicación en el constructor de aplicaciones, se establece en la **versión 1.0**. A medida que agregues nuevas funcionalidades y cambies la forma en que funciona tu aplicación, debes implementar nuevas versiones y promoverlas para proporcionar a los usuarios la información más actualizada. El número de compilación aumentará cada vez. Cada vez que implementes tu aplicación del entorno de **Desarrollo** al entorno de **Prueba** y luego del entorno de **Prueba** al entorno de **Producción**, las implementaciones se registrarán y conservarán para que puedas analizarlas.  
+ 
+
+![](/migration-assets/app-versioning/1.png)
+
+El versionado te permite guardar muchas versiones de borrador de tu aplicación y enviarlas a los usuarios a medida que terminas las funcionalidades.
+
+> **Nota:** Te recomendamos usar versiones menores para actualizaciones pequeñas de tu aplicación (es decir, 1.1, 1.2, etc.) y versiones mayores para cambios que puedan afectar las operaciones de tus usuarios (es decir, 1.0, 2.0, 3.0, etc.)
+
+### Cambios que requieren cambiar de versión
+
+Aunque la mayoría de los cambios de configuración pueden realizarse con una versión menor, algunos requieren una versión mayor. Son los siguientes:
+
+-   Cambiar los roles y permisos de una aplicación.
+-   Introducir o retirar páginas y formularios.
+-   Cambiar el nombre y la descripción de tu aplicación.
+-   Cambiar la URL de tu aplicación.
+
+Al agregar una nueva funcionalidad a tu aplicación, puedes usar una versión menor. Si agregas una funcionalidad completamente nueva (vista, componente o integración) a tu aplicación, no influirá en los flujos de trabajo de los usuarios existentes. Por lo tanto, en estos casos puedes usar una versión menor.
+
+### Seguimiento de los cambios de versión
+
+Puedes realizar un seguimiento del historial de implementaciones de tu aplicación por separado en los entornos de desarrollo y prueba. Esto te ayudará a supervisar todos los cambios implementados y puestos en producción durante cada versión y compilación de la aplicación.
+
+En el entorno de desarrollo, puedes acceder al historial de implementaciones en la pestaña **configuración** del constructor de aplicaciones. En el entorno de prueba, puedes acceder a él en **Configuración de la aplicación > Historial de implementaciones**.
+
+![](/migration-assets/app-versioning/2.png)

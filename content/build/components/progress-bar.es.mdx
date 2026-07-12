@@ -1,0 +1,38 @@
+---
+title: "Barra de progreso"
+description: "BORRADOR (sin verificar) — migrado desde /t/m1yzj4c/progress-bar"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic   ✓ Enterprise
+
+El componente de barra de progreso muestra el estado de progreso de un rango de valores en diferentes formas. Hay tres tipos de barras de progreso: lineal, circular y semicircular.
+
+![](/migration-assets/progress-bar/1.gif)
+
+#### ¿Cómo usarlo?
+
+Arrastra y suelta el componente de barra de progreso y elige un tipo en el menú desplegable de **Settings**. También puedes elegir el estilo de la barra de progreso.
+
+Puedes establecer el rango de valores del valor máximo y del valor actual. El estado de progreso se ajustará según los valores introducidos. Puedes añadir un título, texto de ayuda y un tooltip para la barra de progreso según tus necesidades.
+
+En [Propiedades de estilo](/t/y4yzj9m/managing-component-style-properties), podrás alinear la barra de progreso y ajustar su tamaño y color. Puedes elegir que el extremo de la línea de la barra sea redondeado o plano. También hay opciones para modificar el relleno y el margen, y establecer el tamaño, color y radio del borde.
+
+### [Capacidades de eventos al hacer clic](/t/83yljht/introducing-enhanced-progress-bars#on-click-event-capabilities)
+
+El componente de barra de progreso ahora admite eventos configurables al hacer clic con las siguientes capacidades:
+
+-   **Redirección**: permite navegar a una página específica de la aplicación o volver a la página actual.
+    
+-   **Abrir ventana emergente**: abre una ventana emergente creada con el componente Popup, lo que proporciona acceso rápido a contexto o información adicionales.
+    
+-   **Acción de JavaScript**: ofrece la flexibilidad de definir acciones personalizadas mediante JavaScript, lo que te permite implementar interacciones complejas y lógica específica para los requisitos de tu aplicación.
+    
+
+Estas opciones ofrecen una mayor flexibilidad de diseño y una visualización compacta para interfaces móviles y con espacio limitado. Esto permite a los desarrolladores representar el progreso de forma más dinámica y añadir elementos interactivos mediante eventos configurables.  
+  
+Ejemplo: En un panel de gestión de proyectos, hacer clic en una barra de progreso podría redirigir a una página con detalles adicionales de las tareas o devolver una variable mediante el código JavaScript personalizado.

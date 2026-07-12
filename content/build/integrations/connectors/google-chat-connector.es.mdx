@@ -1,0 +1,60 @@
+---
+title: "Conector de Google Chat"
+description: "BORRADOR (no verificado) — migrado desde /t/m1yy7c7/google-chat-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es el conector de Google Chat?
+
+El conector de Google Chat es una integración para mejorar la comunicación y la colaboración dentro de los equipos. Se integra perfectamente con Google Chat y ofrece diversas funciones para optimizar las interacciones, automatizar los flujos de trabajo y supervisar el progreso.
+
+## Acerca de la integración del conector de Google Chat de Kissflow
+
+El conector de Google Chat de Kissflow te permite integrar fácilmente Google Chat con diversas aplicaciones de terceros y flujos de trabajo de Kissflow. Para integrarlo con Google Chat, debes tener una cuenta válida de Google Chat y ser cliente de pago de Kissflow.
+
+Si tu flujo de trabajo implica responder a eventos específicos en Google Chat, como enviar mensajes o activar procesos automatizados, el conector de Google Chat simplifica estas tareas. Al conectar Google Chat con otras aplicaciones y flujos de trabajo, puedes automatizar acciones y garantizar un flujo de trabajo fluido.
+
+Por ahora, el conector de Google Sheets no admite eventos de activación.
+
+## Acciones del conector de Google Chat
+
+**Eventos de acción**
+
+**Descripción**
+
+Enviar un mensaje
+
+Esta acción envía un mensaje nuevo en un espacio o chat de Google Chat.
+
+Enviar un mensaje mediante webhook
+
+Esta acción envía un mensaje nuevo en Google Chat mediante un webhook.
+
+### Conector de Google Chat como paso de acción
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Create** del panel de navegación izquierdo y selecciona **Integration** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Create](/t/60h4akx/creating-an-integration)**.
+    
+2.  Una vez dentro del editor, configura un paso de activación. Por ejemplo, puedes usar **Webhooks by Kissflow** como evento de activación para recibir datos de aplicaciones externas.
+    
+3.  Después de configurar el paso de activación anterior, haz clic en el botón **Add** ({/* TODO: screenshot — source image expired (Google CDN); recapture from product UI */}) para to to configurar el paso de acción. Busca **Google Chat** y selecciona la acción que quieras.
+    
+4.  Después de elegir el evento de acción, autentica el conector. Haz clic en **\+ Add an account** e inicia sesión con tu cuenta de Google. Kissflow utiliza OAuth de Google para la autenticación.
+    
+5.  Después de autenticarte con tu cuenta de Google, añade los valores correspondientes a los campos del formulario de Google Chat. Puedes hacer clic en **Refresh fields** para ver todos los campos actualizados del formulario de Google Chat seleccionado. También puedes asignar campos de Google Sheets desde el paso de activación o desde pasos de acción anteriores. Después de ejecutar la acción, estos valores se añadirán automáticamente a los campos del elemento.  
+     
+    
+    ![](/migration-assets/google-chat-connector/1.png)
+6.  Después de una configuración correcta, comprueba si el paso de acción de Google Chat está configurado correctamente haciendo clic en el botón **Test**. El conector extraerá los datos de los campos de la cuenta de Google Chat seleccionada y los mostrará como una salida JSON. Al igual que ocurre con los pasos de activación, recibirás una notificación inmediata de los errores. Corrígelos antes de volver a probar el paso de acción.
+    
+
+### Configuración de un conector de Google Chat
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción de tu conector de Google Chat, activa el botón de alternancia para activar la ejecución de la integración. Cuando se produce un evento de activación, se activan las acciones de Google Chat.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

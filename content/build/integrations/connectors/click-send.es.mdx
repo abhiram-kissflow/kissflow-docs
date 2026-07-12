@@ -1,0 +1,60 @@
+---
+title: "Conector de ClickSend"
+description: "BORRADOR (sin verificar) — migrado desde /t/y4h4ala/click-send"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es ClickSend?
+
+ClickSend es un servicio basado en la nube que te permite enviar y recibir SMS, correo electrónico, mensajes de voz y faxes en todo el mundo.
+
+## Acerca de la integración de ClickSend con Kissflow
+
+El conector de ClickSend de Kissflow te permite usar el servicio de SMS masivos de ClickSend para enviar SMS a tus contactos. Para integrarlo con ClickSend, debes tener una cuenta válida de ClickSend y ser cliente de pago de Kissflow.
+
+Puedes usar este servicio para enviar mensajes SMS cuando se completa una tarea específica de tu flujo de trabajo. Supón que usas un tablero de Kissflow para gestionar incidentes de servicio. Si se completa un incidente de servicio en tu tablero, puedes enviar un SMS al número de teléfono indicado en el tablero. Esto es posible gracias al conector de ClickSend.
+
+El conector de ClickSend no admite eventos de activación.
+
+### Acciones en ClickSend
+
+**Acciones**
+
+**Descripción**
+
+Enviar SMS
+
+Esta acción envía un SMS a un número de teléfono especificado.
+
+Enviar SMS a una lista de contactos
+
+Esta acción envía SMS a todos los números de teléfono de tu lista de contactos.
+
+### Configuración del conector de ClickSend
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Escribe un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Configura el paso de activación; por ejemplo, puedes usarlo para conectarte con un sistema sencillo de gestión de casos, como una herramienta de gestión de incidentes de servicio.
+3.  Después de configurar el paso de activación anterior, haz clic en el botón **Agregar** (![](/migration-assets/click-send/1.png) ) junto a la opción para configurar el paso de acción de ClickSend. Busca **ClickSend** y selecciona un evento de acción disponible.![](/migration-assets/click-send/2.png) 
+
+4\. Después de elegir el evento de acción, el siguiente paso es autenticar el conector. Haz clic en **+Agregar una cuenta** e inicia sesión en tu cuenta de ClickSend. Después de iniciar sesión, ve a **Developers** > **API credentials** y copia tu **Username** y **API key** únicos. Pega estas credenciales copiadas en los campos de autenticación de la ventana emergente del conector.
+
+> **Nota:**Si todavía no tienes una cuenta de ClickSend, [crea una cuenta aquí](https://www.clicksend.com/).
+
+![](/migration-assets/click-send/3.png)
+
+5\. Después de autenticarte con las credenciales de tu cuenta de ClickSend, agrega los valores relevantes en los campos del formulario de ClickSend y haz clic en **Actualizar campos** para ver todos los campos actualizados en el formulario de ClickSend seleccionado. También puedes asignar campos de ClickSend a los campos del paso de activación o de la acción anterior. Por ejemplo, puedes asignar aquí un campo de número de teléfono de tu sistema de gestión de casos. Los valores de los campos se agregarán automáticamente a los campos del elemento después de que se ejecute la acción.
+
+6\. Después de una configuración correcta, prueba si el paso de acción de ClickSend está configurado correctamente haciendo clic en el botón **P****robar**. El conector extraerá los datos de los campos de la cuenta de ClickSend seleccionada y los mostrará como una salida JSON. Al igual que con el paso de activación, recibirás una notificación inmediata de los errores. Corrígelos antes de volver a probar el paso de acción.
+
+#### Configuración de un conector de ClickSend
+
+Después de crear un flujo de trabajo personalizado con el paso de acción de tu conector de ClickSend, activa el botón de alternancia para activar la ejecución de la integración. Cuando se produzca un evento de activación, el conector de ClickSend enviará automáticamente un mensaje SMS a tus contactos.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

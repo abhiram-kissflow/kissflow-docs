@@ -1,0 +1,177 @@
+---
+title: "Creación de un informe de resumen de estados basado en tableros en Analytics"
+description: "BORRADOR (no verificado) — migrado desde /t/g9yh306/creating-status-summary-report-based-on-boards-in-analytics"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+El informe de resumen de estados basado en elementos de tablero proporciona una descripción general del número de elementos en cada estado en uno o más tableros. Este informe puede ser una herramienta valiosa para hacer seguimiento del progreso de los equipos y proyectos, e identificar áreas en las que los elementos están bloqueados. En este caso de uso, puedes crear un dataview mediante la consulta para obtener información de dos tableros conjuntamente.
+
+## Creación de un dataview de resumen de estados
+
+Para crear un dataview basado en tableros:
+
+1. **Inicia sesión** en tu cuenta de Kissflow, ve a Analytics y haz clic en **Data Explorer**. 
+    
+2.  Haz clic en **Create dataview** y proporciona un nombre para tu dataview. 
+    
+3.  A continuación, haz clic en **Create**.
+    
+4.  En el generador de consultas, introduce la siguiente consulta SQL.
+    
+5.  En el generador de consultas, pega la consulta en el cuadro de texto.
+    
+    ```sql
+    SELECT
+    "_id" AS "ID",
+    "Name" AS "Task name",
+    "_status_name" AS "Task status",
+    "_counter" AS "Item count",
+    "_flow_name" AS "Board name"
+    FROM
+    "Task_management"
+    UNION
+    SELECT
+    "_id" AS "ID",
+    "Name" AS "Task name",
+    "_status_name" AS "Task status",
+    "_counter" AS "Item count",
+    "_flow_name" AS "Board name"
+    FROM
+    "Access_Requests"
+    ```
+    
+6.  Haz clic en **Run**.
+    
+7.  Revisa los resultados y haz clic en **Publish**.
+    
+
+![](/migration-assets/creating-status-summary-report-based-on-boards-in-analytics/5.gif)
+
+Este caso de uso combina dos tableros, Gestión de tareas y Solicitudes de acceso, en un único resultado de consulta. El resultado de la consulta incluye datos de ambos tableros, incluidos los subelementos.  
+ 
+
+![](/migration-assets/creating-status-summary-report-based-on-boards-in-analytics/1.png)
+
+###  Desglose de la consulta
+
+**Nombre real de la columna**
+
+**Nombre del alias utilizado en la consulta**
+
+**Descripción**
+
+\_id
+
+ID
+
+El sistema genera una cadena única para identificar un elemento.
+
+Name
+
+Nombre de la tarea
+
+El nombre que el usuario asigna a un elemento durante su creación.
+
+\_status\_name
+
+Nombre del estado
+
+El estado actual de un elemento. Los nombres de los estados se definen dentro de las categorías predeterminadas del flujo de trabajo del tablero. Puede ser uno de los estados predeterminados, como Nuevo, En progreso, o cualquier estado personalizado que añadas al flujo de trabajo del tablero.
+
+\_counter
+
+Cantidad de elementos
+
+El recuento total de elementos, incluidos todos los subelementos existentes, movidos y eliminados de un tablero.
+
+\_flow\_name
+
+Nombre del tablero
+
+El nombre de un tablero.
+
+UNION
+
+ 
+
+La consulta utiliza el operador UNION para combinar los resultados de dos tableros independientes en un único conjunto de resultados. La primera instrucción SELECT selecciona todas las tareas del tablero Task\_management y la segunda instrucción SELECT selecciona todas las tareas del tablero Access\_Requests. Mediante UNION, el dataview puede mostrar todas las tareas de ambos tableros.
+
+## Creación de un informe de resumen de estados
+
+Para crear un informe de resumen de estados basado en tableros mediante Kissflow Analytics:
+
+1. **Inicia sesión** en tu cuenta de Kissflow y ve a Analytics.
+    
+2.  Haz clic en **Create Report**.
+    
+3.  Selecciona el dataview que creaste anteriormente como fuente de datos.
+    
+4.  Selecciona **Chart** como tipo de informe.
+    
+5.  Haz clic en **Create**.
+    
+
+### Configuración del informe
+
+En la página de configuración del informe, selecciona **Vertical bar chart** y añade lo siguiente:
+
+-   Dimensión: Estado de la tarea
+    
+-   Medida: Cantidad de elementos
+    
+-   Leyenda: Nombre del tablero
+    
+
+![](/migration-assets/creating-status-summary-report-based-on-boards-in-analytics/2.png)
+
+Puedes ordenar el informe por **Cantidad de elementos (COUNT)** y usar filtros si es necesario.
+
+## ¿En qué se diferencian los informes de Analytics de los informes de resumen de estados en Boards?
+
+**Aspecto**
+
+**Informe de resumen de estados en Analytics**
+
+**Informe de resumen de estados en Board**
+
+Informe
+
+![](/migration-assets/creating-status-summary-report-based-on-boards-in-analytics/3.png)
+
+![](/migration-assets/creating-status-summary-report-based-on-boards-in-analytics/4.png)
+
+Alcance
+
+Uno o más tableros 
+
+Un solo tablero
+
+Filtrado
+
+Opciones de filtrado personalizadas al crear el informe de gráfico
+
+Filtrar por rango de datos y campos personalizados del tablero específico
+
+Visualización de datos
+
+Informe tabular, gráficos o informe de tabla dinámica
+
+Gráfico de barras
+
+Caso de uso
+
+Obtener una vista más detallada del estado de uno o más tableros
+
+Obtener una descripción general rápida del estado de un tablero específico
+
+Accesibilidad
+
+Accesible desde la plataforma de Analytics
+
+Accesible desde el propio tablero

@@ -1,0 +1,40 @@
+---
+title: "Referenciar campos de una sección en una tabla usando el campo principal"
+description: "BORRADOR (sin verificar) — migrado desde /t/p8yfwn6/referencing-section-fields-in-a-table-using-the-parent-function"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Es posible que tengas que hacer referencia a valores de una parte del formulario en otra al crear formularios. En particular, cuando trabajas con **secciones** y **tablas** en un editor de formularios, puedes usar el campo **Parent** para extraer valores de una sección a una tabla.
+
+## Sintaxis
+
+```
+Parent.<Fieldname>
+```
+
+> **Nota**
+> 
+> No se admiten referencias de campos entre tablas, y no se puede hacer referencia a campos de una tabla dentro de una sección.
+
+## Ejemplo
+
+Imagina que estás creando un formulario para recopilar datos de empleados. Una sección del formulario, **Datos personales del empleado**, contiene varios campos, como el nombre del empleado, la fecha de nacimiento y el número de contacto.
+
+También tienes una tabla de **Preferencia de cumpleaños** en el formulario, donde los empleados pueden seleccionar si desean celebrar sus cumpleaños. Para mantener la coherencia y facilitar el uso, quieres mostrar automáticamente la fecha de nacimiento del empleado en esta tabla.
+
+Para lograrlo, puedes usar el campo **Parent** en el **constructor de fórmulas** para hacer referencia al campo de fecha de nacimiento de la sección **Datos personales del empleado** en la tabla **Preferencia de cumpleaños**.
+
+```
+Parent.Date_of_birth
+```
+
+![](/migration-assets/referencing-section-fields-in-a-table-using-the-parent-function/1.gif)
+
+## Ventajas del campo Parent en el constructor de fórmulas
+
+-   Simplifica la introducción de datos para los usuarios al rellenar valores conocidos.
+-   Reduce la redundancia y los posibles errores de introducción de datos.
+    
+-   Hace que los formularios sean más dinámicos y conscientes del contexto.

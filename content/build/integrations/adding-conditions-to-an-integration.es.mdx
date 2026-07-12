@@ -1,0 +1,42 @@
+---
+title: "Añadir condiciones a una integración"
+description: "DRAFT (unverified) — migrated from /t/y4yx74p/adding-conditions-to-an-integration"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Actualmente, solo puedes usar el [conector de control](/t/p8h4al4/adding-conditions-and-iterations) en Kissflow para configurar condiciones de **Sí** o **No** en una integración. Ahora, puedes añadir condiciones a cada acción de una integración de Kissflow mediante el generador de fórmulas para ejecutar determinadas acciones solo cuando se cumpla la condición. La acción se omitirá cuando no se cumpla la condición. 
+
+Supón que quieres automatizar el proceso de gestión de los comentarios de clientes enviados a través de un formulario público. Sin embargo, quieres omitir los comentarios que pertenezcan a la categoría **Información general** y continuar solo con el envío de correos electrónicos para los tipos de comentarios **Problema** o **Solicitud de función**. Puedes usar los conectores de procesos y correo electrónico de Kissflow para lograrlo con la ayuda de condiciones.
+
+> **Nota:**
+> 
+> Las condiciones solo se pueden añadir a las acciones 
+
+## Añadir condiciones a una acción
+
+Aquí te explicamos cómo añadir una condición a una acción:
+
+1.  Elige la acción a la que quieres añadir la condición. En el paso de configuración, haz clic en **Cambiar** junto a **¿Cuándo ocurre este paso?** 
+    
+    ![](/migration-assets/adding-conditions-to-an-integration/1.png)
+2.  Abre el generador de fórmulas para introducir la condición necesaria y configúrala usando los campos de los pasos anteriores. Haz clic en **Guardar** una vez añadida la condición. 
+    
+    ![](/migration-assets/adding-conditions-to-an-integration/2.png)
+3.  Haz clic en **Siguiente**, continúa con la prueba de la acción y, por último, haz clic en **Listo**. Si hay errores asociados con la condición, aparecerá un mensaje de error.
+    
+
+Ahora, cuando se cree un nuevo elemento de tipo **Problema** o **Solicitud de función**, se enviará automáticamente un correo electrónico al cliente para solicitarle más información sobre ese elemento en particular. 
+
+Las acciones que tienen una condición asociada se pueden identificar mediante el texto **Ocurre condicionalmente** que aparece en la parte inferior de la acción. 
+
+![](/migration-assets/adding-conditions-to-an-integration/3.png)
+
+## Identificar acciones omitidas
+
+Puedes usar el historial de ejecuciones de una integración para identificar si la acción se ha ejecutado u omitido. Haz clic en el botón **Historial de ejecuciones** para ver todas las ejecuciones de esa integración. Abre la integración con el estado **Correcto** para comprobar si la acción se ejecutó u omitió. Las acciones que se ejecutaron tendrán el estado **Condición cumplida** y el resto tendrá el estado **Omitida**.

@@ -1,0 +1,155 @@
+---
+title: "Comprender las fuentes de datos"
+description: "BORRADOR (sin verificar) — migrado desde /t/q6ymbj1/understanding-data-sources"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## Fuentes de datos
+
+Una fuente de datos es una colección de todos los datos presentes en los procesos, tableros, conjuntos de datos y otras tablas de Kissflow. Se utilizan para crear [informes](/t/35h9qzj/analytics-reports-an-overview) en Analytics.
+
+Para acceder a las fuentes de datos:
+
+1.  Inicia sesión en Kissflow.
+2.  Haz clic en el botón **Analytics** (![](/migration-assets/overview-of-kissflow-analytics/2.png)) en la navegación izquierda.
+3.  En **Explorador de datos**, puedes encontrar todas las **fuentes de datos**, incluidas las tablas de procesos, tablas de tableros, child tables, tablas del sistema, vistas de datos y conjuntos de datos creados por ti o compartidos contigo.
+
+![](/migration-assets/understanding-data-sources-2/1.png)
+
+> **NOTA:**
+> 
+> -   Aunque no puedes crear, modificar ni eliminar fuentes de datos, puedes combinarlas para crear [vistas de datos](/t/83h9qzn/understanding-dataviews#creating-a-dataview).
+> -   Todas las fuentes de datos se sincronizarán en un plazo de una hora. La marca **Última sincronización** indica la hora de la sincronización más reciente.
+
+Como [Superadministrador](/t/35h4ak0/user-roles-permissions#super-admins), puedes ver todas las fuentes de datos de tu cuenta de forma predeterminada. Estas incluyen tablas de procesos, tablas de tableros, child tables, conjuntos de datos, tablas del sistema y vistas de datos. Puedes buscar fácilmente una fuente de datos por su nombre, filtrar por tipo de fuente de datos y ordenar por última sincronización, última modificación o por orden alfabético.
+
+Cada fuente de datos se muestra como una tarjeta con estos detalles:
+
+-   Nombre.
+-   Tipo.
+-   Tiempo transcurrido desde la última sincronización.
+-   Opción para crear un informe y compartir la fuente de datos con otras personas.
+
+![](/migration-assets/understanding-data-sources-2/2.png)
+
+### Acceder a una fuente de datos por primera vez
+
+Cuando se accede a una fuente de datos por primera vez, se realiza una obtención de datos única, como se muestra en el gif a continuación. Posteriormente, la fuente de datos se programa para sincronizarse periódicamente y mantener los datos actualizados. Esta obtención de datos inicial normalmente se completa en un plazo de cero a diez minutos, según el tamaño y la complejidad de la fuente de datos.  
+  
+![](/migration-assets/understanding-data-sources-2/3.gif)
+
+## Tipos de fuentes de datos
+
+**Tipo de fuente de datos**
+
+**Icono**
+
+**Descripción**
+
+Tabla de procesos
+
+![](/migration-assets/understanding-data-sources/1.png)
+
+Una tabla que contiene todos los campos de un formulario de proceso.
+
+[Child table](/t/h7h4azm/creating-a-form#child-tablesnbsp)
+
+![](/migration-assets/understanding-data-sources/2.png)
+
+Cualquier tabla dentro de un formulario de proceso.
+
+Tabla de tableros
+
+![](/migration-assets/understanding-data-sources/3.png)
+
+Una tabla que contiene todos los campos de tu tablero como columnas, con los subelementos representados como filas.
+
+Child table
+
+![](/migration-assets/understanding-data-sources/4.png)
+
+Cualquier tabla dentro de un formulario de tablero.
+
+Tabla del sistema
+
+![](/migration-assets/understanding-data-sources/5.png)
+
+**Proceso**: Una tabla generada por el sistema para supervisar los pasos y las actividades de un proceso. Incluye las siguientes tablas:**Tabla de instancias de procesos**Muestra el estado actual de cada elemento en todos los procesos de tu cuenta.**Tabla de instancias de actividades**Muestra todo el historial de pasos de cada elemento en todos los procesos de tu cuenta. Registra cada actividad de un flujo de proceso, como asignada, rechazada, devuelta y aprobada.**Tabla de usuarios y grupos**Muestra la lista de usuarios y grupos con sus datos asociados.**Tablero**: A continuación se muestra una tabla generada por el sistema para supervisar el estado y las actividades de un tablero:**Tabla de instancias de estados de tableros**Muestra la información de carga de trabajo y el estado de todos los tableros.
+
+Conjunto de datos
+
+![](/migration-assets/understanding-data-sources/6.png)
+
+Una tabla con filas y columnas de datos.
+
+[Vista de datos](/t/83h9qzn/understanding-dataviews#dataviews)
+
+![](/migration-assets/understanding-data-sources/7.png)
+
+Una representación tabular de datos creada al combinar varias fuentes de datos mediante consultas SQL de tipo join.
+
+### Relación entre entidades de las fuentes de datos
+
+![](/migration-assets/understanding-data-sources/8.png)
+
+## Filtrar en el explorador de datos
+
+Encuentra fuentes de datos relevantes mediante los siguientes filtros:
+
+-   **Todas** - Muestra todas las fuentes de datos de tu cuenta.
+-   **Mis vistas de datos** - Muestra todas las vistas de datos que has creado.
+-   **Vistas de datos compartidas** - Muestra todas las vistas de datos que se han compartido contigo.
+-   **Tablas del sistema** - Muestra todas las tablas de carga de trabajo creadas por el sistema, incluidos los datos de usuarios y grupos.
+-   **Mis tablas** - Muestra todas las tablas de las que eres administrador.
+-   **Tablas compartidas** - Muestra todas las tablas a las que tienes acceso.
+
+## Roles en las fuentes de datos
+
+Hay dos roles en las fuentes de datos:
+
+-   **Administrador de informes**
+-   **Creador de informes**
+
+**Permisos**
+
+**Administrador de****informes**
+
+**Creador de informes**
+
+Crear/editar/eliminar vistas de datos
+
+✅ (Solo puede acceder a las vistas de datos compartidas con esa persona)
+
+✅
+
+Crear/eliminar fuentes de datos
+
+❌
+
+❌
+
+Crear/editar/eliminar informes
+
+✅
+
+✅
+
+Compartir fuentes de datos
+
+❌
+
+❌
+
+> **Nota:**
+> 
+> Si tienes el rol de administrador de procesos, administrador de tableros o administrador de informes para tu proceso o tablero, o si eres administrador o miembro de un conjunto de datos, adquirirás automáticamente estos permisos y te convertirás en administrador de informes de tu fuente de datos.
+
+> **Nota:**
+> 
+> Si eres desarrollador o miembro de un proceso o tablero con permiso para crear informes, administrador de datos de un proceso o tablero específico, o visor del conjunto de datos, heredarás estos permisos y se te designará automáticamente como creador de informes de la fuente de datos.

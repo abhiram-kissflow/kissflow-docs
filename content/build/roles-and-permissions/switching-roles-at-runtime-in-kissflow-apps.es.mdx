@@ -1,0 +1,55 @@
+---
+title: "Cambiar de rol en tiempo de ejecución en Kissflow Apps"
+description: "BORRADOR (sin verificar) — migrado desde /t/83ytnlb/switching-roles-at-runtime-in-kissflow-apps"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Kissflow Apps ofrece a los desarrolladores la posibilidad de cambiar entre diferentes roles de usuario durante el tiempo de ejecución de una aplicación, sin interrumpir el flujo de desarrollo. Esta función está diseñada para mejorar el proceso de pruebas, ya que permite a los desarrolladores experimentar la aplicación como diferentes personas usuarias sin tener que inscribirse manualmente en otros roles.
+
+## Principales ventajas de cambiar de rol
+
+-   Como desarrollador, puedes cambiar entre los roles de la aplicación durante el tiempo de ejecución sin tener que salir de la aplicación.
+    
+-   Cuando cambias a un rol mediante el menú desplegable **Ver como**, el sistema te eliminará automáticamente del rol actual y te inscribirá en el seleccionado. Por este motivo, el último rol utilizado por un desarrollador se guarda en las preferencias del usuario y se aplica automáticamente la próxima vez que el desarrollador ejecute la aplicación.
+    
+
+## Cómo cambiar de rol en tiempo de ejecución
+
+**Escenario:**
+
+Has configurado una navegación personalizada para la aplicación con varios menús destinados a diferentes roles de usuario. Probar cómo cambia la navegación para cada rol asignando usuarios a los roles manualmente puede ser un proceso tedioso.
+
+Sigue estos pasos para cambiar de rol con un solo clic:
+
+1.  Haz clic en **Ejecutar** para abrir la vista de tiempo de ejecución con el menú de navegación.
+    
+2.  Haz clic en el menú desplegable **Ver como**. Allí aparecerán todos los roles disponibles en la aplicación.
+    
+3.  Haz clic en el rol cuya vista quieras ver.
+    
+
+Se te inscribirá automáticamente en el rol seleccionado, lo que anulará el rol anterior que tenías asignado.
+
+![](/migration-assets/switching-roles-at-runtime-in-kissflow-apps/1.gif)
+
+![](/migration-assets/switching-roles-at-runtime-in-kissflow-apps/3.gif)
+
+> **Nota:** La posibilidad de cambiar de rol solo está disponible en el entorno de desarrollo. En los entornos de staging y producción, los usuarios tendrán roles asignados según su configuración inicial y no se permitirá cambiar de rol.
+
+## Cómo asignar varios roles a un usuario
+
+1.  Aunque el cambio de rol te limita a un rol a la vez, puedes agregarte manualmente a varios roles y ver simultáneamente las páginas asignadas a esos roles. Para hacerlo, ve a **Administrar > Roles**.
+2.  Haz clic en **Administrar miembros** junto al rol que quieras y agrega tu nombre de usuario.
+    
+3.  Ahora estarás inscrito en varios roles, lo que te dará acceso a todas las páginas para las que estos roles tengan permisos. Obtén más información sobre [cómo agregar usuarios a los roles](/t/h7yzj46/application-roles#creating-an-in-app-role).
+    
+
+![](/migration-assets/switching-roles-at-runtime-in-kissflow-apps/2.png)
+
+> **Nota:** Los roles asignados manualmente se anularán cada vez que uses el menú **Ver como** para cambiar a un rol diferente.

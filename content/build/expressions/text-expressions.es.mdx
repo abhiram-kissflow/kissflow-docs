@@ -1,0 +1,757 @@
+---
+title: "Expresiones de texto"
+description: "BORRADOR (sin verificar): migrado desde /t/m1h4al6/text-expressions"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Las expresiones de texto se pueden usar con campos de texto. Los campos de área de texto no pueden usar expresiones.
+
+Kissflow a veces se refiere a una secuencia de caracteres en una expresión como una cadena. Las cadenas son partes de las expresiones de texto.
+
+## Ejemplo utilizado
+
+Para todos estos ejemplos, supongamos que tenemos el siguiente campo de texto:
+
+**ID del campo**
+
+**Tipo de campo**
+
+**Valor**
+
+text1
+
+Texto
+
+Stark Industries
+
+## Funciones
+
+Una función va al principio de la expresión.
+
+**Función**
+
+**Descripción**
+
+**Sintaxis**
+
+**Resultado**
+
+Concatenate
+
+Añade un sufijo a un nombre o etiqueta en el campo mencionado.
+
+concatenate(text1, ", Inc")
+
+Stark Industries, Inc
+
+> **Consejo**
+>
+> Para mostrar un valor fijo y no editable en un campo de texto, usa la función `concatenate()`. El campo se convertirá en de solo lectura.
+>
+> Por ejemplo, usar la fórmula `concatenate("natasha@kissflow.com")` siempre mostrará esa dirección de correo electrónico y evitará que los usuarios la editen.
+
+## Métodos
+
+Los métodos aparecen después del fieldID y se invocan con un operador de punto.
+
+**Función**
+
+**Tipo de datos**
+
+**Descripción**
+
+**Sintaxis**
+
+**Resultado**
+
+toUpperCase
+
+Texto
+
+Convierte todos los caracteres a mayúsculas.
+
+text1.toUpperCase()
+
+STARK INDUSTRIES
+
+toLowerCase
+
+Texto
+
+Convierte todos los caracteres a minúsculas.
+
+text1.toLowerCase()
+
+stark industries
+
+trim
+
+Texto
+
+Elimina los espacios al principio y al final.
+
+text1.trim()
+
+Stark Industries
+
+replace
+
+Texto
+
+Reemplaza caracteres que distinguen entre mayúsculas y minúsculas por otros.
+
+Especifica qué aparición del carácter quieres reemplazar.
+
+text1.replace("s", "x")
+
+text1.replace("s", "x", 2)
+
+Stark Induxtriex
+
+Stark Industriex
+
+find
+
+Número
+
+Devuelve la primera posición de un carácter en una cadena, comenzando desde una posición especificada. De forma predeterminada, la búsqueda distingue entre mayúsculas y minúsculas. Para realizar una búsqueda que no distinga entre mayúsculas y minúsculas, pasa true() como argumento.
+
+La función find() también puede comprobar si existe un valor específico dentro de un campo.
+
+Por ejemplo, si field1 contiene el texto "Apple, Orange, Banana." En field2, usa la fórmula if(field1.find("Orange"), "True", "False")  
+Si se encuentra "Orange" en field 1, field 2 devolverá "True"; de lo contrario, devolverá "False".
+
+> **Nota:**
+>
+> Aunque el generador de fórmulas de Kissflow no admite la función `contains()`, puedes usar `find()` para obtener el mismo resultado.
+
+text1.find("s")
+
+text1.find(“s”, 12)
+
+text1.find(“s”, 1, true())
+
+if(text1.find("Orange"), "True", "False")
+
+11
+
+16
+
+1
+
+True
+
+substring
+
+Texto
+
+Extrae una parte de una cadena según las posiciones de índice inicial y final especificadas.
+
+fieldname.substring(startindex,endindex)
+
+-   Índice inicial: la posición de la cadena donde comienza la extracción.
+    
+-   Índice final: la posición de la cadena donde termina la extracción.
+    
+
+text1.substring(1,3)
+
+Sta
+
+length
+
+Número
+
+Muestra el número de caracteres de una cadena.
+
+text1.length()
+
+16
+
+## Convertir valores en un campo de texto
+
+El método toText convierte distintos tipos de datos en un campo de texto.
+
+Estos son algunos ID y valores de campos de ejemplo adicionales:
+
+-   NumField = 24.526
+-   CurField = USD $24.52
+-   DateField = 05/29/1971
+-   Datetimefield = 05/29/1971 9:35 AM
+
+**Cambio**
+
+**Descripción**
+
+**Sintaxis**
+
+**Resultado**
+
+Número a texto
+
+Convierte un valor numérico en un valor de texto.
+
+Añade opciones de formato para proporcionar marcadores de posición.
+
+Cuando se incluyen posiciones decimales, el número se redondea.
+
+numfield.totext()
+
+numfield.totext(“.00”)
+
+numfield.totext("0000")
+
+“24.526”
+
+“24.53”
+
+"0024"
+
+Moneda a texto
+
+Convierte un valor de moneda en un valor de texto.
+
+Añade opciones de formato.
+
+curfield.toText("0.00")
+
+“24.53”
+
+Fecha a texto
+
+Convierte un valor de fecha en un valor de texto.
+
+DD=Día
+
+MM=Mes
+
+YY, YYYY=Año
+
+datefield.totext(“DD/MM/YY")
+
+“29/05/71”
+
+Fecha y hora a texto
+
+Convierte un valor de fecha y hora en un valor de texto.
+
+Formato de 24 horas: HH=Hora, MM=Minuto
+
+Formato de 12 horas: H:M
+
+AM/PM muestra AM o PM
+
+datetimefield.totext(“DD/MM/YY H:M AM/PM”)
+
+“29/05/71 09:35 AM”
+
+1\. Para usar tipos de cambio en tiempo real, [usa un campo de búsqueda remota](/t/x2yq224/remote-lookup).
+
+**Método**
+
+**Sintaxis**
+
+**Tipo de entrada**
+
+**Tipo de salida**
+
+**Explicación**
+
+extractText
+
+Remotelookup\_Fieldname.extractText(&lt;path>, &lt;index>)
+
+Remotelookup\_Fieldname: JSON OBJECT&lt;path>: TEXT (valid json path)&lt;index>: TEXT
+
+LIST&#123;TEXT&#125;TEXT
+
+Extrae y devuelve una matriz de texto del objeto JSON, filtrada según la ruta json proporcionada. Si se proporciona el índice, se extrae el texto de ese índice específico.
+
+## Validar una expresión de texto mediante regex
+
+Una expresión regular, es decir, regex**,** es una secuencia de caracteres que hace referencia a un patrón de búsqueda. Puedes usar una regex para comprobar si se encuentra un patrón específico en el texto proporcionado como entrada.
+
+1.  Ve al formulario del proceso y coloca el cursor sobre el campo de texto para el que quieras escribir una regex.
+2.  Haz clic en el icono **Validación** y, en el panel derecho que aparece automáticamente, haz clic en **+Añadir una regla de validación**.
+3.  Selecciona **Regex** en la lista.
+4.  Introduce la expresión regex sin barras invertidas en el campo Regex. Si intentas copiar la regex de una fuente externa, recuerda pegar solo la expresión, sin las barras invertidas inicial y final. Es decir, debes escribir o pegar la expresión directamente en el campo **Regex**.
+    1.  Kissflow no admite regexes encerradas entre un par de barras invertidas. Es decir, _"/&lt;regex>/" no funcionará._
+5.  Haz clic en **Personalizar mensaje de error** si quieres mostrar un mensaje de error específico cuando la regex no coincida con el texto de entrada. Sin embargo, si no estableces un mensaje de error personalizado, el sistema mostrará un mensaje de error predeterminado.
+6.  Guarda los cambios y publica el flujo de trabajo.
+
+> **Nota:**
+>
+> No admitimos las marcas '**i**' (ignorar mayúsculas y minúsculas) ni '**m**' (multilínea) en la expresión regular. Es decir, no puedes hacer coincidir una expresión ignorando mayúsculas y minúsculas ni con un texto de varias líneas.
+
+En el siguiente ejemplo, hemos usado una regex para comprobar si un campo de texto contiene únicamente letras mayúsculas.
+
+Te recomendamos familiarizarte con las siguientes reglas de regex para validar fácilmente las entradas de texto.
+
+**Regex para hacer coincidir un solo carácter o un conjunto de caracteres en una cadena:**
+
+**Formato para buscar caracteres**
+
+**Descripción**
+
+**Expresión regex de ejemplo**
+
+**Ejemplo**
+
+**\[**_c__haracter\_group_**\]**
+
+Hace coincidir cualquier carácter individual presente en el grupo de caracteres de la regex.
+
+Nota: De forma predeterminada, la coincidencia distingue entre mayúsculas y minúsculas.
+
+\[xyz\]
+
+Si el texto de entrada es "xerox", la regex \[xyz\] encontrará 2 coincidencias: "x", "x".
+
+**\[^** _character\_group_**\]**
+
+Hace coincidir cualquier carácter individual que no esté presente en el grupo de caracteres de la regex.
+
+Nota: De forma predeterminada, la coincidencia distingue entre mayúsculas y minúsculas.
+
+\[^xyz\]
+
+Si el texto de entrada es "xerox", la regex \[^xyz\] encontrará 3 coincidencias: "e", "r", "o".
+
+**\[**first character **\-** last character**\]**
+
+Hace coincidir cualquier carácter individual que esté presente en cualquier posición del rango de caracteres mencionado en la regex, desde el primero hasta el último.
+
+Nota: Como las coincidencias de regex siempre distinguen entre mayúsculas y minúsculas, asegúrate de usar letras mayúsculas si quieres buscar únicamente letras en mayúsculas.
+
+\[A-Z\]
+
+\[a-z\]
+
+\[1-9\]
+
+-   La regex **\[A-Z\]** busca letras mayúsculas en el texto de entrada. Por ejemplo, el texto de entrada "AY976R" tendrá 3 coincidencias: "A", "Y" y "R".
+
+-   La regex **\[a-z\]** busca únicamente letras minúsculas. Por ejemplo, el texto de entrada "apple" tendrá 5 coincidencias, ya que todas las letras de la cadena están en minúsculas.
+
+-   La regex **\[1-9\]** busca números del 1 al 9 en el texto de entrada. Por ejemplo, el texto de entrada "00008" tendrá 1 coincidencia, ya que el número "0" no está presente en el formato de la regex, por lo que la regex solo coincide con el número 8.
+
+**.**
+
+Hace coincidir cualquier carácter individual o conjunto de caracteres presente entre la letra anterior al punto y la letra posterior al punto en el texto de entrada.
+
+Nota: Si quieres hacer coincidir literalmente un carácter de punto, puedes escapar el carácter como "\\." en la regex.
+
+m.t
+
+\\.
+
+-   La regex **m.t** coincide con "market" en "marketing" y con "mkt" en "mkt004".
+
+-   La regex **\\.** coincide con "." en "google.com" y no coincide con ningún carácter en "googleTV".
+
+\\d
+
+Hace coincidir cualquier dígito decimal.
+
+\\d
+
+\\d&#123;3&#125;
+
+-   La regex **\\d** coincide con "4", "5" y "6" en la cadena "4.56", y con "3", "8" y "9" en la cadena "3abcde89".
+
+-   La regex **\\d&#123;3&#125;** coincide con "123" en la cadena "1234", y con "263" y "451" en la cadena "263451".
+
+-   Esta regex encontrará una coincidencia si hay tres dígitos consecutivos en el texto de entrada.
+
+-   Por lo tanto, la regex no podrá encontrar una coincidencia si el texto de entrada es "abc78".
+
+**Regex para hacer coincidir un patrón de cadena según su posición:**
+
+**Formato para validar la posición de la cadena de búsqueda**
+
+**Descripción**
+
+**Expresión regex de ejemplo**
+
+**Ejemplo**
+
+^
+
+La coincidencia debe estar presente al principio de la cadena.
+
+Nota: Si se trata de un texto de varias líneas, se considera el principio de la línea.
+
+^\\d&#123;3&#125;
+
+Texto de entrada **A**: 263451
+
+Texto de entrada **B**: 1234
+
+Texto de entrada **C**: abc789
+
+La regex ^\\d&#123;3&#125; coincidirá solo si hay tres dígitos consecutivos al principio del texto de entrada; por lo tanto, coincidirá con "263" en A, "123" en B y con nada en C.
+
+**Regex para hacer coincidir lógicamente un patrón de cadena específico:**
+
+**Formato para validar la cadena según la lógica**
+
+**Descripción**
+
+**Expresión regex de ejemplo**
+
+**Ejemplo**
+
+\\|
+
+Hace coincidir cualquiera de los patrones separados por la barra vertical.
+
+wh(o\\|at\\|ich)
+
+(o\\|at\\|ich)
+
+Cadena de entrada **A**\= "Who are you?"
+
+Cadena de entrada **B**\= "What is your name?"
+
+Cadena de entrada **C** = "Which is your notebook?"
+
+-   Esta regex **wh(o\\|at\\|ich)** coincide con "who" en A, "what" en B y "which" en C.
+
+-   La regex **(o\\|at\\|ich)** coincide con "o" dos veces en A, con "at" una vez y con "o" una vez en B, y con "ich" una vez y "o" cuatro veces en C.
+
+**Patrones de regex de uso común:**
+
+Puedes anotar aquí las expresiones regulares más utilizadas. Puedes copiar directamente una regex y pegarla en el campo **Regex** para usarla.
+
+**¿Qué valida la regex?**
+
+**Descripción**
+
+**Expresión** **regular**
+
+**Ejemplo con resultado**
+
+Números enteros
+
+Comprueba si el texto de entrada contiene únicamente números enteros.
+
+^\\d+$
+
+Cadena de entrada A = "345"
+
+Cadena de entrada B= "2.56"
+
+La regex coincide con "345" en A y no coincide con nada en B.
+
+Números decimales
+
+Comprueba si el texto de entrada contiene únicamente números decimales.
+
+^\\d\*\\.\\d+$
+
+Cadena de entrada A = "345"
+
+Cadena de entrada B= "2.56"
+
+La regex no coincide con nada en A y coincide con "2.56" en B.
+
+Números enteros y números decimales
+
+La regex coincide si el texto de entrada contiene uno de los dos tipos: números enteros o números decimales. Sin embargo, no coincidirá si la entrada contiene números positivos o negativos.
+
+^\\d\*(\\.\\d+)?$
+
+**Coincide**:
+
+5.0
+
+3
+
+0.0
+
+**No coincide**:
+
+\-3.5
+
++2.5
+
++2
+
+\-3
+
+Caracteres alfanuméricos sin espacios
+
+Comprueba si el texto de entrada es una combinación de letras y números sin espacios.
+
+^\[a-zA-Z0-9\]\*$
+
+**Coincide**:
+
+hello
+
+what
+
+**No coincide**:
+
+how are you?
+
+Direcciones de correo electrónico comunes
+
+Esta regex se puede usar para hacer coincidir los formatos de dirección de correo electrónico más utilizados.
+
+^(\[a-zA-Z0-9.\_%-\]+@\[a-zA-Z0-9.-\]+\\.\[a-zA-Z\]&#123;2,6&#125;)\*$
+
+**Coincide**:
+
+[email@example.com](mailto:email@example.com)
+
+[firstname.lastname@example.com](mailto:firstname.lastname@example.com)
+
+[email@subdomain.example.com](mailto:email@subdomain.example.com)
+
+**No coincide**:
+
+[firstname+lastname@example.com](mailto:firstname+lastname@example.com) // en realidad es válido
+
+email@123.123.123.123
+
+email@\[123.123.123.123\]
+
+"email"@example.com
+
+Fortaleza de la contraseña
+
+Esta regex se puede usar para comprobar si una contraseña es segura.
+
+Comprueba si el texto de entrada tiene 1 letra minúscula, 1 letra mayúscula, 1 número, 1 carácter especial y al menos 8 caracteres.
+
+```
+(?=(.*[0-9]))(?=.*[\!@#$%^&*()\\[\]{}\-_+=~`\|:;"'<>,./?])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{8,}
+```
+
+**Coincide**:
+
+Pa$$wYu893
+
+**No coincide**:
+
+rty34
+
+Nombre de usuario
+
+Comprueba si el nombre de usuario incluye \_ y – y tiene una longitud de 3 a 16 caracteres.
+
+^\[a-z0-9\_-\]&#123;3,16&#125;$
+
+**Coincide**:
+
+hie
+
+helloWorld
+
+hello\_world
+
+hello-world
+
+**No coincide**:
+
+hello@world
+
+hellp!world
+
+URL (protocolo https)
+
+Comprueba si la URL introducida tiene el protocolo "https".
+
+```
+https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#()?&//=]*)
+```
+
+**No coincide**:
+
+[www.google.com](http://www.google.com)
+
+**Coincide**:
+
+[https://www.google.com](https://www.google.com)
+
+URL (el protocolo es opcional)
+
+Comprueba si la URL introducida es válida y la validación del protocolo "https" es opcional.
+
+```
+(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)
+```
+
+**Coincide**:
+
+[www.google.com](http://www.google.com)
+
+[https://www.google.com](https://www.google.com)
+
+Formato de fecha
+
+Comprueba el formato de fecha YYYY-MM-DD.
+
+(\[12\]\\d&#123;3&#125;-(0\[1-9\]\\|1\[0-2\])-(0\[1-9\]\\|\[12\]\\d\\|3\[01\]))
+
+**Coincide**:
+
+2008-09-31
+
+1600-12-25
+
+**No coincide**:
+
+1942-11-1
+
+1942-11-0
+
+1942-00-25
+
+Formato de fecha
+
+Comprueba el formato de fecha DD MM YYYY con uno de estos separadores: **/**, **.** o **\-**.
+
+^(?:(?:31(\\/\\|-\\|\\.)(?:0?\[13578\]\\|1\[02\]))\\1\\|(?:(?:29\\|30)(\\/\\|-\\|\\.)(?:0?\[1,3-9\]\\|1\[0-2\])\\2))(?:(?:1\[6-9\]\\|\[2-9\]\\d)?\\d&#123;2&#125;)$\\|^(?:29(\\/\\|-\\|\\.)0?2\\3(?:(?:(?:1\[6-9\]\\|\[2-9\]\\d)?(?:0\[48\]\\|\[2468\]\[048\]\\|\[13579\]\[26\])\\|(?:(?:16\\|\[2468\]\[048\]\\|\[3579\]\[26\])00))))$\\|^(?:0?\[1-9\]\\|1\\d\\|2\[0-8\])(\\/\\|-\\|\\.)(?:(?:0?\[1-9\])\\|(?:1\[0-2\]))\\4(?:(?:1\[6-9\]\\|\[2-9\]\\d)?\\d&#123;2&#125;)$
+
+**Coincide:**
+
+01/01/2000
+
+31/01/2000
+
+**No coincide:**
+
+32/01/2000
+
+Contiene @ y .com
+
+Comprueba si el texto de entrada contiene tanto `@` como `.com` en ese orden, con cualquier número de caracteres entre ellos, incluidos ninguno.
+
+@.\*\\.com  
+ 
+
+**Coincide**:
+
+[user@example.com](mailto:user@example.com)  
+  
+**No coincide**:
+
+[example.com](http://example.com)
+
+user@example
+
+[user@example.org](mailto:user@example.org)
+
+Caracteres alfanuméricos en mayúsculas
+
+Comprueba si el texto de entrada contiene letras mayúsculas (`A–Z`) y números (`0–9`). No se permiten letras minúsculas, espacios ni caracteres especiales.
+
+^\[A-Z0-9\]+$
+
+**Coincide**:
+
+HELLO123
+
+UPPERCASE  
+  
+**No coincide**:
+
+hello123
+
+ABC-123
+
+hello
+
+Números del 1 al 50
+
+Comprueba si la entrada es un número entre **1** y **50**. No permite ceros iniciales, letras ni símbolos.
+
+^(?:\[1-9\]\\|\[1-4\]\[0-9\]\\|50)$
+
+**Coincide**:
+
+1
+
+9
+
+25  
+  
+**No coincide**:
+
+0
+
+51
+
+25.0
+
+05
+
+30a
+
+Solo caracteres alfanuméricos
+
+Comprueba si la entrada contiene únicamente letras (`a–z`, `A–Z`) y números (`0–9`). No se permiten espacios ni caracteres especiales.
+
+^\[a-zA-Z0-9\]\*$
+
+**Coincide**:
+
+Hello123
+
+abcXYZ789  
+  
+**No coincide**:
+
+Hello@123
+
+Hello 123
+
+Validación de mayúsculas iniciales
+
+Comprueba si cada palabra de la cadena de entrada comienza con una letra mayúscula seguida de letras minúsculas.
+
+^(\[A-Z\]\[a-z\]+)(\\s\[A-Z\]\[a-z\]+)\*$
+
+**Coincide**:
+
+John Doe  
+  
+**No coincide**:
+
+john doe
+
+Solo mayúsculas
+
+Comprueba si el texto de entrada consta estrictamente de letras mayúsculas (sin minúsculas, números ni símbolos).
+
+^\[A-Z\]+$
+
+**Coincide**:
+
+URGENT  
+  
+**No coincide**:
+
+urgent
+
+Evitar espacios iniciales y finales
+
+Comprueba que la entrada no comience ni termine con un espacio (aunque permite espacios en el medio).
+
+^\\S(.\*\\S)?$
+
+**Coincide**:
+
+"Antony"  
+  
+**No coincide**:
+
+"Antony "

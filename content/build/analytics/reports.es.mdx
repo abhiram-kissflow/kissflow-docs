@@ -1,0 +1,124 @@
+---
+title: "Informes"
+description: "BORRADOR (sin verificar) — migrado desde /t/x2yzj9g/reports"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Los [informes](/t/35h9qzj/analytics-reports-an-overview) te ayudan a obtener información sobre el funcionamiento de tu proceso, tablero o dataform. Puedes generar informes personalizados para encontrar tendencias, patrones y valores atípicos en tu aplicación.
+
+Accede a los informes haciendo clic en la pestaña **Informes** de la página de tu formulario.
+
+## Crear un informe nuevo dentro de un formulario
+
+Para crear un informe nuevo dentro de un proceso, tablero o dataform, haz clic en la pestaña **Informes** > **Nuevo informe**.
+
+1.  Proporciona un nombre para el informe.
+2.  Elige el tipo de informe.
+3.  Haz clic en **Crear**.
+
+## Tipos de informes
+
+-   Los [informes tabulares](/t/g9h9qzby7h4gs/tabular-reports) muestran información en columnas y filas, como una hoja de cálculo. 
+    
+-   Los [gráficos](/t/h7h9qzry7h4gs/chart-reports) muestran los datos gráficamente en uno de diez tipos de gráficos, incluidos los gráficos de área, barras, anillos, líneas, circulares y burbujas.
+    
+-   Los informes de [tabla dinámica](/t/q6h9qz5y7h4gs/pivot-reports) se pueden usar para resumir rápidamente grandes cantidades de datos. Puedes convertir columnas en filas y filas en columnas.
+    
+-   Los [informes de tarjetas](/t/h7h8qgv/card-report-for-apps) muestran métricas analíticas y KPI clave, lo que proporciona una visión clara del rendimiento y las tendencias de un vistazo mediante datos esenciales y cálculos comparativos.
+    
+
+> **Nota:**
+> 
+> Los informes que creas dentro de procesos, tableros y dataforms proporcionan datos específicos de cada flujo. Sin embargo, los informes de Analytics solo se pueden crear dentro del módulo Analytics de una aplicación.
+
+## Habilitar el desglose en informes de gráficos y tablas dinámicas
+
+<iframe src="https://player.vimeo.com/video/950964198?badge=0&autopause=0&player_id=0&app_id=58479" title="Embedded video" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+La función de desglose te permite profundizar en los datos de tu informe al mostrar una vista tabular de las filas subyacentes asociadas con puntos de datos específicos en informes de gráficos y tablas dinámicas. El desglose está habilitado de forma predeterminada al crear un informe y puedes activarlo o desactivarlo en la configuración del informe.
+
+Para habilitar el desglose:
+
+1.  Ve a la pestaña de configuración en la página de configuración del informe.
+2.  En Desglose, selecciona al menos dos campos.
+3.  Haz clic en **Aplicar**.
+
+> **Nota:**
+> 
+> Los campos usados para crear informes se seleccionan automáticamente como campos de desglose predeterminados. Se requieren al menos dos campos para habilitar el desglose.
+
+### Previsualizar los datos del desglose
+
+1.  Pasa el cursor sobre tu informe de gráficos o tablas dinámicas.
+    
+2.  Haz clic en un punto de datos para desglosar los datos.
+    
+3.  Aparecerá una vista tabular que mostrará las filas subyacentes relacionadas con el punto de datos seleccionado.
+    
+4.  Puedes buscar campos, mostrar u ocultar columnas y ordenar los datos haciendo clic en el menú desplegable de cada encabezado de columna. También puedes exportar los datos en tiempo de ejecución.
+    
+
+### Exportar los datos del desglose
+
+Puedes exportar los datos del desglose en tiempo de ejecución una vez que guardes el informe en la página. 
+
+Para exportar los datos del desglose:
+
+1.  Haz clic en el icono **Exportar**.
+    
+2.  Selecciona **CSV**, **JSON** o **CSV (varios archivos)**.
+    
+3.  Marca la configuración de zona horaria para habilitar la zona horaria en el informe.
+    
+4.  Haz clic en **Exportar**. Los datos se enviarán a tu correo electrónico.
+    
+
+> **Nota:**
+> 
+> Al exportar, habilita la configuración de zona horaria para convertir todos los campos de fecha y hora a tu zona horaria personal. Si no la configuras, se usará la zona horaria de tu cuenta. Si no marcas esta opción, los campos seguirán las zonas horarias del informe.
+
+### Configurar eventos al hacer clic para vincular informes mediante el desglose
+
+Además del desglose predeterminado, los desarrolladores de aplicaciones pueden configurar un desglose personalizado mediante eventos al hacer clic para componentes de gráficos y tablas dinámicas en el creador de páginas. Esto permite redirigir los informes a otros informes o páginas, lo que proporciona una experiencia de navegación fluida.
+
+1.  Selecciona el componente de informe en el creador de páginas.
+    
+2.  Ve a la pestaña de propiedades **Evento**.
+    
+3.  Añade un evento al hacer clic y selecciona la acción y la página de destino para la redirección. También puedes seleccionar Abrir ventana emergente y [acción de JavaScript](/t/35yzj4x/variables-and-parameters-in-application-development#usage-in-javascript-editor) para configurar los eventos.
+    
+4.  Una vez configurado, haz clic en **Guardar y previsualizar**.
+    
+5.  Puedes ver la página en tiempo de ejecución.
+    
+6.  Cuando un usuario hace clic en una parte del componente de gráfico o tabla dinámica, los datos relevantes, como dimensiones, medidas y leyendas configuradas, se pasan como [parámetros de evento](/t/35yzj4x/variables-and-parameters-in-application-development#event-parameters). 
+    
+
+> **Nota:** Cuando añades un evento al componente, este reemplazará el desglose configurado en el informe.
+
+### Caso de uso
+
+Imagina que tienes un gráfico circular que muestra datos de solicitudes de compra por estado. Al habilitar la función de desglose, puedes configurar un evento al hacer clic en el informe mediante una acción de Javascript. Para configurar un evento al hacer clic:
+
+1.  Ve a la página de la aplicación.
+    
+2.  Arrastra y suelta un componente de informe dentro del creador de páginas.
+    
+3.  Selecciona el componente.
+    
+4.  Ve a la pestaña **Eventos**.
+    
+5.  Añade un evento al hacer clic y selecciona la [acción de JavaScript](/t/35yzj4x/variables-and-parameters-in-application-development#usage-in-javascript-editor) para configurar los eventos.
+    
+6.  Una vez configurado, haz clic en **Guardar y previsualizar** para ver la página en tiempo de ejecución.
+    
+
+Cuando un usuario hace clic en una parte del gráfico, el desglose personalizado activa otro gráfico de barras con datos relevantes. De esta manera, puedes vincular dos informes mediante el desglose en la página. 
+
+Al hacer clic en el segmento del gráfico circular que muestra **solicitudes de compra en curso**, aparecerá un gráfico de columnas apiladas que mostrará solicitudes de compra detalladas por departamento y paso. Esta interacción proporciona una comprensión más profunda de los datos y permite realizar un análisis más específico.

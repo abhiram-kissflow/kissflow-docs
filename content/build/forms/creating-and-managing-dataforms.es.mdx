@@ -1,0 +1,170 @@
+---
+title: "Creación y administración de dataforms"
+description: "BORRADOR (sin verificar) — migrado desde /t/35yzjag/creating-and-managing-dataforms"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+## Crear un nuevo dataform
+
+Para crear un dataform dentro del creador de aplicaciones,
+
+Haz clic en el botón de creación rápida del menú de navegación izquierdo y haz clic en **Dataform**. Verás tres opciones: **Crear con AI**, **Crear desde cero**, **Plantillas**. 
+
+![](/migration-assets/creating-and-managing-dataforms/2.png)
+
+### Crear desde cero
+
+1.  Para crear un dataform desde cero, haz clic en **Crear desde cero**.
+2.  Introduce un nombre y una descripción y haz clic en **Crear**. ![](/migration-assets/creating-and-managing-dataforms/1.png)
+
+### Crear con AI
+
+Aquí también puedes adjuntar un documento para crear tu dataform o introducir un prompt.
+
+#### [Adjuntar un documento](/t/60yzjaf/creating-and-customizing-a-board#attach-a-document)
+
+1.  Sube un documento compatible desde tu sistema; los formatos admitidos incluyen PNG, JPEG, JPG, PDF o CSV.  
+     
+    
+    A continuación se explica cómo el documento de entrada determina la estructura del resultado:
+    
+    **Formato del documento de entrada**
+    
+    **Resultado y comportamiento esperados**
+    
+    **CSV**
+    
+    • **Asignación de campos**: Todos los encabezados de columna se asignarán automáticamente a tipos de campo específicos; el formulario puede admitir hasta 1000 campos.
+    
+    • **Organización**: Los campos se agruparán por sección para garantizar un flujo lógico.
+    
+    • **Generación de tablas**: Si corresponde, las tablas se crearán automáticamente.
+    
+    **Imágenes o PDF**
+    
+     
+    
+    (PDF, PNG, JPEG, JPG)
+    
+    • **Replicación exacta**: AI replicará exactamente el diseño del formulario tal como aparece en el archivo cargado. Sin embargo, si proporcionas instrucciones específicas en el prompt, AI modificará el resultado para adaptarlo a esas solicitudes.
+    
+    • **Detección de tablas**: Si la imagen o el PDF contiene una tabla visible, se convertirá automáticamente en un campo de tabla.
+    
+2.  Añade un prompt en el espacio que aparece a continuación para definir con mayor precisión cómo AI crea tu dataform. Este paso es opcional.
+    
+3.  Haz clic en **Comenzar a crear**.
+    
+    ![](/migration-assets/creating-and-managing-dataforms/8.png)
+4.  Cuando se complete la configuración, aparecerá la ventana emergente **Añadir los toques finales**. Incluye los detalles del dataform rellenados previamente. Revísalos y edítalos si es necesario.
+    
+5.  Haz clic en **Vista previa del formulario** para ver el dataform. Si todo se ve bien, selecciona **Ir al dataform**.
+    
+6.  Realiza los cambios necesarios en el dataform y haz clic en **Guardar**.
+    
+
+#### [Proporcionar un prompt](/t/60yzjaf/creating-and-customizing-a-board#provide-a-prompt)
+
+Simplemente describe el dataform en el espacio **O proporciona un prompt** y haz clic en **Comenzar a crear**. ![](/migration-assets/creating-and-managing-dataforms/5.png)En la ventana emergente **Añadir los toques finales**, revisa los detalles del dataform y obtén una vista previa del formulario. Si todo se ve bien, haz clic en **Ir al dataform** para personalizar tu formulario antes de guardarlo.
+
+### [Plantillas](/t/60yzjaf/creating-and-customizing-a-board#templates)
+
+Instala una plantilla desde la **Galería de plantillas**. Puedes personalizarla más adelante para adaptarla a tus necesidades.![](/migration-assets/creating-and-managing-dataforms/3.png)
+
+## Crear un dataform
+
+Después de crear un dataform, accederás al editor de dataform. El formulario básico, las vistas, los informes, los roles y la configuración se gestionan en el lado izquierdo del editor. El formulario aparece en el centro y los campos **básicos** y **avanzados** se muestran en el lado derecho del editor. Puedes hacer clic dentro del formulario o arrastrar y soltar los campos directamente en él. Una vez configurado el formulario, haz clic en **Guardar** para que esté disponible dentro de la aplicación.
+
+![](/migration-assets/creating-and-managing-dataforms/4.png)
+
+## Cambiar el nombre, duplicar y archivar un dataform
+
+Para cambiar el nombre de tu dataform, haz clic en el botón **Más opciones** (![](/migration-assets/creating-and-managing-dataforms/7.png)) en tu dataform. Haz clic en **Cambiar nombre.** Cambia el nombre y la descripción de tu formulario. Sigue pasos similares para duplicar y archivar un dataform. Cuando duplicas un dataform, también se copian todos los campos asociados con el dataform original.
+
+También puedes cambiar el nombre, duplicar y archivar un dataform mediante el menú de más opciones de la navegación izquierda.
+
+![](/migration-assets/creating-and-managing-dataforms/6.png)
+
+## Buscar un dataform
+
+El menú de navegación izquierdo muestra todos los dataforms que tienes en tu aplicación. Puedes filtrar, ordenar, cambiar el nombre, duplicar y archivar mediante las opciones adicionales del menú de navegación izquierdo.
+
+![](/migration-assets/creating-and-managing-dataforms/9.gif)
+
+## Preguntas frecuentes
+
+**1\. ¿Cuáles son los distintos límites flexibles en los formularios de Kissflow?**
+
+**Respuesta)** Para mejorar el rendimiento y garantizar un uso eficiente de los recursos, Kissflow ha establecido las siguientes restricciones para cada dataform:
+
+-   Un máximo de 1000 campos por dataform.
+    
+-   Un límite flexible predeterminado de 10 child tables en cada dataform.
+    
+-   Un límite flexible predeterminado de 100 columnas por child table.
+    
+-   Un límite máximo de 5000 filas por child table.
+    
+-   Un límite máximo de 30 eventos por dataform (sin incluir los campos de botón).
+    
+
+**2\. ¿Puedo cambiar los tipos de datos de los campos cuando hay más de 5000 elementos en un dataform?**
+
+**Respuesta)** No puedes cambiar los tipos de datos de los campos en un dataform cuando hay más de 5000 registros. Esta restricción existe para evitar posibles problemas de control de versiones al modificar tipos de datos en dataforms grandes. Cambiar los tipos de datos de muchos valores puede provocar inconsistencias y problemas de rendimiento.
+
+**3\. ¿Hay tipos de campo en Kissflow Dataforms que no tengan límites flexibles?**
+
+**Respuesta)** Sí, ciertos tipos de campo en los formularios de Kissflow no están sujetos a límites flexibles:
+
+-   Campos de texto enriquecido.
+    
+-   Campos de cuadrícula.
+    
+-   Campos de botón (tienen un límite flexible independiente de 100 botones por dataform, además del límite predeterminado del formulario).
+    
+
+Los campos de texto enriquecido y de cuadrícula están exentos de restricciones porque no contienen metadatos.
+
+**4\. ¿Qué ocurre si duplico una sección con límites aumentados?**
+
+**Respuesta)** Si se duplica un dataform con límites aumentados, el nuevo dataform heredará los mismos límites incrementados.
+
+**5\. ¿Recibiré alguna advertencia cuando me acerque a estos límites?**
+
+**Respuesta)** Sí, aparecerán advertencias cuando estés cerca de alcanzar los límites. Por ejemplo, cuando tengas 990 campos y 90 columnas, recibirás advertencias que indicarán que te estás acercando al límite y sugerirán que solicites una ampliación si es necesario.
+
+**6\. ¿Cuántos registros se muestran al usar un dataform como fuente de datos para campos de casilla de verificación y botón de opción?**
+
+**Respuesta)** Solo se mostrarán los primeros 250 registros, según el orden de clasificación del dataform.
+
+**7\. ¿Qué tipos de campo admiten el comportamiento de campos dependientes?**  
+**Respuesta)** La capacidad de comportamiento de campos dependientes está disponible para los campos desplegables y de botón de opción.
+
+**8\. ¿Los campos de selección múltiple y casilla de verificación admiten desplegables dependientes?**  
+Respuesta) No, la capacidad de desplegables dependientes no se aplica a los campos desplegables de selección múltiple ni a los campos de casilla de verificación.
+
+**9\. ¿Cuáles son las posibles fuentes de datos para las opciones de los campos?**  
+Respuesta) Las opciones de los campos desplegables, de botón de opción, de casilla de verificación y de selección múltiple pueden obtenerse de una lista o de un dataform.
+
+**10\. ¿Hay un límite para el número de opciones al usar una lista como fuente?**  
+Respuesta) Sí, de forma predeterminada, las listas pueden tener un máximo de 250 valores.
+
+**11\. ¿Cuántas opciones se muestran al usar un dataform como fuente en un campo de formulario o un child table?**  
+Respuesta) Esto depende del tipo de campo:
+
+-   **Para los campos desplegables y los desplegables de selección múltiple**: Se muestra el conjunto completo de valores del dataform.
+    
+-   **Para las casillas de verificación y los campos de botón de opción:** Solo se mostrarán los primeros 250 valores del dataform.
+    
+
+**12\. ¿Los valores del dataform se ordenan o filtran cuando se muestran?**  
+Respuesta) Sí, los 250 valores que se muestran para los campos de casilla de verificación y de botón de opción se basan en las condiciones de ordenación y filtrado aplicadas al dataform.
+
+> **Nota importante sobre la edición simultánea de un dataform:**Para garantizar la integridad de los datos y evitar conflictos, nuestro sistema gestiona la edición simultánea mediante una regla de "el primero en guardar". Esto significa que, si dos o más usuarios editan al mismo tiempo el mismo formulario, vista o informe de un dataform, los cambios de la persona que haga clic en **Guardar** primero se registrarán correctamente.Si otro usuario guarda el dataform, la vista o el informe antes que tú, tu versión quedará obsoleta. Cuando intentes guardar tus ediciones, se te pedirá que actualices la pestaña para cargar las actualizaciones más recientes.**Ten en cuenta que al actualizar la pestaña se descartará todo el trabajo que no hayas guardado en la pestaña actual.** Esta regla se aplica al dataform, a todos los tipos de vistas del dataform y a los informes de una aplicación.  
+>   
+> Para evitar perder el progreso, te recomendamos coordinarte con tu equipo para asegurarte de que solo una persona edite activamente un dataform compartido a la vez.

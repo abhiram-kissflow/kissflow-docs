@@ -1,0 +1,70 @@
+---
+title: "Crear y administrar una vista de conjunto de datos"
+description: "BORRADOR (no verificado) — migrado desde /t/y4h4alr/creating-dataset-views"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Las vistas te ayudan a compartir una versión filtrada de tu conjunto de datos con otras personas, lo que permite acceder únicamente a los datos necesarios sin exponer el conjunto de datos completo. En este artículo, aprenderás a crear, configurar, compartir y administrar vistas de conjuntos de datos de forma eficaz.
+
+## ¿Quién puede crear vistas?
+
+Puedes compartir una versión limitada de tu conjunto de datos con otras personas mediante las vistas. Por ejemplo, puedes tener un conjunto de datos de empleados con los detalles de los empleados y la información de nómina de todas las áreas de tu organización. Supongamos que el gerente de un equipo de marketing solicita acceso al conjunto de datos para consultar los detalles de todos los analistas de marketing de la empresa. Puedes crear una vista a partir del conjunto de datos principal que contenga únicamente los datos del departamento de marketing, en lugar de conceder acceso al conjunto de datos principal. De esta forma, no expones los detalles de los demás departamentos, salvo que sea necesario.
+
+> **Nota**
+> 
+> Solo los [administradores del conjunto de datos](/t/m1h4algk9h4ga/sharing-a-datasett) pueden crear vistas a partir del conjunto de datos principal.
+
+## Crear una vista
+
+Para crear una vista nueva, haz clic en el icono de signo más (![](/migration-assets/creating-dataset-views/2.png)) junto al **Conjunto de datos principal**. Introduce el nombre de la vista y haz clic en **Crear**.
+
+![](/migration-assets/creating-dataset-views/1.png)
+
+A continuación, actualiza la configuración de la vista, donde puedes cambiar su visualización predeterminada. Puedes personalizar los datos que deben mostrarse en una vista mediante su configuración.
+
+-   Modifica el nombre de la vista
+-   Muestra **Todos los campos** o un conjunto restringido de campos seleccionando **Campos específicos** en Seleccionar campos.  
+     ![](/migration-assets/creating-dataset-views/3.png)   
+-   Puedes usar los filtros avanzados para ver un conjunto limitado de datos que coincida con determinadas condiciones. [Obtén más información](/t/g9h4al1/managing-filters) sobre cómo funcionan los filtros.   
+     ![](/migration-assets/creating-dataset-views/7.png)
+
+## Configurar una vista
+
+Si quieres realizar más cambios en una vista después de su configuración inicial, puedes ir a **Más opciones**, junto al nombre de una vista, y hacer clic en **Configurar**.
+
+![](/migration-assets/creating-dataset-views/5.gif)
+
+Todas las demás vistas de ese conjunto de datos reflejan los cambios realizados en una vista.
+
+## Eliminar una vista
+
+Puedes eliminar una vista desde el mismo lugar donde la configuras. Puedes consultar la captura de pantalla anterior para orientarte. Haz clic en **Más opciones** (![](/migration-assets/creating-dataset-views/4.png)) junto al nombre de una vista y haz clic en **Eliminar**.
+
+![](/migration-assets/creating-dataset-views/8.gif)
+
+## Compartir una vista
+
+Compartir una vista es similar a compartir [un conjunto de datos](/t/m1h4algk9h4ga/sharing-a-dataset). Haz clic en **Compartir**, en la esquina superior derecha de la página, para administrar quién puede acceder a la vista o modificarla.
+
+En Vistas de conjuntos de datos, a la izquierda, elige la vista para la que quieres configurar los miembros y los permisos.
+
+![](/migration-assets/creating-dataset-views/6.png)
+
+Haz clic en **+Agregar miembros** para añadir más miembros que administren esta vista. Puedes convertir a un administrador en miembro y a un miembro en administrador haciendo clic en el icono de **Más acciones** junto al nombre del miembro. También puedes eliminar a un miembro de una vista para impedir que acceda a ella en el futuro.
+
+## Consultar el ID de una vista de conjunto de datos
+
+Es posible que quieras obtener y usar el ID de una vista de conjunto de datos al realizar llamadas a la API relacionadas con una vista de conjunto de datos específica en Kissflow.
+
+Ve al conjunto de datos principal, haz clic en la vista de conjunto de datos específica para la que quieres realizar una llamada a la API y copia la última cadena que aparece después de '../view/' en su URL. La cadena 'View\_w54o1gOKO' de la siguiente URL es el ID de la vista creada a partir del conjunto de datos Employee\_Master.
+
+> **Nota:**
+> 
+> URL de ejemplo: [https://stark-corporation.kissflow.com/view/dataset/Employee\_master/view/View\_w54o1gOKO/](https://stark-corporation.kissflow.com/view/dataset/Employee_master/view/View_w54o1gOKO/)  
+> ID de la vista de conjunto de datos: "View\_w54o1gOKO"

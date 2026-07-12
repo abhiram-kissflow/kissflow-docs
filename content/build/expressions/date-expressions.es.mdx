@@ -1,0 +1,565 @@
+---
+title: "Expresiones de fecha"
+description: "BORRADOR (no verificado): migrado desde /t/p8h4al3/date-expressions"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Las expresiones de fecha y fecha y hora son muy similares, pero no se pueden usar indistintamente.  
+
+Las zonas horarias y la configuración de formato de los campos de fecha se establecen a nivel de cuenta o de usuario.  
+
+## Ejemplo utilizado
+
+Usaremos estos campos de ejemplo en las expresiones siguientes.
+
+**ID del campo**
+
+**Tipo de campo**
+
+**Valor**
+
+date1
+
+Fecha
+
+5/29/1970
+
+date2
+
+Fecha
+
+6/3/1970
+
+datetime1
+
+Fecha y hora
+
+5/29/1970 3:30 PM
+
+datetime2
+
+Fecha y hora
+
+5/30/1970 3:30 AM
+
+## Funciones
+
+Las funciones se aplican al inicio de la expresión.  
+
+**Función**
+
+**Descripción**
+
+**Sintaxis**
+
+**Resultado**
+
+**Tipo de resultado**
+
+Date
+
+Crea una fecha a partir de números.
+
+Date(1970, 5, 29)
+
+5/29/1970
+
+Fecha
+
+Datefromtext
+
+Crea una fecha a partir de texto.
+
+Datefromtext("1970/05/29")
+
+> **Nota**:
+> 
+> En la integración, el resultado será 1970-05-29
+
+1970/05/29
+
+> **Nota**:
+> 
+> Dentro de los formularios de configuración de la integración, deben tener el formato Datefromtext(1970-05-29)
+
+Fecha
+
+dateTime
+
+Crea una fecha y hora a partir de números.
+
+Añade una zona horaria.
+
+Datetime("1970,5,29,15,30,00,America/Los\_Angeles")
+
+5/29/1970 3:30 PM PST
+
+Fecha y hora
+
+dateTimeFromText
+
+Crea una fecha y hora a partir de texto.
+
+Nota:
+
+Dentro de los formularios de configuración de la integración, deben tener el formato DateTimeFromText("2021-10-18T11:06:35-08:00 America/Los\_Angeles")
+
+2021-10-18T11:06:35-08:00 America/Los\_Angeles
+
+Nota:
+
+En la integración, el resultado será 2021-10-18T11:06:35-08:00 America/Los\_Angeles
+
+Fecha y hora
+
+Datediff
+
+Muestra el valor absoluto de la diferencia entre dos fechas según una unidad.
+
+“Año”
+
+“Mes”
+
+“Día”
+
+“Hora”
+
+“Minuto”
+
+“Segundo”
+
+De forma predeterminada, ignorará los días no laborables. Para contarlos, añade false().
+
+Datediff(date1, date2, "Day")
+
+Datediff(date1, date2, "Day",false())
+
+3
+
+5
+
+Número
+
+calendarDays
+
+Calcula la diferencia inclusiva entre fechas, contando tanto la fecha inicial como la final.  
+  
+ 
+
+Unidades
+
+D (predeterminada): Total de días
+
+Y: Total de años
+
+M: Total de meses
+
+HR: Total de horas
+
+MIN: Total de minutos
+
+SEC: Total de segundos
+
+MD: Días restantes, ignorando los meses
+
+YM: Meses restantes, ignorando los años
+
+YD: Días restantes, ignorando los años
+
+Filtros de días:
+
+WD (Días laborables, predeterminado): Omite fines de semana y festivos.
+
+AD (Todos los días): Cuenta todos los días.
+
+EW (Excluir fines de semana): Omite solo sábados y domingos.
+
+EH (Excluir festivos): Omite solo los festivos de la cuenta.
+
+calendarDays(date1, date2, “D”)
+
+calendarDays(date1, date2, “D”, “AD”)
+
+3
+
+5
+
+Número
+
+Now
+
+La fecha y hora de la última modificación del formulario, según UTC.
+
+Now()
+
+\[la fecha y hora actuales\]
+
+Fecha y hora
+
+Today
+
+El día actual, según UTC.
+
+Today()
+
+\[la fecha actual\]
+
+Fecha
+
+Initiatedat
+
+La fecha y hora en que el elemento se creó como borrador se muestra en la zona horaria configurada por el usuario.
+
+Initiatedat()
+
+\[la fecha y hora en que el elemento se creó como borrador\]
+
+Fecha y hora
+
+> **Nota:**
+> 
+> Now y Today cambiarán cada vez que se modifique o envíe el formulario. Funcionan exactamente como \_modified\_at.
+
+## Campo toText
+
+Los campos se colocan al inicio de la expresión para convertir los datos de campos específicos en texto.
+
+**Campo**
+
+**Descripción**
+
+**Sintaxis**
+
+**Resultado**
+
+**Tipo de resultado**
+
+date\_field.toText
+
+Convierte un valor de fecha en texto.  
+
+Por ejemplo, si la fecha es 1970/05/29, en la columna siguiente se muestran los distintos formatos de conversión.  
+
+Date\_field.toText("y")
+
+Date\_field.toText("yy")
+
+Date\_field.toText("yyy")
+
+Date\_field.toText("yyyyy")
+
+Date\_field.toText("m")
+
+Date\_field.toText("mm")
+
+Date\_field.toText("mmm")
+
+Date\_field.toText("mmmm")
+
+Date\_field.toText("d")
+
+Date\_field.toText("dd")
+
+Date\_field.toText("ddd")
+
+Date\_field.toText("dddd")
+
+70
+
+70
+
+1970
+
+1970
+
+5
+
+05
+
+May
+
+May
+
+29
+
+29
+
+Fri
+
+Friday
+
+Texto
+
+dateTime\_field.toText
+
+Convierte un valor de fecha y hora en texto.  
+
+Por ejemplo, si la fecha y hora son 1970/05/29, 14:07:00, en la columna siguiente se muestran los distintos formatos de conversión.  
+
+Datetime\_field.toText("h")
+
+Datetime\_field.toText("hh")
+
+Datetime\_field.toText("s")
+
+Datetime\_field.toText("ss")
+
+Datetime\_field.toText("am/pm")
+
+Datetime\_field.toText("a/p")
+
+Datetime\_field.toText("a")
+
+Datetime\_field.toText("p")
+
+Datetime\_field.toText("h:m")
+
+Datetime\_field.toText("h:m:s")
+
+Datetime\_field.toText("hh:mm")
+
+Datetime\_field.toText("hh:mm:ss")
+
+2
+
+14
+
+00
+
+00
+
+PM
+
+PM
+
+PM
+
+PM
+
+02:07
+
+02:07:00
+
+14:07
+
+14:07:00
+
+Texto
+
+## Métodos
+
+Puedes usar estos métodos con campos de fecha y hora para extraer partes específicas o realizar cálculos.
+
+**Función**
+
+**Descripción**
+
+**Sintaxis**
+
+**Resultado**
+
+**Tipo de resultado**
+
+offset
+
+Desplaza la fecha y hora.
+
+Y=año
+
+M=mes
+
+D=día
+
+h=hora
+
+m=minutos
+
+s=segundo
+
+datetime1.offset(10,"D")
+
+datetime1.offset(-10,"m")
+
+06/08/1970 3:30 PM
+
+05/29/1970 3:20 PM
+
+Fecha o fecha y hora
+
+eom
+
+Muestra el último día del mes del campo especificado.
+
+datetime1.eom()
+
+05/31/1970 12:00 AM
+
+Fecha o fecha y hora
+
+weekNum
+
+Muestra el número de semana del campo especificado.
+
+1=domingo
+
+2=lunes, etc.
+
+Puedes cambiar el día de inicio predeterminado de la semana.
+
+datetime1.weekNum()
+
+22
+
+Número
+
+weekDay
+
+Muestra el número del día de la semana del campo especificado.
+
+1=domingo
+
+2=lunes, etc.
+
+Puedes cambiar el día de inicio predeterminado de la semana.
+
+datetime1.weekDay()
+
+datetime1.weekDay(2)
+
+6
+
+5
+
+Número
+
+year
+
+Muestra el año del campo especificado.
+
+datetime1.year()
+
+1970
+
+Número
+
+month
+
+Muestra el mes del campo especificado.
+
+datetime1.month()
+
+5
+
+Número
+
+day
+
+Muestra el día del mes del campo especificado.
+
+datetime1.day()
+
+29
+
+Número
+
+hour
+
+Muestra la hora del campo especificado.
+
+datetime1.hour()
+
+15
+
+Número
+
+minute
+
+Muestra el minuto del campo especificado.
+
+datetime1.minute()
+
+30
+
+Número
+
+second
+
+Muestra los segundos del campo especificado.
+
+datetime1.second()
+
+0
+
+Número
+
+## Operadores
+
+Puedes usar los operadores de suma y resta con campos de fecha y fecha y hora.  
+
+**Campo 1**
+
+**Campo 2**
+
+**Operador**
+
+**Ejemplo**
+
+**Resultado**
+
+**Tipo resultante**
+
+Fecha
+
+Número/entero
+
++, -
+
+date1 + 5
+
+6/3/1970
+
+Fecha
+
+Fecha
+
+Fecha
+
+\-
+
+date2 - date1
+
+5
+
+Número
+
+Datetime1
+
+Número/entero
+
++, -
+
+datetime1 - 1
+
+5/28/1970 3:30 PM
+
+Fecha y hora
+
+Fecha y hora
+
+Fecha y hora
+
+\-
+
+datetime2 - datetime1
+
+0.5
+
+Número
+
+Los enteros representan 24 horas con un campo de fecha y hora. Si quieres restar 12 horas, introduce `datetime1-0.5`.

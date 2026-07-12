@@ -1,0 +1,109 @@
+---
+title: "Registro de auditoría del proceso"
+description: "Consulta, ordena, filtra y exporta el historial de auditoría de los cambios realizados en el proceso a nivel de flujo y de elemento."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - process
+  - audit-log
+  - admin
+  - compliance
+---
+
+# Registro de auditoría del proceso
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+El registro de auditoría almacena el historial de toda la actividad relacionada con un proceso y permite a los [administradores del proceso](/docs/admin/processes/managing-process-members-and-permissions#process-admin) buscar cambios realizados por los usuarios del proceso a nivel de flujo y de elemento.
+
+<Callout type="info">
+  El registro de auditoría solo está disponible para los administradores del proceso. Si no lo ves, consulta con el administrador del proceso.
+</Callout>
+
+## Abrir el registro de auditoría
+
+1. Abre el proceso y haz clic en el botón **Administrar**.
+2. Haz clic en **Registro de auditoría**.
+3. Ve a **Registros a nivel de flujo** para consultar los cambios realizados en el proceso mismo (configuración, publicación y permisos), o a **Registros a nivel de elemento** para consultar los cambios realizados en elementos individuales.
+
+![Menú de administración del proceso con la opción Registro de auditoría](/migration-assets/process-audit-log/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Las instrucciones de ordenación, filtrado y exportación que aparecen a continuación se aplican a ambas vistas. Cada entrada muestra las siguientes columnas:
+
+- **ID de auditoría**: un ID único que el sistema genera automáticamente para cada evento registrado.
+- **Hora**: cuándo ocurrió la acción.
+- **Realizada por**: el usuario que realizó la acción.
+- **[Evento](/docs/admin/audit-log/event-categories-and-actions)**: el tipo de actividad que tuvo lugar, por ejemplo, **Proceso publicado**, **Elemento creado** o **Elemento eliminado**.
+- **Objeto**: el recurso que se modificó.
+- **[Categoría del evento](/docs/admin/audit-log/event-categories-and-actions)**: un nombre común para un conjunto de eventos, útil para filtrar eventos similares. Algunos ejemplos son **Administración del proceso** y **Configuración del proceso**.
+- **Plataforma**: el dispositivo o sistema operativo desde el que se registró el evento.
+- **IP**: la dirección IP desde la que se registró el evento.
+- **ID de lote**: un ID único que el sistema genera automáticamente para un grupo de eventos relacionados. A diferencia del **ID de auditoría**, todos los eventos del mismo lote comparten el mismo **ID de lote**.
+
+## Ordenar el registro
+
+1. Haz clic en la flecha hacia abajo junto al encabezado de la columna **Hora**.
+2. Selecciona **Ascendente** o **Descendente** para ordenar el registro por hora.
+
+<Callout type="info">
+  La ordenación solo está disponible en la columna **Hora**. La flecha hacia abajo de las demás columnas permite fijarlas o dejar de fijarlas para que los detalles importantes permanezcan visibles mientras te desplazas horizontalmente.
+</Callout>
+
+## Buscar un filtro
+
+Algunos filtros —**ID de auditoría**, **ID de lote** e **IP**— realizan búsquedas por valor exacto:
+
+1. Haz clic en la flecha hacia abajo junto al filtro.
+2. Introduce el valor exacto en el área de búsqueda que aparece y aplícalo.
+
+![Área de búsqueda que se abre para los filtros ID de auditoría, ID de lote e IP](/migration-assets/process-audit-log/3.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Filtrar el registro
+
+Puedes filtrar los eventos del registro de auditoría por los siguientes campos:
+
+- **Período de auditoría**: elige **Últimos 7 días**, **Últimos 30 días**, **Últimos 90 días** o un **Intervalo de fechas personalizado**.
+
+  <Callout type="info">
+    **Últimos 30 días** puede no estar disponible en todas las cuentas. Si no lo ves, [contacta con el soporte de Kissflow](/docs/whats-new/important-notices/slas-and-support-models#how-to-reach-support) para comprobar si se puede habilitar la retención ampliada de registros en tu cuenta.
+  </Callout>
+
+- **Objeto**: selecciona uno o varios objetos de las sugerencias, o introduce el nombre exacto del objeto.
+- **[Categoría del evento](/docs/admin/audit-log/event-categories-and-actions)**: filtrar por categoría del evento es una de las formas recomendadas de delimitar los resultados. Si no sabes qué categoría elegir, busca un nombre de flujo como "proceso" y el campo mostrará todas las categorías relevantes.
+  
+  ![Filtro de categoría del evento que muestra las categorías relevantes para un flujo](/migration-assets/process-audit-log/5.png)
+  {/* TODO: verify screenshot matches current product UI */}
+
+- **Realizada por**: selecciona uno o varios usuarios de la cuenta para filtrar los eventos según quién los realizó.
+- **Evento**: introduce o selecciona una acción de la lista de sugerencias. Este filtro solo acepta un valor a la vez.
+- **ID de auditoría, ID de lote e IP**: introduce el valor exacto para filtrar los eventos, lo que resulta especialmente útil para rastrear el historial de un evento específico.
+
+Cada filtro aplicado muestra un control para borrarlo, y puedes hacer clic en **Borrar todo** para restablecer todos los filtros a la vez.
+
+![Registro de auditoría con filtros aplicados y un control para borrar cada uno](/migration-assets/process-audit-log/6.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Exportar el registro de auditoría
+
+Puedes exportar hasta 90 días del registro de auditoría cada vez.
+
+1. Abre el proceso y haz clic en **Administrar** > **Registro de auditoría**.
+2. Ve a **Registros a nivel de flujo** o **Registros a nivel de elemento**, según el registro que quieras exportar. Consulta [Abrir el registro de auditoría](#open-the-audit-log) más arriba para saber qué incluye cada vista.
+3. Haz clic en el botón **Exportar** y confirma la exportación.
+
+<Callout type="info">
+  La exportación se ejecuta como un trabajo en segundo plano. Cuando termine, recibirás un correo electrónico con el enlace de descarga en la dirección de correo electrónico registrada; esto puede tardar unos minutos, en lugar de ser instantáneo.
+</Callout>
+
+## Qué sigue
+
+- [Administrar miembros y permisos del proceso](/docs/admin/processes/managing-process-members-and-permissions)
+- [Categorías y acciones de eventos](/docs/admin/audit-log/event-categories-and-actions)
+- [Acciones de administración en un proceso](/docs/admin/processes/admin-actions-in-a-process)

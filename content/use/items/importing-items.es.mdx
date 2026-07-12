@@ -1,0 +1,77 @@
+---
+title: "Importar elementos desde un archivo CSV"
+description: "Crea elementos en bloque en un tablero de Kissflow importando un archivo CSV, con opciones de asignación de columnas y gestión de duplicados."
+contentType: guide
+persona: end-user
+section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - boards
+  - items
+  - import
+---
+
+# Importar elementos desde un archivo CSV
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+La importación de CSV te permite transferir elementos desde un archivo CSV o una hoja de cálculo guardada con la extensión `.csv` a un tablero de Kissflow. También puedes usarla para traer datos de otras herramientas de gestión del trabajo.
+
+Una vez importados, cada fila de tu archivo CSV se convierte en un elemento del tablero y cada columna asignada completa un campo de esos elementos.
+
+## Preparar el archivo CSV
+
+Sigue estas indicaciones al preparar un archivo CSV para importarlo:
+
+- **Campos obligatorios**: si el formulario de tu tablero tiene campos obligatorios, debes asignar al menos una columna CSV a cada uno.
+- **Tipos de campo**: puedes asignar columnas CSV a estos tipos de campo: **Texto**, **Área de texto**, **Número**, **Calificación**, **Fecha**, **Fecha y hora**, **Correo electrónico**, **Moneda**, **Sí/No**, **Usuario**, **Varios usuarios**, **Lista desplegable de selección única**, **Lista desplegable de selección múltiple**, **Deslizador** y **Casilla de verificación**.
+- **Delimitador**: usa únicamente la coma (`,`) como delimitador.
+- **Filas**: el archivo puede tener hasta **500 filas**, sin contar el encabezado.
+- **Codificación**: el archivo debe tener la extensión `.csv` y usar codificación UTF-8.
+
+## Importar un archivo CSV
+
+1. En la sección superior derecha del tablero, haz clic en la flecha hacia abajo junto al botón **Nuevo elemento** y selecciona **Importar CSV**.
+
+   ![Menú desplegable junto al botón Nuevo elemento que muestra la opción Importar CSV](/migration-assets/importing-items-from-a-csv-file/1.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+   <Callout type="info">
+     El botón **Nuevo elemento** tiene un nombre diferente según el tipo de elemento configurado para el tablero.
+   </Callout>
+
+2. Elige tu archivo `.csv` en el selector de archivos. Kissflow comprueba si el archivo está dañado y si tiene errores de delimitador; si se informa de algún error, corrígelo en el archivo CSV y vuelve a cargarlo.
+
+   ![Animación de la selección de un archivo CSV y su carga en el tablero](/migration-assets/importing-items-from-a-csv-file/4.gif)
+   {/* TODO: verify screenshot matches current product UI */}
+
+3. Haz clic en **Siguiente** y, luego, asigna las columnas de tu archivo CSV a los campos de tu tablero. Por ejemplo, asigna las direcciones de correo electrónico de tu archivo CSV al campo Correo electrónico de tu tablero.
+
+   ![Paso de asignación de columnas de la importación de CSV que muestra las columnas CSV asociadas a los campos del tablero](/migration-assets/importing-items-from-a-csv-file/2.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+   <Callout type="info">
+     Una columna CSV solo se puede asignar a un campo del tablero del mismo tipo de datos.
+   </Callout>
+
+4. Elige cómo gestionar los elementos duplicados:
+   - **Crear una nueva copia del elemento**: añade los datos como elementos nuevos y conserva los elementos originales en el tablero.
+   - **Omitir el elemento**: omite las filas que coinciden con elementos existentes, según una columna que elijas. Selecciona una columna con valores distintos (por ejemplo, ID del elemento o número de teléfono) para que el sistema pueda determinar si ya existe un elemento.
+
+     <Callout type="info">
+       El correo electrónico no está disponible como columna para buscar duplicados; elige otro campo con valores distintos.
+     </Callout>
+   - **Reemplazar el elemento existente**: sobrescribe los elementos existentes que coinciden, según una columna con valores distintos que elijas.
+
+   ![Paso de gestión de duplicados que muestra las opciones para crear una copia, omitir o reemplazar elementos](/migration-assets/importing-items-from-a-csv-file/3.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+5. Haz clic en **Finalizar**. Tus elementos comienzan a importarse; puedes cerrar la ventana y seguir trabajando mientras se ejecuta la importación. Recibirás una notificación por correo electrónico cuando finalice.
+
+## Qué sigue
+
+- [Crear y gestionar elementos](/docs/use/items/creating-items)
+- [Exportar elementos desde un tablero](/docs/use/items/exporting-items)

@@ -1,0 +1,74 @@
+---
+title: "Conector de Smartsheet"
+description: "BORRADOR (no verificado) — migrado desde /t/x2h4afc/smartsheet-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es Smartsheet?
+
+Smartsheet te permite asignar tareas, hacer seguimiento del progreso de los proyectos, gestionar calendarios, compartir documentos y administrar otros trabajos mediante una interfaz de usuario tabular.
+
+## Acerca de la integración de Smartsheet con Kissflow
+
+El conector de Smartsheet de Kissflow Integration te permite conectar Smartsheet al instante y automatizar tu trabajo con otras aplicaciones de Kissflow y aplicaciones populares de terceros. Debes tener una cuenta válida de Smartsheet y ser cliente de pago de Kissflow para poder integrarte con Smartsheet. Para realizar acciones específicas, usa el conector de Smartsheet para recibir datos de otros flujos o aplicaciones. Por ahora, el conector de Smartsheet no admite eventos de activación.
+
+Por ejemplo, puedes usar los datos recibidos en tu Kissflow Process como activador para actualizar una fila en la hoja de Smartsheet o incluso enviar una hoja como archivo adjunto en formato PDF a usuarios específicos.
+
+### Acciones del conector de Smartsheets
+
+**Eventos de acción**
+
+**Descripción**
+
+Agregar una fila a la hoja
+
+Esta acción agrega una o más filas a la hoja.
+
+Actualizar una fila por número de fila
+
+Esta acción actualiza una fila existente con un valor nuevo según el número de fila de la hoja.
+
+Enviar una hoja
+
+Esta acción envía una hoja como archivo adjunto en formato PDF a los destinatarios especificados por correo electrónico.
+
+Obtener una fila de la hoja
+
+Esta acción obtiene una fila de una hoja.
+
+Obtener filas de la hoja
+
+Esta acción obtiene los primeros 100 registros de una hoja.
+
+Actualizar una fila por ID de fila
+
+Esta acción actualiza una fila existente con valores nuevos. Esto requiere un ID de fila único.
+
+> **Nota:**
+> 
+> Para obtener el ID de fila de Smartsheet, haz clic en el campo del número de fila > **Menú de fila** > **Propiedades** > **ID de fila**.
+
+### Conector de Smartsheets como paso de acción
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para la integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Una vez dentro del editor, configura un paso de activación; por ejemplo, un evento de activación de Kissflow Process **cuando un elemento complete su flujo de trabajo**.
+    
+3.  Después de configurar el paso de activación anterior, haz clic en el botón Agregar (![](/migration-assets/smartsheet-connector/1.png) ) junto a la opción para configurar el paso de acción. Busca **Smartsheet** y selecciona una acción.![](/migration-assets/smartsheet-connector/2.png)
+    
+4.  Después de elegir el evento de acción, autentica el conector. Haz clic en **+Agregar una cuenta** e inicia sesión con tu cuenta de Smartsheet. Kissflow usa OAuth para la autenticación.![](/migration-assets/smartsheet-connector/3.png)
+    
+5.  Después de autenticarte con tu cuenta de Smartsheet, agrega los valores correspondientes en los campos del formulario de Smartsheet. Puedes hacer clic en Actualizar campos para ver todos los campos actualizados del formulario de Smartsheet seleccionado. También puedes asignar campos de Smartsheet desde tu paso de activación o campos de tus pasos de acción anteriores. Estos valores se agregarán automáticamente a los campos del elemento después de ejecutar la acción.![](/migration-assets/smartsheet-connector/4.png)  
+6.  Después de una configuración correcta, prueba si el paso de acción de Smartsheet está configurado correctamente haciendo clic en el botón **P****robar**. El conector extraerá los datos de los campos de la cuenta de Smartsheet seleccionada y los mostrará como una salida JSON. Al igual que con el paso de activación, los errores se te notificarán de inmediato. Corrígelos antes de volver a probar el paso de acción.
+
+### Configurar un conector de Smartsheet
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción del conector de Smartsheet, activa el botón de alternancia para activar la ejecución de la integración. Cuando se produce un evento de activación, se activan las acciones de Smartsheet.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

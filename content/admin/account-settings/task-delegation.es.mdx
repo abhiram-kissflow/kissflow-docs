@@ -1,0 +1,79 @@
+---
+title: "Delegación de tareas"
+description: "Como superadministrador, delega las próximas tareas de proceso de un usuario a otro usuario y anula o administra cualquier delegación en la cuenta."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - task-delegation
+  - account-administration
+  - notifications
+---
+
+# Delegación de tareas
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+Desde **Administración de la cuenta**, los [superadministradores](/docs/admin/users/user-roles-and-permissions) pueden delegar las tareas de proceso futuras de un usuario a otro usuario, por ejemplo, cuando alguien está ausente. Puedes delegar todos los procesos en los que participa un usuario o solo algunos específicos.
+
+<Callout type="info">
+  Solo se delegan las tareas de proceso nuevas. Las tareas que ya estén asignadas al usuario cuando configures la delegación permanecen con él.
+</Callout>
+
+## Tabla de delegaciones de tareas
+
+La tabla de delegaciones de tareas muestra todas las delegaciones de la cuenta, divididas en dos pestañas:
+
+- **Configuradas por administradores**: delegaciones creadas por los superadministradores.
+- **Configuradas por usuarios**: delegaciones que los usuarios han configurado para sí mismos.
+
+Desde esta tabla puedes crear una delegación nueva y ver, editar o cancelar cualquier delegación existente.
+
+## Añadir una delegación nueva
+
+1. Haz clic en tu foto de perfil > **Administración de la cuenta** > **Delegación de tareas** > **+ Nueva**.
+2. Selecciona el usuario cuyas tareas quieres delegar.
+3. Selecciona las fechas de inicio y finalización de la delegación.
+4. Elige si quieres delegar las tareas de **todos los procesos** en los que participa el usuario o solo de **procesos específicos**.
+5. Selecciona quién debe recibir las tareas:
+   - Si elegiste **Todos los procesos**, selecciona el único usuario al que quieres delegarlas.
+   - Si elegiste **Procesos específicos**, puedes seleccionar un usuario diferente para cada proceso.
+6. Para delegar varios procesos al mismo usuario de una sola vez, selecciona sus casillas de verificación, haz clic en **Delegar a** y elige el usuario.
+7. Haz clic en **Crear**.
+
+<Callout type="info">
+  Las notificaciones de los pasos de proceso delegados se redirigen al usuario delegado. La notificación de **Flujo de trabajo completado** es la excepción: siempre se envía al solicitante o iniciador original del elemento, aunque haya delegado sus tareas.
+</Callout>
+
+Puedes ver y editar una delegación existente en cualquier momento seleccionándola en la tabla de **Delegación de tareas** y haciendo clic en **Editar delegación**.
+
+Cuando el usuario regresa, recibe un mensaje de bienvenida sobre la delegación. Desde ahí puede revisarla y cancelarla para volver a gestionar sus elementos, o cancelarla más adelante desde **Mis ajustes** > **Delegación de tareas**.
+
+## Anular una delegación configurada por un usuario
+
+Como superadministrador, puedes anular una delegación que un usuario haya configurado para sí mismo.
+
+1. En la pestaña **Configuradas por usuarios**, coloca el cursor sobre la delegación que quieres anular.
+2. Haz clic en **Anular**.
+3. Realiza los cambios necesarios y vuelve a hacer clic en **Anular** para confirmar.
+
+![Tabla de delegaciones de tareas con la acción Anular en una delegación configurada por un usuario](/migration-assets/task-delegation/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="info">
+  Una vez que hayas anulado la delegación de un usuario, esa fila no se puede volver a anular y aparece como restringida para anulación. Aún puedes editar la anulación existente desde la misma tabla.
+</Callout>
+
+La anulación de un superadministrador siempre tiene prioridad sobre la delegación del propio usuario. Cuando termina la anulación, la delegación original del usuario se reanuda automáticamente durante el tiempo que quede.
+
+**Ejemplo:** Un usuario configura una delegación de 15 días. Tú la anulas con una delegación de 5 días. Tu delegación se aplica primero; cuando transcurren esos 5 días, la delegación del usuario se reanuda automáticamente durante los 10 días restantes.
+
+## Siguiente paso
+
+- [Información personal, ajustes de formato y delegación de tareas](/docs/use/personal-settings/personal-info-format-settings-and-task-delegation): cómo configuran los usuarios sus propias delegaciones
+- [Roles y permisos de usuario](/docs/admin/users/user-roles-and-permissions)
+- [Ajustes de formato](/docs/admin/account-settings/format-settings)

@@ -1,0 +1,69 @@
+---
+title: "Campo de geolocalización"
+description: "BORRADOR (no verificado) — migrado desde /t/q6h4az7/geolocation-field"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+El **campo de geolocalización** te permite registrar las ubicaciones de los usuarios con su consentimiento. Puedes ver la ubicación registrada en una vista de **Google Maps** integrada en el formulario. Puedes registrar la ubicación actual del usuario, establecer una ubicación constante para todos los usuarios o permitir que los usuarios introduzcan manualmente su ubicación mediante el mapa. 
+
+## Uso del campo de geolocalización
+
+El campo **Geolocation** se encuentra en [Campos avanzados.](/t/y4h4azv/basic-and-advanced-fields) Puedes arrastrar y soltar el campo en tu formulario o hacer clic en el campo Geolocation, que colocará automáticamente el campo en tu formulario.
+
+Para configurar los ajustes, edita el nombre y el texto de ayuda, y marca el campo como obligatorio si es necesario. También puedes extraer valores de ubicación de estos campos mediante [fórmulas](/t/35h4alz/computing-fields-using-formula-builder).
+
+> **Nota**:
+> 
+> Solo puedes añadir un campo de geolocalización en un formulario, y los campos de geolocalización no son compatibles dentro de [Child tables](/t/h7h4azm/creating-a-form#child-tablesnbsp) ni en los filtros.
+
+![](/migration-assets/geolocation-field/2.gif)
+
+El campo Geolocation utiliza Google Maps para registrar la ubicación de los usuarios. Por lo tanto, se requiere una [clave de API de Google Maps](https://developers.google.com/maps/documentation/javascript/get-api-key) para que el campo funcione. Puedes añadir la clave de API de Google Maps en **Configuración de geolocalización**, dentro de **Administrar** > **Administración de la cuenta**. 
+
+![](/migration-assets/geolocation-field/3.gif)
+
+> **Nota:**
+> 
+> Solo los propietarios de la cuenta y los superadministradores pueden acceder a **Administración de la cuenta**. Si no eres uno de ellos, ponte en contacto con tu [superadministrador](/t/35h4ak0/user-roles-permissions) para añadir una clave de API de Google Maps.
+
+## Configuración del tipo de ubicación
+
+Puedes modificar el comportamiento del campo seleccionando una de las tres opciones que te permiten configurar distintos tipos de ubicaciones.
+
+### Ubicación actual
+
+Al elegir esta opción, puedes configurar el campo para que muestre la ubicación actual del usuario. Para ello, los usuarios finales deben habilitar el acceso a la ubicación para Kissflow en sus navegadores.
+
+Este es un campo no editable; por lo tanto, los usuarios finales no pueden modificar su ubicación. La ubicación del usuario solo se guardará al enviar el formulario y no se guardará si el usuario hace clic en **Guardar** en lugar de **Enviar.**
+
+### Ubicación preestablecida
+
+Puedes elegir una ubicación que se mostrará a todos los usuarios y que estos no podrán modificar.
+
+### Ubicación personalizada
+
+Se pedirá al usuario que elija manualmente una ubicación en el mapa.
+
+## Configuración de geolocalización
+
+Puedes añadir, editar o eliminar tu clave de API de Google Maps para el campo de geolocalización desde la configuración de geolocalización. Una clave de API de Google Maps permite que el campo de geolocalización de tu formulario acceda a Google Maps y lo utilice. Puedes utilizar una clave de API de Google Maps existente o crear una nueva. Para obtener más información sobre cómo crear y utilizar claves de API de Google Maps, haz clic [aquí](https://developers.google.com/maps/documentation/javascript/get-api-key).
+
+> **Nota**
+> 
+> Para que la clave de API funcione sin problemas, habilita los siguientes servicios en Google Cloud Console: Maps JavaScript API, Places API y Geocoding API.
+> 
+> ![](/migration-assets/geolocation-field/1.png)
+
+Cuando tengas tu clave de API de Google Maps, introdúcela en el campo correspondiente y el sistema validará la clave de API. Si la clave de API introducida es válida, puedes guardar la configuración haciendo clic en **Guardar.** Si la clave no es válida, comprueba que no haya errores tipográficos o introduce otra clave.
+
+Después de realizar cambios en la clave de API, todos los usuarios deben volver a cargar Kissflow para que los cambios surtan efecto.
+
+> **Nota:**
+> 
+> El uso de Google Maps API está sujeto a cargos según los [precios de Google Cloud Platform](https://developers.google.com/maps/billing-and-pricing/billing), y la facturación no está incluida en los precios de Kissflow.

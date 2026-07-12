@@ -1,0 +1,51 @@
+---
+title: "Conexión de tableros con otros tableros y procesos: descripción general"
+description: "BORRADOR (sin verificar) — migrado desde /t/x2ymwj1/connecting-boards-with-other-boards-and-processes-overview"
+contentType: overview
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Básico ✓ Enterprise
+
+<iframe src="https://player.vimeo.com/video/976910626?app_id=122963" title="Connected workflows - Overview" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+En Kissflow, puedes conectar un tablero principal con otro tablero o proceso para automatizar los flujos de trabajo. Un cambio de estado en un elemento de un tablero principal puede activar acciones en el tablero o proceso vinculado.  
+  
+Esto mejora la eficiencia general y simplifica la gestión de flujos de trabajo para los responsables de equipo y administradores de TI que necesitan conectar y coordinar varios flujos de trabajo, así como obtener una visibilidad completa de ellos.
+
+## Ventajas
+
+1. **Automatizar la creación de elementos**: Cuando un elemento de trabajo de un tablero principal/de origen alcanza un estado determinado, se crean automáticamente nuevos elementos en los tableros/procesos conectados. Esto reduce el esfuerzo manual y garantiza la creación oportuna de tareas.
+    
+2. **Mejorar la coordinación**: Al crear elementos relacionados o dependientes en distintos flujos, los equipos pueden coordinar mejor sus esfuerzos y mantener una visión integral del progreso del proyecto.
+    
+3. **Reducir errores**: La creación automatizada de elementos minimiza el riesgo de pasar por alto tareas importantes o de que haya problemas de comunicación entre los equipos.
+    
+
+## Caso de uso: conectar los tableros Incorporación de empleados y Aprobación de activos de TI
+
+Supongamos que quieres crear una solicitud de activos de TI cuando una persona recién contratada acepta su carta de oferta de trabajo. Las aprobaciones de cartas de oferta se registran en el tablero **Incorporación de empleados**, que tiene un estado denominado **Oferta aceptada**. Puedes conectar específicamente el estado **Oferta aceptada** con el tablero **Aprobació**nl** de activos de TI**, donde se crean las solicitudes de activos de TI. Por lo tanto, cada vez que muevas un elemento al estado **Oferta aceptada**, se crearán una o más solicitudes de activos de TI. 
+
+### Ejemplo de escenario
+
+1. **Nueva contratación**: John Doe acepta su carta de oferta para el puesto de ingeniero de software, con fecha de incorporación del 15 de junio.  
+     
+    
+2. **Actualización del estado de incorporación**: El equipo de RR. HH. actualiza el elemento de incorporación de John al estado **Oferta aceptada** en el tablero **Incorporación de empleados**.  
+     
+    
+3. **Solicitud automatizada de TI**: Como el estado **Oferta aceptada** está conectado al tablero **Aprobación de activos de TI**, se crea automáticamente un elemento dependiente en él. Este nuevo elemento puede heredar los siguientes detalles del tablero **Incorporación de empleados**:
+    
+    -   Nombre del empleado: John Doe
+        
+    -   Activos necesarios: portátil, licencias de software
+        
+    -   Fecha de vencimiento: 15 de junio
+        
+    -   Departamento: Ingeniería de software
+        
+
+El equipo de TI recibe esta solicitud y procede a preparar los activos necesarios, asegurándose de que estén listos para el primer día de John Doe. Del mismo modo, también puedes conectar un tablero con un proceso.

@@ -1,0 +1,19 @@
+{
+  "title": "Procesos",
+  "pages": [
+    "publishing-editing-duplicating-archiving-and-deleting-a-process",
+    "document-templates",
+    "managing-process-members-and-permissions",
+    "process-audit-log",
+    "process-settings",
+    "admin-actions-in-a-process",
+    "reviewing-publish-changes",
+    "ai-powered-solution-overview",
+    "ai-solution-analyzer",
+    "associated-flows-for-processes",
+    "connected-processes-overview",
+    "connecting-processes",
+    "faq-connected-processes",
+    "security-settings-for-flows"
+  ]
+}

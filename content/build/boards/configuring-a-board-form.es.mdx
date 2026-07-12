@@ -1,0 +1,64 @@
+---
+title: "Configurar un formulario de tablero"
+description: "BORRADOR (no verificado) — migrado desde /t/h7h9qlx/configuring-a-board-form"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Cada elemento de un tablero comienza con un formulario. Un [formulario](/category/forms-and-expressions) es el lugar donde puedes registrar todos los datos de un elemento. Puedes personalizar un formulario de tablero para incluir campos que capturen la información esencial de tu flujo de trabajo. También puedes establecer las condiciones de visibilidad para secciones, campos y tablas en diferentes estados. En general, estas funciones te ofrecen más control sobre el elemento y sobre cómo interactúan los usuarios con sus distintos campos en los diferentes estados.Para personalizar el formulario del tablero, haz clic en el botón **Manage** en la esquina superior derecha > **Edit form.**Los siguientes campos son campos del sistema y no se pueden modificar ni eliminar.
+
+**Campo**
+
+**Descripción**
+
+Assignee
+
+El elemento se asigna a esta persona. Solo puedes asignar elementos a los usuarios que son miembros del tablero.
+
+Priority
+
+Este campo indica el nivel de urgencia para cerrar un elemento. Puedes establecer la prioridad como **Low**, **Medium**, **High** o **Critical**. Al crear un elemento nuevo, la prioridad predeterminada se establece en **Low**. 
+
+> **Nota:**
+> 
+> Puedes controlar la visibilidad de este campo y su función activando o desactivando la prioridad en la página de [Settings](/t/60h9ql7/configuring-board-settings#priority).
+
+Start date
+
+Un elemento comenzará en esta fecha y hora.
+
+Due date
+
+Un elemento debe cerrarse en esta fecha y hora.
+
+Requester
+
+La persona que ha solicitado un elemento. No necesariamente es la persona que ha creado el elemento en el tablero. Por ejemplo, un elemento puede ser solicitado por un usuario que no es miembro del tablero. Sin embargo, solo un miembro puede crearlo en el tablero.
+
+![](/migration-assets/configuring-a-board-form/1.png)
+
+Además de estos campos del sistema predeterminados, puedes agregar tantos campos personalizados como quieras a un formulario haciendo clic en un campo nuevo o arrastrándolos y soltándolos en el editor de formularios.El formulario activo tendrá exactamente el mismo aspecto que el que creaste aquí. Para reorganizar los campos, arrástralos y suéltalos donde quieras colocarlos. Puedes mover campos individuales o una fila completa de campos. Los campos se pueden redimensionar a cualquier dimensión que necesites. Arrastra para cambiar el ancho del campo.Cambia el nombre de un campo, hazlo obligatorio o agrega valores predeterminados. También puedes crear reglas para la validación, la visibilidad y la apariencia de los campos.
+
+## Gestionar la configuración de los campos
+
+Puedes configurar la visibilidad de secciones, campos y tablas para diferentes estados desde la pestaña **Field settings**. También puedes editar tu flujo de trabajo desde esta pestaña.Los distintos estados del flujo de trabajo aparecen en el lado izquierdo de la ventana, mientras que los campos del formulario se muestran a la derecha. Selecciona el estado cuyos ajustes de campo deseas cambiar y pasa el cursor sobre cualquier campo para mostrar el menú desplegable de configuración de visibilidad del campo. Puedes seleccionar una de las siguientes opciones de visibilidad del campo:
+
+-   **Editable** - El campo en el estado seleccionado se puede modificar.
+-   **Read-only** - El campo solo se puede ver y no se puede modificar en el estado seleccionado.
+-   **Hidden** - El campo estará oculto y no se podrá ver ni editar.
+-   **Global visibility** - Configura los ajustes de visibilidad del campo seleccionado en diferentes estados.
+
+![](/migration-assets/configuring-a-board-form/2.png)Las secciones y tablas tienen las mismas opciones. Para acceder a ellas, pasa el cursor sobre una sección o tabla; las opciones aparecerán como iconos en la esquina superior derecha.![](/migration-assets/configuring-a-board-form/3.svg)
+
+## Visibilidad global
+
+Con **Global visibility**, puedes configurar de una sola vez la visibilidad de una sección, un campo o una tabla determinados en diferentes estados. Puedes acceder a la ventana emergente **Global visibility** desde el menú desplegable de configuración de campos.Desde el lado izquierdo de la ventana emergente, selecciona la sección, el campo o la tabla cuya visibilidad deseas personalizar. Luego, en el lado derecho, establece la visibilidad para cada estado. Cuando hayas terminado, haz clic en **Save**.
+
+![](/migration-assets/configuring-a-board-form/4.png)
+
+Cuando hayas terminado de configurar el formulario, haz clic en **Go live**.

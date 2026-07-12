@@ -1,0 +1,62 @@
+---
+title: "Registro de auditoría del portal"
+description: "BORRADOR (sin verificar) — migrado desde /t/y4ymrjg/portal-audit-log"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ EnterpriseLa sección de [registro de auditoría](/t/h7h4akc/admin-history) almacena el historial de todas las actividades relacionadas con el portal. Permite al administrador del portal buscar y encontrar los cambios realizados por los usuarios en el portal, tanto a nivel del portal como de los elementos. Para ver el registro de auditoría, haz clic en el botón **Más opciones** ( ![](/migration-assets/audit-log/2.svg)) **\>** **Administración del portal > Registro de auditoría**.![](/migration-assets/portal-audit-log/2.png)
+
+En el registro de auditoría puedes obtener los siguientes detalles de los eventos registrados como parte del portal:
+
+-   **ID de auditoría**: es un ID único generado automáticamente por el sistema para cada evento registrado como parte del historial del portal.
+-   **Marca de tiempo**: la hora exacta en la que ocurrió o se realizó una acción específica.
+-   **Actor**: el usuario que realizó la acción.
+-   **Acción**: el tipo de actividad o acción que tuvo lugar. 
+-   **Objeto**: el objeto o recurso subyacente que se está modificando
+-   **Categoría del evento**: nombre de la categoría de un conjunto de eventos que puedes usar para filtrar.
+-   **Plataforma**: el dispositivo o sistema operativo desde el que se registró el evento.
+-   **IP**: la dirección IP desde la que se registró el evento.
+-   **ID de lote**: es un ID único generado automáticamente por el sistema para un grupo de eventos relacionados entre sí. A diferencia del ID de auditoría, el ID de lote de estos eventos será el mismo como referencia.
+
+## Campos de ordenación
+
+1.  En la página del portal, haz clic en el botón **Más opciones** (![](/migration-assets/audit-log/2.svg)) > **Administración del portal > Registro de auditoría**.
+2.  Haz clic en el botón **Flecha hacia abajo**  (![](/migration-assets/process-audit-log/4.svg)) junto al nombre de un campo para ordenar el campo de forma ascendente o descendente.  
+     ![](/migration-assets/portal-audit-log/1.png) 
+
+## Campos de búsqueda
+
+1.  En la página del portal, haz clic en el botón **Más opciones** **(![](/migration-assets/audit-log/2.svg)) > Administración del portal > Registro de auditoría.**
+2.  Haz clic en el botón de flecha hacia abajo (![](/migration-assets/process-audit-log/4.svg)) junto al filtro de un campo para buscar una entrada específica según sea necesario.
+3.  Introduce el término de búsqueda en el área de búsqueda que aparece a continuación según sea necesario.![](/migration-assets/portal-audit-log/3.png)     
+
+## Campos de filtrado
+
+Puedes filtrar los eventos del registro de auditoría según los siguientes campos o criterios:
+
+-   **Período de auditoría**
+    -   **Últimos 30 días**: obtén información de los eventos de los 30 días anteriores a la fecha actual.
+    -   **Rango de fechas personalizado**: selecciona un rango de fechas personalizado (dentro de los últimos 90 días) para filtrar los eventos.
+-   **Objeto**: selecciona uno o más objetos de las sugerencias o introduce el nombre exacto del objeto del que quieres obtener los detalles del registro.  
+     
+-   **Categoría del evento**: filtrar los eventos según las categorías de eventos es una de las formas recomendadas de obtener eventos específicos.  
+      
+-   **Actor**: puedes seleccionar uno o más usuarios de la cuenta para filtrar los eventos según los usuarios.  
+     
+-   **Acción**: introduce una acción relevante en la barra de búsqueda del campo o selecciona una de la lista de acciones sugeridas según sea necesario. Solo puedes filtrar los eventos según una acción a la vez.  
+     
+-   **ID de auditoría, ID de lote y IP**: los filtros se aplican principalmente a estos campos para rastrear el historial de un evento. Introduce el ID de auditoría, el ID de lote o la dirección IP exactos para filtrar los eventos según sea necesario.
+
+## Eliminar condiciones de filtro
+
+Las condiciones de filtro aplicadas se resaltarán en _azul_, como se muestra en la captura de pantalla a continuación. Para eliminar una condición de filtro específica, haz clic en el botón **Eliminar** (![](/migration-assets/process-audit-log/7.svg)) para borrarla.  
+ ![](/migration-assets/portal-audit-log/4.png)
+
+## Exportar un registro de auditoría
+
+1.  En la página del portal, haz clic en el botón **Más opciones** (![](/migration-assets/audit-log/2.svg)) **\> Administración del portal > Registro de auditoría**.
+2.  Haz clic en el botón **Exportar** (![](/migration-assets/process-audit-log/8.svg)) para exportar el registro de auditoría como archivo. Inmediatamente se enviará un correo electrónico con el enlace de descarga a tu dirección de correo electrónico registrada; desde allí podrás descargar el archivo.

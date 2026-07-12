@@ -1,0 +1,289 @@
+---
+title: "Administrar miembros y roles en un tablero"
+description: "DRAFT (unverified) — migrado desde /t/m1h9qls/managing-members-and-roles-in-a-board"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## Roles y permisos
+
+Puedes administrar los miembros de tu tablero asignando diferentes roles y permisos a sus perfiles según las responsabilidades que tengan asignadas en un tablero específico. Kissflow ofrece los siguientes roles para los miembros de un tablero:
+
+### Admin
+
+Un Admin del tablero tiene el conjunto más amplio de privilegios en un tablero. Puede:
+
+-   Crear, modificar y eliminar elementos.
+-   Crear y administrar vistas.
+-   Agregar y modificar notas.
+-   Modificar y administrar la configuración de un tablero.
+-   Agregar o eliminar miembros.
+-   Realizar acciones masivas.
+-   Acceder al registro de auditoría.
+-   Ver las transiciones y la actividad.
+-   Generar informes personalizados.
+
+> **Consejo:**
+> 
+> **Los Admins pueden modificar el rol de cualquier miembro de un tablero.**  
+>   
+> Un admin puede convertir a cualquier persona del tablero en admin, miembro, iniciador, visor o miembro restringido. También puede degradar el rol de alguien de **Admin** a **Miembro restringido** según sus necesidades en el tablero.
+
+### Miembro
+
+Un miembro del tablero ocupa el siguiente nivel en la jerarquía después del **admin** y puede:
+
+-   Crear, modificar y eliminar elementos.
+-   Crear y administrar vistas.
+-   Agregar y modificar notas.
+-   Ver las transiciones y la actividad.
+
+Hay algunas cosas que un miembro no puede hacer en un tablero:
+
+-   No puede duplicar ni eliminar un tablero.
+-   Solo puede acceder a los informes que se comparten con él.
+
+### Iniciador
+
+Un iniciador es alguien que forma parte del tablero, pero tiene un conjunto limitado de privilegios y responsabilidades. Solo puede:
+
+-   Crear elementos nuevos.
+-   Actualizar los elementos que haya creado o solicitado.
+
+> **Nota:**
+> 
+> Un iniciador no puede asignarse un elemento a sí mismo, y nadie del equipo puede asignarle ningún elemento.
+
+### Miembro restringido
+
+Un miembro restringido es alguien que realiza tareas específicas en el tablero sin necesariamente formar parte de él. Solo podrá ver los elementos que tenga asignados. Como miembro restringido, solo puede:
+
+-   Buscar sus elementos, y ordenar y filtrar los datos entre los elementos a los que tiene acceso.
+-   Crear sus vistas privadas, pero no puede acceder a las vistas compartidas.
+-   Editar los campos personalizados y ver la actividad y las transiciones de los elementos que tenga asignados.
+
+> **Nota:**
+> 
+> Un miembro restringido puede actuar sobre un elemento específico solo si se le asigna directamente. Es decir, debe ser el **asignatario actual** del elemento para modificar sus campos personalizados o ver sus transiciones.  
+>   
+> Puede haber casos en los que el admin revoque el acceso otorgado a un miembro restringido sobre un elemento específico. En esas situaciones, el miembro restringido debe ponerse en contacto con el admin para reanudar el trabajo según sea necesario.
+
+### Visor
+
+Un visor es alguien que solo puede ver y acceder a los elementos del tablero sin modificarlos. Puede:
+
+-   Acceder a los elementos, pero no editarlos.
+-   Agregar y modificar notas en los elementos.
+-   Ver las transiciones y la actividad.
+-   Agregarse a sí mismo y agregar a otros usuarios (excepto miembros restringidos) como observadores.
+
+Los visores no pueden eliminar, clonar ni modificar elementos o subelementos. Sin embargo, pueden crear vistas según sus preferencias, aunque no pueden compartirlas con otras personas.
+
+### ¿Cómo decides qué rol elegir?
+
+#### Para los administradores
+
+El rol de **Admin** es muy claro por naturaleza, al igual que las responsabilidades que conlleva. Puedes convertir a alguien en Admin de un tablero si quieres que tenga el control total de todo lo que contiene. Desde tener el privilegio de realizar cualquier acción en un elemento hasta ascender o degradar el rol de una persona, un Admin puede hacerlo todo.
+
+#### Para las personas proactivas
+
+Asigna a alguien el rol de **Miembro** si quieres que pueda crear, modificar y actuar sobre los elementos, y tener control total sobre ellos, pero sin poder alterar la estructura de un tablero, duplicarlo ni eliminarlo. En resumen, si quieres que el miembro haga su trabajo, pero no que lo haga todo como el Admin, puedes convertirlo en miembro dentro de un tablero. El rol de **Miembro restringido** sirve para asignar a los contratistas de tu empresa como parte de los tableros que administras. Un miembro restringido es alguien que tiene acceso y visibilidad limitados sobre los datos que se comparten con él. Es decir, trabaja en una tarea específica de un elemento sin necesariamente formar parte del tablero. Las empresas que colaboran con proveedores para completar una parte de su trabajo pueden aprovechar al máximo este rol como parte de su gestión del trabajo.
+
+#### Para quienes realizan solicitudes
+
+Puede haber casos en los que quieras que el miembro del tablero solo realice solicitudes y no haga mucho más después de iniciarlas. Puedes pensar en un sistema de **seguimiento de errores** en el que ciertos usuarios solo puedan informar de errores y colaborar en los errores que hayan reportado. Estas personas pueden tener asignado el rol de **Iniciador** dentro de un tablero, de modo que solo puedan crear y acceder a los elementos que hayan creado o solicitado.
+
+#### Para los observadores
+
+El rol de visor es ideal si quieres que las personas solo observen, obtengan información, supervisen y comenten los elementos de tu tablero. Considera un escenario en el que el equipo financiero forma parte del tablero del equipo de adquisiciones. El equipo financiero no debería actuar sobre los elementos, sino solo supervisarlos para asegurarse de que la compra no supere el presupuesto. En este caso, los miembros del equipo financiero se pueden agregar al tablero como visores, de modo que puedan observar y controlar los precios de las cotizaciones, agregar notas a los elementos y crear vistas para ellos si es necesario.
+
+### Agregar miembros y grupos a un tablero
+
+![](/migration-assets/managing-members-and-roles-in-a-board/1.png)
+
+1.  Haz clic en el botón **Administrar**, en la esquina superior derecha, y selecciona **Compartir**.
+2.  Haz clic en **+ Agregar miembros**.
+3.  Escribe el nombre o la dirección de correo electrónico del usuario o grupo en el área de texto situada debajo de **Seleccionar usuarios y grupos**.  
+      
+    ![](/migration-assets/managing-members-and-roles-in-a-board/2.png)  
+      
+    También puedes invitar a tus tableros, desde la configuración de **Compartir**, a un usuario externo que no forme parte de tu organización.
+    1.  Escribe la dirección de correo electrónico del usuario externo como se muestra a continuación y verás un enlace de **Invitar** debajo.
+    2.  Haz clic en el enlace para enviar una invitación al usuario externo.
+        
+        ![](/migration-assets/managing-members-and-roles-in-a-board/4.png)
+        
+4.  Selecciona un rol adecuado en el menú desplegable **Rol** después de agregar a los usuarios. Si no tienes claro qué rol elegir, consulta aquí información sobre los diferentes roles y permisos que ofrece Kissflow Board.
+5.  Haz clic en **Agregar**.
+
+#### Modificar el rol de un miembro
+
+Un miembro perderá el conjunto actual de privilegios cuando se le degrade a un rol con menos privilegios.
+
+1.  Ve al tablero > haz clic en el botón **Administrar**, en la esquina superior derecha, y selecciona **Compartir**.
+2.  Haz clic en el botón **Más opciones**  (![](/migration-assets/managing-members-and-roles-in-a-board/3.svg)) junto al nombre de un miembro.![](/migration-assets/managing-members-and-roles-in-a-board/5.png)
+    
+3.  Cambia su rol haciendo clic, según sea necesario, en las opciones **Convertir en admin**, **Convertir en miembro restringido**, **Convertir en iniciador** o **Convertir en miembro**. Haz clic en **Eliminar** para eliminar al miembro de tu tablero.
+    1.  Cuando modifiques el rol de un miembro del flujo a Iniciador, puedes elegir reasignar los elementos que tenga asignados actualmente, ya que no podrá colaborar en sus elementos después de convertirse en iniciador.  
+          
+        Para reasignar los elementos del miembro, selecciona un usuario en el menú desplegable **Reasignar elementos a** de la ventana emergente que aparece después de hacer clic en **Convertir en iniciador**. También puedes dejar el menú desplegable como está (es decir, sin elegir ningún usuario en el menú desplegable **Reasignar elementos a**) si no quieres realizar la reasignación de inmediato.![](/migration-assets/managing-members-and-roles-in-a-board/7.svg)
+    2.  Cuando modifiques el rol de un **grupo** específico a **Iniciador**, puedes elegir reasignar los elementos asignados actualmente a los miembros del grupo, ya que no podrán colaborar en sus elementos después de convertirse en iniciadores.  
+          
+        Para reasignar en bloque los elementos asignados a los miembros del grupo, selecciona un usuario en el menú desplegable **Reasignar elementos a** de la ventana emergente que aparece después de hacer clic en **Convertir en iniciador**. También puedes dejar el menú desplegable como está (es decir, sin elegir ningún usuario en el menú desplegable **Reasignar elementos a**) si no quieres realizar la reasignación de inmediato.![](/migration-assets/managing-members-and-roles-in-a-board/6.svg)
+
+Puede haber casos en los que algunos miembros del grupo que se convirtió recientemente en iniciador tengan roles específicos, como Admin o miembro, dentro del mismo tablero. Los roles de esos usuarios no se actualizarán a **Iniciador**, ya que sus privilegios directos o actuales dentro del tablero son superiores o tienen más autoridad que los de un iniciador.
+
+> **Consejo:**
+> 
+> **El rol que desempeña un usuario como parte de un grupo de usuarios tiene mayor prioridad dentro de un tablero.**  
+>   
+> Supongamos que un usuario llamado _Jake Landon_ forma parte de un grupo llamado _Product Managers_ y asignas el rol de **Admin** a este grupo dentro de un tablero. Ahora, si el **admin del tablero** intenta convertir a Jake en **Iniciador** o **miembro** **restringido** dentro del tablero, donde ya es admin a través del grupo _Product Managers_, este intento de cambiar su rol a **Iniciador** no funcionará. Jake seguirá desempeñando el rol de **Admin** en el tablero, ya que su grupo ya tiene privilegios de administrador.
+
+Consulta la siguiente tabla para conocer las diferencias entre cada uno de los roles compatibles con un tablero:
+
+**Permisos**
+
+**Admin**
+
+**Miembro**
+
+**Iniciador**
+
+**Miembro restringido**
+
+Actualizar la configuración del tablero
+
+Y
+
+\-
+
+\-
+
+\-
+
+Agregar o eliminar miembros
+
+Y
+
+\-
+
+\-
+
+\-
+
+Crear, actualizar y eliminar elementos
+
+Y
+
+Y
+
+Y\* (Puede crear elementos y modificar los que haya creado o solicitado)
+
+\-
+
+Crear, cambiar el nombre y eliminar filtros
+
+Y
+
+Y
+
+Y
+
+Y
+
+Compartir filtros personalizados
+
+Y
+
+\-
+
+\-
+
+\-
+
+Realizar acciones masivas
+
+Y
+
+Y\* (No puede eliminar en bloque)
+
+Y\* (No puede eliminar en bloque)
+
+Y\* (No puede eliminar en bloque)
+
+Administrar notificaciones
+
+Y
+
+Y
+
+Y
+
+Y
+
+Ver el registro de auditoría
+
+Y
+
+\-
+
+\-
+
+\-
+
+Archivar y eliminar tableros
+
+Y
+
+\-
+
+\-
+
+\-
+
+Duplicar un tablero
+
+Y
+
+\-
+
+\-
+
+\-
+
+Agregar, editar y eliminar notas
+
+Y
+
+Y
+
+Y
+
+Y\*(Solo si el miembro restringido es el asignatario actual del elemento)
+
+Ver las transiciones y la actividad
+
+Y
+
+Y
+
+Y
+
+Y\*(Solo si el miembro restringido es el asignatario actual del elemento)
+
+Generar informes personalizados
+
+Y
+
+Solo los informes que se comparten con él
+
+Solo los informes que se comparten con él
+
+Solo los informes que se comparten con él
+
+Obtén más información sobre [cómo agregar miembros y visores a una vista de tablero específica](/t/p8h9ql8/creating-and-using-board-views#sharing-views).

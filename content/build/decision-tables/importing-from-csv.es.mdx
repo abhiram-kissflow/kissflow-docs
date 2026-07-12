@@ -1,0 +1,54 @@
+---
+title: "Importar datos desde un CSV"
+description: "Importa valores de condiciones y resultados a una tabla de decisiones desde un archivo CSV, con opciones de asignación de columnas y gestión de errores."
+contentType: guide
+persona: citizen-developer
+section: build
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - decision-tables
+  - import
+---
+
+# Importar datos desde un CSV
+
+<PlanBadge plans={["enterprise"]} />
+
+Los administradores y miembros pueden importar valores de condiciones y resultados a una tabla de decisiones desde un archivo CSV.
+
+<Callout type="info">
+  Tu tabla de decisiones necesita al menos **una condición o un resultado** antes de que puedas importar un archivo CSV.
+</Callout>
+
+## Importar un CSV
+
+1. Haz clic en el botón **Importar CSV** en la esquina superior derecha y selecciona tu archivo `.csv`. Kissflow comprueba si el archivo está dañado y si contiene errores de delimitadores; si encuentra algún problema, corrígelo en el archivo y vuelve a cargarlo.
+2. Asigna las columnas del CSV a las condiciones y los resultados de tu tabla de decisiones y, luego, haz clic en **Siguiente**. Se muestran como vista previa las primeras 10 filas del archivo y las columnas cuyos nombres de encabezado coinciden se asignan automáticamente.
+
+   <Callout type="info">
+     Una columna del CSV solo se puede asignar a una condición o un resultado con el mismo tipo de datos.
+   </Callout>
+
+   ![Cuadro de diálogo Importar CSV en el paso Asignar columnas, con columnas del CSV asignadas a campos de la tabla de decisiones y un menú desplegable con los campos disponibles](/migration-assets/importing-data-from-a-csv/2.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+3. Elige cómo gestionar los datos importados:
+   - **Al importar:** añade filas nuevas y elimina las existentes, o añade filas nuevas y conserva las existentes.
+   - **En caso de errores:** omite las filas específicas o cancela la importación.
+
+   ![Cuadro de diálogo Importar CSV que muestra las opciones para la importación (añadir filas nuevas y eliminar o conservar las existentes) y en caso de errores (omitir filas específicas o cancelar la importación)](/migration-assets/importing-data-from-a-csv/1.png)
+   {/* TODO: verify screenshot matches current product UI */}
+
+4. Haz clic en **Siguiente**. Comenzará la importación de tus datos.
+
+## Límites
+
+- Una tabla de decisiones admite hasta **50 000 filas**.
+- Se pueden añadir hasta **1 000 filas** en un solo lote de importación.
+
+## Qué sigue
+
+- [Probar una tabla de decisiones](/docs/build/decision-tables/testing)

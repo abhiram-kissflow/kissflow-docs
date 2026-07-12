@@ -1,0 +1,236 @@
+---
+title: "Campos del sistema"
+description: "BORRADOR (no verificado) — migrado desde /t/83h4alt/system-fields"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Básico ✓ Enterprise
+
+Kissflow captura automáticamente datos sobre cada elemento que pasa por un flujo. Por ejemplo, cuando un usuario crea un elemento nuevo, Kissflow almacena automáticamente quién lo creó y cuándo se creó. 
+
+Estos datos se almacenan en campos del sistema. Los valores de los campos del sistema no se pueden establecer ni editar manualmente; solo los genera el sistema. Sin embargo, se pueden mostrar o usar en expresiones e informes. 
+
+Cada tipo de flujo tiene un conjunto específico de campos del sistema asociado. Si necesitas ayuda para usar estos campos, ponte en contacto con nuestro equipo de soporte. 
+
+## Campos del sistema
+
+**ID del campo**
+
+**Tipo de datos**
+
+**Descripción**
+
+**Procesos**
+
+**Tableros**
+
+Nombre
+
+Texto
+
+El [nombre del elemento](https://helpdocs.kissflow.com/administering-process/process-settings) único asignado a cada elemento.
+
+Y
+
+Y
+
+\_flow\_name
+
+Texto
+
+El nombre del flujo.
+
+Y
+
+Y
+
+\_status 1
+
+Texto
+
+El estado de un elemento.
+
+Y
+
+Y
+
+\_request\_number
+
+Número
+
+Un recuento secuencial de todos los elementos enviados.
+
+Y
+
+\-
+
+\_counter
+
+Número
+
+Un recuento secuencial de todos los elementos, incluidos los borradores.
+
+> **Nota**:
+> 
+> Sin embargo, en los formularios públicos, el contador solo aumentará cuando se envíe el elemento.
+
+Y
+
+Y
+
+\_progress
+
+Número
+
+El porcentaje del flujo de trabajo que ha completado un elemento.
+
+Y
+
+\-
+
+\_current\_step
+
+Texto
+
+El paso en el que se encuentra el elemento.
+
+Y
+
+\-
+
+\_stage\_name
+
+Texto
+
+La etapa o el paso en el que se encuentra el elemento.
+
+\-
+
+Y
+
+\_state\_name 2
+
+Texto
+
+El estado del elemento.
+
+\-
+
+\-
+
+\_resolution\_name
+
+Texto
+
+El estado de resolución actual.
+
+\-
+
+Y
+
+\_created\_by 3
+
+Usuario
+
+El usuario que creó el elemento.
+
+Y
+
+Y
+
+\_created\_at
+
+Fecha y hora
+
+La hora en que se creó el elemento como borrador; la hora siempre se muestra en GMT.
+
+Nota: Cuando se usa en una tabla del formulario, mostrará la fecha y la hora en que se creó la fila.
+
+Y
+
+Y
+
+\_submitted\_at
+
+Fecha y hora
+
+La hora en que el creador envió el elemento al flujo de trabajo.
+
+Y
+
+\-
+
+\_modified\_by 3
+
+Usuario
+
+El usuario que modificó el elemento por última vez.
+
+Y
+
+Y
+
+\_modified\_at
+
+Fecha y hora
+
+La hora en que se modificó el formulario por última vez.
+
+Y
+
+Y
+
+\_completed\_at
+
+Fecha y hora
+
+La hora en que se completó el flujo de trabajo.
+
+Y
+
+\-
+
+#### Notas
+
+1 Los procesos tienen cinco estados posibles:
+
+-   Borrador
+-   En curso
+-   Completado
+-   Rechazado
+-   Retirado
+
+Los proyectos y casos tienen cuatro:
+
+-   No iniciado: el elemento aún no se ha movido a otro paso
+-   En curso: el elemento está activo en el tablero
+-   Archivado: el elemento no está activo en el tablero
+-   Completado: el elemento se ha movido al paso de completados
+
+2 Hay tres estados posibles para los proyectos:
+
+-   En curso
+-   En espera
+-   Listo
+
+3 [Los campos de usuario requieren métodos adicionales](https://helpdocs.kissflow.com/expression/user-expressions) para mostrarse en los formularios.
+
+## Cómo mostrar campos del sistema en el formulario
+
+1.  Añade al formulario un campo nuevo del tipo correcto. 
+2.  Activa **¿Es este un campo calculado?**
+3.  Introduce el nombre del campo del sistema como se describe arriba.
+
+## Ver campos del sistema en los informes
+
+Todos los campos del sistema están disponibles para usarlos en tus informes. Al crear un informe, hay una sección especial de campos llamada **Sistema** que puedes seleccionar. 
+
+![](/migration-assets/system-fields/1.png)
+
+## Usar campos del sistema en expresiones
+
+Puedes usar campos del sistema en expresiones y el operador de punto para obtener información adicional según el tipo de datos. [Obtén más información sobre las expresiones aquí](https://helpdocs.kissflow.com/expression/introduction-to-expressions-and-formulas).

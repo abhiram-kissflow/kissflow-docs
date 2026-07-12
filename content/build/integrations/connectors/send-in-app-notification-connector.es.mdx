@@ -1,0 +1,57 @@
+---
+title: "Enviar una notificación dentro de la aplicación mediante un conector"
+description: "BORRADOR (sin verificar) — migrado desde /t/x2y1xbt/send-in-app-notification-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es Kissflow Notification?
+
+Kissflow Notification es una función nativa que te permite enviar alertas en tiempo real a los usuarios directamente dentro de la plataforma Kissflow. Estas notificaciones dentro de la aplicación informan a los usuarios sobre eventos importantes, actualizaciones o acciones requeridas relacionadas con sus flujos de trabajo, lo que garantiza una comunicación y participación oportunas.
+
+## Acerca del conector Kissflow Notification
+
+El conector Kissflow Notification de Kissflow Integration te permite enviar notificaciones personalizadas dentro de la aplicación automáticamente como parte de cualquier flujo de trabajo de integración. Debes ser un cliente de pago de Kissflow para utilizar esta función. El objetivo principal de este conector es actuar como un paso de acción; no admite eventos desencadenadores.
+
+Por ejemplo, puedes tener un _proceso de solicitud de orden de compra_ y, una vez que se apruebe definitivamente, utilizar el conector Kissflow Notification para notificar al equipo de finanzas y hacerle saber que la orden de compra está lista para el pago.
+
+### Acción del conector Kissflow Notification
+
+**Acción**
+
+**Descripción**
+
+Enviar una notificación dentro de la aplicación
+
+Esta acción envía una notificación a un usuario específico dentro de la plataforma Kissflow.
+
+## Conector Kissflow Notification como paso de acción
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** en el panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **Crear**.
+2.  Una vez dentro del editor, configura un paso desencadenador, como un proceso de Kissflow, y selecciona un evento: Cuando un elemento completa su flujo de trabajo.
+3.  Después de configurar el paso desencadenador anterior, haz clic en el botón **Añadir** (+) situado junto a él para configurar el paso de acción. Busca la acción **Enviar una notificación dentro de la aplicación**.![](/migration-assets/send-in-app-notification-connector/1.png) 
+4.  Después de elegir el evento de acción, puedes configurarlo de inmediato. Como Kissflow Notification es un conector nativo, no se requiere autenticación de cuenta independiente.
+5.  Después de seleccionar la acción, configura los campos obligatorios:
+    1.  **Título**: El título o asunto de la notificación.
+    2.  **Mensaje**: El contenido principal o cuerpo del mensaje de notificación.
+    3.  **Usuario**: El usuario específico o la lista de usuarios que recibirán la notificación.
+    4.  **URN**: El Uniform Resource Name que actúa como enlace de redirección. Cuando el usuario haga clic en la notificación, será dirigido a este enlace, por ejemplo, al elemento específico que activó la notificación.![](/migration-assets/send-in-app-notification-connector/2.png)
+        1.  Para redirigir a un elemento de proceso o tablero, abre el elemento y copia su URL.
+            
+        2.  De la URL copiada, utiliza solo la ruta, excluyendo el ID de instancia y el ID de instancia de actividad.
+            
+        3.  Reemplaza el ID de instancia por el campo `_id` de una acción anterior de la integración. Por ejemplo, si tu URL es  `[https://xyz.kissflow.com/view/process/Lookup/form/PkAz3RYizOyC/PkAz3RsKW4YL](https://xyz.kissflow.com/view/process/Lookup/form/PkAz3RYizOyC/PkAz3RsKW4YL), c` opia solo esta parte en el **campo URN**: `view/process/Lookup/form/` Luego, asigna el campo dinámico `_id` de la acción anterior.
+            
+6.  Puedes hacer clic en **Actualizar campos** para ver las actualizaciones. También puedes asignar estos campos desde tu paso desencadenador o desde pasos de acción anteriores. Estos valores se utilizarán automáticamente para generar la notificación después de que se ejecute la acción.
+7.  Después de una configuración correcta, prueba si el paso de acción está configurado correctamente haciendo clic en el botón **Probar**. El conector intentará ejecutar la acción y mostrará un resultado JSON. Al igual que con el paso desencadenador, se te notificarán los errores de inmediato. Corrígelos antes de volver a probar el paso de acción.
+
+### Configurar un conector Kissflow Notification
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción del conector Kissflow Notification, activa el botón de alternancia para activar la integración. Una vez activada, se enviará una nueva notificación dentro de la aplicación al usuario especificado cada vez que ocurra el evento desencadenador.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](https://www.google.com/search?q=https://kissflow.com/help-docs/your-kissflow-account/integrations/best-practices-for-building-your-integrations/) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

@@ -1,0 +1,14 @@
+{
+  "title": "Ventas",
+  "pages": [
+    "sales",
+    "utility-and-general",
+    "project-management",
+    "finance-and-accounting",
+    "communication-and-collaboration",
+    "hr-management",
+    "marketing-automation",
+    "identity-and-access-management-iam",
+    "agreement-management"
+  ]
+}

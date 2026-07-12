@@ -1,0 +1,87 @@
+---
+title: "Configuración multilingüe en Apps"
+description: "BORRADOR (sin verificar) — migrado desde /t/y4yzjvb/multilingual-settings-in-apps"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+La configuración multilingüe permite a los administradores de Kissflow personalizar sus aplicaciones para que se muestren en los idiomas compatibles con la plataforma.
+
+## ¿Qué es la configuración multilingüe?
+
+Como administrador de una aplicación, si has desarrollado una aplicación en inglés, todos los campos y nombres de etiquetas se mostrarán en inglés una vez que implementes la aplicación. Sin embargo, durante el desarrollo, puedes habilitar varios idiomas para la aplicación. Los usuarios finales pueden ver los campos de la aplicación en el idioma seleccionado si coincide con el configurado en su perfil.Las prioridades de idioma funcionan de la siguiente manera:
+
+Primera prioridad: Idioma del perfil en **perfil >** **Mis ajustes**Segunda prioridad: El idioma seleccionado para todos los usuarios en la configuración a nivel de cuenta por el administrador de la cuenta.
+
+Por ejemplo, si una aplicación se desarrolla en inglés y el administrador ha habilitado chino, japonés y coreano en la configuración multilingüe, cuando un usuario que ha seleccionado japonés como idioma preferido consulte la aplicación, esta se mostrará en japonés. La aplicación se mostrará en su idioma original si no se selecciona ningún idioma en el perfil ni a nivel de cuenta.
+
+## ¿Cómo funciona?
+
+La función de configuración multilingüe ofrece dos formas para que los administradores de aplicaciones traduzcan los datos de los campos y las etiquetas.
+
+-   Traducción manual
+-   Traducción automática mediante AI
+
+**Sigue los pasos que se indican a continuación para configurar la configuración multilingüe**
+
+1.  Haz clic en **Administrar > Editar aplicación**, ve a **Configuración de la aplicación** y haz clic en **Configuración multilingüe**.
+2.  Habilita la opción **Configurar varios idiomas**.![](/migration-assets/multilingual-settings-in-apps/1.png)
+3.  Esta opción iniciará el proceso para recuperar todos los campos de la aplicación en un archivo zip comprimido. Este archivo estará disponible para su descarga en esta página hasta que lo vuelvas a generar.
+Si agregas nuevos campos o formularios a tu aplicación después de la última recuperación de este archivo, haz clic en **Ejecutar** para aplicar los cambios a la aplicación y, después, haz clic en **buscar actualizaciones** para generar un archivo nuevo que incluya todos los campos recién agregados.
+
+### Traducción manual
+
+1.  En **Idiomas**, haz clic en **Traducir manualmente**. En la ventana emergente que aparece, selecciona el idioma que prefieras.  
+     ![](/migration-assets/multilingual-settings-in-apps/2.png)
+    
+2.  Descarga el archivo zip que contiene los datos de la aplicación.
+3.  En el archivo descargado, agrega manualmente tus traducciones para los campos.
+4.  Haz clic en **Importar** para cargar el archivo traducido. El sistema comprobará si hay problemas en el archivo zip y, si no hay errores, podrás hacer clic en **Agregar** para añadir el archivo traducido manualmente.![](/migration-assets/multilingual-settings-in-apps/3.png)
+
+> **Nota:** La verificación del archivo puede fallar si no se cumplen las siguientes condiciones:
+> 
+> 1.  El archivo zip debe contener únicamente un archivo JSON.
+> 2.  El título del JSON debe ser 'web.json' y estar escrito en minúsculas.
+> 3.  No debe haber espacios entre los caracteres del nombre del archivo JSON.
+
+### Traducción automática mediante AI
+
+1.  En **Idiomas**, haz clic en **Traducir automáticamente**.
+2.  En la ventana emergente que aparece, selecciona el idioma que prefieras, haz clic en **Traducir automáticamente** y, cuando termine, en **Listo**.
+3.  Todos los campos disponibles se traducirán automáticamente mediante AI y se agregarán a la lista de idiomas.  
+     ![](/migration-assets/multilingual-settings-in-apps/9.png)
+
+En **Idiomas**, puedes ver la lista de idiomas habilitados y otros detalles, como cuántos campos se han traducido y qué usuario los ha traducido y cargado.
+
+## Reemplazar y volver a traducir
+
+Haz clic en el icono de **Más acciones** (![](/migration-assets/multilingual-settings-in-apps/6.png)) para ver las opciones Descargar, Reemplazar y Volver a traducir con AI.
+
+### Reemplazar archivo
+
+Si quieres modificar los campos traducidos, descarga el archivo desde el menú, edita el JSON localmente y carga la versión revisada como archivo zip mediante la opción **Reemplazar archivo**. Las verificaciones del archivo mencionadas anteriormente también se realizan en este paso.
+
+### Volver a traducir con AI
+
+También puedes usar la función de traducción mediante AI para volver a traducir los campos traducidos manualmente. Esta operación traducirá cualquier campo que no se haya traducido durante los intentos anteriores, pero no sobrescribirá las traducciones existentes.
+
+1.  En más acciones, haz clic en **Volver a traducir con A**I.
+2.  En la ventana emergente que aparece, haz clic en **Volver a traducir**. Una vez completado el proceso, la traducción existente se reemplazará automáticamente.![](/migration-assets/multilingual-settings-in-apps/4.png)
+
+> Nota: El idioma seleccionado no se puede cambiar en este paso.
+
+### Traducciones multilingües para Apps
+
+Una vez implementada la aplicación, los usuarios pueden ver los campos en el idioma seleccionado en su perfil si este también está habilitado para la aplicación en **Configuración multilingüe**.  
+ ![](/migration-assets/multilingual-settings-in-apps/5.png)![](/migration-assets/multilingual-settings-in-apps/7.png)
+
+En los [portales](/t/m1h4azh/portal-overview) y [formularios públicos](/t/q6yzjas/public-form) dentro de las aplicaciones, los usuarios finales tendrán un menú desplegable con una lista de los idiomas habilitados en la configuración multilingüe. Desde aquí, pueden seleccionar el idioma que necesiten y ver el portal o formulario en ese idioma.![](/migration-assets/multilingual-settings-in-apps/8.gif)
+
+### Deshabilitar la configuración multilingüe
+
+Si ya no quieres admitir varios idiomas para tu aplicación, portal o formularios públicos, puedes deshabilitar idiomas individuales o todos los idiomas mediante los botones de alternancia en la página de configuración. Puedes volver a habilitar la configuración en cualquier momento, pero si entretanto has agregado campos nuevos, haz clic en **Ejecutar** para aplicar los cambios a la aplicación y haz clic en buscar actualizaciones para obtener el archivo zip actualizado para su posterior traducción.

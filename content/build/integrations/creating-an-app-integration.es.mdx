@@ -1,0 +1,65 @@
+---
+title: "Crear una integración de aplicaciones"
+description: "BORRADOR (no verificado) — migrado desde /t/35yzjvk/creating-an-app-integration"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Para crear una integración dentro del creador de aplicaciones de tu aplicación, debes ser administrador o miembro de esa aplicación.
+
+Para crear una integración en el creador de aplicaciones:
+
+1.  Haz clic en el menú de navegación izquierdo y selecciona **Logic** > **Integrations**.
+    
+2.  Haz clic en el icono + para abrir la ventana **Create an integration**. Proporciona un **nombre** y una **descripción** para tu integración y haz clic en **Create**.
+
+![](/migration-assets/creating-an-app-integration/1.png)
+
+### Configurar un activador
+
+Después de crear una integración, ve a **Editor**. A continuación, para crear un paso de activador, sigue los pasos indicados:
+
+1. **Selecciona tu conector**. El flujo de trabajo de la integración se activará según el evento que ocurra en este conector.
+2. **Selecciona el evento del activador**. Este será el evento que ocurra en el conector seleccionado y que active la integración.
+3. **Autentica tu conexión**. Autentica el conector configurando una conexión. Puedes vincularla a tu cuenta de Kissflow Apps o usar otra cuenta de Kissflow para autenticar el conector. Las conexiones internas se establecen mediante una autenticación basada en una clave de acceso y un secreto. Para los conectores de terceros, autentica la cuenta del conector mediante OAuth.
+4. **Configura tu paso de activador.** Personaliza la aplicación del conector para enviar los datos que prefieras.
+5. **Prueba tu activador.** Prueba el resultado del activador para comprobar si el conector del activador está configurado correctamente.
+
+![](/migration-assets/creating-an-app-integration/3.png)
+
+Si encuentras algún error al configurar el activador, verás todos los mensajes de error en el lado derecho de la página. Puedes usar esta información para solucionar los errores.
+
+> Aunque la [Clave de acceso y secreto](/t/q6h4akr/creating-and-managing-access-keys) asociada a la conexión del activador se elimine o desactive, el activador de tu integración seguirá funcionando.
+
+### Configurar acciones
+
+Al igual que con el paso de activador, configura tu acción seleccionando el conector y el evento de la acción:
+
+1. **Selecciona el conector de tu acción**. La acción se activa mediante el paso de activador u otro paso de acción.
+2. **Selecciona el evento de tu acción**. Este será el evento que ocurra en el conector seleccionado cuando se active.  ![](/migration-assets/creating-an-app-integration/2.png) 
+3. **Autentica la conexión de tu aplicación**. Autentica el conector configurando una conexión. Puedes vincularla a tu cuenta de Kissflow o usar otra cuenta de Kissflow para autenticar el conector. Las conexiones internas se establecen mediante una autenticación basada en una clave de acceso y un secreto. Para los conectores de terceros, autentica la cuenta del conector mediante OAuth.
+4. **Personaliza tu paso de acción**. Personaliza los datos de la aplicación que quieres enviar al conector de tu acción.
+5. **Prueba tu acción.** Prueba el resultado de tu acción para comprobar si funciona según lo esperado.
+
+### Asignar nombres a tu integración y conectores
+
+Cuando creas una integración, primero debes añadirle un título y una breve descripción. Puedes cambiarlos más adelante haciendo clic en el nombre de tu conector e introduciendo un nombre nuevo. También puedes actualizar la descripción haciendo clic en el icono de más acciones.
+
+![](/migration-assets/creating-an-app-integration/4.png)
+
+Del mismo modo, puedes cambiar el nombre de cada paso de activador o de acción. Solo tienes que hacer clic en el botón **Más opciones** (![](/migration-assets/publishing-editing-duplicating-archiving-and-deleting-a-process/6.png))) > **Cambiar nombre** o hacer clic en el nombre predeterminado del conector y, a continuación, introducir el texto en el campo. Tus cambios se guardarán automáticamente.
+
+### Activar tu integración
+
+Después de crear tu integración, el siguiente paso es activarla. Puedes activar el botón de alternancia en la esquina superior derecha del editor para cambiarlo a ACTIVADO.
+
+Una vez activada tu integración, ejecutará automáticamente los pasos de acción cada vez que ocurra el evento del activador. También puedes consultar el **Historial de ejecuciones** de tu integración para ver un registro de todas las ejecuciones correctas y fallidas, con los datos que entran y salen de cada paso de la integración.
+
+> **Nota importante sobre la edición simultánea de una integración:** Para garantizar la integridad de los datos y evitar conflictos, nuestro sistema gestiona la edición simultánea mediante una regla de «el primero en guardar». Esto significa que, si dos o más usuarios editan la misma integración al mismo tiempo, los cambios de la persona que haga clic en **Save** primero se registrarán correctamente. Si otro usuario guarda la integración antes que tú, tu versión quedará obsoleta. Cuando intentes guardar tus cambios, se te pedirá que actualices la pestaña para cargar las últimas actualizaciones.**Ten en cuenta que al actualizar la pestaña se descartará todo el trabajo no guardado de la pestaña actual.**  
+>   
+> Para evitar perder el progreso, te recomendamos encarecidamente coordinarte con tu equipo para asegurarte de que solo una persona edite activamente una integración compartida a la vez.

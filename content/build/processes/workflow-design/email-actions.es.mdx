@@ -1,0 +1,97 @@
+---
+title: "Acciones por correo electrónico"
+description: "BORRADOR (no verificado): migrado desde /t/h7h9qtx/email-actions"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+<iframe src="https://player.vimeo.com/video/747143151?h=7b64058a82&app_id=122963" title="Embedded video" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+## Descripción general
+
+Cuando se asigna un elemento a un miembro o administrador de un [proceso](/t/h7h4a18/process-overview), este recibe un correo electrónico con información sobre el elemento y, después, inicia sesión en Kissflow para actuar sobre él, es decir, aprobarlo o rechazarlo. Esto obliga al usuario a salir de su bandeja de entrada e iniciar sesión manualmente en Kissflow, lo que puede consumir mucho tiempo para los profesionales ocupados que pasan más tiempo en su cliente de correo electrónico que en Kissflow.
+
+Con las **acciones por correo electrónico** activadas, los usuarios pueden actuar sobre los elementos directamente desde sus bandejas de entrada. No tendrán que salir de su bandeja de entrada ni iniciar sesión en Kissflow.
+
+![](/migration-assets/email-actions/1.png)
+
+1.  Cuando se asigna un elemento a un usuario, este recibe un correo electrónico con información sobre el elemento y dos botones para aprobarlo o rechazarlo. Los nombres de los botones y la disponibilidad de la opción de rechazo dependerán de lo configurado en los [permisos del proceso](/t/60h9qtm/configuring-field-permissions-for-process-steps). 
+2.  Después de tomar una decisión, el usuario puede elegir aprobar o rechazar. 
+3.  Al hacer clic en cualquiera de los botones, se redacta un correo electrónico con contenido generado automáticamente que indica a Kissflow que apruebe o rechace el elemento. 
+4.  El usuario debe hacer clic en **Enviar**. Después, el correo electrónico se enviará a Kissflow y la acción se completará. 
+5.  No se requiere ninguna acción del usuario si elige aprobar. Para rechazar, el usuario debe escribir su nota de rechazo en el espacio proporcionado en el correo electrónico en borrador. ![](/migration-assets/email-actions/2.png) 
+
+## Activar las acciones por correo electrónico
+
+Las acciones por correo electrónico deben activarse a nivel del paso. Esto permite a los administradores del proceso restringir las aprobaciones y los rechazos por correo electrónico para diferentes pasos. Para activar las acciones por correo electrónico para un paso específico, ve a **Editar proceso** > **Flujo de trabajo** > haz clic en **Cambiar** junto al paso requerido > **Acciones por correo electrónico** > activa el interruptor. De forma predeterminada, las acciones por correo electrónico están activadas para todos los procesos existentes y nuevos de una cuenta.
+
+![](/migration-assets/email-actions/3.png)
+
+Si al intentar activar las acciones por correo electrónico ves un mensaje que dice **Las acciones por correo electrónico están desactivadas para tu organización. Ponte en contacto con el superadministrador para activar esta función_._,**, significa que el superadministrador ha desactivado las acciones por correo electrónico en el [nivel de cuenta](/t/h7h4akl/flow-settings). Si eres [superadministrador](/t/35h4ak0/user-roles-permissions), puedes activar o desactivar las acciones por correo electrónico para todos los procesos de una cuenta desde **Administración de cuentas** > **Configuración** de **Flow** > **Proceso** > **Acciones** por **correo electrónico** > **Activa o desactiva el interruptor.**
+
+### Excepciones
+
+Las acciones por correo electrónico no estarán disponibles para determinados elementos y pasos si se requiere la introducción obligatoria de datos por parte del usuario.
+
+### Preguntas frecuentes
+
+1. **¿Qué ocurre si uno de los responsables del paso aprueba un elemento por correo electrónico, pero otro responsable del paso lo aprueba a través del portal al mismo tiempo?**  
+      
+    Se aprueba la primera solicitud que llega al sistema, independientemente de quién la haya iniciado primero.   
+     
+2. **¿Qué ocurre si dos o más responsables del paso aprueban la solicitud por correo electrónico al mismo tiempo?**  
+      
+    Se aprueba la primera solicitud que llega al sistema, independientemente de quién la haya iniciado primero.   
+     
+3. **¿Existe un período de validez para el correo electrónico desde el que el usuario puede aprobar o rechazar el elemento?**  
+      
+    El período de validez es de 30 días a partir de la fecha en que el responsable del paso recibió el correo electrónico.  
+     
+4. **¿Qué ocurre si el responsable del paso aprueba un elemento que ya está aprobado o rechazado?**  
+      
+    La aprobación o el rechazo se ignorará.  
+     
+5. **¿Qué ocurre si el responsable del paso aprueba o rechaza la solicitud después de 30 días?**  
+      
+    La aprobación o el rechazo se ignorará.  
+     
+6. **¿Cuánto tarda en aprobarse o rechazarse un elemento después de que el responsable del paso envía un correo electrónico de aprobación o rechazo?**  
+      
+    Aproximadamente 1 minuto o más. Sin embargo, depende del volumen de solicitudes que reciba el sistema en ese momento.  
+     
+7. **¿Por qué no he recibido un correo de aprobación o rechazo aunque las acciones por correo electrónico estén activadas en la cuenta y en el proceso?**  
+      
+    Esto podría deberse a que tu formulario tiene campos editables que son obligatorios en este paso. En estos casos, las acciones por correo electrónico no estarán disponibles.  
+     
+8. **¿Por qué no se entrega el correo electrónico incluso después de la aprobación o el rechazo?**  
+     
+    
+    **a.** **No has activado los protocolos de seguridad SPF y DKIM**  
+      
+    Cuando se envía una solicitud de aprobación o rechazo por correo electrónico, se autentica mediante los protocolos de seguridad SPF y DKIM. El correo electrónico no se enviará si aún no has activado uno de los protocolos en tu servidor de correo.   
+      
+    **Solución**  
+    Puedes resolver este problema de una de las siguientes maneras:  
+    1\. Puedes activar el protocolo en tu servidor de correo y volver a enviar la solicitud de aprobación o rechazo.   
+    2\. Puedes iniciar sesión manualmente en tu cuenta de Kissflow para enviar la solicitud de aprobación o rechazo.
+    
+    **b.** **Has realizado cambios en el contenido del correo electrónico**  
+      
+    Si has cambiado algún dato introducido por el usuario para la solicitud de aprobación o no has añadido una nota obligatoria para la solicitud de rechazo, tu correo electrónico no se enviará a Kissflow.  
+      
+    **Solución**  
+    Puedes resolver este problema de una de las siguientes maneras:  
+    1\. Puedes volver a hacer clic en la solicitud de aprobación o rechazo del elemento desde el mismo correo electrónico. En caso de rechazo, puedes escribir la nota de rechazo en el espacio proporcionado en el correo en borrador y hacer clic en **Enviar**.  
+    2\. Puedes iniciar sesión manualmente en tu cuenta de Kissflow para completar el proceso.  
+      
+    **c.** **No enviaste el correo electrónico de aprobación dentro del período de validez de 30 días**  
+      
+    Cada solicitud por correo electrónico para un elemento tiene una fecha de vencimiento de 30 días, después de la cual no puedes enviar la solicitud.    
+      
+    **Solución**  
+    Puedes iniciar sesión manualmente en tu cuenta de Kissflow y completar el proceso.

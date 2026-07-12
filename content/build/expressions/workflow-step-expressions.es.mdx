@@ -1,0 +1,93 @@
+---
+title: "Expresiones de pasos de flujo de trabajo"
+description: "BORRADOR (sin verificar) — migrado desde /t/60h4al8/workflow-step-expressions"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+![](/migration-assets/workflow-step-expressions/1.svg)
+
+La función lastCompletedStep() recupera información sobre el paso completado más recientemente de tu flujo de trabajo.
+
+Puedes acceder a los nombres de los aprobadores, al número de aprobadores, a la hora de asignación, a la hora de aprobación, a si se incumplió la fecha límite, entre otros datos.
+
+```
+lastcompletedstep()
+```
+
+Por ejemplo, para asignar un paso a los mismos aprobadores que el paso completado anteriormente:
+
+1.  Ve a la sección **Assignees** y selecciona **More assignment options**.
+2.  Haz clic en **Formula**, introduce la expresión y haz clic en **Save**.
+    
+
+```
+lastCompletedStep().approvers()
+```
+
+El paso actual se asigna a los usuarios que aprobaron el paso anterior.
+
+![](/migration-assets/workflow-step-expressions/2.gif)
+
+## Métodos disponibles
+
+Puedes utilizar los siguientes métodos con la función lastCompletedStep().
+
+****Método****
+
+****Tipo de datos****
+
+****Descripción****
+
+.approvers()
+
+Usuario
+
+Devuelve los nombres de los usuarios que aprobaron el paso completado anteriormente.
+
+.assignmentMode()
+
+Texto
+
+Devuelve el modo de asignación:
+
+-   Round Robin
+-   Least Load
+-   Normal
+
+.approverCountRequired()
+
+Número
+
+Devuelve el número total de aprobaciones necesarias para completar el paso anterior.
+
+.deadline()
+
+Fecha y hora
+
+Devuelve la fecha límite del paso anterior.
+
+.assignedAt()
+
+Fecha y hora
+
+Devuelve la hora en la que se inició el paso anterior.
+
+.approvedAt()
+
+Fecha y hora
+
+Devuelve la hora en la que se aprobó el paso anterior.
+
+.Name()
+
+Texto
+
+Devuelve el nombre del paso anterior.
+
+.deadlineBreached()
+
+Booleano
+
+Devuelve Sí si no se cumplió la fecha límite; de lo contrario, devuelve No.

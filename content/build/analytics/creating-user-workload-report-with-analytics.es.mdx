@@ -1,0 +1,141 @@
+---
+title: "Crear un informe de carga de trabajo de usuarios con Analytics"
+description: "BORRADOR (sin verificar) — migrado desde /t/q6h9qzt/creating-user-workload-report-with-analytics"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Hacer un seguimiento de la carga de trabajo de tu equipo es fundamental para mantener la eficiencia de tus procesos. Con Kissflow Analytics, puedes crear un informe de carga de trabajo de usuarios para obtener información sobre la cantidad de elementos asignados a diferentes usuarios, identificar tareas pendientes y evaluar la carga de trabajo general. 
+
+A continuación, te explicamos cómo crear un informe de carga de trabajo de usuarios para todos los procesos de tu cuenta mediante Kissflow Analytics.  
+  
+![](/migration-assets/creating-user-workload-report-with-analytics/1.gif)
+
+## Crear el dataview de carga de trabajo de usuarios 
+
+Con el dataview como fuente de datos, ahora puedes crear varios informes, incluidos informes tabulares, de gráficos y de tabla dinámica.
+
+Para crear un dataview:
+
+1.  Inicia sesión en tu cuenta de Kissflow, ve a Analytics y haz clic en **Data Explorer**. 
+    
+2.  Haz clic en **Create dataview >**, proporciona un nombre para tu dataview y haz clic en **Create**.
+    
+3.  En el generador de consultas, introduce la siguiente consulta SQL.
+    
+    ```sql
+    SELECT
+    "_id" AS "ID",
+    "ExpectedAt.value" AS "Expected at",
+    "AssignedAt.value" AS "Assigned at",
+    AssignedTo.value:Name ::string AS "Assigned to",
+    "_flow_name" AS "Flow Name",
+    TIMESTAMPDIFF(MINUTE, "ExpectedAt.value", CURRENT_TIMESTAMP) AS Time_Diff,
+    CASE
+    WHEN Time_Diff IS NULL THEN NULL
+    WHEN Time_Diff>0 THEN TRUE
+    ELSE FALSE
+    END AS Overdue
+    FROM
+    "ProcessInstance",
+    TABLE (FLATTEN(input=>"AssignedTo", outer => true)) AssignedTo
+    ```
+    
+4.  Haz clic en **Run** y, después de verificar el resultado de la consulta, haz clic en **Publish** para crear el dataview.
+    
+
+### Desglose de la consulta
+
+La siguiente tabla describe cada parte de la consulta.
+
+**Nombre real de la columna**
+
+**Nombre de alias utilizado en la consulta**
+
+**Descripción**
+
+\_id
+
+ID
+
+El ID de la instancia del proceso.
+
+ExpectedAt.value
+
+Expected at
+
+Este campo muestra la fecha y hora en que se espera que se complete el elemento. El formato de marca de tiempo se basa en GMT.
+
+AssignedAt.value
+
+Assigned at
+
+Este campo muestra la fecha y hora en que se asignó el elemento. El formato de marca de tiempo se basa en GMT.
+
+AssignedTo.value:Name ::string
+
+Assigned to
+
+Este campo muestra el nombre del usuario al que se asigna el elemento. La consulta analiza la columna JSON "AssignedTo" como columnas independientes, lo que te permite incluir el campo "AssignedTo" en tus informes de Chart o Pivot.
+
+\_flow\_name
+
+Flow name
+
+El nombre del proceso.
+
+TIMESTAMPDIFF(MINUTE, "ExpectedAt.value", CURRENT\_TIMESTAMP)
+
+Time\_Diff
+
+Esta consulta SQL calcula la diferencia de tiempo en minutos entre la marca de tiempo "ExpectedAt.value" y la marca de tiempo actual. Para ello, utiliza la función TIMESTAMPDIFF. Además, crea una nueva columna denominada "Time\_Diff" para almacenar esta diferencia calculada. 
+
+CASE
+
+WHEN Time\_Diff IS NULL THEN NULL
+
+WHEN Time\_Diff>0 THEN TRUE
+
+ELSE FALSE
+
+END AS Overdue
+
+ 
+
+La instrucción CASE evalúa "Time\_Diff" y clasifica los elementos como "Overdue" si la diferencia de tiempo es mayor que 0, marcándolos como TRUE; de lo contrario, los mantiene como FALSE. Si "Time\_Diff" es NULL, también devuelve NULL para "Overdue".
+
+## Crear un informe de carga de trabajo de usuarios
+
+Sigue estos pasos para crear un informe de carga de trabajo de usuarios:
+
+1.  Ve a Analytics y haz clic en la pestaña **Reports**.
+    
+2.  Haz clic en **Create report**.
+    
+3.  Selecciona el dataview creado anteriormente en el menú desplegable que aparece al crear un informe. 
+    
+4.  Proporciona un nombre para tu informe.
+    
+5.  Selecciona el tipo de informe: **Tabular**, para obtener un resumen rápido de la carga de trabajo, y haz clic en **Create**.
+    
+6.  En la sección **Columns**, añade los siguientes campos para mostrarlos como columnas de la tabla: **AssignedTo**, **Flow name**, **Created by** y **Status**. 
+    
+7.  Utiliza el **Filter** para obtener una lista específica de usuarios.
+    
+8.  Haz clic en **Save** para guardar la configuración de tu informe.
+    
+9.  Haz clic en Save para guardar la configuración de tu informe.  
+      
+    {/* TODO: screenshot — source image expired (Google CDN); recapture from product UI */}
+    
+
+{/* TODO: screenshot — source image expired (Google CDN); recapture from product UI */}
+
+> **Nota:**
+> 
+> **AssignedTo** es una columna JSON de la tabla ProcessInstance que analiza la carga de trabajo de los usuarios. Solo se puede utilizar en informes Tabular. Al utilizar la parte de la consulta **AssignedTo.value:Name ::string**, puedes analizar las columnas JSON para crear informes Pivot o Chart.

@@ -1,0 +1,106 @@
+---
+title: "Conector de Jira"
+description: "BORRADOR (sin verificar) — migrado desde /t/p8y3t7z/jira-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es Jira?
+
+Jira es un software de seguimiento de problemas de Atlassian que permite realizar un seguimiento de errores y gestionar proyectos ágiles.
+
+## Acerca de la integración de Jira con Kissflow
+
+El conector de Jira de Kissflow Integration te permite conectar y sincronizar tu cuenta de Jira con aplicaciones populares de terceros y Kissflow Apps. Debes tener una cuenta válida de Atlassian o Jira y ser cliente de pago de Kissflow para realizar la integración con Jira.
+
+Usa el conector de Jira para recibir datos de otros flujos o aplicaciones y realizar acciones específicas.
+
+## Activadores en el conector de Jira
+
+**Evento del activador**
+
+**Descripción**
+
+Cuando se crea un nuevo problema
+
+Se activa cuando se crea un nuevo problema en Jira.
+
+Cuando se añade un nuevo comentario a un problema
+
+Se activa cuando se añade un nuevo comentario a un problema en Jira.
+
+Cuando se actualiza un comentario en un problema
+
+Se activa cuando se actualiza un comentario en un problema de Jira.
+
+Cuando se actualiza un problema existente
+
+Se activa cuando se actualiza un problema existente en Jira.
+
+> **Nota:** 
+> 
+> La conexión del activador del conector de Jira [caduca](https://developer.atlassian.com/cloud/jira/software/webhooks/#:~:text=Webhook%20expiration&text=The%20expiration%20period%20is%2030,Extend%20webhook%20life%20REST%20resource) en 30 días. Para restablecer la conexión, desactiva y vuelve a activar la integración.
+
+## Acciones en el conector de Jira
+
+**Evento de la acción**
+
+**Descripción**
+
+Crear un problema
+
+Esta acción crea un nuevo problema en Jira.
+
+Buscar un problema
+
+Esta acción busca un problema por resumen o clave en Jira.
+
+Añadir un archivo adjunto a un problema
+
+Esta acción añade un archivo adjunto a un problema en Jira.
+
+Añadir un observador a un problema
+
+Esta acción añade un nuevo observador a un problema en Jira.
+
+Añadir un comentario a un problema
+
+Esta acción añade un comentario a un problema en Jira.
+
+Vincular problemas
+
+Esta acción crea un vínculo entre dos problemas en Jira.
+
+Buscar un usuario
+
+Esta acción busca un usuario existente en Jira.
+
+Actualizar un problema
+
+Esta acción actualiza un problema existente en Jira.
+
+### El conector de Jira como paso de acción
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Una vez dentro del editor, configura los pasos del activador y de la acción según sea necesario. Por ejemplo, el evento del activador puede ser **Cuando se envía un elemento en borrador**. Puedes crear un nuevo ticket de Jira cada vez que se cree un nuevo elemento.
+    
+3.  Después de configurar el activador y el paso de acción anteriores, haz clic en el botón **Añadir** (![](/migration-assets/kissflow-dataset-connector/2.png)) junto al paso de acción para configurarlo. Busca el conector de Jira y selecciona la acción que quieras.![](/migration-assets/jira-connector/1.png)
+4.  Después de elegir el evento de la acción, autentica el conector. Haz clic en **+Añadir una cuenta** e inicia sesión con tu cuenta de Atlassian o Jira. Kissflow utiliza las credenciales de inicio de sesión de Altassian para la autenticación.
+5.  Después de autenticarte con tu cuenta de Jira, añade los valores correspondientes a los campos del formulario de Jira. Puedes hacer clic en **Actualizar campos** para ver todos los campos actualizados del formulario de Jira seleccionado.
+6.  Haz clic en **Siguiente**.
+
+![](/migration-assets/jira-connector/2.png)
+
+7\. Después de una configuración correcta, comprueba si el paso de acción de Jira está configurado correctamente haciendo clic en el botón **Probar**. El conector extraerá los datos de los campos de tu cuenta de Atlassian seleccionada y los mostrará como una salida JSON. Al igual que en el paso del activador, se te notificará de inmediato si se producen errores. Corrígelos antes de volver a probar el paso de acción.
+
+### Configurar un conector de Jira
+
+Activa el botón de alternancia para activar la ejecución de la integración después de crear un flujo de trabajo personalizado con los pasos de acción del conector de Jira. Cuando se produce un evento del activador, la acción de Jira seleccionada se activa y los cambios se reflejan en tu cuenta de Jira.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

@@ -1,0 +1,166 @@
+---
+title: "Descripción general de la página de inicio"
+description: "Tu página de inicio es lo primero que ves después de iniciar sesión: búsqueda, notificaciones, el agente Ask de IA y un panel de widgets que puedes personalizar."
+contentType: overview
+persona: shared
+section: get-started
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - homepage
+  - ask-ai
+  - widgets
+  - dashboard
+---
+
+# Descripción general de la página de inicio
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+Tu página de inicio es el punto de partida después de [iniciar sesión](/docs/get-started/signing-in) en Kissflow. Te ofrece un resumen general de tus elementos, tus flujos de trabajo y otra información importante, para que puedas retomar tu actividad sin tener que buscar en los menús.
+
+![Página de inicio de Kissflow con la barra de navegación superior y el panel de widgets predeterminado](/migration-assets/homepage-overview/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## La barra superior
+
+En la parte superior de cada página tienes acceso rápido a:
+
+- **[Búsqueda global](/docs/get-started/contextual-global-search)**: busca elementos, flujos de trabajo y aplicaciones por nombre o palabra clave.
+- **Ayuda**: haz clic en el icono de ayuda para abrir la documentación de ayuda o acceder a la comunidad de Kissflow.
+- **[Notificaciones](/docs/use/personal-settings/viewing-notifications)**: el icono de campana muestra actualizaciones sobre los elementos que tienes asignados y otras actividades de la cuenta.
+- **Tu perfil**: haz clic en tu foto de perfil para acceder a **My settings**, **Themes** o cerrar sesión.
+
+## Ask: el agente de IA de Kissflow
+
+Ask te permite consultar los datos de tus flujos de trabajo usando lenguaje natural y obtener informes e información de inmediato, sin tener que crear un informe manualmente. Haz clic en **Ask** en tu página de inicio para comenzar una conversación.
+
+Antes de hacer una pregunta, añade contexto: haz clic en **+ Add context** y selecciona los procesos, tableros, aplicaciones o conjuntos de datos que quieres que utilice la IA. Puedes seleccionar hasta **3 flujos de trabajo** a la vez.
+
+<Callout type="info">
+  Solo están disponibles para añadir como contexto los flujos de trabajo a los que tienes suficiente acceso. Si no aparece un flujo de trabajo que esperabas ver, comprueba tus permisos.
+</Callout>
+
+![Cómo añadir contexto y hacer una pregunta en lenguaje natural en el panel Ask](/migration-assets/homepage-overview/2.gif)
+{/* TODO: verify screenshot matches current product UI */}
+
+Después de añadir el contexto, escribe tu pregunta en lenguaje natural. Ask interpreta tu intención, identifica los campos relevantes en los flujos de trabajo seleccionados, consulta los datos y devuelve una respuesta.
+
+La conversación no se reinicia después de cada pregunta. Ask conserva hasta 40 mensajes anteriores como contexto, para que puedas hacer preguntas de seguimiento sin repetir la información.
+
+### Generar un informe
+
+También puedes usar Ask para crear [informes](/docs/build/analytics/reports-overview) con una instrucción sencilla. Cuando Ask genere un informe, haz clic en **Edit and save** para enviarlo al generador de informes de Analytics, donde podrás perfeccionarlo. Los informes guardados aparecen en **Analytics > Reports**.
+
+![Edición y guardado de un informe generado por Ask en el generador de informes de Analytics](/migration-assets/homepage-overview/11.gif)
+{/* TODO: verify screenshot matches current product UI */}
+
+### Revisar una respuesta
+
+Cada respuesta incluye una explicación del resultado en lenguaje sencillo. Haz clic en **Show details** para ver exactamente cómo llegó Ask a ese resultado:
+
+- **Sources**: los flujos de trabajo utilizados y los campos consultados.
+- **Query**: la consulta exacta ejecutada sobre los datos.
+
+![Panel Show details con las pestañas Sources y Query para una respuesta de Ask](/migration-assets/homepage-overview/3.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Puedes calificar cualquier respuesta con un pulgar hacia arriba o hacia abajo y, opcionalmente, añadir más detalles: si la respuesta fue precisa, qué tan rápida fue y cualquier otro comentario. Estos comentarios ayudan a mejorar Ask con el tiempo.
+
+![Opciones de comentarios sobre una respuesta de Ask, incluidos los pulgares hacia arriba y hacia abajo y comentarios adicionales](/migration-assets/homepage-overview/5.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+Usa **More options** para abrir la documentación de ayuda o borrar la conversación actual. También puedes ampliar la interfaz de Ask para obtener una vista más enfocada y a pantalla completa.
+
+![Menú More options de Ask con enlaces a la documentación de ayuda y a la opción para borrar la conversación](/migration-assets/homepage-overview/7.gif)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Widgets predeterminados
+
+De forma predeterminada, tu página de inicio muestra cinco widgets, cada uno con campos del sistema fijos como columnas:
+
+- **Items in your queue**: elementos asignados a ti.
+- **Items created by you**: elementos que has iniciado.
+- **Recently accessed**: elementos que abriste más recientemente.
+- **Tagged comments**: comentarios en los que te han mencionado.
+- **My to-do**: elementos que has marcado como tareas pendientes.
+
+![Panel predeterminado de la página de inicio con los cinco widgets estándar](/migration-assets/homepage-overview/12.gif)
+{/* TODO: verify screenshot matches current product UI */}
+
+### Marcar elementos como tareas pendientes
+
+Abre cualquier elemento de proceso o tablero que tengas asignado y usa **Mark as to-do** (o **Remove from to-do**) en la parte superior del elemento. También puedes hacerlo directamente desde el widget **Items in your queue**. Los elementos que marques aparecen en el widget **My to-do** para facilitar su seguimiento.
+
+![Cómo marcar un elemento como tarea pendiente desde su encabezado y cómo aparece en My to-do](/migration-assets/homepage-overview/8.gif)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Personalizar tu página de inicio con widgets
+
+<Callout type="info">
+  La personalización de widgets es una función del plan Enterprise. En el plan Basic, tu página de inicio siempre muestra los cinco widgets predeterminados.
+</Callout>
+
+Si la personalización está habilitada en tu cuenta, puedes añadir, eliminar y reorganizar widgets para crear un panel que se adapte a tu forma de trabajar. Haz clic en **Customize** en la parte superior derecha de la página de inicio para abrir el selector de widgets, arrastra los widgets que quieras al panel, organízalos y haz clic en **Save**.
+
+![Personalización del panel de la página de inicio mediante la adición y organización de widgets](/migration-assets/homepage-overview/10.gif)
+{/* TODO: verify screenshot matches current product UI */}
+
+Hay 13 widgets para elegir. La mayoría son estándar y funcionan de inmediato, mientras que algunos son específicos de un flujo y deben configurarse antes de mostrar datos.
+
+### Widgets estándar
+
+| Widget | Descripción |
+|---|---|
+| Items in your queue | Muestra todos los elementos que tienes asignados actualmente. |
+| Items in your queue – overdue | Muestra los elementos de tu cola cuya fecha límite ya pasó. |
+| Items in your queue – due today | Muestra los elementos de tu cola cuya fecha límite es hoy. |
+| Tagged comments | Muestra los comentarios en los que te han mencionado. |
+| My to-do | Muestra los elementos de procesos o tableros asignados a ti que has marcado como tareas pendientes. |
+| Recently accessed | Ofrece acceso rápido a los elementos que abriste más recientemente. |
+| Access requests | Muestra las solicitudes de acceso pendientes de tu acción. |
+| Flow creation requests | Muestra las solicitudes para crear nuevos flujos. |
+
+<Callout type="info">
+  **Items created by you** también aparece en el selector de widgets, pero, a diferencia de los widgets anteriores, requiere una configuración rápida única (establecer un filtro de estado) antes de poder guardarlo en el panel.
+</Callout>
+
+### Widgets específicos de flujos
+
+Estos widgets deben configurarse con un flujo específico (y, en el caso de los informes, con un informe específico) antes de mostrar datos:
+
+| Widget | Descripción |
+|---|---|
+| Items in your queue – specific flow | Muestra los elementos de un flujo seleccionado que tienes asignados. |
+| Items created by me – specific flow | Muestra los elementos que creaste en un flujo específico. |
+| Chart reports | Representación visual de un informe de uno de tus flujos. |
+| Tabular reports | Vista tabular de un informe de uno de tus flujos. |
+
+<Callout type="warn">
+  Puedes añadir hasta 3 widgets de informes (de gráficos o tabulares) y hasta 15 widgets en total en tu página de inicio.
+</Callout>
+
+Usa **Reset** para descartar los cambios no guardados y volver al último panel guardado. Si eliminas todos los widgets y guardas, el panel vuelve a mostrar los cinco widgets predeterminados en lugar de quedar vacío.
+
+## Usar AI auto suggest
+
+En lugar de crear tu panel widget por widget, usa AI auto suggest desde el selector de widgets:
+
+- **Get suggestions**: la IA muestra los widgets que probablemente sean útiles según tu actividad y tus patrones de uso. Solo tienes que revisar las sugerencias y colocar las que quieras.
+- **Ask for widgets**: escribe lo que buscas, por ejemplo _items created by me in employee confirmation_, y la IA configurará el widget específico del flujo correspondiente para que puedas arrastrarlo a su posición.
+
+![Uso de AI auto suggest para obtener y configurar recomendaciones de widgets](/migration-assets/homepage-overview/9.gif)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="idea">
+  AI auto suggest solo recomienda widgets del catálogo estándar de 13 widgets; no crea nuevos tipos de widgets. Para los widgets específicos de flujos, puede ir un paso más allá y entregarte un widget completamente configurado según tu solicitud.
+</Callout>
+
+## Qué sigue
+
+- [Ver las notificaciones](/docs/use/personal-settings/viewing-notifications)
+- [Búsqueda global contextual](/docs/get-started/contextual-global-search)
+- [Mis elementos](/docs/get-started/my-items)
+- [Configuración de notificaciones del usuario](/docs/use/personal-settings/user-notification-settings)

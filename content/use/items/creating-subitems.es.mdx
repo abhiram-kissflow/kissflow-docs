@@ -1,0 +1,100 @@
+---
+title: "Crear y gestionar subelementos"
+description: "Divide los elementos del tablero en subelementos, realiza un seguimiento de sus estados y responsables, y convierte o mueve subelementos entre elementos."
+contentType: guide
+persona: end-user
+section: use
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - boards
+  - items
+  - subitems
+---
+
+# Crear y gestionar subelementos
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+Los subelementos te ayudan a dividir tareas complejas en partes más pequeñas y a realizar un seguimiento eficiente. Al igual que un elemento, un subelemento tiene un responsable, un estado, una fecha de inicio y una fecha de vencimiento. Dividir los elementos en subelementos te ayuda a estimar el alcance y la duración de una tarea, lo que puede mejorar significativamente el tiempo de respuesta.
+
+## Crear un subelemento
+
+1. Abre el elemento desde el tablero y haz clic en **Subelementos** en la barra de navegación derecha.
+2. Haz clic en **Agregar subelemento**.
+3. Escribe un título para el subelemento.
+
+También puedes crear subelementos de otras formas:
+
+- **Pegar texto**: copia una lista de texto y haz clic en el botón **Pegar subelementos** dentro del elemento. Puedes pegar hasta 20 subelementos a la vez.
+- **Generar con IA**: deja que la IA sugiera subelementos relacionados con tu elemento principal y, luego, haz clic en **Generar** para crearlos.
+
+![Pestaña Subitems de un elemento que muestra la opción de IA para generar subelementos](/migration-assets/creating-and-managing-subitems/2.png)
+{/* TODO: verificar que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+Mientras creas un subelemento, puedes establecer su estado, responsable y fechas de inicio y vencimiento directamente desde el formulario del elemento, o configurarlos más tarde. Haz clic en un subelemento para abrir su formulario y agregar una descripción, lo que proporciona más contexto a otros usuarios.
+
+![Animación de la creación de un subelemento y la configuración de su estado, responsable y fechas](/migration-assets/creating-and-managing-subitems/7.gif)
+{/* TODO: verificar que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+<Callout type="info">
+  Un elemento puede tener hasta **100 subelementos**.
+</Callout>
+
+Para cambiar el nombre de un subelemento, pasa el cursor sobre él y haz clic en el botón **Editar título**, o abre el subelemento y cambia su nombre en el formulario.
+
+## Gestionar un subelemento
+
+- **Establecer el estado**: elige un estado en el menú desplegable para indicar el progreso: **No iniciado** (el predeterminado), **En progreso**, **En espera** o **Completado**.
+- **Establecer un responsable**: haz clic en el botón **Establecer un responsable** y elige un usuario. Los miembros restringidos solo pueden asignarse a un subelemento si son los responsables del elemento.
+- **Establecer fechas**: haz clic en el botón **Establecer fechas de inicio y vencimiento** y selecciona las fechas.
+- **Copiar la URL**: haz clic en el botón **Más opciones** > **Copiar URL** para compartir o consultar el subelemento.
+- **Clonar**: haz clic en el botón **Más opciones** > **Clonar**. El clon hereda todas las propiedades y la información del original.
+- **Eliminar**: haz clic en el botón **Más opciones** > **Eliminar**.
+- **Reordenar**: arrastra y suelta los subelementos en las posiciones que quieras.
+
+## Buscar subelementos en un tablero
+
+- **Buscar**: introduce el nombre del subelemento.
+- **Expandir o contraer**: usa el botón **Expandir subelementos** / **Contraer subelementos** para mostrar u ocultar todos los subelementos del tablero, o expande un solo elemento para ver únicamente sus subelementos.
+- **Filtrar**: activa **Aplicar filtro a subelementos** en el panel de filtros para incluir subelementos en los resultados filtrados.
+
+![Panel de filtros con la opción Aplicar filtro a subelementos activada](/migration-assets/creating-and-managing-subitems/11.png)
+{/* TODO: verificar que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+## Convertir y mover subelementos
+
+A veces, un subelemento se convierte en un trabajo que debe supervisarse por separado, o varios elementos dispersos pertenecen a un elemento principal común. Puedes convertir en ambas direcciones y mover subelementos entre elementos.
+
+### Convertir un subelemento en un elemento
+
+Haz clic en el botón **Más opciones** del subelemento > **Convertir en elemento**. En el cuadro de diálogo, asigna el título (obligatorio) y la descripción (opcional) del subelemento a los campos del formulario del tablero y, luego, haz clic en **Continuar**.
+
+![Animación de la conversión de un subelemento en un elemento mediante la asignación de sus campos de título y descripción](/migration-assets/creating-and-managing-subitems/18.gif)
+{/* TODO: verificar que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+### Convertir un elemento en un subelemento
+
+Abre el elemento, haz clic en el botón **Más opciones** situado en la parte superior derecha del formulario y selecciona **Convertir en subelemento**. Selecciona el elemento de destino, asigna los campos de título y descripción y haz clic en **Continuar**. Si conviertes un elemento que tiene subelementos, tanto el elemento como sus subelementos se convierten en subelementos del elemento seleccionado.
+
+![Animación de la conversión de un elemento en un subelemento de otro elemento](/migration-assets/creating-and-managing-subitems/16.gif)
+{/* TODO: verificar que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+### Mover un subelemento a otro elemento
+
+Haz clic en el botón **Más opciones** del subelemento > **Mover a otro elemento** y, luego, selecciona el elemento de destino.
+
+![Animación del movimiento de un subelemento de un elemento a otro](/migration-assets/creating-and-managing-subitems/17.gif)
+{/* TODO: verificar que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+<Callout type="info">
+  Si el responsable de un elemento es un miembro restringido, solo se muestran los elementos asignados a ese miembro restringido cuando un administrador o miembro convierte elementos en subelementos o mueve subelementos.
+</Callout>
+
+## Qué sigue
+
+- [Crear y gestionar elementos](/docs/use/items/creating-items)
+- [Colaborar en elementos](/docs/use/items/collaborating)
+- [Agregar filtros avanzados mediante IA](/docs/use/items/filtering-and-views) (Enterprise)

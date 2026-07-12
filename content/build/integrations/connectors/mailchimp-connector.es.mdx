@@ -1,0 +1,60 @@
+---
+title: "Conector de MailChimp"
+description: "BORRADOR (sin verificar) — migrado desde /t/x2h4afl/mailchimp-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es MailChimp?
+
+MailChimp es una plataforma de automatización de marketing y un servicio de email marketing basado en la nube para gestionar listas de correo y crear campañas de email marketing para enviar a los clientes.
+
+## Acerca de la integración de MailChimp con Kissflow
+
+El conector de MailChimp de Kissflow Integration te permite conectar MailChimp al instante con las aplicaciones de Kissflow y otras aplicaciones de terceros populares. Para integrar MailChimp, debes tener una cuenta válida de MailChimp y ser cliente de pago de Kissflow. Puedes usar el conector de MailChimp para recibir datos de otros flujos o aplicaciones con el fin de realizar acciones específicas de MailChimp y acciones de búsqueda. Por el momento, el conector de MailChimp no admite eventos desencadenadores.
+
+Por ejemplo, puedes crear un evento personalizado para suscriptores seleccionados en MailChimp cuando se completa un proceso de aprobación de eventos en tu Kissflow Process.
+
+### Acciones del conector de MailChimp
+
+**Eventos de acción**
+
+**Descripción**
+
+Crear un evento personalizado
+
+Esta acción crea un evento personalizado en MailChimp para un suscriptor existente.
+
+Crear una campaña
+
+Esta acción crea un borrador de campaña en MailChimp.
+
+Enviar una campaña
+
+Esta acción envía un borrador de campaña a todas las personas que se han unido a la campaña.
+
+## Configurar el conector de MailChimp
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Una vez dentro del editor, configura un paso de desencadenador; por ejemplo, un evento desencadenador de Kissflow Process, **Cuando un elemento completa un flujo de trabajo.**
+3.  Después de configurar el paso de desencadenador anterior, haz clic en el botón Agregar (![](/migration-assets/mailchimp-connector/1.png) ) para configurar el paso de acción. Busca **MailChimp** y selecciona un evento de acción entre las opciones disponibles (como se menciona en la tabla anterior).![](/migration-assets/mailchimp-connector/2.png)   
+
+4\. Después de elegir el evento de acción, autentica el conector. Haz clic en **+Agregar una cuenta** e inicia sesión con tu cuenta de MailChimp. Proporciona tu nombre de usuario y contraseña de MailChimp para completar la autenticación.![](/migration-assets/mailchimp-connector/4.png)
+
+5\. Después de autenticarte con tu cuenta de MailChimp, añade los valores correspondientes a los campos del formulario de MailChimp. Puedes hacer clic en Actualizar campos para ver todos los campos actualizados del formulario de MailChimp seleccionado. También puedes asignar campos de MailChimp desde tu paso de desencadenador o campos de tus pasos de acción anteriores. Estos valores se añadirán automáticamente a los campos del elemento después de ejecutar la acción.
+
+![](/migration-assets/mailchimp-connector/3.png)
+
+6\. Después de una configuración correcta, prueba si el paso de acción de MailChimp está configurado correctamente haciendo clic en el botón **P****robar**. El conector extraerá los datos de los campos de tu cuenta de MailChimp seleccionada y los mostrará como una salida JSON. Al igual que con el paso de desencadenador, recibirás una notificación inmediata de los errores. Corrígelos antes de volver a probar el paso de acción.
+
+## Configurar un conector de MailChimp
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción de tu conector de MailChimp, activa el botón de alternancia para activar la ejecución de la integración. Cuando se produce un evento desencadenador, se activa la acción de MailChimp.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

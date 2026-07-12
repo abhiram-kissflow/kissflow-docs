@@ -1,0 +1,57 @@
+---
+title: "Conector de Okta"
+description: "BORRADOR (no verificado) — migrado desde /t/35h4afx/okta-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es Okta?
+
+[Okta](https://www.okta.com/) ayuda a las empresas a gestionar y proteger la autenticación de usuarios en aplicaciones, y permite a los desarrolladores integrar controles de identidad en aplicaciones, sitios web, servicios web y dispositivos.
+
+### Acerca de la integración de Okta con Kissflow
+
+El conector de Okta de Kissflow Integration te permite conectar Okta al instante con aplicaciones de Kissflow y otras aplicaciones populares de terceros. Debes tener una cuenta de administrador de Okta válida y ser cliente de pago de Kissflow para integrarte con Okta. Puedes usar el conector de Okta para aprovisionar y gestionar usuarios dentro de tu directorio de Okta.
+
+### Acciones compatibles con el conector de Okta
+
+**Eventos de acción**
+
+**Descripción**
+
+Añadir un usuario
+
+Esta acción añade un usuario a tu directorio de Okta.
+
+Obtener detalles del usuario
+
+Esta acción recupera información sobre un usuario específico según su nombre.
+
+Desactivar un usuario
+
+Esta acción desactiva a un usuario que no tiene un estado de desaprovisionamiento.
+
+## Configurar el conector de Okta
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Una vez dentro del editor, configura un paso de activación; por ejemplo, un evento de activación de Kissflow Process: **Cuando un elemento completa un flujo de trabajo.**
+    
+3.  Después de configurar el paso de activación anterior, haz clic en el botón Añadir (![](/migration-assets/okta-connector/1.png) ) para configurar el paso de acción. Busca **Okta** y selecciona un evento de acción entre las opciones disponibles (como se indica en la tabla anterior).![](/migration-assets/okta-connector/2.png) 
+Para autenticar tu conexión, necesitas tu **dominio de Okta** y un **token de API** único.
+Después de iniciar sesión en la página de la cuenta de administrador de Okta, ve a la esquina superior derecha de tu página de administrador de Okta para copiar tu dominio de Okta.2.  Para generar un token de API único, ve a **Seguridad** > **API** > **Tokens** > **Crear token**. Copia el valor del token de API.![](/migration-assets/okta-connector/5.gif)5.  Para autenticar tu conexión, haz clic en **+Añadir una cuenta**. En la ventana emergente, pega el **dominio** y el **token de API** de **Okta** que copiaste y haz clic en **Autenticar** para completar la autenticación.![](/migration-assets/okta-connector/4.png)
+6.  Después de autenticarte con tu cuenta de Okta, añade los valores correspondientes a los campos del formulario de Okta. Puedes hacer clic en Actualizar campos para ver todos los campos actualizados del formulario de Okta seleccionado. También puedes asignar campos de Okta desde tu paso de activación o campos de tus pasos de acción anteriores. Estos valores se añadirán automáticamente a los campos del elemento una vez ejecutada la acción.
+7.  Después de una configuración correcta, comprueba si el paso de acción de Okta está configurado correctamente haciendo clic en el botón **P****robar**. El conector extraerá los datos de los campos de la cuenta de Okta seleccionada y los mostrará como una salida JSON. Al igual que con el paso de activación, recibirás una notificación inmediata de los errores. Corrígelos antes de volver a probar el paso de acción.
+
+### Configurar un conector de Okta
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción de tu conector de Okta, activa el botón de alternancia para activar la ejecución de la integración. Cuando se produce un evento de activación, la acción de Okta se activa y los detalles se actualizan en tu directorio de Okta según el tipo de acción seleccionado.
+
+![](/migration-assets/okta-connector/3.png)
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

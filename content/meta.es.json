@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "get-started",
+    "use",
+    "build",
+    "admin",
+    "develop",
+    "reference",
+    "whats-new",
+    "roadmap",
+    "pre-release-notes",
+    "app-store"
+  ]
+}

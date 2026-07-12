@@ -1,0 +1,90 @@
+---
+title: "Compartir datos entre aplicaciones mediante referencias de componentes"
+description: "BORRADOR (sin verificar) — migrado desde /t/83y6m1q/sharing-data-across-apps-using-component-referencing"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Básico ✓ Enterprise
+
+Las referencias de componentes entre aplicaciones en Kissflow permiten compartir datos de forma fluida y dinámica entre las aplicaciones de tu cuenta o las [aplicaciones de portales externos](/t/m1h4azh/portal-overview). Esta guía proporciona una descripción general completa sobre cómo utilizar las referencias de componentes para acceder a vistas, informes y pasos del flujo de trabajo desde distintas fuentes de datos, como los [procesos](/t/g9yzjcd/process-form-overview), [tableros](/t/g9yzjal/boards-overview) y [dataforms](/t/m1h9q1y/dataforms-overview) de tu aplicación.
+
+## Capacidades de las referencias de componentes entre aplicaciones
+
+Las referencias de componentes permiten varias interacciones avanzadas entre aplicaciones:
+
+-   **Acceder a vistas e informes**: Esta función permite integrar y mostrar diseños de datos e informes de una aplicación dentro de otra, lo que garantiza un uso coherente de los datos en toda la organización.
+    
+-   **Actuar sobre los pasos del flujo de trabajo**: Facilita la ejecución de acciones relacionadas con los pasos del flujo de trabajo de una aplicación a otra, lo que agiliza los procesos que abarcan varias aplicaciones.
+    
+-   **Iniciar elementos del flujo de trabajo**: Permite a los usuarios iniciar procesos y elementos en una aplicación desde la interfaz de otra, lo que mejora la flexibilidad y la capacidad de respuesta del flujo de trabajo.
+    
+
+## Configurar referencias de componentes entre aplicaciones
+
+Estos son los tres requisitos previos para hacer referencia a los flujos de una aplicación de origen desde tu aplicación actual:
+
+1.  [Añadir un rol](/t/h7yzj46/application-roles#adding-a-role-to-an-application): ve a la aplicación de origen desde la que quieres hacer referencia a un componente y añade los roles de tu aplicación actual a la sección **Aplicaciones externas** de la aplicación de origen.  
+    ![](/migration-assets/sharing-data-across-apps-using-component-referencing/2.gif)
+    
+2.  [Asignación de permisos](/t/83yzj9j/role-permissions): en la aplicación de origen, ve a la vista, el informe o el proceso al que quieres acceder desde tu aplicación actual. Asigna los permisos necesarios a los roles de aplicación añadidos en el paso anterior.  
+      
+    **Nota**: para los roles de aplicaciones externas, solo se pueden conceder permisos de **Iniciar** en el nivel de flujo al compartir,  
+    lo que se aplica únicamente a [procesos](/t/g9yzjcs/managing-process-roles-and-permissions) y [tableros](/t/m1yzjak/managing-board-roles-and-permissions).
+    
+      
+    ![](/migration-assets/sharing-data-across-apps-using-component-referencing/1.png)
+3. **Consumo de componentes**: después de asignar roles y compartir componentes en la aplicación de origen, puedes acceder a esos componentes en el creador de páginas de tu aplicación actual. Sin embargo, esto solo es posible si al menos un rol de tu aplicación actual ha sido autorizado para acceder a los componentes de la aplicación de origen.
+    
+    > **Nota:**  
+    > Solo se pueden compartir componentes individuales, no todo el flujo.
+    
+
+![](/migration-assets/sharing-data-across-apps-using-component-referencing/3.png)
+
+### Ejemplo de caso de uso práctico
+
+Considera un escenario en el que gestionas la adquisición de activos de TI mediante una aplicación interna de adquisiciones y una aplicación de portal de proveedores. La aplicación interna de adquisiciones, destinada a los miembros internos de la organización, facilita la creación de solicitudes de activos mediante un formulario de proceso de orden de compra (PO). La aplicación del portal de proveedores está destinada a que los proveedores verifiquen las órdenes de compra que se les envían y confirmen su cumplimiento.
+
+Después de crear una orden de compra, esta debe enviarse al proveedor para su aprobación antes de procesar la recepción.
+
+#### Desafíos del proceso actual
+
+-   **Asignación de pasos**: al igual que en el proceso de órdenes de compra, los usuarios del portal activan un proceso de actualización de estado mediante una integración. Sin embargo, los miembros de la aplicación (aplicación de origen) necesitan ayuda para realizar un seguimiento del estado de este proceso, lo que dificulta el seguimiento y la supervisión.
+    
+-   **Uso compartido de vistas**: no se admite compartir vistas directamente entre aplicaciones. La solución alternativa consiste en utilizar un componente personalizado para obtener datos mediante API, lo que añade complejidad.
+    
+
+#### Solución mediante referencias de componentes entre aplicaciones
+
+Las referencias de componentes entre aplicaciones simplifican el intercambio de datos entre la aplicación de adquisiciones (de origen) y la aplicación del proveedor (portal), lo que permite gestionar eficazmente los elementos de trabajo. Ahora los proveedores pueden participar activamente en el proceso de adquisiciones y viceversa.
+
+Por ejemplo, el proveedor debe revisar y aceptar cada orden de compra (PO) antes de emitir una factura.
+
+![](/migration-assets/sharing-data-across-apps-using-component-referencing/4.jpg)
+
+Para facilitar esto:
+
+1.  Vincula el rol del proveedor a tu aplicación en **Roles de aplicaciones externas**.  
+      
+    ![](/migration-assets/sharing-data-across-apps-using-component-referencing/6.gif)
+    
+2.  A continuación, asigna este rol al proceso de órdenes de compra. Puedes asignarle permisos de inicio o de gestión.  
+      
+    ![](/migration-assets/sharing-data-across-apps-using-component-referencing/5.gif)
+    
+3.  Asigna este rol con los permisos adecuados al proceso de órdenes de compra y añade un paso del flujo de trabajo para garantizar que cada orden reciba la aprobación del proveedor antes de continuar.  
+      
+    ![](/migration-assets/sharing-data-across-apps-using-component-referencing/7.gif)
+    
+
+Del mismo modo, los proveedores pueden crear, enviar y completar facturas en la aplicación del portal de proveedores una vez que las apruebes.
+
+## Ventajas de las referencias de componentes entre aplicaciones
+
+-   **Colaboración eficiente**: las referencias de componentes entre aplicaciones permiten intercambiar datos y coordinar flujos de trabajo de forma fluida, reduciendo la necesidad de intervención manual y cerrando las brechas de comunicación.
+    
+-   **Mayor visibilidad:** gestiona eficazmente los datos de principio a fin, manteniendo la confidencialidad cuando sea necesario.

@@ -1,0 +1,41 @@
+---
+title: "Gobernanza de conjuntos de datos"
+description: "BORRADOR (no verificado) — migrado desde /t/p8hvtsa/dataset-governance"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Como [superadministrador o administrador de IAM](/t/35h4ak0/user-roles-and-permissions), la gobernanza de cuentas te ofrece información valiosa sobre todos los conjuntos de datos que se encuentran actualmente en tu cuenta de Kissflow. Esta función mejora la gobernanza de datos al proporcionar visibilidad y control, y te ayuda a tomar decisiones fundamentadas sobre el uso y la optimización de los conjuntos de datos en tu cuenta. Puedes ver una lista de todos los conjuntos de datos de tu cuenta en la sección **Todos los conjuntos de datos**. La sección **No consultados** muestra todos los conjuntos de datos que no han sido consultados por ningún otro flujo o sistema. Con base en esto, puedes decidir qué conjuntos de datos ya no son necesarios y tomar las medidas correspondientes.
+
+## Seguridad y permisos
+
+En la sección **Conectados externamente**, puedes identificar los conjuntos de datos que exponen datos confidenciales fuera de tu cuenta a través de conectores externos de las integraciones de tu cuenta. La sección **Permisos de descarga sin restricciones** te informa sobre los archivos adjuntos de los conjuntos de datos que cualquiera puede descargar. Esto te ayuda a identificar cualquier dato confidencial que pueda compartirse fuera de Kissflow.![](/migration-assets/dataset-governance/2.png)Al seleccionar un conjunto de datos, accederás a una página detallada donde podrás saber quién lo creó y cuándo. También encontrarás otras secciones en las que podrás obtener más información sobre el conjunto de datos.
+
+## Administradores
+
+La sección **Administradores** muestra todos los administradores de un conjunto de datos y sus roles. Esta información permite supervisar y controlar exhaustivamente el acceso privilegiado, garantizando que solo el personal autorizado pueda realizar cambios administrativos o acceder a datos confidenciales del conjunto de datos.![](/migration-assets/dataset-governance/1.png)
+
+## Integraciones
+
+En esta sección, puedes explorar la lista de integraciones vinculadas a un conjunto de datos específico. Proporciona información sobre el estado de cada integración y los conectores utilizados. Esto te permite asegurarte de que el conjunto de datos solo esté conectado a las integraciones previstas, minimizando la posibilidad de exposición de datos y los riesgos asociados.![](/migration-assets/dataset-governance/3.png)
+
+## Datos confidenciales identificados por IA 
+
+Esta sección te permite conocer los campos del formulario que podrían contener datos confidenciales identificados por la IA. Con esta información, puedes tomar medidas para evitar la exposición no deseada de estos datos confidenciales posteriormente. La IA identifica y clasifica estos datos confidenciales en tres categorías:**1\. Datos personales** - Cualquier dato que pueda permitir identificar a una persona específica. Por ejemplo: nombre, dirección, datos de contacto, etc.**2\. Datos confidenciales** - Cualquier dato que requiera un alto nivel de seguridad y no esté destinado al acceso público. Esto incluye información empresarial exclusiva, datos financieros, credenciales de inicio de sesión u otros detalles confidenciales que deban protegerse.**3\. Datos de salud** - Cualquier dato relacionado con la salud física o mental de una persona, su historial médico o sus registros de tratamiento.![](/migration-assets/board-governance/4.png)
+
+## Flujos que consultan y son consultados
+
+En la sección **Flujos que consultan**, puedes ver una lista de los flujos desde los que un conjunto de datos puede consultar datos. Los datos de esos flujos quedan expuestos al conjunto de datos específico.![](/migration-assets/dataset-governance/5.png)Puedes ver una lista de los flujos que pueden consultar datos de un conjunto de datos específico mediante la sección **Flujos que son consultados**. Los datos de este conjunto de datos quedan expuestos a los flujos que lo consultan.![](/migration-assets/dataset-governance/4.png)
+
+## Registros de descargas y exportaciones
+
+En las secciones **Registros de descargas** y **Registros de exportaciones**, puedes supervisar todas las instancias de descarga de archivos adjuntos y exportación de conjuntos de datos de los últimos 30 días para comprobar si se está exponiendo información confidencial a personas o sistemas dentro y fuera de Kissflow.![](/migration-assets/dataset-governance/6.png)![](/migration-assets/dataset-governance/7.png)
+
+## Registro de auditoría
+
+En la sección **Registro de auditoría**, puedes obtener visibilidad e información valiosa sobre las actividades realizadas en un conjunto de datos. Este registro proporciona un historial completo de todas las acciones realizadas en los últimos 30 días, junto con sus marcas de tiempo, lo que permite un análisis detallado y una comprensión más profunda del conjunto de datos. Esto resulta útil para realizar un seguimiento y examinar diversas actividades del conjunto de datos, mejorando las tareas de supervisión y seguridad.![](/migration-assets/dataset-governance/8.png)

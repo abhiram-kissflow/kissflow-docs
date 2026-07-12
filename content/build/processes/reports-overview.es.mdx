@@ -1,0 +1,124 @@
+---
+title: "Descripción general de los informes"
+description: "BORRADOR (sin verificar) — migrado desde /t/p8h9qtn/reports-overview"
+contentType: overview
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Básico ✓ Enterprise
+
+<iframe src="https://www.youtube.com/embed/U8VUbpQSzXI?feature=oembed&wmode=transparent" title="Embedded video" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+Los informes de procesos te ayudan a realizar un seguimiento y analizar el funcionamiento de tu proceso. Accede a tus informes haciendo clic en el botón **Informes** en la esquina superior derecha de la página del proceso. Los informes están disponibles de forma predeterminada para todos los [administradores del proceso](/t/p8h9qtp/managing-process-members-and-permissions). También puedes compartir informes individuales con otros miembros del proceso.Consulta de informesUsa **Buscar** para encontrar rápidamente cualquier informe por nombre. Puedes usar el botón **Ordenar** para reorganizar tus informes según su fecha de creación, hora de la última modificación y orden alfabético.
+
+![](/migration-assets/reports-overview/1.png)
+
+## Crear un informe nuevo
+
+Para crear un informe nuevo, haz clic en **\+ Crear informe**. Elige el tipo de informe, proporciona un nombre para el informe y haz clic en **Crear**. 
+
+### Tipos de informes
+
+-   **Tabular:** Muestra información en columnas y filas. 
+-   **Gráficos**: Muestra los datos gráficamente en uno de diez tipos de gráficos, incluidos gráficos de áreas, barras, anillos, líneas, circulares y de burbujas. 
+-   **Tablas dinámicas**: Resume rápidamente grandes cantidades de datos. Puedes convertir columnas en filas y filas en columnas.
+
+### Informe Todos los elementos
+
+La primera vez que abras la página **Informes**, verás un informe generado automáticamente llamado **&lt;Process\_name> Todos los elementos**. Este informe tabular muestra todos los elementos de tu proceso. No se puede eliminar ni cambiar de nombre, pero puedes configurarlo.![](/migration-assets/reports-overview/2.png)
+
+### Informe de métricas
+
+Consulta el resumen de estados, el tiempo transcurrido, el rendimiento de los pasos y las métricas de rendimiento de los elementos del proceso con la ayuda de nuestro informe de métricas.Para acceder a las métricas de tu proceso,
+
+1.  Ve a la página del proceso cuyas métricas quieres consultar.
+2.  Haz clic en ![](/migration-assets/reports-overview/3.svg) **Informes.**
+3.  Haz clic en el informe **Métricas** para acceder a las métricas del proceso en el que te encuentras.![](/migration-assets/reports-overview/4.png) 
+
+El informe de métricas del proceso te ofrece una descripción general del rendimiento de tu proceso.
+
+#### Descripción general
+
+La pestaña **Descripción general** proporciona los siguientes detalles:
+
+-   El estado de todos los elementos de tu proceso.
+-   El número de elementos que requieren tu atención.
+-   Las métricas generales de rendimiento de los elementos, que incluyen el estado de todos los elementos y sus tiempos de finalización.
+
+![](/migration-assets/reports-overview/5.png)
+
+**Resumen de estados**
+
+La sección **Resumen de estados** muestra el número de elementos en los distintos estados.
+
+-   **En curso** muestra el número de elementos en curso en el flujo de trabajo.
+-   **Completados** muestra el número de elementos que recorrieron el flujo de trabajo de principio a fin.
+-   **Rechazados** muestra el número de elementos rechazados antes de completar el flujo de trabajo.
+-   **Retirados** muestra el número de elementos que el iniciador retira antes de completar el flujo de trabajo.
+
+![](/migration-assets/reports-overview/8.png)
+
+**Elementos accionables**
+
+La sección **Elementos accionables** muestra dos tarjetas con las siguientes métricas:
+
+-   El número de elementos que han superado su fecha límite.
+-   El número de elementos asignados actualmente a usuarios desactivados o eliminados.
+
+Si haces clic en el elemento, puedes reasignar las tareas, consultar los datos del formulario y revisar el progreso del flujo de trabajo. Puedes usar las herramientas **Buscar** y **Filtrar** para encontrar elementos rápidamente. También tienes la opción de eliminar elementos de forma masiva. 
+
+![](/migration-assets/reports-overview/6.gif)
+
+**Métricas de rendimiento de los elementos**
+
+Consulta la interpretación gráfica de los elementos de tu proceso en las siguientes secciones.
+
+-   **Estado del elemento** \- Un gráfico de barras apiladas representa el estado actual de los elementos creados durante un periodo seleccionado.
+-   **Tiempo de finalización del elemento** \- Un gráfico de líneas representa el tiempo de finalización de los elementos mediante el trazado del tiempo mínimo, máximo y promedio necesario para completar cada elemento.
+
+![](/migration-assets/reports-overview/15.png)
+
+#### Rendimiento de los pasos
+
+La pestaña **Rendimiento de los pasos** contiene la sección **Métricas de los pasos** y la sección **Métricas de antigüedad**. La sección **Métricas de los pasos** muestra métricas importantes para cada paso, entre ellas:
+
+-   El tiempo mínimo necesario para completar una tarea ([días festivos](/t/q6h4aka/weekend-holidays) excluidos).
+-   El tiempo máximo necesario para completar una tarea (días festivos excluidos).
+-   El tiempo promedio necesario para completar una tarea (días festivos excluidos).
+-   El número de veces que un elemento se devolvió en este paso.
+-   El número de veces que un elemento se rechazó en este paso.
+-   El número de veces que un elemento completó este paso.
+-   El número de veces que un elemento se retiró en este paso.
+
+Haz clic en el botón **Expandir** (![](/migration-assets/reports-overview/7.svg)) al inicio de la fila para ver un desglose de los distintos usuarios asignados a ese paso.Haz clic en los números de colores para obtener un informe detallado y realizar acciones administrativas.**Las métricas de antigüedad** muestran el número de elementos que se encuentran actualmente en cada paso y cuánto tiempo llevan allí. Haz clic en los números de colores para ver los elementos y realizar acciones administrativas.![](/migration-assets/reports-overview/10.png)
+
+#### Rendimiento de los usuarios
+
+Esta pestaña muestra la asignación y el rendimiento de los usuarios según las métricas de estado de los elementos durante el periodo seleccionado. Puedes ver el número de elementos asignados a un usuario en los distintos estados. También puedes hacer clic en los números para consultar los detalles de los elementos asignados al usuario en ese estado específico. Puedes usar las opciones **Buscar** y **Ordenar** para buscar y ordenar los datos por campos o alfabéticamente.Puedes establecer un intervalo de tiempo personalizado de hasta un año. Por ejemplo, puedes elegir cualquier intervalo entre el **02 de abril de 2024** y el **01 de abril de 2025**.![](/migration-assets/reports-overview/9.png)
+
+Usa la sección **Rendimiento de los usuarios** del **informe de métricas del proceso** para consultar las solicitudes asignadas a los usuarios dentro de un proceso específico. Para obtener una vista más amplia de varios procesos, usa el [informe de carga de trabajo de usuarios](/t/q6h9qzt/creating-user-workload-report-for-processes) en **Analytics** para obtener una visión consolidada de las asignaciones de usuarios.
+
+## Administrar un informe
+
+Después de crear un informe, tienes varias formas de administrarlo. La mayoría de estas opciones están disponibles haciendo clic en el botón **Más opciones** (![](/migration-assets/reports-overview/11.png)) del informe. ![](/migration-assets/reports-overview/14.png)
+
+-   **Compartir** - Haz clic en el botón **Agregar** (![](/migration-assets/reports-overview/12.png)) para compartir el informe con otras personas. De forma predeterminada, solo tendrán permisos para ver el informe. Además, puedes hacer clic en el botón **Más opciones** ( ![](/migration-assets/reports-overview/13.png) ) junto al nombre de un usuario y **compartir** y **editar el informe**, así como **ver el formulario**.   
+     ![](/migration-assets/reports-overview/16.gif) 
+-   **Eliminar un usuario** \-  Haz clic en el botón **Agregar** (![](/migration-assets/reports-overview/12.png)) > botón **Más opciones** ( ![](/migration-assets/reports-overview/13.png) ) junto al nombre de un usuario > **Eliminar miembro**
+-   **Exportar** - Exporta todos los datos del informe como un archivo CSV o JSON. La exportación solo está disponible para informes tabulares y el informe **Todos los elementos**. Después de exportar, recibirás un correo electrónico con un enlace para descargar el informe.
+    
+    > **Nota:**
+    > 
+    > Puedes exportar tu informe a un archivo CSV o JSON para los formularios de proceso que tengan como máximo una tabla en sus datos de formulario. 
+    > 
+    > Si no has recibido el informe exportado, revisa las carpetas **Spam**, **Promociones**, **Correo no deseado** u otras carpetas de tu buzón. Si sigues sin encontrarlo, no dudes en ponerte en contacto con el servicio de asistencia de Kissflow.
+    
+    Aquí tienes un par de consejos al exportar informes:
+    -   Si la opción CSV está deshabilitada, tu informe tiene más de una tabla en el formulario del proceso o has seleccionado un paso del flujo de trabajo en el informe. En este caso, puedes exportar el informe como **CSV (varios archivos)** o **JSON.**
+-   **Editar** - Cambia los datos, la disposición y los filtros aplicados a tu informe. 
+-   **Cambiar nombre** - Cambia el nombre del informe. 
+-   **Duplicar** - Crea un informe nuevo con la misma estructura. Puedes cambiar el nombre del informe nuevo o conservar el nombre predeterminado **Copia de &lt;report name>**.
+-   **Eliminar** - Elimina el informe por completo.

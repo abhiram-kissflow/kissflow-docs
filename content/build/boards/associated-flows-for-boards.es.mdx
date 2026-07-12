@@ -1,0 +1,45 @@
+---
+title: "Flujos asociados a los tableros"
+description: "BORRADOR (sin verificar) — migrado desde /t/83yklrx/associated-flows-for-boards"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+   
+La sección **Flujos asociados** te ayuda a comprender cómo interactúa tu tablero con otros flujos. Ofrece un mapa visual de las dependencias, lo que facilita la gestión de cambios.
+
+Haz clic en el botón **Manage** de la parte superior derecha y, luego, en el botón **Flujos asociados**.  
+ 
+
+![](/migration-assets/associated-flows-for-boards/1.png)
+
+   
+Hay dos tipos de asociaciones: **Flujos consultados** y **Flujos conectados**.
+
+## 1\. Flujos consultados
+
+Los [campos de búsqueda](/t/g9h4azr/lookup-field) permiten que un tablero obtenga y muestre datos de otros flujos.  
+ 
+
+![](/migration-assets/associated-flows-for-boards/2.png)
+
+En **Flujos consultados**, puedes ver estas relaciones:
+
+### a. Flujos que consultan este tablero
+
+Esta sección muestra qué flujos consultan este tablero para obtener y mostrar información.
+
+**Ejemplo**: Si otro tablero necesita consultar detalles como la **disponibilidad de activos de TI** o los **nombres de proveedores** del tablero actual, aparecerá en **Flujos que consultan este tablero**.
+
+### b. Flujos consultados por este tablero
+
+Esta sección muestra los flujos que consulta el tablero actual.
+
+**Ejemplo**: Si tu tablero de **aprobación de activos de TI** obtiene los **tipos de activos** o los **detalles de los activos** de un conjunto de datos maestro, el flujo de la lista maestra aparecerá en **Flujos consultados por este tablero**.
+
+Puedes [configurar la búsqueda](/t/83ymdnx/security-settings-for-flows) directamente desde esta página si necesitas actualizar o eliminar asociaciones.

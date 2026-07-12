@@ -1,0 +1,172 @@
+---
+title: "Añadir y gestionar usuarios"
+description: "BORRADOR (sin verificar) — migrado desde /t/y4h4aks/adding-and-managing-users"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+[Superadministradores, administradores de IAM y administradores de usuarios](/t/35h4ak036h4gg/user-roles-permissions) tienen acceso a la página de **Gestión de usuarios**, donde pueden [activar, desactivar, eliminar y cambiar los roles](/t/35h4ak0/user-roles-permissions) de los usuarios de tu cuenta de Kissflow. También pueden reenviar correos de verificación a los usuarios no verificados y enviar correos para restablecer la contraseña a los usuarios que necesitan cambiarla. La adición y eliminación de usuarios de los grupos está disponible dentro de la gestión de usuarios. También es posible asignar y reasignar un manager a varios usuarios. Cada acción tiene una página de resumen con el total de cambios realizados, el número de usuarios omitidos y el motivo. La **tabla de gestión de usuarios** te permite cambiar simultáneamente todos los usuarios de tu cuenta de Kissflow.
+
+## Añadir usuarios manualmente
+
+Solo los [superadministradores](/t/35h4ak0/user-roles-permissions#super-admins) y los [administradores de usuarios](/t/35h4ak0/user-roles-permissions#user-admin) pueden añadir usuarios a una cuenta de Kissflow. Ve a **Administración de la cuenta** \> **Gestión de usuarios** para añadir usuarios uno por uno.
+
+1.  Haz clic en **Añadir un usuario**
+2.  Verás una ventana emergente donde puedes introducir los datos del nuevo usuario:
+    -   El nombre y la dirección de correo electrónico son obligatorios. Puedes asignar un rol de usuario según sus funciones dentro de la cuenta de Kissflow.
+    -   Puedes etiquetar al nuevo usuario con un grupo preconfigurado. Aprende a [crear un grupo](/t/y4h4akj36h4gg/group-management#creating-a-group).
+    -   Puedes etiquetar al usuario con un manager, que también puede utilizarse en las asignaciones de pasos.
+    -   También puedes elegir si quieres enviar una invitación por correo electrónico a este usuario.
+3.  Haz clic en **Añadir** para crear un usuario y salir.
+    
+    ![](/migration-assets/adding-and-managing-users/7.gif)
+    
+
+## Aprovisionamiento de usuarios con SCIM
+
+Como [superadministrador](/t/35h4ak0/user-roles-permissions#super-admins) o [administrador de IAM](/t/35h4ak0/user-roles-permissions#iam-admin), puedes [configurar SCIM](/t/p8h4ak436h4gg/managing-members-with-scim-provisioning) para habilitar el aprovisionamiento automático de usuarios con proveedores de identidad (IdP):
+
+-   [Azure Active Directory](/t/q6h4a1x36h4gg/scim-azure-ad)
+-   [Okta](/t/60h4akv36h4gg/scim-okta)
+-   [OneLogin](/t/g9h4ak936h4gg/scim-onelogin)
+
+## Seleccionar y anular la selección de usuarios
+
+Los [administradores de cuenta (administradores de IAM y de usuarios)](/t/35h4ak0/user-roles-permissions) pueden seleccionar un solo usuario en la tabla de gestión de usuarios o varios usuarios, y realizar acciones por lotes en el grupo de usuarios seleccionado. Todas las acciones de la tabla de gestión de usuarios admiten acciones por lotes. Los administradores de cuenta también pueden seleccionar todos los usuarios de una página haciendo clic en la casilla situada a la izquierda de la primera columna de la tabla de gestión de usuarios. Puedes configurar el número de filas que aparecen en una sola página cambiando **Filas por página** en la esquina inferior izquierda de la tabla de gestión de usuarios. Para seleccionar todos los usuarios de la tabla de gestión de usuarios, independientemente de las páginas, elige un usuario y haz clic en **Seleccionar todas las filas**, junto a las acciones de gestión de usuarios. Para anular la selección de un usuario, desmarca la casilla situada junto a él o haz clic en **Borrar selección** para anular todas las selecciones.
+
+## Realizar acciones por lotes
+
+Los administradores de cuenta pueden utilizar la tabla de gestión de usuarios para realizar acciones por lotes. Todas las acciones de la tabla de gestión de usuarios admiten esta funcionalidad. Sigue los pasos que se indican a continuación para realizar acciones por lotes:
+
+1.  Selecciona los usuarios marcando la casilla situada junto a la primera columna de la sección de gestión de usuarios, que en nuestro caso es Nombre. Puedes utilizar filtros simples o avanzados para filtrar usuarios. Para seleccionar todos los usuarios filtrados de una página, haz clic en la casilla situada junto a los nombres de las columnas. Para seleccionar todos los usuarios filtrados, haz clic en la casilla situada junto al usuario y, a continuación, en **Seleccionar todas las filas**.
+2.  Selecciona la acción que quieres realizar en la barra de navegación superior. Todas las acciones de gestión de usuarios admiten acciones por lotes. Para cambiar cualquier campo personalizado que hayas creado, haz clic en el botón **Más** o**pciones** (![](/migration-assets/adding-and-managing-users/2.png)) y desplázate hacia abajo para encontrar el nombre del campo personalizado correspondiente. Haz clic en el campo personalizado que quieres cambiar e introduce el nuevo valor.
+    
+    **![](/migration-assets/adding-and-managing-users/9.gif)**
+    
+
+> **Nota:** No es posible actualizar en bloque los datos del perfil de usuario mediante la tabla de gestión de usuarios. Sin embargo, puedes actualizar en bloque los datos de los usuarios utilizando la [API de acciones masivas de usuarios](https://api.kissflow.com/#f38c274d-a25f-469a-b909-e26eb512595d). Puedes utilizar esta API para realizar diversas acciones masivas, como cambiar el nombre, cambiar el correo electrónico, cambiar el rol de usuario y eliminar usuarios.
+
+## Invitar a usuarios
+
+Cuando invitas a alguien a unirse a tu cuenta, recibirá un correo electrónico de invitación en la dirección que hayas introducido. Si el usuario acepta la invitación y tu cuenta tiene suficientes licencias de usuario, se activará automáticamente; también puedes asignarle manualmente una licencia activa. Para ello, selecciona la casilla del usuario y haz clic en **Activar**. Puedes activar varios usuarios a la vez. Activaremos todos los usuarios seleccionados si tu cuenta tiene suficientes licencias de usuario. El recuento de usuarios se actualiza automáticamente en el recuadro **Usuarios activos**. Sin embargo, si tu cuenta no tiene suficientes licencias, el usuario se añadirá a la cuenta en estado inactivo y no podrá **Iniciar sesión**.
+
+![](/migration-assets/adding-and-managing-users/1.png)
+
+## Enviar invitaciones por correo electrónico a los usuarios
+
+Cuando se añaden usuarios en bloque mediante [SCIM](/t/y4h4aks36h4gg/add-manage-users#user-provisioning-with-scim) o cualquier **sincronización de directorio**, el [administrador de cuenta](/t/35h4ak036h4gg/user-roles-permissions) puede elegir si desea enviar invitaciones por correo electrónico a estos usuarios haciendo clic en la casilla de verificación. Una vez añadidos todos los usuarios a la cuenta, puedes seleccionar varios usuarios y activarlos manualmente. También puedes seguir el método que se indica a continuación para reenviar una invitación por correo electrónico a varios usuarios.
+
+![](/migration-assets/adding-and-managing-users/3.png)
+
+## Reenviar el correo de verificación
+
+Para reenviar el correo de verificación a un usuario, selecciona la casilla situada junto al nombre del usuario y haz clic en **Reenviar correo de verificación**. Se enviará un correo de verificación a los usuarios seleccionados. Los usuarios que ya estén verificados o inactivos no recibirán ningún correo. Una vez finalizado el proceso, aparecerá una página de resumen con el número de usuarios que recibieron un correo y los que no lo recibieron, junto con el motivo.
+
+![](/migration-assets/adding-and-managing-users/4.png)
+
+## Asignar un manager
+
+A los usuarios se les puede asignar un manager, lo que puede ser útil en las asignaciones de pasos. Puedes seleccionar varios usuarios y asignarles el mismo manager. Si algunos usuarios ya tienen un manager, el manager existente se sustituirá por el nuevo. Selecciona los usuarios mediante la casilla situada junto a su nombre y haz clic en **Asignar manager** desde el botón **Más opciones** (![](/migration-assets/adding-and-managing-users/6.png)). Selecciona el usuario que quieres asignar como manager y haz clic en **Asignar**.
+
+![](/migration-assets/adding-and-managing-users/10.png)
+
+## Restablecer una contraseña
+
+Selecciona la casilla situada junto al usuario para restablecer las contraseñas de otros usuarios y haz clic en **Restablecer contraseña**. Los usuarios recibirán un correo electrónico con un enlace para restablecer su contraseña, que deberán abrir en un plazo de 24 horas antes de que caduque. También se cerrará la sesión de los usuarios en sus cuentas de Kissflow y no podrán iniciar sesión a menos que establezcan su contraseña. No puedes [restablecer tu contraseña](/t/q6h4az6y7h4gj/my-settings#personal-settings) mediante este método. Hay algunos casos en los que los usuarios no reciben el correo para restablecer la contraseña:
+
+-   Los usuarios no verificados no reciben el correo para restablecer la contraseña.
+-   Los usuarios inactivos tampoco reciben el correo para restablecer la contraseña.
+-   Si **Iniciar sesión con Kissflow** está desactivado en [Preferencias de inicio de sesión](/t/83h4akg36h4gg/account-security), no puedes enviar un correo para restablecer la contraseña.
+    
+> **Nota:**
+>
+> Después de 3 intentos fallidos de inicio de sesión al introducir la contraseña correcta, el usuario quedará bloqueado temporalmente durante 30 minutos:
+>
+> -   Si eres superadministrador, puedes ayudar a reactivar la cuenta del usuario desde la página de gestión de usuarios. Haz clic en el icono de tu perfil en la página de inicio > **Administración de la cuenta > Gestión de usuarios.**
+> -   Busca al usuario que quieres desbloquear y haz clic en el signo de exclamación > **Desbloquear ahora**.
+> -   Una vez desbloqueado, el usuario podrá restablecer su contraseña e iniciar sesión en su cuenta.
+
+## Gestionar los datos de los usuarios
+
+Como [superadministrador o administrador de usuarios](/t/35h4ak0/user-roles-permissions), puedes gestionar los datos de los usuarios de tu cuenta. Ve a **Administración de la cuenta** \> **Gestión de usuarios** para modificar directamente los atributos de un usuario. Puedes hacer clic de inmediato en el usuario que quieres modificar y actualizar el valor desde la pestaña de la derecha. Los cambios se guardan automáticamente. Si actualizas la dirección de correo electrónico, el usuario deberá verificar la nueva dirección antes de poder volver a acceder a su cuenta de Kissflow. Puedes hacer clic en el botón **Reenviar correo de verificación** para reenviar una invitación por correo electrónico al usuario. Si has ocultado algunos campos mediante el botón **Mostrar/ocultar campo** (![](/migration-assets/adding-and-managing-users/8.png)), esos campos no aparecerán en la pestaña derecha.
+
+## Desactivar y activar usuarios
+
+Como [superadministrador o administrador de usuarios](/t/35h4ak0/user-roles-permissions), puedes activar y desactivar usuarios de tu cuenta. Selecciona la casilla situada junto al usuario para desactivarlo y haz clic en **Desactivar**. Una vez desactivado un usuario, el recuento se actualiza automáticamente en el recuadro **Usuarios inactivos**. Los usuarios inactivos podrán iniciar sesión una vez que actives su cuenta.
+
+No puedes desactivar a los administradores de cuenta. Primero debes degradarlos a usuarios para poder desactivarlos.
+
+![](/migration-assets/adding-and-managing-users/5.png)
+
+Si has seleccionado una combinación de usuarios y administradores de cuenta, puedes omitir a los administradores de cuenta y desactivar solo a los usuarios. Selecciona la casilla situada junto a un usuario para activar un usuario inactivo y haz clic en **Activar**. El recuento de usuarios se actualiza automáticamente en el recuadro **Usuarios activos**. Si te has quedado sin licencias, puedes actualizar tu plan o comprar licencias adicionales para activar todos los usuarios seleccionados.
+
+![](/migration-assets/adding-and-managing-users/13.png)
+
+## ¿Qué ocurre después de desactivar a un usuario?
+
+-   Se revocará su licencia, pero conservaremos temporalmente sus datos en el sistema antes de eliminarlos.
+-   Se recomienda que el administrador de Flow reasigne los elementos asignados actualmente al usuario desactivado a otro usuario. La reasignación de elementos puede realizarse desde la pestaña [Acciones de administrador](/t/x2h9qzv63h4g3/my-items#admin-actions), en **Mis elementos**.
+-   Si el usuario desactivado o eliminado es el propio administrador de Flow, el superadministrador deberá elegir un nuevo administrador de Flow.
+
+> **Nota:**
+>
+> En el caso del propietario de la cuenta, este debe [transferir la propiedad](/t/35h4ak036h4gg/user-roles-permissions#transferring-account-ownership) a otro superadministrador y debe cambiarse al rol de **Usuario** antes de poder desactivarlo.
+
+## Eliminar usuarios
+
+Como [superadministrador, administrador de IAM o administrador de usuarios](/t/35h4ak0/user-roles-permissions), puedes eliminar usuarios de tu cuenta. Al eliminar usuarios, se eliminan de tu cuenta. Cuando eliminas usuarios, pierdes todos los datos asociados con ellos. Selecciona la casilla situada junto a su nombre para eliminar un usuario y haz clic en **Eliminar usuarios**. El recuento de usuarios se actualiza automáticamente. Al igual que con la acción Desactivar, no puedes eliminar directamente a los administradores de cuenta.
+
+**Desactivar usuarios**
+
+**Eliminar usuarios**
+
+El usuario desactivado queda temporalmente suspendido de la cuenta y se añade a la lista de usuarios inactivos.
+
+El usuario se elimina permanentemente de la cuenta.
+
+Los datos del usuario desactivado NO se pierden.
+
+Los datos del usuario eliminado se pierden.
+
+El usuario desactivado NO se elimina de los flujos asociados.
+
+El usuario eliminado se elimina permanentemente de todos los flujos asociados.
+
+Se envía una notificación a los superadministradores para reasignar a usuarios activos los roles a nivel de flujo del usuario desactivado.
+
+Se envía una notificación a los superadministradores para reasignar a usuarios activos los roles a nivel de flujo del usuario eliminado.
+
+El usuario desactivado puede recuperar el acceso a la cuenta únicamente cuando un superadministrador lo activa.
+
+Los datos del usuario eliminado no se pueden recuperar. El usuario eliminado solo puede volver a añadirse como un usuario nuevo.
+
+## Inscripción en la autenticación de dos factores (2FA)
+
+La [autenticación de dos factores (2FA)](/t/y4h4azxy7h4gj/two-factor-authentication) proporciona una capa adicional de seguridad a tu cuenta de Kissflow, ya que requiere algo más que una contraseña para iniciar sesión. Como [superadministrador o administrador de IAM](/t/35h4ak0/user-roles-permissions), puedes inscribir a varios usuarios de tu cuenta en 2FA. Esta función solo está disponible en el plan Enterprise.
+
+Estos son los distintos tipos de inscripción en 2FA:
+
+-   **Recomendada:** Los usuarios pueden decidir si activan o desactivan la 2FA en su cuenta.
+-   **Obligatoria:** Este tipo de inscripción hace que la 2FA sea obligatoria para iniciar sesión.
+-   **Desactivada**: Este es el tipo de inscripción en 2FA predeterminado. La 2FA no estará disponible para estos usuarios.
+
+![](/migration-assets/adding-and-managing-users/14.png)
+
+## Añadir y eliminar usuarios de grupos
+
+Los grupos se crean en Kissflow para agilizar la administración y facilitar el uso compartido de procesos, tableros, aplicaciones, integraciones y conjuntos de datos. Los grupos pueden crearse y gestionarse por separado en la gestión de grupos. Como [superadministrador o administrador de usuarios](/t/35h4ak0/user-roles-permissions), puedes añadir o eliminar usuarios de grupos existentes desde la tabla de gestión de usuarios. Selecciona los usuarios que quieres añadir o eliminar marcando la casilla situada junto a su nombre y elige **Añadir usuarios a grupos** para añadirlos o **Eliminar usuarios de grupos** para eliminar a los usuarios seleccionados.
+
+Aparecerá una ventana emergente con la lista de grupos existentes. Selecciona los grupos necesarios para completar la acción elegida. Kissflow solo aplica cambios a los usuarios que forman parte de un grupo. Por ejemplo, si intentas añadir a un usuario que ya forma parte del grupo, la acción no se realizará y el usuario se omitirá.
+
+![](/migration-assets/adding-and-managing-users/12.png)
+
+## Cambiar el rol de usuario
+
+El [rol de un usuario](/t/35h4ak036h4gg/user-roles-permissions) determina las funciones que puede realizar dentro de Kissflow. Para cambiar el rol de un usuario concreto, selecciona la casilla situada junto al usuario y selecciona **Cambiar rol de usuario** desde el botón **Más opciones** (![](/migration-assets/adding-and-managing-users/11.png)). Elige el nuevo rol de usuario y haz clic en **Cambiar rol**. Solo los [superadministradores y administradores de IAM](/t/35h4ak0/user-roles-permissions) pueden asignar o eliminar roles de cualquier tipo en tu cuenta. Solo los superadministradores pueden convertir a otro usuario en superadministrador.
+
+![](/migration-assets/adding-and-managing-users/15.png)

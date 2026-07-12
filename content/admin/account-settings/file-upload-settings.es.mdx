@@ -1,0 +1,71 @@
+---
+title: "Configuración de carga de archivos"
+description: "Elige desde qué servicios de archivos pueden cargar archivos los usuarios de tu cuenta y descubre cómo Kissflow mantiene seguros los archivos adjuntos cargados."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: true
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - account-settings
+  - attachments
+  - file-upload
+  - security
+---
+
+# Configuración de carga de archivos
+
+<PlanBadge plans={["basic", "enterprise"]} />
+
+Como [Superadministrador o administrador de IAM](/docs/admin/users/user-roles-and-permissions), controlas desde qué servicios de archivos pueden cargar archivos los usuarios de la cuenta en Kissflow.
+
+## Elige tus servicios de archivos adjuntos
+
+1. Haz clic en tu foto de perfil en la esquina superior derecha de la pantalla de inicio.
+2. Haz clic en **Administración de la cuenta** > **Configuración de la cuenta** > **Configuración de carga de archivos**.
+3. Activa o desactiva el interruptor de cada servicio que quieras permitir:
+   - Google Drive
+   - Dropbox
+   - Box
+   - OneDrive
+   - Archivos locales
+
+![Página de configuración de carga de archivos con interruptores para Google Drive, Dropbox, Box, OneDrive y archivos locales](/migration-assets/file-upload-settings/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+<Callout type="info">
+  Al menos un servicio debe permanecer habilitado. Kissflow no te permitirá desactivar el último interruptor restante, ya que los usuarios necesitan al menos una forma de cargar archivos adjuntos.
+</Callout>
+
+## Cómo protege Kissflow tus archivos adjuntos
+
+Todos los archivos adjuntos de Kissflow se alojan en Google Cloud Storage (GCS). Los datos se [cifran en tránsito y en reposo](https://cloud.google.com/storage/docs/introduction#securing_your_data) mediante las políticas de seguridad estándar de GCS, y la aplicación de Kissflow y GCS se autentican mutuamente.
+
+Para cargar o descargar un archivo adjunto, Kissflow genera un enlace seguro para que la transferencia de archivos se realice directamente entre el cliente y GCS, en lugar de pasar por saltos adicionales.
+
+Kissflow también bloquea la carga de archivos manipulados o disfrazados. Por ejemplo, si en un campo solo se permiten archivos JPG y alguien intenta cargar un archivo `.exe` cuyo nombre se cambió para usar la extensión `.jpg`, Kissflow detecta la discrepancia y lo bloquea. Esta comprobación se basa en los metadatos del archivo —su nombre, extensión y tipo declarado— y no en la inspección de su contenido, por motivos de privacidad.
+
+<Callout type="idea">
+  Si no puedes previsualizar un archivo cargado, es probable que esté disfrazado o sea inválido. Tómalo como una señal de seguridad que conviene revisar.
+</Callout>
+
+## Reglas de validación para los campos de archivos adjuntos
+
+Además de la configuración de carga de toda la cuenta, los administradores que crean el formulario de un flujo pueden añadir reglas de validación a campos individuales de archivos adjuntos, incluidos los campos de [archivos adjuntos inteligentes](/docs/build/forms/field-types/image-attachment-smart-attachment-and-signature-fields) y los archivos adjuntos de formularios multilingües y públicos. Estas reglas se configuran en la pestaña **Validaciones** del campo:
+
+- **Número mínimo de archivos adjuntos** — el número mínimo de archivos necesarios para el campo.
+- **Número máximo de archivos adjuntos** — el número máximo de archivos que un usuario puede añadir al campo.
+- **Restricciones de tipo de archivo** — limita las cargas a formatos específicos, incluidas imágenes (JPG, JPEG, PNG, BMP, GIF, TIF), documentos (DOC, DOCX, PDF), presentaciones (PPT, PPTX), hojas de cálculo (XLS, XLSX) y otros (CSV, TXT, EML).
+- **Límite de tamaño de los archivos adjuntos** — limita el tamaño de los archivos hasta 100 MB.
+
+<Callout type="info">
+  Para obtener más información sobre la configuración de estos campos, consulta [Campos de imagen, archivos adjuntos, archivos adjuntos inteligentes y firma](/docs/build/forms/field-types/image-attachment-smart-attachment-and-signature-fields).
+</Callout>
+
+## Qué sigue
+
+- [Roles y permisos de usuario](/docs/admin/users/user-roles-and-permissions)
+- [Campos de imagen, archivos adjuntos, archivos adjuntos inteligentes y firma](/docs/build/forms/field-types/image-attachment-smart-attachment-and-signature-fields)
+- [Configuración de formato](/docs/admin/account-settings/format-settings)

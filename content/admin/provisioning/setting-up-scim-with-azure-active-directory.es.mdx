@@ -1,0 +1,186 @@
+---
+title: "Configurar SCIM con Azure Active Directory"
+description: "BORRADOR (sin verificar) — migrado desde /t/m1h4a1q/setting-up-scim-with-azure-active-directory"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+El aprovisionamiento de usuarios mediante SCIM 2.0 solo está disponible a través de la versión alojada de AD llamada **Azure Active Directory (AD)**. [Los superadministradores y administradores de IAM](/t/35h4ak036h4gg/user-roles-permissions) pueden configurar la sincronización de usuarios basada en SCIM para Azure AD. Kissflow requiere que crees una aplicación empresarial de Azure para sincronizar tus usuarios de Azure AD con tu cuenta de Kissflow.
+
+## Generar una URL base y un token de SCIM
+
+1.  En Kissflow, ve a **Administración de la cuenta > Aprovisionamiento de usuarios** y haz clic en **Configurar** en **SCIM**.![](/migration-assets/setting-up-scim-with-azure-active-directory/7.png)
+2.  Genera un **token de SCIM** y copia la **URL base** y el **token de SCIM** al portapapeles. Como tendrás que pegarlos más adelante en tu aplicación empresarial de Azure, te recomendamos descargar el archivo JSON que contiene tu **URL base** y tu **token de SCIM** únicos.
+    
+    > **Nota:**
+    > 
+    > Debes mantener seguro el token de SCIM, ya que una vez generado no volverá a estar disponible para copiarlo o descargarlo.
+    
+
+## Añadir usuarios y grupos en Azure AD
+
+1.  Después de iniciar sesión en Microsoft Azure, selecciona **Azure Active Directory** en Servicios de Azure.  
+     ![](/migration-assets/setting-up-scim-with-azure-active-directory/1.png)  
+     
+2.  Se te redirigirá a la página **Descripción general del directorio predeterminado**. En el panel izquierdo, en **Administrar**, haz clic en **Usuarios** o **Grupos**, según lo que quieras crear.
+3.  Para crear o invitar a nuevos usuarios a Azure AD, haz clic en el botón **\+ Nuevo usuario**, actualiza los valores de los atributos del usuario en **Identidad**, **grupos y roles**, **configuración** e **información del trabajo**, y haz clic en **crear**.
+4.  Del mismo modo, para crear grupos en Azure AD, haz clic en el botón **\+ Nuevo grupo**, actualiza los valores de los atributos del grupo y haz clic en **crear**.  
+      
+    
+
+> **Nota:** Microsoft Azure Active Directory (Azure AD) cambió su nombre a **Microsoft Entra ID** en junio de 2023.
+
+## Crear una nueva aplicación empresarial en Azure AD
+
+1.  Inicia sesión en Azure Active Directory como administrador y ve a **Aplicaciones empresariales**.
+2.  Selecciona **Nueva aplicación** y elige **Aplicación fuera de la galería**.
+3.  Se te pedirá un nombre. Introduce un nombre significativo para tu aplicación empresarial y haz clic en **Agregar**.
+
+## Asignar usuarios a la aplicación empresarial de Azure
+
+1.  En el panel izquierdo de tu aplicación empresarial, en **Administrar,** haz clic en la pestaña **Usuarios y grupos**.
+2.  Haz clic en el botón **\+ Agregar usuario** y, a continuación, selecciona manualmente los usuarios y grupos que quieras sincronizar con tu cuenta de Kissflow.
+3.  Haz clic en **Asignar**. Puedes asignar varios usuarios y grupos de AD a tu aplicación empresarial. Solo los usuarios y grupos asignados a tu aplicación empresarial se pueden aprovisionar en tu cuenta de Kissflow.
+
+## Aprovisionar tu aplicación empresarial
+
+1.  A continuación, ve a la pestaña **Aprovisionamiento** de tu aplicación empresarial.
+2.  En el menú desplegable **Modo de aprovisionamiento**, selecciona **Automático**. En **Credenciales de administrador**, pega tu **URL base de SCIM** copiada en el campo URL del inquilino y el **token de SCIM** en el campo **Token secreto**.
+3.  Haz clic en **Probar conexión**; debería aparecer un mensaje emergente de confirmación.
+4.  Haz clic en **Guardar** en la parte superior de la pantalla.
+
+## Asignar atributos de los grupos de AD
+
+1.  En la pestaña **Aprovisionamiento** > **Asignaciones**, haz clic en "**Aprovisionar grupos de Azure Active Directory**".![](/migration-assets/setting-up-scim-with-azure-active-directory/2.png)
+2.  Ajusta las **asignaciones de atributos** de tu grupo para que el resultado coincida con la siguiente captura de pantalla. Después, **guarda** los cambios.![](/migration-assets/setting-up-scim-with-azure-active-directory/3.png)
+
+## Asignar atributos predeterminados de los usuarios de AD
+
+1.  En **Aprovisionamiento** > **Asignaciones,** haz clic en "**Aprovisionar usuarios de Azure Active Directory**".
+2.  Aquí, ajusta las **asignaciones de atributos** de tus usuarios para incluir únicamente los atributos de tus usuarios de Azure AD que quieras en Kissflow. Debes eliminar todos los atributos no deseados para que el aprovisionamiento se realice correctamente. Puedes organizar los atributos predeterminados como se muestra en la siguiente captura de pantalla. Haz clic en el botón **Guardar** cada vez que realices una acción dentro de la asignación de atributos.
+    
+    ![](/migration-assets/setting-up-scim-with-azure-active-directory/4.png)
+    
+3.  Estos son los puntos importantes que debes tener en cuenta al editar los atributos de usuario de AD:
+    1.  Como se muestra en la imagen siguiente, para el atributo de customappsso de destino "**emails\[type eq "work"\].value**", cambia el atributo de origen de "**mail**" a "**userPrincipalName**", como se muestra aquí.
+        
+        ![](/migration-assets/setting-up-scim-with-azure-active-directory/8.png)
+        
+    2.  Del mismo modo, para el atributo de customappsso de destino "**active",** cambia el valor de expresión predeterminado de "**Switch(\[IsSoftDeleted\], , "False", "True", "True", "False")**" a "**Not(\[IsSoftDeleted\])"**, como se muestra a continuación.
+        
+        ![](/migration-assets/setting-up-scim-with-azure-active-directory/9.png)
+        
+    3.  Además, para el atributo de customappsso de destino "externalId", cambia el atributo de origen de "**mailNickname**" a "**objectId**", como se muestra a continuación.
+        
+        ![](/migration-assets/setting-up-scim-with-azure-active-directory/5.png)
+        
+    4.  Para el atributo de Azure AD **jobTitle**, los valores se actualizarán automáticamente en el campo **Designación** de la tabla de administración de usuarios de Kissflow después de una sincronización de SCIM correcta.
+4.  Una vez que los atributos anteriores se hayan asignado correctamente, elimina todos los atributos no deseados que no quieras en Kissflow. Estos atributos incluyen **facsimileTelephoneNumber, state, city, mobile, streetAdress**, etc.  
+    Como Kissflow no admite la extensión de esquema SCIM 2.0 Enterprise User, también tendrás que eliminar de la lista los atributos predeterminados como **employeeId**, **department** y **manager**. En su lugar, tendrás que añadir por separado valores de atributos de destino personalizados para estos atributos.
+
+## Añadir atributos de esquema personalizados de Kissflow
+
+1.  Para añadir estos atributos personalizados desde Kissflow, activa la casilla **Mostrar opciones avanzadas** y, a continuación, haz clic en **Editar lista de atributos para customappsso**.
+    
+    ![](/migration-assets/setting-up-scim-with-azure-active-directory/6.png)
+    
+2.  Antes de actualizar el esquema de customappsso, asegúrate también de marcar el atributo de origen de AD "**userPrincipalName**" como **Obligatorio**, tal como se muestra a continuación. Esta acción automatizará la sincronización de las direcciones de correo electrónico de Azure AD con Kissflow durante el aprovisionamiento de la cuenta.
+    
+    ![](/migration-assets/setting-up-scim-with-azure-active-directory/10.png)
+    
+3.  Para añadir un **atributo de usuario de customappsso**, copia la expresión urn de la tabla siguiente para cada uno de los atributos de AD y pégala en el campo vacío de Atributos de usuario de customappsso.
+4.  A continuación, cambia el tipo de atributo según se indica en la tabla siguiente.
+5.  Por último, debes seleccionar en el menú desplegable el siguiente **Atributo de objeto referenciado**: "**urn:ietf:params:scim:schemas:extension:enterprise:2.0:User**". Deja vacío el “**Atributo de objeto de referencia**” a menos que el “**Tipo**“ esté establecido en “**Referencia**”.
+6.  Haz clic en **Guardar** para crear una asignación de atributos personalizada. Del mismo modo, puedes crear atributos personalizados para los demás atributos de AD que aparecen en la tabla siguiente.  
+    Este es un ejemplo de cómo se realiza esta asignación dentro de la aplicación empresarial de Azure.
+    
+    ![](/migration-assets/setting-up-scim-with-azure-active-directory/12.png)
+    
+
+**Atributo de Azure Active Directory**
+
+**Tipo de atributo**
+
+**Atributos de usuario de customappsso**
+
+manager
+
+Referencia
+
+urn:kissflow:scim:schemas:extension:_Kissflow Account ID_:2:User:_&#123;Manager field ID in Kissflow&#125;_**_._**value
+
+department
+
+Cadena
+
+urn:kissflow:scim:schemas:extension:_Kissflow Account ID_:2:User:&#123;_Department field ID in Kissflow&#125;_
+
+User type
+
+Cadena
+
+urn:kissflow:scim:schemas:extension:_Kissflow Account ID_:2:User:_&#123;User type field ID in Kissflow&#125;__._value
+
+Number
+
+Número
+
+urn:kissflow:scim:schemas:extension:_Kissflow Account ID_:2:User:_&#123;Unique Number field ID in Kissflow&#125;_
+
+Currency
+
+Cadena
+
+urn:kissflow:scim:schemas:extension:_Kissflow Account ID_:2:User:_&#123;Unique Currency field ID in Kissflow&#125;_
+
+Date
+
+Cadena
+
+urn:kissflow:scim:schemas:extension:_Kissflow Account ID_:2:User:_&#123;Date field ID in Kissflow&#125;_
+
+Date time
+
+Cadena
+
+urn:kissflow:scim:schemas:extension:_Kissflow Account ID_:2:User:_&#123;Date-time field ID in Kissflow&#125;_
+
+Yes/No
+
+Booleano
+
+urn:kissflow:scim:schemas:extension:_Kissflow Account ID_:2:User:_&#123;Boolean field yes/no in Kissflow&#125;_
+
+Dropdown
+
+Cadena
+
+urn:kissflow:scim:schemas:extension:_Kissflow Account ID_:2:User:_&#123;Dropdown field ID in Kissflow&#125;_
+
+> **Nota:**
+> 
+> Debes añadir tu [Kissflow Account ID](/t/35h4az8y7h4gj/api-keys) real en lugar del texto resaltado en amarillo y el ID único de tu campo en la tabla de administración de usuarios de Kissflow en lugar del texto resaltado en verde.
+
+## Asignar atributos de esquema personalizados de Kissflow
+
+Los atributos de customappsso que asignes aquí se crean mediante los [pasos mencionados anteriormente](/t/m1h4a1q36h4gg/scim-azure-ad#adding-kissflow-custom-schema-attributes). Estos atributos de customappsso se asignan a los atributos de AD relevantes que quieras sincronizar con Kissflow.
+
+1.  Para asignar tu atributo de customappsso, vuelve a la pantalla **Asignación de atributos de usuario**.
+2.  Haz clic en **Agregar nueva asignación.**
+    
+    ![](/migration-assets/setting-up-scim-with-azure-active-directory/11.png)
+    
+3.  En el campo **atributo de origen**, selecciona el **Atributo de Azure AD** relevante que hayas creado**,** por ejemplo, **manager.** Del mismo modo, en el campo **atributo de destino**, selecciona el **atributo de usuario de customappsso** relevante que hayas definido. Puedes asignar todos los atributos personalizados que hayas añadido anteriormente.
+4.  Haz clic en **Guardar** para confirmar el aprovisionamiento.
+
+## Estado del aprovisionamiento
+
+1.  En la pestaña **Aprovisionamiento** > sección **Configuración**, cambia el **Estado del aprovisionamiento** a **Activado**.
+2.  Selecciona el **Ámbito** **Sincronizar solo los usuarios y grupos asignados** y haz clic en **Guardar.**
+3.  En el estado actual, haz clic en **actualizar.** Esto iniciará el aprovisionamiento de usuarios entre Azure AD y Kissflow.
+4.  Espera un tiempo para ver el estado del aprovisionamiento en tu aplicación empresarial. Una vez completado el aprovisionamiento, podrás ver los usuarios y grupos de AD dentro de la tabla de administración de usuarios de Kissflow con los valores de atributos correspondientes.

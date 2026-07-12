@@ -1,0 +1,51 @@
+---
+title: "Descripción general de los procesos conectados"
+description: "Conecta procesos para que, al alcanzar un paso específico en un proceso, se cree y haga seguimiento automáticamente de un elemento vinculado en otro, manteniendo sincronizados los flujos de trabajo relacionados."
+contentType: overview
+persona: admin
+section: admin
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - connected-processes
+  - subflow
+  - automation
+  - workflow
+---
+
+# Descripción general de los procesos conectados
+
+<PlanBadge plans={["enterprise"]} />
+
+En Kissflow, puedes conectar varios procesos para que las acciones de un proceso inicien automáticamente elementos relacionados en otro. Cuando un elemento de trabajo de un proceso de origen alcanza un paso que has configurado, se crea un elemento dependiente en el proceso conectado (de destino), con los valores de campo que hayas asignado entre ambos. Esto permite a los responsables de equipo y administradores de TI coordinar y mantener sincronizados los flujos de trabajo relacionados entre departamentos, sin transferencias manuales.
+
+<iframe src="https://player.vimeo.com/video/1010501301?app_id=122963" title="Connected processes overview video" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+## Por qué conectar procesos
+
+- **Automatizar la creación de elementos** — cuando un elemento de origen alcanza un paso configurado, se crea automáticamente un elemento dependiente en el proceso conectado, eliminando las transferencias manuales entre equipos.
+- **Coordinar entre equipos** — los procesos conectados ofrecen a todos una visión compartida e integral de cómo se mueve el trabajo entre departamentos.
+- **Reducir errores** — automatizar la transferencia elimina la posibilidad de que se omita un paso o se comuniquen incorrectamente los detalles cuando el trabajo pasa de un equipo a otro.
+
+<Callout type="info">
+  Lo que ocurre con el elemento de origen una vez que se completa su elemento dependiente —si se desbloquea y reanuda automáticamente o si se gestiona de otra manera— depende de cómo esté configurado el paso conectado. El ejemplo siguiente describe la configuración habitual, en la que el elemento de origen se pausa en el paso conectado hasta que se completa su elemento dependiente.
+</Callout>
+
+## Ejemplo: conectar Solicitud de compra y Orden de compra
+
+Supongamos que tu organización quiere que las órdenes de compra se creen automáticamente una vez aprobada una solicitud de compra.
+
+1. Un empleado envía una solicitud en el proceso **Solicitud de compra**, con detalles como el software necesario, la cantidad y la justificación de la compra.
+2. La solicitud pasa por sus etapas de aprobación. Una vez aprobada, llega a un paso llamado **Lista para ordenar**.
+3. Como **Lista para ordenar** está configurado como un paso conectado, se crea automáticamente un elemento dependiente en el proceso **Orden de compra** en cuanto el elemento de origen lo alcanza. Los valores de campo que hayas asignado entre ambos procesos —como el nombre del software, la cantidad y el costo— se transfieren al nuevo elemento.
+4. El equipo de adquisiciones toma el nuevo elemento en **Orden de compra**, revisa y finaliza los detalles, y lo envía al proveedor.
+5. Una vez que se completa el elemento dependiente en **Orden de compra**, el elemento de origen en **Solicitud de compra** se reanuda y pasa a su siguiente paso.
+
+## Qué sigue
+
+- [Conectar procesos](/docs/admin/processes/connecting-processes) — configura un paso conectado, asigna campos y configura condiciones.
+- [Preguntas frecuentes: procesos conectados](/docs/admin/processes/faq-connected-processes)
+- [Acciones de administrador en un proceso](/docs/admin/processes/admin-actions-in-a-process) — encuentra los elementos de origen y dependientes vinculados a cualquier elemento.
+- [Flujos asociados para procesos](/docs/admin/processes/associated-flows-for-processes)

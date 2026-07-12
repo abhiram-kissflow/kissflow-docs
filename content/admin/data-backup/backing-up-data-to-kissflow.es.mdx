@@ -1,0 +1,100 @@
+---
+title: "Realizar una copia de seguridad de los datos en Kissflow"
+description: "Configura una copia de seguridad de los datos alojada en Kissflow que se entrega mediante un enlace descargable por correo electrónico, con un tamaño de ZIP, cifrado y categorías de datos configurables."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - data-backup
+  - security
+  - compliance
+---
+
+# Realizar una copia de seguridad de los datos en Kissflow
+
+<PlanBadge plans={["enterprise"]} />
+
+<Callout type="info">
+  La copia de seguridad de los datos está disponible previa solicitud. Ponte en contacto con el equipo de soporte de Kissflow para habilitarla en tu cuenta.
+</Callout>
+
+Este es el destino de copia de seguridad más sencillo de Kissflow: en lugar de autenticar una cuenta de almacenamiento en la nube, eliges **Correo electrónico** como modo de almacenamiento y recibes un enlace descargable cuando se completa la copia de seguridad. Como [Superadministrador](/docs/admin/users/user-roles-and-permissions#super-admin), configuras las preferencias una vez y las reutilizas para cada copia de seguridad futura.
+
+<Callout type="warn">
+  Solo puedes realizar una copia de seguridad de tus datos una vez cada seis meses y no puedes cancelarla una vez que comienza. Planifica la configuración y el momento adecuadamente.
+</Callout>
+
+## Iniciar la configuración de la copia de seguridad de los datos
+
+1. Inicia sesión en Kissflow.
+2. Haz clic en tu foto de perfil, en la esquina superior derecha de la página, y después haz clic en **Administración de la cuenta** > **Copia de seguridad de los datos**.
+3. Haz clic en **Iniciar configuración** en la página **Copia de seguridad de los datos**.
+
+La configuración consta de tres pasos: autenticar un modo de almacenamiento, administrar los ajustes de la copia de seguridad y seleccionar las categorías de datos.
+
+## Seleccionar el correo electrónico como modo de almacenamiento
+
+1. Selecciona **Correo electrónico** como modo de almacenamiento en el menú desplegable.
+
+   ![Menú desplegable del modo de almacenamiento de la copia de seguridad de los datos con Correo electrónico seleccionado](/migration-assets/backing-up-data-to-kissflow/1.png)
+   {/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+2. Haz clic en **Siguiente**.
+
+<Callout type="info">
+  Cuando se complete la copia de seguridad, recibirás un enlace descargable por correo electrónico. Descarga el archivo en un plazo de siete días desde la recepción del correo electrónico; después, el enlace caducará.
+</Callout>
+
+## Administrar los ajustes de la copia de seguridad
+
+1. **Selecciona el tamaño del archivo ZIP.** Elige **4 GB**, **8 GB**, **16 GB** o **24 GB**. Los archivos de tu cuenta se comprimen automáticamente en formato ZIP y se dividen según el límite que elijas.
+
+   Por ejemplo, si aplicas un límite de 24 GB a una exportación de 100 GB, se generan cuatro archivos de 24 GB y uno de 4 GB. Los archivos de 24 GB o menos se cargan sin cambios.
+
+   ![Menú desplegable de selección del tamaño del archivo ZIP](/migration-assets/backing-up-data-to-kissflow/2.png)
+   {/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+2. **Cifra el archivo de copia de seguridad** (opcional). Activa este interruptor para añadir una frase de contraseña que cifre los archivos de la copia de seguridad y proporcione mayor seguridad. La frase de contraseña debe contener:
+   - Al menos ocho caracteres.
+   - Caracteres en mayúsculas y minúsculas.
+   - Al menos un carácter numérico o símbolo.
+
+   <Callout type="warn">
+     Guarda la frase de contraseña en un lugar seguro. La necesitarás más adelante para descifrar y acceder a los archivos de la copia de seguridad, y no se puede recuperar si la pierdes.
+   </Callout>
+
+3. Haz clic en **Guardar**.
+
+## Seleccionar las categorías de datos para la copia de seguridad
+
+Elige una o varias categorías para incluir:
+
+- **Datos de usuarios y grupos** — todos los datos de usuarios y grupos de la cuenta.
+- **Datos transaccionales** — detalles de los elementos de los flujos, como el estado, los comentarios y los miembros involucrados.
+- **Datos del registro de auditoría** — los registros de auditoría del último año, tanto a nivel de flujo como de cuenta.
+- **Archivos adjuntos** — archivos adjuntos de todos los flujos, incluidos los procesos y los tableros.
+
+Selecciona las categorías y haz clic en **Siguiente**. En la ventana emergente de confirmación, verifica los detalles de la configuración y haz clic en **Iniciar copia de seguridad**.
+
+![Ventana emergente de confirmación de la copia de seguridad que muestra los detalles de configuración y el botón Iniciar copia de seguridad](/migration-assets/backing-up-data-to-kissflow/3.png)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+<Callout type="info">
+  ¿Aún no estás listo para iniciar? Haz clic en **Guardar y salir** para guardar la configuración y reanudarla más tarde en lugar de ejecutar la copia de seguridad de inmediato.
+</Callout>
+
+Desde la página de inicio de **Copia de seguridad de los datos**, también puedes editar la configuración, eliminarla o consultar el historial de copias de seguridad.
+
+![Página de inicio de Copia de seguridad de los datos con opciones para editar la configuración, eliminarla o consultar el historial de copias de seguridad](/migration-assets/backing-up-data-to-kissflow/4.png)
+{/* TODO: verifica que la captura de pantalla coincida con la interfaz de usuario actual del producto */}
+
+## Qué sigue
+
+- [Descripción general de la copia de seguridad de los datos](/docs/admin/data-backup/data-backup-overview)
+- [Entender el resultado de la copia de seguridad](/docs/admin/data-backup/understanding-your-backup-output)
+- [Cumplimiento y historial de copias de seguridad](/docs/admin/data-backup/compliance-and-backup-history)
+- [Realizar una copia de seguridad de los datos en Amazon S3](/docs/admin/data-backup/backing-up-data-to-amazon-s3)

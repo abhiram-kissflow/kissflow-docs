@@ -1,0 +1,104 @@
+---
+title: "Analizador de soluciones con IA"
+description: "Ejecuta el analizador de soluciones con IA para detectar problemas en formularios, flujos de trabajo y permisos de un proceso antes de publicarlo."
+contentType: guide
+persona: admin
+section: admin
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@92fd3889d43
+tags:
+  - processes
+  - ai
+  - workflow
+  - permissions
+---
+
+# Analizador de soluciones con IA
+
+<PlanBadge plans={["enterprise"]} />
+
+El analizador de soluciones es una herramienta basada en IA para administradores y desarrolladores de procesos que crean y gestionan una [solución](/docs/reference/glossary/solution). Revisa los campos del formulario, los pasos del flujo de trabajo y los permisos comparándolos con la intención que infiere del diseño del proceso y, luego, marca posibles problemas antes de que publiques el proceso.
+
+<Callout type="info">
+  Estos hallazgos se generan con IA; revísalos siempre según los requisitos reales de tu proceso antes de actuar en consecuencia.
+</Callout>
+
+<Callout type="warn">
+  Actualmente, el analizador de soluciones solo está disponible para procesos sin código. No es compatible con aplicaciones ni portales.
+</Callout>
+
+## Cuándo ejecutarlo
+
+Te recomendamos ejecutar el analizador después de terminar de crear el proceso para comprobar que:
+
+- Los formularios tienen las validaciones necesarias.
+- Los pasos del flujo de trabajo están asignados a las personas correctas.
+- Los permisos coinciden con tu intención.
+
+## Ejecutar el analizador
+
+1. Abre tu proceso.
+2. Haz clic en **Gestionar** > **Editar proceso** para abrir el **Creador de formularios**.
+3. Haz clic en **Analizar**, en la esquina superior derecha del creador.
+
+El analizador se ejecuta automáticamente y muestra los resultados.
+
+![Analizador de soluciones ejecutándose en el creador de procesos](/migration-assets/ai-solution-analyzer/4.gif)
+
+<Callout type="info">
+  No tienes que esperar a que termine el análisis. Cierra la ventana de análisis o haz clic en **Ejecutar análisis en segundo plano** y recibirás una notificación emergente cuando finalice.
+</Callout>
+
+## Revisar los resultados
+
+Si no se encuentran problemas, verás un mensaje de éxito que confirma que tu formulario, flujo de trabajo y permisos están alineados con la intención de tu proceso.
+
+![Analizador de soluciones mostrando un mensaje de éxito sin problemas encontrados](/migration-assets/ai-solution-analyzer/1.png)
+
+Si se detectan problemas, verás una lista de observaciones.
+
+![Analizador de soluciones mostrando una lista de observaciones](/migration-assets/ai-solution-analyzer/2.png)
+
+Cada observación muestra:
+
+- **Título** — una breve descripción del problema.
+- **Etiquetas** — si está relacionada con el **flujo de trabajo**, los **permisos** o el **formulario**.
+- **Gravedad** — **Crítica** o **Sugerencia**. Los hallazgos críticos señalan problemas con mayor probabilidad de interrumpir el proceso o exponer datos, como un paso de aprobación asignado incorrectamente o un campo con permisos excesivos. Las sugerencias son recomendaciones de buenas prácticas que no interrumpirán el proceso, pero que aun así conviene revisar.
+- **Ubicar** — te lleva al punto exacto del formulario, flujo de trabajo o permisos donde se encontró el problema.
+
+En la parte superior de los resultados también verás el número total de observaciones (por ejemplo, *7 observaciones realizadas*) y la marca de tiempo de la última ejecución del análisis. Usa los filtros para restringir la lista por gravedad o ámbito.
+
+### Ubicar y navegar entre problemas
+
+Haz clic en **Ubicar** en una observación para ir al punto exacto donde se encontró. La lista se reduce a esa única observación y muestra controles de **anterior** y **siguiente** para que puedas recorrer los problemas restantes de uno en uno.
+
+![Ubicar un problema y navegar entre observaciones](/migration-assets/ai-solution-analyzer/6.gif)
+
+Haz clic en **Atrás** para volver a la lista completa de observaciones.
+
+## Volver a ejecutar el analizador
+
+Solo puedes volver a ejecutar el analizador después de hacer cambios en tu proceso. La marca de tiempo de la última ejecución permanece visible en la ventana del analizador hasta que lo hagas.
+
+<Callout type="warn">
+  Volver a ejecutar el análisis puede cambiar los resultados: los problemas existentes podrían resolverse, podrían aparecer otros nuevos y algunos podrían desaparecer por completo. Revisa las observaciones actuales antes de hacer clic en **Volver a ejecutar el análisis**, ya que es posible que no vuelvas a ver los mismos resultados.
+</Callout>
+
+## Ejemplos
+
+**Problema del flujo de trabajo** — Un paso de aprobación destinado a un rol específico, como un director financiero, se asigna por error a **Todos**. El analizador de soluciones marca esto como un problema crítico del flujo de trabajo y recomienda reasignar el paso al rol correcto.
+
+![Analizador de soluciones marcando un problema de asignación en el flujo de trabajo](/migration-assets/ai-solution-analyzer/3.gif)
+
+**Problema de permisos** — Un campo que debería permanecer como de solo lectura después de una entrada inicial, como un importe de compensación, queda editable en un paso posterior. El analizador de soluciones marca esto como un problema crítico de permisos y recomienda volver a establecer el campo como de solo lectura.
+
+![Analizador de soluciones marcando un problema de permisos](/migration-assets/ai-solution-analyzer/5.gif)
+
+## Qué sigue
+
+- [Publicar, editar, duplicar, archivar y eliminar un proceso](/docs/admin/processes/publishing-editing-duplicating-archiving-and-deleting-a-process)
+- [Descripción general de las soluciones basadas en IA](/docs/admin/processes/ai-powered-solution-overview)
+- [Revisar los cambios de publicación](/docs/admin/processes/reviewing-publish-changes)
+- [Gestionar los miembros y permisos del proceso](/docs/admin/processes/managing-process-members-and-permissions)

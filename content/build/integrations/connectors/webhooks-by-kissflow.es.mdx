@@ -1,0 +1,59 @@
+---
+title: "Webhooks by Kissflow"
+description: "BORRADOR (sin verificar) — migrado desde /t/60h4af5/webhooks-by-kissflow"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## Conceptos básicos de webhook
+
+Un webhook (también conocido como **callback** web) es un método para que cualquier software proporcione información en tiempo real a otras aplicaciones. Los webhooks te permiten crear o configurar integraciones que se suscriben a determinados eventos en tu aplicación. Cuando se activa uno de esos eventos, enviaremos una carga HTTP POST a la URL configurada del webhook. Se diferencia de las API habituales en que no necesitas consultar los datos con tanta frecuencia para obtenerlos en tiempo real.
+
+## Trabajar con Webhooks by Kissflow
+
+Kissflow puede integrarse con aplicaciones de terceros mediante webhooks o callbacks HTTP definidos por el usuario. Para que las aplicaciones de terceros consuman el webhook de Kissflow, proporcionamos una URL a la que se enviarán las solicitudes. Busca la página de configuración de webhooks de la aplicación que quieres conectar a Kissflow.
+
+En la configuración de webhook de tu aplicación, normalmente elegirás añadir una nueva conexión de webhook. Pega la URL del webhook que copiaste del conector Webhooks de Kissflow, selecciona cualquiera de las opciones que ofrece la aplicación —incluidos los datos que quieres recibir mediante el webhook— y guarda los cambios.
+
+> **Nota**
+> 
+> Para los Webhooks de integración, el tamaño de carga admitido está limitado a 2 MB.
+
+Por ejemplo, puedes configurar una integración para que cada vez que se cree una nueva solicitud de compra en tu software ERP, puedas iniciar un proceso de aprobación en Kissflow (acción). También puedes configurar una integración para que cualquier nuevo suscriptor de correo electrónico en MailChimp se añada automáticamente a tu hoja de Google. Tus posibilidades solo están limitadas por tu imaginación.
+
+> **Nota**
+> 
+> Aprende a enviar datos a otras aplicaciones mediante [conectores de webhook HTTP](/t/p8h4aky/http-connector).
+
+### Desencadenadores en el conector de webhook
+
+**Desencadenador**
+
+**Descripción**
+
+Capturar un webhook (POST)
+
+Esto genera una URL de callback y la supervisa para recibir cargas de otras aplicaciones
+
+## Configurar tu webhook
+
+En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**.
+
+2.  En el editor, selecciona el desencadenador **Webhooks by Kissflow**. También puedes usar la búsqueda para encontrarlo directamente.
+    
+3.  Haz clic en el menú desplegable **Desencadenador**, selecciona **Capturar un webhook (POST)** y haz clic en **Siguiente**.![](/migration-assets/webhooks-by-kissflow/3.png) 
+4.  Capturar un webhook funciona proporcionándote una URL única a la que puedes enviar solicitudes POST. Copia la URL y pégala en la configuración principal o en la página de opciones de tu aplicación. Si no la encuentras, consulta la documentación de ayuda y soporte de tu aplicación. Haz clic en **Siguiente**.  ![](/migration-assets/webhooks-by-kissflow/1.png) 
+5.  La aplicación conectada a la URL de tu webhook le enviará datos cada vez que se añada algo nuevo. Para **probar** un desencadenador de webhook, primero debes añadir algo nuevo a tu aplicación. Por ejemplo, si te estás conectando a Trello, puedes añadir una nueva tarjeta a tu tablero de Trello. El conector empezará a supervisar la URL y obtendrá cualquier carga de la aplicación. ![](/migration-assets/webhooks-by-kissflow/2.png)  
+6.  Si se encuentran los datos enviados a la URL del webhook, el paso indicará que se completó correctamente y mostrará los datos recibidos.
+7.  Los datos recibidos por el conector de webhook pueden ser utilizados por otras aplicaciones para realizar acciones específicas.
+
+### Activar el conector de webhook
+
+Después de configurar el conector, activa el botón de alternancia en la esquina superior derecha del editor para activar la integración.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

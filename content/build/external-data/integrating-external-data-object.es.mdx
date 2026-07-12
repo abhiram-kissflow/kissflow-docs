@@ -1,0 +1,111 @@
+---
+title: "Integración de un objeto de datos externo"
+description: "BORRADOR (sin verificar) — migrado desde /t/83y3my8/integrating-external-data-object"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Los usuarios de la aplicación que tengan permiso de **Administrar** para conectarse a objetos de datos externos pueden configurar acciones para eventos específicos activados en Kissflow.  
+
+Por ejemplo, tienes una aplicación de RR. HH. diseñada para gestionar varios procesos de empleados. Cuando se completa una solicitud de baja, quieres configurar una acción para eliminar la información de identificación personal del empleado de tu tabla de empleados en la base de datos externa.  
+
+Para lograrlo, debes integrar el proceso de baja y tu plataforma externa. Una vez establecida la integración, puedes configurar un activador en tu proceso para que, al completarse el flujo de trabajo de baja, el registro correspondiente de tu tabla se elimine automáticamente.
+
+> **Nota:** La integración mediante objetos de datos externos actualmente es exclusiva de las aplicaciones.  
+
+## Acceso a la integración
+
+Una vez que hayas establecido la conexión externa y configurado el objeto de datos externo, ve al icono de **Lógica** en la navegación izquierda y sigue los pasos que se indican a continuación:
+
+1.  En **Integraciones**, haz clic en el icono **\+**. Se abrirá la ventana **Crear una integración**.
+    
+2.  Asigna un nombre a la integración y haz clic en **Crear**.
+    
+    ![](/migration-assets/integrating-external-data-object/1.gif)
+
+## Configuración de un activador
+
+Esta es una guía general para configurar un activador. Para obtener más información sobre el funcionamiento de cada conector, consulta la [guía del conector correspondiente](/category/connectors).
+
+1.  Crea una integración. 
+    
+2.  Elige un conector y selecciona un activador.
+    
+3.  Puedes seleccionar una de las cuentas existentes en la lista desplegable o añadir una cuenta nueva. Autentica la conexión con claves de autenticación y tokens secretos, y haz clic en **Siguiente**. 
+    
+4.  Configura el evento.
+    
+5.  Prueba el activador.
+    
+    ![](/migration-assets/integrating-external-data-object/5.gif)
+
+> **Nota:** Actualmente no se admite la configuración de activadores mediante un objeto de datos externo como conector. 
+
+## Configuración de una acción en datos externos
+
+Elige **Objeto de datos externo** como conector y selecciona una acción.
+
+Acción
+
+Descripción
+
+Leer
+
+Esta acción lee un solo registro de tu tabla de datos externa sin almacenarlo. 
+
+Crear
+
+Esta acción crea una nueva entrada individual en tu tabla de datos externa.
+
+Actualizar
+
+Esta acción actualiza una entrada individual existente en tu tabla de datos externa. 
+
+Listar
+
+Esta acción lee registros de tu tabla de datos externa sin almacenarlos en Kissflow.
+
+Eliminar
+
+Esta acción elimina un registro de tu tabla de datos externa.
+
+> **Nota:**  
+> Puedes configurar correctamente las acciones Crear, Actualizar y Eliminar en las siguientes dos condiciones:
+> 
+> -   El **Modo de conexión** al configurar un objeto de datos externo debe estar establecido en **Escritura**.
+>     
+> 
+> -   Tu plataforma externa debe admitir operaciones de escritura desde sistemas externos, como Kissflow.
+>     
+
+![](/migration-assets/integrating-external-data-object/6.gif)
+
+1.  Establece la conexión seleccionando una de las cuentas externas existentes o crea una cuenta nueva proporcionando los datos de autenticación necesarios.
+    
+    ![](/migration-assets/integrating-external-data-object/2.png)
+2.  Para configurar la acción, sigue estos pasos:
+    
+    1.  Para las acciones centradas en un solo registro, como leer, crear, actualizar y eliminar, selecciona la tabla en la lista desplegable **Elegir un objeto de datos externo**. Luego, asigna las columnas de la tabla a los campos correspondientes del conector de tu activador.
+        
+        ![](/migration-assets/integrating-external-data-object/3.png)
+    2.  Para las acciones con varios registros, como listar, 
+        
+        1.  Selecciona la tabla en la lista desplegable **Elegir un objeto de datos externo**.
+            
+        2.  Elige la lista de columnas de las que deseas leer los datos.
+            
+        3.  Especifica el tamaño de página para determinar cuántos registros se recuperarán en una sola página. 
+            
+        4.  También puedes aplicar un filtro para limitar los registros.
+            
+3.  Verifica la configuración de tu paso de acción haciendo clic en el botón **Probar acción**. Si hay errores, se te notificarán en este paso. Corrígelos y vuelve a probar la acción.  
+     
+    
+    ![](/migration-assets/integrating-external-data-object/4.png)
+
+Después de configurar los activadores y las acciones necesarios, ve a la esquina superior derecha del editor para activar la integración.

@@ -1,0 +1,75 @@
+---
+title: "Descripción general de la integración de aplicaciones"
+description: "BORRADOR (no verificado) — migrado desde /t/m1yzjvq/app-integration-overview"
+contentType: overview
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+## ¿Qué es la integración en Kissflow Apps?
+
+La integración en Kissflow Apps es una potente herramienta de automatización de flujos de trabajo que te permite automatizar los flujos de trabajo empresariales de tu aplicación conectando todos tus formularios y fuentes de datos favoritos de la aplicación con otros servicios de terceros.
+
+Dentro del Application Builder, puedes crear un sistema de conectores para automatizar flujos de trabajo sin programar ni depender de desarrolladores para crear la integración. Con unos pocos clics, cualquiera puede crear su propio flujo de trabajo personalizado.
+
+Por ejemplo, puedes usar la integración en el application builder para conectar dos servicios diferentes, como el formulario de proceso de tu aplicación y Google Sheet o Gmail. De esta forma, la próxima vez que se añada un nuevo elemento a tu formulario de proceso, se añadirá una nueva fila a Google Sheet con todos los datos relevantes o se enviará un correo electrónico a tu bandeja de entrada de Gmail.
+
+### ¿Cómo funciona la integración en Kissflow Apps?
+
+Una integración consta de una serie de pasos secuenciales que indican cómo se deben transferir y transformar los datos entre diferentes flujos de Kissflow u otras aplicaciones de terceros. Cada uno de estos pasos se crea mediante conectores.
+
+Toda integración comienza con un activador: un evento en uno de tus conectores que inicia tu flujo de trabajo. Este envía datos desde el flujo para completar una o varias acciones del conector.
+
+Con Kissflow Integration, puedes crear varios flujos de trabajo desde cero. Aquí tienes algunos ejemplos para inspirarte:
+
+-   Crear eventos de Google Calendar a partir de nuevas tareas de Kissflow Project.
+-   Añadir nuevas filas en Google Sheet por cada nuevo lead de CRM.
+-   Enviar un recordatorio por correo electrónico a tu compañero por cada nuevo elemento añadido a Kissflow Process.
+-   Compartir nuevos elementos de Kissflow Board en Slack.
+-   Crear un nuevo evento en Google Calendar cuando se apruebe una solicitud de contratación en Kissflow Process.  
+
+![](/migration-assets/app-integration-overview/1.png)![](/migration-assets/app-integration-overview/2.png)
+
+### Terminología común
+
+#### Conector
+
+Un conector permite que los servicios se comuniquen entre sí. Te permite hacer algo que la aplicación no podría hacer por sí sola. Los conectores pueden actuar como adaptadores para realizar acciones internas o acceder a aplicaciones externas de terceros. Los conectores constan de activadores, acciones y acciones de búsqueda según los casos de uso a los que sirven.
+
+#### Activador
+
+Un activador es el evento principal de tu integración que inicia otras acciones en tu flujo de trabajo.
+
+#### Acción
+
+Una acción es un evento que realiza un conector después de que se activa. Por ejemplo, si quieres enviar un correo electrónico cada vez que recibas un ticket de soporte en el formulario de tablero de tu aplicación, la acción es enviar un correo electrónico. Puedes tener varias acciones en tu integración.
+
+![](/migration-assets/app-integration-overview/4.png)
+
+#### Acción de búsqueda
+
+Las acciones de búsqueda encuentran o recuperan datos específicos de tu aplicación según tus necesidades.
+
+#### Editor
+
+El Editor te permite crear una integración desde cero. En el editor, puedes seleccionar y configurar el conector del activador, el evento del activador, los conectores de acciones y los eventos de acciones para crear tu propio flujo de trabajo personalizado.
+
+#### Conexión
+
+Una conexión es la autenticación que permite a Kissflow interactuar con un conector interno o externo en una integración. Las ejecuciones de integración requieren conexiones válidas antes de poder configurar los activadores y las acciones. Las conexiones de Kissflow se basan en la autenticación mediante una clave de acceso y un token secreto. La mayoría de los conectores externos se autentican mediante OAuth.
+
+![](/migration-assets/app-integration-overview/3.png)
+
+#### Historial de ejecuciones de integración
+
+Cada dato que pasa por el sistema de flujos de trabajo de tu aplicación cuenta como una ejecución de integración. Esto significa que, si tu integración añade 20 elementos al formulario de Kissflow Board, acaba de realizar 20 ejecuciones de integración. Cada vez que se produce una ejecución de integración, te ahorras una tarea manual. Puedes hacer un seguimiento de todas las ejecuciones de integración desde el **Historial de ejecuciones** de la página de tu integración.
+
+![](/migration-assets/app-integration-overview/5.gif)
+
+ Para acceder al historial de ejecuciones en producción después de implementar tu aplicación, ve a **Manage > Integrations > Run history**.
+
+![](/migration-assets/app-integration-overview/6.gif)

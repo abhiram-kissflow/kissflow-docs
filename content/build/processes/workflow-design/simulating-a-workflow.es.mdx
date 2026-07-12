@@ -1,0 +1,60 @@
+---
+title: "Simular un flujo de trabajo"
+description: "BORRADOR (sin verificar) — migrado desde /t/y4h9qty/simulating-a-workflow"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Simular un flujo de trabajo te permite iniciar de forma ficticia el flujo de trabajo de tu proceso y comprobar si su ruta funciona como esperas antes de publicarlo. También puedes restablecer los datos simulados y volver a ejecutar la simulación hasta obtener los resultados deseados.
+
+![](/migration-assets/simulating-a-workflow/1.png)
+
+## Simular un flujo de trabajo
+
+1.  Haz clic en el botón **Simular** en la parte inferior del editor de procesos para previsualizar cómo se muestra tu flujo de trabajo en tiempo real.
+    1.  Puedes simular un flujo de trabajo desde la pestaña **Formulario, Flujo de trabajo** o **Permisos**, según prefieras. Los pasos del flujo de trabajo aparecen en el lado izquierdo de la pantalla cuando estás en el modo **Simulación**.
+    2.  La etiqueta **Inicio** indica el comienzo del flujo de trabajo y la etiqueta **Completado** indica, respectivamente, que el flujo de trabajo ha finalizado.![](/migration-assets/simulating-a-workflow/3.png)      
+    3.  Navega por cada paso e introduce valores en los campos del formulario para comprobar cómo funciona el proceso. Puedes ver la versión web o móvil del formulario alternando el botón de la parte superior.
+        
+2.  Haz clic en el botón **Enviar** en la parte inferior para avanzar al siguiente paso. A medida que completes los pasos, se marcarán como **Comprobado** en verde. Los pasos que omitas no tendrán ninguna etiqueta asociada.
+3.  Revisa las integraciones que aparecen, si las hay, para cada paso por el que navegues, en la sección **Integraciones activadas**, a la derecha.
+
+> **Nota:**
+> 
+> Para ver las integraciones activadas en cada paso durante la simulación del flujo de trabajo, debes tener el plan **Enterprise**. Si no tienes este plan, no dudes en ponerte en contacto con nuestro equipo de soporte para recibir ayuda con la actualización.
+
+## Suplantar a un usuario en la simulación del flujo de trabajo
+
+En nuestro plan **_Enterprise_**, también puedes cambiar al iniciador del flujo de trabajo y revisar la ruta modificada en función del alcance del iniciador en el proceso. Básicamente, simulas el flujo de trabajo como otro miembro de tu proceso al cambiar el iniciador.
+
+Selecciona un miembro del proceso en el menú desplegable **Simular flujo de trabajo como** para cambiar el iniciador. Los miembros del proceso aparecerán aquí y, como administrador, puedes cambiar el iniciador y comprobar si la ruta del flujo de trabajo se muestra según lo previsto para el usuario seleccionado y sus roles y responsabilidades asignados. Los datos introducidos en el formulario para las pruebas se restablecerán automáticamente cuando cambies el iniciador, así que haz clic en **Sí, cambiar iniciador** para dar tu consentimiento y continuar.
+
+![](/migration-assets/simulating-a-workflow/2.png)
+
+Piensa en un proceso de **Aprobación de permisos** para entender cómo funciona la simulación de procesos. Los dos participantes clave en este flujo de trabajo son el **Empleado** y el **Gerente**; por lo tanto, los dos iniciadores diferentes también serían el **Empleado** y el **Gerente**, respectivamente.
+
+Si el iniciador es un **Empleado**, la ruta del flujo de trabajo sería la siguiente:
+
+1.  Iniciar solicitud de permiso
+2.  Aprobación del gerente
+3.  Recibir el estado del permiso
+
+Si el iniciador es un **Gerente**, la ruta del flujo de trabajo sería la siguiente:
+
+1.  Solicitar más información al empleado
+2.  Aprobar el permiso
+3.  Actualizar el saldo de permisos
+4.  Notificar el estado del permiso
+
+Como puedes ver, las rutas que siguen estos flujos de trabajo son diferentes y, por ello, es muy importante simularlos y probarlos.
+
+## Restablecer los datos utilizados para la simulación
+
+Es posible que tengas muchos datos de prueba mientras creas tu proceso, ya que simularás el flujo de trabajo tantas veces como quieras hasta obtener los resultados deseados. Haz clic en el botón **Restablecer datos** para eliminar los datos almacenados en el formulario de tu proceso como parte de la simulación.
+
+![](/migration-assets/simulating-a-workflow/4.png)

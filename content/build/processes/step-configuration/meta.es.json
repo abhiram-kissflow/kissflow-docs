@@ -1,0 +1,8 @@
+{
+  "title": "Configuración de permisos de campos para los pasos del proceso",
+  "pages": [
+    "configuring-field-permissions-for-process-steps",
+    "configuring-actions-for-process-steps",
+    "refreshing-lookup-and-aggregation-field-values"
+  ]
+}

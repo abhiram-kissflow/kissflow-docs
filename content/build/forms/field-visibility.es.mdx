@@ -1,0 +1,76 @@
+---
+title: "Visibilidad de campos"
+description: "BORRADOR (sin verificar) — migrado desde /t/g9h4aza/field-visibility"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+De forma predeterminada, todos los campos que crees como parte de tu formulario estarán visibles para el usuario final. Sin embargo, la configuración de **Visibilidad** te permite limitar la visibilidad de ciertos campos según tus requisito**s** empresariales.
+
+Haz clic en un campo y accede a la pestaña **Visibilidad** en el panel de propiedades del lado derecho, o pasa el cursor sobre un campo y haz clic en el icono de gafas para configurar las condiciones de visibilidad del campo.
+
+El estado de **Visibilidad predeterminada** de un campo siempre está establecido en **Visible**; sin embargo, puedes cambiarlo a **Oculto** si lo deseas.
+
+## Añadir reglas de visibilidad
+
+Una regla de visibilidad te permite mostrar u ocultar un campo según una condición determinada o un conjunto de condiciones que involucren otros datos del formulario.
+
+![](/migration-assets/field-visibility/3.png)
+
+1.  Haz clic en **Añadir una regla de visibilidad** en el panel de propiedades del campo para mostrar u ocultar el campo según determinadas condiciones.
+2.  Haz clic en **Añadir una condición** para añadir tantas condiciones de filtro como quieras. Selecciona **Coincidir con todas** si deben cumplirse todas las condiciones de filtro. Puedes seleccionar **Coincidir con cualquiera** si quieres que se cumpla al menos una de las condiciones de filtro.![](/migration-assets/field-visibility/1.png)
+
+## Reglas de visibilidad para secciones
+
+Puedes establecer condiciones de visibilidad para una sección del mismo modo que lo haces para un campo. Haz clic en el icono de engranaje (![](/migration-assets/field-visibility/4.png)) en la parte superior de la sección para acceder a su configuración.
+
+![](/migration-assets/field-visibility/2.png)
+
+## Ejemplo 
+
+Supongamos que estás creando un formulario de **Solicitud de viaje**. Como sabes, algunos viajes pueden requerir un anticipo en efectivo, mientras que otros no. En este caso, se recomienda limitar la visibilidad del campo **Anticipo en efectivo** según si el viaje requiere o no un importe de anticipo.
+
+1.  Crea un campo de **Sí/No** con el nombre _¿Necesitas un anticipo en efectivo?_
+2.  Crea un campo de **Moneda** con el nombre _Anticipo en efectivo._
+3.  Haz clic en el campo **Anticipo en efectivo** para acceder a su configuración de visibilidad en el panel derecho, o pasa el cursor sobre el icono de gafas para acceder directamente a la configuración de visibilidad en el panel de propiedades del campo.
+4.  Cambia la visibilidad predeterminada del campo **Anticipo en efectivo** a **Oculto**.
+5.  Haz clic en **Añadir una condición**.
+6.  Muestra el campo solo cuando el valor del campo **¿Necesitas un anticipo en efectivo?** sea Sí.
+
+## Reglas de visibilidad para tablas
+
+Al establecer condiciones para los campos de una tabla, los campos que selecciones determinan el alcance de la visibilidad:
+
+-   **Sección + campo de tabla**: La condición se evalúa de forma individual para cada fila y la visibilidad se aplica por fila cuando se cumple la condición. Por ejemplo, para mostrar el campo _Adjuntar factura_ solo para gastos de viaje superiores a _$1,000_:
+    
+    1.  Selecciona el campo _Adjuntar factura_ en tu tabla.
+        
+    2.  Añade una condición: _Tipo de reembolso_ (campo de sección) es _Viaje_ Y _Importe_ (campo de tabla) es mayor que _$1,000_.
+        
+    3.  Si un usuario selecciona _Viaje_ e introduce un importe superior a _$1,000_, el campo _Adjuntar factura_ será visible para esa fila específica. En todas las demás filas, el campo permanecerá oculto.
+        
+        ![](/migration-assets/field-visibility/5.gif)
+-   **Solo sección, o sección + campo de sección**: La condición se aplica a toda la columna en todas las filas.  
+    Por ejemplo, si quieres mostrar la columna _Nombre del hotel_ solo cuando el usuario reclame gastos de viaje:
+    
+    1.  Selecciona el campo _Nombre del hotel_ en tu tabla.
+        
+    2.  Añade una condición: _Tipo de reembolso_ (campo de sección) es _Viaje_.
+        
+        ![](/migration-assets/field-visibility/6.gif)
+
+Si un usuario selecciona _Comida_, la columna _Nombre del hotel_ se ocultará en todas las filas de la tabla. Si cambia a _Viaje_, toda la columna aparecerá en todas las filas.
+
+## Diferencia entre la visibilidad de campos y los permisos
+
+La visibilidad de campos muestra y oculta campos según la configuración predeterminada u otros datos del formulario. En la [sección Permisos del editor de procesos](/t/60h9qtm/configuring-field-permissions-for-process-steps), puedes hacer que los campos sean editables, de solo lectura u ocultos. Esta configuración se basa en el paso del flujo de trabajo en el que se encuentra el elemento, no en los datos del formulario.
+
+Estas dos configuraciones diferentes pueden afectarse entre sí.
+
+-   Si la visibilidad del campo está establecida en **Visible**, pero la configuración de permisos es **Oculto** en un paso determinado, el campo estará oculto en ese paso.
+-   Si la visibilidad del campo está establecida en **Oculto**, pero la configuración de permisos es **Solo lectura** o **Editable**, el campo estará oculto en ese paso.

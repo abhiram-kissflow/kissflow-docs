@@ -1,0 +1,90 @@
+---
+title: "Trabajar con componentes personalizados en Kissflow Apps"
+description: "BORRADOR (sin verificar) — migrado desde /t/m1yfjgz/working-with-custom-components-in-kissflow-apps"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Básico ✓ Enterprise
+
+## ¿Qué son los componentes personalizados?  
+
+Los componentes personalizados desempeñan un papel crucial en el desarrollo low-code, ya que permiten reutilizar código y acelerar la creación de aplicaciones. Kissflow proporciona diversos [componentes de página](/category/components) predeterminados y varios [cAMPOS de formulario](/t/y4h4azv/basic-and-advanced-fields) predeterminados, que se clasifican en Campos básicos, Archivos y medios, Búsqueda de datos, Widget y Campos avanzados. La categoría Avanzados incluye opciones como Firma, Geolocalización y Escáner.
+
+Además de estos componentes y campos predeterminados, puedes crear componentes personalizados para usarlos en tus páginas y formularios. Estos componentes reutilizables permiten a los desarrolladores crear elementos de aplicaciones de alta calidad que se pueden compartir en toda una aplicación, lo que agiliza el desarrollo y mejora la eficiencia.
+
+Tipos de componentes personalizados en Kissflow Apps:  
+
+1. **[Componentes de página](/t/y4yzj4d/creating-custom-components)** – Se utilizan para crear elementos de interfaz de usuario reutilizables dentro de una página. Puedes [crear componentes de página con AI](/t/p8yg3zm/creating-custom-components-using-ai) o crearlos desde cero con el SDK de Kissflow.
+2. **[Componentes de campo](/t/35yfjp0/custom-form-field-components)** – Campos de formulario personalizados que se pueden utilizar en varios formularios. 
+
+Sigue los enlaces anteriores para consultar los pasos específicos para crear y utilizar componentes personalizados de página y de campo de formulario.
+
+## Administrar componentes personalizados
+
+La página **Administrar componentes** te permite ver y administrar todos tus componentes personalizados. Aquí es donde cargas tus componentes personalizados completamente creados. Para acceder a ella, haz clic en **Interfaz** en el panel de navegación izquierdo y selecciona **Componentes**.
+
+1.  Haz clic en el botón **Nuevo componente**.
+    
+2.  Elige el tipo de componente personalizado: **Página** o **Campo**. Introduce un nombre y una descripción, y haz clic en **Crear**.  
+     
+    
+    ![](/migration-assets/working-with-custom-page-components/1.gif)
+    
+3.  Cuando estés listo para cargar tu componente personalizado, haz clic en el nombre y se abrirá la página **Importar componente**. Importa un [componente de página](/t/y4yzj4d#importing-a-zip-file) \\| [componente de campo](/t/35yfjp0/custom-form-field-components#uploading-a-custom-component).
+    
+
+En la página **Administrar componentes**, puedes ver el número total de componentes personalizados que has cargado, junto con su tipo y estado actual. Cualquier usuario que tenga acceso a la aplicación donde se cargaron estos componentes puede verlos y utilizarlos en páginas y formularios.
+
+> **Notas:**
+> 
+> 1.  Cada componente personalizado que cargues debe tener un nombre único. Es decir, no es posible reutilizar el nombre de un componente archivado. Si deseas actualizar un archivo de componente personalizado existente, puedes [reemplazarlo](/t/m1yfjgz/working-with-custom-components-in-kissflow-apps#uploading-a-custom-component).
+> 2.  Puedes cargar y publicar cualquier cantidad de componentes de página y de campo dentro de una aplicación.
+
+### Estado de los componentes personalizados
+
+Cada componente personalizado tiene uno de tres estados:
+
+-   Borrador – Un componente en proceso de creación que aún no se ha publicado.
+    
+-   Publicado – Un componente activo y listo para utilizarse en páginas y formularios.
+    
+-   Archivado – Un componente que ya no se utiliza activamente, pero que se puede restaurar si es necesario.
+    
+
+### Ordenar componentes personalizados
+
+La opción de ordenación de la página **Administrar componentes** te permite filtrar los componentes por tipo y estado. Esta opción te permite ver rápidamente los **componentes de página, componentes de campo** y **componentes archivados** por separado.
+
+![](/migration-assets/working-with-custom-components-in-kissflow-apps/1.gif)
+
+> **Nota:** Un componente personalizado debe publicarse antes de poder utilizarse en un formulario o una página.
+
+### Archivar y eliminar componentes personalizados
+
+Si ya no necesitas un componente personalizado, puedes archivarlo o eliminarlo:
+
+1.  Haz clic en el menú **Más acciones** del componente deseado.
+    
+2.  Selecciona **Archivar** para moverlo a la sección de componentes archivados o haz clic en **Eliminar** para quitarlo permanentemente de tu aplicación.
+    
+
+Una vez archivado, puedes desarchivar o eliminar el componente:
+
+-   Desarchivar restaura el componente en la sección **Todos** sin cambiar su estado anterior. Si estaba publicado antes de archivarse, seguirá publicado al desarchivarlo. Del mismo modo, un componente en borrador seguirá en modo borrador.
+    
+-   Eliminar un componente lo quita permanentemente del sistema. Una vez eliminado, no se puede recuperar.
+    
+
+![](/migration-assets/working-with-custom-components-in-kissflow-apps/3.gif)
+
+### Cargar un componente personalizado
+
+1.  Ve a la página **Administrar componentes** y haz clic en el nombre del componente personalizado al que deseas cargar el archivo de compilación.
+2.  Se te redirigirá a la página **Importar componente**. Aquí puedes cargar tu campo de formulario personalizado como un archivo .zip.
+3.  Para reemplazar un archivo .zip ya cargado por una versión actualizada, haz clic en el nombre del componente personalizado para abrirlo y selecciona **Reemplazar archivo**. Una vez que cargues el archivo de reemplazo, debes publicar el componente para que el cambio surta efecto.
+
+![](/migration-assets/working-with-custom-components-in-kissflow-apps/2.gif)

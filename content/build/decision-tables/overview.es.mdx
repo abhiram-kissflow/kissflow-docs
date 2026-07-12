@@ -1,0 +1,55 @@
+---
+title: "Descripción general de las tablas de decisión"
+description: "Representa lógica empresarial compleja como una tabla de condiciones y resultados que los workflows y las apps pueden evaluar en tiempo de ejecución."
+contentType: overview
+persona: citizen-developer
+section: build
+planAvailability:
+  basic: false
+  enterprise: true
+lastVerifiedAgainst: kf-xg-frontend@d9966343aa6
+tags:
+  - decision-tables
+  - business-logic
+---
+
+# Descripción general de las tablas de decisión
+
+<PlanBadge plans={["enterprise"]} />
+
+Una tabla de decisión es una representación estructurada de la lógica empresarial para la toma de decisiones. En lugar de escribir condiciones anidadas en el código o ramas del workflow, organizas tus entradas (condiciones) y resultados en una tabla que Kissflow evalúa en tiempo de ejecución.
+
+<iframe src="https://player.vimeo.com/video/914754751?h=313c98a0bb&app_id=122963" title="Introducing Decision Tables in Kissflow" className="aspect-video w-full rounded-lg border" allowFullScreen />
+
+## ¿Por qué usar tablas de decisión?
+
+Cuando la lógica empresarial implica muchas combinaciones de entradas, evaluar las condiciones una por una puede provocar errores, especialmente cuando las reglas cambian con el tiempo. Las tablas de decisión te ofrecen:
+
+- **Un único lugar para la lógica compleja**: las condiciones y los resultados están en una sola tabla en lugar de estar dispersos entre las ramas del workflow.
+- **Legibilidad**: cualquier persona del equipo puede revisar la tabla y comprender las reglas.
+- **Reutilización**: la misma tabla se puede evaluar desde varios lugares, por lo que no es necesario copiar y pegar la lógica.
+- **Control por parte de los usuarios de negocio**: las personas responsables de las reglas pueden modificarlas sin que un desarrollador tenga que reescribir el código.
+- **Flexibilidad para datos cambiantes**: ajusta los valores de las filas en lugar de reestructurar la lógica.
+
+## Cómo funcionan las tablas de decisión
+
+En tiempo de ejecución, los valores de entrada se comparan con tus condiciones fila por fila. Según la [configuración de evaluación](/docs/build/decision-tables/evaluation-settings), la tabla devuelve los resultados de la primera fila coincidente o agrega los resultados de todas las filas coincidentes.
+
+![Una tabla de decisión para aprobar el importe de un préstamo, con una condición de rango salarial, resultados de importe del préstamo y tasa de interés, y una fila de condición predeterminada](/migration-assets/decision-tables-overview/1.png)
+{/* TODO: verify screenshot matches current product UI */}
+
+## Límites
+
+| Límite | Valor |
+|---|---|
+| Condiciones por tabla | 10 |
+| Resultados por tabla | 5 |
+| Filas por tabla | 50,000 |
+| Valores devueltos por **Return all matched values** | 100 |
+| Filas añadidas por importación de CSV | 1,000 |
+
+## Qué sigue
+
+- [¿Dónde se usan las tablas de decisión?](/docs/build/decision-tables/where-used)
+- [Crear una tabla de decisión](/docs/build/decision-tables/creating-a-decision-table)
+- [Crear condiciones y resultados](/docs/build/decision-tables/conditions-and-results)

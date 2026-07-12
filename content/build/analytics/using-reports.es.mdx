@@ -1,0 +1,75 @@
+---
+title: "Uso de los informes"
+description: "BORRADOR (sin verificar) — migrado desde /t/y4h9qzg/using-reports"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Básico ✓ Enterprise
+
+La función de informes de Analytics te permite crear informes entre formularios sobre diversas fuentes de datos, incluidas tablas de procesos, child tables, tablas del sistema, conjuntos de datos y vistas de datos, e interpretarlos en formato visual o tabular.
+
+## Crear un informe a partir de una fuente de datos
+
+Puedes usar dos tipos de fuentes de datos para crear informes. 
+
+[Tabla](/t/x2h9qzw/understanding-data-sources): una tabla contiene los datos reales que deben evaluarse. Una tabla, como una hoja de cálculo, está compuesta por columnas, que son los campos del formulario, y filas, que son los elementos enviados.
+
+[Vista de datos](/t/83h9qzn/understanding-dataviews): es una fuente de datos única creada mediante el uso de columnas de una o más tablas o vistas de datos, escribiendo una consulta SQL en el editor de consultas. Las vistas de datos son fuentes de datos únicas que combinan una o más tablas, y puedes simplificar aún más los datos en forma de informe.
+
+Puedes crear informes basados en una fuente de datos dentro de la página **Explorador de datos** de dos maneras. 
+
+1.  Haz clic en el botón **Más opciones** (![](/migration-assets/using-reports/1.png)) > **Crear informe**.![](/migration-assets/using-reports/2.png)
+
+ 2. Abre una fuente de datos para **Crear informe**.  
+También puedes crear una vista de datos y generar un informe. Por ejemplo, una vista de datos puede combinar dos tablas de procesos diferentes y, luego, puedes crear un informe a partir de ella. Obtén más información sobre [cómo crear una vista de datos.](/t/83h9qzn/understanding-dataviews#creating-a-dataview)
+
+## Crear un informe desde la pestaña de informes
+
+Para crear un informe nuevo en Analytics:
+
+1.  Haz clic en el botón **Analytics** (![](/migration-assets/using-reports/3.png)).
+2.  En la pestaña **Informes**, haz clic en **Crear informe**.![](/migration-assets/using-reports/4.png) 
+3.  Selecciona la **fuente de datos**. También puedes ordenar las fuentes de datos por **Última modificación** o en orden **alfabético** para obtener una vista más clara.
+    
+4.  Proporciona un nombre y selecciona el **tipo de informe**.
+    
+    ![](/migration-assets/using-reports/8.png)
+    
+5.  Haz clic en **Crear**.  
+     
+    
+    > **Nota:**  
+    > Cuando creas un informe usando una fuente de datos que no has utilizado antes, se realiza una obtención de datos única, como se muestra en el gif a continuación. Posteriormente, la fuente de datos se programa para sincronizarse periódicamente y mantener los datos actualizados. Esta obtención de datos inicial normalmente se completa en un plazo de cero a diez minutos, según el tamaño y la complejidad de la fuente de datos.![](/migration-assets/using-reports/5.png)
+    
+
+### Habilitar el desglose en los informes
+
+Con la capacidad de [desglose](/t/y4h9qkr/reports#enabling-drilldown-in-chart-and-pivot-reports) en los informes de [gráficos](/t/h7h9qzr/chart-reports#enabling-drilldown-in-charts) y [tablas dinámicas](/t/q6h9qz5/pivot-reports#enabling-drilldown-in-pivot-reports), también puedes profundizar en los datos de tu informe mostrando una vista tabular de las filas subyacentes asociadas con puntos de datos específicos.
+
+## Aplicar estilos a tu informe
+
+Puedes aplicar estilos a tu informe. En la página de configuración del informe, haz clic en la pestaña **Estilo**, junto a la pestaña **Configuración**. Las opciones de estilo varían según el tipo de informe.
+
+-   Los [informes tabulares](/t/g9h9qzb/tabular-reports#applying-styles-to-tabular-reports) permiten personalizar el estilo de los **encabezados de columna**, las **filas** y las **celdas**.
+-   Los [informes de gráficos](/t/h7h9qzr/chart-reports#applying-styles-to-charts) tienen **10 variantes de color** para personalizar la apariencia del gráfico.
+-   Las [tablas dinámicas](/t/q6h9qz5/pivot-reports#applying-styles-to-pivot-tables) se pueden diseñar para los **encabezados**, las **celdas** y los **totales generales**.![](/migration-assets/using-reports/6.png) 
+
+## Acciones adicionales
+
+Puedes obtener una vista previa en tiempo real de tu informe sin guardarlo cada vez que cambies la configuración del informe.
+
+También puedes **editar**, **cambiar el nombre**, **eliminar** y **duplicar** un informe. Para hacerlo, haz clic en el botón **Más opciones** (![](/migration-assets/using-reports/1.png)) del informe que quieras > selecciona una de las siguientes opciones.
+
+1.  Haz clic en **Compartir** > **Configuración de uso compartido** > haz clic en **Agregar miembro** > elige el rol requerido: **Administrador** o **Miembro** > haz clic en **Agregar**.
+2.  Haz clic en **Editar** > en la página **Configurar informe**, selecciona los campos de la fuente de datos usando configuraciones como dimensión, medida y leyenda > haz clic en **Guardar**.
+3.  Cambia el nombre de un informe haciendo clic en **Cambiar nombre** > proporciona el nuevo nombre > haz clic en **Cambiar nombre**.
+4.  Haz clic en la opción **Eliminar** > **Eliminar**.
+5.  Selecciona la opción **Duplicar** > proporciona el nombre requerido para la copia de tu informe > haz clic en **Duplicar**. Se creará una copia del informe seleccionado, incluidos los permisos para compartirlo y las personalizaciones, en la página **Informes**.![](/migration-assets/using-reports/7.png)
+
+> **Nota:**
+> 
+> No puedes cambiar la fuente de datos ni el tipo de informe al editar un informe existente. Solo puedes cambiar el tipo de gráfico y otras propiedades.

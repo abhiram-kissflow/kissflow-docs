@@ -1,0 +1,7 @@
+{
+  "title": "Registro de auditoría",
+  "pages": [
+    "audit-log",
+    "event-categories-and-actions"
+  ]
+}

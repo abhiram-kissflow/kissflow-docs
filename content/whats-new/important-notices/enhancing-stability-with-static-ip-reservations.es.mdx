@@ -1,0 +1,30 @@
+---
+title: "Mejora de la estabilidad con reservas de IP estáticas"
+description: "El 7 de enero de 2024, Kissflow trasladó el tráfico de integración saliente de IP dinámicas a IP estáticas reservadas, por lo que las reglas de firewall con las IP de Kissflow incluidas en la lista de permitidos ya no necesitan cambiar con el tiempo."
+contentType: reference
+persona: shared
+section: whats-new
+tags:
+  - network
+  - integrations
+  - security
+  - notice
+---
+
+Kissflow envía llamadas salientes —incluidas las llamadas de integración a aplicaciones externas— a través de [Google Cloud NAT](https://cloud.google.com/nat/docs/overview). Antes del 7 de enero de 2024, estas llamadas usaban IP públicas dinámicas que podían cambiar con el tiempo, lo que significaba que los clientes que habían incluido las IP de Kissflow en la lista de permitidos de sus firewalls ocasionalmente tenían que actualizar sus reglas.
+
+## Qué cambió
+
+El **7 de enero de 2024**, Kissflow cambió Cloud NAT a la asignación manual de IP, lo que proporcionó al tráfico saliente un conjunto fijo de IP estáticas reservadas. Las reglas de firewall que incluyen estas IP en la lista de permitidos ya no necesitan actualizarse a medida que cambia la infraestructura subyacente de Kissflow.
+
+## A quiénes afectó
+
+Este cambio solo afectó a los clientes que habían incluido las IP de Kissflow en la lista de permitidos de su firewall para permitir que las llamadas de integración de Kissflow llegaran a su red. Los clientes sin esa configuración no se vieron afectados.
+
+Los clientes afectados debían incluir las nuevas IP estáticas en la lista de permitidos junto con las existentes antes de la transición y, posteriormente, eliminar las IP antiguas. La lista actual y oficial de IP que se deben incluir en la lista de permitidos se mantiene en [Incluir IP en la lista de permitidos para conexiones de datos externas](/docs/build/external-data/safelisting-ips-for-external-data-connections). Usa esa página para consultar las IP de tu región en lugar de cualquier lista de este aviso.
+
+## Ventana de cambio
+
+La migración de Cloud NAT se implementó el domingo 7 de enero de 2024, durante un periodo de tráfico mínimo. Las integraciones que se estuvieran ejecutando durante la transición podrían haber experimentado una interrupción de menos de un minuto.
+
+Si sigues viendo errores de integración que crees que están relacionados con la inclusión de IP en la lista de permitidos, [contacta con el soporte de Kissflow](/docs/whats-new/important-notices/slas-and-support-models#how-to-reach-support).

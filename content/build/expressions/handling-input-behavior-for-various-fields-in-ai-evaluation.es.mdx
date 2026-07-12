@@ -1,0 +1,107 @@
+---
+title: "Gestión del comportamiento de entrada de varios campos en la evaluación de IA"
+description: "BORRADOR (no verificado) — migrado desde /t/m1ylbzc/handling-input-behavior-for-various-fields-in-ai-evaluation"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Para los campos calculados, puedes usar **AI Evaluate** para probar las fórmulas, creadas manualmente o generadas mediante prompts de IA, antes de publicarlas. AI Evaluate proporciona datos de muestra rellenados previamente para las pruebas. Estas entradas predeterminadas se pueden editar, lo que te permite modificarlas.
+
+Sin embargo, la forma en que se escriben o seleccionan las entradas durante las pruebas puede diferir de su comportamiento en tiempo de ejecución. En este artículo se explica cómo gestionar eficazmente las entradas de cada campo durante las pruebas.
+
+**Campo** 
+
+**Descripción**
+
+Texto
+
+Los campos de texto calculados funcionan exactamente igual que las entradas de texto en tiempo de ejecución. Escribe cualquier valor alternativo que quieras probar en el campo de entrada y haz clic en **Resultados** para ver el resultado.
+
+![](/migration-assets/handling-input-behavior-for-various-fields-in-ai-evaluation/1.gif)
+
+**Formula**: \_created\_by.Name.toLowerCase()
+
+**Input**: Jane
+
+**Output**: Jane
+
+Número
+
+Los campos numéricos funcionan igual que en tiempo de ejecución. 
+
+![](/migration-assets/handling-input-behavior-for-various-fields-in-ai-evaluation/2.gif)
+
+**Formula**: if(isBlank(NumFieldOne), "num field is empty", "num field has value")
+
+**Input**: 1
+
+**Output**: num field has value
+
+Moneda
+
+Los códigos de moneda no están disponibles como opciones seleccionables en un menú desplegable, por lo que debes introducirlos manualmente.
+
+![](/migration-assets/handling-input-behavior-for-various-fields-in-ai-evaluation/4.gif)
+
+**Formula**: Curr1.convert(1.0, "INR")
+
+**Input**: 100 GBP
+
+**Output**: 100.0 INR
+
+Fecha
+
+Al editar la fecha de muestra, aparece una vista de calendario que te permite seleccionar cómodamente el día, el mes y el año.
+
+![](/migration-assets/handling-input-behavior-for-various-fields-in-ai-evaluation/3.gif)
+
+**Formula**: dateDiff(Dt1, Dt2, "DAY")
+
+**Input 1**: 01/01/2023 **Input 2**: 17/01/2023
+
+**Output**: 11
+
+Fecha y hora
+
+Al editar la hora de muestra, hay un selector de hora junto al calendario. Te permite elegir la hora y los minutos, con opciones de AM y PM.
+
+![](/migration-assets/handling-input-behavior-for-various-fields-in-ai-evaluation/7.gif)
+
+**Formula**: datetime1 - datetime2
+
+**Input 1**: 01/10/2023, 15:30 **Input 2**: 30/09/2023, 15:00
+
+**Output**: 1.0208333
+
+Desplegable, casilla de verificación o lista de comprobación, selección múltiple
+
+Para las entradas que permiten seleccionar varias opciones de un menú desplegable o una lista de comprobación, no hay ningún menú desplegable de selección al usar datos de muestra. En su lugar, puedes escribir las entradas que quieras, separándolas con comas.
+
+![](/migration-assets/handling-input-behavior-for-various-fields-in-ai-evaluation/6.gif)
+
+**Formula**: concatenate(MultiSelectList.get(2), "-", MultiSelectList.concatenate("-"))
+
+**Input**: Chennai, Coimbatore, Madurai
+
+**Output**: ,Coimbatore-Chennai-, Coimbatore-, Madurai
+
+Campo de usuario
+
+Introduce manualmente la dirección de correo electrónico del usuario. 
+
+![](/migration-assets/handling-input-behavior-for-various-fields-in-ai-evaluation/5.gif)
+
+**Formula**: \_modified\_by
+
+**Input**: [Natasha@kissflow.com](mailto:Natasha@kissflow.com)
+
+**Output**: Natasha Romanoff
+
+> **Nota**
+> 
+> AI Evaluate no admite la simulación de campos de geolocalización ni de escenarios que involucren campos Multiuser.

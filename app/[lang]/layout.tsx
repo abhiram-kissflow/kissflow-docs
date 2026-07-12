@@ -1,14 +1,21 @@
 import { Provider } from '@/components/provider';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { siteMetadata } from '@/lib/site-metadata';
+import { i18n } from '@/lib/i18n';
 import Script from 'next/script';
-import './global.css';
+import '../global.css';
 
 export const metadata = siteMetadata;
 
-export default function Layout({ children }: LayoutProps<'/'>) {
+export function generateStaticParams() {
+  return i18n.languages.map((lang) => ({ lang }));
+}
+
+export default async function Layout({ params, children }: LayoutProps<'/[lang]'>) {
+  const { lang } = await params;
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={lang} suppressHydrationWarning>
       <Script id="time-aware-theme" strategy="beforeInteractive">{`
         try {
           var preference = localStorage.getItem('kissflow-docs-theme');
@@ -20,7 +27,7 @@ export default function Layout({ children }: LayoutProps<'/'>) {
       `}</Script>
       <body className="flex flex-col min-h-screen font-sans" suppressHydrationWarning>
         <TooltipProvider>
-          <Provider>{children}</Provider>
+          <Provider locale={lang}>{children}</Provider>
         </TooltipProvider>
       </body>
     </html>

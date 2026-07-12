@@ -1,0 +1,100 @@
+---
+title: "Búsqueda entre aplicaciones mediante vinculación"
+description: "BORRADOR (sin verificar) — migrado desde /t/35yzjvd/application-to-application-lookup-through-linking"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+### ¿Qué es la búsqueda entre aplicaciones?
+
+La función de búsqueda entre aplicaciones permite que otras aplicaciones de tu cuenta obtengan información de tu aplicación actual. Con esta función, puedes vincular varias aplicaciones a tu aplicación y proporcionar distintos niveles de permisos de búsqueda para permitirles utilizar los datos disponibles en tu aplicación. Además de otras aplicaciones de tu cuenta, puedes vincular [portales](/t/m1h4azh18h4g0/portal-overview) a tu aplicación.
+
+#### Ventajas de la búsqueda entre aplicaciones
+
+-   La función de búsqueda reduce la necesidad de crear conjuntos de datos similares en varias aplicaciones de la misma cuenta, lo que reduce la redundancia de datos y el riesgo de utilizar información potencialmente desactualizada.
+-   Al gestionar datos críticos, esta función puede ayudarte a definir una única aplicación como fuente de datos auténtica y permitir que los datos fluyan a otras aplicaciones de forma controlada.
+
+### ¿Cómo funciona la vinculación de aplicaciones?
+
+Supón que tienes una aplicación llamada Employee Management en tu cuenta que contiene la información de todos los empleados de tu organización. Estás creando otra aplicación llamada Leave Management para realizar un seguimiento de las solicitudes de permisos de los empleados.
+
+En este caso, necesitarás los datos de los empleados en la aplicación Leave Management para realizar un seguimiento de las solicitudes y aprobaciones. En lugar de crear un conjunto de datos con los datos de los empleados en la aplicación Leave Management, puedes vincularla a la aplicación Employee Management y proporcionar los permisos necesarios para que la aplicación Leave Management realice una búsqueda en la aplicación Employee Management.
+
+### Vincular aplicaciones
+
+1.  Ve a la aplicación desde la que quieres permitir que otras aplicaciones busquen información. En el ejemplo anterior, se trata de la aplicación Employee Management.
+2.  Haz clic en **Gestionar >** **Editar aplicación**.
+3.  En la barra de navegación izquierda, ve a **Configuración > Configuración de seguridad**.
+4.  Aquí, haz clic en el botón **Vincular aplicación**. Verás una lista de las aplicaciones disponibles en tu cuenta. Selecciona una aplicación y haz clic en **Siguiente**.![](/migration-assets/application-to-application-lookup-through-linking/1.png) ![](/migration-assets/application-to-application-lookup-through-linking/2.png)
+    
+    >  **Nota**: Solo puedes vincular una aplicación a la vez.
+    
+     
+En la página **Configuración**, haz clic en **Añadir flujo** para ver las fuentes de datos de la aplicación actual.
+
+![](/migration-assets/application-to-application-lookup-through-linking/5.png)
+
+6\. En la ventana emergente que aparece, selecciona los procesos, tableros o formularios de datos necesarios y configura los permisos de búsqueda.
+
+Hay tres niveles de permisos:
+
+-   **Todos los campos** \- De forma predeterminada, se comparten todos los campos, pero si desmarcas esta opción, se prohibirá la búsqueda para la fuente de datos seleccionada y otras aplicaciones no podrán recuperar datos de ella.
+-   **Buscar en todos los campos** - Acceso sin restricciones para buscar cualquier dato de esta fuente de datos.
+-   **Buscar en campos específicos** - Acceso restringido para buscar campos concretos de esta fuente de datos.
+
+Haz clic en **Listo** una vez que hayas configurado los permisos.
+
+![](/migration-assets/application-to-application-lookup-through-linking/7.png)
+
+![](/migration-assets/application-to-application-lookup-through-linking/3.png)
+
+Has vinculado correctamente una aplicación a tu aplicación y has proporcionado permisos de búsqueda.
+
+### Crear búsquedas con datos de otras aplicaciones
+
+Una vez que hayas proporcionado permisos de búsqueda para que otras aplicaciones utilicen los datos de los procesos, tableros o formularios de datos de tu aplicación como fuentes de datos, podrás crear búsquedas.
+
+Por ejemplo, ve a la aplicación Leave Management y abre el formulario que requiere datos de la aplicación Employee Management. Crea un campo de búsqueda en este formulario y verás que los flujos de la aplicación Employee Management aparecen en la sección de propiedades del campo y están disponibles para su uso.
+
+Sigue estos pasos:
+
+1.  Ve a tu aplicación y abre el formulario en el que deseas crear una búsqueda de datos.
+2.  En la sección **Añadir campos nuevos**, ve a la categoría **Búsqueda de datos** en **Todos los campos** y añade un campo de búsqueda al formulario.
+3.  Haz clic en el campo de búsqueda recién añadido. En la sección **Propiedades del campo**, el menú desplegable **Elegir un flujo para buscar** mostrará todos los flujos disponibles en los que puedes realizar búsquedas, incluidos los flujos de las aplicaciones vinculadas.
+4.  Selecciona el flujo necesario. En la siguiente sección, aparecerán todos los campos que forman parte del flujo elegido. Selecciona los campos necesarios. Puedes seleccionar más de un campo aquí.
+5.  Completa las demás propiedades necesarias y haz clic en **Guardar**.
+
+![](/migration-assets/application-to-application-lookup-through-linking/4.png)
+
+Has creado correctamente una búsqueda de datos de una aplicación a otra.
+
+Haz clic [aquí](/t/g9h4azr36h4g7/lookup-field) para obtener más información sobre el campo de búsqueda.
+
+### Desvincular aplicaciones
+
+Puedes eliminar la vinculación de aplicaciones por completo o eliminarla parcialmente solo para determinadas fuentes de datos.
+
+1.  Ve a **Configuración > Configuración de seguridad**.
+2.  Para eliminar completamente la vinculación, haz clic en **Desvincular** junto a la aplicación necesaria. Al hacerlo, la aplicación desvinculada ya no podrá buscar datos en tu aplicación.
+
+**Nota**: Una vez que desvincules una aplicación, los campos de búsqueda que utilizan flujos de esa aplicación dejarán de funcionar.
+
+![](/migration-assets/application-to-application-lookup-through-linking/8.png)3\. Para eliminar parcialmente los permisos:
+
+-   Haz clic en el nombre de la aplicación en **Aplicaciones vinculadas**.
+-   Ve a la fuente de datos necesaria.
+-   Desmarca la opción **Todos los campos** y haz clic en **Listo**.![](/migration-assets/application-to-application-lookup-through-linking/6.png) 
+
+### Preguntas frecuentes
+
+1. **¿Por qué no puedo archivar una aplicación?**  
+    Si no puedes archivar una aplicación, es posible que otras aplicaciones vinculadas estén obteniendo datos de esta aplicación mediante una búsqueda de datos. Debes eliminar las dependencias de búsqueda de datos para poder archivar la aplicación.
+2. **¿Por qué no puedo eliminar algunos campos de mi formulario?**  
+    No puedes eliminar los campos del formulario que dependen de campos de otras aplicaciones vinculadas. Debes eliminar la dependencia de búsqueda y, después, proceder a eliminar el campo.
+**¿Por qué no puedo implementar mi aplicación?**  
+Si tu aplicación busca datos en otras aplicaciones vinculadas que aún no se han implementado, no podrás implementar tu aplicación hasta que se implementen las aplicaciones vinculadas. Haz clic [aquí](/t/h7yz5qq/app-deployment#deployment-dependencies) para obtener más información.

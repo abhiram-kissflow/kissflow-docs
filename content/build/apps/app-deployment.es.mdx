@@ -1,0 +1,133 @@
+---
+title: "Implementación de aplicaciones"
+description: "BORRADOR (sin verificar) — migrado desde /t/h7yz5qq/app-deployment"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Implementar aplicaciones es la forma de aportar valor a los usuarios finales mediante el lanzamiento de actualizaciones de la aplicación. Los desarrolladores de aplicaciones pueden implementar aplicaciones del entorno de desarrollo al entorno de pruebas.  
+La implementación de aplicaciones es necesaria para transferir tu aplicación completamente desarrollada del entorno de desarrollo al entorno de destino, es decir, al entorno de pruebas o de producción.
+
+## Proceso de implementación
+
+El proceso de implementación de la aplicación consta de tres etapas: previsualizar los flujos que se van a implementar, iniciar la implementación y completar correctamente la implementación si no hay errores.
+
+### Vista previa de la implementación
+
+Para previsualizar los flujos que se incluirán en una implementación, haz clic en el ícono de flecha en la esquina superior derecha del creador de aplicaciones y haz clic en **Deploy**. Esta acción mostrará una ventana de vista previa con la lista de cambios principales que se enviarán al entorno de destino en esta compilación. El proceso de implementación real comenzará solo cuando hagas clic en Deploy en esta ventana emergente. Verifica los flujos y personaliza el número de versión si es necesario.
+
+> **Nota**:
+> 
+> Puedes hacer clic en cancelar en cualquier momento durante esta etapa y volver al creador de aplicaciones, pero no puedes detener la implementación una vez que haces clic en el botón **Deploy** aquí e inicias el proceso de implementación.
+
+![](/migration-assets/app-deployment/1.png)
+
+#### ¿Qué son los cambios principales?
+
+El término **cambios principales** hace referencia a los siguientes flujos: Board, Process, Dataform, Integrations, Analytics y Page. Tu aplicación puede contener otros flujos y componentes además de estos, pero en esta ventana de vista previa solo se mostrarán los flujos mencionados anteriormente.
+
+Las siguientes son algunas de las excepciones que no aparecerán en la vista previa de la implementación:
+
+-   Conexiones en las integraciones.
+-   Componentes personalizados.
+-   Tabla de decisiones.
+-   Objetos de datos externos.
+-   Roles.
+-   Menús de navegación.
+-   Cualquier cambio en el nombre, la descripción o el ícono de visualización de la aplicación.
+
+> **Notas**:
+> 
+> 1\. Los flujos marcados como principales en la lista no son obligatorios para que tu aplicación se implemente correctamente.
+> 
+> 2\. Una vez iniciado el proceso de implementación, se implementarán todos los flujos y componentes de tu aplicación, independientemente de si forman parte de la lista de cambios principales o no.
+
+### Iniciar la implementación en el entorno de destino
+
+1.  En la ventana de vista previa, haz clic en **Deploy**.
+2.  Comenzará el proceso de implementación. Todos los flujos incluidos en esta compilación se validarán e implementarán uno por uno.
+
+![](/migration-assets/app-deployment/2.png)
+
+3. Una vez completada correctamente la implementación, recibirás una notificación mediante la ventana emergente de confirmación y a través de notificaciones dentro de la aplicación y por correo electrónico.
+
+![](/migration-assets/app-deployment/3.png)
+
+ 4. Después de la primera implementación, todas las integraciones de tu aplicación recién implementada estarán desactivadas de forma predeterminada. Haz clic en el enlace de la ventana emergente de confirmación para ir a la página de integraciones y administrarlas. Es posible que tengas que volver a autenticar los conectores para activar las integraciones.
+
+> **Nota**:
+> 
+> En las implementaciones posteriores, las integraciones se desactivarán si se cumple alguna de las siguientes condiciones:
+> 
+> -   Si la integración se agregó recientemente en esta implementación.
+>     
+> -   Si es una integración archivada anteriormente que se desarchivó para esta implementación.
+>     
+> -   Si la integración tiene activadores actualizados.
+>     
+> 
+> Las integraciones desactivadas se pueden activar manualmente después de la implementación.
+
+### Solución de problemas de errores de implementación
+
+La implementación de una aplicación puede fallar si los flujos incluidos en la aplicación no superan la comprobación de validación que se realiza durante el proceso de implementación.
+
+Entre los posibles escenarios de error se incluyen los siguientes:
+
+1.  Si una integración que todavía está activa en la compilación anterior de esta aplicación se archiva para la implementación actual, se producirá un error. Para solucionarlo, debes desactivar la integración correspondiente en el entorno de destino e iniciar la implementación nuevamente.  
+     
+2.  Error de API durante la implementación. Se te proporcionará el motivo o un ID de solicitud. Puedes ponerte en contacto con nuestro equipo de soporte con el ID de solicitud para obtener más ayuda con los errores.
+
+Ten en cuenta que, si se produce cualquier tipo de error durante la implementación, se considerará una implementación fallida y se registrará como tal en el historial de implementaciones. Para implementar la aplicación, debes resolver los errores e iniciar la implementación nuevamente.
+
+![](/migration-assets/app-deployment/4.png)
+
+> **Nota**:
+> 
+> También puedes consultar los detalles del error en la página del historial de implementaciones. Sin embargo, si no puedes ver los errores en el historial de implementaciones, podría deberse a que se trataba de un intento de implementación anterior realizado antes de esta actualización.
+
+### Implementación en espera
+
+La implementación de una aplicación puede ponerse en espera si hay una discrepancia en el tipo de datos en uno o más flujos de tu aplicación. Esto no es un escenario de error, ya que puedes resolver la discrepancia en el tipo de datos en la ventana de implementación y continuar con la implementación.
+
+![](/migration-assets/app-deployment/5.png)
+
+![](/migration-assets/app-deployment/6.png)
+
+Una vez que resuelvas los errores y hagas clic en continuar, el proceso de implementación comenzará nuevamente.
+
+### Dependencias de la implementación
+
+La implementación de la aplicación fallará si has utilizado una [búsqueda de aplicación a aplicación mediante vinculación](/t/35yzjvd/application-to-application-lookup-through-linking) en tu aplicación.
+
+La ventana emergente **Dependencias de otras aplicaciones** aparece cuando has creado búsquedas en formularios desde otras aplicaciones que aún no se han implementado.
+
+Esta ventana emergente muestra la lista de aplicaciones vinculadas, así como los formularios y campos de tu aplicación que utilizan los datos. Para solucionar esta dependencia, primero se deben implementar las aplicaciones que aparecen aquí. Solo entonces podrás implementar tu aplicación.
+
+![](/migration-assets/app-deployment/7.png)
+
+> **Nota**:  
+> Las dependencias de implementación se producen cuando vinculas dos aplicaciones que no se han implementado y buscas datos de una aplicación en otra.  
+> No encontrarás dependencias de implementación en los siguientes casos:  
+> **•** Si vinculas una aplicación que no se ha implementado con la tuya sin buscar datos en ella.  
+> **•** Si vinculas una aplicación implementada y creas búsquedas de datos desde esa aplicación hacia la tuya.
+
+### Administrar los datos de la aplicación después de la implementación
+
+Implementar una aplicación significa trasladarla del entorno de desarrollo a los entornos de pruebas o de producción.
+
+Cuando trasladas la aplicación de un entorno a otro, es esencial volver a autenticar las conexiones utilizando los detalles del entorno de destino para evitar interrupciones.
+
+#### Recuperación de datos en Desarrollo frente a Producción
+
+El origen de datos de tu aplicación cambia según el entorno en el que se ejecute:
+
+1.  Durante el desarrollo o las pruebas: la aplicación recupera los datos del entorno de desarrollo. Esto te permite trabajar con datos de prueba y realizar cambios sin afectar las operaciones activas.
+2.  Después de la implementación: una vez implementada la aplicación, utiliza el entorno de producción para recuperar sus datos. Este entorno admite datos activos y usuarios finales, lo que garantiza un funcionamiento fluido para todas las partes interesadas. Esto significa que las URL del entorno de desarrollo ya no funcionarán en producción. Para las integraciones, es obligatorio volver a autenticar después de cada implementación. Obtén más información [aquí](/t/m1yzjvt/managing-integrations-in-apps).
+
+Obtén más información sobre los entornos [aquí](/t/g9h9qkp/app-environments).

@@ -1,0 +1,79 @@
+---
+title: "Configurar acciones para los pasos del formulario de proceso"
+description: "BORRADOR (sin verificar) — migrado desde /t/x2yzjc7/configuring-actions-for-process-form-steps"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Puedes determinar qué acción pueden realizar el asignado y el iniciador de un elemento en cada paso.
+
+Ve a la pestaña **Permisos** en el editor de procesos. Selecciona cualquier paso y desplázate hasta la parte inferior del formulario. Haz clic en **Configurar** **acciones** y pasa el cursor sobre las acciones.
+
+![](/migration-assets/configuring-actions-for-process-form-steps/1.png)
+
+##### Acciones para elementos nuevos
+
+Cuando un usuario con el rol para acceder al formulario de proceso inicia un elemento nuevo, tiene dos acciones en la parte inferior. De forma predeterminada, estas son **Enviar** y **Descartar**.
+
+![](/migration-assets/configuring-actions-for-process-form-steps/2.png)
+
+Para configurarlo, haz clic en el paso llamado **Inicio** y desplázate hasta la parte inferior. Puedes elegir **Ocultar** o **Mostrar la acción Descartar** al iniciador de forma predeterminada. El botón **Enviar** no se puede ocultar porque es la acción que mueve el elemento al siguiente paso y debe mostrarse.
+
+Si quieres cambiar el texto, pasa el cursor sobre **Descartar** o **Enviar** y haz clic en **Avanzado**. Puedes cambiar el nombre por otra opción o hacer clic en **Personalizado** para introducir un nombre nuevo.
+
+![](/migration-assets/configuring-actions-for-process-form-steps/3.png)
+
+En la **configuración avanzada**, también puedes añadir una validación basada en los datos de cualquier campo. Las validaciones de campo que configuraste en el formulario también estarán vigentes, pero esta es una buena opción si esos valores son dinámicos durante el flujo de trabajo o si quieres usar un campo del sistema.
+
+##### Acciones del asignado para elementos en progreso
+
+En cada paso puedes configurar qué acciones puede realizar el asignado.
+
+![](/migration-assets/configuring-actions-for-process-form-steps/6.png)
+
+Elige cualquier paso en el menú de la izquierda. Desplázate hacia abajo en el formulario y haz clic en **Configurar acciones**.
+
+-   **Enviar** es la acción que avanza el flujo de trabajo al siguiente paso.
+-   **Reasignar** permite al asignado actual asignar el elemento a un usuario diferente en tu aplicación. También puedes restringir la reasignación a roles específicos activando el interruptor **Restringir reasignación** y seleccionando un usuario o grupo en el menú desplegable.  
+     ![](/migration-assets/configuring-actions-for-process-form-steps/5.png)
+    
+    > **Nota**:
+    > 
+    > En el entorno de ejecución, solo puedes reasignar un elemento a un usuario individual que forme parte de los roles de aplicación permitidos cada vez.
+    > 
+    > ![](/migration-assets/configuring-actions-for-process-form-steps/4.png)
+    
+-   **Enviar** **atrás** permite al asignado devolver el elemento a un paso anterior del flujo de trabajo.
+-   **Rechazar** devuelve el elemento al creador y cancela el flujo de trabajo. Los elementos rechazados se pueden reiniciar, pero se les asigna un nuevo número de solicitud.
+
+Al pasar el cursor sobre las opciones, puedes mostrar, ocultar o personalizar estos botones y también añadir validaciones.
+
+##### Acciones del iniciador para elementos en progreso
+
+Una vez que los iniciadores envían un elemento, pueden hacerle seguimiento en el flujo de trabajo desde **Mis elementos**. Cuando abran el elemento, verán los campos configurados en el paso **Inicio**. En la parte inferior habrá un conjunto de acciones que pueden realizar. Puedes configurar estas opciones en **Configurar acciones** y, a continuación, seleccionar **Configurar acciones del iniciador**.
+
+![](/migration-assets/configuring-actions-for-process-form-steps/7.png)
+
+-   Reasignar permite al creador asignar la tarea a otro asignado.
+-   Retirar permite al creador eliminar el elemento del flujo de trabajo.
+
+Tienes las mismas opciones para mostrar, ocultar o personalizar estos botones, así como para configurar validaciones, por ejemplo, que solo se apliquen si el elemento fue creado por un usuario específico.
+
+#### Actualizar campos
+
+Para saber cómo configurar campos de actualización en el formulario en determinados pasos del flujo de trabajo, haz clic [aquí](/t/m1h9qtt/refreshing-lookup-and-aggregation-field-values).
+
+## [Restringir la opción de devolver elementos](/t/g9h9qt6/configuring-actions-for-process-steps#restricting-the-option-to-send-back-items)
+
+Puedes decidir limitar el número de pasos anteriores de tu flujo de trabajo a los que se puede devolver un elemento desde un paso específico del proceso. Esta opción permite un mayor control sobre el flujo de trabajo. Para activarla, activa el botón de alternancia y selecciona los pasos en el menú desplegable; la funcionalidad para devolver elementos del paso actual quedará limitada a esos pasos.
+
+> **Nota:**
+> 
+> Cuando desactivas esta opción, los elementos se pueden enviar a todos los pasos anteriores.
+
+![](/migration-assets/configuring-actions-for-process-form-steps/8.png)

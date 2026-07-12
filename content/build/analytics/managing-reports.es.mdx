@@ -1,0 +1,77 @@
+---
+title: "Administrar informes"
+description: "BORRADOR (sin verificar) — migrado desde /t/p8h9qz2/managing-reports"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Para acceder a los [informes](/t/35h9qzj/analytics-reports-an-overview) en Analytics, haz clic en **Analytics** en la barra de navegación izquierda y abre la página **Informes**. Aquí puedes ver todos los informes creados en Analytics a los que tienes acceso.
+
+Cada informe se muestra en una vista de tarjeta. En estas tarjetas puedes consultar los siguientes detalles: 
+
+-   Nombre
+-   Tipo de informe
+-   Hora de la última modificación
+-   Estado de uso compartido del informe![](/migration-assets/managing-reports/1.png) 
+
+Puedes buscar y ordenar fácilmente los informes alfabéticamente o por fecha de creación o modificación. También puedes filtrar estos informes con los siguientes filtros:
+
+-   **Todos los informes**: muestra todos los informes de la página.
+-   **Mis informes**: muestra los informes que has creado.
+-   **Informes compartidos**: muestra los informes a los que tienes acceso.
+
+Al abrir un informe, puedes ver cuándo se sincronizó por última vez su fuente de datos correspondiente.  
+ 
+
+![](/migration-assets/managing-reports/2.png)
+
+> **Nota:**
+> 
+> Los informes y los informes del sistema existentes en formularios, como procesos, tableros o conjuntos de datos, no son visibles en Analytics. El alcance de los informes creados aquí se limita a Analytics.   
+
+## Administrar un informe
+
+Después de crear un informe, tienes varias formas de administrarlo. Haz clic en el botón **Más opciones** (![](/migration-assets/managing-reports/5.png)) en la página del visor de informes.
+
+1. **Compartir**: comparte el informe con usuarios y grupos. Tienes la opción de permitir que los usuarios compartan el informe con más personas.
+2. **Exportar**: exporta todos los datos del informe como un archivo **CSV** o **JSON**. La exportación solo está disponible para informes tabulares. Después de exportar, recibirás un correo electrónico con un enlace para descargar el informe.
+
+> **Nota:**  
+> Solo puedes exportar datos de un informe tabular.
+
+Al hacer clic en **Detalles** debajo del botón **Más opciones** (![](/migration-assets/managing-reports/5.png)) en el visor de informes, puedes ver el nombre y la descripción del informe, sus administradores, la fuente de datos a partir de la cual se creó el informe, la hora de creación, la hora de la última modificación y la hora de la última sincronización.
+
+![](/migration-assets/managing-reports/3.png)
+
+##  Administrar roles y permisos
+
+Hay dos roles de informe diferentes en Analytics.
+
+-   **Administradores**: pueden editar, eliminar y compartir un informe.
+-   **Miembros**: pueden ver un informe y, opcionalmente, editarlo y compartirlo.
+
+![](/migration-assets/managing-reports/4.png)
+
+De forma predeterminada, el creador de un informe se convierte en administrador. Un informe puede tener varios administradores. El administrador del informe puede añadir otros usuarios al informe como miembros o administradores. Sin embargo, solo un superadministrador de la cuenta puede añadir usuarios adicionales o añadirse a sí mismo como administrador.
+
+## Revocar el acceso a los informes
+
+Para revocar el acceso a un informe:
+
+1.  En la página del informe, haz clic en el botón **Más opciones** (![](/migration-assets/managing-reports/5.png)) > **Compartir**.
+2.  Selecciona el miembro que quieres eliminar y, en la tarjeta del usuario, haz clic en el botón **Más opciones** (![](/migration-assets/managing-reports/5.png)) > **Eliminar miembro**.
+
+> **Nota:**
+> 
+> Si se revoca el acceso de un miembro a un usuario, este ya no podrá ver ni acceder al informe.
+> 
+> Si se elimina al usuario que era el único administrador del informe, el superadministrador de la cuenta será asignado como nuevo administrador del informe. Los usuarios o grupos con los que un usuario había compartido un informe antes de que se revocara su acceso todavía podrán acceder a él.
+
+> **Nota:**
+> 
+> Solo un [superadministrador](/t/35h4ak0/user-roles-permissions#super-admins) puede añadir un administrador o revocar el acceso de un administrador del informe.

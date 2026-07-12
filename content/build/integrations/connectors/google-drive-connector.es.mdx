@@ -1,0 +1,71 @@
+---
+title: "Conector de Google Drive"
+description: "BORRADOR (sin verificar): migrado desde /t/x2h4als/google-drive-connector"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+## ¿Qué es Google Drive?
+
+Almacena archivos en la nube, sincronízalos entre dispositivos y compártelos con otros usuarios mediante Google Drive.
+
+## Acerca de la integración de Google Drive con Kissflow
+
+El conector de Google Drive de Kissflow Integration te permite conectar y sincronizar tus carpetas y archivos de Google Drive con aplicaciones populares de terceros y Kissflow Apps. Debes tener una cuenta de Google válida y ser cliente de pago de Kissflow para realizar la integración con Google Drive.
+
+Usa el conector de Google Drive para recibir datos de otros flujos o aplicaciones y realizar acciones específicas. Por ahora, el conector de Google Drive no admite eventos desencadenantes.
+
+Por ejemplo, después de completar un flujo de trabajo de Kissflow Process, puedes configurar una integración con el conector de Google Drive para guardar archivos adjuntos en carpetas específicas. También puedes crear acciones para realizar determinadas tareas, como enviar un correo electrónico automático a los usuarios.
+
+### Acciones del conector de Google Drive
+
+**Evento(s) de acción**
+
+**Descripción**
+
+Crear una carpeta
+
+Esta acción crea una carpeta nueva y vacía.
+
+Subir archivos
+
+Esta acción puede copiar archivos de otros servicios a Google Drive.
+
+Mover un archivo
+
+Esta acción mueve un archivo de una carpeta a otra.
+
+Reemplazar un archivo
+
+Esta acción sube un archivo a tu unidad y reemplaza un archivo existente.
+
+Buscar una carpeta
+
+Esta acción de búsqueda encuentra una carpeta específica en tu unidad por nombre.
+
+Buscar un archivo
+
+Esta acción de búsqueda encuentra un archivo específico por nombre de archivo.
+
+### Conector de Google Drive como paso de acción
+
+1.  En tu cuenta de Kissflow, haz clic en el botón **Crear** del panel de navegación izquierdo y selecciona **Integración** en la lista. Introduce un nombre y una descripción únicos para tu integración y haz clic en **[Crear](/t/60h4akx/creating-an-integration)**. 
+    
+2.  Una vez dentro del editor, configura un paso de desencadenador, por ejemplo, un evento desencadenante de Kissflow Process, **Cuando un elemento completa su flujo de trabajo.**
+3.  Después de configurar el paso de desencadenador anterior, haz clic en el botón Añadir (![](/migration-assets/xero-connector/1.png)) junto a él para configurar el paso de acción. Busca **Google Drive** y selecciona la [acción](https://helpdocs.kissflow.com/app-connectors/google-drive-connector#action_s_in_google_drive_connector) que quieras.![](/migration-assets/google-drive-connector/2.png) 
+4.  Después de elegir el evento de acción, autentica el conector. Haz clic en **+Añadir una cuenta** e inicia sesión con tu cuenta de Google. Kissflow utiliza OAuth de Google para la autenticación.
+5.  Después de autenticarte con tu cuenta de Google, añade los valores correspondientes a los campos del formulario de Google Drive. Puedes hacer clic en **Actualizar campos** para ver todos los campos actualizados del formulario de Google Drive seleccionado.  
+    También puedes asignar campos de Google Drive desde el paso de desencadenador o campos de tus pasos de acción anteriores. Estos valores se añadirán automáticamente a los campos del elemento después de ejecutar la acción.![](/migration-assets/google-drive-connector/1.png) 
+6.  Haz clic en **Siguiente**  
+7.  Después de una configuración correcta, prueba si el paso de acción de Google Drive está configurado correctamente haciendo clic en el botón **P****rueba**. El conector extraerá los datos de los campos de la cuenta de Google seleccionada y los mostrará como una salida JSON. Al igual que con el paso de desencadenador, se te notificará cualquier error de inmediato. Corrígelos antes de volver a probar el paso de acción.
+
+### Configurar un conector de Google Drive
+
+Después de crear un flujo de trabajo personalizado con los pasos de acción del conector de Google Drive, activa el botón de alternancia para activar la ejecución de la integración. Una vez que se produzca un evento desencadenante, se activarán las acciones de Google Drive.
+
+Para asegurarte de que tus integraciones estén configuradas y probadas correctamente, consulta nuestra [guía de prácticas recomendadas](/t/p8yzsxn/best-practices-for-using-kissflow-integrations) para obtener consejos sobre cómo crear soluciones sólidas y fáciles de mantener.

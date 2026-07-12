@@ -1,0 +1,69 @@
+---
+title: "Gestión de identidades y accesos (IAM)"
+description: "BORRADOR (sin verificar) — migrado desde /t/g9ykcw7/identity-and-access-management-iam"
+contentType: use-case
+persona: citizen-developer
+section: build
+---
+
+La gestión de identidades y accesos es la base de seguridad de la empresa moderna, ya que garantiza que las personas adecuadas tengan acceso a los recursos adecuados, en el momento adecuado y por los motivos adecuados. Las integraciones son la piedra angular de una estrategia de IAM eficaz, ya que conectan los sistemas de RR. HH. y los flujos de trabajo internos con proveedores de identidad como Okta. Al automatizar la gestión del ciclo de vida de los usuarios, el aprovisionamiento, las auditorías y la eliminación del aprovisionamiento, las organizaciones pueden mejorar la seguridad, garantizar el cumplimiento y ofrecer a los empleados una experiencia de acceso fluida desde su primer día hasta el último.
+
+## Conectores en este sector
+
+**Aplicación**
+
+**Descripción**
+
+**[Okta](/t/35h4afx/okta-connector)**
+
+Una plataforma líder de gestión de identidades y accesos que proporciona conexiones seguras entre las personas y la tecnología, y permite el inicio de sesión único, la autenticación multifactor y la gestión automatizada del ciclo de vida de los usuarios.
+
+**[HTTP](/t/p8h4aky/http-connector)**
+
+Además de las acciones prediseñadas disponibles en Kissflow Integrations para IAM, puede haber situaciones en las que necesites realizar una acción personalizada. En esos casos, puedes usar el conector HTTP para configurar llamadas a la API desde cero e interactuar con cualquier servicio que exponga una API REST.
+
+## Casos de uso de integración con Kissflow
+
+Estos son ejemplos prácticos y basados en situaciones de cómo Kissflow puede activar acciones en Okta para resolver problemas empresariales habituales.
+
+### Okta
+
+**Objetivo empresarial**
+
+**Desencadenador (en Kissflow)**
+
+**Acción (en Okta)**
+
+**Situación detallada**
+
+**Beneficio clave**
+
+Automatizar el aprovisionamiento de usuarios
+
+RR. HH. envía un _formulario de nueva contratación_ y se acepta la oferta.
+
+Añadir un usuario.
+
+Kissflow añade automáticamente al empleado como usuario en Okta y lo asigna al grupo predeterminado _Todo el personal_.
+
+Garantiza que las nuevas contrataciones tengan acceso desde el primer día a los sistemas esenciales y elimina las tareas manuales de configuración de TI.
+
+Agilizar las auditorías de acceso
+
+TI introduce un correo electrónico en una tarea de _auditoría de acceso_.
+
+Obtener los detalles del usuario.
+
+El flujo de trabajo recupera el perfil de ese usuario de Okta —_estado, grupos y último inicio de sesión_— y lo muestra en el formulario de Kissflow.
+
+Acelera las auditorías de seguridad y cumplimiento al proporcionar acceso inmediato a los datos del usuario dentro del flujo de trabajo de auditoría.
+
+Proteger la baja de empleados
+
+Un gerente completa una lista de comprobación de _salida de empleado_.
+
+Desactivar un usuario.
+
+Kissflow desactiva al instante al usuario que deja la empresa en Okta, bloqueando todo el acceso a los sistemas mientras continúan los pasos posteriores del proceso de baja.
+
+Reduce los riesgos de seguridad al garantizar la revocación inmediata y fiable del acceso de los empleados que dejan la empresa.

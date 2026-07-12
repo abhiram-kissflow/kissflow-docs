@@ -1,0 +1,73 @@
+---
+title: "Creación y administración de portales"
+description: "BORRADOR (sin verificar) — migrado desde /t/g9h4azq/creating-and-managing-portals"
+contentType: guide
+persona: admin
+section: admin
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+## Crear un portal desde cero
+
+Crear un nuevo portal dentro de Kissflow es un proceso sencillo. Como [Superadministrador](/t/35h4ak036h4gg/user-roles-permissions) de tu cuenta, puedes crear portales. 
+
+1.  Haz clic en el botón **Crear** (![](/migration-assets/creating-and-managing-portals/3.png))> **Portal** en la barra de navegación izquierda para crear un nuevo portal.  ![](/migration-assets/creating-and-managing-portals/1.png) 
+2.  Introduce un nombre único para tu portal. Debe tener menos de 80 caracteres. Asigna a tu portal una dirección de dominio personalizada. Los usuarios externos usarán la URL de **Dominio del portal** para acceder a tu portal. Más adelante, puedes cambiar este dominio del portal desde la administración del portal. 
+3.  Después de crear el portal, ve a **Administrar** y haz clic en **Editar portal**. Accederás al entorno de desarrollo que te permite desarrollar la aplicación del portal, que puedes compartir con los usuarios del portal.  
+     ![](/migration-assets/creating-and-managing-portals/2.png)   
+    [Haz clic aquí](/t/g9h9qkp/app-environments) para obtener más información sobre los diferentes tipos de entornos en un creador de aplicaciones. Una vez creado un portal, permanecerá en estado de borrador hasta que lo hagas público implementando la aplicación del portal desarrollada.
+
+Para aprender a crear tu aplicación desde cero, consulta estos temas a continuación:
+
+1.  Asignar [roles y permisos](/t/h7yzj46/application-roles).
+2.  Crear [formularios de datos](/category/dataforms-in-apps), [procesos](/category/processes-in-apps) y [tableros](/category/boards-in-apps).
+3.  [Diseñar la interfaz de usuario con páginas](/t/60yzj91/app-pages-overview).
+4.  Crear rutas de [navegación](/t/35yzja6/creating-and-managing-navigation) personalizadas.
+5.  Crear [componentes](/t/y4yzj4d/creating-custom-components).
+6.  [Integrar](/t/m1yzjvt/managing-app-integration) otras aplicaciones.
+7.  Administrar la [seguridad y la configuración](/t/q6yq2wc/managing-portal-users) de la aplicación.
+
+> Un usuario con acceso a tus portales públicos activos, pero no a tu cuenta de Kissflow, se denomina usuario externo.  
+
+## Administrar portales
+
+Después de crear un portal, puedes encontrarlo en el entorno de producción, en la página **Explorar**, dentro de la sección **Administrados por mí**. Puedes agregarte como administrador del portal. Cada cuenta Enterprise de Kissflow puede crear un máximo de 10 portales nuevos, y cada portal puede tener un máximo de 10 usuarios externos. Esto permite a los clientes experimentar con la creación de portales y probarlos agregando usuarios externos de prueba. Cuando un cliente quiera publicar un portal que ha creado como un portal externo completamente funcional y agregar usuarios externos reales, puede ponerse en contacto con el equipo de soporte para consultar los precios y obtener más información.  
+ 
+
+![](/migration-assets/creating-and-managing-portals/4.png)
+
+Después de crear un portal, puedes agregar otros administradores del portal para administrarlo. Haz clic en **Compartir** y, a continuación, en **+ Agregar usuarios** para agregar a cualquier usuario que forme parte de tu cuenta de Kissflow y permitirle administrar este portal. El mismo usuario puede ser administrador del portal de varios portales. Los administradores del portal pueden activar, desactivar, editar o archivar un portal. El administrador del portal también tiene permiso para implementar nuevas versiones de una aplicación dentro de un portal. Actualmente, para eliminar un portal debes ponerte en contacto con el equipo de soporte. En la configuración para compartir el portal, puedes encontrar los diferentes [roles](/t/h7yzj46/application-roles) creados para usarlos dentro de tu aplicación. 
+
+![](/migration-assets/creating-and-managing-portals/5.png)
+
+## Activar y desactivar portales 
+
+Después de crear tu aplicación desde cero y probarla en el entorno de prueba, puedes implementarla y publicarla, lo que permitirá a los usuarios del portal iniciar sesión y acceder a ella. Compartir la URL del dominio del portal con los usuarios del portal les permitirá crear una cuenta y acceder a él. Haz clic en el botón **Más opciones** (![sin nombre.png](/migration-assets/creating-and-managing-portals/7.png)) y haz clic en **Desactivar** para desactivar el acceso al portal y dejarlo inactivo para los usuarios del portal. Verás una opción para activar el portal en el mismo lugar cuando el portal esté desactivado.
+
+![](/migration-assets/creating-and-managing-portals/6.png)
+
+##  Archivar y desarchivar portales 
+
+Haz clic en el botón Más opciones (![sin nombre.png](/migration-assets/creating-and-managing-portals/7.png)) y haz clic en **Archivar** para archivar el portal. Los usuarios del portal perderán inmediatamente el acceso al portal archivado. Verás una opción para activar el portal en el mismo lugar cuando el portal esté desactivado.
+
+![](/migration-assets/creating-and-managing-portals/8.gif)
+
+Para desarchivar un portal, ve a **Explorar > Administrados por mí > Portales** y haz clic en el portal que quieres desarchivar. Esto te llevará a la página del portal, desde donde puedes desarchivarlo como se muestra en el gif a continuación.  
+ 
+
+![](/migration-assets/creating-and-managing-portals/9.gif)
+
+## Administración del portal, integraciones y roles
+
+Los usuarios del portal tienen varias opciones de inicio de sesión que puedes cambiar en la [administración del portal](/t/p8h4atv/administering-portals). Las [integraciones del portal](/category/integrations-in-apps) y los [roles](/category/roles-and-permissions) funcionan de la misma manera en las aplicaciones de Kissflow.
+
+> **Nota importante:** Ten en cuenta que los cambios guardados en la aplicación del portal mientras estás en el entorno de desarrollo son definitivos, ya que el entorno no incluye una opción para deshacerlos ni recuperarlos. Esto significa lo siguiente:
+> 
+> -   Si eliminas un flujo secundario, como una página o un dataform, tendrás que volver a crearlo manualmente. No existe ninguna opción para restaurar los flujos eliminados.
+>     
+> -   Tu trabajo en el entorno de desarrollo está aislado de forma segura de producción hasta la implementación. Cuando estés listo, la implementación del portal trasladará todos tus cambios nuevos a producción de una sola vez. Por lo tanto, te recomendamos revisar los cambios antes de guardarlos. Esto ayudará a garantizar que todos los flujos necesarios permanezcan intactos y reducirá el trabajo adicional.
+>
+>

@@ -1,0 +1,1439 @@
+---
+title: "Tabla de procesos en Analytics"
+description: "BORRADOR (no verificado): migrado desde /t/83yq9jv/process-table-in-analytics"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Las tablas de procesos se generan automáticamente en Kissflow Analytics para cada proceso que crees en tu cuenta de Kissflow. Cada proceso se representa como una tabla que incluye los campos del sistema y los campos personalizados asociados con el proceso. El siguiente diagrama de Analytics, que muestra la relación entre las entidades de las fuentes de datos, puede servirte como referencia.
+
+![](/migration-assets/process-table-in-analytics/1.png)
+
+## Campos del sistema y campos personalizados
+
+Todos los campos de formulario y del sistema asociados con el proceso están disponibles como columnas en la tabla de procesos. El acceso a estos campos permite analizar y generar informes para diversos casos de uso. Los campos del sistema se pueden identificar fácilmente en el editor de consultas para crear [dataview](/t/83h9qzn/understanding-dataviews), ya que usan el símbolo '\_' (guion bajo) como prefijo. Los [campos personalizados](/t/83yqk6f/board-tables-in-analytics#system-fields-and-custom-fields) se reconocen porque no comienzan con un guion bajo, aunque pueden contener guiones bajos en el nombre del campo.
+
+**ID del campo**
+
+**Nombre del campo**
+
+**Tipo de datos**
+
+**Descripción**
+
+\_id
+
+ID
+
+String
+
+El ID único del elemento.
+
+Name
+
+Nombre
+
+String
+
+El nombre configurado por el usuario para un elemento en la configuración general del proceso.
+
+\_created\_by
+
+Creado por
+
+JSON
+
+Este campo almacena información sobre el usuario que creó inicialmente el elemento.
+
+\_created\_by.Kind
+
+Creado por
+
+JSON
+
+Un subcampo de "\_created\_by" siempre contiene el valor "User", lo que indica que un usuario creó el elemento.
+
+\_created\_by.Name
+
+Creado por
+
+JSON
+
+Otro subcampo de "\_created\_by" muestra el nombre del usuario que creó el elemento en un formato que incluye su nombre y apellido.
+
+\_created\_by.\_id
+
+Creado por
+
+JSON
+
+El ID único del usuario que creó el elemento.
+
+\_modified\_by
+
+Modificado por
+
+JSON
+
+Este campo almacena información sobre el usuario que modificó por última vez el elemento.
+
+\_modified\_by.Kind
+
+Modificado por
+
+JSON
+
+Un subcampo de "\_modified\_by" siempre contiene el valor "User", lo que indica que un usuario modificó el elemento.
+
+\_modified\_by.Name
+
+Modificado por
+
+JSON
+
+Otro subcampo de "\_modified\_by" muestra el nombre del usuario que modificó por última vez el elemento en un formato que incluye su nombre y apellido.
+
+\_modified\_by.\_id
+
+Modificado por
+
+JSON
+
+El ID único del usuario que modificó por última vez el elemento.
+
+\_created\_at.display\_value
+
+Creado el
+
+DateTime
+
+Representa la fecha y hora de creación del elemento en el proceso. El formato de la marca de tiempo se basa en GMT.
+
+\_created\_at.timedelta
+
+Creado el
+
+DateTime
+
+Este campo contiene la duración de la diferencia de zona horaria entre la hora del meridiano de Greenwich (GMT) y una zona horaria específica. En este caso, siempre permanece vacío porque no existe tal diferencia.
+
+\_created\_at.timezone
+
+Creado el
+
+DateTime
+
+Indica la zona horaria de «Creado el», que siempre es GMT para el campo del sistema.
+
+\_created\_at.value
+
+Creado el
+
+DateTime
+
+Este campo muestra la fecha y hora en que se creó inicialmente el elemento. El formato de la marca de tiempo se basa en GMT.
+
+\_modified\_at.display\_value
+
+Modificado el
+
+DateTime
+
+Representa la fecha y hora de la última modificación del elemento en formato GMT en la tabla de procesos.
+
+\_modified\_at.timedelta
+
+Modificado el
+
+DateTime
+
+Este campo contiene la duración de la diferencia de zona horaria entre la hora del meridiano de Greenwich (GMT) y la zona horaria específica. Permanece vacío cuando no existe tal diferencia.
+
+\_modified\_at.timezone
+
+Modificado el
+
+DateTime
+
+Indica la zona horaria en formato GMT en la que se modificó por última vez el elemento.
+
+\_modified\_at.value
+
+Modificado el
+
+DateTime
+
+Este campo muestra la fecha y hora en que se modificó por última vez el elemento. El formato de la marca de tiempo se basa en GMT.
+
+\_flow\_name
+
+Nombre del flujo
+
+String
+
+Es el nombre del proceso al que pertenece el elemento.
+
+\_current\_step
+
+Paso actual
+
+String
+
+El nombre del paso actual del flujo de trabajo en el que se encuentra el elemento.
+
+\_current\_assigned\_to
+
+Asignado actualmente a
+
+JSON List
+
+Una lista de usuarios a los que está asignado actualmente el paso.
+
+\_completed\_at.display\_value
+
+Completado el
+
+DateTime
+
+Representa la fecha y hora de finalización del elemento en formato GMT en la tabla de procesos.
+
+\_completed\_at.timedelta
+
+Completado el
+
+DateTime
+
+Este campo contiene la duración de la diferencia de zona horaria entre la hora del meridiano de Greenwich (GMT) y la zona horaria específica. Permanece vacío cuando no existe tal diferencia.
+
+\_completed\_at.timezone
+
+Completado el
+
+DateTime
+
+Indica la zona horaria en formato GMT en el momento en que se completó el elemento.
+
+\_completed\_at.value
+
+Completado el
+
+DateTime
+
+Este campo muestra la fecha y hora en que se completó el elemento. El formato de la marca de tiempo se basa en GMT.
+
+\_status
+
+Estado
+
+String
+
+El estado actual del elemento, como InProgress, Withdrawn, Rejected o Completed.
+
+\_stage
+
+Etapa
+
+Number
+
+Un valor numérico que indica el estado del elemento. Estos son los valores que representan el estado del elemento: 1-InProgress, 2-Completed, 3-Skipped, 4-Rejected, 5-Sendback, 6- Withdrawn, 7-Stopped, 8-SendbackToInitiator.
+
+\_restart\_info
+
+Información de reinicio
+
+JSON
+
+La fecha y hora en que se reinició el elemento.
+
+\_root\_process\_instance
+
+RootProcessInstance
+
+String
+
+La instancia de proceso raíz es la rama principal del proceso original. Las ramas paralelas que se derivan de ella tendrán la «instancia de proceso principal» como proceso principal, que puede ser la raíz u otra rama paralela si están anidadas.
+
+\_submitted\_at.display\_value
+
+Enviado el
+
+DateTime
+
+Representa la fecha y hora de envío del elemento en formato GMT en la tabla de procesos.
+
+\_submitted\_at.timedelta
+
+Enviado el
+
+DateTime
+
+Este campo contiene la duración de la diferencia de zona horaria entre la hora del meridiano de Greenwich (GMT) y la zona horaria específica. Permanece vacío cuando no existe tal diferencia.
+
+\_submitted\_at.timezone
+
+Enviado el
+
+DateTime
+
+Indica la zona horaria en formato GMT en el momento en que se envió el elemento.
+
+\_submitted\_at.value
+
+Enviado el
+
+DateTime
+
+Este campo muestra la fecha y hora en que se envió el elemento. El formato de la marca de tiempo se basa en GMT.
+
+\_request\_number
+
+Número de solicitud
+
+Number
+
+Un recuento secuencial de todos los elementos enviados.
+
+\_is\_public\_form
+
+Es un formulario público
+
+Boolean
+
+Un valor booleano que indica si el elemento se creó a partir de un formulario público. Por ejemplo, este campo es TRUE cuando el elemento se crea a partir de un formulario público.
+
+\_counter
+
+Contador
+
+Number
+
+Un recuento secuencial de todos los elementos, incluidos los borradores, de un proceso.
+
+\_last\_completed\_step
+
+Último paso completado
+
+String
+
+Es el ID de instancia de actividad del paso anterior del flujo de trabajo.
+
+\_progress
+
+Progreso
+
+Number
+
+Un valor porcentual que indica el progreso de un elemento en un flujo de trabajo.
+
+\_source\_instance
+
+SourceInstance
+
+String
+
+El ID del elemento de origen a partir del cual se duplicó el elemento actual.
+
+## Child table
+
+Si el proceso tiene child tables, cada [child table](/t/h7h4azm/creating-a-form#child-tablesnbsp) se creará por separado dentro del módulo de Analytics. El sistema genera automáticamente estas tablas en Analytics al crear el proceso en tu cuenta de Kissflow. Estas tablas se generan y nombran automáticamente con el formato «ProcessName-ChildTableName». Por ejemplo, un proceso llamado Purchase Request tendrá una tabla secundaria llamada Purchase Request Catalog Items, donde Catalog items será el nombre de la tabla secundaria creada en el proceso Purchase Request.
+
+### Campos del sistema de la child table
+
+**ID del campo**
+
+**Nombre del campo**
+
+**Tipo de datos**
+
+**Descripción**
+
+\_id
+
+ID
+
+String
+
+El ID único de la child table.
+
+Name
+
+Nombre
+
+String
+
+El nombre de la child table.
+
+\_created\_by
+
+Creado por
+
+JSON
+
+Este campo almacena información sobre el usuario que creó inicialmente el elemento.
+
+\_created\_by.Kind
+
+Creado por
+
+JSON
+
+Un subcampo de "\_created\_by" siempre contiene el valor "User", lo que indica que un usuario creó el elemento.
+
+\_created\_by.Name
+
+Creado por
+
+JSON
+
+Otro subcampo de "\_created\_by" muestra el nombre del usuario que creó el elemento en un formato que incluye su nombre y apellido.
+
+\_created\_by.\_id
+
+Creado por
+
+JSON
+
+El ID único del usuario que creó el elemento.
+
+\_modified\_by
+
+Modificado por
+
+JSON
+
+Este campo almacena información sobre el usuario que modificó por última vez el elemento.
+
+\_modified\_by.Kind
+
+Modificado por
+
+JSON
+
+Un subcampo de "\_modified\_by" que contiene el valor "User", lo que indica que un usuario modificó el elemento.
+
+\_modified\_by.Name
+
+Modificado por
+
+JSON
+
+Otro subcampo de "\_modified\_by" muestra el nombre del usuario que modificó por última vez el elemento en un formato que incluye su nombre y apellido.
+
+\_modified\_by.\_id
+
+Modificado por
+
+JSON
+
+El ID único del usuario que modificó por última vez el elemento.
+
+\_created\_at.display\_value
+
+Creado el
+
+DateTime
+
+Representa la fecha y hora de creación del elemento en formato GMT en la tabla de procesos.
+
+\_created\_at.timedelta
+
+Creado el
+
+DateTime
+
+Este campo contiene la duración de la diferencia de zona horaria entre la hora del meridiano de Greenwich (GMT) y la zona horaria específica. Permanece vacío cuando no existe tal diferencia.
+
+\_created\_at.timezone
+
+Creado el
+
+DateTime
+
+Indica la zona horaria en formato GMT en la que se creó el elemento.
+
+\_created\_at.value
+
+Creado el
+
+DateTime
+
+Este campo muestra la fecha y hora en que se creó inicialmente el elemento. El formato de la marca de tiempo se basa en GMT.
+
+\_modified\_at.display\_value
+
+Modificado el
+
+DateTime
+
+Representa la fecha y hora de la última modificación del elemento en formato GMT en la tabla de procesos.
+
+\_modified\_at.timedelta
+
+Modificado el
+
+DateTime
+
+Este campo contiene la duración de la diferencia de zona horaria entre la hora del meridiano de Greenwich (GMT) y la zona horaria específica. Permanece vacío cuando no existe tal diferencia.
+
+\_modified\_at.timezone
+
+Modificado el
+
+DateTime
+
+Indica la zona horaria en formato GMT en la que se modificó por última vez el elemento.
+
+\_modified\_at.value
+
+Modificado el
+
+DateTime
+
+Este campo muestra la fecha y hora en que se modificó por última vez el elemento. El formato de la marca de tiempo se basa en GMT.
+
+\_flow\_name
+
+Nombre del flujo
+
+String
+
+El nombre del proceso.
+
+## Tablas del sistema
+
+Las [tablas de procesos](https://d56vh6ph4jjmq.cloudfront.net/kissflow/help-articles/static-pdf-process-table-db-mapping.pdf) de Analytics constan de dos tablas del sistema: **ProcessInstance** y **ActivityInstance**. Cada tabla contiene campos específicos del sistema que proporcionan el estado actual y el historial de actividades del flujo de trabajo de todos los elementos de todos los procesos.
+
+Puedes encontrar la tabla del sistema en la pestaña **Explorador de datos**. También puedes filtrar las fuentes de datos según **Tablas del sistema** para identificar rápidamente las tablas. Puedes usar los campos del sistema de las tablas del sistema para generar informes tabulares, de gráficos y dinámicos.
+
+### Tabla ProcessInstance
+
+La tabla de instancias de proceso muestra el estado actual de cada elemento en todos los procesos de tu cuenta de Kissflow. En otras palabras, cada elemento del proceso se muestra en una fila individual de la tabla. Si un proceso tiene ramas paralelas, la columna Parentprocessinstance contendrá el ID del elemento correspondiente para indicarlo.
+
+**ID del campo**
+
+**Nombre del campo**
+
+**Tipo de datos**
+
+**Descripción**
+
+\_id
+
+ID
+
+String
+
+El ID de la instancia del proceso.
+
+\_created\_by
+
+Creado por
+
+User
+
+Este campo almacena información sobre el usuario que creó inicialmente el elemento.
+
+\_created\_by.Kind
+
+Creado por
+
+String
+
+Un subcampo de "\_created\_by" que contiene el valor "User", lo que indica que un usuario creó el elemento.
+
+\_created\_by.Name
+
+Creado por
+
+String
+
+Otro subcampo de "\_created\_by" muestra el nombre del usuario que creó el elemento en un formato que incluye su nombre y apellido.
+
+\_created\_by.\_id
+
+Creado por
+
+String
+
+Este subcampo contiene el identificador único (ID) asociado con el usuario que creó el elemento.
+
+\_modified\_by
+
+Modificado por
+
+User
+
+Este campo almacena información sobre el usuario que modificó por última vez el elemento.
+
+\_modified\_by.Kind
+
+Modificado por
+
+String
+
+Un subcampo de "\_modified\_by" siempre contiene el valor "User", lo que indica que un usuario modificó el elemento.
+
+\_modified\_by.Name
+
+Modificado por
+
+String
+
+Otro subcampo de "\_modified\_by" muestra el nombre del usuario que modificó por última vez el elemento en un formato que incluye su nombre y apellido.
+
+\_modified\_by.\_id
+
+Modificado por
+
+String
+
+El ID único del usuario que modificó por última vez el elemento.
+
+\_created\_at.display\_value
+
+Creado el
+
+String
+
+Representa la fecha y hora de creación del elemento en formato GMT en la tabla de procesos.
+
+\_created\_at.timedelta
+
+Creado el
+
+String
+
+Este campo contiene la duración de la diferencia de zona horaria entre la hora del meridiano de Greenwich (GMT) y la zona horaria específica. Permanece vacío cuando no existe tal diferencia.
+
+\_created\_at.timezone
+
+Creado el
+
+String
+
+Indica la zona horaria en formato GMT en la que se creó el elemento.
+
+\_created\_at.value
+
+Creado el
+
+DateTime
+
+Este campo muestra la fecha y hora en que se creó inicialmente el elemento. El formato de la marca de tiempo se basa en GMT.
+
+\_modified\_at.display\_value
+
+Modificado el
+
+String
+
+Representa la fecha y hora de la última modificación del elemento en formato GMT en la tabla de procesos.
+
+\_modified\_at.timedelta
+
+Modificado el
+
+String
+
+Este campo contiene la duración de la diferencia de zona horaria entre la hora del meridiano de Greenwich (GMT) y la zona horaria específica. Permanece vacío cuando no existe tal diferencia.
+
+\_modified\_at.timezone
+
+Modificado el
+
+String
+
+Indica la zona horaria en formato GMT en la que se modificó por última vez el elemento.
+
+\_modified\_at.value
+
+Modificado el
+
+DateTime
+
+Este campo muestra la fecha y hora en que se modificó por última vez el elemento. El formato de la marca de tiempo se basa en GMT.
+
+\_flow\_name
+
+Nombre del flujo
+
+String
+
+El nombre del proceso.
+
+ParentProcessInstance
+
+ParentProcessInstance
+
+String
+
+El ID de la instancia del proceso cuando el flujo de trabajo del proceso contiene ramas paralelas. Este campo estará vacío si el flujo de trabajo no contiene ramas paralelas.
+
+\_root\_process\_instance
+
+RootProcessInstance
+
+String
+
+La instancia de proceso raíz es la rama principal del proceso original. Las ramas paralelas que se derivan de ella tendrán la «instancia de proceso principal» como proceso principal, que puede ser la raíz u otra rama paralela si están anidadas.
+
+CurrentActivityInstance
+
+CurrentActivityInstance
+
+String
+
+La instancia de actividad del paso actual del elemento en un proceso.
+
+CurrentActivityDef
+
+CurrentActivityDef
+
+String
+
+El ID de la actividad actual registrada en la tabla ActivityInstance.
+
+PreviousActivityInstance
+
+PreviousActivityInstance
+
+String
+
+El ID de la instancia de actividad anterior del elemento registrada en la tabla ActivityInstance.
+
+ParentActivityInstance
+
+ParentActivityInstance
+
+String
+
+El ID de la instancia de actividad original registrada en la tabla ActivityInstance cuando el paso del flujo de trabajo contiene varias ramas. Será la primera rama paralela de un proceso.
+
+StartActivityInstance
+
+StartActivityInstance
+
+String
+
+El ID de la instancia de actividad registrada en la tabla ActivityInstance cuando se inició el flujo de trabajo del elemento. Cada rama tendrá su instancia de actividad cuando inicie la acción.
+
+AssignedTo
+
+AssignedTo
+
+UserAndGroupList
+
+El nombre de los usuarios a los que está asignado el paso actual.
+
+AssignedAt.display\_value
+
+AssignedAt
+
+String
+
+Representa la fecha y hora en formato GMT en que se asignó el elemento en la tabla de procesos.
+
+AssignedAt.timedelta
+
+AssignedAt
+
+String
+
+Este campo contiene la duración de la diferencia de zona horaria entre la hora del meridiano de Greenwich (GMT) y la zona horaria específica. Permanece vacío cuando no existe tal diferencia.
+
+AssignedAt.timezone
+
+AssignedAt
+
+String
+
+Indica la zona horaria en formato GMT en que se asignó el elemento en la tabla de procesos.
+
+AssignedAt.value
+
+AssignedAt
+
+DateTime
+
+Este campo muestra la fecha y hora en que se asignó el elemento. El formato de la marca de tiempo se basa en GMT.
+
+ExpectedAt.display\_value
+
+Se espera para
+
+String
+
+Representa la fecha y hora en formato GMT en que se espera que se complete el elemento en la tabla de procesos.
+
+ExpectedAt.timedelta
+
+Se espera para
+
+String
+
+Este campo contiene la duración de la diferencia de zona horaria entre la hora del meridiano de Greenwich (GMT) y la zona horaria específica. Permanece vacío cuando no existe tal diferencia.
+
+ExpectedAt.timezone
+
+Se espera para
+
+String
+
+Indica la zona horaria en formato GMT en que se espera que se complete el elemento en la tabla de procesos.
+
+ExpectedAt.value
+
+Se espera para
+
+DateTime
+
+Este campo muestra la fecha y hora en que se espera que se complete el elemento. El formato de la marca de tiempo se basa en GMT.
+
+AssignmentType
+
+AssignmentType
+
+String
+
+El tipo de asignación del paso para la aprobación. El tipo de asignación tendrá uno de los siguientes valores: Default, Round robin o Least loaded.
+
+WorkflowModelId
+
+WorkflowModelId
+
+String
+
+El ID único de una tabla de procesos a la que pertenece el elemento (por ejemplo, Purchase\_Request).
+
+ContextProcessDef
+
+ContextProcessDef
+
+String
+
+El campo ContextProcessDef de Analytics sirve como identificador de los procesos. Consta de un proceso principal y un proceso secundario con ID distintos. Por ejemplo, en un escenario en el que P1 es el proceso principal y P1.Child1 y P1.Child2 son procesos secundarios, su asociación se establece mediante el ID de la tabla principal. Además, en los casos de ramas paralelas, los procesos secundarios pueden convertirse a su vez en procesos principales.
+
+\_status
+
+Estado
+
+String
+
+El estado del paso del proceso. El estado puede ser InProgress, Completed, Rejected, Withdrawn o SendBack.
+
+\_stage
+
+Etapa
+
+Number
+
+Un valor numérico que indica el estado del elemento: 1-InProgress, 2-Completed, 3-Skipped, 4-Rejected, 5-Sendback, 6- Withdrawn, 7-Stopped, 8-SendbackToInitiator.
+
+PreviousStep
+
+PreviousStep
+
+String
+
+El ID del paso desde el que se mueve el elemento en una instancia de proceso.
+
+ActedBy
+
+ActedBy
+
+Json list
+
+Una lista de usuarios que actuaron sobre el elemento del proceso.
+
+Note
+
+Nota
+
+String
+
+Se envía una nota al usuario cuando un elemento se devuelve o se reasigna.
+
+StoppedFor
+
+StoppedFor
+
+String
+
+El ID del paso del elemento que se detuvo en el proceso.
+
+\_model\_id
+
+Text
+
+ID del modelo
+
+El ID único del proceso.
+
+\_instance\_id
+
+Text
+
+ID de instancia
+
+El ID de instancia es el ID único de un elemento en una tabla de procesos. Cada instancia del elemento genera un registro nuevo con este ID único.
+
+### Tabla ActivityInstance
+
+Muestra todo el historial de pasos de cada elemento en todos los procesos de tu cuenta de Kissflow.
+
+**ID del campo**
+
+**Nombre del campo**
+
+**Tipo de datos**
+
+**Descripción**
+
+\_id
+
+ID
+
+Text
+
+El ID único de la instancia de actividad.
+
+\_created\_by
+
+Creado por
+
+JSON
+
+Este campo almacena información sobre el usuario que creó inicialmente el elemento.
+
+\_created\_by.Kind
+
+Creado por
+
+JSON
+
+Un subcampo de "\_created\_by" siempre contiene el valor "User", lo que indica que un usuario creó el elemento.
+
+\_created\_by.Name
+
+Creado por
+
+JSON
+
+Otro subcampo de "\_created\_by" muestra el nombre del usuario que creó el elemento en un formato que incluye su nombre y apellido.
+
+\_created\_by.\_id
+
+Creado por
+
+JSON
+
+El ID único del usuario que creó el elemento.
+
+\_modified\_by
+
+Modificado por
+
+JSON
+
+Este campo almacena información sobre el usuario que modificó por última vez el elemento.
+
+\_modified\_by.Kind
+
+Modificado por
+
+JSON
+
+Un subcampo de "\_modified\_by" siempre contiene el valor "User", lo que indica que un usuario modificó el elemento.
+
+\_modified\_by.Name
+
+Modificado por
+
+JSON
+
+Otro subcampo de "\_modified\_by" muestra el nombre del usuario que modificó por última vez el elemento en un formato que incluye su nombre y apellido.
+
+\_modified\_by.\_id
+
+Modificado por
+
+JSON
+
+El ID único del usuario que modificó por última vez el elemento.
+
+\_created\_at.display\_value
+
+Creado el
+
+DateTime
+
+Indica la fecha y hora en que ocurrió la actividad del elemento, presentada en formato GMT en la tabla de procesos.
+
+\_created\_at.timedelta
+
+Creado el
+
+DateTime
+
+Este campo contiene la duración de la diferencia de zona horaria entre la hora del meridiano de Greenwich (GMT) y la zona horaria específica. Permanece vacío cuando no existe tal diferencia.
+
+\_created\_at.timezone
+
+Creado el
+
+DateTime
+
+Indica la zona horaria almacenada en GMT en la que ocurrió la actividad del elemento.
+
+\_created\_at.value
+
+Creado el
+
+DateTime
+
+Este campo muestra la fecha y hora en que ocurrió la actividad del elemento. El formato de la marca de tiempo se basa en GMT.
+
+\_modified\_at.display\_value
+
+Modificado el
+
+DateTime
+
+Representa la fecha y hora de la última actividad de modificación del elemento, cuya marca de tiempo se almacena en formato GMT en la tabla de procesos.
+
+\_modified\_at.timedelta
+
+Modificado el
+
+DateTime
+
+Este campo contiene la duración de la diferencia de zona horaria entre la hora del meridiano de Greenwich (GMT) y la zona horaria específica. Permanece vacío cuando no existe tal diferencia.
+
+\_modified\_at.timezone
+
+Modificado el
+
+DateTime
+
+Indica la zona horaria almacenada en formato GMT en la que ocurrió la última actividad de modificación del elemento.
+
+\_modified\_at.value
+
+Modificado el
+
+DateTime
+
+Este campo muestra la fecha y hora en que ocurrió la última actividad de modificación del elemento. La marca de tiempo se almacena en GMT.
+
+\_flow\_name
+
+Nombre del flujo
+
+String
+
+El nombre del proceso.
+
+PreviousActivityInstance
+
+PreviousActivityInstance
+
+String
+
+El ID de la instancia de actividad anterior.
+
+NextActivityInstance
+
+NextActivityInstance
+
+String
+
+El ID de la instancia de actividad siguiente.
+
+ActivityDef
+
+ActivityDef
+
+String
+
+El ID único del paso del proceso.
+
+ParentActivityInstance
+
+ParentActivityInstance
+
+String
+
+El ID de la instancia de actividad principal cuando el paso del flujo de trabajo contiene varias ramas.
+
+ProcessInstance
+
+ProcessInstance
+
+String
+
+Contendrá el ID de la instancia de proceso correspondiente.
+
+RootProcess
+
+RootProcess
+
+String
+
+Contendrá el ID de la instancia de proceso raíz.
+
+NodeType
+
+NodeType
+
+String
+
+El tipo de paso del proceso, como StartEvent, UserTask y EndEvent.
+
+ScriptName
+
+ScriptName
+
+String
+
+El nombre del paso del flujo de trabajo en un proceso.
+
+ActedBy
+
+ActedBy
+
+JSON array
+
+Un usuario que aprobó el elemento del proceso. En el caso de una rama paralela, será una lista de usuarios que aprobaron el elemento.
+
+ActedAt.display\_value
+
+Actuado el
+
+DateTime
+
+Representa la fecha y hora en que se actuó sobre el elemento en formato GMT en la tabla de procesos.
+
+ActedAt.timedelta
+
+Actuado el
+
+DateTime
+
+Este campo contiene la duración de la diferencia de zona horaria entre la hora del meridiano de Greenwich (GMT) y la zona horaria específica. Permanece vacío cuando no existe tal diferencia.
+
+ActedAt.timezone
+
+Actuado el
+
+DateTime
+
+Indica la zona horaria almacenada en formato GMT en la que se actuó sobre el elemento.
+
+ActedAt.value
+
+Actuado el
+
+DateTime
+
+Este campo muestra la fecha y hora en que se actuó sobre el elemento. La marca de tiempo se almacena en GMT.
+
+ExpectedAt.display\_value
+
+Se espera para
+
+DateTime
+
+Representa la fecha y hora en formato GMT en que se espera que se complete el elemento en la tabla de procesos.
+
+ExpectedAt.timedelta
+
+Se espera para
+
+DateTime
+
+Este campo contiene la duración de la diferencia de zona horaria entre la hora del meridiano de Greenwich (GMT) y la zona horaria específica. Permanece vacío cuando no existe tal diferencia.
+
+ExpectedAt.timezone
+
+Se espera para
+
+DateTime
+
+Indica la zona horaria almacenada en formato GMT en que se espera que se complete el elemento en la tabla de procesos.
+
+ExpectedAt.value
+
+Se espera para
+
+DateTime
+
+Este campo muestra la fecha y hora en que se espera que se complete el elemento. La marca de tiempo se almacena en GMT.
+
+AssignedAt.display\_value
+
+AssignedAt
+
+DateTime
+
+Representa la fecha y hora, con la marca de tiempo almacenada en formato GMT, en que ocurrió la actividad del elemento en la tabla de procesos.
+
+AssignedAt.timedelta
+
+AssignedAt
+
+DateTime
+
+Este campo contiene la duración de la diferencia de zona horaria entre la hora del meridiano de Greenwich (GMT) y la zona horaria específica. Permanece vacío cuando no existe tal diferencia.
+
+AssignedAt.timezone
+
+AssignedAt
+
+DateTime
+
+Indica la zona horaria en formato GMT en que ocurrió la actividad del elemento en la tabla de procesos.
+
+AssignedAt.value
+
+AssignedAt
+
+DateTime
+
+Este campo muestra la fecha y hora en que ocurrió la actividad del elemento. La marca de tiempo se almacena en GMT.
+
+DelegatedTo
+
+DelegatedTo
+
+JSON
+
+El usuario al que se delega el elemento.
+
+ActualAssignedTo
+
+ActualAssignedTo
+
+JSON array
+
+El usuario al que se asigna inicialmente la aprobación del paso del proceso de un elemento.
+
+MinRequiredApproval
+
+Aprobaciones mínimas
+
+Number
+
+El número mínimo de aprobaciones necesarias para continuar con el siguiente paso.
+
+ApproverUnit
+
+Unidad de aprobadores
+
+String
+
+Este campo se utiliza para determinar los criterios de aprobación dentro de los flujos de trabajo. Especifica si la condición implica un número fijo de aprobadores, como 10 personas, o un porcentaje del total de usuarios asignados. Por ejemplo, si la condición es «10 por ciento del total de usuarios asignados», el campo registra la unidad de evaluación para los requisitos de aprobación en distintos pasos del flujo de trabajo.
+
+AssignedTo
+
+AssignedTo
+
+JSON array
+
+La lista actual de usuarios asignados para aprobar el paso del proceso.
+
+IsSLABreached
+
+SLA incumplido
+
+Boolean
+
+Un valor booleano que indica si se incumplió el SLA de un paso. Por ejemplo, si el valor es true, se superó el SLA.
+
+SendBackOut
+
+SendBackOut
+
+String
+
+Este campo define cuándo un elemento pasa del paso 2 al paso 1.
+
+SendBackIn
+
+SendBackIn
+
+String
+
+Este campo define cuándo un elemento pasa del paso 1 al paso 2.
+
+MoveToType
+
+MoveToType
+
+String
+
+El campo indica cuándo un elemento se mueve a uno de los pasos: ir a o devolver.
+
+\_status
+
+Estado
+
+String
+
+El estado del paso del proceso. El estado puede ser InProgress, Completed, Rejected, Withdrawn o SendBack.
+
+\_stage
+
+Etapa
+
+Number
+
+Un valor numérico que indica el estado del elemento: 1-InProgress, 2-Completed, 3-Skipped, 4-Rejected, 5-Sendback, 6- Withdrawn, 7-Stopped, 8-SendbackToInitiator.
+
+ActualTimeTaken
+
+ActualTimeTaken
+
+Number
+
+El tiempo total necesario para aprobar una solicitud. Este valor se muestra en segundos.
+
+PreviousStep
+
+Paso anterior
+
+String
+
+El ID del paso desde el que se mueve el elemento en una instancia de actividad.
+
+ReassignList
+
+ReassignList
+
+JSON
+
+Una lista de usuarios a los que se reasignó el paso.
+
+LastSelfPickedAt.display\_value
+
+LastSelfPickedAt
+
+DateTime
+
+Representa la fecha y hora en formato GMT en que el elemento fue seleccionado por última vez por el propio usuario.
+
+LastSelfPickedAt.timedelta
+
+LastSelfPickedAt
+
+DateTime
+
+Este campo contiene la duración de la diferencia de zona horaria entre la hora del meridiano de Greenwich (GMT) y la zona horaria específica. Permanece vacío cuando no existe tal diferencia.
+
+LastSelfPickedAt.timezone
+
+LastSelfPickedAt
+
+DateTime
+
+Indica la zona horaria en la que ocurrió el evento de selección propia.
+
+LastSelfPickedAt.value
+
+LastSelfPickedAt
+
+DateTime
+
+Indica la zona horaria en formato GMT en que el elemento fue seleccionado por última vez por el propio usuario.
+
+LastSelfPickedBy
+
+LastSelfPickedBy
+
+JSON
+
+Este campo almacena información sobre el usuario responsable de la última acción de selección propia.
+
+LastSelfPickedBy.Kind
+
+LastSelfPickedBy
+
+JSON
+
+Un subcampo de "LastSelfPickedBy" siempre contiene el valor "User", lo que indica que un usuario es responsable de la última selección propia (por ejemplo, User).
+
+LastSelfPickedBy(Name)
+
+LastSelfPickedBy
+
+JSON
+
+Un subcampo de "LastSelfPickedBy" muestra el nombre del usuario que realizó la última acción de selección propia en un formato que incluye su nombre y apellido.
+
+LastSelfPickedBy.\_id
+
+LastSelfPickedBy
+
+JSON
+
+El ID único del usuario responsable de la última selección propia.
+
+SelfPickedList
+
+SelfPickedList
+
+JSONList
+
+La lista de usuarios que seleccionaron por sí mismos el elemento por última vez en un proceso.
+
+Note
+
+Nota
+
+String
+
+Una nota que se envía al usuario cuando un elemento se devuelve o se reasigna.
+
+AssignmentRule
+
+AssignmentRule
+
+String
+
+El tipo de asignación del paso para la aprobación. El tipo de asignación tendrá uno de los siguientes valores: Default, Round robin o Least loaded.
+
+DelegatedFrom
+
+DelegatedFrom
+
+JSON
+
+El ID del usuario desde el que se delegó la solicitud.
+
+StoppedFor
+
+StoppedFor
+
+String
+
+El ID del paso del elemento que se detuvo en el proceso.
+
+\_model\_id
+
+Text
+
+ID del modelo
+
+El ID único del proceso.
+
+\_instance\_id
+
+Text
+
+ID de instancia
+
+El ID de instancia es el ID único de un elemento en una tabla de procesos. Cada instancia del elemento genera un registro nuevo con este ID único.

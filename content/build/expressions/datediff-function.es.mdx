@@ -1,0 +1,130 @@
+---
+title: "función dateDiff"
+description: "BORRADOR (no verificado) — migrado desde /t/q6ygfyb/datediff-function"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+La función dateDiff calcula la diferencia entre dos puntos específicos en el tiempo. Está diseñada para ser flexible, lo que te permite medir diferencias en varias unidades (como días, meses o años) y controlar qué se considera un día laborable. De forma predeterminada, ignora los fines de semana, pero puedes anular este comportamiento o proporcionar un array específico de fechas festivas que se excluirán del cálculo.
+
+**Sintaxis** 
+
+```
+dateDiff(date1, date2, “unit”, holiday(), [holiday_list])
+```
+
+## Detalles de los parámetros
+
+**Parámetro**
+
+**Tipo de datos**
+
+**Obligatorio/Opcional**
+
+date1
+
+Fecha
+
+Obligatorio
+
+date2
+
+Fecha
+
+Obligatorio
+
+unit
+
+Cadena
+
+Obligatorio ("day",”year” "month", “hour”, “minute”, o “second”) 
+
+El valor predeterminado es day
+
+holiday
+
+Booleano
+
+Opcional 
+
+Predeterminado: True
+
+holiday\_list
+
+Array
+
+Opcional
+
+-   **date1 y date2**: Las dos marcas de tiempo o fechas del calendario que deseas comparar.
+    
+-   **unit**: El intervalo utilizado para el cálculo. Cadenas compatibles: Year, Month, Day, Hour, Minute y Second.
+    
+-   **holiday**: Un indicador que determina si se cuentan los fines de semana.
+    
+    -   Usa true() para ignorar los fines de semana (lógica empresarial estándar).
+        
+    -   Usa false() para incluir los fines de semana como días normales.
+        
+-   **holiday\_list**: Un array de fechas específicas (por ejemplo, \["2026-01-01", "2026-12-25"\]) que quieres que la función trate como días no laborables, aunque caigan en un día laborable.
+    
+
+## Cómo funciona el algoritmo
+
+1. **Inicializar el contador**: El sistema comienza con un recuento total de 0.
+    
+2. **Definir el período de cálculo**: El sistema establece que el cálculo comience el día siguiente a tu date1 y continúe hasta el final de date2. Esto garantiza que, si las fechas inicial y final son iguales, el bucle nunca se ejecute y el recuento sea 0).
+    
+3. **Avanzar por la línea de tiempo**: Avanza un día a la vez y revisa cada día dentro de ese período.
+    
+4. **Ejecutar las comprobaciones de validez**: Por cada día que encuentra, realiza tres comprobaciones rápidas:
+    
+    -   ¿Es fin de semana? (Solo si el indicador holiday está establecido en true).
+        
+    -   ¿Es un día festivo? El sistema comprueba el array holiday\_list proporcionado para verificar si la fecha es festiva.
+        
+    -   ¿Es un día laborable válido?
+        
+5. **Actualizar el recuento**: Si el día es válido (es un día laborable y no está incluido en la lista de días festivos), el sistema suma 1 al contador.
+    
+    -   Si el día no es válido (es fin de semana o festivo), el sistema ignora ese día.
+        
+6. **Finalizar**: Cuando el sistema llega a date2, se detiene y proporciona la diferencia final calculada.
+    
+
+## Ejemplos
+
+### Cálculo estándar de días laborables
+
+-   **Fórmula**: dateDiff(date1,date2,"Day")
+    
+-   **Entrada de ejemplo**: date1: 19 de abril de 2026 (domingo) y date2: 25 de abril de 2026 (sábado).
+    
+-   **Contexto**: El período abarca de un domingo a un sábado.
+    
+-   **Lógica**:
+    
+    -   El período de cálculo comienza el día siguiente a date1 (20 de abril).
+        
+    -   Evalúa los días del 20 al 25 de abril.
+        
+    -   Como la configuración predeterminada excluye los fines de semana, el sistema cuenta: lunes (20), martes (21), miércoles (22), jueves (23) y viernes (24). Ignora el sábado (25), ya que es fin de semana.
+        
+-   **Resultado**: 5
+    
+
+### Inclusión de fines de semana
+
+-   **Fórmula**: dateDiff(date1,date2,"Day",false())
+    
+-   **Entrada de ejemplo**: date1: 23 de abril de 2026 (jueves) y date2: 27 de abril de 2026 (lunes).
+    
+-   **Contexto**: El período abarca de un jueves a un lunes.
+    
+-   **Lógica**: El período de cálculo comienza el día siguiente a date1 (24 de abril).
+    
+    -   Como se pasa el indicador false(), el sistema ignora la comprobación del fin de semana y trata todos los días del período como días válidos.
+        
+    -   El sistema cuenta: viernes (24), sábado (25), domingo (26) y lunes (27).
+        
+-    **Resultado**: 4

@@ -1,0 +1,32 @@
+---
+title: "Métricas del tablero en las aplicaciones"
+description: "BORRADOR (no verificado) — migrado desde /t/83yzja1/board-metrics-in-apps"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Basic ✓ Enterprise
+
+Hay dos informes de métricas del tablero que puedes usar en las aplicaciones. Son:
+
+-   Informe de antigüedad
+-   Informe de rendimiento por estado
+
+## Informe de antigüedad
+
+El informe de antigüedad te ayuda a hacer un seguimiento del trabajo actual en curso e identificar los elementos que llevan mucho tiempo vencidos. Básicamente, te indica cuántos elementos permanecieron en cada estado y durante cuánto tiempo.Para añadir este informe a una página, haz clic en el botón **Componentes del tablero** (![](/migration-assets/board-metrics-in-apps/3.png)) del panel izquierdo, selecciona **Antigüedad** y arrástralo a la ubicación deseada de la página.Puedes establecer el tiempo de **Creado dentro de** y aplicar filtros al informe, además de exportarlo como archivo CSV.![](/migration-assets/board-metrics-in-apps/2.gif)Para ver la lista de elementos del tablero, haz clic en los números del informe. Desde aquí, puedes abrir elementos, reasignarlos, cambiar sus estados y prioridades, y eliminarlos.
+
+### Cómo entender el informe de antigüedad
+
+Los elementos de tu tablero pasan distintas cantidades de tiempo en cada estado. Es fundamental entender en qué punto se estanca tu tablero para determinar por qué ocurre y cómo mejorarlo.Puedes comprender fácilmente cómo se desempeñó tu equipo en situaciones similares en el pasado mediante los datos de antigüedad del trabajo en curso. Estas estadísticas pueden utilizarse para crear nuevos objetivos estratégicos para tu tablero.Veamos un ejemplo para entender cómo se puede usar el informe de antigüedad.
+
+### ¿Qué estados han ralentizado mi tablero durante los últimos tres meses?
+
+Para obtener esta información, selecciona el tiempo de **Creado dentro de** como **Este trimestre**. Según el informe, el estado que tiene más elementos vencidos durante un período prolongado en este intervalo es el que está ralentizando el tablero.![](/migration-assets/board-metrics-in-apps/1.png)Para obtener las mejores tasas de finalización, la antigüedad de los elementos en curso debe mantenerse lo más baja posible. Si los elementos permanecen en el mismo estado más tiempo del previsto, es posible que sea necesario realizar una investigación y tomar medidas adicionales.
+
+## Informe de rendimiento por estado
+
+El informe de rendimiento por estado muestra todas las estadísticas descriptivas sobre la distribución de los intervalos de tiempo en los datos. Este informe proporciona el tiempo mínimo, máximo, medio y mediano que los elementos pasan en cada combinación de estado y persona asignada.Para añadir este informe a una página, desplázate hacia abajo hasta la sección **Informe** en el panel de componentes de la izquierda y arrastra el componente **Métricas** a la ubicación deseada de la página. Selecciona el tipo de flujo, el flujo y el tipo de métricas: **Métricas de estado.**![](/migration-assets/board-metrics-in-apps/4.gif)Puedes establecer el tiempo de **Creado dentro de** y aplicar filtros al informe, además de exportarlo como archivo CSV.Puedes usar este informe para aislar los estados en los que los elementos tardan más que en otros e identificar los intervalos de rendimiento de tu tablero. También puedes desglosar cada estado por usuarios de tu equipo.**Tiempo mínimo**: el menor tiempo que los elementos pasan en un estado específico o con un usuario.  **Tiempo máximo**: el mayor tiempo que los elementos pasan en un estado específico o con un usuario.**Tiempo medio**: el tiempo promedio que los elementos pasan en un estado específico o con un usuario. Se calcula sumando los valores de tiempo individuales y dividiendo el resultado entre el número de elementos en esos estados o con esos usuarios. También se conoce como media aritmética.**Tiempo mediano**: se prefiere al tiempo medio cuando hay valores atípicos en tus intervalos de datos. Al igual que el tiempo medio, la mediana también representa la ubicación de un conjunto de puntos de datos numéricos mediante un único número. En términos generales, la mediana es el valor que divide los puntos de datos en dos mitades: aproximadamente el 50 % de los datos más altos y el 50 % de los datos más bajos del conjunto, cuando se organizan en orden ascendente.

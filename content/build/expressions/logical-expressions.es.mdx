@@ -1,0 +1,214 @@
+---
+title: "Expresiones lógicas"
+description: "BORRADOR (sin verificar) — migrado desde /t/h7h4aly/logical-expressions"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Basic ✓ Enterprise
+
+Las expresiones lógicas son booleanas, lo que significa que devuelven un valor TRUE o FALSE. 
+
+Los valores booleanos no se muestran directamente en un formulario. Se utilizan en dos situaciones: 
+
+-   La prueba lógica dentro de una función IF.
+-   Para establecer la condición que determina si un paso o una rama del flujo de trabajo se ejecuta o no.
+
+## Campos de ejemplo
+
+Estos son algunos campos de ejemplo para probar las expresiones lógicas.
+
+**ID de campo**
+
+**Tipo de campo**
+
+**Valor de ejemplo**
+
+num1
+
+Número
+
+6
+
+num2
+
+Número
+
+4
+
+text1
+
+Texto
+
+Pepper
+
+## Operadores
+
+Hay seis operadores de comparación que puedes usar con expresiones lógicas para comparar campos. Algunos solo se pueden usar con determinados tipos de datos. 
+
+**Nombre**
+
+**Símbolo**
+
+**Tipos de datos**
+
+**Expresión**
+
+**Valor**
+
+Igual a
+
+\=
+
+Número, Moneda, Fecha, Datetime1
+
+Texto, Usuario, Booleano
+
+num1 = num2
+
+False
+
+No igual a
+
+&lt;>, !=
+
+Número, Moneda, Fecha, Datetime
+
+Texto, Usuario, Booleano
+
+num1 &lt;> num2
+
+True
+
+Menor que
+
+&lt;
+
+Número, Moneda, Fecha, Datetime 
+
+num1 &lt; num2
+
+False
+
+Menor o igual que
+
+&lt;=
+
+Número, Moneda, Fecha, Datetime
+
+num1 &lt;= num2
+
+False
+
+Mayor que
+
+\>
+
+Número, Moneda, Fecha, Datetime
+
+num 1 > num2
+
+True
+
+Mayor o igual que
+
+\>=
+
+Número, Moneda, Fecha, Datetime
+
+num1 >= num2
+
+True
+
+> **Nota**:
+> 
+> 1. Las zonas horarias afectan la forma en que comparas los campos de fecha y hora. Por ejemplo, esta expresión es verdadera:
+> 
+> `Datetime(2018,1,1,12,20,00,"Asia/Kolkata") > Datetime(2018,1,1,12,20,00,"America/Chicago")`
+
+## Funciones
+
+**Función**
+
+**Descripción**
+
+**Sintaxis**
+
+**Valor**
+
+and
+
+TRUE si ambas expresiones booleanas son verdaderas.
+
+FALSE si alguna de las expresiones es falsa.
+
+Solo se permiten dos parámetros.
+
+AND(num1 = 6, num2 = 4)
+
+True
+
+&&
+
+Igual que la función AND, pero permite usar varias expresiones.
+
+num1 = 6 && num2 = 4 && text1 = "Tony" 
+
+False
+
+or
+
+TRUE si alguna de las dos expresiones booleanas es verdadera.
+
+FALSE si ninguna de las expresiones es verdadera.
+
+Solo se permiten dos parámetros.
+
+OR(num1 = 6, num2 = 10)
+
+True
+
+\\|\\|
+
+Igual que la función OR, pero permite usar varias expresiones.
+
+num1 = 6 \\|\\| num2 = 10 \\|\\| text1 = "Tony"
+
+True
+
+isBlank
+
+Comprueba si un campo está vacío (TRUE) o tiene un valor (FALSE).
+
+Se puede usar con cualquier tipo de campo.
+
+isBlank(text1)
+
+False
+
+False
+
+Muestra el booleano falso.
+
+false()
+
+False
+
+True
+
+Muestra el booleano verdadero.
+
+true()
+
+True
+
+Not
+
+Muestra el booleano opuesto.
+
+Not(num1 = 6)
+
+False

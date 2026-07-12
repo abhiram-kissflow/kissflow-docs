@@ -1,0 +1,119 @@
+---
+title: "Crear y administrar una lista"
+description: "BORRADOR (no verificado) — migrado desde /t/35yqkrj/creating-and-administering-a-list"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✓ Básico ✓ Enterprise
+
+ Puedes crear una lista cuando agregas un campo desplegable, una lista de verificación o un campo de selección múltiple a tu formulario.
+
+1.  Ve al editor de formularios y elige un tipo de campo (como Menú desplegable, Lista de verificación, etc.) para el que se necesite una lista para rellenar los datos.
+    
+2.  En el menú desplegable **Seleccionar una lista**, puedes seleccionar una lista existente o hacer clic en **+ Crear una lista** para crear una nueva desde cero.
+    
+3.  Si estás creando una lista nueva, introduce el título de la lista y agrega la lista de elementos. Haz clic en **Aplicar** cuando hayas terminado.
+    
+
+![](/migration-assets/creating-and-administering-a-list/4.png)
+
+## Buscar una lista
+
+Puedes buscar y acceder a tu lista de una de las siguientes tres formas:
+
+-   Desde el mismo campo del formulario que usaste para crear la lista.
+    
+-   Mediante la **barra de búsqueda** en la parte superior.
+    
+-   En **Explorar** → **En vivo**, **Administradas por mí** y **Otras**.  
+     
+    
+    ![](/migration-assets/creating-and-administering-a-list/1.png)
+
+## Cambiar el nombre de una lista
+
+Para cambiar el nombre de una lista, ve a **Explorar**,  abre la lista y cambia su nombre. Cuando hayas terminado, haz clic en **Intro** o simplemente haz clic fuera del nombre. Puedes cambiar la descripción de la misma manera. Todos los cambios se guardan automáticamente.
+
+![](/migration-assets/creating-and-administering-a-list/2.gif)
+
+## Editar los valores de una lista
+
+Puedes editar los valores de la lista directamente desde la página **Explorar** haciendo clic en las celdas y realizando cambios. Cuando hayas terminado, haz clic en **Intro** o **Tabulador**; los cambios se guardarán automáticamente. También puedes copiar y pegar valores desde una hoja de cálculo.
+
+![](/migration-assets/creating-and-administering-a-list/3.gif)
+
+> **Nota**  
+> Si los valores de la lista se copian y pegan desde diferentes fuentes, como **Excel**, comprueba y elimina los espacios finales.
+
+Los valores de la lista también se pueden editar al seleccionarlos desde el editor de formularios. Abre el **campo desplegable, de casilla de verificación, de lista de verificación o de botón de opción** donde se usa la lista y haz clic en **Editar lista**.
+
+> **Nota**  
+> Se puede crear o pegar un máximo de 250 elementos en la lista.
+
+## Administrar miembros y sus permisos en una lista
+
+Puedes compartir una lista con los miembros de tu flujo y administrar sus permisos mediante la **Configuración para compartir** dentro de una lista.
+
+Puedes asignar roles a los miembros para controlar qué acciones pueden realizar en tu lista.
+
+Hay dos roles que puedes asignar a los miembros:
+
+-   **Administrador**: los administradores de la lista pueden editar los valores de las listas que poseen, modificar su configuración y eliminarlas cuando sea necesario.
+    
+-   **Miembro**: los miembros de la lista pueden modificar los valores de una lista o compartirla con otros miembros según los permisos que les hayan concedido sus administradores.
+    
+
+Los administradores tienen más permisos que los miembros y pueden controlar varias configuraciones de una lista. 
+
+![](/migration-assets/creating-and-administering-a-list/6.png)
+
+El miembro que crea una lista se convierte en su administrador de forma predeterminada. Como administrador de tu lista, puedes agregarle o quitarle miembros.
+
+Para administrar miembros y roles, haz clic en **Administrar** en la esquina superior derecha de la página de la lista y selecciona el botón **Compartir** (![](/migration-assets/creating-and-administering-a-list/7.svg)). En la página **Configuración para compartir**, haz clic en **\+ Agregar miembros** para seleccionar y agregar miembros. Para quitar miembros de una lista, selecciona un miembro y haz clic en el botón **Más opciones** ( ![](/migration-assets/creating-and-administering-a-list/8.svg)) >  **Quitar**. A partir de ese momento, el miembro no podrá acceder ni ver el contenido de la lista.
+
+## Duplicar una lista
+
+1.  Haz clic en el botón **Más opciones** (![](/migration-assets/creating-and-administering-a-list/10.svg)) en la página de la lista.
+    
+2.  Haz clic en **Duplicar**.
+    
+    ![](/migration-assets/creating-and-administering-a-list/5.png)
+3.  Aparecerá una ventana emergente con el nombre predeterminado de la nueva lista: Copia de &lt;nombre de la lista original>.
+    
+4.  Cambia el nombre y haz clic en **Duplicar**.
+    
+
+## Configurar los ajustes de seguridad
+
+Los ajustes de seguridad definen qué flujos pueden consultar valores en tu lista.
+
+Para actualizar los ajustes de seguridad de tu lista, abre la lista desde **Explorar** en el panel de navegación y haz clic en **Administrar** en la esquina superior derecha; después, selecciona **Seguridad**.  De forma predeterminada, el **permiso global** está habilitado y todos los flujos tienen acceso a tu lista.
+
+Puedes personalizar el acceso seleccionando **+Agregar un permiso personalizado** y seleccionando los flujos que pueden consultar esta lista.
+
+![](/migration-assets/creating-and-administering-a-list/12.gif)
+
+Para quitar un flujo, haz clic en el botón **Quitar** junto al nombre del flujo. Haz clic en **Guardar** después de configurar tus preferencias.
+
+![](/migration-assets/creating-and-administering-a-list/9.png)
+
+## Eliminar una lista
+
+Solo un **administrador de la lista** puede eliminar una lista.
+
+1.  Haz clic en el botón **Más opciones** (![](/migration-assets/creating-and-administering-a-list/10.svg)) en la página de la lista.
+    
+2.  Haz clic en **Eliminar**.
+    
+3.  Si una lista es utilizada por un flujo, se te pedirá que elimines sus dependencias. Después de eliminar las dependencias, puedes eliminar la lista de forma segura.
+    
+
+## Ver las dependencias de una lista 
+
+Ve a **Administrar** en la esquina superior derecha de la lista y selecciona **Flujos asociados**. Aquí encontrarás todos los flujos que actualmente utilizan esta lista. Cuando una lista está asociada a algún flujo, no puedes eliminarla hasta que quites las dependencias.
+
+![](/migration-assets/creating-and-administering-a-list/11.gif)

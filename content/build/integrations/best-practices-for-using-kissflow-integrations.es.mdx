@@ -1,0 +1,138 @@
+---
+title: "Prácticas recomendadas para usar Kissflow Integrations"
+description: "BORRADOR (no verificado) — migrado desde /t/p8yzsxn/best-practices-for-using-kissflow-integrations"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Como administradores de integraciones, deben configurar y probar correctamente sus integraciones para reducir errores y garantizar que funcionen según lo previsto. Estas son algunas prácticas recomendadas para crear integraciones más sólidas, eficientes y fáciles de mantener.
+
+## Gestión de direcciones de correo electrónico en campos de texto
+
+Sigue estos pasos cuando uses la acción Enviar un correo electrónico en un proceso con una dirección de correo electrónico obtenida en un campo de texto:
+
+1. **Prueba con un correo electrónico válido**: para garantizar que la acción funcione, introduce manualmente una dirección de correo electrónico válida en el campo **Para** de la acción de correo electrónico. 
+    
+2. **Mapea el campo Para**: después de comprobar que funciona, asigna el campo de texto que contiene el correo electrónico obtenido al campo Para.
+    
+3. **Finaliza sin volver a probar**: después de realizar la asignación, haz clic en **Listo** sin volver a probar.
+    
+
+## Uso de campos recién agregados en las integraciones
+
+Cuando agregues un campo nuevo a tu proceso, asegúrate de seguir estos pasos:
+
+1. **Publica el proceso**: haz clic en **Publicar** para aplicar las actualizaciones.
+    
+2. **Actualiza los campos**: en la integración asociada, haz clic en **Actualizar campos** en el activador para incluir el campo nuevo. Luego, prueba el activador para verificar que funcione correctamente.
+    
+3. **Repite el proceso para las acciones:** aplica los pasos de actualización y prueba nuevamente a todas las acciones de la integración.
+    
+
+## Uso de datos de muestra en una integración
+
+Para evitar errores como _**No se pudo localizar SampleInstance001,**_ usa la opción **Usar datos de muestra** al crear integraciones para un proceso nuevo. Sigue estos pasos:
+
+1. **Prueba con datos de muestra**: usa datos de muestra haciendo clic en la opción Usar datos de muestra en lugar de la opción **Probar** o **Probar nuevamente**.
+    
+2. **Continúa sin volver a probar**: omite el paso de volver a probar y haz clic en **Listo** para finalizar.
+    
+
+## Búsqueda eficaz de un elemento
+
+Para aprovechar al máximo la acción Buscar un elemento, sigue estos pasos:
+
+1. **Prueba manualmente**: introduce directamente en el campo Término de búsqueda valores del proceso para verificar que los datos esperados aparezcan en el resultado.
+    
+2. **Asigna campos**: después de realizar la prueba, asigna el campo correspondiente en la sección Término de búsqueda.
+    
+3. **Finaliza sin volver a probar**: después de realizar la asignación, haz clic en **Listo** sin volver a probar la acción.
+    
+
+## Requisitos del asignado para la acción Aprobar un elemento
+
+Para permitir la aprobación correcta de los pasos del flujo de trabajo en la acción Aprobar un elemento, asegúrate de que la cuenta autenticada esté asignada a uno de los asignados del paso del flujo de trabajo. Esto ayuda a evitar el error: **Este elemento ya no está en tu cola.** 
+
+## Programación de activadores diarios
+
+Al programar un activador diario, sigue estos pasos:
+
+1. **Selecciona la hora**: establece la hora en el campo **Selecciona la hora del día** al menos 15 minutos después de la hora actual.
+    
+2. **Prueba el activador**: verifica que el activador funcione correctamente y haz clic en **Listo** para finalizar.
+    
+
+## Cómo evitar problemas de concurrencia al actualizar un child table
+
+Para evitar problemas de concurrencia al actualizar filas en un child table, usa directamente la acción **Actualizar un elemento** en lugar de iterar sobre las filas. Esto garantiza actualizaciones eficientes y reduce los conflictos de datos.
+
+![](/migration-assets/best-practices-for-using-kissflow-integrations/1.png)
+
+## Optimización de la recuperación de datos en la acción Buscar registros de un conjunto de datos
+
+Para obtener resultados óptimos en la acción Buscar registros de un conjunto de datos, sigue estos pasos:
+
+1. **Prueba manual**: introduce valores manualmente en la condición de filtro de la columna del conjunto de datos para probar la recuperación de datos.
+    
+2. **Asigna campos**: después de realizar la prueba, asigna el campo en la condición de filtro y haz clic en **Listo** sin volver a probar.
+    
+
+## Identificación de integraciones en un proceso
+
+Los administradores de procesos pueden identificar las integraciones vinculadas a un proceso simulando el flujo de trabajo y consultando la sección Integraciones activadas, que muestra una lista de las integraciones activadas en cada paso.
+
+## Gestión de conexiones de integraciones para usuarios desactivados
+
+Al desactivar un usuario, debes asegurarte de reasignar las conexiones de las integraciones. Sigue estos pasos:
+
+1. **[Comparte las conexiones](/t/x2h4ak8/managing-integrations#sharing-connections)**: reasigna las conexiones de las integraciones a un usuario activo para evitar interrupciones.
+    
+2. **[Vuelve a configurar la autenticación](/t/x2h4ak8/managing-integrations#re-authenticate-your-connections)**: en la configuración de la integración, los usuarios activos pueden volver a autenticarse seleccionando **Mi cuenta de Kissflow**.
+    
+
+> **Consejo**
+> 
+> Para garantizar que las integraciones se ejecuten sin interrupciones, usa siempre una cuenta de servicio. Las integraciones autenticadas con credenciales de una cuenta de servicio se ejecutarán sin problemas y sin interrupciones, mientras que las integraciones autenticadas con credenciales de usuario pueden fallar si el usuario se desactiva o se elimina de Kissflow.
+
+## Gestión de acciones similares en las integraciones
+
+Para gestionar varias acciones similares en una integración, sigue estos pasos:
+
+1. **Comprueba el número del paso**: revisa el número del paso de la integración para confirmar qué acción corresponde al proceso o conjunto de datos respectivo.
+    
+2. **Cambia el nombre de las acciones**: cambia el nombre de las acciones para distinguirlas y facilitar la asignación y la gestión de campos.
+    
+
+## Gestión de acciones mediante el conector HTTP
+
+Al probar API de terceros mediante acciones del conector HTTP, asegúrate de proporcionar valores de entrada válidos directamente en lugar de asignar campos durante la fase de prueba. Esto es importante porque la asignación de campos depende de datos de muestra que la API podría no aceptar. Una vez que la acción se haya probado correctamente con entradas válidas, puedes eliminar estos valores y asignar los campos según sea necesario sin tener que volver a probar la acción.
+
+### Resolución de errores generales de API
+
+1. **Valida la solicitud de API**
+    
+    -   Comprueba si la carga útil JSON contiene errores de sintaxis.
+        
+    -   Asegúrate de que el endpoint de la API (URL) sea correcto.
+        
+    -   Prueba la misma carga útil en Postman para confirmar que funciona según lo esperado.
+        
+2. **Confirma las configuraciones de los encabezados**
+    
+    -   Verifica que todos los encabezados obligatorios estén incluidos y tengan el formato correcto.
+        
+    -   Por ejemplo, si la API requiere un encabezado de autorización, asegúrate de que contenga el valor correcto.
+        
+3. **Comprueba la disponibilidad de la API**
+    
+    -   Confirma que el sistema de destino esté en línea y pueda procesar la solicitud de API.
+        
+4. **Recopila los detalles del error**
+    
+    -   Si el error persiste, recopila los mensajes de error, las cargas útiles y los detalles de configuración.
+        
+    -   Comparte esta información con tu equipo de soporte técnico para realizar una investigación más detallada.
+        
+
+La mayoría de los errores inesperados de API se pueden resolver validando sistemáticamente la solicitud, los encabezados y la disponibilidad de la API. Si los problemas continúan, proporciona a tu equipo de soporte registros detallados y los detalles de configuración para agilizar la resolución.

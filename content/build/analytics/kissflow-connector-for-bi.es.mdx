@@ -1,0 +1,116 @@
+---
+title: "Conector de Kissflow para BI"
+description: "BORRADOR (no verificado) — migrado desde /t/h7yqvd3/kissflow-connector-for-bi"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Este artículo explica cómo Kissflow compartirá datos de [Snowflake](https://www.snowflake.com/en/data-cloud/workloads/data-warehouse/) con los clientes de Kissflow que hayan adquirido el **conector de Kissflow para BI**. El conector de Kissflow para BI es una herramienta de integración de datos que permite a los clientes conectar su cuenta de Kissflow con Snowflake, una plataforma de almacenamiento de datos. Esto permite a los clientes acceder a sus datos de Kissflow y analizarlos mediante la herramienta de inteligencia empresarial (BI) que prefieran, como Microsoft Power BI o Tableau.
+
+## Aprovisionamiento de la cuenta de Snowflake
+
+El cliente debe tener una cuenta de Snowflake completamente funcional antes de que Kissflow pueda compartir con él la base de datos correspondiente. Kissflow simplemente compartirá la base de datos del cliente con la propia cuenta de Snowflake del cliente. Los costos de procesamiento, es decir, cualquier costo en el que se incurra al analizar datos con herramientas de inteligencia empresarial (BI), se facturan directamente a la cuenta de Snowflake del cliente. 
+
+> **Nota:**
+> 
+> ETL, que significa **extraer, transformar y cargar**, es un proceso de integración de datos que combina datos de múltiples fuentes de datos en un único almacén de datos coherente que se carga en un almacén de datos u otro sistema de destino.
+
+### Pasos que realiza Kissflow
+
+1.  Kissflow realizará un uso compartido saliente de la base de datos correspondiente desde la cuenta de Snowflake de Kissflow hacia la cuenta de Snowflake del cliente. (Si se revoca un uso compartido saliente, el cliente no podrá acceder a la base de datos.)
+    
+2.  Kissflow no realizará ninguna otra acción; únicamente continuará la sincronización de datos que ocurre normalmente.
+    
+
+> **Nota:**
+> 
+> Ten en cuenta que los clientes con un dominio .com deben crear su cuenta de Snowflake en la región **Google Cloud Platform (GCP)** **US Central1 (Iowa)**. Los clientes con un dominio .eu deben crear su cuenta de Snowflake en la región **Europe West4 (Netherlands)**.
+
+> **Nota:**
+> 
+> Ten en cuenta que el cliente puede elegir cualquier **plan de Snowflake**.
+
+### Pasos que se realizan cuando el cliente deja Kissflow
+
+1.  Kissflow detiene la sincronización de datos y desactiva el uso compartido saliente.
+    
+2.  El cliente debe consultar con el equipo de soporte de Kissflow la cantidad de días de retención de datos de Time Travel.
+    
+
+## ¿Qué puede lograr el cliente con el conector de BI?
+
+1.  En la cuenta de Snowflake del cliente, este comprobará el uso compartido entrante y habilitará la base de datos de Kissflow.
+    
+2.  En su cuenta de Snowflake, el cliente podrá analizar los datos de Kissflow junto con los datos de sus otras bases de datos. Este tipo de análisis combinado ayudará al cliente a obtener información adicional.
+    
+
+![](/migration-assets/kissflow-connector-for-bi/1.png)
+
+### Informes de Kissflow frente al conector de Kissflow para BI
+
+¿Por qué necesitas un conector de Kissflow para BI si ya tienes Informes de Kissflow? Los clientes se hacen esta pregunta con frecuencia. Estas son algunas diferencias clave entre ambos.
+
+**Función**
+
+**Informes de Kissflow**
+
+**Conector de Kissflow para BI**
+
+Más adecuado para
+
+Informes en tiempo real
+
+Datos de un período de tiempo anterior
+
+Informes
+
+Métricas de carga de trabajo prediseñadas
+
+Análisis de carga de trabajo (completamente DIY)
+
+Formato del informe
+
+Solo informes tabulares (los elementos secundarios aparecen como filas debajo del elemento correspondiente)
+
+Informes independientes sobre child table y conjuntos de datos
+
+Campos ocultos
+
+Obligatorios para usarlos en informes
+
+No son obligatorios
+
+Columnas de fórmula
+
+Se pueden crear en Analytics, pero no en los flujos reales
+
+Se pueden crear en Analytics
+
+Alcance de los informes
+
+Disponible en un solo flujo
+
+Puede combinar uno o más procesos, tableros, child table, dataform o conjuntos de datos
+
+Bidireccional
+
+Sí (haz clic en una fila de un informe tabular para abrir el elemento correspondiente)
+
+No (unidireccional)
+
+Acceso
+
+Datos, métricas e información solo en los informes
+
+Datos, métricas e información en herramientas de BI
+
+### Necesidad de realizar análisis sobre los informes de flujo integrados
+
+1.  La posibilidad de conectarse directamente a herramientas de BI como Power BI y Tableau, en lugar de exportar datos como CSV o extraerlos mediante API REST.
+    
+2.  Informes de carga de trabajo, como el informe de carga de trabajo del usuario, el tiempo empleado por paso, el tiempo empleado por elemento, las tareas de usuarios desactivados, etc., para analizar la evolución del flujo de trabajo a lo largo del tiempo.
+    
+3.  La posibilidad de crear informes basados en child table en procesos, tableros y formularios de datos.
+    
+4.  Una vista consolidada que combine child table y conjuntos de datos. Por ejemplo, la solicitud de compra, la orden de compra y la nota de recepción de mercancías se combinan para crear vistas utilizadas en adquisiciones.

@@ -1,0 +1,39 @@
+---
+title: "Cómo mostrar los nombres de varios usuarios de un campo de búsqueda en un campo de texto"
+description: "BORRADOR (sin verificar) — migrado desde /t/g9y15xv/how-to-display-the-names-of-multiple-users-from-a-lookup-field-in-a-text-field"
+contentType: reference
+persona: citizen-developer
+section: build
+---
+
+Este artículo explica cómo puedes rellenar automáticamente un campo de texto con los nombres de los usuarios seleccionados en un campo de búsqueda de varios usuarios. El objetivo es mostrar una lista legible de nombres de usuarios separados por comas, basada en el registro seleccionado en la búsqueda.
+
+1.  Un usuario final abre un registro nuevo o edita uno existente en el formulario principal.
+2.  El usuario selecciona un elemento en el campo de búsqueda.
+3.  El sistema activa automáticamente una fórmula con el campo de texto de destino.
+4.  La fórmula accede al campo de varios usuarios del registro seleccionado en la búsqueda (lookupfield.users).
+5.  La fórmula cuenta el número de usuarios seleccionados, obtiene el nombre de cada usuario y concatena los nombres en una sola cadena separados por una coma.
+6.  La cadena resultante, con los nombres separados por comas, se muestra en el campo de texto de destino.
+
+Un enfoque basado en fórmulas para lograr este objetivo:
+
+## **Implementación básica (para uno o dos usuarios)**
+
+Esta solución utiliza declaraciones if anidadas para gestionar los casos en los que se selecciona uno o dos usuarios en el campo de búsqueda.
+
+### **Fórmula**
+
+```
+if(lookupfield.users.length() = 1, concatenate(lookupfield.users.get(1).Name), if(lookupfield.users.length() = 2, concatenate(lookupfield.users.get(1).Name, ",", lookupfield.users.get(2).Name), ""))
+```
+
+### **Cómo funciona**
+
+-   if(lookupfield.users.length() = 1, ...): Comprueba si hay exactamente un usuario. Si es así, devuelve el nombre de ese usuario.
+-   if(lookupfield.users.length() = 2, ...): Si la primera condición es falsa, comprueba si hay dos usuarios. Si es así, une los nombres del primer y segundo usuario con una coma.
+-   "": Si ambas condiciones son falsas (es decir, hay cero usuarios o más de dos), devuelve una cadena vacía.
+
+### **Limitaciones y consideraciones**
+
+-   **Escalabilidad:** La fórmula proporcionada no mostrará ningún nombre si se seleccionan tres o más usuarios. Amplía las declaraciones if anidadas para incluir más usuarios.
+-   **Formatos alternativos:** Para obtener correos electrónicos en lugar de nombres, reemplaza .Name por .Email.

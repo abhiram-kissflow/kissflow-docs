@@ -1,0 +1,50 @@
+---
+title: "Exportar datos desde una vista de tabla de datos"
+description: "BORRADOR (no verificado) — migrado desde /t/35yzja7/exporting-data-from-a-data-table-view"
+contentType: guide
+persona: citizen-developer
+section: build
+---
+
+Planes de Kissflow:
+
+✕ Básico ✓ Enterprise
+
+La función de exportación de la [vista de tabla de datos](/t/g9yzja2/data-table-view) en [dataforms](/t/35yzjag/creating-and-managing-dataforms) te permite exportar datos de tu vista de tabla de datos como un archivo CSV descargable. El archivo CSV se envía a tu correo electrónico y luego puedes descargarlo. Después de hacer clic en el botón de exportación, recibirás un correo electrónico con tus datos exportados como un archivo CSV descargable.
+
+Como usuario de una aplicación de Kissflow, si tienes acceso a la página de la aplicación activa con la vista de tabla de datos integrada, puedes exportar datos de esta vista si el botón de exportación está habilitado. Recibirás por correo electrónico un archivo CSV con tus datos exportados cuando hagas clic en el botón de exportación. Durante el desarrollo de la aplicación, el administrador de la aplicación decide si habilitar o deshabilitar el botón de exportación en la vista de tabla de datos.
+
+Por ejemplo, en una aplicación de adquisición de activos, el gerente de adquisiciones necesita poder exportar una lista de todos los activos adquiridos en un archivo CSV para compartirla con su equipo interno de finanzas. Cuando la función de exportación de la vista de tabla de datos está activada, el gerente de adquisiciones puede agregar rápidamente un filtro y hacer clic en Exportar para recibir los datos en un archivo CSV por correo electrónico. 
+
+## Habilitar el botón de exportación 
+
+El [administrador de la aplicación](/t/x2yz5hz/creating-an-app) puede activar o desactivar el botón de exportación dentro de una vista de tabla de datos siguiendo los pasos que se indican a continuación:
+
+1.  Abre el [creador de aplicaciones](/t/m1yzj9p/app-builder-overview) y crea una [vista de tabla de datos](/t/g9yzja2/data-table-view) en un [dataform](/t/35yzjag/creating-and-managing-dataforms).
+2.  A continuación, accede a [páginas](/t/60yzj91/app-pages-overview) y [crea una página](/t/60yzj9k/creating-and-editing-pages). Arrastra y suelta el [componente de vista de tabla de datos](/t/g9yzja2/data-table-view) del dataform en esta página.
+3.  En el panel de configuración de la derecha, en **Propiedades generales** > **Configuración**, encontrarás un botón de alternancia **Exportar**(![](/migration-assets/exporting-data-from-a-data-table-view/1.png))
+4.  Actívalo o desactívalo para mostrar u ocultar el botón **Exportar** como parte de la vista de tabla de datos en tu aplicación activa implementada.![](/migration-assets/exporting-data-from-a-data-table-view/2.png) 
+
+> **Nota:**
+> 
+> El botón Exportar también se puede habilitar para el componente **Todos los elementos** del dataform.
+
+## Exportar datos como archivo CSV
+
+Cuando el [administrador de la aplicación](/t/x2yz5hz/creating-an-app) habilita el botón de exportación en la vista de tabla de datos de la aplicación, los usuarios de la aplicación pueden comenzar a exportar datos con este botón.
+
+Como usuario, puedes comenzar a exportar datos desde tu aplicación activa haciendo clic en el botón **Exportar** en la esquina superior derecha de la vista de tabla de datos y confirmando **Exportar**. Recibirás un correo electrónico con tus datos exportados como un archivo CSV descargable.
+
+> **Nota:**
+> 
+> Si has aplicado filtros a tu vista de tabla de datos, solo se exportarán los datos que se muestran. No se exportarán los datos filtrados que permanezcan ocultos.
+
+![](/migration-assets/exporting-data-from-a-data-table-view/3.gif)
+
+> Las exportaciones CSV están limitadas a 100 000 filas por archivo. Si tu dataform supera este límite, la exportación se dividirá automáticamente en varios archivos CSV y se incluirá en un único archivo ZIP para facilitar la descarga.Ejemplo:  
+> Si tu dataform contiene 110 000 filas, la exportación incluirá dos archivos CSV:
+> 
+> -   Uno con 100 000 filas
+>     
+> -   Otro con las 10 000 filas restantes
+>
