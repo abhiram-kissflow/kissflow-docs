@@ -16,13 +16,14 @@ export async function POST(request: Request): Promise<Response> {
     return Response.json({ error: 'Missing OPENAI_API_KEY' }, { status: 500 });
   }
 
-  let body: { query?: string; history?: HistoryTurn[] };
+  let body: { query?: string; history?: HistoryTurn[]; locale?: string };
   try {
-    body = (await request.json()) as { query?: string; history?: HistoryTurn[] };
+    body = (await request.json()) as { query?: string; history?: HistoryTurn[]; locale?: string };
   } catch {
     return Response.json({ error: 'Invalid JSON body' }, { status: 400 });
   }
   const query = body.query?.trim() ?? '';
+  const locale = body.locale === 'es' ? 'es' : 'en';
   if (query.length < 2) {
     return Response.json({ error: 'query must be at least 2 characters' }, { status: 400 });
   }
@@ -63,7 +64,7 @@ export async function POST(request: Request): Promise<Response> {
   // while the answer streams in the body.
   const sources = contextNodes.map((n) => ({ url: n.url, title: n.label }));
 
-  const result = answerFromContext({ query, contextNodes, tier, history });
+  const result = answerFromContext({ query, contextNodes, tier, history, locale });
   return result.toTextStreamResponse({
     headers: { 'x-rag-sources': encodeURIComponent(JSON.stringify(sources)) },
   });

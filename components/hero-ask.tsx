@@ -9,6 +9,7 @@ import { ArrowUp, FileText, Loader2, Sparkle } from 'lucide-react';
 import { PersonaNav } from '@/components/persona-nav';
 import { WingField } from '@/components/wing-field';
 import { useUIStrings } from '@/lib/ui-strings';
+import { useI18n } from 'fumadocs-ui/contexts/i18n';
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 
@@ -56,8 +57,10 @@ function pickQuestions(count: number): string[] {
 }
 
 function Markdown({ text }: { text: string }) {
+  // translate="no": browser auto-translate rewrites streamed answer DOM
+  // (glued words, dropped fragments) — answers are already in the page locale.
   return (
-    <div className="prose prose-sm max-w-none text-fd-foreground [&_a]:font-medium [&_a]:text-[#CF2C91] [&_a]:underline [&_code]:rounded [&_code]:bg-fd-muted [&_code]:px-1 [&_ol]:list-decimal [&_ol]:pl-5 [&_p]:mb-3 [&_ul]:list-disc [&_ul]:pl-5 [&_table]:my-3 [&_table]:block [&_table]:w-full [&_table]:overflow-x-auto [&_table]:border-collapse [&_table]:text-sm [&_th]:border [&_th]:border-fd-border [&_th]:bg-fd-muted [&_th]:px-2 [&_th]:py-1 [&_th]:text-left [&_th]:font-semibold [&_td]:border [&_td]:border-fd-border [&_td]:px-2 [&_td]:py-1 [&_td]:align-top">
+    <div translate="no" className="prose prose-sm max-w-none text-fd-foreground [&_a]:font-medium [&_a]:text-[#CF2C91] [&_a]:underline [&_code]:rounded [&_code]:bg-fd-muted [&_code]:px-1 [&_ol]:list-decimal [&_ol]:pl-5 [&_p]:mb-3 [&_ul]:list-disc [&_ul]:pl-5 [&_table]:my-3 [&_table]:block [&_table]:w-full [&_table]:overflow-x-auto [&_table]:border-collapse [&_table]:text-sm [&_th]:border [&_th]:border-fd-border [&_th]:bg-fd-muted [&_th]:px-2 [&_th]:py-1 [&_th]:text-left [&_th]:font-semibold [&_td]:border [&_td]:border-fd-border [&_td]:px-2 [&_td]:py-1 [&_td]:align-top">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{ a: (p) => <a {...p} target="_blank" rel="noreferrer" /> }}
@@ -70,6 +73,7 @@ function Markdown({ text }: { text: string }) {
 
 export default function HeroAsk() {
   const strings = useUIStrings().hero;
+  const { locale } = useI18n();
   const [turns, setTurns] = useState<Turn[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -136,7 +140,7 @@ export default function HeroAsk() {
       const res = await fetch(`${basePath}/api/rag/ask`, {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ query: text, history }),
+        body: JSON.stringify({ query: text, history, locale }),
       });
       if (!res.ok) throw new Error(String(res.status));
 

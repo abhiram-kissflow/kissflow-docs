@@ -43,6 +43,18 @@ Style (how to write a grounded answer):
 - When earlier turns are provided, treat the new question as a follow-up in the
   same conversation.`;
 
+/**
+ * Answers must be written in the page's language. Localized answers (instead
+ * of client-side translation) are the guardrail against browser auto-translate
+ * mangling streamed answer text (glued words, dropped fragments).
+ */
+export function answerLanguageRule(locale?: string): string {
+  if (locale === 'es') {
+    return '\n\nWrite the entire answer in Spanish. Keep product names and UI labels exactly as they appear in the CONTEXT.';
+  }
+  return '\n\nWrite the entire answer in English.';
+}
+
 function renderContext(nodes: ContextNode[]): string {
   if (!nodes.length) return 'CONTEXT: (empty)';
   return [
@@ -61,6 +73,7 @@ export function answerFromContext(input: {
   contextNodes: ContextNode[];
   tier: 'luna' | 'terra';
   history?: HistoryTurn[];
+  locale?: string;
 }) {
   const priorTurns: ModelMessage[] = (input.history ?? []).map((t) => ({
     role: t.role,
@@ -71,7 +84,7 @@ export function answerFromContext(input: {
     model: resolveAnswerModel(input.tier),
     schema: citationAnswerSchema,
     // no temperature: gpt-5.6 reasoning models ignore it and warn.
-    system: SYSTEM,
+    system: SYSTEM + answerLanguageRule(input.locale),
     messages: [
       { role: 'system', content: renderContext(input.contextNodes) },
       ...priorTurns,

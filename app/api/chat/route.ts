@@ -11,6 +11,7 @@ import {
   type GraphNode,
 } from '@/lib/rag/content-graph';
 import { decideModelTier } from '@/lib/rag/escalation';
+import { answerLanguageRule } from '@/lib/rag/answer';
 import { EMBEDDING_MODEL, resolveAnswerModel } from '@/lib/rag/model-router';
 
 export const runtime = 'nodejs';
@@ -71,8 +72,9 @@ export async function POST(request: Request): Promise<Response> {
     return Response.json({ error: 'Missing OPENAI_API_KEY' }, { status: 500 });
   }
 
-  const body = (await request.json()) as { messages?: UIMessage[] };
+  const body = (await request.json()) as { messages?: UIMessage[]; locale?: string };
   const messages = body.messages ?? [];
+  const locale = body.locale === 'es' ? 'es' : 'en';
 
   const queries = userTexts(messages);
   const query = queries.at(-1) ?? '';
@@ -111,7 +113,7 @@ export async function POST(request: Request): Promise<Response> {
       {
         id: 'system-0',
         role: 'system',
-        parts: [{ type: 'text', text: SYSTEM }],
+        parts: [{ type: 'text', text: SYSTEM + answerLanguageRule(locale) }],
       } as UIMessage,
       {
         id: 'system-1',
