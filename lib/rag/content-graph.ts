@@ -2,12 +2,19 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { cosineSimilarity } from 'ai';
 import type { SubgraphStats } from './escalation';
+import type { SourceMedia } from './content-sections';
 
 export interface GraphNode {
   id: string;
   label: string;
+  /** Section URL, including its fragment when the section has one. */
   url: string;
+  /** Canonical article URL shared by every section in the article. */
+  articleUrl: string;
+  heading: string;
+  anchor: string;
   snippet: string;
+  media: SourceMedia[];
   community: number;
 }
 
@@ -31,6 +38,11 @@ export interface EmbeddingIndex {
 export interface SeedHit {
   nodeId: string;
   score: number;
+}
+
+export interface ArticleSource {
+  title: string;
+  url: string;
 }
 
 export interface ConstrainedSubgraph {
@@ -69,7 +81,7 @@ export function loadContentGraph(): LoadedGraph {
  * Ranks graph nodes by cosine similarity of their embedding to the query vector.
  * Graph + vectors are injectable for testing; default to the loaded singleton.
  */
-export function seedSearch(
+export function rankSections(
   queryVector: number[],
   k: number,
   graph?: ContentGraph,
@@ -88,6 +100,32 @@ export function seedSearch(
     .filter((h): h is SeedHit => h !== null)
     .sort((a, b) => b.score - a.score)
     .slice(0, k);
+}
+
+/** @deprecated Use rankSections: graph nodes are documentation sections. */
+export function seedSearch(
+  queryVector: number[],
+  k: number,
+  graph?: ContentGraph,
+  vectors?: Record<string, number[]>,
+): SeedHit[] {
+  return rankSections(queryVector, k, graph, vectors);
+}
+
+/**
+ * Produces article-level source cards from cited section nodes. Order follows
+ * the citation order so the first supporting article remains first.
+ */
+export function groupSources(nodes: GraphNode[]): ArticleSource[] {
+  const seen = new Set<string>();
+  const sources: ArticleSource[] = [];
+  for (const node of nodes) {
+    const articleUrl = node.articleUrl || node.url.split('#', 1)[0];
+    if (!articleUrl || seen.has(articleUrl)) continue;
+    seen.add(articleUrl);
+    sources.push({ title: node.label, url: articleUrl });
+  }
+  return sources;
 }
 
 /**
@@ -145,7 +183,9 @@ export function constrainSubgraph(
     (e) => collectedIds.has(e.source) && collectedIds.has(e.target),
   );
 
-  const distinctSourceArticles = new Set(collectedNodes.map((n) => n.url)).size;
+  const distinctSourceArticles = new Set(
+    collectedNodes.map((n) => n.articleUrl || n.url.split('#', 1)[0]),
+  ).size;
   return {
     nodes: collectedNodes,
     edges: prunedEdges,

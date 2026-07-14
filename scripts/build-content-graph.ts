@@ -24,11 +24,11 @@ import path from 'node:path';
 import matter from 'gray-matter';
 import { embedMany } from 'ai';
 import { openai } from '@ai-sdk/openai';
+import { extractContentSections, type SourceMedia } from '../lib/rag/content-sections';
 
 const GRAPH_DIR = path.join(process.cwd(), 'lib', 'rag', 'content-graph');
 const CONTENT_DIR = path.join(process.cwd(), 'content');
 const MODEL = 'text-embedding-3-small';
-const SNIPPET_LEN = 300;
 
 // --- Runtime artifact shapes -------------------------------------------------
 
@@ -36,7 +36,11 @@ interface GraphNode {
   id: string;
   label: string;
   url: string;
+  articleUrl: string;
+  heading: string;
+  anchor: string;
   snippet: string;
+  media: SourceMedia[];
   community: number;
 }
 
@@ -78,16 +82,6 @@ function deriveUrl(relPath: string): string {
   return ['/docs', ...segments].join('/') || '/docs';
 }
 
-function stripMdx(body: string): string {
-  return body
-    .replace(/^(import|export)\s.*$/gm, '')
-    .replace(/\{\/\*[\s\S]*?\*\/\}/g, '')
-    .replace(/<\/?[A-Za-z][^>]*>/g, ' ')
-    .replace(/[ \t]+/g, ' ')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
-}
-
 // --- Helpers ----------------------------------------------------------------
 
 /** Strip a leading `content/` segment so paths resolve the same way regardless
@@ -96,17 +90,18 @@ function normalizeSourceFile(sourceFile: string): string {
   return sourceFile.replace(/^content\//, '');
 }
 
-/** Read an article's stripped text and return the leading snippet. Falls back to
- *  the label (with a warning) if the source file can't be read. */
-function buildSnippet(sourceFile: string, label: string): string {
+/** Read and section an article. Falls back to a one-section label if its source
+ * cannot be read, preserving the graph's existing failure behaviour. */
+function buildSections(sourceFile: string, label: string, articleUrl: string) {
   const rel = normalizeSourceFile(sourceFile);
   const abs = path.join(CONTENT_DIR, rel);
   try {
-    const { content } = matter(fs.readFileSync(abs, 'utf8'));
-    return stripMdx(content).slice(0, SNIPPET_LEN);
+    const { data, content } = matter(fs.readFileSync(abs, 'utf8'));
+    const title = typeof data.title === 'string' ? data.title : label;
+    return { title, sections: extractContentSections({ url: articleUrl, title, body: content }) };
   } catch {
-    console.warn(`  warn: could not read ${abs}; using label as snippet fallback`);
-    return label.slice(0, SNIPPET_LEN);
+    console.warn(`  warn: could not read ${abs}; using label section fallback`);
+    return { title: label, sections: extractContentSections({ url: articleUrl, title: label, body: label }) };
   }
 }
 
@@ -132,8 +127,12 @@ async function main() {
   const graphifyNodes = raw.nodes ?? [];
   const graphifyLinks = raw.links ?? [];
 
-  // 1. Transform + filter nodes.
+  // 1. Transform each article into heading-level section nodes. Keeping a map
+  // from graphify article IDs to their first section preserves the existing
+  // cross-article edges for related-content traversal.
   const nodes: GraphNode[] = [];
+  const sectionIdsByGraphifyId = new Map<string, string[]>();
+  const sectionIdsBySourceFile = new Map<string, string[]>();
   let skipped = 0;
   for (const gn of graphifyNodes) {
     if (!isDocNode(gn)) {
@@ -142,31 +141,54 @@ async function main() {
     }
     const sourceFile = gn.source_file as string;
     const label = gn.label ?? path.basename(sourceFile);
-    nodes.push({
-      id: gn.id,
-      label,
-      url: deriveUrl(normalizeSourceFile(sourceFile)),
-      snippet: buildSnippet(sourceFile, label),
-      community: typeof gn.community === 'number' ? gn.community : 0,
-    });
-  }
-  console.log(`Nodes: kept ${nodes.length}, skipped ${skipped} (non-doc / no source_file)`);
+    const normalizedSource = normalizeSourceFile(sourceFile);
+    const existing = sectionIdsBySourceFile.get(normalizedSource);
+    if (existing) {
+      sectionIdsByGraphifyId.set(gn.id, existing);
+      continue;
+    }
 
-  // 2. Transform + prune edges (drop dangling endpoints — same invariant as
-  //    constrainSubgraph: both endpoints must survive the node filter).
-  const kept = new Set(nodes.map((n) => n.id));
+    const articleUrl = deriveUrl(normalizedSource);
+    const { title, sections } = buildSections(sourceFile, label, articleUrl);
+    const ids: string[] = [];
+    for (const section of sections) {
+      const url = section.anchor ? `${articleUrl}#${section.anchor}` : articleUrl;
+      const id = url;
+      ids.push(id);
+      nodes.push({
+        id,
+        label: title,
+        url,
+        articleUrl,
+        heading: section.heading,
+        anchor: section.anchor,
+        snippet: section.text,
+        media: section.media,
+        community: typeof gn.community === 'number' ? gn.community : 0,
+      });
+    }
+    sectionIdsByGraphifyId.set(gn.id, ids);
+    sectionIdsBySourceFile.set(normalizedSource, ids);
+  }
+  console.log(`Sections: kept ${nodes.length}, skipped ${skipped} (non-doc / no source_file)`);
+
+  // 2. Retain graphify's cross-article links by connecting the first section
+  // from each linked article. Section retrieval is direct; these edges remain
+  // available for broad related-content traversal.
   const edges: GraphEdge[] = [];
   let prunedEdges = 0;
   for (const link of graphifyLinks) {
-    if (kept.has(link.source) && kept.has(link.target)) {
-      edges.push({ source: link.source, target: link.target, relation: link.relation ?? 'related' });
+    const source = sectionIdsByGraphifyId.get(link.source)?.[0];
+    const target = sectionIdsByGraphifyId.get(link.target)?.[0];
+    if (source && target) {
+      edges.push({ source, target, relation: link.relation ?? 'related' });
     } else {
       prunedEdges++;
     }
   }
   console.log(`Edges: kept ${edges.length}, pruned ${prunedEdges} (dangling endpoint)`);
 
-  // 3. Embed each node's label + snippet.
+  // 3. Embed the section's article title, heading, and complete section text.
   console.log(`Embedding ${nodes.length} nodes with ${MODEL}...`);
   if (nodes.length > 2000) {
     console.warn(
@@ -175,7 +197,7 @@ async function main() {
   }
   if (nodes.length === 0) throw new Error('No doc nodes survived filtering — refusing to write empty artifacts.');
 
-  const inputs = nodes.map((n) => `${n.label}\n${n.snippet}`);
+  const inputs = nodes.map((n) => `${n.label}\n${n.heading}\n${n.snippet}`);
   const { embeddings } = await embedMany({ model: openai.embedding(MODEL), values: inputs });
   const vectors: Record<string, number[]> = {};
   nodes.forEach((n, i) => {

@@ -1,13 +1,20 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { seedSearch, constrainSubgraph, type ContentGraph } from './content-graph';
+import {
+  groupSources,
+  rankSections,
+  seedSearch,
+  constrainSubgraph,
+  type ContentGraph,
+  type GraphNode,
+} from './content-graph';
 
 const graph: ContentGraph = {
   nodes: [
-    { id: 'n1', label: 'A', url: '/docs/a', snippet: 'a', community: 0 },
-    { id: 'n2', label: 'B', url: '/docs/b', snippet: 'b', community: 0 },
-    { id: 'n3', label: 'C', url: '/docs/c', snippet: 'c', community: 1 },
-    { id: 'n4', label: 'D', url: '/docs/d', snippet: 'd', community: 1 },
+    { id: 'n1', label: 'A', url: '/docs/a', articleUrl: '/docs/a', heading: 'A', anchor: '', snippet: 'a', media: [], community: 0 },
+    { id: 'n2', label: 'B', url: '/docs/b', articleUrl: '/docs/b', heading: 'B', anchor: '', snippet: 'b', media: [], community: 0 },
+    { id: 'n3', label: 'C', url: '/docs/c', articleUrl: '/docs/c', heading: 'C', anchor: '', snippet: 'c', media: [], community: 1 },
+    { id: 'n4', label: 'D', url: '/docs/d', articleUrl: '/docs/d', heading: 'D', anchor: '', snippet: 'd', media: [], community: 1 },
   ],
   edges: [
     { source: 'n1', target: 'n2', relation: 'related' },
@@ -15,6 +22,47 @@ const graph: ContentGraph = {
     { source: 'n3', target: 'n4', relation: 'related' },
   ],
 };
+
+const childTables: GraphNode = {
+  id: '/docs/form#child-tables',
+  label: 'Creating a form',
+  url: '/docs/form#child-tables',
+  articleUrl: '/docs/form',
+  heading: 'Child tables',
+  anchor: 'child-tables',
+  snippet: 'Click Add table to create a child table.',
+  media: [],
+  community: 0,
+};
+
+const csv: GraphNode = {
+  id: '/docs/form#csv',
+  label: 'Creating a form',
+  url: '/docs/form#csv',
+  articleUrl: '/docs/form',
+  heading: 'CSV import',
+  anchor: 'csv',
+  snippet: 'Import rows from a CSV file.',
+  media: [],
+  community: 0,
+};
+
+test('rankSections returns the answer-bearing child-table section first', () => {
+  const sectionGraph: ContentGraph = { nodes: [childTables, csv], edges: [] };
+  const sectionVectors = {
+    [childTables.id]: [1, 0],
+    [csv.id]: [0, 1],
+  };
+
+  const hits = rankSections([1, 0], 1, sectionGraph, sectionVectors);
+  assert.deepEqual(hits.map((hit) => hit.nodeId), ['/docs/form#child-tables']);
+});
+
+test('groupSources emits one article source for multiple cited sections', () => {
+  assert.deepEqual(groupSources([childTables, csv]), [
+    { title: 'Creating a form', url: '/docs/form' },
+  ]);
+});
 
 const vectors: Record<string, number[]> = {
   n1: [1, 0, 0],
