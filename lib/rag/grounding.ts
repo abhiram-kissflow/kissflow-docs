@@ -47,7 +47,9 @@ export function validateGroundedAnswer(
   const answer = claims.map((claim) => claim.markdown).join('\n\n');
   if (!claims.length || answer !== result.answer.trim()) return abstention();
 
-  const citedNodeIds = new Set(citations.map((citation) => citation.nodeId));
+  const boundCitationIds = new Set(claims.flatMap((claim) => claim.citationIds));
+  const boundCitations = citations.filter((citation) => boundCitationIds.has(citation.id));
+  const citedNodeIds = new Set(boundCitations.map((citation) => citation.nodeId));
   const seenMediaIdentities = new Set<string>();
   const media = result.media.filter((selection) => {
     const node = nodesById.get(selection.nodeId);
@@ -60,7 +62,7 @@ export function validateGroundedAnswer(
     return true;
   });
 
-  return { answer, claims, citations, media, insufficientEvidence: false };
+  return { answer, claims, citations: boundCitations, media, insufficientEvidence: false };
 }
 
 function abstention(): CitationAnswer {
@@ -68,6 +70,7 @@ function abstention(): CitationAnswer {
 }
 
 function sourceMediaIdentity(media: NonNullable<ContextNode['media']>[number]): string | null {
+  if (!media.url.trim()) return null;
   if (media.assetHash?.trim()) return `hash:${media.assetHash.trim()}`;
   if (media.dedupeKey?.trim()) return `key:${media.dedupeKey.trim()}`;
   return normalizeMediaUrl(media.url);

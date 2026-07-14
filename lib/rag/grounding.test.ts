@@ -24,7 +24,18 @@ const emptyUrlSection: ContextNode = {
   label: 'Broken media',
   url: '/docs/broken-media',
   snippet: 'Broken media must not render.',
-  media: [{ id: 'empty-media-1', kind: 'image', url: '   ', alt: 'Broken' }],
+  media: [
+    { id: 'empty-media-hash', kind: 'image', url: '   ', alt: 'Broken', assetHash: 'sha256:broken' },
+    { id: 'empty-media-key', kind: 'image', url: '', alt: 'Also broken', dedupeKey: 'gcs:broken' },
+  ],
+};
+
+const limitSection: ContextNode = {
+  id: 'limit',
+  label: 'Limits',
+  url: '/docs/limits',
+  snippet: 'The limit is 100.',
+  media: [],
 };
 
 function groundedAnswer(overrides: Record<string, unknown> = {}) {
@@ -53,13 +64,13 @@ test('accepts a short exact citation when it is explicitly bound to the rendered
     groundedAnswer({
       answer: '100',
       claims: [{ markdown: '100', citationIds: ['limit'] }],
-      citations: [{ id: 'limit', nodeId: 'child', snippet: 'Click' }],
+      citations: [{ id: 'limit', nodeId: 'limit', snippet: '100' }],
     }),
-    [childSection],
+    [limitSection],
   );
 
   assert.equal(result.insufficientEvidence, false);
-  assert.deepEqual(result.citations, [{ id: 'limit', nodeId: 'child', snippet: 'Click' }]);
+  assert.deepEqual(result.citations, [{ id: 'limit', nodeId: 'limit', snippet: '100' }]);
 });
 
 test('rejects whitespace-only evidence', () => {
@@ -110,6 +121,27 @@ test('retains source media only when it belongs to a cited section', () => {
   assert.deepEqual(result.media, [{ nodeId: 'child', mediaId: 'child-media-1' }]);
 });
 
+test('removes unused valid citations and their media', () => {
+  const result = validateGroundedAnswer(
+    groundedAnswer({
+      citations: [
+        { id: 'child-citation', nodeId: 'child', snippet: 'Click Add table to create a child table.' },
+        { id: 'csv-citation', nodeId: 'csv', snippet: 'Import rows from a CSV file.' },
+      ],
+      media: [
+        { nodeId: 'child', mediaId: 'child-media-1' },
+        { nodeId: 'csv', mediaId: 'csv-media-1' },
+      ],
+    }),
+    [childSection, csvSection],
+  );
+
+  assert.deepEqual(result.citations, [
+    { id: 'child-citation', nodeId: 'child', snippet: 'Click Add table to create a child table.' },
+  ]);
+  assert.deepEqual(result.media, [{ nodeId: 'child', mediaId: 'child-media-1' }]);
+});
+
 test('deduplicates URL variants of the same cited source asset', () => {
   const result = validateGroundedAnswer(
     groundedAnswer({
@@ -132,10 +164,13 @@ test('deduplicates URL variants of the same cited source asset', () => {
   assert.deepEqual(result.media, [{ nodeId: 'child', mediaId: 'child-media-1' }]);
 });
 
-test('rejects selected media with an empty source URL', () => {
+test('rejects selected media with an empty source URL even when it has a stable hash or key', () => {
   const result = validateGroundedAnswer(
     groundedAnswer({
-      media: [{ nodeId: 'empty-media', mediaId: 'empty-media-1' }],
+      media: [
+        { nodeId: 'empty-media', mediaId: 'empty-media-hash' },
+        { nodeId: 'empty-media', mediaId: 'empty-media-key' },
+      ],
       citations: [{ id: 'empty-citation', nodeId: 'empty-media', snippet: 'Broken media must not render.' }],
       claims: [{ markdown: 'Use Add table.', citationIds: ['empty-citation'] }],
     }),
