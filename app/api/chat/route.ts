@@ -1,71 +1,25 @@
 import {
-  convertToModelMessages,
-  embed,
-  streamText,
+  createUIMessageStream,
+  createUIMessageStreamResponse,
   type UIMessage,
 } from 'ai';
-import {
-  seedSearch,
-  constrainSubgraph,
-  loadContentGraph,
-  type GraphNode,
-} from '@/lib/rag/content-graph';
-import { decideModelTier } from '@/lib/rag/escalation';
-import { answerLanguageRule } from '@/lib/rag/answer';
-import { EMBEDDING_MODEL, resolveAnswerModel } from '@/lib/rag/model-router';
+import { askFromRag } from '@/lib/rag/ask-service';
+import type { HistoryTurn } from '@/lib/rag/answer';
 
 export const runtime = 'nodejs';
 
-// Same retrieval knobs as the hero engine (app/api/rag/ask/route.ts).
-const SEED_K = 6;
-const MAX_NODES = 12;
-const MAX_HOPS = 2;
-// Calibrated with /api/rag/ask (2026-07-14 benchmark) — catches garbage only.
-const SEED_SCORE_FLOOR = 0.45;
-
-// Same grounding + answer style as the hero engine (lib/rag/answer.ts SYSTEM),
-// minus the citation-object machinery: the chat widget renders markdown text,
-// so we stream text and abstain in prose instead of a JSON flag.
-const SYSTEM = `You are Kissflow's docs assistant. You answer users of the
-Kissflow platform from the provided documentation CONTEXT only.
-
-Grounding (never break these):
-1. Answer ONLY from the provided CONTEXT. Never use outside knowledge.
-2. If the CONTEXT cannot support a confident answer, say briefly that the docs
-   don't cover it — do not guess.
-
-Style (how to write a grounded answer):
-- For "how do I…" / setup / step questions: open with one short sentence naming
-  the goal, then give clear numbered steps the user can follow. Be complete.
-- For everything else: be punchy and concise — a direct sentence or two.
-- Write plainly and actively (omit needless words; no preamble like "Based on
-  the context"). Use markdown: numbered lists for steps, **bold** for UI labels,
-  inline links to the source urls where a "read more" genuinely helps, and
-  GitHub-flavored markdown tables when the user asks for tabular data or when
-  comparing options side by side.
-- When earlier turns are provided, treat the new question as a follow-up in the
-  same conversation.`;
-
-/** All user turns, newest last, as plain text. */
+/** All user turns, newest last, as plain text. Assistant prose is never evidence. */
 function userTexts(messages: UIMessage[]): string[] {
   return messages
-    .filter((m) => m.role === 'user')
-    .map((m) =>
-      m.parts
-        .filter((p): p is Extract<(typeof m.parts)[number], { type: 'text' }> => p.type === 'text')
-        .map((p) => p.text)
+    .filter((message) => message.role === 'user')
+    .map((message) =>
+      message.parts
+        .filter((part): part is Extract<(typeof message.parts)[number], { type: 'text' }> => part.type === 'text')
+        .map((part) => part.text)
         .join(' ')
         .trim(),
     )
     .filter(Boolean);
-}
-
-function renderContext(nodes: GraphNode[]): string {
-  if (!nodes.length) return 'CONTEXT: (empty)';
-  return [
-    'CONTEXT:',
-    ...nodes.map((n) => `- url: ${n.url}\n  title: ${n.label}\n  snippet: ${n.snippet}`),
-  ].join('\n');
 }
 
 export async function POST(request: Request): Promise<Response> {
@@ -73,57 +27,41 @@ export async function POST(request: Request): Promise<Response> {
     return Response.json({ error: 'Missing OPENAI_API_KEY' }, { status: 500 });
   }
 
-  const body = (await request.json()) as { messages?: UIMessage[]; locale?: string };
-  const messages = body.messages ?? [];
-  const locale = body.locale === 'es' ? 'es' : 'en';
-
-  const queries = userTexts(messages);
-  const query = queries.at(-1) ?? '';
-  const prevUser = queries.at(-2) ?? '';
-
-  // Conversational retrieval: fold in the previous turn so referential
-  // follow-ups ("how do I create one?") retrieve the right docs.
-  const retrievalText = prevUser ? `${prevUser}\n${query}` : query;
-
-  let contextNodes: GraphNode[] = [];
-  let tier: 'luna' | 'terra' = 'luna';
-  if (query.length >= 2) {
-    const { graph, index } = loadContentGraph();
-    const { embedding } = await embed({ model: EMBEDDING_MODEL, value: retrievalText });
-    const seeds = seedSearch(embedding, SEED_K, graph, index.vectors);
-
-    // Weak top seed → leave CONTEXT empty so the model abstains (SYSTEM rule 2)
-    // instead of force-fitting unrelated docs. ponytail: no separate short-circuit
-    // stream — an empty-context call is rare and keeps this one code path.
-    if (seeds.length && seeds[0].score >= SEED_SCORE_FLOOR) {
-      const constrained = constrainSubgraph(
-        seeds.map((s) => s.nodeId),
-        { maxNodes: MAX_NODES, maxHops: MAX_HOPS },
-        graph,
-      );
-      contextNodes = constrained.nodes;
-      tier = decideModelTier({ seeds });
-    }
+  let body: { messages?: UIMessage[]; locale?: string };
+  try {
+    body = (await request.json()) as { messages?: UIMessage[]; locale?: string };
+  } catch {
+    return Response.json({ error: 'Invalid JSON body' }, { status: 400 });
   }
 
-  const result = streamText({
-    // Same model as the hero: gpt-5.6-luna, escalating to terra on the same
-    // signals. No temperature — gpt-5.6 reasoning models ignore it and warn.
-    model: resolveAnswerModel(tier),
-    messages: await convertToModelMessages([
-      {
-        id: 'system-0',
-        role: 'system',
-        parts: [{ type: 'text', text: SYSTEM + answerLanguageRule(locale) }],
-      } as UIMessage,
-      {
-        id: 'system-1',
-        role: 'system',
-        parts: [{ type: 'text', text: renderContext(contextNodes) }],
-      } as UIMessage,
-      ...messages,
-    ]),
+  const userQuestions = userTexts(body.messages ?? []);
+  const query = userQuestions.at(-1) ?? '';
+  const history: HistoryTurn[] = userQuestions
+    .slice(0, -1)
+    .map((content) => ({ role: 'user' as const, content }));
+  const result = await askFromRag({
+    query,
+    history,
+    locale: body.locale === 'es' ? 'es' : 'en',
   });
 
-  return result.toUIMessageStreamResponse();
+  // The UI-message wire format is retained for useChat. The answer is emitted
+  // as one validated delta because citation/media validation requires the full
+  // structured model object before any public content can be released.
+  const stream = createUIMessageStream({
+    execute({ writer }) {
+      const textId = 'rag-answer';
+      writer.write({ type: 'start' });
+      if (result.answer.answer) {
+        writer.write({ type: 'text-start', id: textId });
+        writer.write({ type: 'text-delta', id: textId, delta: result.answer.answer });
+        writer.write({ type: 'text-end', id: textId });
+      }
+      writer.write({ type: 'finish', finishReason: 'stop' });
+    },
+  });
+  return createUIMessageStreamResponse({
+    stream,
+    headers: { 'x-rag-sources': encodeURIComponent(JSON.stringify(result.sources)) },
+  });
 }

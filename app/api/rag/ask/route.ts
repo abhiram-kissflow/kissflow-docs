@@ -1,19 +1,7 @@
-import { embed } from 'ai';
-import { EMBEDDING_MODEL } from '@/lib/rag/model-router';
-import { seedSearch, constrainSubgraph, loadContentGraph } from '@/lib/rag/content-graph';
-import { decideModelTier } from '@/lib/rag/escalation';
-import { answerFromContext, type ContextNode, type HistoryTurn } from '@/lib/rag/answer';
+import { askFromRag } from '@/lib/rag/ask-service';
+import type { HistoryTurn } from '@/lib/rag/answer';
 
 export const runtime = 'nodejs';
-
-const SEED_K = 6;
-const MAX_NODES = 12;
-const MAX_HOPS = 2;
-// Calibrated on the 2026-07-14 benchmark: weakest legitimate query topped at
-// 0.527, while out-of-scope-but-adjacent ("self-host Kissflow") still scored
-// 0.57 — so the floor only catches true garbage; semantic out-of-scope is the
-// model's insufficientEvidence call.
-const SEED_SCORE_FLOOR = 0.45;
 
 export async function POST(request: Request): Promise<Response> {
   if (!process.env.OPENAI_API_KEY) {
@@ -26,50 +14,24 @@ export async function POST(request: Request): Promise<Response> {
   } catch {
     return Response.json({ error: 'Invalid JSON body' }, { status: 400 });
   }
+
   const query = body.query?.trim() ?? '';
-  const locale = body.locale === 'es' ? 'es' : 'en';
   if (query.length < 2) {
     return Response.json({ error: 'query must be at least 2 characters' }, { status: 400 });
   }
-  // Keep only the last few turns to bound the prompt.
+
   const history = (body.history ?? [])
-    .filter((t) => (t.role === 'user' || t.role === 'assistant') && typeof t.content === 'string')
+    .filter((turn) => (turn.role === 'user' || turn.role === 'assistant') && typeof turn.content === 'string')
     .slice(-6);
+  const result = await askFromRag({
+    query,
+    history,
+    locale: body.locale === 'es' ? 'es' : 'en',
+  });
 
-  const { graph, index } = loadContentGraph();
-  // Retrieve on the last user question + the current one, so referential
-  // follow-ups ("how do I create one?") retrieve the right docs. Cheap
-  // conversational retrieval — no LLM query rewrite.
-  const lastUserTurn = [...history].reverse().find((t) => t.role === 'user')?.content ?? '';
-  const retrievalText = lastUserTurn ? `${lastUserTurn}\n${query}` : query;
-  const { embedding } = await embed({ model: EMBEDDING_MODEL, value: retrievalText });
-  const seeds = seedSearch(embedding, SEED_K, graph, index.vectors);
-
-  // Honest short-circuit: nothing relevant retrieved → abstain without a model call.
-  if (!seeds.length || seeds[0].score < SEED_SCORE_FLOOR) {
-    return Response.json({ answer: '', citations: [], insufficientEvidence: true });
-  }
-
-  const constrained = constrainSubgraph(
-    seeds.map((s) => s.nodeId),
-    { maxNodes: MAX_NODES, maxHops: MAX_HOPS },
-    graph,
-  );
-  const tier = decideModelTier({ seeds });
-  const contextNodes: ContextNode[] = constrained.nodes.map((n) => ({
-    id: n.id,
-    label: n.label,
-    url: n.url,
-    snippet: n.snippet,
-  }));
-
-  // The retrieved articles (for the client's "relevant articles" pane) are known
-  // before generation — send them in a header so the pane renders immediately
-  // while the answer streams in the body.
-  const sources = contextNodes.map((n) => ({ url: n.url, title: n.label }));
-
-  const result = answerFromContext({ query, contextNodes, tier, history, locale });
-  return result.toTextStreamResponse({
-    headers: { 'x-rag-sources': encodeURIComponent(JSON.stringify(sources)) },
+  // Validation happens before this response is written, so source cards can
+  // contain only citations bound to rendered claims.
+  return Response.json(result.answer, {
+    headers: { 'x-rag-sources': encodeURIComponent(JSON.stringify(result.sources)) },
   });
 }
