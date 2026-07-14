@@ -48,8 +48,9 @@ embeds or links from each section. A media record has `id`, `kind` (`image` or
 The answer schema adds a `media` array. Every record must name a retrieved
 section ID and a media ID that exists on that section. The model selects all
 media that materially helps a reader follow the answer; it does not select
-decorative or unrelated assets. The server validates and normalizes this array
-before streaming the final response.
+decorative or unrelated assets. Detailed answers may select multiple images and
+videos when each one supports a distinct step or decision. The server validates
+and normalizes this array before streaming the final response.
 
 `HeroAsk` renders every validated media record inline below its associated
 answer. Images use descriptive alt text and responsive sizing. Video URLs from
@@ -58,10 +59,14 @@ clearly labelled external links. Duplicate assets are rendered once.
 
 ### Grounding and conversation rules
 
-The model receives only the ranked section chunks. It may answer in as much
-detail as the evidence supports; there is no arbitrary character limit. Each
-substantive claim must have a cited section. If no retrieved section answers a
-question, the answer abstains.
+The model receives only the ranked section chunks. It chooses answer depth from
+the user's intent and the evidence: answer direct factual questions concisely;
+give complete, step-by-step detail for setup, troubleshooting, comparison, or
+other questions that need it. There is no arbitrary character or token limit
+used to save cost. It must not pad a response, omit evidence-backed steps, or
+assert a conclusion beyond the retrieved documentation. Each substantive claim
+must have a cited section. If no retrieved section answers a question, the
+answer abstains plainly rather than bluffing.
 
 For follow-ups, retrieval may combine the immediately previous user question
 with the current question. Model history includes prior user turns only; prior
