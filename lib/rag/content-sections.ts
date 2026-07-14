@@ -27,6 +27,7 @@ const HTML_IMAGE = /<img\b[^>]*>/gi;
 const IFRAME = /<iframe\b[^>]*>/gi;
 const MARKDOWN_LINK = /\[([^\]]+)\]\(\s*(?:<([^>]+)>|([^\s)]+))[^)]*\)/g;
 const BARE_URL = /https?:\/\/[^\s<>()\[\]]+/gi;
+const FENCED_CODE = /^(?:```|~~~)[^\n]*\n[\s\S]*?^(?:```|~~~)[ \t]*$/gm;
 
 export function extractContentSections(input: ContentSectionInput): ContentSection[] {
   const sections = splitSections(input.title, input.body);
@@ -42,7 +43,7 @@ export function extractContentSections(input: ContentSectionInput): ContentSecti
 }
 
 function splitSections(title: string, body: string): RawSection[] {
-  const matches = [...body.matchAll(H2)];
+  const matches = [...maskFencedCode(body).matchAll(H2)];
   const sections: RawSection[] = [];
   const usedAnchors = new Map<string, number>();
 
@@ -51,13 +52,17 @@ function splitSections(title: string, body: string): RawSection[] {
 
   for (let index = 0; index < matches.length; index += 1) {
     const match = matches[index];
-    const heading = match[1].trim();
+    const heading = cleanHeading(match[1]);
     const start = (match.index ?? 0) + match[0].length;
     const end = matches[index + 1]?.index ?? body.length;
     sections.push({ heading, anchor: uniqueSlug(heading, usedAnchors), body: body.slice(start, end) });
   }
 
   return sections;
+}
+
+function cleanHeading(value: string): string {
+  return value.replace(MARKDOWN_LINK, '$1').replace(/[`*_~]/g, '').trim();
 }
 
 function uniqueSlug(value: string, used: Map<string, number>): string {
@@ -76,29 +81,30 @@ function slug(value: string): string {
 }
 
 function extractMedia(source: string, anchor: string): SourceMedia[] {
+  const prose = withoutFencedCode(source);
   const media: Omit<SourceMedia, 'id'>[] = [];
   const add = (item: Omit<SourceMedia, 'id'>) => media.push(item);
 
-  for (const match of source.matchAll(MARKDOWN_IMAGE)) {
+  for (const match of prose.matchAll(MARKDOWN_IMAGE)) {
     add({ kind: 'image', url: match[2] ?? match[3], alt: match[1], ...(match[4] ? { title: match[4] } : {}) });
   }
 
-  for (const tag of source.match(HTML_IMAGE) ?? []) {
+  for (const tag of prose.match(HTML_IMAGE) ?? []) {
     const url = htmlAttribute(tag, 'src');
     if (url) add({ kind: 'image', url, alt: htmlAttribute(tag, 'alt') ?? '', ...(htmlAttribute(tag, 'title') ? { title: htmlAttribute(tag, 'title')! } : {}) });
   }
 
-  for (const tag of source.match(IFRAME) ?? []) {
+  for (const tag of prose.match(IFRAME) ?? []) {
     const url = htmlAttribute(tag, 'src');
     if (url && isSupportedVideo(url)) add({ kind: 'video', url, alt: htmlAttribute(tag, 'title') ?? '' });
   }
 
-  for (const match of source.matchAll(MARKDOWN_LINK)) {
+  for (const match of prose.matchAll(MARKDOWN_LINK)) {
     const url = match[2] ?? match[3];
     if (isSupportedVideo(url)) add({ kind: 'video', url, alt: match[1] });
   }
 
-  const withoutStructuredMedia = source
+  const withoutStructuredMedia = prose
     .replace(MARKDOWN_IMAGE, '')
     .replace(HTML_IMAGE, '')
     .replace(IFRAME, '')
@@ -119,14 +125,18 @@ function htmlAttribute(tag: string, name: string): string | undefined {
 function isSupportedVideo(url: string): boolean {
   try {
     const host = new URL(url).hostname.toLowerCase();
-    return host === 'youtu.be' || host.endsWith('youtube.com') || host.endsWith('vimeo.com');
+    return ['youtu.be', 'youtube.com', 'vimeo.com'].some(
+      (provider) => host === provider || host.endsWith(`.${provider}`),
+    );
   } catch {
     return false;
   }
 }
 
 function cleanText(source: string): string {
-  return source
+  const codeBlocks: string[] = [];
+  const proseWithPlaceholders = source.replace(FENCED_CODE, (block) => `\n__CODE_BLOCK_${codeBlocks.push(block) - 1}__\n`);
+  const cleaned = proseWithPlaceholders
     .replace(/^\s*(?:import|export)\s+[^\n;]+;?\s*$/gm, '')
     .replace(MARKDOWN_IMAGE, '')
     .replace(HTML_IMAGE, '')
@@ -141,11 +151,21 @@ function cleanText(source: string): string {
     .replace(/\*\*([^*]+)\*\*/g, '$1')
     .replace(/__([^_]+)__/g, '$1')
     .replace(/`([^`]+)`/g, '$1')
+    .replace(/\(\s*\)/g, '')
     .split('\n')
     .map((line) => line.trim().replace(/[ \t]{2,}/g, ' '))
     .join('\n')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
+  return cleaned.replace(/__CODE_BLOCK_(\d+)__/g, (_, index: string) => codeBlocks[Number(index)]);
+}
+
+function maskFencedCode(source: string): string {
+  return source.replace(FENCED_CODE, (block) => block.replace(/[^\n]/g, ' '));
+}
+
+function withoutFencedCode(source: string): string {
+  return source.replace(FENCED_CODE, '');
 }
 
 function trimUrl(url: string): string {

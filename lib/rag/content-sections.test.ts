@@ -75,3 +75,63 @@ test('extracts HTML images and supported bare video links without leaving media 
     },
   ]);
 });
+
+test('uses a canonical anchor for a linked Markdown heading', () => {
+  const chunks = extractContentSections({
+    url: '/docs/a',
+    title: 'A',
+    body: '## [Removing filter conditions](/t/123/removing-filter-conditions#removing-filter-conditions)\nRemove a condition.',
+  });
+
+  assert.deepEqual(chunks, [
+    {
+      anchor: 'removing-filter-conditions',
+      heading: 'Removing filter conditions',
+      text: 'Remove a condition.',
+      media: [],
+    },
+  ]);
+});
+
+test('removes inline media without leaving empty punctuation or doubled spaces', () => {
+  const chunks = extractContentSections({
+    url: '/docs/a',
+    title: 'A',
+    body: '## Add\nTap **New item** (![New item icon](/assets/new-item.png)) button.\n\nWatch https://youtu.be/abc123 for a demo.',
+  });
+
+  assert.equal(chunks[0].text, 'Tap New item button.\n\nWatch for a demo.');
+  assert.deepEqual(chunks[0].media.map((item) => item.kind), ['image', 'video']);
+});
+
+test('does not treat lookalike hosts as supported video providers', () => {
+  const chunks = extractContentSections({
+    url: '/docs/a',
+    title: 'A',
+    body: '## Watch\n<iframe src="https://notyoutube.com/embed/123"></iframe>\nhttps://evilvimeo.com/video/123',
+  });
+
+  assert.deepEqual(chunks[0].media, []);
+});
+
+test('does not parse headings or media inside fenced code blocks', () => {
+  const body = [
+    '## Real section',
+    'Use this example:',
+    '```mdx',
+    '## Not a heading',
+    '![Not media](/assets/not-media.png)',
+    '<iframe src="https://player.vimeo.com/video/123"></iframe>',
+    '```',
+    'Continue after the example.',
+    '## Next section',
+    'Done.',
+  ].join('\n');
+  const chunks = extractContentSections({ url: '/docs/a', title: 'A', body });
+
+  assert.deepEqual(chunks.map((chunk) => chunk.anchor), ['real-section', 'next-section']);
+  assert.match(chunks[0].text, /## Not a heading/);
+  assert.match(chunks[0].text, /!\[Not media\]\(\/assets\/not-media\.png\)/);
+  assert.match(chunks[0].text, /player\.vimeo\.com/);
+  assert.deepEqual(chunks[0].media, []);
+});
