@@ -9,8 +9,11 @@ videos inline.
 
 ## Scope
 
-This design changes the end-user RAG path (`/api/rag/ask` and `HeroAsk`). It
-does not change the separate developer graph-answering path.
+This design changes both end-user assistant surfaces: the hero RAG path
+(`/api/rag/ask` and `HeroAsk`) and the floating chat widget (`/api/chat` and
+its AI-chat components). Both surfaces use the same retrieval, grounding,
+answer-depth, source, and media rules. It does not change the separate
+developer graph-answering path.
 
 ## Problem
 
@@ -52,10 +55,11 @@ decorative or unrelated assets. Detailed answers may select multiple images and
 videos when each one supports a distinct step or decision. The server validates
 and normalizes this array before streaming the final response.
 
-`HeroAsk` renders every validated media record inline below its associated
-answer. Images use descriptive alt text and responsive sizing. Video URLs from
-an explicit allowlist render in a responsive player; other videos render as
-clearly labelled external links. Duplicate assets are rendered once.
+`HeroAsk` and the floating chat widget render every validated media record
+inline below its associated answer. Images use descriptive alt text and
+responsive sizing. Video URLs from an explicit allowlist render in a responsive
+player; other videos render as clearly labelled external links. Duplicate assets
+are rendered once.
 
 ### Grounding and conversation rules
 
