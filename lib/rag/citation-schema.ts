@@ -16,6 +16,14 @@ export const citationAnswerSchema = z.object({
       }),
     )
     .describe('Every node whose content the answer relies on. Empty if insufficientEvidence is true.'),
+  media: z
+    .array(
+      z.object({
+        nodeId: z.string().describe('ID of a cited graph node that owns the selected media.'),
+        mediaId: z.string().describe('ID of source media from that cited graph node.'),
+      }),
+    )
+    .describe('Only source media that directly supports the answer. Empty when no relevant media is available.'),
   insufficientEvidence: z
     .boolean()
     .describe('True when the provided context does not support a confident answer.'),

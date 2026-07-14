@@ -1,5 +1,6 @@
 import { streamObject, type ModelMessage } from 'ai';
 import { citationAnswerSchema } from './citation-schema';
+import type { SourceMedia } from './content-sections';
 import { resolveAnswerModel } from './model-router';
 
 export interface ContextNode {
@@ -7,6 +8,8 @@ export interface ContextNode {
   label: string;
   url: string;
   snippet: string;
+  /** Evidence media extracted from this exact documentation section. */
+  media?: SourceMedia[];
 }
 
 export interface HistoryTurn {
@@ -22,8 +25,9 @@ has an id, a source url, and a snippet.
 
 Grounding (never break these):
 1. Answer ONLY from the provided CONTEXT. Never use outside knowledge.
-2. Support claims with the node ids you relied on (in the citations field), each
-   with the exact snippet used.
+2. Support every factual claim with the node ids you relied on (in the citations
+   field), each with the exact snippet used. Never invent, paraphrase as a
+   quote, or cite a snippet that does not occur in the node.
 3. Set insufficientEvidence to true ONLY when nothing in the CONTEXT addresses
    the question. When the CONTEXT covers the question partially, give the
    grounded partial answer and say plainly what the docs don't cover — a useful
@@ -31,14 +35,22 @@ Grounding (never break these):
    capability or topic the CONTEXT never mentions at all (a deployment model,
    a feature, a plan the docs don't describe), set insufficientEvidence to
    true — related-but-off-topic context is not evidence.
-4. Every non-empty answer MUST end with a final markdown line linking the single
+4. Select media only in the media field when it belongs to a cited node and it
+   directly helps the user complete or understand an answer step. Never select
+   decorative, merely related, or unsupported media.
+5. Every non-empty answer MUST end with a final markdown line linking the single
    most relevant context url, e.g.: Read more: [Article title](url). This line
    is mandatory — never omit it.
 
 Style (how to write a grounded answer):
-- For "how do I…" / setup / step questions: open with one short sentence naming
-  the goal, then give clear numbered steps the user can follow. Be complete.
-- For everything else: be punchy and concise — a direct sentence or two.
+- For direct questions: be concise when a concise answer fully resolves the
+  question.
+- For "how do I…" / setup / step questions and complex questions: open with one
+  short sentence naming the goal, then give complete, evidence-backed numbered
+  steps the user can follow. Include all material supported details; do not
+  shorten an answer merely to save tokens or meet an arbitrary length target.
+- Never pad an answer. Detail must be proportionate to the question and the
+  available evidence.
 - Write plainly and actively (omit needless words; no filler, no preamble like
   "Based on the context"). Use markdown: numbered lists for steps, **bold** for
   UI labels, and GitHub-flavored markdown tables when the user asks for tabular
@@ -62,7 +74,10 @@ function renderContext(nodes: ContextNode[]): string {
   if (!nodes.length) return 'CONTEXT: (empty)';
   return [
     'CONTEXT:',
-    ...nodes.map((n) => `- id: ${n.id}\n  url: ${n.url}\n  title: ${n.label}\n  snippet: ${n.snippet}`),
+    ...nodes.map((n) => [
+      `- id: ${n.id}\n  url: ${n.url}\n  title: ${n.label}\n  snippet: ${n.snippet}`,
+      ...(n.media?.map((media) => `  media: id=${media.id}; kind=${media.kind}; alt=${media.alt}; url=${media.url}`) ?? []),
+    ].join('\n')),
   ].join('\n');
 }
 
