@@ -135,3 +135,24 @@ test('does not parse headings or media inside fenced code blocks', () => {
   assert.match(chunks[0].text, /player\.vimeo\.com/);
   assert.deepEqual(chunks[0].media, []);
 });
+
+test('recognizes indented fences and waits for a matching delimiter length', () => {
+  const body = [
+    '## Real section',
+    '  ````mdx',
+    '## Not a heading',
+    '![Not media](/assets/not-media.png)',
+    '<iframe src="https://player.vimeo.com/video/123"></iframe>',
+    '  ```',
+    'Still code because the shorter closer does not match.',
+    '  ````',
+    '## Next section',
+    'Done.',
+  ].join('\n');
+  const chunks = extractContentSections({ url: '/docs/a', title: 'A', body });
+
+  assert.deepEqual(chunks.map((chunk) => chunk.anchor), ['real-section', 'next-section']);
+  assert.match(chunks[0].text, /## Not a heading/);
+  assert.match(chunks[0].text, /player\.vimeo\.com/);
+  assert.deepEqual(chunks[0].media, []);
+});

@@ -27,7 +27,6 @@ const HTML_IMAGE = /<img\b[^>]*>/gi;
 const IFRAME = /<iframe\b[^>]*>/gi;
 const MARKDOWN_LINK = /\[([^\]]+)\]\(\s*(?:<([^>]+)>|([^\s)]+))[^)]*\)/g;
 const BARE_URL = /https?:\/\/[^\s<>()\[\]]+/gi;
-const FENCED_CODE = /^(?:```|~~~)[^\n]*\n[\s\S]*?^(?:```|~~~)[ \t]*$/gm;
 
 export function extractContentSections(input: ContentSectionInput): ContentSection[] {
   const sections = splitSections(input.title, input.body);
@@ -135,7 +134,7 @@ function isSupportedVideo(url: string): boolean {
 
 function cleanText(source: string): string {
   const codeBlocks: string[] = [];
-  const proseWithPlaceholders = source.replace(FENCED_CODE, (block) => `\n__CODE_BLOCK_${codeBlocks.push(block) - 1}__\n`);
+  const proseWithPlaceholders = replaceFencedCode(source, (block) => `\n__CODE_BLOCK_${codeBlocks.push(block) - 1}__\n`);
   const cleaned = proseWithPlaceholders
     .replace(/^\s*(?:import|export)\s+[^\n;]+;?\s*$/gm, '')
     .replace(MARKDOWN_IMAGE, '')
@@ -161,11 +160,56 @@ function cleanText(source: string): string {
 }
 
 function maskFencedCode(source: string): string {
-  return source.replace(FENCED_CODE, (block) => block.replace(/[^\n]/g, ' '));
+  return replaceFencedCode(source, (block) => block.replace(/[^\n]/g, ' '));
 }
 
 function withoutFencedCode(source: string): string {
-  return source.replace(FENCED_CODE, '');
+  return replaceFencedCode(source, () => '');
+}
+
+function replaceFencedCode(source: string, replace: (block: string) => string): string {
+  let output = '';
+  let cursor = 0;
+  for (const range of fencedCodeRanges(source)) {
+    output += source.slice(cursor, range.start);
+    output += replace(source.slice(range.start, range.end));
+    cursor = range.end;
+  }
+  return output + source.slice(cursor);
+}
+
+function fencedCodeRanges(source: string): Array<{ start: number; end: number }> {
+  const ranges: Array<{ start: number; end: number }> = [];
+  let cursor = 0;
+  let opening: { start: number; marker: '`' | '~'; length: number } | undefined;
+
+  while (cursor < source.length) {
+    const newline = source.indexOf('\n', cursor);
+    const end = newline === -1 ? source.length : newline + 1;
+    const line = source.slice(cursor, newline === -1 ? source.length : newline).replace(/\r$/, '');
+
+    if (!opening) {
+      const match = line.match(/^ {0,3}(`{3,}|~{3,})[^\r\n]*$/);
+      if (match) {
+        opening = {
+          start: cursor,
+          marker: match[1][0] as '`' | '~',
+          length: match[1].length,
+        };
+      }
+    } else {
+      const closing = new RegExp(`^ {0,3}${opening.marker}{${opening.length},}[ \\t]*$`);
+      if (closing.test(line)) {
+        ranges.push({ start: opening.start, end });
+        opening = undefined;
+      }
+    }
+
+    cursor = end;
+  }
+
+  if (opening) ranges.push({ start: opening.start, end: source.length });
+  return ranges;
 }
 
 function trimUrl(url: string): string {
