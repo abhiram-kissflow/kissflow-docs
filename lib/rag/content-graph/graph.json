@@ -6751,6 +6751,3516 @@
       "source": "/docs/whats-new/important-notices/languages-supported-by-kissflow",
       "target": "/docs/use/personal-settings/personal-info-format-settings-and-task-delegation",
       "relation": "links-to"
+    },
+    {
+      "source": "/docs/get-started/signing-in",
+      "target": "/docs/admin/security/account-security",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/faq/faqs-analytics",
+      "target": "/docs/build/analytics/overview-of-kissflow-analytics",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/whats-new/important-notices/important-information-intermittent-access-issues-due-to-security-challenges",
+      "target": "/docs/whats-new/important-notices/slas-and-support-models",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/audit-log/audit-log",
+      "target": "/docs/admin/audit-log/event-categories-and-actions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/datasets/managing-associated-flows-in-a-dataset",
+      "target": "/docs/build/forms/field-types/lookup-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/datasets/managing-associated-flows-in-a-dataset",
+      "target": "/docs/admin/datasets/security-settings-and-access-control",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/datasets/security-settings-and-access-control",
+      "target": "/docs/build/forms/field-types/dropdown-multi-select-dropdown-checkbox-checklists-and-radio-buttons",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/datasets/security-settings-and-access-control",
+      "target": "/docs/admin/service-accounts/impersonation-in-service-accounts",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/governance/account-governance-overview",
+      "target": "/docs/admin/users/user-roles-and-permissions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/governance/account-governance-overview",
+      "target": "/docs/admin/governance/governing-lists",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/governance/account-governance-overview",
+      "target": "/docs/admin/governance/governing-authentication-keys",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/governance/account-governance-overview",
+      "target": "/docs/admin/governance/governing-connections",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/governance/app-governance",
+      "target": "/docs/admin/users/user-roles-and-permissions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/governance/app-governance",
+      "target": "/docs/build/decision-tables/decision-tables-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/governance/app-governance",
+      "target": "/docs/build/apps/application-to-application-lookup-through-linking",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/governance/board-governance",
+      "target": "/docs/admin/users/user-roles-and-permissions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/governance/dataset-governance",
+      "target": "/docs/admin/users/user-roles-and-permissions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/governance/governing-authentication-keys",
+      "target": "/docs/admin/users/user-roles-and-permissions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/governance/governing-connections",
+      "target": "/docs/admin/users/user-roles-and-permissions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/governance/governing-lists",
+      "target": "/docs/admin/users/user-roles-and-permissions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/governance/group-governance",
+      "target": "/docs/admin/users/user-roles-and-permissions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/governance/portal-governance",
+      "target": "/docs/admin/users/user-roles-and-permissions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/governance/portal-governance",
+      "target": "/docs/build/apps/application-to-application-lookup-through-linking",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/governance/portal-governance",
+      "target": "/docs/build/decision-tables/decision-tables-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/governance/process-governance",
+      "target": "/docs/admin/users/user-roles-and-permissions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/governance/process-governance",
+      "target": "/docs/admin/processes/connected-processes-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/governance/user-governance",
+      "target": "/docs/admin/users/user-roles-and-permissions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/portals/administering-portals",
+      "target": "/docs/build/processes/workflow-design/configuring-deadline",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/portals/administering-portals",
+      "target": "/docs/admin/portals/managing-portal-users",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/portals/administering-portals",
+      "target": "/docs/build/apps/app-versioning",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/portals/creating-and-managing-portals",
+      "target": "/docs/build/apps/app-environments",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/portals/creating-and-managing-portals",
+      "target": "/docs/build/roles-and-permissions/application-roles",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/portals/creating-and-managing-portals",
+      "target": "/docs/build/pages/app-pages-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/portals/creating-and-managing-portals",
+      "target": "/docs/build/navigation/creating-and-managing-navigation",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/portals/creating-and-managing-portals",
+      "target": "/docs/admin/portals/managing-portal-users",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/portals/creating-and-managing-portals",
+      "target": "/docs/admin/portals/administering-portals",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/portals/managing-portal-users",
+      "target": "/docs/build/roles-and-permissions/application-roles",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/portals/portal-overview",
+      "target": "/docs/build/apps/introduction-to-kissflow-apps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/provisioning/setting-up-scim-with-okta",
+      "target": "/docs/use/personal-settings/api-authentication",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/service-accounts/creating-and-managing-service-accounts",
+      "target": "/docs/admin/service-accounts/creating-and-managing-access-keys",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/service-accounts/impersonating-users-using-a-service-account",
+      "target": "/docs/admin/service-accounts/creating-and-managing-service-accounts",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/service-accounts/impersonating-users-using-a-service-account",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/service-accounts/impersonating-users-using-a-service-account",
+      "target": "/docs/admin/service-accounts/creating-and-managing-access-keys",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/service-accounts/impersonation-in-service-accounts",
+      "target": "/docs/admin/service-accounts/service-account-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/service-accounts/impersonation-in-service-accounts",
+      "target": "/docs/get-started/my-items",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/service-accounts/impersonation-in-service-accounts",
+      "target": "/docs/admin/users/user-management-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/service-accounts/impersonation-in-service-accounts",
+      "target": "/docs/admin/users/group-management",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/service-accounts/impersonation-in-service-accounts",
+      "target": "/docs/admin/service-accounts/creating-and-managing-service-accounts",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/users/adding-and-managing-users",
+      "target": "/docs/admin/users/group-management",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/users/adding-and-managing-users",
+      "target": "/docs/get-started/my-items",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/admin/users/user-roles-and-permissions",
+      "target": "/docs/admin/users/user-management-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/analytics-in-apps",
+      "target": "/docs/build/analytics/understanding-dataviews",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/analytics-in-apps",
+      "target": "/docs/build/analytics/reports",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/analytics-in-apps",
+      "target": "/docs/build/roles-and-permissions/application-roles",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/analytics-in-apps",
+      "target": "/docs/build/pages/using-advanced-filters-in-apps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/chart-reports",
+      "target": "/docs/build/analytics/reports",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/creating-process-item-completion-time-report-with-analytics",
+      "target": "/docs/build/processes/process-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/creating-process-item-completion-time-report-with-analytics",
+      "target": "/docs/build/analytics/understanding-dataviews",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/creating-process-item-completion-time-report-with-analytics",
+      "target": "/docs/build/analytics/understanding-data-sources",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/creating-process-item-completion-time-report-with-analytics",
+      "target": "/docs/build/analytics/using-reports",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/creating-process-step-performance-report-with-analytics",
+      "target": "/docs/build/analytics/understanding-dataviews",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/creating-process-step-performance-report-with-analytics",
+      "target": "/docs/build/analytics/understanding-data-sources",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/creating-process-step-performance-report-with-analytics",
+      "target": "/docs/build/analytics/using-reports",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/creating-process-step-performance-report-with-analytics",
+      "target": "/docs/build/analytics/pivot-reports",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/creating-procurement-spend-analysis-report-by-department-and-product-category",
+      "target": "/docs/build/analytics/understanding-dataviews",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/pivot-reports",
+      "target": "/docs/build/analytics/reports",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/process-table-in-analytics",
+      "target": "/docs/build/analytics/understanding-dataviews",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/process-table-in-analytics",
+      "target": "/docs/build/forms/creating-a-form",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/reports-overview",
+      "target": "/docs/build/analytics/understanding-dataviews",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/reports-overview",
+      "target": "/docs/build/analytics/pivot-reports",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/reports-overview",
+      "target": "/docs/build/analytics/using-reports",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/reports",
+      "target": "/docs/build/pages/card-report-for-apps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/tabular-reports",
+      "target": "/docs/build/analytics/pivot-reports",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/understanding-data-sources-alt2",
+      "target": "/docs/build/analytics/understanding-dataviews",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/understanding-data-sources-alt2",
+      "target": "/docs/build/forms/creating-a-form",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/understanding-data-sources",
+      "target": "/docs/build/analytics/understanding-dataviews",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/understanding-data-sources",
+      "target": "/docs/build/forms/creating-a-form",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/understanding-dataviews",
+      "target": "/docs/build/analytics/using-reports",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/understanding-dataviews",
+      "target": "/docs/build/forms/field-types/currency-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/understanding-use-cases-with-sql-queries-in-analytics",
+      "target": "/docs/build/apps/introduction-to-kissflow-apps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/understanding-use-cases-with-sql-queries-in-analytics",
+      "target": "/docs/build/processes/process-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/understanding-use-cases-with-sql-queries-in-analytics",
+      "target": "/docs/build/datasets/dataset-and-views-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/understanding-use-cases-with-sql-queries-in-analytics",
+      "target": "/docs/build/analytics/understanding-dataviews",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/using-reports",
+      "target": "/docs/build/analytics/understanding-data-sources",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/using-reports",
+      "target": "/docs/build/analytics/reports",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/analytics/using-reports",
+      "target": "/docs/build/analytics/pivot-reports",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/app-deployment",
+      "target": "/docs/build/apps/application-to-application-lookup-through-linking",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/app-deployment",
+      "target": "/docs/build/integrations/managing-integrations-in-apps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/app-deployment",
+      "target": "/docs/build/apps/app-environments",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/app-environments",
+      "target": "/docs/admin/account-settings/account-details-customization-and-connected-domains",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/app-environments",
+      "target": "/docs/build/apps/notifications-in-apps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/app-environments",
+      "target": "/docs/admin/account-settings/geolocation-settings",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/app-environments",
+      "target": "/docs/admin/account-settings/weekends-and-holidays",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/app-environments",
+      "target": "/docs/admin/users/adding-and-managing-users",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/app-environments",
+      "target": "/docs/admin/users/group-management",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/application-to-application-lookup-through-linking",
+      "target": "/docs/admin/portals/portal-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/application-to-application-lookup-through-linking",
+      "target": "/docs/build/forms/field-types/lookup-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/choosing-the-right-data-sharing-method-in-apps",
+      "target": "/docs/build/roles-and-permissions/sharing-data-across-apps-using-component-referencing",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/choosing-the-right-data-sharing-method-in-apps",
+      "target": "/docs/build/apps/application-to-application-lookup-through-linking",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/creating-an-app",
+      "target": "/docs/build/apps/app-environments",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/creating-an-app",
+      "target": "/docs/build/pages/app-pages-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/creating-an-app",
+      "target": "/docs/build/navigation/creating-and-managing-navigation",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/launching-kissflow-apps",
+      "target": "/docs/build/roles-and-permissions/application-roles",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/launching-kissflow-apps",
+      "target": "/docs/build/roles-and-permissions/role-permissions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/launching-kissflow-apps",
+      "target": "/docs/build/pages/working-with-page-layouts",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/managing-apps",
+      "target": "/docs/build/apps/settings-in-apps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/managing-apps",
+      "target": "/docs/build/forms/public-form",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/model-viewer",
+      "target": "/docs/build/boards/boards-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/model-viewer",
+      "target": "/docs/build/forms/field-types/lookup-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/multilingual-settings-in-apps",
+      "target": "/docs/admin/portals/portal-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/multilingual-settings-in-apps",
+      "target": "/docs/build/forms/public-form",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/notifications-in-apps",
+      "target": "/docs/build/apps/notification-events-in-apps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/settings-in-apps",
+      "target": "/docs/build/apps/customizing-themes-for-kissflow-apps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/settings-in-apps",
+      "target": "/docs/build/apps/notifications-in-apps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/settings-in-apps",
+      "target": "/docs/build/apps/application-to-application-lookup-through-linking",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/apps/settings-in-apps",
+      "target": "/docs/build/apps/multilingual-settings-in-apps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/archiving-deleting-and-duplicating-a-board",
+      "target": "/docs/admin/processes/publishing-editing-duplicating-archiving-and-deleting-a-process",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/archiving-deleting-and-duplicating-a-board",
+      "target": "/docs/build/integrations/duplicating-archiving-and-deleting-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/associated-flows-for-boards",
+      "target": "/docs/build/forms/field-types/lookup-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/associated-flows-for-boards",
+      "target": "/docs/admin/processes/security-settings-for-flows",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/board-audit-log",
+      "target": "/docs/build/boards/managing-members-and-roles-in-a-board",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/board-audit-log",
+      "target": "/docs/admin/audit-log/event-categories-and-actions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/board-metrics-overview",
+      "target": "/docs/use/boards/creating-and-managing-subitems",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/board-metrics-overview",
+      "target": "/docs/build/boards/status-summary-report",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/board-metrics-overview",
+      "target": "/docs/build/boards/priority-summary-report",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/board-metrics-overview",
+      "target": "/docs/build/boards/due-date-summary-report",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/board-metrics-overview",
+      "target": "/docs/build/boards/aging-report",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/board-metrics-overview",
+      "target": "/docs/build/boards/status-performance-report",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/board-notifications",
+      "target": "/docs/build/boards/notification-events-in-boards",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/board-notifications",
+      "target": "/docs/build/integrations/connectors/email-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/board-settings",
+      "target": "/docs/admin/processes/security-settings-for-flows",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/boards-overview-alt2",
+      "target": "/docs/build/boards/configuring-a-board-form",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/boards-overview",
+      "target": "/docs/build/boards/configuring-a-board-form",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/building-a-board",
+      "target": "/docs/build/boards/configuring-statuses",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/building-a-board",
+      "target": "/docs/build/boards/configuring-a-board-form",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/charts-in-boards",
+      "target": "/docs/build/analytics/reports",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/charts-in-boards",
+      "target": "/docs/build/analytics/pivot-reports",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/configuring-statuses",
+      "target": "/docs/build/boards/configuring-your-board-settings",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/configuring-your-board-settings",
+      "target": "/docs/build/boards/board-notifications",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/configuring-your-board-settings",
+      "target": "/docs/admin/processes/managing-process-members-and-permissions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/configuring-your-board-settings",
+      "target": "/docs/whats-new/important-notices/languages-supported-by-kissflow",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/creating-and-customizing-a-board",
+      "target": "/docs/build/processes/creating-a-process-inside-apps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/managing-board-roles-and-permissions",
+      "target": "/docs/admin/portals/portal-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/managing-members-and-roles-in-a-board",
+      "target": "/docs/build/boards/creating-and-using-board-views",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/pivot-tables-in-boards",
+      "target": "/docs/build/analytics/reports",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/pivot-tables-in-boards",
+      "target": "/docs/build/analytics/pivot-reports",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/security-settings-for-boards",
+      "target": "/docs/build/boards/managing-members-and-roles-in-a-board",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/security-settings-for-boards",
+      "target": "/docs/admin/account-settings/flow-settings",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/boards/security-settings-for-boards",
+      "target": "/docs/admin/service-accounts/impersonation-in-service-accounts",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/breadcrumb",
+      "target": "/docs/build/components/managing-component-style-properties",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/breadcrumb",
+      "target": "/docs/build/components/popup",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/button",
+      "target": "/docs/build/components/popup",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/button",
+      "target": "/docs/build/components/master-details",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/button",
+      "target": "/docs/build/components/tab",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/card",
+      "target": "/docs/build/components/managing-component-style-properties",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/card",
+      "target": "/docs/build/components/popup",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/columns-deprecated",
+      "target": "/docs/build/pages/working-with-page-layouts",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/container",
+      "target": "/docs/build/pages/working-with-page-layouts",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/container",
+      "target": "/docs/build/components/button",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/container",
+      "target": "/docs/build/components/label",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/container",
+      "target": "/docs/build/components/managing-component-style-properties",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/divider",
+      "target": "/docs/build/components/managing-component-style-properties",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/hyperlink",
+      "target": "/docs/build/components/managing-component-style-properties",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/icon",
+      "target": "/docs/build/components/managing-component-style-properties",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/icon",
+      "target": "/docs/build/pages/working-with-page-layouts",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/icon",
+      "target": "/docs/build/components/popup",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/iframe",
+      "target": "/docs/build/components/managing-component-style-properties",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/image",
+      "target": "/docs/build/components/managing-component-style-properties",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/image",
+      "target": "/docs/build/components/popup",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/label",
+      "target": "/docs/build/components/managing-component-style-properties",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/managing-component-style-properties",
+      "target": "/docs/build/components/master-details",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/managing-component-style-properties",
+      "target": "/docs/build/components/tab",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/managing-component-style-properties",
+      "target": "/docs/build/components/popup",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/managing-component-style-properties",
+      "target": "/docs/build/pages/working-with-page-layouts",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/master-details",
+      "target": "/docs/build/components/container",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/popup",
+      "target": "/docs/build/components/tab",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/progress-bar",
+      "target": "/docs/build/components/managing-component-style-properties",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/repeater",
+      "target": "/docs/build/components/container",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/repeater",
+      "target": "/docs/build/components/label",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/repeater",
+      "target": "/docs/build/components/button",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/repeater",
+      "target": "/docs/build/components/icon",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/repeater",
+      "target": "/docs/build/components/divider",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/repeater",
+      "target": "/docs/build/components/card",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/repeater",
+      "target": "/docs/build/components/progress-bar",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/repeater",
+      "target": "/docs/build/components/image",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/repeater",
+      "target": "/docs/build/components/hyperlink",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/repeater",
+      "target": "/docs/build/components/iframe",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/repeater",
+      "target": "/docs/build/components/rich-text",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/repeater",
+      "target": "/docs/build/pages/card-report-for-apps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/repeater",
+      "target": "/docs/build/components/working-with-custom-components-in-kissflow-apps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/repeater",
+      "target": "/docs/build/components/managing-component-style-properties",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/repeater",
+      "target": "/docs/build/components/popup",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/rich-text",
+      "target": "/docs/build/components/managing-component-style-properties",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/working-with-custom-components-in-kissflow-apps",
+      "target": "/docs/build/forms/basic-and-advanced-fields",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/working-with-custom-components-in-kissflow-apps",
+      "target": "/docs/build/components/creating-custom-components-using-ai",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/working-with-custom-form-field-components",
+      "target": "/docs/build/forms/data-table-view",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/components/working-with-custom-page-components",
+      "target": "/docs/build/components/creating-custom-components-using-ai",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/datasets/creating-dataset-views",
+      "target": "/docs/admin/datasets/managing-filters",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/datasets/dataset-and-views-overview",
+      "target": "/docs/build/datasets/creating-dataset-views",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/datasets/modifying-fields-in-a-dataset",
+      "target": "/docs/admin/datasets/managing-members-and-permissions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/expressions/ai-formula-builder",
+      "target": "/docs/build/expressions/handling-input-behavior-for-various-fields-in-ai-evaluation",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/expressions/computing-fields-using-formula-builder",
+      "target": "/docs/build/expressions/ai-formula-builder",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/expressions/computing-fields-using-formula-builder",
+      "target": "/docs/build/expressions/system-fields",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/expressions/computing-fields-using-formula-builder",
+      "target": "/docs/build/expressions/number-and-currency-expressions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/expressions/computing-fields-using-formula-builder",
+      "target": "/docs/build/expressions/text-expressions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/expressions/computing-fields-using-formula-builder",
+      "target": "/docs/build/expressions/date-expressions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/expressions/computing-fields-using-formula-builder",
+      "target": "/docs/build/expressions/logical-expressions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/expressions/number-and-currency-expressions",
+      "target": "/docs/reference/glossary/remote-lookup",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/expressions/text-expressions",
+      "target": "/docs/reference/glossary/remote-lookup",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/expressions/user-expressions",
+      "target": "/docs/build/forms/creating-a-form",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/expressions/user-expressions",
+      "target": "/docs/build/expressions/system-fields",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/expressions/user-expressions",
+      "target": "/docs/build/expressions/if-function",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/external-data/configuring-an-external-data-object",
+      "target": "/docs/build/external-data/setting-up-an-external-data-connection",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/external-data/introduction-to-external-data-objects",
+      "target": "/docs/build/external-data/setting-up-an-external-data-connection",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/external-data/introduction-to-external-data-objects",
+      "target": "/docs/build/external-data/configuring-an-external-data-object",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/external-data/introduction-to-external-data-objects",
+      "target": "/docs/build/external-data/editing-an-external-data-object",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/external-data/introduction-to-external-data-objects",
+      "target": "/docs/build/external-data/lookup-an-external-data-object",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/external-data/introduction-to-external-data-objects",
+      "target": "/docs/build/external-data/integrating-external-data-object",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/external-data/lookup-an-external-data-object",
+      "target": "/docs/build/external-data/setting-up-an-external-data-connection",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/external-data/lookup-an-external-data-object",
+      "target": "/docs/build/external-data/configuring-an-external-data-object",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/external-data/lookup-an-external-data-object",
+      "target": "/docs/build/forms/field-types/lookup-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/external-data/managing-external-data-objects-in-the-production-environment",
+      "target": "/docs/build/external-data/setting-up-an-external-data-connection",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/auto-generating-dataform-records",
+      "target": "/docs/build/forms/importing-data-from-csv-file",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/auto-generating-dataform-records",
+      "target": "/docs/build/forms/data-table-view",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/basic-and-advanced-fields",
+      "target": "/docs/build/forms/field-types/text-text-area-email-and-rich-text-fields",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/basic-and-advanced-fields",
+      "target": "/docs/build/forms/field-types/number-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/basic-and-advanced-fields",
+      "target": "/docs/build/forms/field-types/date-and-date-time-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/basic-and-advanced-fields",
+      "target": "/docs/build/forms/field-types/yes-no-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/basic-and-advanced-fields",
+      "target": "/docs/build/forms/field-types/currency-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/basic-and-advanced-fields",
+      "target": "/docs/build/forms/field-types/user-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/basic-and-advanced-fields",
+      "target": "/docs/build/forms/field-types/dropdown-multi-select-dropdown-checkbox-checklists-and-radio-buttons",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/basic-and-advanced-fields",
+      "target": "/docs/build/forms/field-types/aggregation-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/basic-and-advanced-fields",
+      "target": "/docs/build/forms/field-types/sequence-number",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/basic-and-advanced-fields",
+      "target": "/docs/build/forms/field-types/scanner-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/basic-and-advanced-fields",
+      "target": "/docs/build/forms/field-types/geolocation-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/basic-and-advanced-fields",
+      "target": "/docs/build/forms/field-types/grid-widget",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/basic-and-advanced-fields",
+      "target": "/docs/build/forms/field-types/lookup-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/creating-and-managing-dataforms",
+      "target": "/docs/build/boards/creating-and-customizing-a-board",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/data-table-view",
+      "target": "/docs/build/analytics/reports",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/data-table-view",
+      "target": "/docs/build/forms/importing-data-from-csv-file",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/dataform-settings",
+      "target": "/docs/build/forms/public-form",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/exporting-data-from-a-data-table-view",
+      "target": "/docs/build/forms/data-table-view",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/exporting-data-from-a-data-table-view",
+      "target": "/docs/build/forms/creating-and-managing-dataforms",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/exporting-data-from-a-data-table-view",
+      "target": "/docs/build/apps/creating-an-app",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/exporting-data-from-a-data-table-view",
+      "target": "/docs/build/pages/app-builder-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/exporting-data-from-a-data-table-view",
+      "target": "/docs/build/pages/app-pages-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/exporting-data-from-a-data-table-view",
+      "target": "/docs/build/pages/creating-and-editing-pages",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-appearance",
+      "target": "/docs/build/forms/field-validations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-appearance",
+      "target": "/docs/build/processes/step-configuration/configuring-field-permissions-for-process-steps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-events",
+      "target": "/docs/build/forms/basic-and-advanced-fields",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-events",
+      "target": "/docs/build/forms/field-visibility",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-settings",
+      "target": "/docs/build/expressions/introduction-to-expressions-and-formulas",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-settings",
+      "target": "/docs/build/processes/step-configuration/configuring-field-permissions-for-process-steps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-settings",
+      "target": "/docs/build/forms/field-types/text-text-area-email-and-rich-text-fields",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-settings",
+      "target": "/docs/build/forms/field-types/number-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-settings",
+      "target": "/docs/build/forms/field-types/currency-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-settings",
+      "target": "/docs/build/forms/field-types/date-and-date-time-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-settings",
+      "target": "/docs/build/forms/field-types/yes-no-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-settings",
+      "target": "/docs/build/forms/field-types/user-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-settings",
+      "target": "/docs/build/forms/field-types/lookup-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-settings",
+      "target": "/docs/reference/glossary/remote-lookup",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-settings",
+      "target": "/docs/build/forms/field-types/aggregation-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-settings",
+      "target": "/docs/build/forms/field-types/sequence-number",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/currency-field",
+      "target": "/docs/build/forms/field-types/number-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/currency-field",
+      "target": "/docs/build/forms/field-validations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/currency-field",
+      "target": "/docs/build/expressions/number-and-currency-expressions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/currency-field",
+      "target": "/docs/reference/glossary/remote-lookup",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/date-and-date-time-field",
+      "target": "/docs/build/forms/field-validations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/date-and-date-time-field",
+      "target": "/docs/build/expressions/date-expressions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/dropdown-multi-select-dropdown-checkbox-checklists-and-radio-buttons",
+      "target": "/docs/build/datasets/creating-a-dataset",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/dropdown-multi-select-dropdown-checkbox-checklists-and-radio-buttons",
+      "target": "/docs/build/forms/field-validations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/dropdown-multi-select-dropdown-checkbox-checklists-and-radio-buttons",
+      "target": "/docs/build/expressions/list-expression",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/geolocation-field",
+      "target": "/docs/build/expressions/computing-fields-using-formula-builder",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/geolocation-field",
+      "target": "/docs/build/forms/creating-a-form",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/image-annotation",
+      "target": "/docs/build/processes/process-comments",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/image-annotation",
+      "target": "/docs/use/boards/notes-status-logs-and-activity-logs-in-boards",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/image-attachment-smart-attachment-and-signature-fields",
+      "target": "/docs/build/forms/field-validations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/number-field",
+      "target": "/docs/build/expressions/number-and-currency-expressions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/number-field",
+      "target": "/docs/build/expressions/introduction-to-expressions-and-formulas",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/scanner-field",
+      "target": "/docs/build/processes/how-to-automate-barcode-scanning-in-a-process-form",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/scanner-field",
+      "target": "/docs/build/forms/creating-a-form",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/scanner-field",
+      "target": "/docs/admin/processes/managing-process-members-and-permissions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/scanner-field",
+      "target": "/docs/build/forms/field-validations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/scanner-field",
+      "target": "/docs/build/forms/field-appearance",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/selecting-a-data-source-for-dropdown-multi-select-dropdown-checkbox-and-radio-fields",
+      "target": "/docs/build/forms/field-types/dropdown-multi-select-dropdown-checkbox-checklists-and-radio-buttons",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/sequence-number",
+      "target": "/docs/build/expressions/text-expressions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/text-text-area-email-and-rich-text-fields",
+      "target": "/docs/build/forms/creating-a-form",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/text-text-area-email-and-rich-text-fields",
+      "target": "/docs/build/expressions/text-expressions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/text-text-area-email-and-rich-text-fields",
+      "target": "/docs/build/forms/field-validations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/text-text-area-email-and-rich-text-fields",
+      "target": "/docs/build/forms/field-types/image-attachment-smart-attachment-and-signature-fields",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/user-field",
+      "target": "/docs/admin/users/user-management-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/user-field",
+      "target": "/docs/build/forms/field-validations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/using-remote-lookup-field-to-get-currency-exchange-rate",
+      "target": "/docs/build/forms/creating-a-form",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-types/yes-no-field",
+      "target": "/docs/build/expressions/logical-expressions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/field-visibility",
+      "target": "/docs/build/processes/step-configuration/configuring-field-permissions-for-process-steps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/importing-data-from-csv-file",
+      "target": "/docs/build/forms/field-types/aggregation-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/importing-data-from-csv-file",
+      "target": "/docs/build/forms/field-types/lookup-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/importing-data-from-csv-file",
+      "target": "/docs/build/pages/app-pages-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/managing-dataform-roles-alt2",
+      "target": "/docs/build/roles-and-permissions/application-roles",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/process-live-forms",
+      "target": "/docs/build/processes/step-configuration/configuring-actions-for-process-steps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/process-live-forms",
+      "target": "/docs/build/processes/step-configuration/configuring-field-permissions-for-process-steps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/process-live-forms",
+      "target": "/docs/build/forms/field-visibility",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/process-live-forms",
+      "target": "/docs/build/forms/field-appearance",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/process-live-forms",
+      "target": "/docs/build/processes/workflow-design/making-a-process-workflow",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/sheet-view-in-dataforms",
+      "target": "/docs/build/pages/using-advanced-filters-in-apps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/forms/sheet-view-in-dataforms",
+      "target": "/docs/build/forms/exporting-data-from-a-data-table-view",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/adding-conditions-to-an-integration",
+      "target": "/docs/build/integrations/connectors/adding-conditions-and-iterations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "target": "/docs/build/integrations/managing-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connector-builder/creating-actions",
+      "target": "/docs/build/integrations/connector-builder/input-designer",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connector-builder/creating-triggers",
+      "target": "/docs/build/integrations/connector-builder/input-designer",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/activecampaign-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/activecampaign-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/adding-conditions-and-iterations",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/adobe-sign-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/adobe-sign-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/asana-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/asana-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/basecamp-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/basecamp-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/click-send",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/click-send",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/conditional-paths-in-control-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/connecting-to-kissflow-dataform",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/connecting-to-kissflow-dataform",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/custom-trigger-by-kissflow",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/custom-trigger-by-kissflow",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/delay-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/docusign-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/docusign-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/dropbox-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/dropbox-connector",
+      "target": "/docs/build/expressions/computing-fields-using-formula-builder",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/dropbox-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/email-connector",
+      "target": "/docs/build/integrations/connectors/integrate-with-gmail",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/email-connector",
+      "target": "/docs/build/integrations/connectors/microsoft-outlook-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/email-connector",
+      "target": "/docs/admin/account-settings/admin-notification-settings",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/email-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/email-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/expensify-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/expensify-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/freshbooks-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/freshbooks-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/google-calendar-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/google-calendar-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/google-chat-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/google-chat-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/google-drive-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/google-drive-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/google-sheets-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/google-sheets-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/http-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/http-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/hubspot-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/hubspot-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/idp-connector-intelligent-document-processing",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/idp-connector-intelligent-document-processing",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/integrate-with-gmail",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/integrate-with-gmail",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/jira-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/jira-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/kissflow-board-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/kissflow-dataset-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/kissflow-dataset-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/kissflow-process-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/kissflow-process-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/kissflow-project-connector",
+      "target": "/docs/build/integrations/integrations-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/kissflow-project-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/kissflow-user-details-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/kissflow-user-details-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/mailchimp-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/mailchimp-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/microsoft-dynamics-365-business-central-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/microsoft-dynamics-365-business-central-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/microsoft-entra-id",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/microsoft-entra-id",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/microsoft-excel-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/microsoft-excel-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/microsoft-onedrive-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/microsoft-onedrive-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/microsoft-outlook-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/microsoft-outlook-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/microsoft-sharepoint-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/microsoft-sharepoint-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/microsoft-teams-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/microsoft-teams-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/okta-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/okta-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/oracle-netsuite-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/quickbooks-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/quickbooks-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/recruitee-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/recruitee-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/salesforce-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/salesforce-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/salesmate-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/salesmate-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/sap-business-bydesign-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/sap-business-bydesign-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/sap-s4hana-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/sap-s4hana-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/scheduler-by-kissflow",
+      "target": "/docs/admin/account-settings/format-settings",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/scheduler-by-kissflow",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/servicenow-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/servicenow-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/sftp-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/sftp-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/slack-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/slack-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/smartsheet-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/smartsheet-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/soap-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/soap-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/twilio-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/twilio-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/webhooks-by-kissflow",
+      "target": "/docs/build/integrations/connectors/http-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/webhooks-by-kissflow",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/webhooks-by-kissflow",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/xe-com",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/xe-com",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/xero-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/xero-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/zendesk-connector",
+      "target": "/docs/build/integrations/creating-an-integration",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/connectors/zendesk-connector",
+      "target": "/docs/build/integrations/best-practices-for-using-kissflow-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/creating-an-app-integration",
+      "target": "/docs/admin/service-accounts/creating-and-managing-access-keys",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/creating-an-integration",
+      "target": "/docs/admin/account-settings/flow-settings",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/creating-an-integration",
+      "target": "/docs/build/integrations/connectors/creating-integrations-using-ai",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/creating-an-integration",
+      "target": "/docs/admin/service-accounts/creating-and-managing-access-keys",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/creating-an-integration",
+      "target": "/docs/build/integrations/managing-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/activecampaign-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/adobe-sign-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/asana-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/basecamp-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/click-send",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/conditional-paths-in-control-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/connecting-to-kissflow-dataform",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/adding-conditions-and-iterations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/custom-trigger-by-kissflow",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/delay-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/docusign-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/dropbox-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/email-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/expensify-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/freshbooks-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/integrate-with-gmail",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/google-calendar-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/google-chat-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/google-drive-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/google-sheets-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/http-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/hubspot-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/idp-connector-intelligent-document-processing",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/jira-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/kissflow-board-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/kissflow-dataset-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/kissflow-process-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/kissflow-project-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/kissflow-user-details-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/mailchimp-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/microsoft-entra-id",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/microsoft-dynamics-365-business-central-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/microsoft-excel-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/microsoft-onedrive-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/microsoft-outlook-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/microsoft-sharepoint-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/microsoft-teams-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/okta-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/openai-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/oracle-netsuite-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/quickbooks-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/recruitee-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/sap-business-bydesign-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/sap-s4hana-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/sftp-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/salesforce-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/salesmate-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/scheduler-by-kissflow",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/servicenow-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/slack-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/smartsheet-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/soap-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/twilio-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/webhooks-by-kissflow",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/xe-com",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/xero-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/list-of-triggers-and-actions",
+      "target": "/docs/build/integrations/connectors/zendesk-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/managing-integrations-in-apps",
+      "target": "/docs/use/personal-settings/api-authentication",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/agreement-management",
+      "target": "/docs/build/integrations/connectors/adobe-sign-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/agreement-management",
+      "target": "/docs/build/integrations/connectors/docusign-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/agreement-management",
+      "target": "/docs/build/integrations/connectors/http-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/communication-and-collaboration",
+      "target": "/docs/build/integrations/connectors/twilio-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/communication-and-collaboration",
+      "target": "/docs/build/integrations/connectors/microsoft-teams-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/communication-and-collaboration",
+      "target": "/docs/build/integrations/connectors/microsoft-outlook-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/communication-and-collaboration",
+      "target": "/docs/build/integrations/connectors/http-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/finance-and-accounting",
+      "target": "/docs/build/integrations/connectors/quickbooks-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/finance-and-accounting",
+      "target": "/docs/build/integrations/connectors/freshbooks-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/finance-and-accounting",
+      "target": "/docs/build/integrations/connectors/expensify-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/finance-and-accounting",
+      "target": "/docs/build/integrations/connectors/http-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/hr-management",
+      "target": "/docs/build/integrations/connectors/recruitee-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/hr-management",
+      "target": "/docs/build/integrations/connectors/http-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/identity-and-access-management-iam",
+      "target": "/docs/build/integrations/connectors/okta-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/identity-and-access-management-iam",
+      "target": "/docs/build/integrations/connectors/http-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/marketing-automation",
+      "target": "/docs/build/integrations/connectors/activecampaign-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/marketing-automation",
+      "target": "/docs/build/integrations/connectors/mailchimp-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/marketing-automation",
+      "target": "/docs/build/integrations/connectors/http-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/project-management",
+      "target": "/docs/build/integrations/connectors/monday-com-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/project-management",
+      "target": "/docs/build/integrations/connectors/basecamp-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/project-management",
+      "target": "/docs/build/integrations/connectors/kissflow-board-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/project-management",
+      "target": "/docs/build/integrations/connectors/kissflow-process-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/project-management",
+      "target": "/docs/build/integrations/connectors/http-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/sales",
+      "target": "/docs/build/integrations/connectors/salesforce-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/sales",
+      "target": "/docs/build/integrations/connectors/salesmate-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/sales",
+      "target": "/docs/build/integrations/connectors/http-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/utility-and-general",
+      "target": "/docs/build/integrations/connectors/delay-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/utility-and-general",
+      "target": "/docs/build/integrations/connectors/xe-com",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/use-cases/utility-and-general",
+      "target": "/docs/build/integrations/connectors/http-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/working-with-connectors",
+      "target": "/docs/build/integrations/connectors/kissflow-process-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/working-with-connectors",
+      "target": "/docs/build/integrations/connectors/kissflow-board-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/working-with-connectors",
+      "target": "/docs/build/integrations/connectors/webhooks-by-kissflow",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/working-with-connectors",
+      "target": "/docs/build/integrations/connectors/email-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/working-with-connectors",
+      "target": "/docs/build/integrations/connectors/integrate-with-gmail",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/working-with-connectors",
+      "target": "/docs/build/integrations/connectors/google-sheets-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/working-with-connectors",
+      "target": "/docs/build/integrations/connectors/google-calendar-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/working-with-connectors",
+      "target": "/docs/build/integrations/connectors/slack-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/working-with-connectors",
+      "target": "/docs/build/integrations/connectors/hubspot-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/integrations/working-with-connectors",
+      "target": "/docs/build/integrations/list-of-triggers-and-actions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/lists/list-overview",
+      "target": "/docs/build/datasets/dataset-and-views-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/lists/list-overview",
+      "target": "/docs/build/forms/field-types/dropdown-multi-select-dropdown-checkbox-checklists-and-radio-buttons",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/lists/lists-in-apps-overview",
+      "target": "/docs/build/datasets/dataset-and-views-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/navigation/creating-and-managing-navigation",
+      "target": "/docs/build/roles-and-permissions/application-roles",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/app-pages-overview",
+      "target": "/docs/build/roles-and-permissions/application-roles",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/app-pages-overview",
+      "target": "/docs/build/components/working-with-custom-components-in-kissflow-apps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/card-report-for-apps",
+      "target": "/docs/build/components/card",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/card-report-for-apps",
+      "target": "/docs/build/pages/using-advanced-filters-in-apps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/using-advanced-filters-in-apps",
+      "target": "/docs/admin/datasets/managing-filters",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/using-advanced-filters-in-apps",
+      "target": "/docs/build/forms/creating-and-managing-dataforms",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/using-advanced-filters-in-apps",
+      "target": "/docs/build/forms/field-validations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-page-layouts",
+      "target": "/docs/build/components/label",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-page-layouts",
+      "target": "/docs/build/components/button",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-page-layouts",
+      "target": "/docs/build/components/progress-bar",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-page-layouts",
+      "target": "/docs/build/components/hyperlink",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-page-layouts",
+      "target": "/docs/build/components/rich-text",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-page-layouts",
+      "target": "/docs/build/components/tab",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-page-layouts",
+      "target": "/docs/build/components/master-details",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-page-layouts",
+      "target": "/docs/build/components/divider",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-page-layouts",
+      "target": "/docs/build/components/card",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-page-layouts",
+      "target": "/docs/build/components/image",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-page-layouts",
+      "target": "/docs/build/components/iframe",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-page-layouts",
+      "target": "/docs/build/components/popup",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-page-layouts",
+      "target": "/docs/build/components/working-with-custom-components-in-kissflow-apps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-the-page-builder",
+      "target": "/docs/build/components/container",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-the-page-builder",
+      "target": "/docs/build/components/label",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-the-page-builder",
+      "target": "/docs/build/components/button",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-the-page-builder",
+      "target": "/docs/build/components/icon",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-the-page-builder",
+      "target": "/docs/build/components/divider",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-the-page-builder",
+      "target": "/docs/build/components/card",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-the-page-builder",
+      "target": "/docs/build/components/progress-bar",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-the-page-builder",
+      "target": "/docs/build/components/image",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-the-page-builder",
+      "target": "/docs/build/components/hyperlink",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-the-page-builder",
+      "target": "/docs/build/components/iframe",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-the-page-builder",
+      "target": "/docs/build/components/rich-text",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-the-page-builder",
+      "target": "/docs/build/components/tab",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-the-page-builder",
+      "target": "/docs/build/components/master-details",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-the-page-builder",
+      "target": "/docs/build/components/popup",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-the-page-builder",
+      "target": "/docs/build/components/repeater",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-the-page-builder",
+      "target": "/docs/build/components/breadcrumb",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/pages/working-with-the-page-builder",
+      "target": "/docs/build/components/working-with-custom-components-in-kissflow-apps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/chart-reports",
+      "target": "/docs/build/analytics/reports",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/chart-reports",
+      "target": "/docs/build/analytics/pivot-reports",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/configuring-actions-for-process-form-steps",
+      "target": "/docs/build/processes/step-configuration/refreshing-lookup-and-aggregation-field-values",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/configuring-actions-for-process-form-steps",
+      "target": "/docs/build/processes/step-configuration/configuring-actions-for-process-steps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/creating-a-process-inside-apps",
+      "target": "/docs/build/forms/importing-data-from-csv-file",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/creating-a-process-workflow",
+      "target": "/docs/admin/processes/connected-processes-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/creating-a-process-workflow",
+      "target": "/docs/build/processes/workflow-design/creating-ai-suggested-workflow-and-steps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/creating-a-process-workflow",
+      "target": "/docs/build/processes/step-configuration/configuring-field-permissions-for-process-steps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/creating-a-process-workflow",
+      "target": "/docs/build/processes/workflow-design/making-a-process-workflow",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/creating-a-process",
+      "target": "/docs/admin/account-settings/flow-settings",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/creating-a-process",
+      "target": "/docs/build/forms/creating-a-form",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/creating-a-process",
+      "target": "/docs/build/processes/workflow-design/making-a-process-workflow",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/creating-a-process",
+      "target": "/docs/build/processes/step-configuration/configuring-field-permissions-for-process-steps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/deleting-process-items",
+      "target": "/docs/admin/processes/admin-actions-in-a-process",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/editing-a-process-item-after-submitting",
+      "target": "/docs/build/forms/creating-a-form",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/editing-a-process-item-after-submitting",
+      "target": "/docs/build/processes/step-configuration/configuring-actions-for-process-steps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/editing-a-process-item-after-submitting",
+      "target": "/docs/admin/processes/admin-actions-in-a-process",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/how-to-automate-barcode-scanning-in-a-process-form",
+      "target": "/docs/build/forms/field-types/lookup-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/how-to-automate-barcode-scanning-in-a-process-form",
+      "target": "/docs/build/datasets/creating-a-dataset",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/how-to-automate-barcode-scanning-in-a-process-form",
+      "target": "/docs/build/processes/process-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/managing-process-roles-and-permissions",
+      "target": "/docs/admin/portals/portal-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/notification-events-in-processes",
+      "target": "/docs/build/processes/workflow-design/configuring-deadline",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/pivot-report-in-processes",
+      "target": "/docs/build/analytics/reports",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/pivot-report-in-processes",
+      "target": "/docs/build/analytics/pivot-reports",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/process-notifications",
+      "target": "/docs/build/processes/notification-events-in-processes",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/process-notifications",
+      "target": "/docs/build/integrations/connectors/email-connector",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/process-overview-alt2",
+      "target": "/docs/build/forms/creating-a-form",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/process-overview-alt2",
+      "target": "/docs/build/processes/workflow-design/making-a-process-workflow",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/process-settings",
+      "target": "/docs/admin/processes/security-settings-for-flows",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/process-settings",
+      "target": "/docs/build/processes/public-forms",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/public-forms",
+      "target": "/docs/admin/processes/admin-actions-in-a-process",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/reports-overview",
+      "target": "/docs/admin/processes/managing-process-members-and-permissions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/step-configuration/configuring-actions-for-process-steps",
+      "target": "/docs/build/forms/field-validations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/step-configuration/configuring-actions-for-process-steps",
+      "target": "/docs/build/expressions/system-fields",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/step-configuration/configuring-field-permissions-for-process-steps",
+      "target": "/docs/build/processes/step-configuration/configuring-actions-for-process-steps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/step-configuration/refreshing-lookup-and-aggregation-field-values",
+      "target": "/docs/build/forms/field-types/lookup-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/step-configuration/refreshing-lookup-and-aggregation-field-values",
+      "target": "/docs/build/forms/field-types/aggregation-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/watching-a-process-item-inside-apps",
+      "target": "/docs/get-started/my-items",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/workflow-design/assigning-steps",
+      "target": "/docs/build/expressions/system-fields",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/workflow-design/assigning-steps",
+      "target": "/docs/admin/users/user-management-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/workflow-design/assigning-steps",
+      "target": "/docs/build/expressions/introduction-to-expressions-and-formulas",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/workflow-design/assignment-preference",
+      "target": "/docs/build/processes/workflow-design/best-practices-for-simultaneous-tasks",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/workflow-design/best-practices-for-simultaneous-tasks",
+      "target": "/docs/build/processes/workflow-design/conditional-steps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/workflow-design/conditional-steps",
+      "target": "/docs/build/expressions/introduction-to-expressions-and-formulas",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/workflow-design/conditional-steps",
+      "target": "/docs/build/expressions/logical-expressions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/workflow-design/email-actions",
+      "target": "/docs/build/processes/process-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/workflow-design/email-actions",
+      "target": "/docs/build/processes/step-configuration/configuring-field-permissions-for-process-steps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/workflow-design/making-a-process-workflow",
+      "target": "/docs/admin/processes/managing-process-members-and-permissions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/workflow-design/making-a-process-workflow",
+      "target": "/docs/admin/processes/connected-processes-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/workflow-design/making-a-process-workflow",
+      "target": "/docs/build/processes/workflow-design/creating-ai-suggested-workflow-and-steps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/workflow-design/making-a-process-workflow",
+      "target": "/docs/build/processes/workflow-design/assignment-preference",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/workflow-design/making-a-process-workflow",
+      "target": "/docs/build/processes/workflow-design/conditional-steps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/workflow-design/making-a-process-workflow",
+      "target": "/docs/build/processes/workflow-design/email-actions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/workflow-design/making-a-process-workflow",
+      "target": "/docs/build/processes/workflow-design/configuring-deadline",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/workflow-design/making-a-process-workflow",
+      "target": "/docs/build/processes/step-configuration/configuring-field-permissions-for-process-steps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/workflow-design/making-a-process-workflow",
+      "target": "/docs/build/processes/workflow-design/best-practices-for-simultaneous-tasks",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/processes/workflow-design/send-back-actions",
+      "target": "/docs/admin/users/group-management",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/roles-and-permissions/application-roles",
+      "target": "/docs/build/roles-and-permissions/role-permissions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/roles-and-permissions/sharing-data-across-apps-using-component-referencing",
+      "target": "/docs/admin/portals/portal-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/roles-and-permissions/sharing-data-across-apps-using-component-referencing",
+      "target": "/docs/build/boards/boards-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/roles-and-permissions/sharing-data-across-apps-using-component-referencing",
+      "target": "/docs/build/roles-and-permissions/application-roles",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/roles-and-permissions/sharing-data-across-apps-using-component-referencing",
+      "target": "/docs/build/roles-and-permissions/role-permissions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/roles-and-permissions/sharing-data-across-apps-using-component-referencing",
+      "target": "/docs/build/processes/managing-process-roles-and-permissions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/roles-and-permissions/sharing-data-across-apps-using-component-referencing",
+      "target": "/docs/build/boards/managing-board-roles-and-permissions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/roles-and-permissions/switching-roles-at-runtime-in-kissflow-apps",
+      "target": "/docs/build/roles-and-permissions/application-roles",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/build/variables/variables-and-parameters-in-app-development",
+      "target": "/docs/build/variables/using-variables-in-application-development",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/account-governance",
+      "target": "/docs/admin/users/user-roles-and-permissions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/action",
+      "target": "/docs/build/integrations/integrations-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/ai-suggested-steps",
+      "target": "/docs/build/processes/workflow-design/creating-ai-suggested-workflow-and-steps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/ai-suggested-workflow",
+      "target": "/docs/build/processes/workflow-design/creating-ai-suggested-workflow-and-steps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/analytics-report",
+      "target": "/docs/build/analytics/overview-of-kissflow-analytics",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/app-builder",
+      "target": "/docs/build/pages/app-builder-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/application",
+      "target": "/docs/build/apps/introduction-to-kissflow-apps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/assignee",
+      "target": "/docs/build/processes/process-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/collaborator",
+      "target": "/docs/build/integrations/collaborating-with-other-members",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/connection",
+      "target": "/docs/build/integrations/integrations-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/connector",
+      "target": "/docs/build/integrations/integrations-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/data-source",
+      "target": "/docs/build/analytics/understanding-data-sources",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/dataset",
+      "target": "/docs/build/datasets/dataset-and-views-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/dataview",
+      "target": "/docs/build/analytics/understanding-dataviews",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/dimension",
+      "target": "/docs/build/analytics/using-reports",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/document-template",
+      "target": "/docs/build/processes/generating-document-templates",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/editor",
+      "target": "/docs/build/integrations/integrations-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/evaluate",
+      "target": "/docs/build/expressions/ai-formula-builder",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/external-data-object",
+      "target": "/docs/build/external-data/introduction-to-external-data-objects",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/failure-analysis",
+      "target": "/docs/build/integrations/managing-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/field-id",
+      "target": "/docs/build/forms/field-settings",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/field",
+      "target": "/docs/build/forms/creating-a-form",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/form",
+      "target": "/docs/build/forms/creating-a-form",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/form",
+      "target": "/docs/build/processes/process-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/form",
+      "target": "/docs/build/forms/creating-and-managing-dataforms",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/formula-builder",
+      "target": "/docs/build/expressions/computing-fields-using-formula-builder",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/formula-builder",
+      "target": "/docs/build/expressions/ai-formula-builder",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/geolocation",
+      "target": "/docs/build/forms/field-types/geolocation-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/goto",
+      "target": "/docs/build/processes/workflow-design/making-a-process-workflow",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/grid",
+      "target": "/docs/build/forms/field-types/grid-widget",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/guided-autofill",
+      "target": "/docs/build/forms/field-types/guided-autofill-for-smart-attachments",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/impact",
+      "target": "/docs/build/integrations/managing-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/impact",
+      "target": "/docs/reference/glossary/failure-analysis",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/impersonation",
+      "target": "/docs/admin/service-accounts/impersonation-in-service-accounts",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/impersonation",
+      "target": "/docs/admin/service-accounts/service-account-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/initiate",
+      "target": "/docs/build/roles-and-permissions/role-permissions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/item",
+      "target": "/docs/build/processes/process-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/key",
+      "target": "/docs/build/datasets/creating-a-dataset",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/kissflow-app-store",
+      "target": "/docs/app-store/introduction-to-kissflow-app-store",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/kissflow-apps",
+      "target": "/docs/build/apps/introduction-to-kissflow-apps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/lookup-layout",
+      "target": "/docs/build/forms/field-types/lookup-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/manage",
+      "target": "/docs/build/roles-and-permissions/role-permissions",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/measure",
+      "target": "/docs/build/analytics/pivot-reports",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/navigation",
+      "target": "/docs/build/navigation/creating-and-managing-navigation",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/navigation",
+      "target": "/docs/build/roles-and-permissions/application-roles",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/page",
+      "target": "/docs/build/roles-and-permissions/application-roles",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/parallel-branch",
+      "target": "/docs/build/processes/workflow-design/making-a-process-workflow",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/portal-admin",
+      "target": "/docs/admin/portals/administering-portals",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/portal-admin",
+      "target": "/docs/admin/portals/portal-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/process-instance-table",
+      "target": "/docs/build/analytics/process-table-in-analytics",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/process",
+      "target": "/docs/build/processes/process-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/rerun",
+      "target": "/docs/build/integrations/managing-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/root-cause",
+      "target": "/docs/reference/glossary/failure-analysis",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/run-history",
+      "target": "/docs/build/integrations/managing-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/run",
+      "target": "/docs/build/integrations/integrations-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/scanner",
+      "target": "/docs/build/forms/field-types/scanner-field",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/search-action",
+      "target": "/docs/build/integrations/integrations-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/section",
+      "target": "/docs/build/forms/creating-a-form",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/solution-analyzer",
+      "target": "/docs/admin/processes/ai-solution-analyzer",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/solution-overview",
+      "target": "/docs/admin/processes/ai-powered-solution-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/solution",
+      "target": "/docs/build/processes/process-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/solution",
+      "target": "/docs/build/apps/introduction-to-kissflow-apps",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/solution",
+      "target": "/docs/admin/portals/portal-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/style",
+      "target": "/docs/build/forms/section-and-table-style",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/style",
+      "target": "/docs/build/forms/field-appearance",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/table",
+      "target": "/docs/build/forms/creating-a-form",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/trigger",
+      "target": "/docs/build/integrations/integrations-overview",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/troubleshoot",
+      "target": "/docs/build/integrations/managing-integrations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/validation",
+      "target": "/docs/build/forms/field-validations",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/validation",
+      "target": "/docs/build/forms/creating-a-form",
+      "relation": "links-to"
+    },
+    {
+      "source": "/docs/reference/glossary/view",
+      "target": "/docs/build/datasets/dataset-and-views-overview",
+      "relation": "links-to"
     }
   ]
 }

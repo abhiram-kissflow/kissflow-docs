@@ -2,7 +2,6 @@ import { generateObject } from 'ai';
 import { z } from 'zod';
 import { DEV_QUERY_MODEL } from '@/lib/rag/model-router';
 import { searchFrontendGraph, searchBackendGraph, GRAPH_OVERVIEW } from '@/lib/rag/graph';
-import { decideModelTier } from '@/lib/rag/escalation';
 import { answerFromContext, type ContextNode } from '@/lib/rag/answer';
 
 export const runtime = 'nodejs';
@@ -96,11 +95,9 @@ export async function POST(request: Request): Promise<Response> {
     snippet: `${h.source} route: ${h.method} ${h.route}`,
   }));
 
-  // Route hits carry no traversal depth; escalate only on breadth.
-  const tier = decideModelTier({
-    seeds: hits.map((_, i) => ({ nodeId: String(i), score: 1 })),
-    subgraph: { maxSeedHopDistance: 1, distinctSourceArticles: contextNodes.length },
-  });
+  // Route hits carry no similarity scores, so seed-geometry tiering doesn't
+  // apply — escalate on breadth alone, same threshold as before.
+  const tier = hits.length > 5 ? 'terra' : 'luna';
 
   return answerFromContext({ query, contextNodes, tier }).toTextStreamResponse();
 }

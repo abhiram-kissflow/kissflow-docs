@@ -9,7 +9,11 @@ export const runtime = 'nodejs';
 const SEED_K = 6;
 const MAX_NODES = 12;
 const MAX_HOPS = 2;
-const SEED_SCORE_FLOOR = 0.2;
+// Calibrated on the 2026-07-14 benchmark: weakest legitimate query topped at
+// 0.527, while out-of-scope-but-adjacent ("self-host Kissflow") still scored
+// 0.57 — so the floor only catches true garbage; semantic out-of-scope is the
+// model's insufficientEvidence call.
+const SEED_SCORE_FLOOR = 0.45;
 
 export async function POST(request: Request): Promise<Response> {
   if (!process.env.OPENAI_API_KEY) {
@@ -51,7 +55,7 @@ export async function POST(request: Request): Promise<Response> {
     { maxNodes: MAX_NODES, maxHops: MAX_HOPS },
     graph,
   );
-  const tier = decideModelTier({ seeds, subgraph: constrained.stats });
+  const tier = decideModelTier({ seeds });
   const contextNodes: ContextNode[] = constrained.nodes.map((n) => ({
     id: n.id,
     label: n.label,

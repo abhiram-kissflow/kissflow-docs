@@ -13,36 +13,41 @@ export interface SubgraphStats {
 
 export interface EscalationInput {
   seeds: SeedScore[];
-  subgraph: SubgraphStats;
 }
 
-/** Tunable thresholds — defaults chosen to be revisited against real queries. */
+/**
+ * Thresholds calibrated against the 2026-07-14 live benchmark (13 queries,
+ * bench/results_ours.json): legit queries' top seeds ranged 0.527–0.816.
+ *
+ * Subgraph stats (hop distance, distinct articles) are deliberately NOT
+ * consulted: with MAX_NODES=12 over a sparse graph, the BFS fills its quota
+ * on every query, so those stats measure expansion geometry, not question
+ * difficulty — the benchmark showed them pegged at 11–12 articles / 2 hops
+ * for trivial and hard queries alike, routing 13/13 queries to terra.
+ */
 export const ESCALATION = {
+  /** Top seed below this = retrieval is unsure what the question is about. */
+  weakEvidenceCeiling: 0.6,
   /** Seeds are "ambiguous" only when both are relevant (above this floor)... */
   ambiguityScoreFloor: 0.5,
   /** ...and their scores are within this band of each other. */
   ambiguityScoreBand: 0.05,
-  /** More than one hop from a seed to evidence signals multi-hop reasoning. */
-  maxHopsBeforeEscalation: 1,
-  /** Spanning more than this many source articles signals broad synthesis. */
-  maxArticlesBeforeEscalation: 5,
 } as const;
 
 /**
- * Turns the qualitative escalation triggers (multi-hop reasoning, ambiguity,
- * broad synthesis) into concrete signals. Returns the model tier to use.
- * Pure — no I/O.
+ * Routes a query to a model tier from seed-score geometry alone. Weak or
+ * ambiguous retrieval goes to terra (the stronger model hedges honestly);
+ * a confident dominant seed stays on luna. Pure — no I/O.
  */
-export function decideModelTier({ seeds, subgraph }: EscalationInput): 'luna' | 'terra' {
-  // Multi-hop: evidence was more than one hop from the seeds.
-  if (subgraph.maxSeedHopDistance > ESCALATION.maxHopsBeforeEscalation) return 'terra';
+export function decideModelTier({ seeds }: EscalationInput): 'luna' | 'terra' {
+  const sorted = [...seeds].sort((a, b) => b.score - a.score);
+  if (!sorted.length) return 'terra';
 
-  // Broad synthesis: the answer must reconcile many distinct articles.
-  if (subgraph.distinctSourceArticles > ESCALATION.maxArticlesBeforeEscalation) return 'terra';
+  // Weak evidence: even the best seed is a poor match for the question.
+  if (sorted[0].score < ESCALATION.weakEvidenceCeiling) return 'terra';
 
   // Ambiguity: the top two relevant seeds are nearly tied, so seed search
   // could not confidently pick a single best match.
-  const sorted = [...seeds].sort((a, b) => b.score - a.score);
   if (sorted.length >= 2) {
     const [top, second] = sorted;
     const bothRelevant = second.score >= ESCALATION.ambiguityScoreFloor;

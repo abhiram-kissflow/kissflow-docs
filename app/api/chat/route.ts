@@ -20,7 +20,8 @@ export const runtime = 'nodejs';
 const SEED_K = 6;
 const MAX_NODES = 12;
 const MAX_HOPS = 2;
-const SEED_SCORE_FLOOR = 0.2;
+// Calibrated with /api/rag/ask (2026-07-14 benchmark) — catches garbage only.
+const SEED_SCORE_FLOOR = 0.45;
 
 // Same grounding + answer style as the hero engine (lib/rag/answer.ts SYSTEM),
 // minus the citation-object machinery: the chat widget renders markdown text,
@@ -101,7 +102,7 @@ export async function POST(request: Request): Promise<Response> {
         graph,
       );
       contextNodes = constrained.nodes;
-      tier = decideModelTier({ seeds, subgraph: constrained.stats });
+      tier = decideModelTier({ seeds });
     }
   }
 
