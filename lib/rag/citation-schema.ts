@@ -11,16 +11,16 @@ export const citationAnswerSchema = z.object({
   citations: z
     .array(
       z.object({
-        nodeId: z.string().describe('ID of a graph node from the provided context that supports the answer.'),
-        snippet: z.string().describe('The exact snippet text from that node used as evidence.'),
+        nodeId: z.string().describe('ID of a documentation section from the provided context that supports the answer.'),
+        snippet: z.string().describe('A meaningful exact text excerpt from that section used as evidence.'),
       }),
     )
-    .describe('Every node whose content the answer relies on. Empty if insufficientEvidence is true.'),
+    .describe('Every documentation section whose content the answer relies on. Empty if insufficientEvidence is true.'),
   media: z
     .array(
       z.object({
-        nodeId: z.string().describe('ID of a cited graph node that owns the selected media.'),
-        mediaId: z.string().describe('ID of source media from that cited graph node.'),
+        nodeId: z.string().describe('ID of a cited documentation section that owns the selected media.'),
+        mediaId: z.string().describe('ID of source media from that cited section.'),
       }),
     )
     .describe('Only source media that directly supports the answer. Empty when no relevant media is available.'),
