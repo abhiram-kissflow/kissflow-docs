@@ -25,6 +25,7 @@ import matter from 'gray-matter';
 import { embedMany } from 'ai';
 import { openai } from '@ai-sdk/openai';
 import { extractContentSections, type SourceMedia } from '../lib/rag/content-sections';
+import { findContentLinkEdges, type ArticleBody } from '../lib/rag/content-links';
 
 const GRAPH_DIR = path.join(process.cwd(), 'lib', 'rag', 'content-graph');
 const CONTENT_DIR = path.join(process.cwd(), 'content');
@@ -98,10 +99,10 @@ function buildSections(sourceFile: string, label: string, articleUrl: string) {
   try {
     const { data, content } = matter(fs.readFileSync(abs, 'utf8'));
     const title = typeof data.title === 'string' ? data.title : label;
-    return { title, sections: extractContentSections({ url: articleUrl, title, body: content }) };
+    return { title, body: content, sections: extractContentSections({ url: articleUrl, title, body: content }) };
   } catch {
     console.warn(`  warn: could not read ${abs}; using label section fallback`);
-    return { title: label, sections: extractContentSections({ url: articleUrl, title: label, body: label }) };
+    return { title: label, body: label, sections: extractContentSections({ url: articleUrl, title: label, body: label }) };
   }
 }
 
@@ -131,6 +132,7 @@ async function main() {
   // from graphify article IDs to their first section preserves the existing
   // cross-article edges for related-content traversal.
   const nodes: GraphNode[] = [];
+  const articleBodies: ArticleBody[] = [];
   const sectionIdsByGraphifyId = new Map<string, string[]>();
   const sectionIdsBySourceFile = new Map<string, string[]>();
   let skipped = 0;
@@ -149,7 +151,7 @@ async function main() {
     }
 
     const articleUrl = deriveUrl(normalizedSource);
-    const { title, sections } = buildSections(sourceFile, label, articleUrl);
+    const { title, body, sections } = buildSections(sourceFile, label, articleUrl);
     const ids: string[] = [];
     for (const section of sections) {
       const url = section.anchor ? `${articleUrl}#${section.anchor}` : articleUrl;
@@ -169,6 +171,7 @@ async function main() {
     }
     sectionIdsByGraphifyId.set(gn.id, ids);
     sectionIdsBySourceFile.set(normalizedSource, ids);
+    articleBodies.push({ articleUrl, body });
   }
   console.log(`Sections: kept ${nodes.length}, skipped ${skipped} (non-doc / no source_file)`);
 
@@ -186,6 +189,7 @@ async function main() {
       prunedEdges++;
     }
   }
+  edges.push(...findContentLinkEdges(nodes, articleBodies, edges));
   console.log(`Edges: kept ${edges.length}, pruned ${prunedEdges} (dangling endpoint)`);
 
   // 3. Embed the section's article title, heading, and complete section text.
