@@ -18,6 +18,11 @@ export default function ApiReferencePage() {
       <ApiReferenceReact
         configuration={{
           url: `${basePath}/openapi/kissflow-api.json`,
+          // Route try-it requests through our same-origin proxy so the browser
+          // isn't blocked by CORS (the Kissflow API sends no ACAO for the docs
+          // origin). Only works on the dynamic Vercel deploy; harmless on the
+          // static GitHub Pages mirror where try-it can't run anyway.
+          proxyUrl: `${basePath}/api/scalar-proxy`,
           authentication: {
             preferredSecurityScheme: 'accessKeyId',
           },
