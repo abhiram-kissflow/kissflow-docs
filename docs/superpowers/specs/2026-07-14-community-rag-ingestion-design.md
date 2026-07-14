@@ -2,87 +2,96 @@
 
 ## Goal
 
-Ingest the Kissflow Community's Get Help, Product Documentation, and Product Updates sections into the public Fumadocs RAG corpus while preserving useful discussion and replies, removing identifying or account-specific information, and never publishing legacy `community.kissflow.com` URLs.
+Supply the shared Fumadocs RAG foundation with reviewed, sanitized Community records from Get Help, Product Documentation, and Product Updates. This work is an upstream content supplier only; it does not change retrieval, answer generation, citations, media rendering, conversational history, API routes, UI components, graph artifacts, or embeddings.
 
 ## Decision
 
-Build a deterministic-first ingestion pipeline.
+Build a deterministic-first private sync and reviewed-export pipeline.
 
-- The CLI crawls Forumbee pages using an authenticated browser session only when a protected page requires it.
-- It keeps a local SQLite mirror for sync state and on-the-go querying.
-- A sanitization gate runs before any record is exported, embedded, committed, or made available to the public RAG endpoint.
-- Public records use stable Forumbee topic IDs as source identity. They contain no legacy Community URL. A Fumadocs canonical URL is included only when a migration mapping exists.
-- The existing RAG API receives the new content through incremental graph and embedding artifacts. Normal questions continue to use Luna; weak or ambiguous retrieval continues to escalate to Terra.
+- The CLI crawls Forumbee pages in read-only mode. It requires a user-completed browser login only for protected pages.
+- A local SQLite mirror retains raw crawler data, session material, and minimum relative locators outside the repository.
+- Deterministic sanitization runs before a record can leave the private store.
+- Each sanitized record enters a local review workflow. Only an approved record is exported.
+- Exported records use stable Forumbee topic IDs, an explicit authority tier, review state, migration state, and evidence-eligibility flag.
+- Legacy Community URLs are never emitted in the export contract or public artifacts.
+- The shared RAG foundation is solely responsible for section extraction, embeddings, citation/media validation, evidence selection, and public assistant behavior.
 
 ## Non-goals
 
-- Do not archive Community URLs in the Fumadocs content tree, runtime graph, embeddings, citations, or Git history.
-- Do not fine-tune a model on Community content.
-- Do not use an LLM to process every post during ingestion.
-- Do not create or publish new public Fumadocs pages from Community content in this first version.
-- Do not perform write actions against the Community.
+- Do not modify `lib/rag/content-graph.ts`, `lib/rag/answer.ts`, `app/api/rag/ask/route.ts`, `app/api/chat/route.ts`, hero/chat UI components, or public graph artifacts.
+- Do not create graph nodes or call any embedding API.
+- Do not fine-tune a model or use a generation model to sanitize all posts.
+- Do not create public Fumadocs pages from Community content.
+- Do not perform write actions against Community.
 
 ## Data flow
 
 ```text
-Forumbee category and topic pages
-  -> read-only CLI sync
-  -> local SQLite mirror (sync metadata and query cache)
-  -> deterministic sanitizer and rejection queue
-  -> sanitized export keyed by topic ID
-  -> incremental runtime graph and embeddings
-  -> existing public /api/rag/ask endpoint
+Forumbee category/topic pages
+  -> private read-only SQLite mirror
+  -> deterministic sanitizer
+  -> local review queue and approval decision
+  -> stable reviewed export manifest + JSONL records
+  -> shared RAG foundation (owned separately)
 ```
 
-The SQLite mirror may retain the minimum remote locator required for a future sync, outside the repository. Exported records and public artifacts must not contain it.
+The private mirror may retain raw content and relative fetch locators until locally removed. The reviewed export must not contain raw content, session material, identities, credentials, legacy Community URLs, or unapproved data.
 
-## Sanitization policy
+## Sanitization and review policy
 
-The sanitizer removes or replaces the following before persistence outside the local sync store:
+Before export, remove or replace:
 
-- Author, commenter, and mentioned-person names; profile URLs; avatars; and user handles.
-- Email addresses, telephone numbers, IP addresses, account/tenant domains, and customer organization identifiers.
-- API keys, bearer tokens, secrets, cookies, identifiers with secret-like prefixes, and credential-bearing URLs.
-- Attachments and embedded images. Their surrounding explanatory text may remain when it passes the other rules.
-- Legacy Community URLs and URL fragments.
+- Author/commenter names, handles, mentions, profile links, avatars, and organization/customer names.
+- Email addresses, telephone numbers, IP addresses, tenant domains, account IDs, API keys, bearer tokens, cookies, and credential-bearing URLs.
+- Legacy Community URLs and fragments.
+- Attachments and images unless an approved migration map resolves the media to a safe, local Fumadocs asset.
 
-The pipeline must fail closed for a topic that still matches a high-confidence sensitive-data pattern after redaction. Such topics go to a local review queue and are not exported or embedded. A later version may add a local NER classifier for residual personal names; this is not required for the initial deterministic gate.
+A residual high-confidence secret, identity pattern, or unapproved media reference fails closed: the topic remains in the local review queue and is not exported.
 
-## Public record shape
+A reviewer assigns:
 
-Each exported topic is a sanitized document with front matter equivalent to:
+- `reviewState`: `approved` or `rejected`.
+- `authorityTier`: `official`, `moderated-community`, or `community`.
+- `migration`: mapped canonical Fumadocs path or `unmapped`.
 
-```yaml
-id: forumbee:<topic-id>
-section: get-help | documentation | product-updates
-tags: []
-createdAt: ISO-8601
-updatedAt: ISO-8601
-canonicalUrl: /docs/... # omitted until mapped
-contentHash: sha256
+## Export contract
+
+The CLI writes a stable local directory containing:
+
+- `manifest.json`: schema version, generated timestamp, record count, and content hashes.
+- `records.jsonl`: one approved sanitized record per line.
+- `reviews.jsonl`: rejected/withheld records represented only by stable ID, reason codes, and timestamps; never raw text.
+
+An approved record has this shape:
+
+```json
+{
+  "schemaVersion": 1,
+  "id": "forumbee:q6yg4v5",
+  "section": "get-help",
+  "title": "Sanitized title",
+  "body": "Sanitized post and replies",
+  "createdAt": "2026-07-14T00:00:00.000Z",
+  "updatedAt": "2026-07-14T00:00:00.000Z",
+  "tags": ["notification"],
+  "authorityTier": "moderated-community",
+  "reviewState": "approved",
+  "migration": { "status": "mapped", "canonicalUrl": "/docs/use/..." },
+  "media": [],
+  "contentHash": "sha256...",
+  "evidenceEligible": true
+}
 ```
 
-The body contains the sanitized title, original post, and ordered sanitized replies. It does not contain source URLs, authors, customer details, attachments, or raw Forumbee identifiers other than the stable topic ID.
-
-## Graph and retrieval
-
-The importer creates deterministic edges between topics sharing tags, category, and mapped Fumadocs documents. It reuses an embedding when `contentHash` is unchanged, embeds only changed public documents with `text-embedding-3-small`, and deletes removed vectors.
-
-The existing RAG route remains responsible for seed retrieval, abstention, bounded subgraph expansion, streaming citations, and Luna-to-Terra escalation. An unmapped Community topic can contribute answer context but produces no external citation; mapped content cites only its Fumadocs canonical URL.
-
-## Cost controls
-
-- Sync, parsing, sanitization, SQLite queries, deduplication, and deterministic edge creation use no model tokens.
-- Embedding is limited to changed sanitized documents, with a dry-run token estimate and a configurable maximum token budget before any API call.
-- Semantic Graphify enrichment is deferred. It can be introduced later as an opt-in, budget-capped job over sanitized records only.
-- No paid generation model is used in the ingestion path.
+`evidenceEligible` is true only when a record is approved and mapped. Unmapped records may be exported for future migration work but must set it to false; the shared RAG layer must not use them as answer evidence.
 
 ## Acceptance criteria
 
-1. The CLI can list, sync, and search all three specified sections in read-only mode.
-2. Protected Get Help sync requires a user-completed browser login but never accepts or stores a password.
-3. Exported records, graph artifacts, embeddings, and runtime RAG citations contain no `community.kissflow.com` string.
-4. Sensitive-data patterns are redacted or the topic is withheld and recorded for local review.
-5. Re-running sync without changed content causes no embedding API request.
-6. A changed sanitized topic produces exactly one updated graph node/vector and can be retrieved through the existing public RAG endpoint.
-7. Tests cover URL removal, PII/secrets redaction, withheld-record behavior, stable IDs, content-hash reuse, and incremental embedding selection.
+1. The CLI lists, syncs, and searches all three sections without write operations.
+2. Protected sync uses user-completed browser SSO and never accepts or stores a password.
+3. Sanitization and review tests prove identity, credentials, and legacy URLs cannot enter the export.
+4. Only approved records appear in `records.jsonl`.
+5. Every unmapped record is marked `evidenceEligible: false`.
+6. Media is emitted only when it is an approved, safe local Fumadocs reference.
+7. The export contract is documented and versioned; it creates no graph nodes and calls no embedding API.
+
