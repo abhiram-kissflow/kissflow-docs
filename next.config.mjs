@@ -19,7 +19,17 @@ const config = {
   turbopack: {
     root: __dirname,
   },
-  ...(staticExport ? { output: 'export' } : {}),
+  ...(staticExport
+    ? { output: 'export' }
+    : {
+        // /docs has no index page; hideLocale also 307s /en/docs down to /docs.
+        async redirects() {
+          return [
+            { source: '/docs', destination: '/docs/get-started', permanent: false },
+            { source: '/:lang(en|es)/docs', destination: '/:lang/docs/get-started', permanent: false },
+          ];
+        },
+      }),
 };
 
 export default withMDX(config);
