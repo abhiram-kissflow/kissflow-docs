@@ -7,10 +7,19 @@ import { z } from 'zod';
  * missing — it may never answer from outside the provided constrained context.
  */
 export const citationAnswerSchema = z.object({
-  answer: z.string().describe('The grounded answer. Empty string if insufficientEvidence is true.'),
+  answer: z.string().describe('The rendered answer. It must equal the claim markdown blocks joined by two newlines, or be empty if insufficientEvidence is true.'),
+  claims: z
+    .array(
+      z.object({
+        markdown: z.string().describe('One complete rendered markdown block containing factual answer content.'),
+        citationIds: z.array(z.string()).min(1).describe('IDs of citations that support this exact rendered block.'),
+      }),
+    )
+    .describe('Every rendered factual answer block, in display order. Do not put unbound factual content in answer.'),
   citations: z
     .array(
       z.object({
+        id: z.string().describe('A unique citation ID referenced by one or more claim citationIds.'),
         nodeId: z.string().describe('ID of a documentation section from the provided context that supports the answer.'),
         snippet: z.string().describe('A meaningful exact text excerpt from that section used as evidence.'),
       }),

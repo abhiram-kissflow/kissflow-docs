@@ -4,6 +4,10 @@ export type SourceMedia = {
   url: string;
   alt: string;
   title?: string;
+  /** Optional immutable identity supplied by an approved media manifest. */
+  dedupeKey?: string;
+  /** Optional content hash supplied when the same asset is mirrored at multiple URLs. */
+  assetHash?: string;
 };
 
 export type ContentSection = {

@@ -1,13 +1,10 @@
-import type { CitationAnswer } from './citation-schema';
 import type { ContextNode } from './answer';
-
-/** Short fragments such as a UI verb are too weak to audit as answer evidence. */
-const MIN_CITATION_SNIPPET_LENGTH = 12;
+import type { CitationAnswer } from './citation-schema';
 
 /**
  * The public result may contain only evidence the model can point to verbatim
- * in the supplied section context. This boundary is deliberately pure so both
- * RAG entry points can apply the exact same trust rules.
+ * in the supplied section context. It renders only validated claim blocks, so
+ * an unrelated valid citation cannot authorize an extra answer assertion.
  */
 export function validateGroundedAnswer(
   result: CitationAnswer,
@@ -16,45 +13,81 @@ export function validateGroundedAnswer(
   if (result.insufficientEvidence || !result.answer.trim()) return abstention();
 
   const nodesById = new Map(contextNodes.map((node) => [node.id, node]));
-  const seenCitations = new Set<string>();
+  const seenCitationIds = new Set<string>();
+  const seenEvidence = new Set<string>();
   const citations = result.citations.flatMap((citation) => {
     const node = nodesById.get(citation.nodeId);
+    const id = citation.id.trim();
     const snippet = citation.snippet.trim();
-    const key = `${citation.nodeId}\u0000${snippet}`;
+    const evidenceKey = `${citation.nodeId}\u0000${snippet}`;
     if (
       !node ||
-      snippet.length < MIN_CITATION_SNIPPET_LENGTH ||
+      !id ||
+      !snippet ||
       !node.snippet.includes(snippet) ||
-      seenCitations.has(key)
+      seenCitationIds.has(id) ||
+      seenEvidence.has(evidenceKey)
     ) {
       return [];
     }
-    seenCitations.add(key);
-    return [{ nodeId: citation.nodeId, snippet }];
+    seenCitationIds.add(id);
+    seenEvidence.add(evidenceKey);
+    return [{ id, nodeId: citation.nodeId, snippet }];
   });
 
   if (!citations.length) return abstention();
 
+  const validCitationIds = new Set(citations.map((citation) => citation.id));
+  const claims = result.claims.flatMap((claim) => {
+    const markdown = claim.markdown.trim();
+    const citationIds = [...new Set(claim.citationIds.map((id) => id.trim()).filter(Boolean))];
+    if (!markdown || !citationIds.length || citationIds.some((id) => !validCitationIds.has(id))) return [];
+    return [{ markdown, citationIds }];
+  });
+  const answer = claims.map((claim) => claim.markdown).join('\n\n');
+  if (!claims.length || answer !== result.answer.trim()) return abstention();
+
   const citedNodeIds = new Set(citations.map((citation) => citation.nodeId));
-  const seenMediaUrls = new Set<string>();
+  const seenMediaIdentities = new Set<string>();
   const media = result.media.filter((selection) => {
     const node = nodesById.get(selection.nodeId);
     const sourceMedia = node?.media?.find((media) => media.id === selection.mediaId);
-    if (
-      !node ||
-      !citedNodeIds.has(selection.nodeId) ||
-      !sourceMedia ||
-      seenMediaUrls.has(sourceMedia.url)
-    ) {
+    const identity = sourceMedia ? sourceMediaIdentity(sourceMedia) : null;
+    if (!node || !citedNodeIds.has(selection.nodeId) || !sourceMedia || !identity || seenMediaIdentities.has(identity)) {
       return false;
     }
-    seenMediaUrls.add(sourceMedia.url);
+    seenMediaIdentities.add(identity);
     return true;
   });
 
-  return { answer: result.answer, citations, media, insufficientEvidence: false };
+  return { answer, claims, citations, media, insufficientEvidence: false };
 }
 
 function abstention(): CitationAnswer {
-  return { answer: '', citations: [], media: [], insufficientEvidence: true };
+  return { answer: '', claims: [], citations: [], media: [], insufficientEvidence: true };
+}
+
+function sourceMediaIdentity(media: NonNullable<ContextNode['media']>[number]): string | null {
+  if (media.assetHash?.trim()) return `hash:${media.assetHash.trim()}`;
+  if (media.dedupeKey?.trim()) return `key:${media.dedupeKey.trim()}`;
+  return normalizeMediaUrl(media.url);
+}
+
+/** Removes fragments and cache-busting query keys without touching functional or signed parameters. */
+function normalizeMediaUrl(value: string): string | null {
+  const url = value.trim();
+  if (!url) return null;
+  try {
+    const parsed = new URL(url, 'https://kissflow.invalid');
+    parsed.hash = '';
+    for (const key of [...parsed.searchParams.keys()]) {
+      if (/^(?:_|cb|cache|cachebust|cachebuster|timestamp|ts|utm_.+|v|ver)$/i.test(key)) {
+        parsed.searchParams.delete(key);
+      }
+    }
+    const normalized = parsed.toString();
+    return url.startsWith('/') ? normalized.replace('https://kissflow.invalid', '') : normalized;
+  } catch {
+    return null;
+  }
 }
