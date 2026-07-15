@@ -8,6 +8,7 @@ import { parsePartialJson } from 'ai';
 import { ArrowUp, FileText, Loader2, Sparkle } from 'lucide-react';
 import { PersonaNav } from '@/components/persona-nav';
 import { WingField } from '@/components/wing-field';
+import { RagMedia, type RagMediaItem } from '@/components/rag-media';
 import { useUIStrings } from '@/lib/ui-strings';
 import { useI18n } from 'fumadocs-ui/contexts/i18n';
 
@@ -21,6 +22,7 @@ interface Turn {
   role: 'user' | 'assistant';
   content: string;
   sources?: Source[];
+  media?: RagMediaItem[];
   streaming?: boolean;
   abstained?: boolean;
   errored?: boolean;
@@ -145,12 +147,21 @@ export default function HeroAsk() {
       if (!res.ok) throw new Error(String(res.status));
 
       const rawSources = res.headers.get('x-rag-sources');
+      const rawMedia = res.headers.get('x-rag-media');
       lastSourcesRef.current = [];
       if (rawSources) {
         try {
           const parsed = JSON.parse(decodeURIComponent(rawSources)) as Source[];
           lastSourcesRef.current = parsed;
           updateLastAssistant({ sources: parsed });
+        } catch {
+          /* ignore malformed header */
+        }
+      }
+      if (rawMedia) {
+        try {
+          const parsed = JSON.parse(decodeURIComponent(rawMedia)) as RagMediaItem[];
+          if (Array.isArray(parsed)) updateLastAssistant({ media: parsed });
         } catch {
           /* ignore malformed header */
         }
@@ -280,7 +291,10 @@ export default function HeroAsk() {
                     {strings.notFound}
                   </p>
                 ) : (
-                  <Markdown text={t.content} />
+                  <>
+                    <Markdown text={t.content} />
+                    <RagMedia media={t.media ?? []} className="mt-4" />
+                  </>
                 )}
               </div>
             ),

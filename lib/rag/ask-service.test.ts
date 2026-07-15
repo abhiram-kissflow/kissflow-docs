@@ -12,7 +12,7 @@ const childTables: GraphNode = {
   heading: 'Child tables',
   anchor: 'child-tables',
   snippet: 'Click Add table to create a child table.',
-  media: [],
+  media: [{ id: 'add-table-image', kind: 'image', url: '/migration-assets/add-table.png', alt: 'Add table button' }],
   community: 0,
 };
 
@@ -80,4 +80,25 @@ test('does not use graph traversal when direct section ranking supplies the evid
   const result = await askFromRag({ query: 'Create a child table', history: [], deps });
 
   assert.deepEqual(result.contextNodes.map((node) => node.id), [childTables.id]);
+});
+
+test('returns only claim-bound media as public display data', async () => {
+  const deps = makeDeps();
+  deps.generate = async () => ({
+    ...grounded,
+    media: [{ nodeId: childTables.id, mediaId: 'add-table-image' }],
+  });
+
+  const result = await askFromRag({ query: 'Create a child table', history: [], deps });
+
+  assert.deepEqual(result.media, [
+    {
+      id: `${childTables.id}:add-table-image`,
+      kind: 'image',
+      url: '/migration-assets/add-table.png',
+      alt: 'Add table button',
+      title: 'Creating a form',
+      sourceUrl: childTables.url,
+    },
+  ]);
 });

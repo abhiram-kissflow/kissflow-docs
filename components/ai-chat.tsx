@@ -26,6 +26,8 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useI18n } from 'fumadocs-ui/contexts/i18n';
 import { cn } from '@/lib/cn';
+import { RagMedia } from '@/components/rag-media';
+import type { RagChatMessage } from '@/lib/rag/chat-message';
 
 const STARTER_SUGGESTIONS = [
   'How do decision tables work in Kissflow?',
@@ -78,6 +80,10 @@ function messageFiles(message: UIMessage): FileUIPart[] {
   return message.parts.filter(isFileUIPart);
 }
 
+function messageRagMedia(message: RagChatMessage) {
+  return message.parts.flatMap((part) => (part.type === 'data-ragMedia' ? part.data : []));
+}
+
 function fileToDataUrl(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -117,7 +123,7 @@ function MarkdownMessage({ text }: { text: string }) {
 
 export default function AIChat() {
   const { locale } = useI18n();
-  const { messages, sendMessage, status, stop } = useChat({
+  const { messages, sendMessage, status, stop } = useChat<RagChatMessage>({
     transport: new DefaultChatTransport({ api: '/api/chat', body: { locale } }),
     id: 'kissflow-docs-assistant',
   });
@@ -306,6 +312,7 @@ export default function AIChat() {
             {messages.map((message) => {
               const text = messageText(message);
               const files = messageFiles(message);
+              const ragMedia = message.role === 'assistant' ? messageRagMedia(message) : [];
 
               return (
                 <Message from={message.role} key={message.id}>
@@ -326,6 +333,7 @@ export default function AIChat() {
                           <div className="whitespace-pre-wrap">{text}</div>
                         )
                       ) : null}
+                      {message.role === 'assistant' ? <RagMedia media={ragMedia} className="pt-1" /> : null}
                       {files.length > 0 ? (
                         <div className="grid gap-2">
                           {files.map((file) => {

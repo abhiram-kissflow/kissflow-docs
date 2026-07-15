@@ -32,6 +32,9 @@ export async function POST(request: Request): Promise<Response> {
   // Validation happens before this response is written, so source cards can
   // contain only citations bound to rendered claims.
   return Response.json(result.answer, {
-    headers: { 'x-rag-sources': encodeURIComponent(JSON.stringify(result.sources)) },
+    headers: {
+      'x-rag-sources': encodeURIComponent(JSON.stringify(result.sources)),
+      'x-rag-media': encodeURIComponent(JSON.stringify(result.media)),
+    },
   });
 }

@@ -4,6 +4,7 @@ import {
   type UIMessage,
 } from 'ai';
 import { askFromRag } from '@/lib/rag/ask-service';
+import type { RagChatMessage } from '@/lib/rag/chat-message';
 import type { HistoryTurn } from '@/lib/rag/answer';
 
 export const runtime = 'nodejs';
@@ -48,7 +49,7 @@ export async function POST(request: Request): Promise<Response> {
   // The UI-message wire format is retained for useChat. The answer is emitted
   // as one validated delta because citation/media validation requires the full
   // structured model object before any public content can be released.
-  const stream = createUIMessageStream({
+  const stream = createUIMessageStream<RagChatMessage>({
     execute({ writer }) {
       const textId = 'rag-answer';
       writer.write({ type: 'start' });
@@ -57,11 +58,16 @@ export async function POST(request: Request): Promise<Response> {
         writer.write({ type: 'text-delta', id: textId, delta: result.answer.answer });
         writer.write({ type: 'text-end', id: textId });
       }
+      if (result.media.length) {
+        writer.write({ type: 'data-ragMedia', data: result.media });
+      }
       writer.write({ type: 'finish', finishReason: 'stop' });
     },
   });
   return createUIMessageStreamResponse({
     stream,
-    headers: { 'x-rag-sources': encodeURIComponent(JSON.stringify(result.sources)) },
+    headers: {
+      'x-rag-sources': encodeURIComponent(JSON.stringify(result.sources)),
+    },
   });
 }

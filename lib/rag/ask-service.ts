@@ -13,6 +13,7 @@ import type { CitationAnswer } from './citation-schema';
 import { decideModelTier } from './escalation';
 import { validateGroundedAnswer } from './grounding';
 import { EMBEDDING_MODEL } from './model-router';
+import { mediaForDisplay, type RagMedia } from './rag-media';
 
 const TOP_K = 8;
 // This is an article-level calibration baseline. The evaluation suite must
@@ -53,6 +54,8 @@ export interface AskFromRagResult {
   contextNodes: ContextNode[];
   /** Public source cards derived only from validated, bound citations. */
   sources: ArticleSource[];
+  /** Source media selected by the model and retained by claim-bound validation. */
+  media: RagMedia[];
   /** Safe model conversation: prior user turns and the current question only. */
   modelMessages: Array<{ role: 'user'; content: string }>;
 }
@@ -100,7 +103,13 @@ export async function askFromRag(input: AskFromRagInput): Promise<AskFromRagResu
     .map((citation) => nodesById.get(citation.nodeId))
     .filter((node): node is GraphNode => node !== undefined);
 
-  return { answer, contextNodes, sources: groupSources(citedNodes), modelMessages };
+  return {
+    answer,
+    contextNodes,
+    sources: groupSources(citedNodes),
+    media: mediaForDisplay(answer.media, contextNodes),
+    modelMessages,
+  };
 }
 
 function abstention(modelMessages: AskFromRagResult['modelMessages']): AskFromRagResult {
@@ -108,6 +117,7 @@ function abstention(modelMessages: AskFromRagResult['modelMessages']): AskFromRa
     answer: { answer: '', claims: [], citations: [], media: [], insufficientEvidence: true },
     contextNodes: [],
     sources: [],
+    media: [],
     modelMessages,
   };
 }
