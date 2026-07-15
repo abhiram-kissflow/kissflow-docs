@@ -27,6 +27,12 @@ const FORBIDDEN_HEADER_REWRITE: Record<string, string> = {
 
 // Request headers we must not forward verbatim (connection/host/encoding are
 // managed by the fetch layer; origin/cookie are handled specially below).
+// Forward everything except these — matches Scalar's own proxy, which strips
+// only Origin (plus the hop-by-hop headers the fetch layer manages). An earlier
+// version also stripped Referer/User-Agent/sec-*, but a head-to-head A/B proved
+// that broke it: with headers stripped Kissflow returned DomainMissMatchError,
+// while forwarding them (like Scalar's proxy) reaches the normal auth path. So
+// forward the browser's headers — Kissflow needs them (User-Agent in particular).
 const STRIP_REQUEST_HEADERS = new Set([
   'host',
   'connection',
@@ -34,29 +40,7 @@ const STRIP_REQUEST_HEADERS = new Set([
   'accept-encoding',
   'origin',
   'cookie',
-  // Browser-fingerprint / navigation headers a server-side client (curl, the
-  // Scalar desktop app) never sends. Forwarding the browser's Referer +
-  // sec-fetch-* to Kissflow makes the call look like it originates from the
-  // docs domain, which trips Cloudflare/domain checks (DomainMissMatchError).
-  // Strip them so the proxied request looks like a clean API call.
-  'referer',
-  'user-agent',
-  'accept-language',
-  'priority',
-  'dnt',
-  'pragma',
-  'cache-control',
-  'upgrade-insecure-requests',
 ]);
-
-/** Strip the explicit set plus any client-hint / fetch-metadata header. */
-function shouldStripRequestHeader(lower: string): boolean {
-  return (
-    STRIP_REQUEST_HEADERS.has(lower) ||
-    lower.startsWith('sec-') ||
-    lower.startsWith('x-scalar-') // handled separately below
-  );
-}
 
 // Response headers the fetch layer already decoded or that we replace.
 const STRIP_RESPONSE_HEADERS = new Set([
@@ -102,7 +86,9 @@ async function handle(request: Request): Promise<Response> {
       outHeaders.set(FORBIDDEN_HEADER_REWRITE[lower], value);
       return;
     }
-    if (shouldStripRequestHeader(lower)) return;
+    if (STRIP_REQUEST_HEADERS.has(lower)) return;
+    // x-scalar-cookie is handled explicitly below; don't forward it verbatim.
+    if (lower === 'x-scalar-cookie') return;
     outHeaders.set(key, value);
   });
   // Cookies must be opted into explicitly via x-scalar-cookie.
