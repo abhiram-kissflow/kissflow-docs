@@ -33,43 +33,43 @@
   "tags": [
     {
       "name": "Users and groups",
-      "description": "Manages users and groups, controlling access and permissions across a Kissflow account."
+      "description": "Manages users and groups, controlling access and permissions across a Kissflow account.\n\n**Example request URL**\n\n```\nhttps://acme.kissflow.com/user/2/Ac1a2b3c4d5e6/\n```\n\nThe `{...}` segments in endpoint paths are placeholders. Replace them with your own values and omit the curly braces."
     },
     {
       "name": "Users and groups > Users",
-      "description": "Creates user accounts with profile information and access rights, retrieves user lists with filtering and sorting, retrieves individual user details, and updates multiple user accounts in bulk."
+      "description": "Creates user accounts with profile information and access rights, retrieves user lists with filtering and sorting, retrieves individual user details, and updates multiple user accounts in bulk.\n\n**Example request URL**\n\n```\nhttps://acme.kissflow.com/user/2/Ac1a2b3c4d5e6/\n```\n\nThe `{...}` segments in endpoint paths are placeholders. Replace them with your own values and omit the curly braces."
     },
     {
       "name": "Users and groups > Groups",
-      "description": "Creates and deletes user groups, retrieves group lists and details including members, and adds or removes users from a group."
+      "description": "Creates and deletes user groups, retrieves group lists and details including members, and adds or removes users from a group.\n\n**Example request URL**\n\n```\nhttps://acme.kissflow.com/group/2/Ac1a2b3c4d5e6/\n```\n\nThe `{...}` segments in endpoint paths are placeholders. Replace them with your own values and omit the curly braces."
     },
     {
       "name": "Portals",
-      "description": "Portals are applications that let external users, such as vendors, customers, or partners, take part in business operations without an account in the Kissflow account. Portals support the same [process](https://api.kissflow.com/#bfb27b53-f18a-4fd4-93ed-7aaa73ce1b2f), [dataform](https://api.kissflow.com/#9f791d8b-1a77-47cc-86b5-67d05289d138), and [board](https://api.kissflow.com/#33a95d68-0efc-4c70-8c2d-cf30c8a61ce0) API endpoints as the main account. Use the [portal domain](https://community.kissflow.com/t/p8h4atv/administering-portals#portal-details) as the subdomain in the endpoint URL, with an [access key](https://community.kissflow.com/t/q6h4akr/creating-and-managing-access-keys) generated from the portal's service account."
+      "description": "Portals are applications that let external users, such as vendors, customers, or partners, take part in business operations without an account in the Kissflow account. Portals support the same [process](https://api.kissflow.com/#bfb27b53-f18a-4fd4-93ed-7aaa73ce1b2f), [dataform](https://api.kissflow.com/#9f791d8b-1a77-47cc-86b5-67d05289d138), and [board](https://api.kissflow.com/#33a95d68-0efc-4c70-8c2d-cf30c8a61ce0) API endpoints as the main account. Use the [portal domain](https://community.kissflow.com/t/p8h4atv/administering-portals#portal-details) as the subdomain in the endpoint URL, with an [access key](https://community.kissflow.com/t/q6h4akr/creating-and-managing-access-keys) generated from the portal's service account.\n\n**Example request URL**\n\n```\nhttps://acme.kissflow.com/portal/2/Ac1a2b3c4d5e6/Vendor_Portal\n```\n\nThe `{...}` segments in endpoint paths are placeholders. Replace them with your own values and omit the curly braces."
     },
     {
       "name": "Processes",
-      "description": "A process is a structured workflow that moves a task through a defined, sequential order. Process endpoints are also available within [portals](https://api.kissflow.com/#587a3da2-9417-440d-8322-1322ec870a32); see the Portals section for the subdomain and access key requirements."
+      "description": "A process is a structured workflow that moves a task through a defined, sequential order. Process endpoints are also available within [portals](https://api.kissflow.com/#587a3da2-9417-440d-8322-1322ec870a32); see the Portals section for the subdomain and access key requirements.\n\n**Example request URL**\n\n```\nhttps://acme.kissflow.com/process/2/Ac1a2b3c4d5e6/Purchase_Order\n```\n\nThe `{...}` segments in endpoint paths are placeholders. Replace them with your own values and omit the curly braces."
     },
     {
       "name": "Boards",
-      "description": "A board is a customizable workflow for tracking information and managing work. Board endpoints are also available within [portals](https://api.kissflow.com/#587a3da2-9417-440d-8322-1322ec870a32); see the Portals section for the subdomain and access key requirements."
+      "description": "A board is a customizable workflow for tracking information and managing work. Board endpoints are also available within [portals](https://api.kissflow.com/#587a3da2-9417-440d-8322-1322ec870a32); see the Portals section for the subdomain and access key requirements.\n\n**Example request URL**\n\n```\nhttps://acme.kissflow.com/case/2/Ac1a2b3c4d5e6/Support_Ticket\n```\n\nThe `{...}` segments in endpoint paths are placeholders. Replace them with your own values and omit the curly braces."
     },
     {
       "name": "Dataforms and dataform views",
-      "description": "A dataform is a data-collection form that stores submitted data without a workflow approval process. Dataform endpoints are also available within [portals](https://api.kissflow.com/#587a3da2-9417-440d-8322-1322ec870a32); see the Portals section for the subdomain and access key requirements."
+      "description": "A dataform is a data-collection form that stores submitted data without a workflow approval process. Dataform endpoints are also available within [portals](https://api.kissflow.com/#587a3da2-9417-440d-8322-1322ec870a32); see the Portals section for the subdomain and access key requirements.\n\n**Example request URL**\n\n```\nhttps://acme.kissflow.com/form/2/Ac1a2b3c4d5e6/Employee_Onboarding/list\n```\n\nThe `{...}` segments in endpoint paths are placeholders. Replace them with your own values and omit the curly braces."
     },
     {
       "name": "Dataforms and dataform views > Dataforms",
-      "description": "A dataform is a data-collection form that stores submitted data without a workflow approval process."
+      "description": "A dataform is a data-collection form that stores submitted data without a workflow approval process.\n\n**Example request URL**\n\n```\nhttps://acme.kissflow.com/form/2/Ac1a2b3c4d5e6/Employee_Onboarding/list\n```\n\nThe `{...}` segments in endpoint paths are placeholders. Replace them with your own values and omit the curly braces."
     },
     {
       "name": "Dataforms and dataform views > Dataform views",
-      "description": "A dataform view is a customized perspective on a dataform's data, built with filters, sorting, and calculations applied without altering the underlying dataform."
+      "description": "A dataform view is a customized perspective on a dataform's data, built with filters, sorting, and calculations applied without altering the underlying dataform.\n\n**Example request URL**\n\n```\nhttps://acme.kissflow.com/form/2/Ac1a2b3c4d5e6/Employee_Onboarding/view/Open_Items/list\n```\n\nThe `{...}` segments in endpoint paths are placeholders. Replace them with your own values and omit the curly braces."
     },
     {
       "name": "Dataset and dataset views",
-      "description": "A dataset is a structured collection of data, imported from external sources or generated within Kissflow. A dataset view is a customized perspective on a dataset, built with filters, sorting, and calculations to present specific subsets of data without modifying the original dataset."
+      "description": "A dataset is a structured collection of data, imported from external sources or generated within Kissflow. A dataset view is a customized perspective on a dataset, built with filters, sorting, and calculations to present specific subsets of data without modifying the original dataset.\n\n**Example request URL**\n\n```\nhttps://acme.kissflow.com/dataset/2/Ac1a2b3c4d5e6/Vendor_List\n```\n\nThe `{...}` segments in endpoint paths are placeholders. Replace them with your own values and omit the curly braces."
     }
   ],
   "paths": {
