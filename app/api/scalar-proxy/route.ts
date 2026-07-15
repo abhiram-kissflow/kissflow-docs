@@ -34,7 +34,29 @@ const STRIP_REQUEST_HEADERS = new Set([
   'accept-encoding',
   'origin',
   'cookie',
+  // Browser-fingerprint / navigation headers a server-side client (curl, the
+  // Scalar desktop app) never sends. Forwarding the browser's Referer +
+  // sec-fetch-* to Kissflow makes the call look like it originates from the
+  // docs domain, which trips Cloudflare/domain checks (DomainMissMatchError).
+  // Strip them so the proxied request looks like a clean API call.
+  'referer',
+  'user-agent',
+  'accept-language',
+  'priority',
+  'dnt',
+  'pragma',
+  'cache-control',
+  'upgrade-insecure-requests',
 ]);
+
+/** Strip the explicit set plus any client-hint / fetch-metadata header. */
+function shouldStripRequestHeader(lower: string): boolean {
+  return (
+    STRIP_REQUEST_HEADERS.has(lower) ||
+    lower.startsWith('sec-') ||
+    lower.startsWith('x-scalar-') // handled separately below
+  );
+}
 
 // Response headers the fetch layer already decoded or that we replace.
 const STRIP_RESPONSE_HEADERS = new Set([
@@ -75,11 +97,12 @@ async function handle(request: Request): Promise<Response> {
   const outHeaders = new Headers();
   request.headers.forEach((value, key) => {
     const lower = key.toLowerCase();
-    if (STRIP_REQUEST_HEADERS.has(lower)) return;
+    // Restore browser-forbidden headers the client opted to send via x-scalar-*.
     if (lower in FORBIDDEN_HEADER_REWRITE) {
       outHeaders.set(FORBIDDEN_HEADER_REWRITE[lower], value);
       return;
     }
+    if (shouldStripRequestHeader(lower)) return;
     outHeaders.set(key, value);
   });
   // Cookies must be opted into explicitly via x-scalar-cookie.
