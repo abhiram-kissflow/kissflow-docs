@@ -24,7 +24,11 @@ export default function ApiReferencePage() {
           // static GitHub Pages mirror where try-it can't run anyway.
           proxyUrl: `${basePath}/api/scalar-proxy`,
           authentication: {
-            preferredSecurityScheme: 'accessKeyId',
+            // Kissflow requires BOTH headers together (X-Access-Key-Id +
+            // X-Access-Key-Secret). The nested array is an AND requirement, so
+            // the panel pre-selects and sends both — a flat array would be OR
+            // and a bare string only picked one, which 403'd for missing secret.
+            preferredSecurityScheme: [['accessKeyId', 'accessKeySecret']],
           },
         }}
       />
