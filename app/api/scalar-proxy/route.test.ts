@@ -1,6 +1,26 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { isAllowedTarget } from './target';
+import { isAllowedTarget, isStrippedRequestHeader } from './target';
+
+test('isStrippedRequestHeader: drops x-forwarded-host (Kissflow DomainMissMatch cause)', () => {
+  // Regression guard: Vercel injects X-Forwarded-Host = docs host; Kissflow
+  // reads it as the account domain, so forwarding it 403s DomainMissMatchError.
+  assert.equal(isStrippedRequestHeader('x-forwarded-host'), true);
+  assert.equal(isStrippedRequestHeader('X-Forwarded-Host'), true);
+  assert.equal(isStrippedRequestHeader('x-forwarded-for'), true);
+  assert.equal(isStrippedRequestHeader('x-vercel-id'), true);
+  assert.equal(isStrippedRequestHeader('forwarded'), true);
+  assert.equal(isStrippedRequestHeader('host'), true);
+  assert.equal(isStrippedRequestHeader('origin'), true);
+});
+
+test('isStrippedRequestHeader: forwards auth + content headers', () => {
+  assert.equal(isStrippedRequestHeader('X-Access-Key-Id'), false);
+  assert.equal(isStrippedRequestHeader('X-Access-Key-Secret'), false);
+  assert.equal(isStrippedRequestHeader('accept'), false);
+  assert.equal(isStrippedRequestHeader('content-type'), false);
+  assert.equal(isStrippedRequestHeader('user-agent'), false);
+});
 
 test('isAllowedTarget: allows kissflow.com subdomains over https/http', () => {
   assert.equal(isAllowedTarget('https://acme.kissflow.com/api/v1/foo'), true);

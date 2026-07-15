@@ -19,3 +19,30 @@ export function isAllowedTarget(target: string | null): boolean {
   const host = url.hostname.toLowerCase();
   return ALLOWED_SUFFIXES.some((s) => host === s.slice(1) || host.endsWith(s));
 }
+
+// Hop-by-hop / infra headers the fetch layer manages, plus the proxy-hop
+// headers Vercel injects. x-forwarded-host is the critical one: Kissflow reads
+// X-Forwarded-Host as the account domain, so forwarding Vercel's value (the
+// docs host) triggers DomainMissMatchError. cookie is opted into via
+// x-scalar-cookie instead. Everything else is forwarded so the proxy behaves
+// like Scalar's own (which only strips Origin).
+const STRIPPED_REQUEST_HEADERS = new Set([
+  'host',
+  'connection',
+  'content-length',
+  'accept-encoding',
+  'origin',
+  'cookie',
+  'x-scalar-cookie',
+]);
+
+/** True when an incoming request header must NOT be forwarded to the target. */
+export function isStrippedRequestHeader(name: string): boolean {
+  const lower = name.toLowerCase();
+  return (
+    STRIPPED_REQUEST_HEADERS.has(lower) ||
+    lower.startsWith('x-forwarded-') ||
+    lower.startsWith('x-vercel-') ||
+    lower === 'forwarded'
+  );
+}

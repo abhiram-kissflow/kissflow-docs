@@ -12,7 +12,7 @@
 // to this route with the real target in ?scalar_url=<absolute url>, preserving
 // the original method/headers/body. We forward and stream the response back.
 //
-import { isAllowedTarget } from './target';
+import { isAllowedTarget, isStrippedRequestHeader } from './target';
 
 export const runtime = 'nodejs';
 
@@ -24,23 +24,6 @@ const FORBIDDEN_HEADER_REWRITE: Record<string, string> = {
   'x-scalar-referer': 'referer',
   'x-scalar-user-agent': 'user-agent',
 };
-
-// Request headers we must not forward verbatim (connection/host/encoding are
-// managed by the fetch layer; origin/cookie are handled specially below).
-// Forward everything except these — matches Scalar's own proxy, which strips
-// only Origin (plus the hop-by-hop headers the fetch layer manages). An earlier
-// version also stripped Referer/User-Agent/sec-*, but a head-to-head A/B proved
-// that broke it: with headers stripped Kissflow returned DomainMissMatchError,
-// while forwarding them (like Scalar's proxy) reaches the normal auth path. So
-// forward the browser's headers — Kissflow needs them (User-Agent in particular).
-const STRIP_REQUEST_HEADERS = new Set([
-  'host',
-  'connection',
-  'content-length',
-  'accept-encoding',
-  'origin',
-  'cookie',
-]);
 
 // Response headers the fetch layer already decoded or that we replace.
 const STRIP_RESPONSE_HEADERS = new Set([
@@ -86,9 +69,10 @@ async function handle(request: Request): Promise<Response> {
       outHeaders.set(FORBIDDEN_HEADER_REWRITE[lower], value);
       return;
     }
-    if (STRIP_REQUEST_HEADERS.has(lower)) return;
-    // x-scalar-cookie is handled explicitly below; don't forward it verbatim.
-    if (lower === 'x-scalar-cookie') return;
+    // Drops hop-by-hop + Vercel-injected proxy headers. Critically strips
+    // x-forwarded-host: Kissflow reads it as the account domain, and Vercel sets
+    // it to the docs host, which triggers DomainMissMatchError (verified).
+    if (isStrippedRequestHeader(lower)) return;
     outHeaders.set(key, value);
   });
   // Cookies must be opted into explicitly via x-scalar-cookie.
