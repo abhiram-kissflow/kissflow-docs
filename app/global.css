@@ -188,9 +188,12 @@ html > body[data-scroll-locked] {
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  /* Ambient grey of the computer-man's backdrop, mirrored into the left of the hero. */
+  --man-grey: 198 196 190;
 }
 
 .dark {
+  --man-grey: 128 128 133;
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);

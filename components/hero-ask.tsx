@@ -8,6 +8,7 @@ import { parsePartialJson } from 'ai';
 import { ArrowUp, FileText, Loader2, Sparkle } from 'lucide-react';
 import { PersonaNav } from '@/components/persona-nav';
 import { WingField } from '@/components/wing-field';
+import { ComputerMan } from '@/components/computer-man';
 import { useUIStrings } from '@/lib/ui-strings';
 import { useI18n } from 'fumadocs-ui/contexts/i18n';
 
@@ -203,7 +204,7 @@ export default function HeroAsk() {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder={started ? strings.followUpPlaceholder : strings.placeholder}
-        className="min-w-0 flex-1 bg-transparent text-lg outline-none placeholder:text-fd-muted-foreground"
+        className="min-w-0 flex-1 bg-transparent text-lg outline-none placeholder:font-medium placeholder:text-black dark:placeholder:text-white"
         disabled={loading}
         autoFocus
       />
@@ -223,12 +224,48 @@ export default function HeroAsk() {
     return (
       <div className="relative isolate flex min-h-[calc(100svh-3.5rem)] items-start overflow-hidden">
         <WingField />
+        {/* Grey ambience across the whole hero — heavier at both edges (mirroring the
+            computer-man's backdrop), but never fully clearing in the centre, so the
+            tone is continuous left→right. Light + dark via --man-grey. */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 z-0 hidden md:block"
+          style={{
+            background:
+              'linear-gradient(to right, rgb(var(--man-grey) / 0.9) 0%, rgb(var(--man-grey) / 0.42) 30%, rgb(var(--man-grey) / 0.34) 50%, rgb(var(--man-grey) / 0.42) 70%, rgb(var(--man-grey) / 0.9) 100%)',
+          }}
+        />
+        {/* Ambient ASCII-rain on the left — the computer-man's "screen output",
+            mirrored across the hero from the figure. Autoplays, muted, looped.
+            Source is an alpha WebM (light checkerboard keyed out); glyphs are dark,
+            so `dark:invert` flips them light on the dark theme. Edge-masked so it
+            melts into the wash like the figure on the right.
+            ponytail: VP9 alpha WebM — no Safari fallback (decorative, md+ only). */}
+        <video
+          aria-hidden
+          src={`${basePath}/hero/ascii-flow.webm`}
+          muted
+          loop
+          autoPlay
+          playsInline
+          preload="auto"
+          className="pointer-events-none absolute left-0 top-0 z-0 hidden h-full w-[42%] select-none object-cover opacity-40 dark:opacity-50 dark:invert md:block"
+          style={{
+            WebkitMaskImage:
+              'linear-gradient(to left, transparent 0%, #000 46%), linear-gradient(to bottom, transparent 0%, #000 14%, #000 60%, transparent 96%)',
+            maskImage:
+              'linear-gradient(to left, transparent 0%, #000 46%), linear-gradient(to bottom, transparent 0%, #000 14%, #000 60%, transparent 96%)',
+            WebkitMaskComposite: 'source-in',
+            maskComposite: 'intersect',
+          }}
+        />
+        <ComputerMan />
         <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 pb-8 pt-10 sm:pt-14">
           <div className="text-center">
             <h1 className="text-3xl font-semibold tracking-tight text-fd-foreground sm:text-4xl">
               {strings.title}
             </h1>
-            <p className="mt-2 text-fd-muted-foreground">{strings.subtitle}</p>
+            <p className="mt-2 font-medium text-black dark:text-white">{strings.subtitle}</p>
           </div>
           {inputBar}
           <div className="flex flex-wrap justify-center gap-2">
@@ -237,14 +274,14 @@ export default function HeroAsk() {
                 key={ex}
                 type="button"
                 onClick={() => void ask(ex)}
-                className="rounded-full border border-fd-border bg-fd-background/70 px-3 py-1.5 text-sm text-fd-muted-foreground backdrop-blur-sm transition-colors hover:border-[#CF2C91]/40 hover:text-fd-foreground"
+                className="rounded-full border border-fd-border bg-fd-background/70 px-3 py-1.5 text-sm font-medium text-black backdrop-blur-sm transition-colors hover:border-[#CF2C91]/40 dark:text-white"
               >
                 {ex}
               </button>
             ))}
           </div>
           <div className="flex flex-col gap-3">
-            <div className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-fd-muted-foreground">
+            <div className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-black dark:text-white">
               {strings.browseFolders}
             </div>
             <PersonaNav />
