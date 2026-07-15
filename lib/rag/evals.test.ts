@@ -84,3 +84,14 @@ test('ships a balanced, 50-plus-case release corpus', () => {
     '/docs/build/forms/creating-a-form#child-tables',
   );
 });
+
+test('production media cases require assets on their exact cited section', () => {
+  const cases = JSON.parse(
+    fs.readFileSync(path.join(process.cwd(), 'lib/rag/evals/cases.json'), 'utf8'),
+  ) as EvaluationCase[];
+  const graph = JSON.parse(
+    fs.readFileSync(path.join(process.cwd(), 'lib/rag/content-graph/graph.json'), 'utf8'),
+  ) as ContentGraph;
+
+  assert.deepEqual(evaluateReleaseGate(cases, graph).artifact.missingExpectedMedia, []);
+});
