@@ -29,6 +29,9 @@ import { discoverEnglishContentFiles } from '../lib/rag/content-discovery';
 const GRAPH_DIR = path.join(process.cwd(), 'lib', 'rag', 'content-graph');
 const CONTENT_DIR = path.join(process.cwd(), 'content');
 const MODEL = 'text-embedding-3-small';
+const MAX_EMBEDDING_INPUTS = 128;
+/** Conservative character estimate with headroom below the provider's 300k cap. */
+const MAX_ESTIMATED_EMBEDDING_TOKENS = 200_000;
 
 // --- Runtime artifact shapes -------------------------------------------------
 
@@ -113,6 +116,37 @@ function isDocNode(node: GraphifyNode): boolean {
 }
 
 export type BuiltSectionGraph = { nodes: GraphNode[]; edges: GraphEdge[] };
+
+export function batchEmbeddingInputs(
+  inputs: string[],
+  opts: { maxInputs: number; maxEstimatedTokens: number } = {
+    maxInputs: MAX_EMBEDDING_INPUTS,
+    maxEstimatedTokens: MAX_ESTIMATED_EMBEDDING_TOKENS,
+  },
+): string[][] {
+  const batches: string[][] = [];
+  let batch: string[] = [];
+  let estimatedTokens = 0;
+  for (const input of inputs) {
+    const inputTokens = Math.ceil(input.length / 4);
+    if (inputTokens > opts.maxEstimatedTokens) {
+      throw new Error(
+        `A section exceeds the configured embedding token budget (${inputTokens} > ${opts.maxEstimatedTokens}). Split the section before embedding.`,
+      );
+    }
+    const exceedsCount = batch.length >= opts.maxInputs;
+    const exceedsTokens = batch.length > 0 && estimatedTokens + inputTokens > opts.maxEstimatedTokens;
+    if (exceedsCount || exceedsTokens) {
+      batches.push(batch);
+      batch = [];
+      estimatedTokens = 0;
+    }
+    batch.push(input);
+    estimatedTokens += inputTokens;
+  }
+  if (batch.length) batches.push(batch);
+  return batches;
+}
 
 /**
  * Builds section-level graph data from authored documentation. A graphify graph
@@ -215,7 +249,16 @@ async function main() {
     );
   }
   const inputs = nodes.map((n) => `${n.label}\n${n.heading}\n${n.snippet}`);
-  const { embeddings } = await embedMany({ model: openai.embedding(MODEL), values: inputs });
+  const batches = batchEmbeddingInputs(inputs);
+  console.log(`Embedding in ${batches.length} bounded request(s)...`);
+  const embeddings: number[][] = [];
+  for (const values of batches) {
+    const result = await embedMany({ model: openai.embedding(MODEL), values });
+    embeddings.push(...result.embeddings);
+  }
+  if (embeddings.length !== nodes.length) {
+    throw new Error(`Embedding count mismatch: expected ${nodes.length}, got ${embeddings.length}`);
+  }
   const vectors: Record<string, number[]> = {};
   nodes.forEach((n, i) => {
     vectors[n.id] = embeddings[i];
@@ -224,14 +267,20 @@ async function main() {
 
   // Write both runtime artifacts (REPLACING the committed fixtures).
   fs.mkdirSync(GRAPH_DIR, { recursive: true });
-  fs.writeFileSync(
-    path.join(GRAPH_DIR, 'graph.json'),
-    JSON.stringify({ nodes, edges }, null, 2) + '\n',
-  );
-  fs.writeFileSync(
-    path.join(GRAPH_DIR, 'embeddings.json'),
-    JSON.stringify({ model: MODEL, dim, vectors }, null, 2) + '\n',
-  );
+  const artifactGraphPath = path.join(GRAPH_DIR, 'graph.json');
+  const embeddingsPath = path.join(GRAPH_DIR, 'embeddings.json');
+  const graphTemp = `${artifactGraphPath}.${process.pid}.tmp`;
+  const embeddingsTemp = `${embeddingsPath}.${process.pid}.tmp`;
+  try {
+    fs.writeFileSync(graphTemp, JSON.stringify({ nodes, edges }, null, 2) + '\n');
+    fs.writeFileSync(embeddingsTemp, JSON.stringify({ model: MODEL, dim, vectors }, null, 2) + '\n');
+    fs.renameSync(graphTemp, artifactGraphPath);
+    fs.renameSync(embeddingsTemp, embeddingsPath);
+  } finally {
+    for (const temp of [graphTemp, embeddingsTemp]) {
+      if (fs.existsSync(temp)) fs.unlinkSync(temp);
+    }
+  }
 
   console.log(
     `Wrote graph.json (${nodes.length} nodes, ${edges.length} edges) and embeddings.json (dim ${dim}, ${Object.keys(vectors).length} vectors) to lib/rag/content-graph/`,
