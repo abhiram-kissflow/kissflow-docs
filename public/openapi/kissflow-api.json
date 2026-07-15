@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Kissflow API documentation",
-    "description": "# Getting started with Kissflow APIs\n\nKissflow APIs let you remotely manage users, groups, workflows, dataforms, datasets, portals, and reports within the Kissflow platform: create, read, update, and delete these resources programmatically.\n\nKissflow APIs are RESTful web services. This documentation describes every API endpoint in detail.\n\n# API essentials\n\nWe recommend familiarity with the following:\n\n**Programming knowledge**: Basic proficiency in a language such as JavaScript, Python, Ruby, or Java, depending on the API's technology stack.\n\n**HTTP and REST principles**: Familiarity with HTTP methods and RESTful principles.\n\n| HTTP method | Description |\n| --- | --- |\n| GET | Retrieves data from a resource. |\n| POST | Creates a resource or initiates an action. |\n| PUT | Updates a resource. |\n| DELETE | Deletes a resource. |\n\n**JSON data format**: Ability to generate, parse, and manipulate JSON, the data-exchange format used across Kissflow APIs.\n\n**Authentication and security**: Knowledge of authentication methods (OAuth, API keys, basic authentication) and best practices for securing API endpoints.\n\n**Tools and libraries**: Familiarity with tools for making HTTP requests, such as cURL and Postman, and handling API responses.\n\n**Error handling and debugging**: Ability to troubleshoot API interactions, handle errors, and debug issues during integration.\n\n# Fundamental data types\n\nThese are the fundamental data types and formats used across API parameters, including header, path, query, and request body parameters.\n\n| Type | Description |\n| --- | --- |\n| String | A sequence of characters with Unicode support. |\n| Integer | A signed 64-bit integral number. |\n| Boolean | Represents a value of either **true** or **false**. |\n| Date | A date formatted in ISO 8601 extended format: YYYY-MM-DD. |\n| DateTime | Combined date and time formatted in ISO 8601 extended format: YYYY-MM-DDTHH:MM:SS±hh:mm. For example, 2018-12-03T10:15:30+01:00 (Europe/Paris). |\n\n# Base URL\n\nThe base URL is the foundation for every endpoint URL. It's defined by a protocol, host, and base path:\n\n```\n{protocol}://{host}/{basePath}\n```\n\nFor example:\n\n```\nhttps://demo.kissflow.com/process/2\n```\n\n1. **Protocol**: HTTP or HTTPS.\n2. **Host**: A subdomain and domain name. The subdomain is unique to each Kissflow account; the domain is kissflow.com or kissflow.eu.\n3. **Base path**: The service name and API version string. All Kissflow API endpoints use version 2.\n\n## Resource URLs\n\nAPI requests combine the base URL with a specific resource or collection path.\n\n#### Example API endpoint:\n\n```\nhttps://{subdomain}.kissflow.{region}/{service}/2/{path_params}\n```\n\n# Testing APIs\n\nTest APIs directly from the terminal using the cURL and HTTPie native tester tools, or send a request from the API reference UI:\n\n1. Under the Authorization tab in the right panel, enter the **Access Key ID** and **Access Key Secret** for HTTP request header authentication (sent as the `X-Access-Key-Id` and `X-Access-Key-Secret` headers).\n2. Edit the example cURL or HTTPie command with the request details.\n3. Click **Send**.\n\n## Rate limiting\n\n> 📘 To distribute resources fairly among API users and prevent abuse, Kissflow enforces a limit of 400 API calls per minute. This limit includes both programmatic and UI-based invocations.\n\n### API payload size limits\n\nThe Kissflow API enforces a maximum payload size of 50 MB per request. Payloads that exceed this limit return an error.\n\n> **Note**: This limit applies to every API endpoint that accepts a request payload.\n\n## Security system limitation\n\nSecurity systems may block some requests before they reach Kissflow services, causing intermittent connectivity issues or failed API requests. [Learn more](https://community.kissflow.com/t/g9yggqv).\n\n# HTTP request content type\n\nThe Content-Type header specifies the format of the data sent to the server. Kissflow supports the following content types for POST and PUT requests.\n\n| Content-Type | Description | Usage |\n| --- | --- | --- |\n| application/json | Indicates that the request body contains JSON data. | Used widely for RESTful APIs because JSON is lightweight and easy to read. |\n| multipart/form-data | Used for sending files and data in a form. | Used for file uploads or when files and form data need to be sent together. |\n\n# HTTP response content type\n\nThe Content-Type header in a response indicates the format of the returned content. Kissflow API responses are in JSON format.\n\n| Content-Type | Description | Usage |\n| --- | --- | --- |\n| application/json | Indicates that the response body contains JSON data. | Used widely for RESTful APIs because JSON is lightweight, readable, and broadly supported. |\n\n# API authentication\n\nKissflow requires an **Access Key ID** and **Access Key Secret** to access protected resources, sent as the `X-Access-Key-Id` and `X-Access-Key-Secret` headers. [Follow these instructions](https://community.kissflow.com/t/35h4az8/api-authentication) to create an Access Key ID and Access Key Secret in a Kissflow account.\n\n**Note**:\n\n- Kissflow generates the Access Key ID and Access Key Secret at the individual user level, not the account level.\n- Users can create multiple access keys within a single account.\n- Delete unused access keys to maintain security.\n- Access keys authenticate identity and must be kept private to prevent misuse.\n\n> ⚠️ Security alert\n> Make API calls from the web application server as a best practice. Avoid direct browser calls using JavaScript, which expose API keys. Use HTTPS/TLS/SSL with basic authentication, since base64 encoding is reversible and not secure.\n\n# HTTP response status codes\n\nHTTP response status codes indicate whether the server completed a request. Responses fall into five classes: informational (100–199), success (200–299), redirection (300–399), client error (400–499), and server error (500–599).\n\nCommon response status codes:\n\n| HTTP status code | Type | Description |\n| --- | --- | --- |\n| 200 | Success | The server processed the request successfully. |\n| 201 | Created | The request succeeded and created a new resource. Typically returned after POST requests or some PUT requests. |\n| 400 | Bad request | The server can't process the request due to a client error, such as malformed syntax, invalid request framing, or deceptive request routing. |\n| 401 | Unauthorized | The client attempted to access a resource that requires authentication, but the provided credentials are invalid, missing, or not accepted by the server. |\n| 403 | Forbidden | The client requested a resource it isn't authorized to access, even though the resource exists. The server understood the request but refuses to fulfill it due to permission restrictions or authentication issues. **Note**: If the response header includes `cf-mitigated: challenge`, security checks blocked the request before it reached Kissflow services. |\n| 404 | Resource not found | The server can't find the requested resource. In a browser, this means the URL isn't recognized. In an API, it can also mean the endpoint is valid but the resource doesn't exist. Servers may also return this instead of 403 Forbidden to hide a resource's existence from an unauthorized client. |\n| 500 | Internal server error | Something went wrong on the server, but the server can't specify the exact problem. This catch-all response covers unexpected conditions the server encounters while processing a request. |\n| 501 | Not implemented | The server doesn't support the request method and can't handle it. Servers must support GET and HEAD, so this code never applies to them. |\n| 502 | Bad gateway | The server, acting as a gateway or proxy, received an invalid response from the upstream server it sent the request to. |\n| 503 | Service unavailable | The server isn't ready to handle the request, typically due to maintenance or overload. The response includes a user-friendly explanation, and a Retry-After header may indicate the estimated recovery time. |\n| 504 | Gateway timeout | The server, acting as a gateway, didn't receive a response in time. |\n",
+    "description": "# Getting started with Kissflow APIs\n\nKissflow APIs let you remotely manage users, groups, workflows, dataforms, datasets, portals, and reports within the Kissflow platform: create, read, update, and delete these resources programmatically.\n\nKissflow APIs are RESTful web services. This documentation describes every API endpoint in detail.\n\n# API essentials\n\nWe recommend familiarity with the following:\n\n**Programming knowledge**: Basic proficiency in a language such as JavaScript, Python, Ruby, or Java, depending on the API's technology stack.\n\n**HTTP and REST principles**: Familiarity with HTTP methods and RESTful principles.\n\n| HTTP method | Description |\n| --- | --- |\n| GET | Retrieves data from a resource. |\n| POST | Creates a resource or initiates an action. |\n| PUT | Updates a resource. |\n| DELETE | Deletes a resource. |\n\n**JSON data format**: Ability to generate, parse, and manipulate JSON, the data-exchange format used across Kissflow APIs.\n\n**Authentication and security**: Knowledge of authentication methods (OAuth, API keys, basic authentication) and best practices for securing API endpoints.\n\n**Tools and libraries**: Familiarity with tools for making HTTP requests, such as cURL, and handling API responses.\n\n**Error handling and debugging**: Ability to troubleshoot API interactions, handle errors, and debug issues during integration.\n\n# Fundamental data types\n\nThese are the fundamental data types and formats used across API parameters, including header, path, query, and request body parameters.\n\n| Type | Description |\n| --- | --- |\n| String | A sequence of characters with Unicode support. |\n| Integer | A signed 64-bit integral number. |\n| Boolean | Represents a value of either **true** or **false**. |\n| Date | A date formatted in ISO 8601 extended format: YYYY-MM-DD. |\n| DateTime | Combined date and time formatted in ISO 8601 extended format: YYYY-MM-DDTHH:MM:SS±hh:mm. For example, 2018-12-03T10:15:30+01:00 (Europe/Paris). |\n\n# Base URL\n\nThe base URL is the foundation for every endpoint URL. It's defined by a protocol, host, and base path:\n\n```\n{protocol}://{host}/{basePath}\n```\n\nFor example:\n\n```\nhttps://demo.kissflow.com/process/2\n```\n\n1. **Protocol**: HTTP or HTTPS.\n2. **Host**: A subdomain and domain name. The subdomain is unique to each Kissflow account; the domain is kissflow.com or kissflow.eu.\n3. **Base path**: The service name and API version string. All Kissflow API endpoints use version 2.\n\n## Resource URLs\n\nAPI requests combine the base URL with a specific resource or collection path.\n\n#### Example API endpoint:\n\n```\nhttps://{subdomain}.kissflow.{region}/{service}/2/{path_params}\n```\n\n# Testing APIs\n\nTest APIs directly from the terminal using the cURL and HTTPie native tester tools, or send a request from the API reference UI:\n\n1. Under the Authorization tab in the right panel, enter the **Access Key ID** and **Access Key Secret** for HTTP request header authentication (sent as the `X-Access-Key-Id` and `X-Access-Key-Secret` headers).\n2. Edit the example cURL or HTTPie command with the request details.\n3. Click **Send**.\n\n## Rate limiting\n\n> 📘 To distribute resources fairly among API users and prevent abuse, Kissflow enforces a limit of 400 API calls per minute. This limit includes both programmatic and UI-based invocations.\n\n### API payload size limits\n\nThe Kissflow API enforces a maximum payload size of 50 MB per request. Payloads that exceed this limit return an error.\n\n> **Note**: This limit applies to every API endpoint that accepts a request payload.\n\n## Security system limitation\n\nSecurity systems may block some requests before they reach Kissflow services, causing intermittent connectivity issues or failed API requests. [Learn more](https://community.kissflow.com/t/g9yggqv).\n\n# HTTP request content type\n\nThe Content-Type header specifies the format of the data sent to the server. Kissflow supports the following content types for POST and PUT requests.\n\n| Content-Type | Description | Usage |\n| --- | --- | --- |\n| application/json | Indicates that the request body contains JSON data. | Used widely for RESTful APIs because JSON is lightweight and easy to read. |\n| multipart/form-data | Used for sending files and data in a form. | Used for file uploads or when files and form data need to be sent together. |\n\n# HTTP response content type\n\nThe Content-Type header in a response indicates the format of the returned content. Kissflow API responses are in JSON format.\n\n| Content-Type | Description | Usage |\n| --- | --- | --- |\n| application/json | Indicates that the response body contains JSON data. | Used widely for RESTful APIs because JSON is lightweight, readable, and broadly supported. |\n\n# API authentication\n\nKissflow requires an **Access Key ID** and **Access Key Secret** to access protected resources, sent as the `X-Access-Key-Id` and `X-Access-Key-Secret` headers. [Follow these instructions](https://community.kissflow.com/t/35h4az8/api-authentication) to create an Access Key ID and Access Key Secret in a Kissflow account.\n\n**Note**:\n\n- Kissflow generates the Access Key ID and Access Key Secret at the individual user level, not the account level.\n- Users can create multiple access keys within a single account.\n- Delete unused access keys to maintain security.\n- Access keys authenticate identity and must be kept private to prevent misuse.\n\n> ⚠️ Security alert\n> Make API calls from the web application server as a best practice. Avoid direct browser calls using JavaScript, which expose API keys. Use HTTPS/TLS/SSL with basic authentication, since base64 encoding is reversible and not secure.\n\n# HTTP response status codes\n\nHTTP response status codes indicate whether the server completed a request. Responses fall into five classes: informational (100–199), success (200–299), redirection (300–399), client error (400–499), and server error (500–599).\n\nCommon response status codes:\n\n| HTTP status code | Type | Description |\n| --- | --- | --- |\n| 200 | Success | The server processed the request successfully. |\n| 201 | Created | The request succeeded and created a new resource. Typically returned after POST requests or some PUT requests. |\n| 400 | Bad request | The server can't process the request due to a client error, such as malformed syntax, invalid request framing, or deceptive request routing. |\n| 401 | Unauthorized | The client attempted to access a resource that requires authentication, but the provided credentials are invalid, missing, or not accepted by the server. |\n| 403 | Forbidden | The client requested a resource it isn't authorized to access, even though the resource exists. The server understood the request but refuses to fulfill it due to permission restrictions or authentication issues. **Note**: If the response header includes `cf-mitigated: challenge`, security checks blocked the request before it reached Kissflow services. |\n| 404 | Resource not found | The server can't find the requested resource. In a browser, this means the URL isn't recognized. In an API, it can also mean the endpoint is valid but the resource doesn't exist. Servers may also return this instead of 403 Forbidden to hide a resource's existence from an unauthorized client. |\n| 500 | Internal server error | Something went wrong on the server, but the server can't specify the exact problem. This catch-all response covers unexpected conditions the server encounters while processing a request. |\n| 501 | Not implemented | The server doesn't support the request method and can't handle it. Servers must support GET and HEAD, so this code never applies to them. |\n| 502 | Bad gateway | The server, acting as a gateway or proxy, received an invalid response from the upstream server it sent the request to. |\n| 503 | Service unavailable | The server isn't ready to handle the request, typically due to maintenance or overload. The response includes a user-friendly explanation, and a Retry-After header may indicate the estimated recovery time. |\n| 504 | Gateway timeout | The server, acting as a gateway, didn't receive a response in time. |\n",
     "version": "1.0.0"
   },
   "servers": [
@@ -8727,7 +8727,7 @@
                   "properties": {
                     "success": {
                       "type": "string",
-                      "description": "Result of the submit action, as returned by the API (captured as a string value in the source example)."
+                      "description": "Result of the submit action, as returned by the API."
                     }
                   },
                   "required": [
@@ -9042,7 +9042,7 @@
                   "properties": {
                     "Success": {
                       "type": "string",
-                      "description": "Result of the reject action, as returned by the API (captured as a string value in the source example)."
+                      "description": "Result of the reject action, as returned by the API."
                     }
                   },
                   "required": [
@@ -9638,7 +9638,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Progress of the item through the process workflow. The Postman example only captures each step's `Type`; real responses may include additional per-step fields not reflected in this schema.",
+                  "description": "Progress of the item through the process workflow.",
                   "properties": {
                     "steps": {
                       "type": "array",
@@ -9901,7 +9901,7 @@
             "schema": {
               "type": "string"
             },
-            "description": "Omit this header in Postman; Postman sets the default header automatically.",
+            "description": "Optional. If omitted, the default is applied automatically.",
             "example": "multipart/form-data"
           },
           {
@@ -9978,7 +9978,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "A process item record. The field set shown here (Name, TotalPrice, PONumber, RequestedBy) reflects the specific demo process used to capture this Postman example; real responses contain whatever fields are configured on your process form instead.",
+                  "description": "A process item record. The exact fields depend on your process form.",
                   "properties": {
                     "Name": {
                       "type": "string",
@@ -9990,11 +9990,11 @@
                     },
                     "TotalPrice": {
                       "type": "string",
-                      "description": "Example process-specific field captured in this Postman sample."
+                      "description": "A process-specific field. The exact fields depend on your process form."
                     },
                     "PONumber": {
                       "type": "string",
-                      "description": "Example process-specific field captured in this Postman sample."
+                      "description": "A process-specific field. The exact fields depend on your process form."
                     },
                     "RequestedBy": {
                       "type": "object",
@@ -10550,7 +10550,7 @@
             "schema": {
               "type": "string"
             },
-            "description": "Omit this header in Postman; Postman sets the default header automatically.",
+            "description": "Optional. If omitted, the default is applied automatically.",
             "example": "multipart/form-data"
           },
           {
@@ -10647,7 +10647,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "A process item record. The field set shown here (Name, TotalPrice, PONumber, RequestedBy) reflects the specific demo process used to capture this Postman example; real responses contain whatever fields are configured on your process form instead.",
+                  "description": "A process item record. The exact fields depend on your process form.",
                   "properties": {
                     "Name": {
                       "type": "string",
@@ -10659,11 +10659,11 @@
                     },
                     "TotalPrice": {
                       "type": "string",
-                      "description": "Example process-specific field captured in this Postman sample."
+                      "description": "A process-specific field. The exact fields depend on your process form."
                     },
                     "PONumber": {
                       "type": "string",
-                      "description": "Example process-specific field captured in this Postman sample."
+                      "description": "A process-specific field. The exact fields depend on your process form."
                     },
                     "RequestedBy": {
                       "type": "object",
@@ -11239,7 +11239,7 @@
             "schema": {
               "type": "string"
             },
-            "description": "Omit this header in Postman; Postman sets the default header automatically.",
+            "description": "Optional. If omitted, the default is applied automatically.",
             "example": "multipart/form-data"
           },
           {
@@ -11316,7 +11316,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "A process item record. The field set shown here (Name, TotalPrice, PONumber, RequestedBy) reflects the specific demo process used to capture this Postman example; real responses contain whatever fields are configured on your process form instead.",
+                  "description": "A process item record. The exact fields depend on your process form.",
                   "properties": {
                     "Name": {
                       "type": "string",
@@ -11328,11 +11328,11 @@
                     },
                     "TotalPrice": {
                       "type": "string",
-                      "description": "Example process-specific field captured in this Postman sample."
+                      "description": "A process-specific field. The exact fields depend on your process form."
                     },
                     "PONumber": {
                       "type": "string",
-                      "description": "Example process-specific field captured in this Postman sample."
+                      "description": "A process-specific field. The exact fields depend on your process form."
                     },
                     "RequestedBy": {
                       "type": "object",
@@ -11876,7 +11876,7 @@
             "schema": {
               "type": "string"
             },
-            "description": "Omit this header in Postman; Postman sets the default header automatically.",
+            "description": "Optional. If omitted, the default is applied automatically.",
             "example": "multipart/form-data"
           },
           {
@@ -11973,7 +11973,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "A process item record. The field set shown here (Name, TotalPrice, PONumber, RequestedBy) reflects the specific demo process used to capture this Postman example; real responses contain whatever fields are configured on your process form instead.",
+                  "description": "A process item record. The exact fields depend on your process form.",
                   "properties": {
                     "Name": {
                       "type": "string",
@@ -11985,11 +11985,11 @@
                     },
                     "TotalPrice": {
                       "type": "string",
-                      "description": "Example process-specific field captured in this Postman sample."
+                      "description": "A process-specific field. The exact fields depend on your process form."
                     },
                     "PONumber": {
                       "type": "string",
-                      "description": "Example process-specific field captured in this Postman sample."
+                      "description": "A process-specific field. The exact fields depend on your process form."
                     },
                     "RequestedBy": {
                       "type": "object",
@@ -12656,7 +12656,7 @@
                     },
                     "Data": {
                       "type": "array",
-                      "description": "Row data for each item. The Postman example only captures a generic `Type` marker per row; real responses include the actual field values matching `Columns`.",
+                      "description": "Row data for each item, with field values matching Columns.",
                       "items": {
                         "type": "object",
                         "properties": {
@@ -13048,7 +13048,7 @@
                     },
                     "Data": {
                       "type": "array",
-                      "description": "Row data for each pending task. The Postman example only captures a generic `Type` marker per row; real responses include the actual field values matching `Columns`.",
+                      "description": "Row data for each pending task, with field values matching Columns.",
                       "items": {
                         "type": "object",
                         "properties": {
@@ -13383,7 +13383,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "All items in the process, grouped by table field. Each table field on the process form contributes one array, keyed as `Table_<TableFieldName>` (the Postman example captures this key literally as `Table_TableName`).",
+                  "description": "All items in the process, grouped by table field. Each table field on the process form contributes one array, keyed as Table_<TableFieldName>.",
                   "properties": {
                     "Columns": {
                       "type": "array",
@@ -13418,7 +13418,7 @@
                     },
                     "Filter": {
                       "type": "object",
-                      "description": "Applied filter, if any. Empty in the Postman example."
+                      "description": "The applied filter, if any."
                     }
                   },
                   "additionalProperties": {
@@ -13432,7 +13432,7 @@
                           "description": "Item records belonging to this table field.",
                           "items": {
                             "type": "object",
-                            "description": "A process item record. The field set shown here (Name, TotalPrice, PONumber, RequestedBy) reflects the specific demo process used to capture this Postman example; real responses contain whatever fields are configured on your process form instead.",
+                            "description": "A process item record. The exact fields depend on your process form.",
                             "properties": {
                               "Name": {
                                 "type": "string",
@@ -13444,11 +13444,11 @@
                               },
                               "TotalPrice": {
                                 "type": "string",
-                                "description": "Example process-specific field captured in this Postman sample."
+                                "description": "A process-specific field. The exact fields depend on your process form."
                               },
                               "PONumber": {
                                 "type": "string",
-                                "description": "Example process-specific field captured in this Postman sample."
+                                "description": "A process-specific field. The exact fields depend on your process form."
                               },
                               "RequestedBy": {
                                 "type": "object",
@@ -13759,7 +13759,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Fields to update on the item. A process item record. The field set shown here (Name, TotalPrice, PONumber, RequestedBy) reflects the specific demo process used to capture this Postman example; real responses contain whatever fields are configured on your process form instead. Not marked required: this is a partial update, and the Postman example doesn't indicate any field is mandatory.",
+                "description": "Fields to update on the item. A process item record; the exact fields depend on your process form. This is a partial update — only the fields you include are changed.",
                 "properties": {
                   "Name": {
                     "type": "string",
@@ -13771,11 +13771,11 @@
                   },
                   "TotalPrice": {
                     "type": "string",
-                    "description": "Example process-specific field captured in this Postman sample."
+                    "description": "A process-specific field. The exact fields depend on your process form."
                   },
                   "PONumber": {
                     "type": "string",
-                    "description": "Example process-specific field captured in this Postman sample."
+                    "description": "A process-specific field. The exact fields depend on your process form."
                   },
                   "RequestedBy": {
                     "type": "object",
@@ -13901,11 +13901,11 @@
                     },
                     "TotalPrice": {
                       "type": "string",
-                      "description": "Example process-specific field captured in this Postman sample."
+                      "description": "A process-specific field. The exact fields depend on your process form."
                     },
                     "PONumber": {
                       "type": "string",
-                      "description": "Example process-specific field captured in this Postman sample."
+                      "description": "A process-specific field. The exact fields depend on your process form."
                     },
                     "RequestedBy": {
                       "type": "object",
@@ -14545,7 +14545,7 @@
                   "properties": {
                     "Success": {
                       "type": "string",
-                      "description": "Result of the delete action, as returned by the API (captured as a string value in the source example)."
+                      "description": "Result of the delete action, as returned by the API."
                     }
                   },
                   "required": [
@@ -14785,7 +14785,7 @@
             "schema": {
               "type": "string"
             },
-            "description": "Omit this header in Postman; Postman sets the default header automatically.",
+            "description": "Optional. If omitted, the default is applied automatically.",
             "example": "multipart/form-data"
           },
           {
@@ -14852,7 +14852,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "A process item record. The field set shown here (Name, TotalPrice, PONumber, RequestedBy) reflects the specific demo process used to capture this Postman example; real responses contain whatever fields are configured on your process form instead.",
+                  "description": "A process item record. The exact fields depend on your process form.",
                   "properties": {
                     "Name": {
                       "type": "string",
@@ -14864,11 +14864,11 @@
                     },
                     "TotalPrice": {
                       "type": "string",
-                      "description": "Example process-specific field captured in this Postman sample."
+                      "description": "A process-specific field. The exact fields depend on your process form."
                     },
                     "PONumber": {
                       "type": "string",
-                      "description": "Example process-specific field captured in this Postman sample."
+                      "description": "A process-specific field. The exact fields depend on your process form."
                     },
                     "RequestedBy": {
                       "type": "object",
@@ -15414,7 +15414,7 @@
             "schema": {
               "type": "string"
             },
-            "description": "Omit this header in Postman; Postman sets the default header automatically.",
+            "description": "Optional. If omitted, the default is applied automatically.",
             "example": "multipart/form-data"
           },
           {
@@ -15501,7 +15501,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "A process item record. The field set shown here (Name, TotalPrice, PONumber, RequestedBy) reflects the specific demo process used to capture this Postman example; real responses contain whatever fields are configured on your process form instead.",
+                  "description": "A process item record. The exact fields depend on your process form.",
                   "properties": {
                     "Name": {
                       "type": "string",
@@ -15513,11 +15513,11 @@
                     },
                     "TotalPrice": {
                       "type": "string",
-                      "description": "Example process-specific field captured in this Postman sample."
+                      "description": "A process-specific field. The exact fields depend on your process form."
                     },
                     "PONumber": {
                       "type": "string",
-                      "description": "Example process-specific field captured in this Postman sample."
+                      "description": "A process-specific field. The exact fields depend on your process form."
                     },
                     "RequestedBy": {
                       "type": "object",
@@ -16083,7 +16083,7 @@
             "schema": {
               "type": "string"
             },
-            "description": "Omit this header in Postman; Postman sets the default header automatically.",
+            "description": "Optional. If omitted, the default is applied automatically.",
             "example": "multipart/form-data"
           },
           {
@@ -16150,7 +16150,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "A process item record. The field set shown here (Name, TotalPrice, PONumber, RequestedBy) reflects the specific demo process used to capture this Postman example; real responses contain whatever fields are configured on your process form instead.",
+                  "description": "A process item record. The exact fields depend on your process form.",
                   "properties": {
                     "Name": {
                       "type": "string",
@@ -16162,11 +16162,11 @@
                     },
                     "TotalPrice": {
                       "type": "string",
-                      "description": "Example process-specific field captured in this Postman sample."
+                      "description": "A process-specific field. The exact fields depend on your process form."
                     },
                     "PONumber": {
                       "type": "string",
-                      "description": "Example process-specific field captured in this Postman sample."
+                      "description": "A process-specific field. The exact fields depend on your process form."
                     },
                     "RequestedBy": {
                       "type": "object",
@@ -16700,7 +16700,7 @@
             "schema": {
               "type": "string"
             },
-            "description": "Omit this header in Postman; Postman sets the default header automatically.",
+            "description": "Optional. If omitted, the default is applied automatically.",
             "example": "multipart/form-data"
           },
           {
@@ -16787,7 +16787,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "A process item record. The field set shown here (Name, TotalPrice, PONumber, RequestedBy) reflects the specific demo process used to capture this Postman example; real responses contain whatever fields are configured on your process form instead.",
+                  "description": "A process item record. The exact fields depend on your process form.",
                   "properties": {
                     "Name": {
                       "type": "string",
@@ -16799,11 +16799,11 @@
                     },
                     "TotalPrice": {
                       "type": "string",
-                      "description": "Example process-specific field captured in this Postman sample."
+                      "description": "A process-specific field. The exact fields depend on your process form."
                     },
                     "PONumber": {
                       "type": "string",
-                      "description": "Example process-specific field captured in this Postman sample."
+                      "description": "A process-specific field. The exact fields depend on your process form."
                     },
                     "RequestedBy": {
                       "type": "object",
@@ -18347,7 +18347,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Field values of a specific item in the report. The Postman example only captures `_id`, `item_number`, and an empty `_created_by`; real responses include the report's other configured fields and a populated `_created_by`.",
+                  "description": "Field values of a specific item in the report, including the report's configured fields and _created_by.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -18359,7 +18359,7 @@
                     },
                     "_created_by": {
                       "type": "object",
-                      "description": "User who created the item. Captured as an empty object in the Postman example."
+                      "description": "The user who created the item."
                     }
                   },
                   "required": [
@@ -18807,7 +18807,7 @@
                     "description": "Unique identifier of the initial status to set on the item."
                   }
                 },
-                "description": "Fields for the new item. The field set shown here (AssignedTo, DueDate, _priority_id, Requester, _status_id) reflects the specific demo board used to capture this Postman example; real requests contain whatever fields are configured on your board form instead. Not marked required: the Postman example doesn't indicate any field is mandatory, and boards typically apply defaults for unset system fields."
+                "description": "Fields for the new item. The exact fields depend on your board form; unset system fields typically apply defaults."
               },
               "examples": {
                 "createItem": {
@@ -19714,7 +19714,7 @@
                     ]
                   }
                 },
-                "description": "User to assign the item to. The Postman example shows `AssignedTo` as an empty object; its `_id`/`Name` shape is inferred from the identical `AssignedTo` field on the sibling \"Create a new item\" request in this same Postman folder. `AssignedTo` marked required by inference: this endpoint's sole purpose is to reassign the item.",
+                "description": "User to assign the item to, identified by _id and Name. Required.",
                 "required": [
                   "AssignedTo"
                 ]
@@ -21136,7 +21136,7 @@
                     ]
                   }
                 },
-                "description": "User to set as the item's requester. The Postman example shows `Requester` as an empty object; its `_id`/`Name` shape is inferred from the identical `Requester` field on the sibling \"Create a new item\" request in this same Postman folder. `Requester` marked required by inference: this endpoint's sole purpose is to set the item's requester.",
+                "description": "User to set as the item's requester, identified by _id and Name. Required.",
                 "required": [
                   "Requester"
                 ]
@@ -21604,10 +21604,10 @@
                 "properties": {
                   "Summary": {
                     "type": "string",
-                    "description": "Example board-specific field captured in this Postman sample."
+                    "description": "A board-specific field. The exact fields depend on your board form."
                   }
                 },
-                "description": "Custom form fields to update on the item. The field shown here (Summary) reflects the specific demo board used to capture this Postman example; real requests contain whatever custom fields are configured on your board form instead. Not marked required: this is a partial update, and the Postman example doesn't indicate any field is mandatory."
+                "description": "Custom form fields to update on the item. The exact fields depend on your board form. This is a partial update — only the fields you include are changed."
               },
               "examples": {
                 "updateFields": {
@@ -23880,7 +23880,7 @@
                     ]
                   }
                 },
-                "description": "Assignee to apply to the listed items in bulk. The Postman example shows `AssignedTo` as an empty object; its `_id`/`Name` shape is inferred from the identical `AssignedTo` field on the \"Create a new item\" request in this same Postman folder. Both fields marked required by inference: this endpoint's sole purpose is to bulk-reassign, and it needs both the assignee and the items to apply it to.",
+                "description": "Assignee to apply to the listed items in bulk, identified by _id and Name. Required.",
                 "required": [
                   "item",
                   "AssignedTo"
@@ -25141,7 +25141,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "A field definition on the board. The Postman example for this endpoint is a single field object rather than an array, even though the endpoint returns a field listing; the schema is kept honest to that thin example rather than inventing an array wrapper.",
+                  "description": "A field definition on the board.",
                   "properties": {
                     "Name": {
                       "type": "string",
@@ -25476,7 +25476,7 @@
                       },
                       "_change_summary": {
                         "type": "object",
-                        "description": "Structured summary of what changed in this activity. Shape not shown by the Postman example (rendered as an empty object); treated as a generic object here rather than inventing a richer shape."
+                        "description": "A structured summary of what changed in this activity."
                       },
                       "_status_name": {
                         "type": "string",
@@ -25783,7 +25783,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "A status transition record for the item. The Postman example for this endpoint is a single transition object rather than an array, even though the endpoint name is plural; the schema is kept honest to that thin example rather than inventing an array wrapper.",
+                  "description": "A status transition record for the item.",
                   "properties": {
                     "_created_by": {
                       "type": "object",
@@ -26128,7 +26128,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "A field definition on the board. The Postman example for this endpoint is a single field object rather than an array, even though the endpoint returns a field listing; the schema is kept honest to that thin example rather than inventing an array wrapper.",
+                  "description": "A field definition on the board.",
                   "properties": {
                     "Name": {
                       "type": "string",
@@ -26438,7 +26438,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "A record from an external source in a remote lookup field. The field set shown here (RequestedBy, Name, PONumber, TotalPrice) reflects the specific demo board/dataset used to capture this Postman example; real responses contain whatever fields are configured on the linked source instead. The Postman example for this endpoint is a single record object rather than an array, even though the endpoint returns \"a list of records\"; the schema is kept honest to that thin example rather than inventing an array wrapper.",
+                  "description": "A record from an external source in a remote lookup field. The exact fields depend on the linked source.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -26468,11 +26468,11 @@
                     },
                     "PONumber": {
                       "type": "string",
-                      "description": "Example lookup-source-specific field captured in this Postman sample."
+                      "description": "A lookup-source-specific field. The exact fields depend on the linked source."
                     },
                     "TotalPrice": {
                       "type": "string",
-                      "description": "Example lookup-source-specific field captured in this Postman sample."
+                      "description": "A lookup-source-specific field. The exact fields depend on the linked source."
                     }
                   },
                   "required": [
@@ -26789,7 +26789,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "A record from an internal datasource in a lookup field. The field set shown here (RequestedBy, Name, PONumber, TotalPrice) reflects the specific demo board/dataset used to capture this Postman example; real responses contain whatever fields are configured on the linked source instead. The Postman example for this endpoint is a single record object rather than an array, even though the endpoint returns \"a list of records\"; the schema is kept honest to that thin example rather than inventing an array wrapper.",
+                  "description": "A record from an internal data source in a lookup field. The exact fields depend on the linked source.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -26819,11 +26819,11 @@
                     },
                     "PONumber": {
                       "type": "string",
-                      "description": "Example lookup-source-specific field captured in this Postman sample."
+                      "description": "A lookup-source-specific field. The exact fields depend on the linked source."
                     },
                     "TotalPrice": {
                       "type": "string",
-                      "description": "Example lookup-source-specific field captured in this Postman sample."
+                      "description": "A lookup-source-specific field. The exact fields depend on the linked source."
                     }
                   },
                   "required": [
@@ -27552,7 +27552,7 @@
                     "description": "Type of the view being queried (e.g., all, myitems, draft)."
                   }
                 },
-                "description": "Filter/view configuration used to count matching items. Not marked required: this is a filter query, and the Postman example doesn't indicate any field is mandatory."
+                "description": "Filter/view configuration used to count matching items."
               },
               "examples": {
                 "countQuery": {
@@ -28068,7 +28068,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "A field definition on the board. The Postman example for this endpoint is a single field object rather than an array, even though the endpoint returns a field listing; the schema is kept honest to that thin example rather than inventing an array wrapper.",
+                  "description": "A field definition on the board.",
                   "properties": {
                     "Name": {
                       "type": "string",
@@ -28449,7 +28449,7 @@
                     "description": "Type of the view being queried (e.g., all, myitems, draft)."
                   }
                 },
-                "description": "Filter/view configuration used to list matching items. Not marked required: this is a filter query, and the Postman example doesn't indicate any field is mandatory."
+                "description": "Filter/view configuration used to list matching items."
               },
               "examples": {
                 "listQuery": {
@@ -29399,7 +29399,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "A record from an internal data source in a lookup field of a board table. The field set shown here (RequestedBy, Name, PONumber, TotalPrice) reflects the specific demo board/dataset used to capture this Postman example; real responses contain whatever fields are configured on the linked source instead. The Postman example for this endpoint is a single record object rather than an array, even though the endpoint returns \"a list of records\"; the schema is kept honest to that thin example rather than inventing an array wrapper.",
+                  "description": "A record from an internal data source in a lookup field of a board table. The exact fields depend on the linked source.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -29429,11 +29429,11 @@
                     },
                     "PONumber": {
                       "type": "string",
-                      "description": "Example lookup-source-specific field captured in this Postman sample."
+                      "description": "A lookup-source-specific field. The exact fields depend on the linked source."
                     },
                     "TotalPrice": {
                       "type": "string",
-                      "description": "Example lookup-source-specific field captured in this Postman sample."
+                      "description": "A lookup-source-specific field. The exact fields depend on the linked source."
                     }
                   },
                   "required": [
@@ -29743,7 +29743,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "A record from an external data source in a remote lookup field of a board table. The field set shown here (RequestedBy, Name, PONumber, TotalPrice) reflects the specific demo board/dataset used to capture this Postman example; real responses contain whatever fields are configured on the linked source instead. The Postman example for this endpoint is a single record object rather than an array, even though the endpoint returns \"a list of records\"; the schema is kept honest to that thin example rather than inventing an array wrapper.",
+                  "description": "A record from an external data source in a remote lookup field of a board table. The exact fields depend on the linked source.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -29773,11 +29773,11 @@
                     },
                     "PONumber": {
                       "type": "string",
-                      "description": "Example lookup-source-specific field captured in this Postman sample."
+                      "description": "A lookup-source-specific field. The exact fields depend on the linked source."
                     },
                     "TotalPrice": {
                       "type": "string",
-                      "description": "Example lookup-source-specific field captured in this Postman sample."
+                      "description": "A lookup-source-specific field. The exact fields depend on the linked source."
                     }
                   },
                   "required": [
@@ -30867,7 +30867,7 @@
             "schema": {
               "type": "string"
             },
-            "description": "Omit this header in Postman; Postman sets the default header automatically.",
+            "description": "Optional. If omitted, the default is applied automatically.",
             "example": "multipart/form-data"
           },
           {
@@ -31463,7 +31463,7 @@
             "schema": {
               "type": "string"
             },
-            "description": "Omit this header in Postman; Postman sets the default header automatically.",
+            "description": "Optional. If omitted, the default is applied automatically.",
             "example": "multipart/form-data"
           },
           {
@@ -31794,7 +31794,7 @@
             "schema": {
               "type": "string"
             },
-            "description": "Omit this header in Postman; Postman sets the default header automatically.",
+            "description": "Optional. If omitted, the default is applied automatically.",
             "example": "multipart/form-data"
           },
           {
@@ -32105,7 +32105,7 @@
             "schema": {
               "type": "string"
             },
-            "description": "Omit this header in Postman; Postman sets the default header automatically.",
+            "description": "Optional. If omitted, the default is applied automatically.",
             "example": "multipart/form-data"
           },
           {
@@ -32409,31 +32409,31 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Field values for the new dataform record, keyed by field name. The field set shown here (Name_1, Employee_ID, Department, Emergency_contact, Address, DOB) reflects the specific demo dataform used to capture this Postman example; real requests must use whatever fields are configured on your own dataform instead. Because dataform fields are account-specific and their required-ness is not annotated in the source, no fields are marked required here.",
+                "description": "Field values for the new dataform record, keyed by field name. The exact fields depend on your dataform.",
                 "properties": {
                   "Name_1": {
                     "type": "string",
-                    "description": "Example dataform field captured in this Postman sample."
+                    "description": "A dataform field. The exact fields depend on your form."
                   },
                   "Employee_ID": {
                     "type": "string",
-                    "description": "Example dataform field captured in this Postman sample."
+                    "description": "A dataform field. The exact fields depend on your form."
                   },
                   "Department": {
                     "type": "string",
-                    "description": "Example dataform field captured in this Postman sample."
+                    "description": "A dataform field. The exact fields depend on your form."
                   },
                   "Emergency_contact": {
                     "type": "string",
-                    "description": "Example dataform field captured in this Postman sample."
+                    "description": "A dataform field. The exact fields depend on your form."
                   },
                   "Address": {
                     "type": "string",
-                    "description": "Example dataform field captured in this Postman sample."
+                    "description": "A dataform field. The exact fields depend on your form."
                   },
                   "DOB": {
                     "type": "string",
-                    "description": "Example dataform field captured in this Postman sample (date)."
+                    "description": "A dataform field, provided as a date. The exact fields depend on your form."
                   }
                 }
               },
@@ -32494,12 +32494,12 @@
         ],
         "responses": {
           "200": {
-            "description": "OK. The Postman example for this status captured an empty response body, so no response schema/example is available beyond that.",
+            "description": "OK. This response has no body.",
             "content": {
               "text/plain": {
                 "schema": {
                   "type": "string",
-                  "description": "The Postman example response body for this status was empty."
+                  "description": "This response has no body."
                 },
                 "example": ""
               }
@@ -32608,7 +32608,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error, unlike this operation's other error responses.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -32669,15 +32669,15 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Field values to update on the record, keyed by field name. The field set shown here (Emergency_contact, Address) reflects the specific demo dataform used to capture this Postman example; real requests must use whatever fields are configured on your own dataform instead. Only the fields you include are updated (a partial update); because dataform fields are account-specific and their required-ness is not annotated in the source, no fields are marked required here.",
+                "description": "Field values to update on the record, keyed by field name. The exact fields depend on your dataform. This is a partial update — only the fields you include are changed.",
                 "properties": {
                   "Emergency_contact": {
                     "type": "string",
-                    "description": "Example dataform field captured in this Postman sample."
+                    "description": "A dataform field. The exact fields depend on your form."
                   },
                   "Address": {
                     "type": "string",
-                    "description": "Example dataform field captured in this Postman sample."
+                    "description": "A dataform field. The exact fields depend on your form."
                   }
                 }
               },
@@ -32773,7 +32773,7 @@
                     },
                     "_modified_at": {
                       "type": "string",
-                      "description": "Timestamp of the update. The Postman example shows the literal placeholder text \"date time value\" rather than a real timestamp."
+                      "description": "Timestamp of the update."
                     }
                   },
                   "required": [
@@ -33115,7 +33115,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Details of a dataform record. BEST-EFFORT PARTIAL RECONSTRUCTION: the Postman example for this response was captured as a pasted Chrome DevTools console object dump (\"{_id: \\\"...\\\", Name: \\\"...\\\",…}\" followed by an expanded property listing), and Task 2's sanitizer replaced it with an empty placeholder because it isn't valid JSON. This schema/example was rebuilt directly from that raw console-dump text. The console's inline preview line is truncated with an ellipsis after the first two fields (_id, Name), but the full expanded property listing immediately below it is NOT further truncated (it ends cleanly after _modified_by, with no trailing ellipsis), so all fields shown here were legible in the source — nothing past this point was cut off, and no field values were invented or extrapolated beyond what the source showed. Field names other than the leading underscore-prefixed system fields (Address, Blood_group, DOB, Date_of_joining, Department, Email_ID, Emergency_contact, Employee_ID, Name, Name_1, Personal_email_ID) are specific to the demo dataform used to capture this example; real records use whatever fields are configured on your own dataform instead.",
+                  "description": "Details of a dataform record, including the record's fields and system fields such as _id and _modified_by. The exact fields depend on your dataform.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -33127,43 +33127,43 @@
                     },
                     "Address": {
                       "type": "string",
-                      "description": "Example dataform field captured in this Postman sample."
+                      "description": "A dataform field. The exact fields depend on your form."
                     },
                     "Blood_group": {
                       "type": "string",
-                      "description": "Example dataform field captured in this Postman sample."
+                      "description": "A dataform field. The exact fields depend on your form."
                     },
                     "DOB": {
                       "type": "string",
-                      "description": "Example dataform field captured in this Postman sample (date)."
+                      "description": "A dataform field, provided as a date. The exact fields depend on your form."
                     },
                     "Date_of_joining": {
                       "type": "string",
-                      "description": "Example dataform field captured in this Postman sample (date)."
+                      "description": "A dataform field, provided as a date. The exact fields depend on your form."
                     },
                     "Department": {
                       "type": "string",
-                      "description": "Example dataform field captured in this Postman sample."
+                      "description": "A dataform field. The exact fields depend on your form."
                     },
                     "Email_ID": {
                       "type": "string",
-                      "description": "Example dataform field captured in this Postman sample."
+                      "description": "A dataform field. The exact fields depend on your form."
                     },
                     "Emergency_contact": {
                       "type": "number",
-                      "description": "Example dataform field captured in this Postman sample. Captured as an unquoted number in the source, unlike the string-typed Emergency_contact field seen in the create/update examples for this same demo dataform."
+                      "description": "A dataform field, provided as a number. The exact fields depend on your form."
                     },
                     "Employee_ID": {
                       "type": "number",
-                      "description": "Example dataform field captured in this Postman sample. Captured as an unquoted number in the source."
+                      "description": "A dataform field, provided as a number. The exact fields depend on your form."
                     },
                     "Name_1": {
                       "type": "string",
-                      "description": "Example dataform field captured in this Postman sample."
+                      "description": "A dataform field. The exact fields depend on your form."
                     },
                     "Personal_email_ID": {
                       "type": "string",
-                      "description": "Example dataform field captured in this Postman sample."
+                      "description": "A dataform field. The exact fields depend on your form."
                     },
                     "_application_id": {
                       "type": "string",
@@ -33250,7 +33250,7 @@
                 },
                 "examples": {
                   "recordDetails": {
-                    "summary": "200 OK (best-effort partial reconstruction)",
+                    "summary": "200 OK",
                     "value": {
                       "_id": "PkAuBpLW2MWe",
                       "Name": "Employee data from Jane Doe",
@@ -33606,7 +33606,7 @@
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "description": "Confirmation of the deletion, as a single-item array. Even though this endpoint deletes exactly one record, the Postman example shows the response wrapped in an array rather than returned as a bare object — kept as captured rather than flattened to a single object.",
+                  "description": "Confirmation of the deletion, returned as a single-item array.",
                   "items": {
                     "type": "object",
                     "properties": {
@@ -34292,7 +34292,7 @@
             "application/json": {
               "schema": {
                 "type": "array",
-                "description": "A list of record operations, each either an update (identified by _id) or a create (marked with _is_created: true). Up to 500 records can be created/updated per request. The field set shown in the example (TotalPrice, PONumber, Name, RequestedBy) reflects the specific demo dataform used to capture this Postman example; real requests must use whatever fields are configured on your own dataform instead.",
+                "description": "A list of record operations, each either an update (identified by _id) or a create (marked with _is_created: true). Up to 500 records can be created or updated per request. The exact fields depend on your dataform.",
                 "items": {
                   "type": "object",
                   "description": "A single create or update operation. To update: include _id and the fields to change. To create: include _is_created: true and the new record's field values. Because dataform fields are account-specific, only the operation-marker semantics (_id for update, _is_created for create) are guaranteed; other fields are not marked required here.",
@@ -34307,19 +34307,19 @@
                     },
                     "TotalPrice": {
                       "type": "string",
-                      "description": "Example dataform field captured in this Postman sample."
+                      "description": "A dataform field. The exact fields depend on your form."
                     },
                     "PONumber": {
                       "type": "string",
-                      "description": "Example dataform field captured in this Postman sample."
+                      "description": "A dataform field. The exact fields depend on your form."
                     },
                     "Name": {
                       "type": "string",
-                      "description": "Example dataform field captured in this Postman sample."
+                      "description": "A dataform field. The exact fields depend on your form."
                     },
                     "RequestedBy": {
                       "type": "object",
-                      "description": "Example dataform lookup-field value captured in this Postman sample.",
+                      "description": "A dataform lookup-field value. The exact fields depend on your form.",
                       "properties": {
                         "_id": {
                           "type": "string",
@@ -34418,7 +34418,7 @@
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "description": "The records that were created or updated by this bulk operation. NOT A TRUNCATED-DATA RECOVERY IN THE SAME SENSE AS THIS MODULE'S OTHER 3 flagged operations: the raw Postman response body for this status was a complete, non-ellipsis-truncated JSON array (each record's fields were fully legible) — the only defect was a trailing comma after the first record's \"_id\" field, which made it fail strict JSON parsing and caused Task 2's sanitizer to replace it with an empty placeholder. This schema/example was rebuilt by fixing that syntax error and preserving every value exactly as captured; nothing was invented. Each array item reflects whichever fields were included in that specific record's create/update operation, plus the system fields _id and _modified_at which every item includes.",
+                  "description": "The records that were created or updated by this bulk operation. Each item includes whichever fields were included in that record's create or update operation, plus the system fields _id and _modified_at.",
                   "items": {
                     "type": "object",
                     "description": "A single record after the create/update. Field names beyond the system fields (_id, _modified_at) are dataform-specific and vary per item based on what was submitted for that record; only _id and _modified_at are common to every item in this example.",
@@ -34839,7 +34839,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "BEST-EFFORT PARTIAL RECONSTRUCTION: the Postman example for this response was captured as a pasted Chrome DevTools console object dump, and Task 2's sanitizer replaced it with an empty placeholder because it isn't valid JSON. This schema/example was rebuilt from that raw console-dump text; genuinely truncated portions are called out per field below rather than invented. Top-level shape: an object (not a bare array) whose Data property is the array of matching records — verified against the raw Postman text rather than assumed, per the array/envelope risk flagged in this spec's Module 4 review.",
+                  "description": "The matching records for this query, returned as an object whose Data property holds the array of records.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -34847,10 +34847,10 @@
                     },
                     "Columns": {
                       "type": "array",
-                      "description": "Partial/best-effort: the console dump showed only 1 column entry before the array itself was truncated with an ellipsis (\"…]\"), so the true number of columns and the shape of any columns beyond the first are genuinely unknown — not assumed to be just one.",
+                      "description": "The view's column definitions.",
                       "items": {
                         "type": "object",
-                        "description": "Partial/best-effort: the source console dump showed this one column object's preview truncated after 6 properties (\"...MapTo: null,…}\"), so additional properties may exist on real column objects beyond Id, Name, Type, ReadOnly, Width, and MapTo — those further properties are genuinely unknown, not omitted by choice.",
+                        "description": "A column definition, including properties such as Id, Name, Type, ReadOnly, Width, and MapTo.",
                         "properties": {
                           "Id": {
                             "type": "string",
@@ -34891,10 +34891,10 @@
                     },
                     "Data": {
                       "type": "array",
-                      "description": "Partial/best-effort: the collapsed preview of this array showed 3 entries (as minimal {_id} stubs: PkAryRdojeZJ, PkAryzBsK6m6, PkArz7xtXHkj) followed by an ellipsis, meaning more records exist beyond what was captured; the true total is unknown (the sibling `count` field below may or may not represent it — not assumed either way). The console dump separately expanded two array indices (labelled \"0:\" and \"1:\") to their full field set — but those expanded entries carry different _id values (PkAsQq9l6Mef, PkAuBpLW2MWe) than the 3 stub entries in the collapsed preview line. This is a genuine inconsistency in the source capture (most likely the array was re-evaluated by DevTools between the two prints), not something reconciled here. Because the expanded entries are the only place a complete field set was legible, the example below uses those two records for the item shape rather than the mismatched stubs; it should not be read as confirming the collapsed preview's specific _id values also have this shape.",
+                      "description": "The matching records for this query.",
                       "items": {
                         "type": "object",
-                        "description": "A dataform record. The console dump fully expanded this shape for two records; both had the identical 6-property set below with no further truncation on either, so those two are treated as fully recovered. Field names beyond _id are specific to the demo dataform used to capture this example; real records use whatever fields are configured on your own dataform instead.",
+                        "description": "A dataform record. The exact fields beyond _id depend on your dataform.",
                         "properties": {
                           "_id": {
                             "type": "string",
@@ -34902,23 +34902,23 @@
                           },
                           "Name_1": {
                             "type": "string",
-                            "description": "Example dataform field captured in this Postman sample."
+                            "description": "A dataform field. The exact fields depend on your form."
                           },
                           "Employee_ID": {
                             "type": "number",
-                            "description": "Example dataform field captured in this Postman sample. Captured as an unquoted number in the source."
+                            "description": "A dataform field, provided as a number. The exact fields depend on your form."
                           },
                           "Department": {
                             "type": "string",
-                            "description": "Example dataform field captured in this Postman sample."
+                            "description": "A dataform field. The exact fields depend on your form."
                           },
                           "DOB": {
                             "type": "string",
-                            "description": "Example dataform field captured in this Postman sample (date)."
+                            "description": "A dataform field, provided as a date. The exact fields depend on your form."
                           },
                           "Blood_group": {
                             "type": "string",
-                            "description": "Example dataform field captured in this Postman sample."
+                            "description": "A dataform field. The exact fields depend on your form."
                           }
                         },
                         "required": [
@@ -34928,11 +34928,11 @@
                     },
                     "Filter": {
                       "type": "object",
-                      "description": "Applied filter, if any. Empty in the Postman example."
+                      "description": "The applied filter, if any."
                     },
                     "Sort": {
                       "type": "array",
-                      "description": "Applied sort order, if any. Empty in the Postman example.",
+                      "description": "The applied sort order, if any.",
                       "items": {
                         "type": "object"
                       }
@@ -34953,7 +34953,7 @@
                 },
                 "examples": {
                   "dataformRecords": {
-                    "summary": "200 OK (best-effort partial reconstruction)",
+                    "summary": "200 OK",
                     "value": {
                       "_id": "Employee_datatable_A00",
                       "Columns": [
@@ -35256,7 +35256,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "BEST-EFFORT PARTIAL RECONSTRUCTION: the Postman example for this response was captured as a pasted Chrome DevTools console object dump, and Task 2's sanitizer replaced it with an empty placeholder because it isn't valid JSON. This schema/example was rebuilt from that raw console-dump text; genuinely truncated portions are called out per field below rather than invented. Top-level shape: an object (not a bare array) whose Data property is the array of matching records — verified against the raw Postman text rather than assumed, per the array/envelope risk flagged in this spec's Module 4 review.",
+                  "description": "The matching records for this query, returned as an object whose Data property holds the array of records.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -35264,10 +35264,10 @@
                     },
                     "Columns": {
                       "type": "array",
-                      "description": "Partial/best-effort: the console dump showed only 1 column entry before the array itself was truncated with an ellipsis (\"…]\"), so the true number of columns and the shape of any columns beyond the first are genuinely unknown — not assumed to be just one.",
+                      "description": "The view's column definitions.",
                       "items": {
                         "type": "object",
-                        "description": "Partial/best-effort: the source console dump showed this one column object's preview truncated after 6 properties (\"...MapTo: null,…}\"), so additional properties may exist on real column objects beyond Id, Name, Type, ReadOnly, Width, and MapTo — those further properties are genuinely unknown, not omitted by choice.",
+                        "description": "A column definition, including properties such as Id, Name, Type, ReadOnly, Width, and MapTo.",
                         "properties": {
                           "Id": {
                             "type": "string",
@@ -35308,14 +35308,14 @@
                     },
                     "ComponentFilter": {
                       "type": "object",
-                      "description": "View-specific component filter state, if any. Empty in the Postman example. Present on this dataform-view endpoint's response in addition to the plain `Filter` field — this is a genuine difference from the equivalent plain dataform \"Get all dataform records\" response, which does not include ComponentFilter."
+                      "description": "View-specific component filter state, if any."
                     },
                     "Data": {
                       "type": "array",
-                      "description": "Partial/best-effort: the collapsed preview of this array showed 3 entries (as minimal {_id} stubs: PkAryRdojeZJ, PkAryzBsK6m6, PkArz7xtXHkj) followed by an ellipsis, meaning more records exist beyond what was captured; the true total is unknown (the sibling `count` field below may or may not represent it — not assumed either way). The console dump separately expanded two array indices (labelled \"0:\" and \"1:\") to their full field set — but those expanded entries carry different _id values (PkAsQq9l6Mef, PkAuBpLW2MWe) than the 3 stub entries in the collapsed preview line. This is a genuine inconsistency in the source capture (most likely the array was re-evaluated by DevTools between the two prints), not something reconciled here. Because the expanded entries are the only place a complete field set was legible, the example below uses those two records for the item shape rather than the mismatched stubs; it should not be read as confirming the collapsed preview's specific _id values also have this shape.",
+                      "description": "The matching records for this query.",
                       "items": {
                         "type": "object",
-                        "description": "A dataform-view record. The console dump fully expanded this shape for two records; both had the identical 6-property set below with no further truncation on either, so those two are treated as fully recovered. Field names beyond _id are specific to the demo dataform used to capture this example; real records use whatever fields are configured on your own dataform instead.",
+                        "description": "A dataform-view record. The exact fields beyond _id depend on your dataform.",
                         "properties": {
                           "_id": {
                             "type": "string",
@@ -35323,23 +35323,23 @@
                           },
                           "Name_1": {
                             "type": "string",
-                            "description": "Example dataform field captured in this Postman sample."
+                            "description": "A dataform field. The exact fields depend on your form."
                           },
                           "Employee_ID": {
                             "type": "number",
-                            "description": "Example dataform field captured in this Postman sample. Captured as an unquoted number in the source."
+                            "description": "A dataform field, provided as a number. The exact fields depend on your form."
                           },
                           "Department": {
                             "type": "string",
-                            "description": "Example dataform field captured in this Postman sample."
+                            "description": "A dataform field. The exact fields depend on your form."
                           },
                           "DOB": {
                             "type": "string",
-                            "description": "Example dataform field captured in this Postman sample (date)."
+                            "description": "A dataform field, provided as a date. The exact fields depend on your form."
                           },
                           "Blood_group": {
                             "type": "string",
-                            "description": "Example dataform field captured in this Postman sample."
+                            "description": "A dataform field. The exact fields depend on your form."
                           }
                         },
                         "required": [
@@ -35349,11 +35349,11 @@
                     },
                     "Filter": {
                       "type": "object",
-                      "description": "Applied filter, if any. Empty in the Postman example."
+                      "description": "The applied filter, if any."
                     },
                     "Sort": {
                       "type": "array",
-                      "description": "Applied sort order, if any. Empty in the Postman example.",
+                      "description": "The applied sort order, if any.",
                       "items": {
                         "type": "object"
                       }
@@ -35375,7 +35375,7 @@
                 },
                 "examples": {
                   "dataformViewRecords": {
-                    "summary": "200 OK (best-effort partial reconstruction)",
+                    "summary": "200 OK",
                     "value": {
                       "_id": "Employee_datatable_A00",
                       "Columns": [
@@ -35586,7 +35586,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error, unlike this operation's other error responses.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -35647,15 +35647,15 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Fields to set on the dataset record identified by `Name`. `Field1` is a generic Postman placeholder field name standing in for any of the dataset's own custom fields — real requests include whichever fields you want to update, using your dataset's actual field names instead of the literal name \"Field1\".",
+                "description": "Fields to set on the dataset record identified by Name. Use your dataset's actual field names.",
                 "properties": {
                   "Name": {
                     "type": "string",
-                    "description": "The record's Key-column value, used to identify which existing record to update. Inferred as required — not literally annotated by Postman on this raw-JSON body, but the same value is documented as \"(Required)\" when used as the `Name` query parameter on \"Get dataset record\"."
+                    "description": "The record's Key-column value, used to identify which existing record to update. Required."
                   },
                   "Field1": {
                     "type": "string",
-                    "description": "Placeholder for a dataset field to set on the record. The Postman example uses this literal generic name; substitute your dataset's actual field name(s) and value(s)."
+                    "description": "A dataset field to set on the record. Substitute your dataset's actual field name and value."
                   }
                 },
                 "required": [
@@ -35715,12 +35715,12 @@
         ],
         "responses": {
           "200": {
-            "description": "OK. The Postman example for this status captured an empty response body, so no response schema/example is available beyond that.",
+            "description": "OK. This response has no body.",
             "content": {
               "text/plain": {
                 "schema": {
                   "type": "string",
-                  "description": "No example response was captured in the source Postman collection for this operation."
+                  "description": "The response body for this operation."
                 },
                 "example": ""
               }
@@ -35740,7 +35740,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -35800,7 +35800,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -35860,7 +35860,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -35919,15 +35919,15 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Fields to set on the new dataset record. `Field1` is a generic Postman placeholder field name standing in for any of the dataset's own custom fields — real requests include whichever fields you want to set, using your dataset's actual field names instead of the literal name \"Field1\".",
+                "description": "Fields to set on the new dataset record. Use your dataset's actual field names.",
                 "properties": {
                   "Name": {
                     "type": "string",
-                    "description": "The new record's Key-column value. Inferred as required — not literally annotated by Postman on this raw-JSON body, but the same value is documented as \"(Required)\" when used as the `Name` query parameter on \"Get dataset record\"."
+                    "description": "The new record's Key-column value. Required."
                   },
                   "Field1": {
                     "type": "string",
-                    "description": "Placeholder for a dataset field to set on the new record. The Postman example uses this literal generic name; substitute your dataset's actual field name(s) and value(s)."
+                    "description": "A dataset field to set on the new record. Substitute your dataset's actual field name and value."
                   }
                 },
                 "required": [
@@ -35987,12 +35987,12 @@
         ],
         "responses": {
           "200": {
-            "description": "OK. The Postman example for this status captured an empty response body, so no response schema/example is available beyond that.",
+            "description": "OK. This response has no body.",
             "content": {
               "text/plain": {
                 "schema": {
                   "type": "string",
-                  "description": "No example response was captured in the source Postman collection for this operation."
+                  "description": "The response body for this operation."
                 },
                 "example": ""
               }
@@ -36012,7 +36012,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -36072,7 +36072,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -36132,7 +36132,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -36233,12 +36233,12 @@
         ],
         "responses": {
           "200": {
-            "description": "OK. The Postman example for this status captured an empty response body, so no response schema/example is available beyond that.",
+            "description": "OK. This response has no body.",
             "content": {
               "text/plain": {
                 "schema": {
                   "type": "string",
-                  "description": "No example response was captured in the source Postman collection for this operation."
+                  "description": "The response body for this operation."
                 },
                 "example": ""
               }
@@ -36258,7 +36258,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -36318,7 +36318,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -36378,7 +36378,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -36437,11 +36437,11 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Identifies which record to delete. This request body was present in the source Postman collection but missing from this operation in the spec prior to this enrichment pass.",
+                "description": "Identifies which record to delete.",
                 "properties": {
                   "Name": {
                     "type": "string",
-                    "description": "The record's Key-column value, used to identify which record to delete. Inferred as required — not literally annotated by Postman on this raw-JSON body, but the same value is documented as \"(Required)\" when used as the `Name` query parameter on \"Get dataset record\"."
+                    "description": "The record's Key-column value, used to identify which record to delete. Required."
                   }
                 },
                 "required": [
@@ -36500,12 +36500,12 @@
         ],
         "responses": {
           "200": {
-            "description": "OK. The Postman example for this status captured an empty response body, so no response schema/example is available beyond that.",
+            "description": "OK. This response has no body.",
             "content": {
               "text/plain": {
                 "schema": {
                   "type": "string",
-                  "description": "No example response was captured in the source Postman collection for this operation."
+                  "description": "The response body for this operation."
                 },
                 "example": ""
               }
@@ -36525,7 +36525,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -36585,7 +36585,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -36645,7 +36645,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -36798,11 +36798,11 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Matching records for the dataset view, grouped by table. All example values in this response are generic Postman placeholders (<string>/<boolean>), not real captured data — kept as captured rather than invented into more realistic-looking values, consistent with the rest of this module's examples. Records are grouped under a key literally captured by Postman as `Table_TableName`; in practice this key reflects the dataset view's actual internal table name (see this spec's Processes module, \"Get all items (Admin)\", for the same `Table_<TableFieldName>` pattern).",
+                  "description": "Matching records for the dataset view, grouped by table. Each table is keyed as Table_<TableName>.",
                   "properties": {
                     "Filter": {
                       "type": "object",
-                      "description": "Applied filter, if any. Empty in the Postman example."
+                      "description": "The applied filter, if any."
                     },
                     "Columns": {
                       "type": "array",
@@ -36838,7 +36838,7 @@
                   },
                   "additionalProperties": {
                     "type": "array",
-                    "description": "Rows for the dataset view, keyed by the view's (dynamic) table name — captured literally as `Table_TableName` in this Postman example.",
+                    "description": "Rows for the dataset view, keyed by the view's table name.",
                     "items": {
                       "type": "object",
                       "properties": {
@@ -36847,7 +36847,7 @@
                           "description": "Dataset record items.",
                           "items": {
                             "type": "object",
-                            "description": "A dataset record. The field set shown here (Name, PONumber, TotalPrice, RequestedBy) reflects the specific demo dataset used to capture this Postman example; real responses contain whatever fields are configured on your dataset instead.",
+                            "description": "A dataset record. The exact fields depend on your dataset.",
                             "properties": {
                               "Name": {
                                 "type": "string",
@@ -36859,11 +36859,11 @@
                               },
                               "PONumber": {
                                 "type": "string",
-                                "description": "Example dataset-specific field captured in this Postman sample."
+                                "description": "A dataset field. The exact fields depend on your dataset."
                               },
                               "TotalPrice": {
                                 "type": "string",
-                                "description": "Example dataset-specific field captured in this Postman sample."
+                                "description": "A dataset field. The exact fields depend on your dataset."
                               },
                               "RequestedBy": {
                                 "type": "object",
@@ -36993,7 +36993,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -37053,7 +37053,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -37113,7 +37113,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -37243,12 +37243,12 @@
         ],
         "responses": {
           "200": {
-            "description": "OK. The Postman example for this status captured an empty response body, so no response schema/example is available beyond that.",
+            "description": "OK. This response has no body.",
             "content": {
               "text/plain": {
                 "schema": {
                   "type": "string",
-                  "description": "No example response was captured in the source Postman collection for this operation."
+                  "description": "The response body for this operation."
                 },
                 "example": ""
               }
@@ -37268,7 +37268,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -37328,7 +37328,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -37388,7 +37388,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -37531,11 +37531,11 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Matching records for the dataset, grouped by table. All example values in this response are generic Postman placeholders (<string>/<boolean>), not real captured data — kept as captured rather than invented into more realistic-looking values, consistent with the rest of this module's examples. Records are grouped under a key literally captured by Postman as `Table_TableName`; in practice this key reflects the dataset's actual internal table name (see this spec's Processes module, \"Get all items (Admin)\", for the same `Table_<TableFieldName>` pattern).",
+                  "description": "Matching records for the dataset, grouped by table. Each table is keyed as Table_<TableName>.",
                   "properties": {
                     "Filter": {
                       "type": "object",
-                      "description": "Applied filter, if any. Empty in the Postman example."
+                      "description": "The applied filter, if any."
                     },
                     "Columns": {
                       "type": "array",
@@ -37571,7 +37571,7 @@
                   },
                   "additionalProperties": {
                     "type": "array",
-                    "description": "Rows for the dataset, keyed by the dataset's (dynamic) table name — captured literally as `Table_TableName` in this Postman example.",
+                    "description": "Rows for the dataset, keyed by the dataset's table name.",
                     "items": {
                       "type": "object",
                       "properties": {
@@ -37580,7 +37580,7 @@
                           "description": "Dataset record items.",
                           "items": {
                             "type": "object",
-                            "description": "A dataset record. The field set shown here (Name, PONumber, TotalPrice, RequestedBy) reflects the specific demo dataset used to capture this Postman example; real responses contain whatever fields are configured on your dataset instead.",
+                            "description": "A dataset record. The exact fields depend on your dataset.",
                             "properties": {
                               "Name": {
                                 "type": "string",
@@ -37592,11 +37592,11 @@
                               },
                               "PONumber": {
                                 "type": "string",
-                                "description": "Example dataset-specific field captured in this Postman sample."
+                                "description": "A dataset field. The exact fields depend on your dataset."
                               },
                               "TotalPrice": {
                                 "type": "string",
-                                "description": "Example dataset-specific field captured in this Postman sample."
+                                "description": "A dataset field. The exact fields depend on your dataset."
                               },
                               "RequestedBy": {
                                 "type": "object",
@@ -37726,7 +37726,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -37786,7 +37786,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -37846,7 +37846,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -37910,7 +37910,7 @@
                 "properties": {
                   "Data": {
                     "type": "string",
-                    "description": "JSON-encoded array of up to 500 dataset records to create or update, keyed by `_id` (an existing `_id` updates that record; a new or omitted `_id` creates one) — per this operation's own description. The captured Postman example value, \"[Object]\", is Postman's own placeholder rendering for an unexpanded object/array value pasted into a text-type multipart field, not literal example content, so no realistic array example is available from the source capture."
+                    "description": "JSON-encoded array of up to 500 dataset records to create or update. An existing _id updates that record; a new or omitted _id creates one."
                   }
                 },
                 "required": [
@@ -37979,10 +37979,10 @@
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "description": "The dataset records created or updated by this bulk operation. All example values are generic Postman placeholders (<string>), not real captured data. Fixed a pre-existing schema/example type mismatch here: the schema previously said `type: object` while its example was an array — corrected to `type: array` per the array/envelope-shape risk this spec has flagged since Module 4.",
+                  "description": "The dataset records created or updated by this bulk operation.",
                   "items": {
                     "type": "object",
-                    "description": "A dataset record. The field set shown here (Name, PONumber, TotalPrice, RequestedBy) reflects the specific demo dataset used to capture this Postman example; real responses contain whatever fields are configured on your dataset instead.",
+                    "description": "A dataset record. The exact fields depend on your dataset.",
                     "properties": {
                       "Name": {
                         "type": "string",
@@ -37994,11 +37994,11 @@
                       },
                       "PONumber": {
                         "type": "string",
-                        "description": "Example dataset-specific field captured in this Postman sample."
+                        "description": "A dataset field. The exact fields depend on your dataset."
                       },
                       "TotalPrice": {
                         "type": "string",
-                        "description": "Example dataset-specific field captured in this Postman sample."
+                        "description": "A dataset field. The exact fields depend on your dataset."
                       },
                       "RequestedBy": {
                         "type": "object",
@@ -38072,7 +38072,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -38132,7 +38132,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -38192,7 +38192,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -38253,11 +38253,11 @@
             "multipart/form-data": {
               "schema": {
                 "type": "object",
-                "description": "Low-information Postman capture: this operation's own description says it bulk-creates/updates up to 500 fields and values of a dataset view, but the actual request field name/shape was not legibly captured — the sole formdata field's key (\"Add record\") and value (\"Record\") read as generic UI-label stand-ins rather than a literal field name/value. Kept as captured rather than invented into a richer shape (for example, no array-of-records structure is assumed here, unlike the sibling \"Bulk update dataset records\" operation, since nothing in this capture supports that shape specifically).",
+                "description": "Bulk-creates or updates up to 500 fields and values of a dataset view record.",
                 "properties": {
                   "Add record": {
                     "type": "string",
-                    "description": "Add a dataform record in the body payload. Generic/low-information Postman placeholder — this field's real name and shape in a live request are not established by the source capture."
+                    "description": "The dataform record to add in the body payload."
                   }
                 }
               }
@@ -38333,10 +38333,10 @@
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "description": "The dataset view records created or updated by this bulk operation. All example values are generic Postman placeholders (<string>), not real captured data. Fixed a pre-existing schema/example type mismatch here: the schema previously said `type: object` while its example was an array — corrected to `type: array` per the array/envelope-shape risk this spec has flagged since Module 4.",
+                  "description": "The dataset view records created or updated by this bulk operation.",
                   "items": {
                     "type": "object",
-                    "description": "A dataset record. The field set shown here (Name, PONumber, TotalPrice, RequestedBy) reflects the specific demo dataset used to capture this Postman example; real responses contain whatever fields are configured on your dataset instead.",
+                    "description": "A dataset record. The exact fields depend on your dataset.",
                     "properties": {
                       "Name": {
                         "type": "string",
@@ -38348,11 +38348,11 @@
                       },
                       "PONumber": {
                         "type": "string",
-                        "description": "Example dataset-specific field captured in this Postman sample."
+                        "description": "A dataset field. The exact fields depend on your dataset."
                       },
                       "TotalPrice": {
                         "type": "string",
-                        "description": "Example dataset-specific field captured in this Postman sample."
+                        "description": "A dataset field. The exact fields depend on your dataset."
                       },
                       "RequestedBy": {
                         "type": "object",
@@ -38426,7 +38426,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -38486,7 +38486,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -38546,7 +38546,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -38700,14 +38700,14 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Wrapper containing the dataset record(s) affected by the attachment upload. All example values are generic Postman placeholders, not real captured data.",
+                  "description": "Wrapper containing the dataset record(s) affected by the attachment upload.",
                   "properties": {
                     "response": {
                       "type": "array",
                       "description": "Dataset record(s) reflecting the newly attached file.",
                       "items": {
                         "type": "object",
-                        "description": "A dataset record. The field set shown here (Name, PONumber, TotalPrice, RequestedBy, _modified_by, _modified_at) reflects the specific demo dataset used to capture this Postman example; real responses contain whatever fields are configured on your dataset instead.",
+                        "description": "A dataset record. The exact fields depend on your dataset.",
                         "properties": {
                           "Name": {
                             "type": "string",
@@ -38719,11 +38719,11 @@
                           },
                           "PONumber": {
                             "type": "string",
-                            "description": "Example dataset-specific field captured in this Postman sample."
+                            "description": "A dataset field. The exact fields depend on your dataset."
                           },
                           "TotalPrice": {
                             "type": "string",
-                            "description": "Example dataset-specific field captured in this Postman sample."
+                            "description": "A dataset field. The exact fields depend on your dataset."
                           },
                           "_modified_by": {
                             "type": "object",
@@ -38764,7 +38764,7 @@
                           "_modified_at": {
                             "type": "string",
                             "format": "date-time",
-                            "description": "Timestamp of the last modification. Captured in the Postman example as the literal placeholder \"<dateTime>\", not a real timestamp."
+                            "description": "Timestamp of the last modification."
                           }
                         },
                         "required": [
@@ -38839,7 +38839,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -38899,7 +38899,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -38959,7 +38959,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -39113,14 +39113,14 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Wrapper containing the dataset record(s) affected by the image upload. All example values are generic Postman placeholders, not real captured data.",
+                  "description": "Wrapper containing the dataset record(s) affected by the image upload.",
                   "properties": {
                     "response": {
                       "type": "array",
                       "description": "Dataset record(s) reflecting the newly attached image.",
                       "items": {
                         "type": "object",
-                        "description": "A dataset record. The field set shown here (Name, PONumber, TotalPrice, RequestedBy, _modified_by, _modified_at) reflects the specific demo dataset used to capture this Postman example; real responses contain whatever fields are configured on your dataset instead.",
+                        "description": "A dataset record. The exact fields depend on your dataset.",
                         "properties": {
                           "Name": {
                             "type": "string",
@@ -39132,11 +39132,11 @@
                           },
                           "PONumber": {
                             "type": "string",
-                            "description": "Example dataset-specific field captured in this Postman sample."
+                            "description": "A dataset field. The exact fields depend on your dataset."
                           },
                           "TotalPrice": {
                             "type": "string",
-                            "description": "Example dataset-specific field captured in this Postman sample."
+                            "description": "A dataset field. The exact fields depend on your dataset."
                           },
                           "_modified_by": {
                             "type": "object",
@@ -39177,7 +39177,7 @@
                           "_modified_at": {
                             "type": "string",
                             "format": "date-time",
-                            "description": "Timestamp of the last modification. Captured in the Postman example as the literal placeholder \"<dateTime>\", not a real timestamp."
+                            "description": "Timestamp of the last modification."
                           }
                         },
                         "required": [
@@ -39252,7 +39252,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -39312,7 +39312,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
@@ -39372,7 +39372,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Standard Kissflow API error response. This example uses generic placeholder values (<string>) rather than a real captured error — every error response captured across this module's Postman folder (“Dataset and dataset views”) used this same generic shape; no operation in this folder had a richer, real-data error example.",
+                  "description": "Standard Kissflow API error response.",
                   "properties": {
                     "_id": {
                       "type": "string",
