@@ -49,7 +49,11 @@ export function validateGroundedAnswer(
       !evidence.length ||
       citationIds.some((id) => !validCitationIds.has(id)) ||
       evidence.some((excerpt) => !claimCitations.some((citation) => citation.snippet === excerpt)) ||
-      !claimHasDeterministicSupport(markdown, evidence)
+      !claimHasDeterministicSupport(
+        markdown,
+        evidence,
+        claimCitations.map((citation) => nodesById.get(citation.nodeId)?.url ?? ''),
+      )
     ) return [];
     return [{ markdown, citationIds, evidence }];
   });
@@ -80,21 +84,27 @@ export function validateGroundedAnswer(
  * excerpts they declare. Stronger semantic verification remains an evaluation
  * and model-quality concern, never a claim that this deterministic code proves.
  */
-function claimHasDeterministicSupport(markdown: string, evidence: readonly string[]): boolean {
-  if (/^read more\s*:/i.test(markdown.trim())) return true;
+function claimHasDeterministicSupport(
+  markdown: string,
+  evidence: readonly string[],
+  citedUrls: readonly string[],
+): boolean {
+  const readMore = markdown.trim().match(/^read more:\s+\[[^\]]+\]\(([^\s)]+)\)\s*$/i);
+  if (readMore) return citedUrls.includes(readMore[1]);
   const claim = significantTokens(markdown);
   return evidence.some((excerpt) => {
     const source = significantTokens(excerpt);
     if (!claim.size || !source.size) return false;
-    if (claim.size === 1 && source.has([...claim][0])) return true;
-    let overlap = 0;
-    for (const token of claim) if (source.has(token)) overlap++;
-    return overlap >= 2;
+    return [...claim].every((token) => source.has(token));
   });
 }
 
 function significantTokens(value: string): Set<string> {
-  const stopwords = new Set(['a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'in', 'is', 'it', 'of', 'on', 'or', 'the', 'this', 'to', 'use', 'with', 'you']);
+  const stopwords = new Set([
+    'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'in', 'is', 'it', 'of', 'on', 'or', 'the', 'this', 'to', 'with', 'you',
+    // Generic UI/action language cannot independently support a product fact.
+    'add', 'change', 'choose', 'click', 'create', 'delete', 'edit', 'enter', 'exit', 'follow', 'go', 'learn', 'more', 'open', 'read', 'select', 'see', 'show', 'switch', 'tap', 'update', 'use', 'view',
+  ]);
   return new Set(
     value
       .toLowerCase()

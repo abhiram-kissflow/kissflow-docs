@@ -121,6 +121,51 @@ test('rejects an adversarial claim whose bound excerpt does not support its word
   assert.deepEqual(result, abstention);
 });
 
+test('rejects a claim that injects unsupported terms after valid UI overlap', () => {
+  const result = validateGroundedAnswer(
+    groundedAnswer({
+      answer: 'Click Add table enables Kubernetes deployment.',
+      claims: [{
+        markdown: 'Click Add table enables Kubernetes deployment.',
+        citationIds: ['child-citation'],
+        evidence: ['Click Add table to create a child table.'],
+      }],
+    }),
+    [childSection],
+  );
+  assert.deepEqual(result, abstention);
+});
+
+test('allows a Read more link only when it targets a cited context URL', () => {
+  const result = validateGroundedAnswer(
+    groundedAnswer({
+      answer: 'Read more: [Creating a form](/docs/build/forms/creating-a-form#child-tables)',
+      claims: [{
+        markdown: 'Read more: [Creating a form](/docs/build/forms/creating-a-form#child-tables)',
+        citationIds: ['child-citation'],
+        evidence: ['Click Add table to create a child table.'],
+      }],
+    }),
+    [childSection],
+  );
+  assert.equal(result.insufficientEvidence, false);
+});
+
+test('rejects an external Read more link', () => {
+  const result = validateGroundedAnswer(
+    groundedAnswer({
+      answer: 'Read more: [External guide](https://example.com/kubernetes)',
+      claims: [{
+        markdown: 'Read more: [External guide](https://example.com/kubernetes)',
+        citationIds: ['child-citation'],
+        evidence: ['Click Add table to create a child table.'],
+      }],
+    }),
+    [childSection],
+  );
+  assert.deepEqual(result, abstention);
+});
+
 test('retains source media only when it belongs to a cited section', () => {
   const result = validateGroundedAnswer(
     groundedAnswer({
