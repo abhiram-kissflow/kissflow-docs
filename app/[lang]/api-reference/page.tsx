@@ -6,6 +6,33 @@ import { ApiReferenceReact } from '@scalar/api-reference-react';
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 
+// Replace Scalar's "Powered by Scalar" attribution with the Kissflow wordmark.
+// Targets the attribution link by its stable href (utility classes change across
+// Scalar versions). Scalar sets body.light-mode / body.dark-mode, so the white
+// logo is swapped in on dark; prefers-color-scheme is a fallback.
+const brandingCss = `
+a[href="https://www.scalar.com"] {
+  font-size: 0 !important;
+  line-height: 0 !important;
+  pointer-events: none;
+}
+a[href="https://www.scalar.com"]::after {
+  content: "";
+  display: block;
+  width: 96px;
+  height: 15px;
+  background: url("${basePath}/kissflow-logo.png") left center / contain no-repeat;
+}
+body.dark-mode a[href="https://www.scalar.com"]::after {
+  background-image: url("${basePath}/kissflow-logo-white.png");
+}
+@media (prefers-color-scheme: dark) {
+  body:not(.light-mode) a[href="https://www.scalar.com"]::after {
+    background-image: url("${basePath}/kissflow-logo-white.png");
+  }
+}
+`;
+
 export default function ApiReferencePage() {
   return (
     <>
@@ -23,6 +50,7 @@ export default function ApiReferencePage() {
           // origin). Only works on the dynamic Vercel deploy; harmless on the
           // static GitHub Pages mirror where try-it can't run anyway.
           proxyUrl: `${basePath}/api/scalar-proxy`,
+          customCss: brandingCss,
           authentication: {
             // Kissflow requires BOTH headers together (X-Access-Key-Id +
             // X-Access-Key-Secret). The nested array is an AND requirement, so
