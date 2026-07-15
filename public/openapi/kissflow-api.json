@@ -908,10 +908,10 @@
             "name": "skip_email",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "boolean"
             },
             "description": "Sends an email invite to the new user.",
-            "example": "false"
+            "example": false
           },
           {
             "name": "account_id",
@@ -1632,7 +1632,7 @@
               "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3.",
-            "example": "1"
+            "example": 1
           },
           {
             "name": "page_size",
@@ -1641,7 +1641,7 @@
               "type": "integer"
             },
             "description": "The number of items per page, for example 10, 25, 50, or 100.",
-            "example": "10"
+            "example": 25
           },
           {
             "name": "q",
@@ -2519,7 +2519,7 @@
               "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3.",
-            "example": "1"
+            "example": 1
           },
           {
             "name": "page_size",
@@ -2528,7 +2528,7 @@
               "type": "integer"
             },
             "description": "The number of items per page, for example 10, 25, 50, or 100.",
-            "example": "10"
+            "example": 25
           },
           {
             "name": "q",
@@ -3939,7 +3939,7 @@
               "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3.",
-            "example": "1"
+            "example": 1
           },
           {
             "name": "page_size",
@@ -3948,7 +3948,7 @@
               "type": "integer"
             },
             "description": "The number of items per page, for example 10, 25, 50, or 100.",
-            "example": "10"
+            "example": 25
           },
           {
             "name": "fields",
@@ -5194,7 +5194,7 @@
               "type": "integer"
             },
             "description": "The page number of the requested users or groups list, for example 1, 2, or 3.",
-            "example": "1"
+            "example": 1
           },
           {
             "name": "page_size",
@@ -5203,7 +5203,7 @@
               "type": "integer"
             },
             "description": "The number of users or groups per page, for example 10, 25, 50, or 100.",
-            "example": "10"
+            "example": 25
           },
           {
             "name": "q",
@@ -6454,10 +6454,10 @@
             "name": "skip_email",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "boolean"
             },
             "description": "Skips sending an email invite to the new user.",
-            "example": "false"
+            "example": false
           },
           {
             "name": "account_id",
@@ -12540,19 +12540,19 @@
             "name": "page_number",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3.",
-            "example": "1"
+            "example": 1
           },
           {
             "name": "page_size",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The number of items per page; accepts any integer.",
-            "example": "25"
+            "example": 25
           },
           {
             "name": "account_id",
@@ -12932,19 +12932,19 @@
             "name": "page_number",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3.",
-            "example": "1"
+            "example": 1
           },
           {
             "name": "page_size",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The number of items per page; accepts any integer.",
-            "example": "25"
+            "example": 25
           },
           {
             "name": "account_id",
@@ -13324,28 +13324,28 @@
             "name": "page_number",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3.",
-            "example": "1"
+            "example": 1
           },
           {
             "name": "page_size",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The number of items per page; accepts any integer.",
-            "example": "25"
+            "example": 25
           },
           {
             "name": "apply_preference",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "boolean"
             },
             "description": "The applied preferences, such as filters, shown or hidden fields, and rows per page.",
-            "example": "false"
+            "example": false
           },
           {
             "name": "account_id",
@@ -26710,19 +26710,19 @@
             "name": "page_number",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3; defaults to 1.",
-            "example": "1"
+            "example": 1
           },
           {
             "name": "page_size",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The number of items per page; defaults to 10.",
-            "example": "25"
+            "example": 25
           },
           {
             "name": "q",
@@ -29300,19 +29300,19 @@
             "name": "page_number",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3; defaults to 1.",
-            "example": "1"
+            "example": 1
           },
           {
             "name": "page_size",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The number of items per page; defaults to 10.",
-            "example": "25"
+            "example": 25
           },
           {
             "name": "q",
@@ -34762,28 +34762,28 @@
             "name": "visited",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "boolean"
             },
             "description": "The search filter string based on visited status.",
-            "example": "false"
+            "example": false
           },
           {
             "name": "page_number",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3; defaults to 1.",
-            "example": "1"
+            "example": 1
           },
           {
             "name": "page_size",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The number of items per page; defaults to 10.",
-            "example": "25"
+            "example": 25
           },
           {
             "name": "q",
@@ -35178,19 +35178,19 @@
             "name": "page_number",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3; defaults to 1.",
-            "example": "1"
+            "example": 1
           },
           {
             "name": "page_size",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The number of items per page; defaults to 10.",
-            "example": "25"
+            "example": 25
           },
           {
             "name": "q",
@@ -36729,19 +36729,19 @@
             "name": "page_number",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3; defaults to 1.",
-            "example": "1"
+            "example": 1
           },
           {
             "name": "page_size",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The number of items per page; defaults to 10.",
-            "example": "25"
+            "example": 25
           },
           {
             "name": "search_field",
@@ -37200,7 +37200,7 @@
               "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3; defaults to 1.",
-            "example": "1"
+            "example": 1
           },
           {
             "name": "page_size",
@@ -37209,7 +37209,7 @@
               "type": "integer"
             },
             "description": "The number of items per page; defaults to 10.",
-            "example": "10"
+            "example": 25
           },
           {
             "name": "field_ids",
@@ -37472,19 +37472,19 @@
             "name": "page_number",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3; defaults to 1.",
-            "example": "1"
+            "example": 1
           },
           {
             "name": "page_size",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The number of items per page; defaults to 10.",
-            "example": "25"
+            "example": 25
           },
           {
             "name": "search_field",
