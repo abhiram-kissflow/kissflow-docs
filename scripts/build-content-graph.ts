@@ -6,13 +6,11 @@
  * with the real content knowledge graph.
  *
  * Prerequisites:
- *   1. A graphify extraction has already been run over the `content/` corpus,
- *      producing a graph.json in graphify's node-link format
- *      (`{ directed, multigraph, graph, nodes: [...], links: [...] }`).
- *   2. OPENAI_API_KEY is set in the environment (embeddings are computed via the
+ *   1. OPENAI_API_KEY is set in the environment (embeddings are computed via the
  *      OpenAI `text-embedding-3-small` model).
  *
  * Usage:
+ *   OPENAI_API_KEY=sk-... npx tsx scripts/build-content-graph.ts
  *   OPENAI_API_KEY=sk-... npx tsx scripts/build-content-graph.ts <path-to-graphify-graph.json>
  *
  * It transforms graphify's raw nodes/links into the runtime GraphNode/edge shape,
@@ -26,6 +24,7 @@ import { embedMany } from 'ai';
 import { openai } from '@ai-sdk/openai';
 import { extractContentSections, type SourceMedia } from '../lib/rag/content-sections';
 import { findContentLinkEdges, type ArticleBody } from '../lib/rag/content-links';
+import { discoverEnglishContentFiles } from '../lib/rag/content-discovery';
 
 const GRAPH_DIR = path.join(process.cwd(), 'lib', 'rag', 'content-graph');
 const CONTENT_DIR = path.join(process.cwd(), 'content');
@@ -93,9 +92,9 @@ function normalizeSourceFile(sourceFile: string): string {
 
 /** Read and section an article. Falls back to a one-section label if its source
  * cannot be read, preserving the graph's existing failure behaviour. */
-function buildSections(sourceFile: string, label: string, articleUrl: string) {
+function buildSections(contentDir: string, sourceFile: string, label: string, articleUrl: string) {
   const rel = normalizeSourceFile(sourceFile);
-  const abs = path.join(CONTENT_DIR, rel);
+  const abs = path.join(contentDir, rel);
   try {
     const { data, content } = matter(fs.readFileSync(abs, 'utf8'));
     const title = typeof data.title === 'string' ? data.title : label;
@@ -113,45 +112,52 @@ function isDocNode(node: GraphifyNode): boolean {
   return /\.mdx?$/.test(node.source_file);
 }
 
-// --- Main -------------------------------------------------------------------
+export type BuiltSectionGraph = { nodes: GraphNode[]; edges: GraphEdge[] };
 
-async function main() {
-  const graphPath = process.argv[2];
-  if (!graphPath) {
-    throw new Error(
-      'usage: npx tsx scripts/build-content-graph.ts <path-to-graphify-graph.json>',
-    );
-  }
-  if (!process.env.OPENAI_API_KEY) throw new Error('OPENAI_API_KEY required');
+/**
+ * Builds section-level graph data from authored documentation. A graphify graph
+ * is optional: when omitted, every canonical English MD/MDX article is indexed
+ * directly and authored cross-links provide the graph edges.
+ */
+export function buildSectionGraph(opts: {
+  contentDir?: string;
+  graphifyGraph?: GraphifyGraph;
+} = {}): BuiltSectionGraph {
+  const contentDir = opts.contentDir ?? CONTENT_DIR;
+  const graphifyNodes = opts.graphifyGraph?.nodes ?? [];
+  const graphifyLinks = opts.graphifyGraph?.links ?? [];
+  const sourceEntries = graphifyNodes.length
+    ? graphifyNodes.filter(isDocNode).map((node) => ({
+      id: node.id,
+      sourceFile: node.source_file!,
+      label: node.label ?? path.basename(node.source_file!),
+      community: typeof node.community === 'number' ? node.community : 0,
+    }))
+    : discoverEnglishContentFiles(contentDir).map((file, index) => ({
+      id: path.relative(contentDir, file).split(path.sep).join('/'),
+      sourceFile: path.relative(contentDir, file).split(path.sep).join('/'),
+      label: path.basename(file),
+      community: index,
+    }));
 
-  const raw = JSON.parse(fs.readFileSync(path.resolve(graphPath), 'utf8')) as GraphifyGraph;
-  const graphifyNodes = raw.nodes ?? [];
-  const graphifyLinks = raw.links ?? [];
-
-  // 1. Transform each article into heading-level section nodes. Keeping a map
-  // from graphify article IDs to their first section preserves the existing
-  // cross-article edges for related-content traversal.
+  // Transform each article into heading-level section nodes. Keeping a map
+  // from source IDs to first sections preserves graphify links when supplied.
   const nodes: GraphNode[] = [];
   const articleBodies: ArticleBody[] = [];
   const sectionIdsByGraphifyId = new Map<string, string[]>();
   const sectionIdsBySourceFile = new Map<string, string[]>();
-  let skipped = 0;
-  for (const gn of graphifyNodes) {
-    if (!isDocNode(gn)) {
-      skipped++;
-      continue;
-    }
-    const sourceFile = gn.source_file as string;
-    const label = gn.label ?? path.basename(sourceFile);
+  for (const entry of sourceEntries) {
+    const sourceFile = entry.sourceFile;
+    const label = entry.label;
     const normalizedSource = normalizeSourceFile(sourceFile);
     const existing = sectionIdsBySourceFile.get(normalizedSource);
     if (existing) {
-      sectionIdsByGraphifyId.set(gn.id, existing);
+      sectionIdsByGraphifyId.set(entry.id, existing);
       continue;
     }
 
     const articleUrl = deriveUrl(normalizedSource);
-    const { title, body, sections } = buildSections(sourceFile, label, articleUrl);
+    const { title, body, sections } = buildSections(contentDir, sourceFile, label, articleUrl);
     const ids: string[] = [];
     for (const section of sections) {
       const url = section.anchor ? `${articleUrl}#${section.anchor}` : articleUrl;
@@ -166,41 +172,48 @@ async function main() {
         anchor: section.anchor,
         snippet: section.text,
         media: section.media,
-        community: typeof gn.community === 'number' ? gn.community : 0,
+        community: entry.community,
       });
     }
-    sectionIdsByGraphifyId.set(gn.id, ids);
+    sectionIdsByGraphifyId.set(entry.id, ids);
     sectionIdsBySourceFile.set(normalizedSource, ids);
     articleBodies.push({ articleUrl, body });
   }
-  console.log(`Sections: kept ${nodes.length}, skipped ${skipped} (non-doc / no source_file)`);
-
-  // 2. Retain graphify's cross-article links by connecting the first section
+  // Retain graphify's cross-article links by connecting the first section
   // from each linked article. Section retrieval is direct; these edges remain
   // available for broad related-content traversal.
   const edges: GraphEdge[] = [];
-  let prunedEdges = 0;
   for (const link of graphifyLinks) {
     const source = sectionIdsByGraphifyId.get(link.source)?.[0];
     const target = sectionIdsByGraphifyId.get(link.target)?.[0];
     if (source && target) {
       edges.push({ source, target, relation: link.relation ?? 'related' });
-    } else {
-      prunedEdges++;
     }
   }
   edges.push(...findContentLinkEdges(nodes, articleBodies, edges));
-  console.log(`Edges: kept ${edges.length}, pruned ${prunedEdges} (dangling endpoint)`);
+  if (nodes.length === 0) throw new Error('No doc nodes survived filtering — refusing to write empty artifacts.');
+  return { nodes, edges };
+}
 
-  // 3. Embed the section's article title, heading, and complete section text.
+// --- Main -------------------------------------------------------------------
+
+async function main() {
+  const graphPath = process.argv[2];
+  if (!process.env.OPENAI_API_KEY) throw new Error('OPENAI_API_KEY required');
+  const graphifyGraph = graphPath
+    ? JSON.parse(fs.readFileSync(path.resolve(graphPath), 'utf8')) as GraphifyGraph
+    : undefined;
+  const { nodes, edges } = buildSectionGraph({ graphifyGraph });
+  console.log(`Sections: kept ${nodes.length}, graphify skipped ${graphifyGraph ? (graphifyGraph.nodes.length - graphifyGraph.nodes.filter(isDocNode).length) : 0}`);
+  console.log(`Edges: kept ${edges.length}${graphifyGraph ? '' : ' (direct authored-link mode)'}`);
+
+  // Embed the section's article title, heading, and complete section text.
   console.log(`Embedding ${nodes.length} nodes with ${MODEL}...`);
   if (nodes.length > 2000) {
     console.warn(
       `  warn: ${nodes.length} nodes exceeds 2000 — embedMany still batches, but this run has a higher API cost.`,
     );
   }
-  if (nodes.length === 0) throw new Error('No doc nodes survived filtering — refusing to write empty artifacts.');
-
   const inputs = nodes.map((n) => `${n.label}\n${n.heading}\n${n.snippet}`);
   const { embeddings } = await embedMany({ model: openai.embedding(MODEL), values: inputs });
   const vectors: Record<string, number[]> = {};
@@ -209,7 +222,7 @@ async function main() {
   });
   const dim = embeddings[0].length;
 
-  // 4. Write both runtime artifacts (REPLACING the committed fixtures).
+  // Write both runtime artifacts (REPLACING the committed fixtures).
   fs.mkdirSync(GRAPH_DIR, { recursive: true });
   fs.writeFileSync(
     path.join(GRAPH_DIR, 'graph.json'),
@@ -225,7 +238,9 @@ async function main() {
   );
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}
