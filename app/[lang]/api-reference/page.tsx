@@ -57,6 +57,12 @@ body.dark-mode a[href="https://www.scalar.com"]::after {
   line-height: 1;
   color: #e5484d;
 }
+
+/* Hide the version-number badge (v1.0.0). It's the first .badge; the second
+   (OpenAPI 3.0.0) stays. info.version stays in the spec (OpenAPI requires it). */
+.badge:first-child {
+  display: none !important;
+}
 `;
 
 export default function ApiReferencePage() {
