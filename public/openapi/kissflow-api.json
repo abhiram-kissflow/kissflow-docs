@@ -10,8 +10,8 @@
       "url": "https://{subdomain}.kissflow.com",
       "variables": {
         "subdomain": {
-          "default": "subdomain",
-          "description": "Your Kissflow account subdomain."
+          "default": "your-account",
+          "description": "Replace with your Kissflow account subdomain — e.g. \"acme\" for acme.kissflow.com. The default is a placeholder; try-it returns a 403 DomainMissMatchError until you set your real account subdomain (and fill any path params + Access Key auth)."
         }
       }
     }
