@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { isAllowedTarget } from './route';
+import { isAllowedTarget } from './target';
 
 test('isAllowedTarget: allows kissflow.com subdomains over https/http', () => {
   assert.equal(isAllowedTarget('https://acme.kissflow.com/api/v1/foo'), true);
