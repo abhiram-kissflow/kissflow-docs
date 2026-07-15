@@ -44,6 +44,19 @@ body.dark-mode a[href="https://www.scalar.com"]::after {
   word-break: normal !important;
   overflow-wrap: break-word !important;
 }
+
+/* Required parameters: replace Scalar's grey "required" label with a red star.
+   .property-required only renders on required params, so the marker stays
+   semantically correct. Prose no longer says "(Required)". */
+.property-required {
+  font-size: 0 !important;
+}
+.property-required::after {
+  content: "\\2605"; /* red star */
+  font-size: 0.85rem;
+  line-height: 1;
+  color: #e5484d;
+}
 `;
 
 export default function ApiReferencePage() {
