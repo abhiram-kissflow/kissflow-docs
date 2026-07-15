@@ -103,7 +103,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "user_id",
@@ -113,7 +113,7 @@
             },
             "required": true,
             "description": "The unique ID of a Kissflow user, returned as the `_id` field by the Get user list API.",
-            "example": "<string>"
+            "example": "Us8KMQzGHIbZ"
           }
         ],
         "responses": {
@@ -544,7 +544,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -908,10 +908,10 @@
             "name": "skip_email",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "boolean"
             },
             "description": "Sends an email invite to the new user.",
-            "example": "<boolean>"
+            "example": false
           },
           {
             "name": "account_id",
@@ -921,7 +921,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -1632,7 +1632,7 @@
               "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3.",
-            "example": "1"
+            "example": 1
           },
           {
             "name": "page_size",
@@ -1641,7 +1641,7 @@
               "type": "integer"
             },
             "description": "The number of items per page, for example 10, 25, 50, or 100.",
-            "example": "10"
+            "example": 25
           },
           {
             "name": "q",
@@ -1650,7 +1650,7 @@
               "type": "string"
             },
             "description": "The search string.",
-            "example": "<string>"
+            "example": "invoice"
           },
           {
             "name": "user_type",
@@ -1678,7 +1678,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -2202,7 +2202,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -2519,7 +2519,7 @@
               "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3.",
-            "example": "1"
+            "example": 1
           },
           {
             "name": "page_size",
@@ -2528,7 +2528,7 @@
               "type": "integer"
             },
             "description": "The number of items per page, for example 10, 25, 50, or 100.",
-            "example": "10"
+            "example": 25
           },
           {
             "name": "q",
@@ -2537,7 +2537,7 @@
               "type": "string"
             },
             "description": "The search string.",
-            "example": "<string>"
+            "example": "invoice"
           },
           {
             "name": "account_id",
@@ -2547,7 +2547,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -2836,7 +2836,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "group_id",
@@ -2846,7 +2846,7 @@
             },
             "required": true,
             "description": "The unique ID of a Kissflow group, returned as the `_id` field by the Get list of groups API.",
-            "example": "<string>"
+            "example": "Gr1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -3406,7 +3406,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "group_id",
@@ -3416,7 +3416,7 @@
             },
             "required": true,
             "description": "The unique ID of a Kissflow group, returned as the `_id` field by the Get list of groups API.",
-            "example": "<string>"
+            "example": "Gr1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -3672,7 +3672,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "group_id",
@@ -3682,7 +3682,7 @@
             },
             "required": true,
             "description": "The unique ID of a Kissflow group, returned as the `_id` field by the Get list of groups API.",
-            "example": "<string>"
+            "example": "Gr1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -3939,7 +3939,7 @@
               "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3.",
-            "example": "1"
+            "example": 1
           },
           {
             "name": "page_size",
@@ -3948,7 +3948,7 @@
               "type": "integer"
             },
             "description": "The number of items per page, for example 10, 25, 50, or 100.",
-            "example": "10"
+            "example": 25
           },
           {
             "name": "fields",
@@ -3957,7 +3957,7 @@
               "type": "string"
             },
             "description": "Specifies the fields to include in the response, as comma-separated values.",
-            "example": "<string>"
+            "example": "Name,Email"
           },
           {
             "name": "account_id",
@@ -3967,7 +3967,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "group_id",
@@ -3977,7 +3977,7 @@
             },
             "required": true,
             "description": "The unique ID of a Kissflow group, returned as the `_id` field by the Get list of groups API.",
-            "example": "<string>"
+            "example": "Gr1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -4339,7 +4339,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "portal_id",
@@ -4349,7 +4349,7 @@
             },
             "required": true,
             "description": "The unique ID of the portal, taken from the portal URL — for example, `Customer_portal_A00` in `https://thestarkcorporation.kissflow.net/view/portal/administration/Customer_portal_A00`.",
-            "example": "<string>"
+            "example": "Vendor_Portal"
           }
         ],
         "responses": {
@@ -4608,7 +4608,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "portal_id",
@@ -4618,7 +4618,7 @@
             },
             "required": true,
             "description": "The unique ID of the portal, taken from the portal URL — for example, `Customer_portal_A00` in `https://thestarkcorporation.kissflow.net/view/portal/administration/Customer_portal_A00`.",
-            "example": "<string>"
+            "example": "Vendor_Portal"
           },
           {
             "name": "model_id",
@@ -4628,7 +4628,7 @@
             },
             "required": true,
             "description": "The unique model ID, taken from the `IdentityType` field returned by the Get portal settings endpoint.",
-            "example": "<string>"
+            "example": "User"
           },
           {
             "name": "user_id",
@@ -4638,7 +4638,7 @@
             },
             "required": true,
             "description": "The unique ID of a Kissflow portal user, returned by the Get list of portal users endpoint.",
-            "example": "<string>"
+            "example": "Us8KMQzGHIbZ"
           }
         ],
         "responses": {
@@ -4898,7 +4898,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "portal_id",
@@ -4908,7 +4908,7 @@
             },
             "required": true,
             "description": "The unique ID of the portal, taken from the portal URL — for example, `Customer_portal_A00` in `https://thestarkcorporation.kissflow.net/view/portal/administration/Customer_portal_A00`.",
-            "example": "<string>"
+            "example": "Vendor_Portal"
           },
           {
             "name": "model_id",
@@ -4918,7 +4918,7 @@
             },
             "required": true,
             "description": "The unique model ID, taken from the `IdentityType` field returned by the Get portal settings endpoint.",
-            "example": "<string>"
+            "example": "User"
           },
           {
             "name": "user_id",
@@ -4928,7 +4928,7 @@
             },
             "required": true,
             "description": "The unique ID of a Kissflow portal user, returned by the Get list of portal users endpoint.",
-            "example": "<string>"
+            "example": "Us8KMQzGHIbZ"
           }
         ],
         "responses": {
@@ -5194,7 +5194,7 @@
               "type": "integer"
             },
             "description": "The page number of the requested users or groups list, for example 1, 2, or 3.",
-            "example": "1"
+            "example": 1
           },
           {
             "name": "page_size",
@@ -5203,7 +5203,7 @@
               "type": "integer"
             },
             "description": "The number of users or groups per page, for example 10, 25, 50, or 100.",
-            "example": "10"
+            "example": 25
           },
           {
             "name": "q",
@@ -5212,7 +5212,7 @@
               "type": "string"
             },
             "description": "The search filter string to apply.",
-            "example": "<string>"
+            "example": "invoice"
           },
           {
             "name": "account_id",
@@ -5222,7 +5222,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "portal_id",
@@ -5232,7 +5232,7 @@
             },
             "required": true,
             "description": "The unique ID of the portal, taken from the portal URL — for example, `Customer_portal_A00` in `https://thestarkcorporation.kissflow.net/view/portal/administration/Customer_portal_A00`.",
-            "example": "<string>"
+            "example": "Vendor_Portal"
           },
           {
             "name": "model_id",
@@ -5242,7 +5242,7 @@
             },
             "required": true,
             "description": "The unique model ID, taken from the `IdentityType` field returned by the Get portal settings endpoint.",
-            "example": "<string>"
+            "example": "User"
           }
         ],
         "responses": {
@@ -5842,7 +5842,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "portal_id",
@@ -5852,7 +5852,7 @@
             },
             "required": true,
             "description": "The unique ID of the portal, taken from the portal URL — for example, `Customer_portal_A00` in `https://thestarkcorporation.kissflow.net/view/portal/administration/Customer_portal_A00`.",
-            "example": "<string>"
+            "example": "Vendor_Portal"
           },
           {
             "name": "model_id",
@@ -5862,7 +5862,7 @@
             },
             "required": true,
             "description": "The unique model ID, taken from the `IdentityType` field returned by the Get portal settings endpoint.",
-            "example": "<string>"
+            "example": "User"
           }
         ],
         "responses": {
@@ -6121,7 +6121,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "portal_id",
@@ -6131,7 +6131,7 @@
             },
             "required": true,
             "description": "The unique ID of the portal, taken from the portal URL — for example, `Customer_portal_A00` in `https://thestarkcorporation.kissflow.net/view/portal/administration/Customer_portal_A00`.",
-            "example": "<string>"
+            "example": "Vendor_Portal"
           },
           {
             "name": "model_id",
@@ -6141,7 +6141,7 @@
             },
             "required": true,
             "description": "The unique model ID, taken from the `IdentityType` field returned by the Get portal settings endpoint.",
-            "example": "<string>"
+            "example": "User"
           }
         ],
         "responses": {
@@ -6454,10 +6454,10 @@
             "name": "skip_email",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "boolean"
             },
             "description": "Skips sending an email invite to the new user.",
-            "example": "<boolean>"
+            "example": false
           },
           {
             "name": "account_id",
@@ -6467,7 +6467,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "portal_id",
@@ -6477,7 +6477,7 @@
             },
             "required": true,
             "description": "The unique ID of the portal, taken from the portal URL — for example, `Customer_portal_A00` in `https://thestarkcorporation.kissflow.net/view/portal/administration/Customer_portal_A00`.",
-            "example": "<string>"
+            "example": "Vendor_Portal"
           },
           {
             "name": "model_id",
@@ -6487,7 +6487,7 @@
             },
             "required": true,
             "description": "The unique model ID, taken from the `IdentityType` field returned by the Get portal settings endpoint.",
-            "example": "<string>"
+            "example": "User"
           }
         ],
         "responses": {
@@ -7200,7 +7200,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "portal_id",
@@ -7210,7 +7210,7 @@
             },
             "required": true,
             "description": "The unique ID of the portal, taken from the portal URL — for example, `Customer_portal_A00` in `https://thestarkcorporation.kissflow.net/view/portal/administration/Customer_portal_A00`.",
-            "example": "<string>"
+            "example": "Vendor_Portal"
           },
           {
             "name": "model_id",
@@ -7220,7 +7220,7 @@
             },
             "required": true,
             "description": "The unique model ID, taken from the `IdentityType` field returned by the Get portal settings endpoint.",
-            "example": "<string>"
+            "example": "User"
           }
         ],
         "responses": {
@@ -7505,7 +7505,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "portal_id",
@@ -7515,7 +7515,7 @@
             },
             "required": true,
             "description": "The unique ID of the portal, taken from the portal URL — for example, `Customer_portal_A00` in `https://thestarkcorporation.kissflow.net/view/portal/administration/Customer_portal_A00`.",
-            "example": "<string>"
+            "example": "Vendor_Portal"
           },
           {
             "name": "model_id",
@@ -7525,7 +7525,7 @@
             },
             "required": true,
             "description": "The unique model ID, taken from the `IdentityType` field returned by the Get portal settings endpoint.",
-            "example": "<string>"
+            "example": "User"
           }
         ],
         "responses": {
@@ -7810,7 +7810,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "portal_id",
@@ -7820,7 +7820,7 @@
             },
             "required": true,
             "description": "The unique ID of the portal, taken from the portal URL — for example, `Customer_portal_A00` in `https://thestarkcorporation.kissflow.net/view/portal/administration/Customer_portal_A00`.",
-            "example": "<string>"
+            "example": "Vendor_Portal"
           },
           {
             "name": "model_id",
@@ -7830,7 +7830,7 @@
             },
             "required": true,
             "description": "The unique model ID, taken from the `IdentityType` field returned by the Get portal settings endpoint.",
-            "example": "<string>"
+            "example": "User"
           }
         ],
         "responses": {
@@ -8115,7 +8115,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "portal_id",
@@ -8125,7 +8125,7 @@
             },
             "required": true,
             "description": "The unique ID of the portal, taken from the portal URL — for example, `Customer_portal_A00` in `https://thestarkcorporation.kissflow.net/view/portal/administration/Customer_portal_A00`.",
-            "example": "<string>"
+            "example": "Vendor_Portal"
           },
           {
             "name": "model_id",
@@ -8135,7 +8135,7 @@
             },
             "required": true,
             "description": "The unique model ID, taken from the `IdentityType` field returned by the Get portal settings endpoint.",
-            "example": "<string>"
+            "example": "User"
           }
         ],
         "responses": {
@@ -8397,7 +8397,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -8407,7 +8407,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Purchase_reimbursement` in `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           }
         ],
         "responses": {
@@ -8675,7 +8675,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -8685,7 +8685,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Purchase_reimbursement` in `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "instance_id",
@@ -8695,7 +8695,7 @@
             },
             "required": true,
             "description": "The unique ID of the process item, taken from the process URL — for example, `Pk9ALV9QVo5L` in `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           },
           {
             "name": "activity_instance_id",
@@ -8705,7 +8705,7 @@
             },
             "required": true,
             "description": "The unique ID of the process step, taken from the process URL — for example, `Pk9ALV9RNK_A` in `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Ai1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -8990,7 +8990,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -9000,7 +9000,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Purchase_reimbursement` in `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "instance_id",
@@ -9010,7 +9010,7 @@
             },
             "required": true,
             "description": "The unique ID of the process item, taken from the process URL — for example, `Pk9ALV9QVo5L` in `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           },
           {
             "name": "activity_instance_id",
@@ -9020,7 +9020,7 @@
             },
             "required": true,
             "description": "The unique ID of the process step, taken from the process URL — for example, `Pk9ALV9RNK_A` in `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Ai1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -9273,7 +9273,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -9283,7 +9283,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Purchase_reimbursement` in `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "instance_id",
@@ -9293,7 +9293,7 @@
             },
             "required": true,
             "description": "The unique ID of the process item, taken from the process URL — for example, `Pk9ALV9QVo5L` in `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           },
           {
             "name": "activity_instance_id",
@@ -9303,7 +9303,7 @@
             },
             "required": true,
             "description": "The unique ID of the process step, taken from the process URL — for example, `Pk9ALV9RNK_A` in `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Ai1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -9600,7 +9600,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -9610,7 +9610,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Purchase_reimbursement` in `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "instance_id",
@@ -9620,7 +9620,7 @@
             },
             "required": true,
             "description": "The unique ID of the process item, taken from the process URL — for example, `Pk9ALV9QVo5L` in `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           }
         ],
         "responses": {
@@ -9920,7 +9920,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -9930,7 +9930,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Purchase_reimbursement` in `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "instance_id",
@@ -9940,7 +9940,7 @@
             },
             "required": true,
             "description": "The unique ID of the process item, taken from the process URL — for example, `Pk9ALV9QVo5L` in `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           },
           {
             "name": "activity_instance_id",
@@ -9950,7 +9950,7 @@
             },
             "required": true,
             "description": "The unique ID of the process step, taken from the process URL — for example, `Pk9ALV9RNK_A` in `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Ai1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -9960,7 +9960,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the field in the process form.",
-            "example": "<string>"
+            "example": "PONumber"
           }
         ],
         "responses": {
@@ -10254,7 +10254,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -10264,7 +10264,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Leave_request` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "instance_id",
@@ -10274,7 +10274,7 @@
             },
             "required": true,
             "description": "The unique ID of the process item, taken from the process URL — for example, `Pk9ALV9QVo5L` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           },
           {
             "name": "activity_instance_id",
@@ -10284,7 +10284,7 @@
             },
             "required": true,
             "description": "The unique ID of the process step, taken from the process URL — for example, `Pk9ALV9RNK_A` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Ai1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -10294,7 +10294,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the field in the process form.",
-            "example": "<string>"
+            "example": "PONumber"
           },
           {
             "name": "attachment_id",
@@ -10304,7 +10304,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the attached file in the process form.",
-            "example": "<string>"
+            "example": "At1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -10569,7 +10569,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -10579,7 +10579,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Purchase_reimbursement` in `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "instance_id",
@@ -10589,7 +10589,7 @@
             },
             "required": true,
             "description": "The unique ID of the process item, taken from the process URL — for example, `Pk9ALV9QVo5L` in `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           },
           {
             "name": "activity_instance_id",
@@ -10599,7 +10599,7 @@
             },
             "required": true,
             "description": "The unique ID of the process step, taken from the process URL — for example, `Pk9ALV9RNK_A` in `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Ai1a2b3c4d5e6"
           },
           {
             "name": "table_id",
@@ -10609,7 +10609,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the table in the process form.",
-            "example": "<string>"
+            "example": "LineItems"
           },
           {
             "name": "row_id",
@@ -10619,7 +10619,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the row of the table in the process form.",
-            "example": "<string>"
+            "example": "Ro1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -10629,7 +10629,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the column (field) in the process form's table.",
-            "example": "<string>"
+            "example": "PONumber"
           }
         ],
         "responses": {
@@ -10923,7 +10923,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -10933,7 +10933,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Leave_request` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "instance_id",
@@ -10943,7 +10943,7 @@
             },
             "required": true,
             "description": "The unique ID of the process item, taken from the process URL — for example, `Pk9ALV9QVo5L` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           },
           {
             "name": "activity_instance_id",
@@ -10953,7 +10953,7 @@
             },
             "required": true,
             "description": "The unique ID of the process step, taken from the process URL — for example, `Pk9ALV9RNK_A` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Ai1a2b3c4d5e6"
           },
           {
             "name": "table_id",
@@ -10963,7 +10963,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the table in the process form.",
-            "example": "<string>"
+            "example": "LineItems"
           },
           {
             "name": "row_id",
@@ -10973,7 +10973,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the row of the table in the process form.",
-            "example": "<string>"
+            "example": "Ro1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -10983,7 +10983,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the column (field) in the process form's table.",
-            "example": "<string>"
+            "example": "PONumber"
           },
           {
             "name": "attachment_id",
@@ -10993,7 +10993,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the attached file in the process form.",
-            "example": "<string>"
+            "example": "At1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -11258,7 +11258,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -11268,7 +11268,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Leave_request` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "instance_id",
@@ -11278,7 +11278,7 @@
             },
             "required": true,
             "description": "The unique ID of the process item, taken from the process URL — for example, `Pk9ALV9QVo5L` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           },
           {
             "name": "activity_instance_id",
@@ -11288,7 +11288,7 @@
             },
             "required": true,
             "description": "The unique ID of the process step, taken from the process URL — for example, `Pk9ALV9RNK_A` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Ai1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -11298,7 +11298,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the field in the process form.",
-            "example": "<string>"
+            "example": "PONumber"
           }
         ],
         "responses": {
@@ -11590,7 +11590,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -11600,7 +11600,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Leave_request` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "instance_id",
@@ -11610,7 +11610,7 @@
             },
             "required": true,
             "description": "The unique ID of the process item, taken from the process URL — for example, `Pk9ALV9QVo5L` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           },
           {
             "name": "activity_instance_id",
@@ -11620,7 +11620,7 @@
             },
             "required": true,
             "description": "The unique ID of the process step, taken from the process URL — for example, `Pk9ALV9RNK_A` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Ai1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -11630,7 +11630,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the field in the process form.",
-            "example": "<string>"
+            "example": "PONumber"
           }
         ],
         "responses": {
@@ -11895,7 +11895,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -11905,7 +11905,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Leave_request` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "instance_id",
@@ -11915,7 +11915,7 @@
             },
             "required": true,
             "description": "The unique ID of the process item, taken from the process URL — for example, `Pk9ALV9QVo5L` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           },
           {
             "name": "activity_instance_id",
@@ -11925,7 +11925,7 @@
             },
             "required": true,
             "description": "The unique ID of the process step, taken from the process URL — for example, `Pk9ALV9RNK_A` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Ai1a2b3c4d5e6"
           },
           {
             "name": "table_id",
@@ -11935,7 +11935,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the table in the process form.",
-            "example": "<string>"
+            "example": "LineItems"
           },
           {
             "name": "row_id",
@@ -11945,7 +11945,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the row of the table in the process form.",
-            "example": "<string>"
+            "example": "Ro1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -11955,7 +11955,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the column (field) in the process form's table.",
-            "example": "<string>"
+            "example": "PONumber"
           }
         ],
         "responses": {
@@ -12247,7 +12247,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -12257,7 +12257,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Leave_request` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "instance_id",
@@ -12267,7 +12267,7 @@
             },
             "required": true,
             "description": "The unique ID of the process item, taken from the process URL — for example, `Pk9ALV9QVo5L` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           },
           {
             "name": "activity_instance_id",
@@ -12277,7 +12277,7 @@
             },
             "required": true,
             "description": "The unique ID of the process step, taken from the process URL — for example, `Pk9ALV9RNK_A` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Ai1a2b3c4d5e6"
           },
           {
             "name": "table_id",
@@ -12287,7 +12287,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the table in the process form.",
-            "example": "<string>"
+            "example": "LineItems"
           },
           {
             "name": "row_id",
@@ -12297,7 +12297,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the row of the table in the process form.",
-            "example": "<string>"
+            "example": "Ro1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -12307,7 +12307,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the column (field) in the process form's table.",
-            "example": "<string>"
+            "example": "PONumber"
           }
         ],
         "responses": {
@@ -12540,19 +12540,19 @@
             "name": "page_number",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3.",
-            "example": "<integer>"
+            "example": 1
           },
           {
             "name": "page_size",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The number of items per page; accepts any integer.",
-            "example": "<integer>"
+            "example": 25
           },
           {
             "name": "account_id",
@@ -12562,7 +12562,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -12572,7 +12572,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Leave_request` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           }
         ],
         "responses": {
@@ -12932,19 +12932,19 @@
             "name": "page_number",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3.",
-            "example": "<integer>"
+            "example": 1
           },
           {
             "name": "page_size",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The number of items per page; accepts any integer.",
-            "example": "<integer>"
+            "example": 25
           },
           {
             "name": "account_id",
@@ -12954,7 +12954,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -12964,7 +12964,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Leave_request` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           }
         ],
         "responses": {
@@ -13324,28 +13324,28 @@
             "name": "page_number",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3.",
-            "example": "<integer>"
+            "example": 1
           },
           {
             "name": "page_size",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The number of items per page; accepts any integer.",
-            "example": "<integer>"
+            "example": 25
           },
           {
             "name": "apply_preference",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "boolean"
             },
             "description": "The applied preferences, such as filters, shown or hidden fields, and rows per page.",
-            "example": "<boolean>"
+            "example": false
           },
           {
             "name": "account_id",
@@ -13355,7 +13355,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -13365,7 +13365,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Purchase_reimbursement` in `https://thestarkcorporation.kissflow.com/view/process/Purchase_reimbursement/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           }
         ],
         "responses": {
@@ -13846,7 +13846,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -13856,7 +13856,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Leave_request` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "instance_id",
@@ -13866,7 +13866,7 @@
             },
             "required": true,
             "description": "The unique ID of the process item, taken from the process URL — for example, `Pk9ALV9QVo5L` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           }
         ],
         "responses": {
@@ -14188,7 +14188,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -14198,7 +14198,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Leave_request` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "instance_id",
@@ -14208,7 +14208,7 @@
             },
             "required": true,
             "description": "The unique ID of the process item, taken from the process URL — for example, `Pk9ALV9QVo5L` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           }
         ],
         "responses": {
@@ -14503,7 +14503,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -14513,7 +14513,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Leave_request` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "instance_id",
@@ -14523,7 +14523,7 @@
             },
             "required": true,
             "description": "The unique ID of the process item, taken from the process URL — for example, `Pk9ALV9QVo5L` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           }
         ],
         "responses": {
@@ -14804,7 +14804,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -14814,7 +14814,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Leave_request` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "instance_id",
@@ -14824,7 +14824,7 @@
             },
             "required": true,
             "description": "The unique ID of the process item, taken from the process URL — for example, `Pk9ALV9QVo5L` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           },
           {
             "name": "field_id",
@@ -14834,7 +14834,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the field in the process form.",
-            "example": "<string>"
+            "example": "PONumber"
           }
         ],
         "responses": {
@@ -15128,7 +15128,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -15138,7 +15138,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Leave_request` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "instance_id",
@@ -15148,7 +15148,7 @@
             },
             "required": true,
             "description": "The unique ID of the process item, taken from the process URL — for example, `Pk9ALV9QVo5L` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           },
           {
             "name": "field_id",
@@ -15158,7 +15158,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the field in the process form.",
-            "example": "<string>"
+            "example": "PONumber"
           },
           {
             "name": "attachment_id",
@@ -15168,7 +15168,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the attached file in the process form.",
-            "example": "<string>"
+            "example": "At1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -15433,7 +15433,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -15443,7 +15443,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Leave_request` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "instance_id",
@@ -15453,7 +15453,7 @@
             },
             "required": true,
             "description": "The unique ID of the process item, taken from the process URL — for example, `Pk9ALV9QVo5L` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           },
           {
             "name": "table_id",
@@ -15463,7 +15463,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the table in the process form.",
-            "example": "<string>"
+            "example": "LineItems"
           },
           {
             "name": "row_id",
@@ -15473,7 +15473,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the row of the table in the process form.",
-            "example": "<string>"
+            "example": "Ro1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -15483,7 +15483,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the column (field) in the process form's table.",
-            "example": "<string>"
+            "example": "PONumber"
           }
         ],
         "responses": {
@@ -15777,7 +15777,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -15787,7 +15787,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Leave_request` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "instance_id",
@@ -15797,7 +15797,7 @@
             },
             "required": true,
             "description": "The unique ID of the process item, taken from the process URL — for example, `Pk9ALV9QVo5L` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           },
           {
             "name": "table_id",
@@ -15807,7 +15807,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the table in the process form.",
-            "example": "<string>"
+            "example": "LineItems"
           },
           {
             "name": "row_id",
@@ -15817,7 +15817,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the row of the table in the process form.",
-            "example": "<string>"
+            "example": "Ro1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -15827,7 +15827,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the column (field) in the process form's table.",
-            "example": "<string>"
+            "example": "PONumber"
           },
           {
             "name": "attachment_id",
@@ -15837,7 +15837,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the attached file in the process form.",
-            "example": "<string>"
+            "example": "At1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -16102,7 +16102,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -16112,7 +16112,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Leave_request` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "instance_id",
@@ -16122,7 +16122,7 @@
             },
             "required": true,
             "description": "The unique ID of the process item, taken from the process URL — for example, `Pk9ALV9QVo5L` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           },
           {
             "name": "field_id",
@@ -16132,7 +16132,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the field in the process form.",
-            "example": "<string>"
+            "example": "PONumber"
           }
         ],
         "responses": {
@@ -16424,7 +16424,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -16434,7 +16434,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Leave_request` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "instance_id",
@@ -16444,7 +16444,7 @@
             },
             "required": true,
             "description": "The unique ID of the process item, taken from the process URL — for example, `Pk9ALV9QVo5L` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           },
           {
             "name": "field_id",
@@ -16454,7 +16454,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the field in the process form.",
-            "example": "<string>"
+            "example": "PONumber"
           }
         ],
         "responses": {
@@ -16719,7 +16719,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -16729,7 +16729,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Leave_request` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "instance_id",
@@ -16739,7 +16739,7 @@
             },
             "required": true,
             "description": "The unique ID of the process item, taken from the process URL — for example, `Pk9ALV9QVo5L` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           },
           {
             "name": "table_id",
@@ -16749,7 +16749,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the table in the process form.",
-            "example": "<string>"
+            "example": "LineItems"
           },
           {
             "name": "row_id",
@@ -16759,7 +16759,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the row of the table in the process form.",
-            "example": "<string>"
+            "example": "Ro1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -16769,7 +16769,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the column (field) in the process form's table.",
-            "example": "<string>"
+            "example": "PONumber"
           }
         ],
         "responses": {
@@ -17061,7 +17061,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -17071,7 +17071,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Leave_request` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/myitems/Draft`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "instance_id",
@@ -17081,7 +17081,7 @@
             },
             "required": true,
             "description": "The unique ID of the process item, taken from the process URL — for example, `Pk9ALV9QVo5L` in `https://thestarkcorporation.kissflow.com/view/process/Leave_request/form/Pk9ALV9QVo5L/Pk9ALV9RNK_A`.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           },
           {
             "name": "table_id",
@@ -17091,7 +17091,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the table in the process form.",
-            "example": "<string>"
+            "example": "LineItems"
           },
           {
             "name": "row_id",
@@ -17101,7 +17101,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the row of the table in the process form.",
-            "example": "<string>"
+            "example": "Ro1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -17111,7 +17111,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the column (field) in the process form's table.",
-            "example": "<string>"
+            "example": "PONumber"
           }
         ],
         "responses": {
@@ -17347,7 +17347,7 @@
               "type": "string"
             },
             "description": "The search filter string.",
-            "example": "<string>"
+            "example": "invoice"
           },
           {
             "name": "account_id",
@@ -17357,7 +17357,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -17367,7 +17367,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Purchase_Request` in `https://thestarkcorp.kissflow.com/view/process/Purchase_Request/form/Pk8gkqOWMGnc/Pk8gkqOWoc94`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "report_id",
@@ -17377,7 +17377,7 @@
             },
             "required": true,
             "description": "The unique ID of the report, taken from the report URL — for example, `Finish_charrtt` in `https://thestarkcorp.kissflow.com/view/analytics/ds_Virtual_pro/analyticstable/report/Finish_charrtt`.",
-            "example": "<string>"
+            "example": "Monthly_Spend"
           }
         ],
         "responses": {
@@ -17810,7 +17810,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -17820,7 +17820,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Purchase_Request` in `https://thestarkcorp.kissflow.com/view/process/Purchase_Request/form/Pk8gkqOWMGnc/Pk8gkqOWoc94`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "report_id",
@@ -17830,7 +17830,7 @@
             },
             "required": true,
             "description": "The unique ID of the report, taken from the report URL — for example, `Finish_charrtt` in `https://thestarkcorp.kissflow.com/view/analytics/ds_Virtual_pro/analyticstable/report/Finish_charrtt`.",
-            "example": "<string>"
+            "example": "Monthly_Spend"
           }
         ],
         "responses": {
@@ -18299,7 +18299,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "process_id",
@@ -18309,7 +18309,7 @@
             },
             "required": true,
             "description": "The unique ID of the process, taken from the process URL — for example, `Purchase_Request` in `https://thestarkcorp.kissflow.com/view/process/Purchase_Request/form/Pk8gkqOWMGnc/Pk8gkqOWoc94`.",
-            "example": "<string>"
+            "example": "Purchase_Order"
           },
           {
             "name": "report_id",
@@ -18319,7 +18319,7 @@
             },
             "required": true,
             "description": "The unique ID of the report, taken from the report URL — for example, `Finish_charrtt` in `https://thestarkcorp.kissflow.com/view/analytics/ds_Virtual_pro/analyticstable/report/Finish_charrtt`.",
-            "example": "<string>"
+            "example": "Monthly_Spend"
           },
           {
             "name": "instance_id",
@@ -18329,7 +18329,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the process, taken from the process URL — for example, `Pk8gkqOWMGnc` in `https://thestarkcorp.kissflow.com/view/process/Purchase_Request/form/Pk8gkqOWMGnc/Pk8gkqOWoc94`.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           }
         ],
         "responses": {
@@ -18861,7 +18861,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -18871,7 +18871,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           }
         ],
         "responses": {
@@ -19279,7 +19279,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -19289,7 +19289,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -19299,7 +19299,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           },
           {
             "name": "status_id",
@@ -19309,7 +19309,7 @@
             },
             "required": true,
             "description": "The unique ID of the status in the board.",
-            "example": "<string>"
+            "example": "In_Progress"
           }
         ],
         "responses": {
@@ -19764,7 +19764,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -19774,7 +19774,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -19784,7 +19784,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           },
           {
             "name": "status_id",
@@ -19794,7 +19794,7 @@
             },
             "required": true,
             "description": "The unique ID of the status in the board.",
-            "example": "<string>"
+            "example": "In_Progress"
           }
         ],
         "responses": {
@@ -20233,7 +20233,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -20243,7 +20243,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -20253,7 +20253,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           },
           {
             "name": "status_id",
@@ -20263,7 +20263,7 @@
             },
             "required": true,
             "description": "The unique ID of the status in the board.",
-            "example": "<string>"
+            "example": "In_Progress"
           }
         ],
         "responses": {
@@ -20701,7 +20701,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -20711,7 +20711,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -20721,7 +20721,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           },
           {
             "name": "status_id",
@@ -20731,7 +20731,7 @@
             },
             "required": true,
             "description": "The unique ID of the status in the board.",
-            "example": "<string>"
+            "example": "In_Progress"
           }
         ],
         "responses": {
@@ -21186,7 +21186,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -21196,7 +21196,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -21206,7 +21206,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           },
           {
             "name": "status_id",
@@ -21216,7 +21216,7 @@
             },
             "required": true,
             "description": "The unique ID of the status in the board.",
-            "example": "<string>"
+            "example": "In_Progress"
           }
         ],
         "responses": {
@@ -21651,7 +21651,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -21661,7 +21661,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -21671,7 +21671,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           },
           {
             "name": "status_id",
@@ -21681,7 +21681,7 @@
             },
             "required": true,
             "description": "The unique ID of the status in the board.",
-            "example": "<string>"
+            "example": "In_Progress"
           }
         ],
         "responses": {
@@ -22084,7 +22084,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -22094,7 +22094,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -22104,7 +22104,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -22355,7 +22355,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -22365,7 +22365,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -22375,7 +22375,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -22841,7 +22841,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -22851,7 +22851,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           }
         ],
         "responses": {
@@ -23160,7 +23160,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -23170,7 +23170,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           }
         ],
         "responses": {
@@ -23539,7 +23539,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -23549,7 +23549,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           }
         ],
         "responses": {
@@ -23935,7 +23935,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -23945,7 +23945,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           }
         ],
         "responses": {
@@ -24327,7 +24327,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -24337,7 +24337,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -24347,7 +24347,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -24780,7 +24780,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -24790,7 +24790,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -24800,7 +24800,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -25113,7 +25113,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -25123,7 +25123,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           }
         ],
         "responses": {
@@ -25394,7 +25394,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -25404,7 +25404,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -25414,7 +25414,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -25745,7 +25745,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -25755,7 +25755,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -25765,7 +25765,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -26100,7 +26100,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -26110,7 +26110,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           }
         ],
         "responses": {
@@ -26380,7 +26380,7 @@
               "type": "string"
             },
             "description": "The search string.",
-            "example": "<string>"
+            "example": "invoice"
           },
           {
             "name": "account_id",
@@ -26390,7 +26390,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -26400,7 +26400,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -26410,7 +26410,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -26420,7 +26420,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the field in the board.",
-            "example": "<string>"
+            "example": "PONumber"
           }
         ],
         "responses": {
@@ -26710,19 +26710,19 @@
             "name": "page_number",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3; defaults to 1.",
-            "example": "<integer>"
+            "example": 1
           },
           {
             "name": "page_size",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The number of items per page; defaults to 10.",
-            "example": "<integer>"
+            "example": 25
           },
           {
             "name": "q",
@@ -26731,7 +26731,7 @@
               "type": "string"
             },
             "description": "The search string.",
-            "example": "<string>"
+            "example": "invoice"
           },
           {
             "name": "account_id",
@@ -26741,7 +26741,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -26751,7 +26751,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -26761,7 +26761,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -26771,7 +26771,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the field in the board.",
-            "example": "<string>"
+            "example": "PONumber"
           }
         ],
         "responses": {
@@ -27065,7 +27065,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -27075,7 +27075,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -27085,7 +27085,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -27647,7 +27647,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -27657,7 +27657,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           }
         ],
         "responses": {
@@ -28030,7 +28030,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -28040,7 +28040,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "table_id",
@@ -28050,7 +28050,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the table in the board.",
-            "example": "<string>"
+            "example": "LineItems"
           }
         ],
         "responses": {
@@ -28544,7 +28544,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -28554,7 +28554,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "view_type",
@@ -28564,7 +28564,7 @@
             },
             "required": true,
             "description": "The type of view in the board.",
-            "example": "<string>"
+            "example": "list"
           }
         ],
         "responses": {
@@ -29300,19 +29300,19 @@
             "name": "page_number",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3; defaults to 1.",
-            "example": "<integer>"
+            "example": 1
           },
           {
             "name": "page_size",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The number of items per page; defaults to 10.",
-            "example": "<integer>"
+            "example": 25
           },
           {
             "name": "q",
@@ -29321,7 +29321,7 @@
               "type": "string"
             },
             "description": "The search string.",
-            "example": "<string>"
+            "example": "invoice"
           },
           {
             "name": "account_id",
@@ -29331,7 +29331,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -29341,7 +29341,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -29351,7 +29351,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           },
           {
             "name": "table_id",
@@ -29361,7 +29361,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the table in the board.",
-            "example": "<string>"
+            "example": "LineItems"
           },
           {
             "name": "table_instance_id",
@@ -29371,7 +29371,7 @@
             },
             "required": true,
             "description": "The unique ID of the row in the table that contains the lookup field.",
-            "example": "<string>"
+            "example": "Ti1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -29381,7 +29381,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the field in the board.",
-            "example": "<string>"
+            "example": "PONumber"
           }
         ],
         "responses": {
@@ -29675,7 +29675,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -29685,7 +29685,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -29695,7 +29695,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           },
           {
             "name": "table_id",
@@ -29705,7 +29705,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the table in the board.",
-            "example": "<string>"
+            "example": "LineItems"
           },
           {
             "name": "table_instance_id",
@@ -29715,7 +29715,7 @@
             },
             "required": true,
             "description": "The unique ID of the row in the table that contains the lookup field.",
-            "example": "<string>"
+            "example": "Ti1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -29725,7 +29725,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the field in the board.",
-            "example": "<string>"
+            "example": "PONumber"
           }
         ],
         "responses": {
@@ -30019,7 +30019,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -30029,7 +30029,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -30039,7 +30039,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -30049,7 +30049,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the field in the board.",
-            "example": "<string>"
+            "example": "PONumber"
           },
           {
             "name": "attachment_id",
@@ -30059,7 +30059,7 @@
             },
             "required": true,
             "description": "The unique ID of the attached file.",
-            "example": "<string>"
+            "example": "At1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -30296,7 +30296,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -30306,7 +30306,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -30316,7 +30316,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           },
           {
             "name": "table_id",
@@ -30326,7 +30326,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the table in the board.",
-            "example": "<string>"
+            "example": "LineItems"
           },
           {
             "name": "row_id",
@@ -30336,7 +30336,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the row of the table in the board.",
-            "example": "<string>"
+            "example": "Ro1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -30346,7 +30346,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the field in the board.",
-            "example": "<string>"
+            "example": "PONumber"
           },
           {
             "name": "attachment_id",
@@ -30356,7 +30356,7 @@
             },
             "required": true,
             "description": "The unique ID of the attached file.",
-            "example": "<string>"
+            "example": "At1a2b3c4d5e6"
           }
         ],
         "responses": {
@@ -30593,7 +30593,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -30603,7 +30603,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -30613,7 +30613,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -30623,7 +30623,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the field in the board.",
-            "example": "<string>"
+            "example": "PONumber"
           }
         ],
         "responses": {
@@ -30886,7 +30886,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -30896,7 +30896,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -30906,7 +30906,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -30916,7 +30916,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the field in the board.",
-            "example": "<string>"
+            "example": "PONumber"
           }
         ],
         "responses": {
@@ -31169,7 +31169,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -31179,7 +31179,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -31189,7 +31189,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           },
           {
             "name": "table_id",
@@ -31199,7 +31199,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the table in the board.",
-            "example": "<string>"
+            "example": "LineItems"
           },
           {
             "name": "row_id",
@@ -31209,7 +31209,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the row of the table in the board.",
-            "example": "<string>"
+            "example": "Ro1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -31219,7 +31219,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the field in the board.",
-            "example": "<string>"
+            "example": "PONumber"
           }
         ],
         "responses": {
@@ -31482,7 +31482,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -31492,7 +31492,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -31502,7 +31502,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           },
           {
             "name": "table_id",
@@ -31512,7 +31512,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the table in the board.",
-            "example": "<string>"
+            "example": "LineItems"
           },
           {
             "name": "row_id",
@@ -31522,7 +31522,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the row of the table in the board.",
-            "example": "<string>"
+            "example": "Ro1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -31532,7 +31532,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the field in the board.",
-            "example": "<string>"
+            "example": "PONumber"
           }
         ],
         "responses": {
@@ -31813,7 +31813,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -31823,7 +31823,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -31833,7 +31833,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -31843,7 +31843,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the field in the board.",
-            "example": "<string>"
+            "example": "PONumber"
           }
         ],
         "responses": {
@@ -32124,7 +32124,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "case_id",
@@ -32134,7 +32134,7 @@
             },
             "required": true,
             "description": "The unique ID of the board, taken from the board URL — for example, `Customer_feedback_requests` in `https://thestarkcorporation.kissflow.com/view/case/Customer_feedback_requests/home/Customer_feedback_requests_all`.",
-            "example": "<string>"
+            "example": "Support_Ticket"
           },
           {
             "name": "item_id",
@@ -32144,7 +32144,7 @@
             },
             "required": true,
             "description": "The unique ID of the item in the board.",
-            "example": "<string>"
+            "example": "It1a2b3c4d5e6"
           },
           {
             "name": "table_id",
@@ -32154,7 +32154,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the table in the board.",
-            "example": "<string>"
+            "example": "LineItems"
           },
           {
             "name": "row_id",
@@ -32164,7 +32164,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the row of the table in the board.",
-            "example": "<string>"
+            "example": "Ro1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -32174,7 +32174,7 @@
             },
             "required": true,
             "description": "The unique ID assigned to the field in the board.",
-            "example": "<string>"
+            "example": "PONumber"
           }
         ],
         "responses": {
@@ -32479,7 +32479,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "form_id",
@@ -32489,7 +32489,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataform, taken from the dataform URL — for example, `Testimonial_Form_A00` in `https://development-thestarkcorporation.kissflow.com/appbuilder/PACMS_A00/form/Testimonial_Form_A00`.",
-            "example": "<string>"
+            "example": "Employee_Onboarding"
           }
         ],
         "responses": {
@@ -32643,11 +32643,11 @@
                   "not_found": {
                     "summary": "404 Not Found",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
                       "args": {},
-                      "en_message": "<string>",
-                      "message": "<string>"
+                      "en_message": "You are not authorized to access this resource.",
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -32719,7 +32719,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "form_id",
@@ -32729,7 +32729,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataform, taken from the dataform URL — for example, `Testimonial_Form_A00` in `https://development-thestarkcorporation.kissflow.com/appbuilder/PACMS_A00/form/Testimonial_Form_A00`.",
-            "example": "<string>"
+            "example": "Employee_Onboarding"
           },
           {
             "name": "instance_id",
@@ -32739,7 +32739,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataform record, available in the browser's network tab.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           }
         ],
         "responses": {
@@ -33077,7 +33077,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "form_id",
@@ -33087,7 +33087,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataform, taken from the dataform URL — for example, `Testimonial_Form_A00` in `https://development-thestarkcorporation.kissflow.com/appbuilder/PACMS_A00/form/Testimonial_Form_A00`.",
-            "example": "<string>"
+            "example": "Employee_Onboarding"
           },
           {
             "name": "instance_id",
@@ -33097,7 +33097,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataform record, available in the browser's network tab.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           }
         ],
         "responses": {
@@ -33568,7 +33568,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "form_id",
@@ -33578,7 +33578,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataform, taken from the dataform URL — for example, `Testimonial_Form_A00` in `https://development-thestarkcorporation.kissflow.com/appbuilder/PACMS_A00/form/Testimonial_Form_A00`.",
-            "example": "<string>"
+            "example": "Employee_Onboarding"
           },
           {
             "name": "instance_id",
@@ -33588,7 +33588,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataform record, available in the browser's network tab.",
-            "example": "<string>"
+            "example": "Purchase_Order_A0001"
           }
         ],
         "responses": {
@@ -33921,10 +33921,10 @@
               },
               "example": [
                 {
-                  "_id": "<string>"
+                  "_id": "5f3a1c2e9b1d4a0012a34567"
                 },
                 {
-                  "_id": "<string>"
+                  "_id": "5f3a1c2e9b1d4a0012a34567"
                 }
               ]
             }
@@ -33961,7 +33961,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "form_id",
@@ -33971,7 +33971,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataform, taken from the dataform URL — for example, `Testimonial_Form_A00` in `https://development-thestarkcorporation.kissflow.com/appbuilder/PACMS_A00/form/Testimonial_Form_A00`.",
-            "example": "<string>"
+            "example": "Employee_Onboarding"
           }
         ],
         "responses": {
@@ -34390,7 +34390,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "form_id",
@@ -34400,7 +34400,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataform, taken from the dataform URL — for example, `Testimonial_Form_A00` in `https://development-thestarkcorporation.kissflow.com/appbuilder/PACMS_A00/form/Testimonial_Form_A00`.",
-            "example": "<string>"
+            "example": "Employee_Onboarding"
           }
         ],
         "responses": {
@@ -34762,28 +34762,28 @@
             "name": "visited",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "boolean"
             },
             "description": "The search filter string based on visited status.",
-            "example": "<boolean>"
+            "example": false
           },
           {
             "name": "page_number",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3; defaults to 1.",
-            "example": "<integer>"
+            "example": 1
           },
           {
             "name": "page_size",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The number of items per page; defaults to 10.",
-            "example": "<integer>"
+            "example": 25
           },
           {
             "name": "q",
@@ -34792,7 +34792,7 @@
               "type": "string"
             },
             "description": "The search string.",
-            "example": "<string>"
+            "example": "invoice"
           },
           {
             "name": "search_field",
@@ -34801,7 +34801,7 @@
               "type": "string"
             },
             "description": "The search filter string based on a specific field.",
-            "example": "<string>"
+            "example": "Name"
           },
           {
             "name": "account_id",
@@ -34811,7 +34811,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "form_id",
@@ -34821,7 +34821,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataform, taken from the dataform URL — for example, `Testimonial_Form_A00` in `https://development-thestarkcorporation.kissflow.com/appbuilder/PACMS_A00/form/Testimonial_Form_A00`.",
-            "example": "<string>"
+            "example": "Employee_Onboarding"
           }
         ],
         "responses": {
@@ -35178,19 +35178,19 @@
             "name": "page_number",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3; defaults to 1.",
-            "example": "<integer>"
+            "example": 1
           },
           {
             "name": "page_size",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The number of items per page; defaults to 10.",
-            "example": "<integer>"
+            "example": 25
           },
           {
             "name": "q",
@@ -35199,7 +35199,7 @@
               "type": "string"
             },
             "description": "The search filter string.",
-            "example": "<string>"
+            "example": "invoice"
           },
           {
             "name": "search_field",
@@ -35208,7 +35208,7 @@
               "type": "string"
             },
             "description": "The search filter string based on a specific field.",
-            "example": "<string>"
+            "example": "Name"
           },
           {
             "name": "account_id",
@@ -35218,7 +35218,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "form_id",
@@ -35228,7 +35228,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataform, taken from the dataform URL — for example, `Testimonial_Form_A00` in `https://development-thestarkcorporation.kissflow.com/appbuilder/PACMS_A00/form/Testimonial_Form_A00`.",
-            "example": "<string>"
+            "example": "Employee_Onboarding"
           },
           {
             "name": "view_id",
@@ -35238,7 +35238,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataform view, available in the browser's network tab.",
-            "example": "<string>"
+            "example": "Open_Items"
           }
         ],
         "responses": {
@@ -35621,11 +35621,11 @@
                   "not_found": {
                     "summary": "404 Not Found",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
                       "args": {},
-                      "en_message": "<string>",
-                      "message": "<string>"
+                      "en_message": "You are not authorized to access this resource.",
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -35663,8 +35663,8 @@
                 ]
               },
               "example": {
-                "Name": "<string>",
-                "Field1": "<string>"
+                "Name": "Acme Corporation",
+                "Field1": "Sample value"
               }
             }
           }
@@ -35700,7 +35700,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "dataset_id",
@@ -35710,7 +35710,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataset, taken from the dataset URL — for example, `Bank_Dataset` in `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset`.",
-            "example": "<string>"
+            "example": "Vendor_List"
           }
         ],
         "responses": {
@@ -35775,11 +35775,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -35835,11 +35835,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -35895,11 +35895,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -35935,8 +35935,8 @@
                 ]
               },
               "example": {
-                "Name": "<string>",
-                "Field1": "<string>"
+                "Name": "Acme Corporation",
+                "Field1": "Sample value"
               }
             }
           }
@@ -35972,7 +35972,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "dataset_id",
@@ -35982,7 +35982,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataset, taken from the dataset URL — for example, `Bank_Dataset` in `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset`.",
-            "example": "<string>"
+            "example": "Vendor_List"
           }
         ],
         "responses": {
@@ -36047,11 +36047,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -36107,11 +36107,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -36167,11 +36167,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -36208,7 +36208,7 @@
               "type": "string"
             },
             "description": "The `Key` column value of the dataset — the unique string identifying the record to fetch.",
-            "example": "<string>"
+            "example": "Acme Corporation"
           },
           {
             "name": "account_id",
@@ -36218,7 +36218,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "dataset_id",
@@ -36228,7 +36228,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataset, taken from the dataset URL — for example, `Bank_Dataset` in `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset`.",
-            "example": "<string>"
+            "example": "Vendor_List"
           }
         ],
         "responses": {
@@ -36293,11 +36293,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -36353,11 +36353,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -36413,11 +36413,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -36449,7 +36449,7 @@
                 ]
               },
               "example": {
-                "Name": "<string>"
+                "Name": "Acme Corporation"
               }
             }
           }
@@ -36485,7 +36485,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "dataset_id",
@@ -36495,7 +36495,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataset, taken from the dataset URL — for example, `Bank_Dataset` in `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset`.",
-            "example": "<string>"
+            "example": "Vendor_List"
           }
         ],
         "responses": {
@@ -36560,11 +36560,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -36620,11 +36620,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -36680,11 +36680,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -36723,25 +36723,25 @@
               "type": "string"
             },
             "description": "The search filter string.",
-            "example": "<string>"
+            "example": "invoice"
           },
           {
             "name": "page_number",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3; defaults to 1.",
-            "example": "<integer>"
+            "example": 1
           },
           {
             "name": "page_size",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The number of items per page; defaults to 10.",
-            "example": "<integer>"
+            "example": 25
           },
           {
             "name": "search_field",
@@ -36750,7 +36750,7 @@
               "type": "string"
             },
             "description": "The search filter string based on a specific field.",
-            "example": "<string>"
+            "example": "Name"
           },
           {
             "name": "account_id",
@@ -36760,7 +36760,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "dataset_id",
@@ -36770,7 +36770,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataset, taken from the dataset URL — for example, `Bank_Dataset` in `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset`.",
-            "example": "<string>"
+            "example": "Vendor_List"
           },
           {
             "name": "view_id",
@@ -36780,7 +36780,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataset view, taken from the dataset URL — for example, `Bank_statements` in `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset/view/Bank_statements`.",
-            "example": "<string>"
+            "example": "Open_Items"
           }
         ],
         "responses": {
@@ -36913,23 +36913,23 @@
                         {
                           "response": [
                             {
-                              "Name": "<string>",
-                              "_id": "<string>",
-                              "PONumber": "<string>",
-                              "TotalPrice": "<string>",
+                              "Name": "Acme Corporation",
+                              "_id": "5f3a1c2e9b1d4a0012a34567",
+                              "PONumber": "PO-1042",
+                              "TotalPrice": "1500.00",
                               "RequestedBy": {
-                                "_id": "<string>",
-                                "Name": "<string>"
+                                "_id": "5f3a1c2e9b1d4a0012a34567",
+                                "Name": "Acme Corporation"
                               }
                             },
                             {
-                              "Name": "<string>",
-                              "_id": "<string>",
-                              "PONumber": "<string>",
-                              "TotalPrice": "<string>",
+                              "Name": "Acme Corporation",
+                              "_id": "5f3a1c2e9b1d4a0012a34567",
+                              "PONumber": "PO-1042",
+                              "TotalPrice": "1500.00",
                               "RequestedBy": {
-                                "_id": "<string>",
-                                "Name": "<string>"
+                                "_id": "5f3a1c2e9b1d4a0012a34567",
+                                "Name": "Acme Corporation"
                               }
                             }
                           ]
@@ -36937,23 +36937,23 @@
                         {
                           "response": [
                             {
-                              "Name": "<string>",
-                              "_id": "<string>",
-                              "PONumber": "<string>",
-                              "TotalPrice": "<string>",
+                              "Name": "Acme Corporation",
+                              "_id": "5f3a1c2e9b1d4a0012a34567",
+                              "PONumber": "PO-1042",
+                              "TotalPrice": "1500.00",
                               "RequestedBy": {
-                                "_id": "<string>",
-                                "Name": "<string>"
+                                "_id": "5f3a1c2e9b1d4a0012a34567",
+                                "Name": "Acme Corporation"
                               }
                             },
                             {
-                              "Name": "<string>",
-                              "_id": "<string>",
-                              "PONumber": "<string>",
-                              "TotalPrice": "<string>",
+                              "Name": "Acme Corporation",
+                              "_id": "5f3a1c2e9b1d4a0012a34567",
+                              "PONumber": "PO-1042",
+                              "TotalPrice": "1500.00",
                               "RequestedBy": {
-                                "_id": "<string>",
-                                "Name": "<string>"
+                                "_id": "5f3a1c2e9b1d4a0012a34567",
+                                "Name": "Acme Corporation"
                               }
                             }
                           ]
@@ -36961,16 +36961,16 @@
                       ],
                       "Columns": [
                         {
-                          "Id": "<string>",
-                          "Type": "<string>",
-                          "IsSystemField": "<boolean>",
-                          "Name": "<string>"
+                          "Id": "PONumber",
+                          "Type": "Text",
+                          "IsSystemField": false,
+                          "Name": "Acme Corporation"
                         },
                         {
-                          "Id": "<string>",
-                          "Type": "<string>",
-                          "IsSystemField": "<boolean>",
-                          "Name": "<string>"
+                          "Id": "PONumber",
+                          "Type": "Text",
+                          "IsSystemField": false,
+                          "Name": "Acme Corporation"
                         }
                       ]
                     }
@@ -37028,11 +37028,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -37088,11 +37088,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -37148,11 +37148,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -37191,7 +37191,7 @@
               "type": "string"
             },
             "description": "The search filter string.",
-            "example": "<string>"
+            "example": "invoice"
           },
           {
             "name": "page_number",
@@ -37200,7 +37200,7 @@
               "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3; defaults to 1.",
-            "example": "1"
+            "example": 1
           },
           {
             "name": "page_size",
@@ -37209,7 +37209,7 @@
               "type": "integer"
             },
             "description": "The number of items per page; defaults to 10.",
-            "example": "10"
+            "example": 25
           },
           {
             "name": "field_ids",
@@ -37218,7 +37218,7 @@
               "type": "string"
             },
             "description": "The comma-separated, URL-encoded field IDs to fetch aggregation details for; returns aggregation for all dataset fields by default.",
-            "example": "<string>"
+            "example": "Name,Email"
           },
           {
             "name": "account_id",
@@ -37228,7 +37228,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "dataset_id",
@@ -37238,7 +37238,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataset, taken from the dataset URL — for example, `Bank_Dataset` in `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset`.",
-            "example": "<string>"
+            "example": "Vendor_List"
           }
         ],
         "responses": {
@@ -37303,11 +37303,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -37363,11 +37363,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -37423,11 +37423,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -37466,25 +37466,25 @@
               "type": "string"
             },
             "description": "The search filter string.",
-            "example": "<string>"
+            "example": "invoice"
           },
           {
             "name": "page_number",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The page number of the item list, for example 1, 2, or 3; defaults to 1.",
-            "example": "<integer>"
+            "example": 1
           },
           {
             "name": "page_size",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "The number of items per page; defaults to 10.",
-            "example": "<integer>"
+            "example": 25
           },
           {
             "name": "search_field",
@@ -37493,7 +37493,7 @@
               "type": "string"
             },
             "description": "The search filter string based on a specific field.",
-            "example": "<string>"
+            "example": "Name"
           },
           {
             "name": "account_id",
@@ -37503,7 +37503,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "dataset_id",
@@ -37513,7 +37513,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataset, taken from the dataset URL — for example, `Bank_Dataset` in `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset`.",
-            "example": "<string>"
+            "example": "Vendor_List"
           }
         ],
         "responses": {
@@ -37646,23 +37646,23 @@
                         {
                           "response": [
                             {
-                              "Name": "<string>",
-                              "_id": "<string>",
-                              "PONumber": "<string>",
-                              "TotalPrice": "<string>",
+                              "Name": "Acme Corporation",
+                              "_id": "5f3a1c2e9b1d4a0012a34567",
+                              "PONumber": "PO-1042",
+                              "TotalPrice": "1500.00",
                               "RequestedBy": {
-                                "_id": "<string>",
-                                "Name": "<string>"
+                                "_id": "5f3a1c2e9b1d4a0012a34567",
+                                "Name": "Acme Corporation"
                               }
                             },
                             {
-                              "Name": "<string>",
-                              "_id": "<string>",
-                              "PONumber": "<string>",
-                              "TotalPrice": "<string>",
+                              "Name": "Acme Corporation",
+                              "_id": "5f3a1c2e9b1d4a0012a34567",
+                              "PONumber": "PO-1042",
+                              "TotalPrice": "1500.00",
                               "RequestedBy": {
-                                "_id": "<string>",
-                                "Name": "<string>"
+                                "_id": "5f3a1c2e9b1d4a0012a34567",
+                                "Name": "Acme Corporation"
                               }
                             }
                           ]
@@ -37670,23 +37670,23 @@
                         {
                           "response": [
                             {
-                              "Name": "<string>",
-                              "_id": "<string>",
-                              "PONumber": "<string>",
-                              "TotalPrice": "<string>",
+                              "Name": "Acme Corporation",
+                              "_id": "5f3a1c2e9b1d4a0012a34567",
+                              "PONumber": "PO-1042",
+                              "TotalPrice": "1500.00",
                               "RequestedBy": {
-                                "_id": "<string>",
-                                "Name": "<string>"
+                                "_id": "5f3a1c2e9b1d4a0012a34567",
+                                "Name": "Acme Corporation"
                               }
                             },
                             {
-                              "Name": "<string>",
-                              "_id": "<string>",
-                              "PONumber": "<string>",
-                              "TotalPrice": "<string>",
+                              "Name": "Acme Corporation",
+                              "_id": "5f3a1c2e9b1d4a0012a34567",
+                              "PONumber": "PO-1042",
+                              "TotalPrice": "1500.00",
                               "RequestedBy": {
-                                "_id": "<string>",
-                                "Name": "<string>"
+                                "_id": "5f3a1c2e9b1d4a0012a34567",
+                                "Name": "Acme Corporation"
                               }
                             }
                           ]
@@ -37694,16 +37694,16 @@
                       ],
                       "Columns": [
                         {
-                          "Id": "<string>",
-                          "Type": "<string>",
-                          "IsSystemField": "<boolean>",
-                          "Name": "<string>"
+                          "Id": "PONumber",
+                          "Type": "Text",
+                          "IsSystemField": false,
+                          "Name": "Acme Corporation"
                         },
                         {
-                          "Id": "<string>",
-                          "Type": "<string>",
-                          "IsSystemField": "<boolean>",
-                          "Name": "<string>"
+                          "Id": "PONumber",
+                          "Type": "Text",
+                          "IsSystemField": false,
+                          "Name": "Acme Corporation"
                         }
                       ]
                     }
@@ -37761,11 +37761,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -37821,11 +37821,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -37881,11 +37881,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -37951,7 +37951,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "dataset_id",
@@ -37961,7 +37961,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataset, taken from the dataset URL — for example, `Bank_Dataset` in `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset`.",
-            "example": "<string>"
+            "example": "Vendor_List"
           }
         ],
         "responses": {
@@ -38033,23 +38033,23 @@
                     "summary": "200 OK",
                     "value": [
                       {
-                        "Name": "<string>",
-                        "_id": "<string>",
-                        "PONumber": "<string>",
-                        "TotalPrice": "<string>",
+                        "Name": "Acme Corporation",
+                        "_id": "5f3a1c2e9b1d4a0012a34567",
+                        "PONumber": "PO-1042",
+                        "TotalPrice": "1500.00",
                         "RequestedBy": {
-                          "_id": "<string>",
-                          "Name": "<string>"
+                          "_id": "5f3a1c2e9b1d4a0012a34567",
+                          "Name": "Acme Corporation"
                         }
                       },
                       {
-                        "Name": "<string>",
-                        "_id": "<string>",
-                        "PONumber": "<string>",
-                        "TotalPrice": "<string>",
+                        "Name": "Acme Corporation",
+                        "_id": "5f3a1c2e9b1d4a0012a34567",
+                        "PONumber": "PO-1042",
+                        "TotalPrice": "1500.00",
                         "RequestedBy": {
-                          "_id": "<string>",
-                          "Name": "<string>"
+                          "_id": "5f3a1c2e9b1d4a0012a34567",
+                          "Name": "Acme Corporation"
                         }
                       }
                     ]
@@ -38107,11 +38107,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -38167,11 +38167,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -38227,11 +38227,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -38295,7 +38295,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "dataset_id",
@@ -38305,7 +38305,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataset, taken from the dataset URL — for example, `Bank_Dataset` in `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset`.",
-            "example": "<string>"
+            "example": "Vendor_List"
           },
           {
             "name": "view_id",
@@ -38315,7 +38315,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataset view, taken from the dataset URL — for example, `Bank_statements` in `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset/view/Bank_statements`.",
-            "example": "<string>"
+            "example": "Open_Items"
           }
         ],
         "responses": {
@@ -38387,23 +38387,23 @@
                     "summary": "200 OK",
                     "value": [
                       {
-                        "Name": "<string>",
-                        "_id": "<string>",
-                        "PONumber": "<string>",
-                        "TotalPrice": "<string>",
+                        "Name": "Acme Corporation",
+                        "_id": "5f3a1c2e9b1d4a0012a34567",
+                        "PONumber": "PO-1042",
+                        "TotalPrice": "1500.00",
                         "RequestedBy": {
-                          "_id": "<string>",
-                          "Name": "<string>"
+                          "_id": "5f3a1c2e9b1d4a0012a34567",
+                          "Name": "Acme Corporation"
                         }
                       },
                       {
-                        "Name": "<string>",
-                        "_id": "<string>",
-                        "PONumber": "<string>",
-                        "TotalPrice": "<string>",
+                        "Name": "Acme Corporation",
+                        "_id": "5f3a1c2e9b1d4a0012a34567",
+                        "PONumber": "PO-1042",
+                        "TotalPrice": "1500.00",
                         "RequestedBy": {
-                          "_id": "<string>",
-                          "Name": "<string>"
+                          "_id": "5f3a1c2e9b1d4a0012a34567",
+                          "Name": "Acme Corporation"
                         }
                       }
                     ]
@@ -38461,11 +38461,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -38521,11 +38521,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -38581,11 +38581,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -38652,7 +38652,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "dataset_id",
@@ -38662,7 +38662,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataset, taken from the dataset URL — for example, `Bank_Dataset` in `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset`.",
-            "example": "<string>"
+            "example": "Vendor_List"
           },
           {
             "name": "row_id",
@@ -38672,7 +38672,7 @@
             },
             "required": true,
             "description": "The unique ID of the row in the dataset.",
-            "example": "<string>"
+            "example": "Ro1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -38682,7 +38682,7 @@
             },
             "required": true,
             "description": "The unique ID of the field.",
-            "example": "<string>"
+            "example": "PONumber"
           }
         ],
         "responses": {
@@ -38789,34 +38789,34 @@
                     "value": {
                       "response": [
                         {
-                          "Name": "<string>",
-                          "_id": "<string>",
-                          "PONumber": "<string>",
-                          "TotalPrice": "<string>",
+                          "Name": "Acme Corporation",
+                          "_id": "5f3a1c2e9b1d4a0012a34567",
+                          "PONumber": "PO-1042",
+                          "TotalPrice": "1500.00",
                           "_modified_by": {
-                            "_id": "<string>",
-                            "Name": "<string>"
+                            "_id": "5f3a1c2e9b1d4a0012a34567",
+                            "Name": "Acme Corporation"
                           },
                           "RequestedBy": {
-                            "_id": "<string>",
-                            "Name": "<string>"
+                            "_id": "5f3a1c2e9b1d4a0012a34567",
+                            "Name": "Acme Corporation"
                           },
-                          "_modified_at": "<dateTime>"
+                          "_modified_at": "2026-01-15T10:30:00+00:00"
                         },
                         {
-                          "Name": "<string>",
-                          "_id": "<string>",
-                          "PONumber": "<string>",
-                          "TotalPrice": "<string>",
+                          "Name": "Acme Corporation",
+                          "_id": "5f3a1c2e9b1d4a0012a34567",
+                          "PONumber": "PO-1042",
+                          "TotalPrice": "1500.00",
                           "_modified_by": {
-                            "_id": "<string>",
-                            "Name": "<string>"
+                            "_id": "5f3a1c2e9b1d4a0012a34567",
+                            "Name": "Acme Corporation"
                           },
                           "RequestedBy": {
-                            "_id": "<string>",
-                            "Name": "<string>"
+                            "_id": "5f3a1c2e9b1d4a0012a34567",
+                            "Name": "Acme Corporation"
                           },
-                          "_modified_at": "<dateTime>"
+                          "_modified_at": "2026-01-15T10:30:00+00:00"
                         }
                       ]
                     }
@@ -38874,11 +38874,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -38934,11 +38934,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -38994,11 +38994,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -39065,7 +39065,7 @@
             },
             "required": true,
             "description": "The Kissflow account ID; see how to retrieve one from the [Account ID](https://community.kissflow.com/t/35h4az8/api-authentication#account-id) guide.",
-            "example": "<string>"
+            "example": "Ac1a2b3c4d5e6"
           },
           {
             "name": "dataset_id",
@@ -39075,7 +39075,7 @@
             },
             "required": true,
             "description": "The unique ID of the dataset, taken from the dataset URL — for example, `Bank_Dataset` in `https://thestarkcorporation.kissflow.com/view/dataset/Bank_Dataset`.",
-            "example": "<string>"
+            "example": "Vendor_List"
           },
           {
             "name": "row_id",
@@ -39085,7 +39085,7 @@
             },
             "required": true,
             "description": "The unique ID of the row.",
-            "example": "<string>"
+            "example": "Ro1a2b3c4d5e6"
           },
           {
             "name": "field_id",
@@ -39095,7 +39095,7 @@
             },
             "required": true,
             "description": "The unique ID of the field.",
-            "example": "<string>"
+            "example": "PONumber"
           }
         ],
         "responses": {
@@ -39202,34 +39202,34 @@
                     "value": {
                       "response": [
                         {
-                          "Name": "<string>",
-                          "_id": "<string>",
-                          "PONumber": "<string>",
-                          "TotalPrice": "<string>",
+                          "Name": "Acme Corporation",
+                          "_id": "5f3a1c2e9b1d4a0012a34567",
+                          "PONumber": "PO-1042",
+                          "TotalPrice": "1500.00",
                           "_modified_by": {
-                            "_id": "<string>",
-                            "Name": "<string>"
+                            "_id": "5f3a1c2e9b1d4a0012a34567",
+                            "Name": "Acme Corporation"
                           },
                           "RequestedBy": {
-                            "_id": "<string>",
-                            "Name": "<string>"
+                            "_id": "5f3a1c2e9b1d4a0012a34567",
+                            "Name": "Acme Corporation"
                           },
-                          "_modified_at": "<dateTime>"
+                          "_modified_at": "2026-01-15T10:30:00+00:00"
                         },
                         {
-                          "Name": "<string>",
-                          "_id": "<string>",
-                          "PONumber": "<string>",
-                          "TotalPrice": "<string>",
+                          "Name": "Acme Corporation",
+                          "_id": "5f3a1c2e9b1d4a0012a34567",
+                          "PONumber": "PO-1042",
+                          "TotalPrice": "1500.00",
                           "_modified_by": {
-                            "_id": "<string>",
-                            "Name": "<string>"
+                            "_id": "5f3a1c2e9b1d4a0012a34567",
+                            "Name": "Acme Corporation"
                           },
                           "RequestedBy": {
-                            "_id": "<string>",
-                            "Name": "<string>"
+                            "_id": "5f3a1c2e9b1d4a0012a34567",
+                            "Name": "Acme Corporation"
                           },
-                          "_modified_at": "<dateTime>"
+                          "_modified_at": "2026-01-15T10:30:00+00:00"
                         }
                       ]
                     }
@@ -39287,11 +39287,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -39347,11 +39347,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
@@ -39407,11 +39407,11 @@
                   "error": {
                     "summary": "Error response",
                     "value": {
-                      "_id": "<string>",
-                      "error_code": "<string>",
-                      "en_message": "<string>",
+                      "_id": "5f3a1c2e9b1d4a0012a34567",
+                      "error_code": "KISSFLOW_ERROR_00014",
+                      "en_message": "You are not authorized to access this resource.",
                       "args": {},
-                      "message": "<string>"
+                      "message": "You are not authorized to access this resource."
                     }
                   }
                 }
