@@ -68,11 +68,38 @@ export function toEmbeddableVideoUrl(value: string): string | null {
 export function isSafeMediaUrl(value: string): boolean {
   const trimmed = value.trim();
   if (!trimmed) return false;
-  if (trimmed.startsWith('/')) return true;
+  if (trimmed.startsWith('/') && !trimmed.startsWith('//')) return true;
   try {
     const url = new URL(trimmed);
     return url.protocol === 'https:' || url.protocol === 'http:';
   } catch {
     return false;
   }
+}
+
+/**
+ * Only local assets and explicitly approved HTTPS hosts may become inline
+ * images. Other safe media URLs remain links so an imported article cannot
+ * silently turn an arbitrary remote host into rendered page content.
+ */
+export function isAllowedInlineImageUrl(value: string): boolean {
+  const trimmed = value.trim();
+  if (!trimmed) return false;
+  if (trimmed.startsWith('/') && !trimmed.startsWith('//')) return true;
+  try {
+    const url = new URL(trimmed);
+    if (url.protocol !== 'https:') return false;
+    return allowedMediaHosts().has(url.hostname.toLowerCase());
+  } catch {
+    return false;
+  }
+}
+
+function allowedMediaHosts(): Set<string> {
+  return new Set(
+    (process.env.RAG_MEDIA_ALLOWED_HOSTS ?? '')
+      .split(',')
+      .map((host) => host.trim().toLowerCase())
+      .filter(Boolean),
+  );
 }

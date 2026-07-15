@@ -16,9 +16,6 @@ import { EMBEDDING_MODEL } from './model-router';
 import { mediaForDisplay, type RagMedia } from './rag-media';
 
 const TOP_K = 8;
-// This is an article-level calibration baseline. The evaluation suite must
-// recalibrate it once the rebuilt section embeddings are checked in.
-const SEED_SCORE_FLOOR = 0.45;
 
 export interface AskGenerationInput {
   query: string;
@@ -82,7 +79,11 @@ export async function askFromRag(input: AskFromRagInput): Promise<AskFromRagResu
   const queryVector = await deps.embed(retrievalText);
   const { graph, vectors } = deps.loadGraph();
   const seeds = deps.rankSections(queryVector, TOP_K, graph, vectors);
-  if (!seeds.length || seeds[0].score < SEED_SCORE_FLOOR) return abstention(modelMessages);
+  // Section-level score distributions have not yet been semantically
+  // calibrated. Preserve the ranked evidence and let claim validation plus the
+  // model's insufficient-evidence decision abstain instead of applying a stale
+  // article-level similarity cutoff.
+  if (!seeds.length) return abstention(modelMessages);
 
   const nodesById = new Map(graph.nodes.map((node) => [node.id, node]));
   const contextNodes = seeds

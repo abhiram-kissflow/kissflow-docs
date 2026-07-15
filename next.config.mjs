@@ -13,6 +13,11 @@ const staticExport = process.env.STATIC_EXPORT === 'true' || Boolean(basePath);
 const config = {
   basePath,
   assetPrefix: basePath || undefined,
+  // This is a public allowlist, not a credential. Expose it so the client-side
+  // media renderer applies the same policy as server-side RAG preparation.
+  env: {
+    RAG_MEDIA_ALLOWED_HOSTS: process.env.RAG_MEDIA_ALLOWED_HOSTS ?? '',
+  },
   images: {
     unoptimized: staticExport,
   },

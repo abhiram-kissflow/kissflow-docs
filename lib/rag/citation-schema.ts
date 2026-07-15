@@ -13,6 +13,7 @@ export const citationAnswerSchema = z.object({
       z.object({
         markdown: z.string().describe('One complete rendered markdown block containing factual answer content.'),
         citationIds: z.array(z.string()).min(1).describe('IDs of citations that support this exact rendered block.'),
+        evidence: z.array(z.string()).min(1).describe('Exact citation excerpts that support this claim. Each string must exactly equal the snippet of one of this claim\'s citation IDs.'),
       }),
     )
     .describe('Every rendered factual answer block, in display order. Do not put unbound factual content in answer.'),

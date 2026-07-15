@@ -41,7 +41,7 @@ const limitSection: ContextNode = {
 function groundedAnswer(overrides: Record<string, unknown> = {}) {
   return {
     answer: 'Use Add table.',
-    claims: [{ markdown: 'Use Add table.', citationIds: ['child-citation'] }],
+    claims: [{ markdown: 'Use Add table.', citationIds: ['child-citation'], evidence: ['Click Add table to create a child table.'] }],
     citations: [{ id: 'child-citation', nodeId: 'child', snippet: 'Click Add table to create a child table.' }],
     media: [],
     insufficientEvidence: false,
@@ -63,7 +63,7 @@ test('accepts a short exact citation when it is explicitly bound to the rendered
   const result = validateGroundedAnswer(
     groundedAnswer({
       answer: '100',
-      claims: [{ markdown: '100', citationIds: ['limit'] }],
+      claims: [{ markdown: '100', citationIds: ['limit'], evidence: ['100'] }],
       citations: [{ id: 'limit', nodeId: 'limit', snippet: '100' }],
     }),
     [limitSection],
@@ -85,7 +85,7 @@ test('abstains when an answer contains an unsupported extra block', () => {
   const result = validateGroundedAnswer(
     groundedAnswer({
       answer: 'Use Add table.\n\nKubernetes deployment is supported.',
-      claims: [{ markdown: 'Use Add table.', citationIds: ['child-citation'] }],
+      claims: [{ markdown: 'Use Add table.', citationIds: ['child-citation'], evidence: ['Click Add table to create a child table.'] }],
     }),
     [childSection],
   );
@@ -97,9 +97,24 @@ test('abstains when a rendered claim has no citation binding', () => {
     groundedAnswer({
       answer: 'Use Add table.\n\nKubernetes deployment is supported.',
       claims: [
-        { markdown: 'Use Add table.', citationIds: ['child-citation'] },
-        { markdown: 'Kubernetes deployment is supported.', citationIds: [] },
+        { markdown: 'Use Add table.', citationIds: ['child-citation'], evidence: ['Click Add table to create a child table.'] },
+        { markdown: 'Kubernetes deployment is supported.', citationIds: [], evidence: [] },
       ],
+    }),
+    [childSection],
+  );
+  assert.deepEqual(result, abstention);
+});
+
+test('rejects an adversarial claim whose bound excerpt does not support its words', () => {
+  const result = validateGroundedAnswer(
+    groundedAnswer({
+      answer: 'Kubernetes is supported.',
+      claims: [{
+        markdown: 'Kubernetes is supported.',
+        citationIds: ['child-citation'],
+        evidence: ['Click Add table to create a child table.'],
+      }],
     }),
     [childSection],
   );
@@ -147,8 +162,8 @@ test('deduplicates URL variants of the same cited source asset', () => {
     groundedAnswer({
       answer: 'Use Add table.\n\nImport rows from a CSV file.',
       claims: [
-        { markdown: 'Use Add table.', citationIds: ['child-citation'] },
-        { markdown: 'Import rows from a CSV file.', citationIds: ['csv-citation'] },
+        { markdown: 'Use Add table.', citationIds: ['child-citation'], evidence: ['Click Add table to create a child table.'] },
+        { markdown: 'Import rows from a CSV file.', citationIds: ['csv-citation'], evidence: ['Import rows from a CSV file.'] },
       ],
       citations: [
         { id: 'child-citation', nodeId: 'child', snippet: 'Click Add table to create a child table.' },
@@ -172,7 +187,7 @@ test('rejects selected media with an empty source URL even when it has a stable 
         { nodeId: 'empty-media', mediaId: 'empty-media-key' },
       ],
       citations: [{ id: 'empty-citation', nodeId: 'empty-media', snippet: 'Broken media must not render.' }],
-      claims: [{ markdown: 'Use Add table.', citationIds: ['empty-citation'] }],
+      claims: [{ markdown: 'Use Add table.', citationIds: ['empty-citation'], evidence: ['Broken media must not render.'] }],
     }),
     [emptyUrlSection],
   );

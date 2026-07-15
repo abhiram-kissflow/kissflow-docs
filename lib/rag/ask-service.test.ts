@@ -20,7 +20,7 @@ const graph: ContentGraph = { nodes: [childTables], edges: [] };
 
 const grounded: CitationAnswer = {
   answer: 'Click **Add table** to create a child table.',
-  claims: [{ markdown: 'Click **Add table** to create a child table.', citationIds: ['child'] }],
+  claims: [{ markdown: 'Click **Add table** to create a child table.', citationIds: ['child'], evidence: ['Click Add table to create a child table.'] }],
   citations: [{ id: 'child', nodeId: childTables.id, snippet: 'Click Add table to create a child table.' }],
   media: [],
   insufficientEvidence: false,
@@ -80,6 +80,16 @@ test('does not use graph traversal when direct section ranking supplies the evid
   const result = await askFromRag({ query: 'Create a child table', history: [], deps });
 
   assert.deepEqual(result.contextNodes.map((node) => node.id), [childTables.id]);
+});
+
+test('does not apply an uncalibrated similarity floor before grounded generation', async () => {
+  const deps = makeDeps();
+  deps.rankSections = () => [{ nodeId: childTables.id, score: 0.1 }];
+
+  const result = await askFromRag({ query: 'Create a child table', history: [], deps });
+
+  assert.equal(result.answer.insufficientEvidence, false);
+  assert.equal(deps.generationInputs.length, 1);
 });
 
 test('returns only claim-bound media as public display data', async () => {

@@ -1,5 +1,5 @@
-import { ExternalLink, Play } from 'lucide-react';
-import { isSafeMediaUrl, toEmbeddableVideoUrl, type RagMedia as RagMediaItem } from '@/lib/rag/rag-media';
+import { ExternalLink, Image, Play } from 'lucide-react';
+import { isAllowedInlineImageUrl, isSafeMediaUrl, toEmbeddableVideoUrl, type RagMedia as RagMediaItem } from '@/lib/rag/rag-media';
 
 export type { RagMedia as RagMediaItem } from '@/lib/rag/rag-media';
 
@@ -26,14 +26,14 @@ function MediaCard({ media }: { media: RagMediaItem }) {
 
   return (
     <figure className="overflow-hidden rounded-xl border border-fd-border bg-fd-background">
-      {media.kind === 'image' ? (
+      {media.kind === 'image' && isAllowedInlineImageUrl(media.url) ? (
         <img
           src={media.url}
           alt={media.alt || media.title}
           loading="lazy"
           className="h-auto max-h-[32rem] w-full object-contain"
         />
-      ) : embedUrl ? (
+      ) : media.kind === 'video' && embedUrl ? (
         <div className="aspect-video w-full bg-black">
           <iframe
             src={embedUrl}
@@ -51,8 +51,8 @@ function MediaCard({ media }: { media: RagMediaItem }) {
           rel="noreferrer"
           className="flex min-h-28 items-center justify-center gap-2 bg-fd-muted px-4 py-6 text-sm font-medium text-[#CF2C91] hover:bg-fd-accent"
         >
-          <Play className="h-4 w-4" aria-hidden="true" />
-          Watch video
+          {media.kind === 'video' ? <Play className="h-4 w-4" aria-hidden="true" /> : <Image className="h-4 w-4" aria-hidden="true" />}
+          {media.kind === 'video' ? 'Watch video' : 'View image'}
           <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
         </a>
       )}

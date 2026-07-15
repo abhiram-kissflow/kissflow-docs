@@ -41,8 +41,17 @@ export function validateGroundedAnswer(
   const claims = result.claims.flatMap((claim) => {
     const markdown = claim.markdown.trim();
     const citationIds = [...new Set(claim.citationIds.map((id) => id.trim()).filter(Boolean))];
-    if (!markdown || !citationIds.length || citationIds.some((id) => !validCitationIds.has(id))) return [];
-    return [{ markdown, citationIds }];
+    const evidence = [...new Set(claim.evidence.map((excerpt) => excerpt.trim()).filter(Boolean))];
+    const claimCitations = citations.filter((citation) => citationIds.includes(citation.id));
+    if (
+      !markdown ||
+      !citationIds.length ||
+      !evidence.length ||
+      citationIds.some((id) => !validCitationIds.has(id)) ||
+      evidence.some((excerpt) => !claimCitations.some((citation) => citation.snippet === excerpt)) ||
+      !claimHasDeterministicSupport(markdown, evidence)
+    ) return [];
+    return [{ markdown, citationIds, evidence }];
   });
   const answer = claims.map((claim) => claim.markdown).join('\n\n');
   if (!claims.length || answer !== result.answer.trim()) return abstention();
@@ -63,6 +72,35 @@ export function validateGroundedAnswer(
   });
 
   return { answer, claims, citations: boundCitations, media, insufficientEvidence: false };
+}
+
+/**
+ * This is deliberately a conservative binding check, not semantic entailment:
+ * it rejects claims that share no meaningful source language with the exact
+ * excerpts they declare. Stronger semantic verification remains an evaluation
+ * and model-quality concern, never a claim that this deterministic code proves.
+ */
+function claimHasDeterministicSupport(markdown: string, evidence: readonly string[]): boolean {
+  if (/^read more\s*:/i.test(markdown.trim())) return true;
+  const claim = significantTokens(markdown);
+  return evidence.some((excerpt) => {
+    const source = significantTokens(excerpt);
+    if (!claim.size || !source.size) return false;
+    if (claim.size === 1 && source.has([...claim][0])) return true;
+    let overlap = 0;
+    for (const token of claim) if (source.has(token)) overlap++;
+    return overlap >= 2;
+  });
+}
+
+function significantTokens(value: string): Set<string> {
+  const stopwords = new Set(['a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'in', 'is', 'it', 'of', 'on', 'or', 'the', 'this', 'to', 'use', 'with', 'you']);
+  return new Set(
+    value
+      .toLowerCase()
+      .replace(/\[[^\]]*\]\([^)]*\)/g, ' ')
+      .match(/[\p{L}\p{N}][\p{L}\p{N}-]*/gu)?.filter((token) => !stopwords.has(token)) ?? [],
+  );
 }
 
 function abstention(): CitationAnswer {
