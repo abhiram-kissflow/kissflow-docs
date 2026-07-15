@@ -76,6 +76,8 @@ export default function ApiReferencePage() {
           // origin). Only works on the dynamic Vercel deploy; harmless on the
           // static GitHub Pages mirror where try-it can't run anyway.
           proxyUrl: `${basePath}/api/scalar-proxy`,
+          // Hide the "Download OpenAPI Document" link for everyone.
+          documentDownloadType: 'none',
           customCss: brandingCss,
           authentication: {
             // Kissflow requires BOTH headers together (X-Access-Key-Id +
