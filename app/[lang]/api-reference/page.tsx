@@ -31,6 +31,19 @@ body.dark-mode a[href="https://www.scalar.com"]::after {
     background-image: url("${basePath}/kissflow-logo-white.png");
   }
 }
+
+/* Markdown tables: Scalar uses table-layout:fixed + word-break:break-word, so
+   narrow columns break mid-word ("HTTP" -> "HT TP"). Size columns to content
+   and only break at word boundaries. */
+.scalar-app table {
+  table-layout: auto !important;
+  width: 100% !important;
+}
+.scalar-app th,
+.scalar-app td {
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+}
 `;
 
 export default function ApiReferencePage() {
