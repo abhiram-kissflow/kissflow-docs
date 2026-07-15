@@ -7,6 +7,8 @@
     "dev": "next dev --webpack",
     "start": "serve out",
     "test": "tsx --test lib/theme.test.ts lib/rag/**/*.test.ts",
+    "rag:eval": "tsx scripts/evaluate-rag.ts",
+    "rag:eval:strict": "tsx scripts/evaluate-rag.ts --strict",
     "types:check": "fumadocs-mdx && next typegen && tsc --noEmit",
     "validate": "npx tsx scripts/validate-frontmatter.ts",
     "migrate": "npx tsx scripts/migrate-html-to-mdx.ts",
