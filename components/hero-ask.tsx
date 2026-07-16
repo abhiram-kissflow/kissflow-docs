@@ -72,6 +72,25 @@ function Markdown({ text }: { text: string }) {
   );
 }
 
+// Types `text` char-by-char on mount. Starts at the full string so SSR/first
+// paint and reduced-motion users see the whole title (no CLS, no a11y loss);
+// the effect only runs client-side after hydration.
+function useTypewriter(text: string, speed = 55) {
+  const [typed, setTyped] = useState(text);
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    setTyped('');
+    let i = 0;
+    const id = setInterval(() => {
+      i += 1;
+      setTyped(text.slice(0, i));
+      if (i >= text.length) clearInterval(id);
+    }, speed);
+    return () => clearInterval(id);
+  }, [text]);
+  return typed;
+}
+
 export default function HeroAsk() {
   const strings = useUIStrings().hero;
   const { locale } = useI18n();
@@ -84,6 +103,7 @@ export default function HeroAsk() {
   const scrollRef = useRef<HTMLDivElement>(null);
   // Sources of the in-flight ask, for the read-more fallback link.
   const lastSourcesRef = useRef<Source[]>([]);
+  const typedTitle = useTypewriter(strings.title);
 
   useEffect(() => {
     setExamples(pickQuestions(3));
@@ -260,7 +280,11 @@ export default function HeroAsk() {
         <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 pb-8 pt-10 sm:pt-14">
           <div className="text-center">
             <h1 className="text-3xl font-semibold tracking-tight text-fd-foreground sm:text-4xl">
-              {strings.title}
+              <span className="sr-only">{strings.title}</span>
+              <span aria-hidden>
+                {typedTitle}
+                <span className="hero-caret">|</span>
+              </span>
             </h1>
             <p className="mt-2 text-black dark:text-white">{strings.subtitle}</p>
           </div>

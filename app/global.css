@@ -288,3 +288,22 @@ html > body[data-scroll-locked] {
     transition: none;
   }
 }
+
+/* Hero title typewriter caret — hard blink (steps), brand pink. */
+@keyframes hero-caret-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+.hero-caret {
+  display: inline-block;
+  margin-left: 2px;
+  font-weight: 400;
+  color: #cf2c91;
+  animation: hero-caret-blink 1s steps(1) infinite;
+}
