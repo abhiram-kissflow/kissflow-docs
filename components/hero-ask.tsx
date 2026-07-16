@@ -204,7 +204,7 @@ export default function HeroAsk() {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder={started ? strings.followUpPlaceholder : strings.placeholder}
-        className="min-w-0 flex-1 bg-transparent text-lg outline-none placeholder:font-medium placeholder:text-black dark:placeholder:text-white"
+        className="min-w-0 flex-1 bg-transparent text-lg outline-none placeholder:text-black dark:placeholder:text-white"
         disabled={loading}
         autoFocus
       />
@@ -265,7 +265,7 @@ export default function HeroAsk() {
             <h1 className="text-3xl font-semibold tracking-tight text-fd-foreground sm:text-4xl">
               {strings.title}
             </h1>
-            <p className="mt-2 font-medium text-black dark:text-white">{strings.subtitle}</p>
+            <p className="mt-2 text-black dark:text-white">{strings.subtitle}</p>
           </div>
           {inputBar}
           <div className="flex flex-wrap justify-center gap-2">
@@ -274,7 +274,7 @@ export default function HeroAsk() {
                 key={ex}
                 type="button"
                 onClick={() => void ask(ex)}
-                className="rounded-full border border-fd-border bg-fd-background/70 px-3 py-1.5 text-sm font-medium text-black backdrop-blur-sm transition-colors hover:border-[#CF2C91]/40 dark:text-white"
+                className="rounded-full border border-fd-border bg-fd-background/70 px-3 py-1.5 text-sm text-black backdrop-blur-sm transition-colors hover:border-[#CF2C91]/40 dark:text-white"
               >
                 {ex}
               </button>
