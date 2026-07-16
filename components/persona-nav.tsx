@@ -72,7 +72,14 @@ export function PersonaNav(): ReactNode {
             {content}
           </a>
         ) : (
-          <Link key={card.href} href={`${prefix}${card.href}`} title={description} className={className}>
+          <Link
+            key={card.href}
+            href={`${prefix}${card.href}`}
+            title={description}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={className}
+          >
             {content}
           </Link>
         );
