@@ -224,16 +224,13 @@ export default function HeroAsk() {
     return (
       <div className="relative isolate flex min-h-[calc(100svh-3.5rem)] items-start overflow-hidden">
         <WingField />
-        {/* Grey ambience across the whole hero — heavier at both edges (mirroring the
-            computer-man's backdrop), but never fully clearing in the centre, so the
-            tone is continuous left→right. Light + dark via --man-grey. */}
+        {/* Flat grey field across the whole hero — the same shade as the
+            computer-man's backdrop, so his surround extends over the screen.
+            No gradient. Light + dark via --man-grey. */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 z-0 hidden md:block"
-          style={{
-            background:
-              'linear-gradient(to right, rgb(var(--man-grey) / 0.9) 0%, rgb(var(--man-grey) / 0.42) 30%, rgb(var(--man-grey) / 0.34) 50%, rgb(var(--man-grey) / 0.42) 70%, rgb(var(--man-grey) / 0.9) 100%)',
-          }}
+          style={{ background: 'rgb(var(--man-grey))' }}
         />
         {/* Ambient ASCII-rain on the left — the computer-man's "screen output",
             mirrored across the hero from the figure. Autoplays, muted, looped.
